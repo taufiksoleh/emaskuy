@@ -4,7 +4,27 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Space Grotesk"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        bg0: 'var(--bg-0)',
+        bg1: 'var(--bg-1)',
+        bg2: 'var(--bg-2)',
+        bg3: 'var(--bg-3)',
+        hairline: 'var(--line)',
+        goldline: 'var(--line-gold)',
+        gold: 'var(--gold)',
+        goldbright: 'var(--gold-bright)',
+        golddim: 'var(--gold-dim)',
+        up: 'var(--up)',
+        down: 'var(--down)',
+        t1: 'var(--text-1)',
+        t2: 'var(--text-2)',
+        t3: 'var(--text-3)',
+        info: 'var(--info)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
