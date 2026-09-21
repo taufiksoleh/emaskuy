@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="glTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD975"/>
+      <stop offset="1" stop-color="#F5B93E"/>
+    </linearGradient>
+    <linearGradient id="glLeft" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#F5B93E"/>
+      <stop offset="1" stop-color="#C98A1B"/>
+    </linearGradient>
+    <linearGradient id="glRight" x1="1" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#C98A1B"/>
+      <stop offset="1" stop-color="#8A5A14"/>
+    </linearGradient>
+  </defs>
+  <!-- isometric gold ingot: 3 beveled facets, sharp corners -->
+  <g stroke-linejoin="miter">
+    <polygon points="32,6 54,17.5 32,29 10,17.5" fill="url(#glTop)"/>
+    <polygon points="10,17.5 32,29 32,55 10,43.5" fill="url(#glLeft)"/>
+    <polygon points="54,17.5 32,29 32,55 54,43.5" fill="url(#glRight)"/>
+    <polyline points="10,17.5 32,29 54,17.5" fill="none" stroke="#FFE9A8" stroke-width="1.2" opacity="0.85"/>
+  </g>
+</svg>
