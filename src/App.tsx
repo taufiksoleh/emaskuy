@@ -4,6 +4,7 @@ import { I18nProvider } from '@/lib/i18n';
 import { Layout } from '@/components/Layout';
 import Home from '@/pages/Home';
 import Analysis from '@/pages/Analysis';
+import Article from '@/pages/Article';
 import CalculatorPage from '@/pages/Calculator';
 import About from '@/pages/About';
 
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/analisis" element={<Analysis />} />
+          <Route path="/analisis/:slug" element={<Article />} />
           <Route path="/kalkulator" element={<CalculatorPage />} />
           <Route path="/tentang" element={<About />} />
         </Routes>
