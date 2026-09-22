@@ -9,6 +9,7 @@ import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { TickerStrip } from '@/components/home/TickerStrip';
 import { HeroBand } from '@/components/home/HeroBand';
 import { ChartPanel } from '@/components/home/ChartPanel';
+import { AiInsightPanel } from '@/components/home/AiInsightPanel';
 import { StatsGrid } from '@/components/home/StatsGrid';
 import { AnalysisPreview } from '@/components/home/AnalysisPreview';
 import { CtaBand } from '@/components/home/CtaBand';
@@ -93,6 +94,7 @@ export default function Home() {
       </AnimatePresence>
       <HeroBand />
       <ChartPanel />
+      <AiInsightPanel />
       <StatsGrid />
       <AnalysisPreview />
       <div className="mb-8">
