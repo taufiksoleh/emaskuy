@@ -1,5 +1,5 @@
 /**
- * GoldLens — pure investment-simulation math + calculator i18n strings.
+ * EmasKuy — pure investment-simulation math + calculator i18n strings.
  *
  * Model (calculator.md §2):
  * - Buy price = live gold price per gram in the selected currency.

@@ -21,8 +21,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-3 md:px-6">
         <div>
           <div className="flex items-center gap-2.5">
-            <img src="/logo.svg" alt="GoldLens" className="h-6 w-6" />
-            <span className="font-display text-base font-bold text-t1">GoldLens</span>
+            <img src="/logo.svg" alt="EmasKuy" className="h-6 w-6" />
+            <span className="font-display text-base font-bold text-t1">EmasKuy</span>
           </div>
           <p className="mt-3 max-w-xs text-sm leading-[1.5] text-t2">{t('footer.tagline')}</p>
           <p className="mt-3 font-mono text-[13px] tabular text-t3">{t('footer.sources')}</p>
@@ -51,7 +51,7 @@ export function Footer() {
       </div>
       <div className="border-t border-hairline">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-4 md:px-6">
-          <span className="font-mono text-xs tabular text-t3">© 2026 GoldLens</span>
+          <span className="font-mono text-xs tabular text-t3">© 2026 EmasKuy</span>
           <span className="flex items-center gap-1.5 font-mono text-xs tabular text-t3">
             <span
               className="h-2 w-2 rounded-full"

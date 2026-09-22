@@ -23,7 +23,7 @@ registerStrings({
   'news.invalid': { id: 'Masukkan alamat email yang valid', en: 'Enter a valid email address' },
 });
 
-const LS_KEY = 'goldlens.newsletter';
+const LS_KEY = 'emaskuy.newsletter';
 
 export function Newsletter() {
   const { t } = useI18n();

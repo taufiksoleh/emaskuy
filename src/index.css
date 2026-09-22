@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* GoldLens design tokens (design.md §2) */
+    /* EmasKuy design tokens (design.md §2) */
     --bg-0: #0a0b0e;
     --bg-1: #101218;
     --bg-2: #161922;
@@ -21,7 +21,7 @@
     --text-3: #5b6474;
     --info: #5ac8fa;
 
-    /* shadcn/ui token bridge (dark GoldLens theme) */
+    /* shadcn/ui token bridge (dark EmasKuy theme) */
     --background: 225 16% 5%;
     --foreground: 220 24% 96%;
     --card: 223 20% 8%;

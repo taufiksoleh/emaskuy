@@ -68,9 +68,9 @@ export function Navbar() {
         <div className="mx-auto flex h-full max-w-[1440px] items-center gap-4 px-4 md:px-6">
           {/* Left: logo + wordmark + status */}
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
-            <img src="/logo.svg" alt="GoldLens" className="h-7 w-7" />
+            <img src="/logo.svg" alt="EmasKuy" className="h-7 w-7" />
             <span className="font-display text-lg font-bold tracking-[-0.02em] text-t1">
-              GoldLens
+              EmasKuy
             </span>
             <span
               className={cn(
@@ -176,8 +176,8 @@ export function Navbar() {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <img src="/logo.svg" alt="GoldLens" className="h-6 w-6" />
-                  <span className="font-display font-bold text-t1">GoldLens</span>
+                  <img src="/logo.svg" alt="EmasKuy" className="h-6 w-6" />
+                  <span className="font-display font-bold text-t1">EmasKuy</span>
                 </div>
                 <button
                   onClick={() => setOpen(false)}

@@ -1,5 +1,5 @@
 /**
- * GoldLens — data layer (design.md §10).
+ * EmasKuy — data layer (design.md §10).
  *
  * Sources:
  *  - Live metal prices:  https://api.gold-api.com/price/{XAU|XAG|XPT|XPD}  (poll 30s)
@@ -69,7 +69,7 @@ async function fetchJson<T>(url: string): Promise<T> {
 /* localStorage cache                                                  */
 /* ------------------------------------------------------------------ */
 
-const CACHE_PREFIX = 'goldlens.cache.';
+const CACHE_PREFIX = 'emaskuy.cache.';
 
 function cacheSet<T>(key: string, value: T): void {
   try {

@@ -1,5 +1,5 @@
 /**
- * GoldLens — shared live-price store + hook (design.md §10, home.md §0–§1).
+ * EmasKuy — shared live-price store + hook (design.md §10, home.md §0–§1).
  *
  * Implemented as a module-level singleton store (one poller for the whole
  * app) consumed through `useGoldPrice()` — safe to call from Navbar, Home and
@@ -46,7 +46,7 @@ export interface GoldPriceState {
 }
 
 export const POLL_INTERVAL_MS = 30_000;
-const TICKS_KEY = 'goldlens.ticks.xau';
+const TICKS_KEY = 'emaskuy.ticks.xau';
 const TICK_WINDOW_MS = 24 * 60 * 60 * 1000;
 const TICK_MAX = 4000;
 
@@ -107,7 +107,7 @@ function worstStatus(a: DataStatus, b: DataStatus): DataStatus {
 /* derive 24h % from NBP's last two daily closes (scale-invariant).    */
 /* For other metals we fall back to a session baseline.                */
 
-const BASE_KEY = 'goldlens.sessionbase';
+const BASE_KEY = 'emaskuy.sessionbase';
 
 function loadBase(): Record<string, { p: number; at: number }> {
   try {

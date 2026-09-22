@@ -126,7 +126,7 @@ export default function CalculatorPage() {
     const money = (v: number) => fmtMoney(v, currency, lang);
     const modeLabel = debounced.mode === 'lump' ? t('calc.mode.lump') : t('calc.mode.dca');
     const lines = [
-      `GoldLens — ${t('calc.results')}`,
+      `EmasKuy — ${t('calc.results')}`,
       `${t('calc.mode')}: ${modeLabel} (${currency.toUpperCase()})`,
       `${t('calc.initial')}: ${money(debounced.initial)}`,
       ...(debounced.mode === 'dca'

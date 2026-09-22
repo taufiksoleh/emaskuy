@@ -1,5 +1,5 @@
 /**
- * GoldLens — shared article dataset.
+ * EmasKuy — shared article dataset.
  *
  * Consumed by the home preview (3 newest) and the analysis page (full index
  * + in-app reader). Each article carries a structured bilingual body
@@ -44,7 +44,7 @@ export interface Article {
   author: { id: string; en: string };
 }
 
-const TEAM = { id: 'Tim GoldLens', en: 'GoldLens Team' };
+const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
@@ -218,8 +218,8 @@ export const ARTICLES: Article[] = [
             en: 'The practical rules are simple: pick a comfortable monthly amount (ideally 5–10% of income), choose a fixed date, and never skip it for market reasons. Skip only for personal reasons — the emergency fund always comes first. Review the portfolio once a year, not every day.',
           },
           {
-            id: 'Gunakan kalkulator GoldLens untuk mensimulasikan skenario Anda sendiri dengan harga emas live hari ini, termasuk asumsi kurs USD/IDR dan horizon waktu. Angka konkret jauh lebih meyakinkan daripada artikel mana pun — termasuk artikel ini.',
-            en: 'Use the GoldLens calculator to simulate your own scenario with today’s live gold price, including USD/IDR assumptions and time horizon. Concrete numbers are far more convincing than any article — including this one.',
+            id: 'Gunakan kalkulator EmasKuy untuk mensimulasikan skenario Anda sendiri dengan harga emas live hari ini, termasuk asumsi kurs USD/IDR dan horizon waktu. Angka konkret jauh lebih meyakinkan daripada artikel mana pun — termasuk artikel ini.',
+            en: 'Use the EmasKuy calculator to simulate your own scenario with today’s live gold price, including USD/IDR assumptions and time horizon. Concrete numbers are far more convincing than any article — including this one.',
           },
         ],
       },

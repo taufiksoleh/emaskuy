@@ -51,14 +51,14 @@ export function DisclaimerSection() {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <span className="label-micro">{t('about.contact.label')}</span>
           <a
-            href="mailto:halo@goldlens.id"
+            href="mailto:halo@emaskuy.com"
             className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-hairline px-3.5 py-2 text-sm font-medium text-t1 transition-colors duration-150 hover:border-goldline hover:text-gold"
           >
             <Mail className="h-4 w-4" />
-            halo@goldlens.id
+            halo@emaskuy.com
           </a>
           <a
-            href="https://github.com/goldlens"
+            href="https://github.com/emaskuy"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"

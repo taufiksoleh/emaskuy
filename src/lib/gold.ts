@@ -1,5 +1,5 @@
 /**
- * GoldLens — conversions & locale-aware formatters (design.md §8, §10).
+ * EmasKuy — conversions & locale-aware formatters (design.md §8, §10).
  */
 import type { Lang } from './i18n';
 

@@ -1,19 +1,19 @@
 /**
- * GoldLens — About / Tentang page strings (about.md).
+ * EmasKuy — About / Tentang page strings (about.md).
  * Bilingual ID/EN pairs registered at module scope.
  */
 import { registerStrings } from '@/lib/i18n';
 
 registerStrings({
   // Section 1 — Hero
-  'about.hero.label': { id: 'Tentang GoldLens', en: 'About GoldLens' },
+  'about.hero.label': { id: 'Tentang EmasKuy', en: 'About EmasKuy' },
   'about.hero.title': {
     id: 'Data emas yang bisa Anda percaya',
     en: 'Gold data you can trust',
   },
   'about.hero.body': {
-    id: 'GoldLens menggabungkan harga emas real-time, kurs mata uang resmi, dan data historis bank sentral menjadi satu dasbor analisis yang transparan.',
-    en: 'GoldLens combines real-time gold prices, official FX rates, and central-bank historical data into one transparent analysis dashboard.',
+    id: 'EmasKuy menggabungkan harga emas real-time, kurs mata uang resmi, dan data historis bank sentral menjadi satu dasbor analisis yang transparan.',
+    en: 'EmasKuy combines real-time gold prices, official FX rates, and central-bank historical data into one transparent analysis dashboard.',
   },
   'about.hero.scroll': { id: 'Gulir', en: 'Scroll' },
 
@@ -68,8 +68,8 @@ registerStrings({
     en: 'Frequently asked questions',
   },
   'about.faq.1.q': {
-    id: 'Apakah harga di GoldLens real-time?',
-    en: 'Is GoldLens pricing real-time?',
+    id: 'Apakah harga di EmasKuy real-time?',
+    en: 'Is EmasKuy pricing real-time?',
   },
   'about.faq.1.a': {
     id: 'Ya, harga diperbarui dengan polling setiap 30 detik. Ada jeda kecil dibanding pasar spot karena sifat API publik.',
@@ -80,8 +80,8 @@ registerStrings({
     en: 'Why does IDR/gram differ from jewelry stores?',
   },
   'about.faq.2.a': {
-    id: 'GoldLens menampilkan harga spot murni tanpa spread pedagang, ongkos pembuatan, atau pajak. Harga toko selalu lebih tinggi.',
-    en: 'GoldLens shows pure spot prices excluding dealer spread, making charges, and taxes. Retail prices are always higher.',
+    id: 'EmasKuy menampilkan harga spot murni tanpa spread pedagang, ongkos pembuatan, atau pajak. Harga toko selalu lebih tinggi.',
+    en: 'EmasKuy shows pure spot prices excluding dealer spread, making charges, and taxes. Retail prices are always higher.',
   },
   'about.faq.3.q': {
     id: 'Dari mana data grafik historis?',
@@ -99,7 +99,7 @@ registerStrings({
     id: 'Tidak. Kalkulator hanyalah simulasi dengan asumsi tetap — bukan prediksi maupun janji hasil.',
     en: 'No. The calculator is a fixed-assumption simulation — neither a prediction nor a promise of returns.',
   },
-  'about.faq.5.q': { id: 'Apakah GoldLens gratis?', en: 'Is GoldLens free?' },
+  'about.faq.5.q': { id: 'Apakah EmasKuy gratis?', en: 'Is EmasKuy free?' },
   'about.faq.5.a': {
     id: 'Ya, 100% gratis. Semua data berasal dari API publik yang terbuka.',
     en: 'Yes, 100% free. All data comes from open public APIs.',
@@ -109,12 +109,12 @@ registerStrings({
   'about.disclaimer.label': { id: 'Disclaimer', en: 'Disclaimer' },
   'about.disclaimer.title': { id: 'Bukan nasihat keuangan', en: 'Not financial advice' },
   'about.disclaimer.body': {
-    id: 'Seluruh konten di GoldLens — termasuk harga, grafik, artikel analisis, dan hasil kalkulator — disediakan hanya untuk tujuan informasi dan edukasi, dan bukan merupakan nasihat keuangan, investasi, atau perdagangan. Data dapat tertunda atau tidak akurat; harga yang ditampilkan adalah harga spot indikatif. Selalu verifikasi harga dengan penyedia resmi sebelum bertransaksi. Kinerja masa lalu tidak menjamin hasil di masa depan.',
-    en: 'All GoldLens content — including prices, charts, analysis articles, and calculator results — is provided for informational and educational purposes only and does not constitute financial, investment, or trading advice. Data may be delayed or inaccurate; displayed prices are indicative spot prices. Always verify prices with an official provider before transacting. Past performance does not guarantee future results.',
+    id: 'Seluruh konten di EmasKuy — termasuk harga, grafik, artikel analisis, dan hasil kalkulator — disediakan hanya untuk tujuan informasi dan edukasi, dan bukan merupakan nasihat keuangan, investasi, atau perdagangan. Data dapat tertunda atau tidak akurat; harga yang ditampilkan adalah harga spot indikatif. Selalu verifikasi harga dengan penyedia resmi sebelum bertransaksi. Kinerja masa lalu tidak menjamin hasil di masa depan.',
+    en: 'All EmasKuy content — including prices, charts, analysis articles, and calculator results — is provided for informational and educational purposes only and does not constitute financial, investment, or trading advice. Data may be delayed or inaccurate; displayed prices are indicative spot prices. Always verify prices with an official provider before transacting. Past performance does not guarantee future results.',
   },
   'about.contact.label': { id: 'Kontak', en: 'Contact' },
   'about.copyright': {
-    id: '© 2026 GoldLens · Dibangun dengan data terbuka',
-    en: '© 2026 GoldLens · Built on open data',
+    id: '© 2026 EmasKuy · Dibangun dengan data terbuka',
+    en: '© 2026 EmasKuy · Built on open data',
   },
 });

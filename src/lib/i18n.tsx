@@ -1,5 +1,5 @@
 /**
- * GoldLens — i18n context (design.md §8).
+ * EmasKuy — i18n context (design.md §8).
  *
  * Lightweight dictionary-based i18n. Page agents add their own keys by
  * calling `registerStrings({ ... })` once at module scope in their own files,
@@ -64,15 +64,15 @@ registerStrings({
     en: 'Price data: gold-api.com · FX: Frankfurter · Historical: NBP',
   },
   'footer.disclaimer': {
-    id: 'Konten di GoldLens hanya untuk tujuan informasi dan edukasi — bukan nasihat keuangan. Data dapat tertunda. Kinerja masa lalu tidak menjamin hasil di masa depan.',
-    en: 'GoldLens content is for informational and educational purposes only — not financial advice. Data may be delayed. Past performance does not guarantee future results.',
+    id: 'Konten di EmasKuy hanya untuk tujuan informasi dan edukasi — bukan nasihat keuangan. Data dapat tertunda. Kinerja masa lalu tidak menjamin hasil di masa depan.',
+    en: 'EmasKuy content is for informational and educational purposes only — not financial advice. Data may be delayed. Past performance does not guarantee future results.',
   },
   'footer.navigate': { id: 'Navigasi', en: 'Navigate' },
   'footer.legal': { id: 'Legal', en: 'Legal' },
 });
 
-const LANG_KEY = 'goldlens.lang';
-const UNIT_KEY = 'goldlens.unit';
+const LANG_KEY = 'emaskuy.lang';
+const UNIT_KEY = 'emaskuy.unit';
 
 function detectLang(): Lang {
   try {
