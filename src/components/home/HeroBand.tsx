@@ -35,6 +35,26 @@ export function HeroBand() {
   const display = convertPrice(price, usdIdr, unit);
   const shown = useCountUp(display, 900);
 
+  // Auto-fit the big numeral: estimate width from the FINAL string
+  // (tabular chars ≈ 0.64em) so sizing never depends on the count-up
+  // animation frame. IDR/gr strings are much longer than USD/oz, so a
+  // fixed clamp() overflows on small screens.
+  const numRef = useRef<HTMLDivElement>(null);
+  const finalText = price > 0 ? formatUnitPrice(display, unit, lang) : '—';
+  useEffect(() => {
+    const el = numRef.current;
+    if (!el) return;
+    const fit = () => {
+      const max = window.innerWidth >= 1280 ? 96 : window.innerWidth >= 768 ? 76 : 52;
+      const est = finalText.length * 0.64;
+      const size = el.clientWidth > 0 ? Math.floor(el.clientWidth / est) : max;
+      el.style.fontSize = `${Math.max(26, Math.min(max, size))}px`;
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [finalText]);
+
   // tick-flash on the big numeral
   const [flash, setFlash] = useState<'up' | 'down' | null>(null);
   const prevRef = useRef<number | null>(null);
@@ -124,8 +144,8 @@ export function HeroBand() {
               <div className="skeleton-shimmer h-16 w-72 rounded-lg md:h-24" />
             ) : (
               <div
-                className="text-gold-gradient font-mono font-bold tabular leading-none"
-                style={{ fontSize: 'clamp(56px, 7vw, 96px)' }}
+                ref={numRef}
+                className="text-gold-gradient font-mono font-bold tabular leading-none whitespace-nowrap"
               >
                 {price > 0 ? formatUnitPrice(shown, unit, lang) : '—'}
               </div>
@@ -160,7 +180,7 @@ export function HeroBand() {
 
           {/* Row 4: meta + refresh */}
           <div className="mt-4 flex items-center gap-2 border-t border-hairline pt-4 font-mono text-[13px] tabular text-t3">
-            <span>
+            <span className="min-w-0 flex-1 leading-relaxed">
               {unit === 'usd-oz' ? t('home.hero.perOz') : t('home.hero.perGram')} · {t('home.hero.source')}: gold-api.com
               {lastUpdated > 0 && (
                 <>
