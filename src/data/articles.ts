@@ -48,9 +48,71 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'fed-first-hike-gold-holds-4300',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Fed Naikkan Suku Bunga Pertama Kali dalam 3 Tahun — Mengapa Emas Bertahan di $4.300?',
+      en: "The Fed's First Rate Hike in 3 Years — Why Is Gold Holding $4,300?",
+    },
+    excerpt: {
+      id: 'Kenaikan 25 bps pada 16 September seharusnya menjadi kabar buruk bagi emas. Namun koreksinya terbatas dan harga bertahan di atas $4.300. Kami bedah tiga alasan di balik ketahanan ini.',
+      en: 'The 25bp hike on September 16 should have been bad news for gold. Yet the correction was contained and price holds above $4,300. We break down the three reasons behind this resilience.',
+    },
+    sections: [
+      {
+        heading: { id: 'Keputusan yang Mengejutkan — Sebentar Saja', en: 'The Decision That Shocked Markets — Briefly' },
+        paragraphs: [
+          {
+            id: 'FOMC pada 16 September 2026 menaikkan suku bunga dana federal 25 basis poin ke kisaran 3,75–4,00% — kenaikan pertama dalam tiga tahun, disahkan secara bulat 12-0 di bawah kepemimpinan Ketua Kevin Warsh. Sinyalnya bahkan lebih hawkish dari keputusannya: 16 dari 18 pejabat memproyeksikan satu kenaikan lagi sebelum akhir tahun. Emas merespons seketika — spot turun ke sekitar $4.310 dalam hitungan jam dan melengkapi penurunan bulanan sekitar 6%.',
+            en: 'The FOMC raised the federal funds rate by 25 basis points to a 3.75–4.00% range on September 16, 2026 — the first hike in three years, passed unanimously 12-0 under Chair Kevin Warsh. The signal was even more hawkish than the decision: 16 of 18 officials project one more hike before year-end. Gold reacted instantly — spot dropped toward $4,310 within hours, completing a monthly decline of roughly 6%.',
+          },
+          {
+            id: 'Secara historis, kenaikan suku bunga adalah momok bagi emas karena memperbesar biaya peluang memegang aset tanpa kupon. Namun koreksi kali ini berhenti jauh di atas level yang dikhawatirkan banyak analis. Pada kisaran $4.330, harga masih membukukan kenaikan sekitar 16% secara tahun-ke-tahun — pasar memperlakukan kenaikan ini sebagai guncangan taktis, bukan perubahan rezim.',
+            en: 'Historically, rate hikes are gold’s bogeyman because they raise the opportunity cost of holding a coupon-less asset. Yet this correction stalled well above the levels many analysts feared. Around $4,330, price is still up roughly 16% year-over-year — the market is treating this hike as a tactical shock, not a regime change.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Tiga Alasan Emas Menolak Ambruk', en: 'Three Reasons Gold Refuses to Break' },
+        paragraphs: [
+          {
+            id: 'Pertama, bank sentral. Pembelian bersih sektor resmi mencapai 288,9 ton pada kuartal kedua 2026, dan survei terbaru menunjukkan 89% bank sentral berencana menambah porsi emas dalam cadangannya. Lantai permintaan struktural ini menjelaskan mengapa setiap koreksi sejak 2022 cenderung dangkal dan singkat — ada pembeli raksasa yang tidak membaca grafik.',
+            en: 'First, central banks. Official-sector net purchases reached 288.9 tonnes in Q2 2026, and the latest survey shows 89% of central banks plan to increase the gold share of their reserves. This structural demand floor explains why every correction since 2022 has been shallow and brief — a giant buyer exists that does not read charts.',
+          },
+          {
+            id: 'Kedua, risiko inflasi belum hilang: ketegangan AS–Iran yang mengangkat harga energi menjaga permintaan safe-haven tetap hidup, setelah ETF emas mencetak rekor arus masuk $89 miliar pada 2025. Ketiga, Wall Street tidak mundur — target akhir tahun JPMorgan ($4.500), Wells Fargo ($4.900–5.100), dan UBS ($5.500) semuanya berada di atas harga spot. Konsensus institusional membaca koreksi ini sebagai jeda, bukan akhir reli.',
+            en: 'Second, inflation risk is not gone: US–Iran tension lifting energy prices keeps safe-haven demand alive, after gold ETFs posted record inflows of $89 billion in 2025. Third, Wall Street is not backing off — year-end targets from JPMorgan ($4,500), Wells Fargo ($4,900–5,100), and UBS ($5,500) all sit above spot. The institutional consensus reads this correction as a pause, not the end of the rally.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Artinya bagi Investor Indonesia', en: 'What It Means for Indonesian Investors' },
+        paragraphs: [
+          {
+            id: 'Di pasar domestik, koreksi terasa lebih jinak. Harga Antam turun sekitar Rp71.000 per gram antara 1–16 September — dari Rp2.664.000 ke Rp2.593.000 — tetapi sebagian penurunan spot tertahan oleh rupiah yang berada di kisaran Rp17.800 per dolar. Bagi penabung berjangka, fase seperti ini justru memperbaiki harga rata-rata kepemilikan.',
+            en: 'In the domestic market, the correction feels milder. Antam’s price fell about Rp71,000 per gram between September 1–16 — from Rp2,664,000 to Rp2,593,000 — but part of the spot decline was absorbed by the rupiah trading near 17,800 per dollar. For periodic savers, phases like this actually improve their average cost of ownership.',
+          },
+          {
+            id: 'Strategi kami tidak berubah: jangan mencoba menebak langkah The Fed berikutnya. Selama bank sentral dunia terus menimbun dan imbal hasil riil tidak melonjak, koreksi berbasis FOMC secara historis adalah jendela akumulasi, bukan sinyal keluar. Gunakan kalkulator EmasKuy untuk menyesuaikan nominal bulanan Anda dengan harga live hari ini.',
+            en: 'Our strategy is unchanged: do not try to guess the Fed’s next move. As long as global central banks keep accumulating and real yields do not spike, FOMC-driven corrections have historically been accumulation windows, not exit signals. Use the EmasKuy calculator to size your monthly allocation against today’s live price.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pasar memperlakukan kenaikan pertama dalam tiga tahun ini sebagai guncangan taktis, bukan perubahan rezim — lantai bank sentral menahan sisanya.',
+      en: 'The market is treating the first hike in three years as a tactical shock, not a regime change — the central-bank floor holds the rest.',
+    },
+    callout: 'rates',
+    image: '/article-fed-rates.png',
+    publishedAt: Date.parse('2026-09-22T08:00:00Z'),
+    readMinutes: 7,
+    author: TEAM,
+  },
+  {
     slug: 'gold-breaks-4350-rally-2026',
     category: 'market',
-    featured: true,
     title: {
       id: 'Emas Menembus $4.350: Apa yang Mendorong Reli 2026?',
       en: "Gold Breaks $4,350: What's Driving the 2026 Rally?",
