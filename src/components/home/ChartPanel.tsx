@@ -20,6 +20,7 @@ import {
 } from 'lightweight-charts';
 import { AreaChart, CandlestickChart, LineChart, Maximize2, Minimize2 } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { useTheme, chartPalette } from '@/hooks/useTheme';
 import { useGoldPrice, type Tick } from '@/hooks/useGoldPrice';
 import { useDailySeries } from '@/hooks/useDailySeries';
 import type { DailyPoint } from '@/lib/api';
@@ -33,10 +34,6 @@ type ChartType = 'line' | 'area' | 'candles';
 
 const TIMEFRAMES: TF[] = ['1H', '24H', '7D', '30D', '90D', '1Y'];
 const TF_DAYS: Record<TF, number> = { '1H': 0, '24H': 0, '7D': 9, '30D': 33, '90D': 95, '1Y': 370 };
-const GOLD = '#F5B93E';
-const GOLD_DIM = '#8A6D2F';
-const UP = '#22C55E';
-const DOWN = '#EF4444';
 
 interface Pt {
   t: number; // unix ms
@@ -125,6 +122,8 @@ function fmtAxis(v: number, unit: 'usd-oz' | 'idr-gr'): string {
 
 export function ChartPanel() {
   const { lang, t, unit } = useI18n();
+  const { theme } = useTheme();
+  const palette = useMemo(() => chartPalette(theme), [theme]);
   const { gold, ticks, status: liveStatus } = useGoldPrice();
   const daily = useDailySeries(370);
 
@@ -175,21 +174,21 @@ export function ChartPanel() {
       autoSize: true,
       layout: {
         background: { type: ColorType.Solid, color: 'transparent' },
-        textColor: '#5B6474',
+        textColor: palette.axisText,
         fontFamily: '"JetBrains Mono", monospace',
         fontSize: 11,
       },
       localization: { locale: lang === 'id' ? 'id-ID' : 'en-US' },
       grid: {
-        horzLines: { color: 'rgba(36, 41, 56, 0.6)' },
+        horzLines: { color: palette.gridLine },
         vertLines: { visible: false },
       },
       rightPriceScale: { borderVisible: false },
       timeScale: { borderVisible: false, timeVisible: true, secondsVisible: false },
       crosshair: {
         mode: CrosshairMode.Normal,
-        vertLine: { color: GOLD_DIM, width: 1, style: LineStyle.Solid, labelVisible: false },
-        horzLine: { color: GOLD_DIM, width: 1, style: LineStyle.Solid, labelVisible: false },
+        vertLine: { color: palette.goldDim, width: 1, style: LineStyle.Solid, labelVisible: false },
+        horzLine: { color: palette.goldDim, width: 1, style: LineStyle.Solid, labelVisible: false },
       },
     });
     chartRef.current = chart;
@@ -198,7 +197,22 @@ export function ChartPanel() {
       chartRef.current = null;
       seriesRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  /* re-apply theme colors (layout, grid, crosshair) when theme changes */
+  useEffect(() => {
+    const chart = chartRef.current;
+    if (!chart) return;
+    chart.applyOptions({
+      layout: { textColor: palette.axisText },
+      grid: { horzLines: { color: palette.gridLine } },
+      crosshair: {
+        vertLine: { color: palette.goldDim },
+        horzLine: { color: palette.goldDim },
+      },
+    });
+  }, [palette]);
 
   /* crosshair tooltip */
   useEffect(() => {
@@ -239,22 +253,22 @@ export function ChartPanel() {
     let series: ISeriesApi<'Area'> | ISeriesApi<'Line'> | ISeriesApi<'Candlestick'>;
     if (type === 'candles') {
       series = chart.addSeries(CandlestickSeries, {
-        upColor: UP,
-        downColor: DOWN,
-        borderUpColor: UP,
-        borderDownColor: DOWN,
-        wickUpColor: UP,
-        wickDownColor: DOWN,
+        upColor: palette.up,
+        downColor: palette.down,
+        borderUpColor: palette.up,
+        borderDownColor: palette.down,
+        wickUpColor: palette.up,
+        wickDownColor: palette.down,
         lastValueVisible: false,
       });
     } else if (type === 'line') {
-      series = chart.addSeries(LineSeries, { color: GOLD, lineWidth: 2, priceLineVisible: false, lastValueVisible: false });
+      series = chart.addSeries(LineSeries, { color: palette.gold, lineWidth: 2, priceLineVisible: false, lastValueVisible: false });
     } else {
       series = chart.addSeries(AreaSeries, {
-        lineColor: GOLD,
+        lineColor: palette.gold,
         lineWidth: 2,
-        topColor: 'rgba(245,185,62,0.22)',
-        bottomColor: 'rgba(245,185,62,0)',
+        topColor: palette.areaTop,
+        bottomColor: palette.areaBottom,
         priceLineVisible: false,
         lastValueVisible: false,
       });
@@ -285,7 +299,7 @@ export function ChartPanel() {
       if (last) {
         priceLineRef.current = series.createPriceLine({
           price: last.v,
-          color: GOLD,
+          color: palette.gold,
           lineWidth: 1,
           lineStyle: LineStyle.Dashed,
           axisLabelVisible: true,
@@ -319,7 +333,7 @@ export function ChartPanel() {
     }
     return () => cancelAnimationFrame(rafRef.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pts, dataCandles, dataLine, type, tf, unit, lang]);
+  }, [pts, dataCandles, dataLine, type, tf, unit, lang, palette]);
 
   /* Esc closes fullscreen */
   useEffect(() => {
@@ -401,7 +415,7 @@ export function ChartPanel() {
           <div className="mt-0.5 text-sm font-semibold text-gold">
             {unit === 'idr-gr' ? formatIdr(hover.pt.v, lang) : formatUsd(hover.pt.v, lang)}
           </div>
-          <div style={{ color: hover.delta >= 0 ? UP : DOWN }}>
+          <div style={{ color: hover.delta >= 0 ? 'var(--up)' : 'var(--down)' }}>
             {hover.delta >= 0 ? '▲' : '▼'}{' '}
             {unit === 'idr-gr' ? formatIdr(Math.abs(hover.delta), lang) : formatUsd(Math.abs(hover.delta), lang)}
           </div>

@@ -14,9 +14,9 @@ import { useCountUp } from '../ui-atoms/StatCard';
 import { ScenarioChart } from './ScenarioChart';
 
 const PRESETS = [
-  { id: 'conservative', growth: 5, color: '#5AC8FA', labelKey: 'calc.compare.conservative' },
-  { id: 'moderate', growth: 8, color: '#F5B93E', labelKey: 'calc.compare.moderate' },
-  { id: 'aggressive', growth: 12, color: '#22C55E', labelKey: 'calc.compare.aggressive' },
+  { id: 'conservative', growth: 5, color: 'var(--info)', labelKey: 'calc.compare.conservative' },
+  { id: 'moderate', growth: 8, color: 'var(--gold)', labelKey: 'calc.compare.moderate' },
+  { id: 'aggressive', growth: 12, color: 'var(--up)', labelKey: 'calc.compare.aggressive' },
 ] as const;
 
 function FinalValue({ v, currency }: { v: number; currency: CalcCurrency }) {

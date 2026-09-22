@@ -10,10 +10,10 @@ import { useI18n } from '@/lib/i18n';
 import { formatNumber } from '@/lib/gold';
 import { fmtMoney, fmtMoneyCompact, type CalcCurrency, type SeriesPoint } from '@/lib/calc';
 
-const GOLD = '#F5B93E';
-const UP = '#22C55E';
-const DOWN = '#EF4444';
-const INFO = '#5AC8FA';
+const GOLD = 'var(--gold)';
+const UP = 'var(--up)';
+const DOWN = 'var(--down)';
+const INFO = 'var(--info)';
 const PAD = { top: 12, right: 10, bottom: 22, left: 52 };
 
 function easeInOutCubic(x: number): number {

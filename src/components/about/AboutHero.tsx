@@ -13,7 +13,7 @@ export function AboutHero() {
   const words = t('about.hero.title').split(' ');
 
   return (
-    <section className="relative flex h-[70vh] min-h-[420px] items-center justify-center overflow-hidden">
+    <section className="on-dark relative flex h-[70vh] min-h-[420px] items-center justify-center overflow-hidden">
       {/* Backdrop */}
       <motion.img
         src="/about-hero.png"

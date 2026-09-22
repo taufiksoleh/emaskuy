@@ -30,7 +30,9 @@ export function DeltaChip({ value, prefix, size = 'md', className, formatOpts }:
         className,
       )}
       style={{
-        backgroundColor: positive ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)',
+        backgroundColor: positive
+          ? 'color-mix(in srgb, var(--up) 12%, transparent)'
+          : 'color-mix(in srgb, var(--down) 12%, transparent)',
         color: positive ? 'var(--up)' : 'var(--down)',
       }}
     >

@@ -15,6 +15,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // Apply saved theme before first paint (no flash of wrong theme).
+      try {
+        var t = localStorage.getItem('emaskuy.theme');
+        document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
     <title>EmasKuy — Analisis Emas Real-Time</title>
   </head>
   <body>

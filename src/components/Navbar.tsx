@@ -7,8 +7,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { useTheme } from '@/hooks/useTheme';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { convertPrice, formatUnitPrice, formatPct } from '@/lib/gold';
 import { cn } from '@/lib/utils';
@@ -57,10 +58,35 @@ function LivePriceChip() {
 
 export function Navbar() {
   const { lang, setLang, t, unit, setUnit } = useI18n();
+  const { theme, toggleTheme } = useTheme();
   const { status } = useGoldPrice();
   const [open, setOpen] = useState(false);
 
   const statusVariant = status === 'live' ? 'live' : status === 'cached' ? 'cached' : 'offline';
+  const themeLabel = theme === 'dark' ? t('theme.toLight') : t('theme.toDark');
+
+  const themeButton = (className?: string) => (
+    <button
+      onClick={toggleTheme}
+      aria-label={themeLabel}
+      title={themeLabel}
+      className={cn(
+        'relative cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold',
+        className,
+      )}
+    >
+      <Sun
+        className="theme-icon-swap h-4 w-4"
+        data-swap={theme === 'dark' ? 'in' : 'out'}
+        aria-hidden
+      />
+      <Moon
+        className="theme-icon-swap absolute inset-0 m-auto h-4 w-4"
+        data-swap={theme === 'light' ? 'in' : 'out'}
+        aria-hidden
+      />
+    </button>
+  );
 
   return (
     <>
@@ -145,6 +171,7 @@ export function Navbar() {
                 { value: 'en', label: 'EN' },
               ]}
             />
+            {themeButton()}
             <button
               className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:text-t1 md:hidden"
               onClick={() => setOpen(true)}
@@ -221,6 +248,25 @@ export function Navbar() {
                     { value: 'idr-gr', label: 'IDR/gr' },
                   ]}
                 />
+                <button
+                  onClick={toggleTheme}
+                  aria-label={themeLabel}
+                  className="flex cursor-pointer items-center justify-between rounded-lg border border-hairline bg-bg2 px-3 py-2.5 font-display text-sm font-medium text-t2 transition-colors hover:border-goldline hover:text-gold"
+                >
+                  <span>{themeLabel}</span>
+                  <span className="relative inline-flex h-4 w-4">
+                    <Sun
+                      className="theme-icon-swap h-4 w-4"
+                      data-swap={theme === 'dark' ? 'in' : 'out'}
+                      aria-hidden
+                    />
+                    <Moon
+                      className="theme-icon-swap absolute inset-0 m-auto h-4 w-4"
+                      data-swap={theme === 'light' ? 'in' : 'out'}
+                      aria-hidden
+                    />
+                  </span>
+                </button>
               </div>
             </motion.aside>
           </>

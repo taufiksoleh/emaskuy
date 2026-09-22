@@ -83,7 +83,7 @@ export function HeroBand() {
       }}
     >
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        className="hero-texture pointer-events-none absolute inset-0 opacity-[0.05]"
         style={{ backgroundImage: 'url(/home-hero-texture.png)', backgroundSize: '1920px 600px' }}
         aria-hidden
       />
