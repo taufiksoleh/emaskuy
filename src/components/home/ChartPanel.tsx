@@ -453,22 +453,27 @@ export function ChartPanel() {
     </>
   );
 
+  /* Render panelContent exactly ONCE — the same DOM node goes fullscreen via
+     classes, so the lightweight-charts instance (bound to wrapRef) is never
+     unmounted/remounted when toggling fullscreen. */
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
-      <div className="rounded-[10px] border border-hairline bg-bg1">{panelContent}</div>
-
       {fs && (
         <div
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-bg0/90 p-4 backdrop-blur-sm"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setFs(false);
-          }}
-        >
-          <div className="w-full max-w-[1400px] rounded-[10px] border border-goldline bg-bg1 shadow-2xl transition-all duration-300">
-            {panelContent}
-          </div>
-        </div>
+          className="fixed inset-0 z-[80] bg-bg0/90 backdrop-blur-sm"
+          onClick={() => setFs(false)}
+          aria-hidden
+        />
       )}
+      <div
+        className={cn(
+          'rounded-[10px] border border-hairline bg-bg1',
+          fs &&
+            'fixed inset-3 z-[90] overflow-y-auto border-goldline shadow-2xl transition-all duration-300 md:inset-6',
+        )}
+      >
+        {panelContent}
+      </div>
     </section>
   );
 }
