@@ -73,19 +73,13 @@ export function formatTimeUtc(ts: number): string {
 }
 
 /**
- * Time as HH:MM:SS in the DEVICE's local timezone, with a GMT offset label
- * (e.g. `23:36:25 GMT+7` for WIB). Locale-independent so it stays stable in
- * monospace meta lines.
+ * Time as HH:MM:SS in the DEVICE's local timezone (no suffix — the device's
+ * own clock is the reference, so a label would be redundant).
  */
 export function formatTimeLocal(ts: number): string {
   const d = new Date(ts);
   const p = (n: number) => String(n).padStart(2, '0');
-  const offMin = -d.getTimezoneOffset();
-  const sign = offMin >= 0 ? '+' : '-';
-  const oh = Math.floor(Math.abs(offMin) / 60);
-  const om = Math.abs(offMin) % 60;
-  const tz = om === 0 ? `GMT${sign}${oh}` : `GMT${sign}${oh}:${p(om)}`;
-  return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())} ${tz}`;
+  return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
 }
 
 const MONTHS_ID = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
