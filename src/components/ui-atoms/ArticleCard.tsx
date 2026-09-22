@@ -69,7 +69,7 @@ export function ArticleCard({ article, variant = 'featured', className }: Articl
 
   return (
     <Link
-      to={`/analisis?slug=${article.slug}`}
+      to={`/analisis/${article.slug}`}
       className={cn(
         'group block overflow-hidden rounded-[10px] border border-hairline bg-bg1 transition-[border-color,background-color] duration-[250ms] hover:border-goldline hover:bg-bg2',
         variant === 'compact' && 'flex',
