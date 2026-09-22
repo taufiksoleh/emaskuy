@@ -10,7 +10,7 @@ import { useDailySeries } from '@/hooks/useDailySeries';
 import {
   convertPrice,
   formatPct,
-  formatTimeUtc,
+  formatTimeLocal,
   formatUnitPrice,
   formatUsd,
   formatIdr,
@@ -185,7 +185,7 @@ export function HeroBand() {
               {lastUpdated > 0 && (
                 <>
                   {' '}
-                  · {t('home.hero.updated')} {formatTimeUtc(lastUpdated)}
+                  · {t('home.hero.updated')} {formatTimeLocal(lastUpdated)}
                 </>
               )}
             </span>
