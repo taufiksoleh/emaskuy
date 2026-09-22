@@ -22,18 +22,18 @@ import { AreaChart, CandlestickChart, LineChart, Maximize2, Minimize2 } from 'lu
 import { useI18n } from '@/lib/i18n';
 import { useTheme, chartPalette } from '@/hooks/useTheme';
 import { useGoldPrice, type Tick } from '@/hooks/useGoldPrice';
-import { useDailySeries } from '@/hooks/useDailySeries';
+import { useAllTimeSeries, useDailySeries } from '@/hooks/useDailySeries';
 import type { DailyPoint } from '@/lib/api';
 import { TROY_OZ_GRAMS, formatIdr, formatUsd } from '@/lib/gold';
 import { cn } from '@/lib/utils';
 import { Badge } from '../ui-atoms/Badge';
 import { SegToggle } from '../ui-atoms/SegToggle';
 
-type TF = '1H' | '24H' | '7D' | '30D' | '90D' | '1Y';
+type TF = '1H' | '24H' | '7D' | '30D' | '90D' | '1Y' | 'ALL';
 type ChartType = 'line' | 'area' | 'candles';
 
-const TIMEFRAMES: TF[] = ['1H', '24H', '7D', '30D', '90D', '1Y'];
-const TF_DAYS: Record<TF, number> = { '1H': 0, '24H': 0, '7D': 9, '30D': 33, '90D': 95, '1Y': 370 };
+const TIMEFRAMES: TF[] = ['1H', '24H', '7D', '30D', '90D', '1Y', 'ALL'];
+const TF_DAYS: Record<TF, number> = { '1H': 0, '24H': 0, '7D': 9, '30D': 33, '90D': 95, '1Y': 370, ALL: Infinity };
 
 interface Pt {
   t: number; // unix ms
@@ -73,8 +73,14 @@ function buildSeries(
   ticks: Tick[],
   daily: DailyPoint[],
   livePrice: number,
+  allTime?: DailyPoint[],
 ): Pt[] {
   const now = Date.now();
+  if (tf === 'ALL') {
+    const pts = (allTime ?? []).map((p) => ({ t: p.t, v: p.close }));
+    if (pts.length > 0 && livePrice > 0) pts.push({ t: now, v: livePrice });
+    return pts;
+  }
   if (tf === '1H' || tf === '24H') {
     const windowMs = tf === '1H' ? 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
     const minPts = tf === '1H' ? 10 : 16;
@@ -129,6 +135,7 @@ export function ChartPanel() {
 
   const [tf, setTf] = useState<TF>('30D');
   const [type, setType] = useState<ChartType>('area');
+  const allTime = useAllTimeSeries(tf === 'ALL');
   const [fs, setFs] = useState(false);
   const [hover, setHover] = useState<{ x: number; y: number; pt: Pt; delta: number } | null>(null);
   const [dotPos, setDotPos] = useState<{ x: number; y: number } | null>(null);
@@ -148,11 +155,11 @@ export function ChartPanel() {
   );
 
   const intraday = tf === '1H' || tf === '24H';
-  const seriesStatus = intraday ? liveStatus : daily.status;
+  const seriesStatus = intraday ? liveStatus : tf === 'ALL' ? allTime.status : daily.status;
 
   const rawPts = useMemo(
-    () => buildSeries(tf, ticks, daily.points, livePrice),
-    [tf, ticks, daily.points, livePrice],
+    () => buildSeries(tf, ticks, daily.points, livePrice, allTime.points),
+    [tf, ticks, daily.points, allTime.points, livePrice],
   );
 
   const pts = useMemo(

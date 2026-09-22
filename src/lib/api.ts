@@ -223,42 +223,14 @@ const fmtDate = (t: number) => new Date(t).toISOString().slice(0, 10);
 export async function fetchNbpDaily(days: number, liveXauUsd?: number): Promise<DailySeries> {
   const cacheKey = `nbp.daily.${days}`;
   try {
-    const end = Date.now();
+    // NBP 400s any range whose end is later than its latest published date,
+    // so probe `last/1` first and clamp the range end to it.
+    const latest = await nbpLatestDate();
+    const end = Date.parse(`${latest}T23:59:59Z`);
     const start = end - days * DAY_MS;
-    const ranges: Array<[number, number]> = [];
-    let cursor = start;
-    while (cursor < end) {
-      const chunkEnd = Math.min(cursor + (NBP_MAX_RANGE_DAYS - 1) * DAY_MS, end);
-      ranges.push([cursor, chunkEnd]);
-      cursor = chunkEnd + DAY_MS;
-    }
-    const chunks = await Promise.all(
-      ranges.map(([s, e]) =>
-        fetchJson<NbpEntry[]>(
-          `https://api.nbp.pl/api/cenyzlota/${fmtDate(s)}/${fmtDate(e)}/?format=json`,
-        ),
-      ),
-    );
-    const byDate = new Map<string, number>();
-    for (const chunk of chunks) {
-      for (const entry of chunk) {
-        if (Number.isFinite(entry.cena)) byDate.set(entry.data, entry.cena);
-      }
-    }
+    const byDate = await fetchNbpRange(start, end);
     if (byDate.size === 0) throw new Error('empty NBP series');
-    const sorted = [...byDate.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-    const lastRaw = sorted[sorted.length - 1][1];
-    // Normalize: NBP gives PLN/g — rescale so the last point equals live XAU/USD.
-    const scale =
-      liveXauUsd && Number.isFinite(liveXauUsd) && liveXauUsd > 0 && lastRaw > 0
-        ? liveXauUsd / lastRaw
-        : 1;
-    const points: DailyPoint[] = sorted.map(([date, raw]) => ({
-      t: Date.parse(`${date}T00:00:00Z`),
-      raw,
-      close: raw * scale,
-    }));
-    const series: DailySeries = { points, status: 'live' };
+    const series = normalizeNbp(byDate, liveXauUsd);
     cacheSet(cacheKey, series);
     return series;
   } catch {
@@ -266,4 +238,98 @@ export async function fetchNbpDaily(days: number, liveXauUsd?: number): Promise<
     if (cached) return { ...cached.value, status: 'cached' };
     return { points: [], status: 'offline' };
   }
+}
+
+/** Earliest date covered by the NBP gold series. */
+const NBP_EARLIEST = '2013-01-02';
+
+/**
+ * Full NBP gold history (2013 → latest), normalized to live XAU/USD.
+ * ~54 API chunks — fetched with limited concurrency and cached per data-day
+ * so repeat visits in the same day cost a single probe request.
+ */
+export async function fetchNbpAll(liveXauUsd?: number): Promise<DailySeries> {
+  try {
+    const latest = await nbpLatestDate();
+    const dayKey = `nbp.all.${latest}`;
+    const fresh = cacheGet<DailySeries>(dayKey);
+    if (fresh) {
+      const s = fresh.value;
+      // Re-normalize to the CURRENT live price (cache was pinned to an older tick)
+      const lastClose = s.points[s.points.length - 1]?.close ?? 0;
+      const scale = liveXauUsd && liveXauUsd > 0 && lastClose > 0 ? liveXauUsd / lastClose : 1;
+      return { points: s.points.map((p) => ({ ...p, close: p.close * scale })), status: 'live' };
+    }
+    const byDate = await fetchNbpRange(
+      Date.parse(`${NBP_EARLIEST}T00:00:00Z`),
+      Date.parse(`${latest}T23:59:59Z`),
+    );
+    if (byDate.size === 0) throw new Error('empty NBP all-time series');
+    const series = normalizeNbp(byDate, liveXauUsd);
+    cacheSet(dayKey, series);
+    cacheSet('nbp.all', series); // stable fallback key
+    return series;
+  } catch {
+    const cached = cacheGet<DailySeries>('nbp.all');
+    if (cached) return { ...cached.value, status: 'cached' };
+    return { points: [], status: 'offline' };
+  }
+}
+
+/** Probe NBP's latest published gold date (e.g. '2026-09-22'). */
+async function nbpLatestDate(): Promise<string> {
+  const entries = await fetchJson<NbpEntry[]>(
+    'https://api.nbp.pl/api/cenyzlota/last/1/?format=json',
+  );
+  if (!entries.length) throw new Error('empty NBP probe');
+  return entries[entries.length - 1].data;
+}
+
+/**
+ * Fetch NBP gold closes for [startMs, endMs], chunked at the API's 93-day
+ * limit and fetched 8-at-a-time so long histories don't burst requests.
+ */
+async function fetchNbpRange(startMs: number, endMs: number): Promise<Map<string, number>> {
+  const ranges: Array<[number, number]> = [];
+  let cursor = startMs;
+  while (cursor < endMs) {
+    const chunkEnd = Math.min(cursor + (NBP_MAX_RANGE_DAYS - 1) * DAY_MS, endMs);
+    ranges.push([cursor, chunkEnd]);
+    cursor = chunkEnd + DAY_MS;
+  }
+  const byDate = new Map<string, number>();
+  const CONCURRENCY = 8;
+  for (let i = 0; i < ranges.length; i += CONCURRENCY) {
+    const batch = await Promise.all(
+      ranges
+        .slice(i, i + CONCURRENCY)
+        .map(([s, e]) =>
+          fetchJson<NbpEntry[]>(
+            `https://api.nbp.pl/api/cenyzlota/${fmtDate(s)}/${fmtDate(e)}/?format=json`,
+          ),
+        ),
+    );
+    for (const chunk of batch) {
+      for (const entry of chunk) {
+        if (Number.isFinite(entry.cena)) byDate.set(entry.data, entry.cena);
+      }
+    }
+  }
+  return byDate;
+}
+
+/** NBP gives PLN/g — rescale so the last point equals the live XAU/USD. */
+function normalizeNbp(byDate: Map<string, number>, liveXauUsd?: number): DailySeries {
+  const sorted = [...byDate.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+  const lastRaw = sorted[sorted.length - 1][1];
+  const scale =
+    liveXauUsd && Number.isFinite(liveXauUsd) && liveXauUsd > 0 && lastRaw > 0
+      ? liveXauUsd / lastRaw
+      : 1;
+  const points: DailyPoint[] = sorted.map(([date, raw]) => ({
+    t: Date.parse(`${date}T00:00:00Z`),
+    raw,
+    close: raw * scale,
+  }));
+  return { points, status: 'live' };
 }
