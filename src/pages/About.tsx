@@ -1,23 +1,43 @@
-import { Globe } from 'lucide-react';
-import { registerStrings, useI18n } from '@/lib/i18n';
-
-registerStrings({
-  'stub.about': { id: 'Tentang GoldLens', en: 'About GoldLens' },
-  'stub.soonAbout': {
-    id: 'Halaman ini sedang dibangun — metodologi & sumber data akan tampil di sini.',
-    en: 'This page is under construction — methodology & data sources will appear here.',
-  },
-});
+/**
+ * About / Tentang & Metodologi page (about.md).
+ * Hero → pinned GSAP data-source storytelling → 3-step methodology →
+ * FAQ accordion → disclaimer + contact. Lenis smooth scroll on this page
+ * only (design.md §6), synced with ScrollTrigger.
+ */
+import { useEffect } from 'react';
+import Lenis from 'lenis';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import '@/lib/about-strings';
+import { AboutHero } from '@/components/about/AboutHero';
+import { DataSources } from '@/components/about/DataSources';
+import { HowWeCalculate } from '@/components/about/HowWeCalculate';
+import { FaqSection } from '@/components/about/FaqSection';
+import { DisclaimerSection } from '@/components/about/DisclaimerSection';
 
 export default function About() {
-  const { t } = useI18n();
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const lenis = new Lenis({ duration: 1.1 });
+    lenis.on('scroll', ScrollTrigger.update);
+    let rafId = 0;
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div className="mx-auto flex max-w-[1440px] flex-col items-center px-4 py-24 text-center md:px-6">
-      <Globe className="h-10 w-10 text-gold" />
-      <h1 className="mt-4 font-display text-4xl font-bold tracking-[-0.02em] text-t1">
-        {t('stub.about')}
-      </h1>
-      <p className="mt-3 max-w-md text-sm text-t2">{t('stub.soonAbout')}</p>
+    <div>
+      <AboutHero />
+      <DataSources />
+      <HowWeCalculate />
+      <FaqSection />
+      <DisclaimerSection />
     </div>
   );
 }
