@@ -20,24 +20,24 @@ export interface AiInsight {
 }
 
 export const AI_INSIGHT: AiInsight = {
-  generatedAt: Date.parse('2026-09-22T02:00:00Z'),
+  generatedAt: Date.parse('2026-09-23T02:00:00Z'),
   sentiment: 'neutral',
   bullets: [
     {
-      id: 'Kenaikan Fed 25 bps (16 September) memicu koreksi ~6% bulan ini, tetapi harga bertahan di atas $4.300 — pola koreksi taktis, bukan pembalikan tren.',
-      en: 'The Fed’s 25bp hike (Sep 16) triggered a ~6% monthly correction, yet price holds above $4,300 — a tactical pullback pattern, not a trend reversal.',
+      id: 'Emas berhenti jatuh seminggu pasca kenaikan Fed: spot $4.347 memantul dari titik terendah mingguan $4.290 — pola klasik "jual rumor, beli berita" sedang berjalan.',
+      en: 'Gold has stopped falling one week after the Fed hike: spot at $4,347 is rebounding from a weekly low of $4,290 — the classic "sell the rumor, buy the news" pattern is playing out.',
     },
     {
-      id: 'Lantai struktural tetap kokoh: bank sentral menyerap 288,9 ton pada Q2 2026 dan 89% berencana menambah cadangan — penurunan tajam konsisten terserap cepat.',
-      en: 'The structural floor stays firm: central banks absorbed 288.9t in Q2 2026 and 89% plan to add reserves — sharp dips keep getting absorbed quickly.',
+      id: 'Kurva futures menanjak rapi (contango): Des 2026 $4.400 → Mei 2027 $4.469. Uang institusional memproyeksikan pemulihan bertahap, bukan koreksi berlanjut.',
+      en: 'The futures curve slopes cleanly upward (contango): Dec 2026 $4,400 → May 2027 $4,469. Institutional money is pricing a gradual recovery, not further decline.',
     },
     {
-      id: 'Risiko terdekat: 16 dari 18 pejabat FOMC memproyeksikan satu kenaikan lagi sebelum akhir tahun. Variabel yang wajib diawasi adalah imbal hasil riil 10-tahun, bukan headline.',
-      en: 'Near-term risk: 16 of 18 FOMC officials project one more hike before year-end. The variable to watch is the 10-year real yield, not the headlines.',
+      id: 'Namun Wall Street terbelah tajam: target akhir 2026 JPMorgan $6.300 vs Goldman Sachs $5.400 — selisih $900. Ketidakpastian masih tinggi; posisi net long padat (~228 rb kontrak) bisa memperbesar gerakan ke dua arah.',
+      en: 'But Wall Street is sharply split: JPMorgan targets $6,300 for year-end 2026 vs Goldman Sachs at $5,400 — a $900 gap. Uncertainty remains high; crowded net-long positioning (~228k contracts) can amplify moves both ways.',
     },
     {
-      id: 'Untuk investor IDR: rupiah di ~17.800/USD menahan sebagian koreksi — Antam hanya turun Rp71.000/gram bulan ini. Fase seperti ini secara historis cocok untuk akumulasi bertahap (DCA).',
-      en: 'For IDR investors: the rupiah near 17,800/USD cushioned the dip — Antam fell only Rp71k/gram this month. Phases like this have historically suited staged DCA accumulation.',
+      id: 'Investor IDR: harga bertahan ~Rp2,49 juta/gram (kurs 17.820). Fase sideways pasca-kejutan Fed secara historis fase paling produktif untuk DCA — selama $4.290 bertahan, struktur pemulihan utuh.',
+      en: 'IDR investors: price holds ~Rp2.49M/gram (17,820 rate). Sideways phases after a Fed shock have historically been the most productive for DCA — as long as $4,290 holds, the recovery structure is intact.',
     },
   ],
 };

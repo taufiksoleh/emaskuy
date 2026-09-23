@@ -48,9 +48,71 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-futures-curve-after-fed-hike',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Seminggu Pasca Kenaikan Fed: Apa yang Dikatakan Kurva Futures Emas?',
+      en: "One Week After the Fed Hike: What Gold's Futures Curve Is Saying",
+    },
+    excerpt: {
+      id: 'Debu pasca kenaikan suku bunga mulai turun dan pasar berjangka memberi sinyal langka: kurva menanjak rapi hingga 2027. Kami bedah artinya — plus mengapa JPMorgan dan Goldman tidak sepakat.',
+      en: 'The dust from the rate hike is settling and the futures market is sending a rare signal: a clean upward slope into 2027. We break down what it means — plus why JPMorgan and Goldman disagree.',
+    },
+    sections: [
+      {
+        heading: { id: 'Debu Pasca-Keputusan Mulai Turun', en: 'The Post-Decision Dust Is Settling' },
+        paragraphs: [
+          {
+            id: 'Seminggu setelah FOMC menaikkan suku bunga 25 basis poin ke 3,75–4,00% pada 16 September — kenaikan pertama dalam tiga tahun — emas berhenti jatuh. Spot diperdagangkan di sekitar $4.347 pada 23 September, memantul dari titik terendah mingguan $4.290. Koreksi sebulan memang masih sekitar 6%, tetapi penurunan harian sudah terhenti: pola klasik "jual rumor, beli berita".',
+            en: 'One week after the FOMC raised rates by 25 basis points to 3.75–4.00% on September 16 — the first hike in three years — gold has stopped falling. Spot traded near $4,347 on September 23, rebounding from a weekly low of $4,290. The monthly correction is still around 6%, but the daily slide has halted: the classic "sell the rumor, buy the news" pattern.',
+          },
+          {
+            id: 'Pola ini konsisten dengan sejarah. Emas biasanya tertekan menjelang keputusan Fed yang tidak pasti — posisi berjangka sempat sangat padat, sekitar 228 ribu kontrak net long, memasuki rapat lalu — lalu stabil begitu ketidakpastian hilang. Bahkan sehari setelah pengumuman, emas justru ditutup menguat 2,4% karena dolar melemah. Kejutan hawkish telah sepenuhnya tercerna harga.',
+            en: 'The pattern is consistent with history. Gold typically sells off ahead of an uncertain Fed decision — futures positioning was crowded at roughly 228,000 net-long contracts going into the meeting — then stabilizes once uncertainty clears. A day after the announcement, gold actually closed up 2.4% as the dollar weakened. The hawkish surprise has been fully digested.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Kurva Futures Sedang Bicara', en: 'The Futures Curve Is Talking' },
+        paragraphs: [
+          {
+            id: 'Pasar berjangka memberikan sinyal yang jarang disorot media: kurva emas berada dalam contango yang rapi. Kontrak Desember 2026 dihargai $4.400, Januari 2027 $4.426, dan Mei 2027 $4.469 — setiap bulan berturut-turut lebih mahal. Dengan kata lain, uang institusional memproyeksikan pemulihan bertahap, bukan koreksi yang berlanjut.',
+            en: 'The futures market is sending a signal the headlines rarely highlight: gold\u2019s curve sits in clean contango. December 2026 trades at $4,400, January 2027 at $4,426, and May 2027 at $4,469 — each successive month priced higher. In plain terms, institutional money projects a gradual recovery, not a continued decline.',
+          },
+          {
+            id: 'Namun contango bukan kepastian. Perbedaan target antarbank sedang selebar-lebarnya: JPMorgan membidik $6.300 untuk akhir 2026 sementara Goldman Sachs $5.400 — selisih $900 yang menunjukkan betapa tidak pastinya lanskap makro saat ini. Yang bisa diambil dari kurva futures adalah arah, bukan jadwal; dan arahnya saat ini menanjak.',
+            en: 'Contango is not certainty, though. The spread between bank targets is at its widest: JPMorgan targets $6,300 for year-end 2026 while Goldman Sachs models $5,400 — a $900 gap that shows how unsettled the macro landscape is. What the curve offers is direction, not a schedule; and right now it slopes upward.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Bagi Investor Indonesia', en: 'For Indonesian Investors' },
+        paragraphs: [
+          {
+            id: 'Dalam rupiah, harga emas bertahan di kisaran Rp2,49 juta per gram dengan kurs USD/IDR di 17.820. Fase sideways seperti ini secara historis justru fase paling produktif bagi penabung DCA: volatilitas mereda, dan setiap pembelian rutin memperbaiki harga rata-rata kepemilikan tanpa perlu menebak arah pasar.',
+            en: 'In rupiah terms, gold is holding around Rp2.49 million per gram with USD/IDR at 17,820. Sideways phases like this have historically been the most productive for DCA savers: volatility cools, and every routine purchase improves average cost without needing to call market direction.',
+          },
+          {
+            id: 'Yang patut diawasi minggu ini: data inflasi PCE AS berikutnya dan nada para pejabat Fed pasca-kenaikan. Selama harga bertahan di atas titik terendah minggu ini di $4.290, struktur pemulihan belum rusak. Gunakan kalkulator EmasKuy untuk menguji skenario Anda pada harga live hari ini — angka konkret selalu lebih berguna daripada headline.',
+            en: 'What to watch this week: the next US PCE inflation print and the tone of Fed officials post-hike. As long as price holds above this week\u2019s $4,290 low, the recovery structure remains intact. Use the EmasKuy calculator to test your own scenario at today\u2019s live price — concrete numbers always beat headlines.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Kurva futures memberi arah, bukan jadwal — dan arahnya saat ini menanjak.',
+      en: 'The futures curve gives direction, not a schedule — and right now it slopes upward.',
+    },
+    callout: 'rally',
+    image: '/article-gold-rally.png',
+    publishedAt: Date.parse('2026-09-23T08:00:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+  },
+  {
     slug: 'fed-first-hike-gold-holds-4300',
     category: 'macro',
-    featured: true,
     title: {
       id: 'Fed Naikkan Suku Bunga Pertama Kali dalam 3 Tahun — Mengapa Emas Bertahan di $4.300?',
       en: "The Fed's First Rate Hike in 3 Years — Why Is Gold Holding $4,300?",
