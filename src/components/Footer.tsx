@@ -16,7 +16,7 @@ export function Footer() {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="mt-8 border-t border-hairline bg-bg1"
+      className="mt-8 border-t border-hairline bg-bg1 pb-24 md:pb-0"
     >
       <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-3 md:px-6">
         <div>
