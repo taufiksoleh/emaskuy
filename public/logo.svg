@@ -1,27 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="EmasKuy">
-  <defs>
-    <linearGradient id="ekTop" x1="10" y1="6" x2="54" y2="29" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FFD975"/>
-      <stop offset="1" stop-color="#F5B93E"/>
-    </linearGradient>
-    <linearGradient id="ekLeft" x1="10" y1="17.5" x2="22" y2="55" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F5B93E"/>
-      <stop offset="1" stop-color="#C98A1B"/>
-    </linearGradient>
-    <linearGradient id="ekRight" x1="54" y1="17.5" x2="38" y2="55" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#C98A1B"/>
-      <stop offset="1" stop-color="#8A5A14"/>
-    </linearGradient>
-  </defs>
-  <!-- isometric gold ingot: 3 facets -->
-  <polygon points="32,6 54,17.5 32,29 10,17.5" fill="url(#ekTop)"/>
-  <polygon points="10,17.5 32,29 32,55 10,43.5" fill="url(#ekLeft)"/>
-  <polygon points="54,17.5 32,29 32,55 54,43.5" fill="url(#ekRight)"/>
-  <!-- bevel highlight -->
-  <polyline points="10,17.5 32,29 54,17.5" fill="none" stroke="#FFE9A8" stroke-width="1.2" opacity="0.9"/>
-  <!-- rising price trend engraved on the top facet -->
-  <g fill="none" stroke="#6E470C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="15.5,20.3 23,16.2 27.5,19.2 40,12.2"/>
-  </g>
-  <polygon points="41.05,11.61 38.17,17.12 34.85,11.19" fill="#6E470C"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.523 80" role="img" aria-label="EmasKuy">
+  <path fill="#f5b93e" d="M0 0 L16.0 0 L16.0 80.0 L0 80.0 Z M0 0 L64.0 0 L64.0 16.0 L0 16.0 Z M0 64.0 L64.0 64.0 L64.0 80.0 L0 80.0 Z M1.863 51.153 L54.499 45.432 L52.773 29.525 L0.137 35.247 Z M73.523 35.358 L54.994 50.207 L52.278 24.751 Z"/>
 </svg>
