@@ -19,6 +19,7 @@ const LINKS = [
   { to: '/', key: 'nav.dashboard' },
   { to: '/analisis', key: 'nav.analysis' },
   { to: '/kalkulator', key: 'nav.calculator' },
+  { to: '/portofolio', key: 'nav.portfolio' },
   { to: '/tentang', key: 'nav.about' },
 ] as const;
 
