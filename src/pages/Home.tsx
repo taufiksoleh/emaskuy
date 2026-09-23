@@ -10,6 +10,8 @@ import { TickerStrip } from '@/components/home/TickerStrip';
 import { HeroBand } from '@/components/home/HeroBand';
 import { ChartPanel } from '@/components/home/ChartPanel';
 import { AiInsightPanel } from '@/components/home/AiInsightPanel';
+import { AlertsPanel } from '@/components/home/AlertsPanel';
+import { AntamPanel } from '@/components/home/AntamPanel';
 import { StatsGrid } from '@/components/home/StatsGrid';
 import { AnalysisPreview } from '@/components/home/AnalysisPreview';
 import { CtaBand } from '@/components/home/CtaBand';
@@ -95,6 +97,10 @@ export default function Home() {
       <HeroBand />
       <ChartPanel />
       <AiInsightPanel />
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 xl:grid-cols-2">
+        <AlertsPanel />
+        <AntamPanel />
+      </div>
       <StatsGrid />
       <AnalysisPreview />
       <div className="mb-8">
