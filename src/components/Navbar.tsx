@@ -2,12 +2,12 @@
  * Navbar — sticky 64px, bg0/80 + backdrop-blur, bottom hairline (design.md §9).
  * Left: logo + wordmark + LIVE badge. Center: nav links with gold underline
  * (layoutId). Right: unit toggle + ID|EN pill + live price chip (tick-flash).
- * Mobile: hamburger → full-height drawer from the right.
+ * Mobile: bottom navigation bar fixed (gaya trading app modern).
  */
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Briefcase, Calculator, Info, LayoutDashboard, Moon, Newspaper, Sun } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { useTheme } from '@/hooks/useTheme';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
@@ -16,11 +16,11 @@ import { cn } from '@/lib/utils';
 import { SegToggle } from './ui-atoms/SegToggle';
 
 const LINKS = [
-  { to: '/', key: 'nav.dashboard' },
-  { to: '/analisis', key: 'nav.analysis' },
-  { to: '/kalkulator', key: 'nav.calculator' },
-  { to: '/portofolio', key: 'nav.portfolio' },
-  { to: '/tentang', key: 'nav.about' },
+  { to: '/', key: 'nav.dashboard', icon: LayoutDashboard },
+  { to: '/analisis', key: 'nav.analysis', icon: Newspaper },
+  { to: '/kalkulator', key: 'nav.calculator', icon: Calculator },
+  { to: '/portofolio', key: 'nav.portfolio', icon: Briefcase },
+  { to: '/tentang', key: 'nav.about', icon: Info },
 ] as const;
 
 function LivePriceChip() {
@@ -61,7 +61,6 @@ export function Navbar() {
   const { lang, setLang, t, unit, setUnit } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const { status } = useGoldPrice();
-  const [open, setOpen] = useState(false);
 
   const statusVariant = status === 'live' ? 'live' : status === 'cached' ? 'cached' : 'offline';
   const themeLabel = theme === 'dark' ? t('theme.toLight') : t('theme.toDark');
@@ -173,106 +172,48 @@ export function Navbar() {
               ]}
             />
             {themeButton()}
-            <button
-              className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:text-t1 md:hidden"
-              onClick={() => setOpen(true)}
-              aria-label="Open menu"
-            >
-              <Menu className="h-4 w-4" />
-            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[60] bg-bg0/80 backdrop-blur-sm md:hidden"
-              onClick={() => setOpen(false)}
-            />
-            <motion.aside
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 380, damping: 40 }}
-              className="fixed inset-y-0 right-0 z-[70] flex w-72 flex-col border-l border-hairline bg-bg1 p-6 md:hidden"
+      {/* Bottom navigation bar — mobile saja (gaya trading app) */}
+      <nav
+        aria-label="Navigasi utama"
+        className="fixed bottom-0 z-50 w-full border-t border-hairline bg-bg1/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] md:hidden"
+      >
+        <div className="grid grid-cols-5">
+          {LINKS.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === '/'}
+              className={({ isActive }) =>
+                cn(
+                  'relative flex flex-col items-center gap-1 pb-2 pt-2.5 transition-colors',
+                  isActive ? 'text-gold' : 'text-t3 hover:text-t1 active:text-t1',
+                )
+              }
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <img src="/logo.svg" alt="EmasKuy" className="h-6 w-6" />
-                  <span className="font-display font-bold text-t1">EmasKuy</span>
-                </div>
-                <button
-                  onClick={() => setOpen(false)}
-                  aria-label="Close menu"
-                  className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t2"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-              <nav className="mt-8 flex flex-col gap-1">
-                {LINKS.map((l, i) => (
-                  <motion.div
-                    key={l.to}
-                    initial={{ x: 20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.06 * i, duration: 0.3 }}
-                  >
-                    <NavLink
-                      to={l.to}
-                      end={l.to === '/'}
-                      onClick={() => setOpen(false)}
-                      className={({ isActive }) =>
-                        cn(
-                          'block rounded-lg px-3 py-3 font-display text-base font-medium',
-                          isActive ? 'bg-bg2 text-gold' : 'text-t2 hover:text-t1',
-                        )
-                      }
-                    >
-                      {t(l.key)}
-                    </NavLink>
-                  </motion.div>
-                ))}
-              </nav>
-              <div className="mt-auto flex flex-col gap-3">
-                <SegToggle
-                  ariaLabel="Price unit"
-                  value={unit}
-                  onChange={setUnit}
-                  options={[
-                    { value: 'usd-oz', label: 'USD/oz' },
-                    { value: 'idr-gr', label: 'IDR/gr' },
-                  ]}
-                />
-                <button
-                  onClick={toggleTheme}
-                  aria-label={themeLabel}
-                  className="flex cursor-pointer items-center justify-between rounded-lg border border-hairline bg-bg2 px-3 py-2.5 font-display text-sm font-medium text-t2 transition-colors hover:border-goldline hover:text-gold"
-                >
-                  <span>{themeLabel}</span>
-                  <span className="relative inline-flex h-4 w-4">
-                    <Sun
-                      className="theme-icon-swap h-4 w-4"
-                      data-swap={theme === 'dark' ? 'in' : 'out'}
-                      aria-hidden
+              {({ isActive }) => (
+                <>
+                  {/* Indikator garis gold di atas ikon saat aktif */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="bottomnav-indicator"
+                      transition={{ type: 'spring', stiffness: 500, damping: 40 }}
+                      className="absolute inset-x-6 top-0 h-0.5 rounded-b-full bg-gold"
                     />
-                    <Moon
-                      className="theme-icon-swap absolute inset-0 m-auto h-4 w-4"
-                      data-swap={theme === 'light' ? 'in' : 'out'}
-                      aria-hidden
-                    />
+                  )}
+                  <l.icon className="h-5 w-5" strokeWidth={isActive ? 2.4 : 1.8} aria-hidden />
+                  <span className="font-display text-[10px] font-medium leading-none">
+                    {t(l.key)}
                   </span>
-                </button>
-              </div>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
+                </>
+              )}
+            </NavLink>
+          ))}
+        </div>
+      </nav>
     </>
   );
 }
