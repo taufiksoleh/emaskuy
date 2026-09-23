@@ -123,7 +123,7 @@ export function Navbar() {
           </Link>
 
           {/* Center: links */}
-          <nav className="mx-auto hidden items-center gap-1 md:flex">
+          <nav className="mx-auto hidden items-center gap-1 lg:flex">
             {LINKS.map((l) => (
               <NavLink
                 key={l.to}
@@ -148,7 +148,7 @@ export function Navbar() {
           </nav>
 
           {/* Right: unit toggle + lang pill + price chip + hamburger */}
-          <div className="ml-auto flex items-center gap-2 md:ml-0">
+          <div className="ml-auto flex items-center gap-2 lg:ml-0">
             <LivePriceChip />
             <SegToggle
               ariaLabel="Price unit"
@@ -179,7 +179,7 @@ export function Navbar() {
       {/* Bottom navigation bar — mobile saja (gaya trading app) */}
       <nav
         aria-label="Navigasi utama"
-        className="fixed bottom-0 z-50 w-full border-t border-hairline bg-bg1/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] md:hidden"
+        className="fixed bottom-0 z-50 w-full border-t border-hairline bg-bg1/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] lg:hidden"
       >
         <div className="grid grid-cols-5">
           {LINKS.map((l) => (

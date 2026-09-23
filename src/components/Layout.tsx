@@ -15,7 +15,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="flex min-h-[100dvh] flex-col bg-bg0 text-t1">
       <Navbar />
       {/* pb-24 di mobile agar konten tidak tertutup bottom navigation bar */}
-      <main className="flex-1 pb-24 md:pb-0">{children}</main>
+      <main className="flex-1 pb-24 lg:pb-0">{children}</main>
       <Footer />
     </div>
   );

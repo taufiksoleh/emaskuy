@@ -66,8 +66,8 @@ function YearTable({ result, currency }: { result: CalcResult; currency: CalcCur
           className={cn('h-4 w-4 text-t2 transition-transform duration-200', open && 'rotate-180')}
         />
       </button>
-      <div className="px-4 pb-3">
-        <table className="w-full">
+      <div className="overflow-x-auto px-4 pb-3">
+        <table className="w-full min-w-[300px]">
           <thead>
             <tr className="border-b border-hairline">
               <th className="label-micro py-1.5 pr-3 text-left">{t('calc.col.year')}</th>
@@ -108,7 +108,7 @@ function ProfitCard({ label, value, format }: { label: string; value: number; fo
     <div className="rounded-[10px] border border-hairline bg-bg1 p-4 transition-[border-color,background-color] duration-150 hover:border-goldline hover:bg-bg2 md:p-5">
       <div className="label-micro">{label}</div>
       <div
-        className="mt-2 font-mono text-[24px] font-semibold leading-[1.1] tabular md:text-[28px]"
+        className="mt-2 break-all font-mono text-[20px] font-semibold leading-[1.1] tabular sm:text-[24px] md:text-[28px]"
         style={{ color: value >= 0 ? 'var(--up)' : 'var(--down)' }}
       >
         {format(shown)}
@@ -138,7 +138,7 @@ export function ResultsPanel({ result, currency, years, summaryText, onReset }: 
         <div>
           <div className="label-micro">{t('calc.finalValue')}</div>
           <div className="mt-1 flex flex-wrap items-center gap-3">
-            <span className="text-gold-gradient font-mono text-[40px] font-bold leading-none tabular md:text-[56px]">
+            <span className="text-gold-gradient min-w-0 max-w-full break-all font-mono text-[28px] font-bold leading-none tabular sm:text-[36px] md:text-[56px]">
               {money(hero)}
             </span>
             <DeltaChip value={result.profitPct} size="lg" />
