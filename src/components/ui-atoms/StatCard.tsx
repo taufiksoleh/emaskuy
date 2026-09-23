@@ -79,7 +79,7 @@ export function StatCard({
       <div className="label-micro">{label}</div>
       <div className="mt-2 flex items-end justify-between gap-3">
         <div className="min-w-0">
-          <div className="font-mono text-[24px] font-semibold leading-[1.1] tabular text-t1 md:text-[28px]">
+          <div className="break-all font-mono text-[20px] font-semibold leading-[1.1] tabular text-t1 sm:text-[24px] md:text-[28px]">
             {format(shown)}
           </div>
           <div className="mt-1.5 flex flex-wrap items-center gap-2">

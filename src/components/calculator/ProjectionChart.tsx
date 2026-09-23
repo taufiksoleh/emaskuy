@@ -90,7 +90,7 @@ export function ProjectionChart({
 }) {
   const { lang, t } = useI18n();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(640);
+  const [width, setWidth] = useState(0);
   const height = 300;
   const [hover, setHover] = useState<number | null>(null);
 
@@ -229,10 +229,11 @@ export function ProjectionChart({
           {t('calc.legend.invested')}
         </span>
       </div>
+      {width > 0 && (
       <svg
         width={width}
         height={height}
-        className="block cursor-crosshair"
+        className="block max-w-full cursor-crosshair"
         onMouseMove={onMove}
         onMouseLeave={() => setHover(null)}
       >
@@ -279,6 +280,7 @@ export function ProjectionChart({
           </g>
         )}
       </svg>
+      )}
       {/* tooltip */}
       {hp && (
         <div
