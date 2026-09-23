@@ -95,7 +95,7 @@ export function Navbar() {
           {/* Left: logo + wordmark + status */}
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
             <img src="/logo.svg" alt="EmasKuy" className="h-7 w-7" />
-            <span className="font-display text-lg font-bold tracking-[-0.02em] text-t1">
+            <span className="hidden font-display text-lg font-bold tracking-[-0.02em] text-t1 min-[420px]:inline">
               EmasKuy
             </span>
             <span
@@ -153,7 +153,6 @@ export function Navbar() {
             <SegToggle
               ariaLabel="Price unit"
               size="sm"
-              className="hidden sm:inline-flex"
               value={unit}
               onChange={setUnit}
               options={[
