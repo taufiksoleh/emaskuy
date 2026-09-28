@@ -48,9 +48,101 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-futures-curve-after-fed-hike',
+    slug: 'gold-pullback-data-week-ahead',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Turun ke $4.200-an: Pekan Data AS yang Menentukan Arah Selanjutnya',
+      en: 'Gold Falls to the $4,200s: The US Data Week That Will Decide What Comes Next',
+    },
+    excerpt: {
+      id: 'Konsolidasi dua minggu di $4.300–4.400 pecah: emas turun 1,7% ke $4.211 dan -5% dalam sebulan. Pekan ini, JOLTS, ADP, PDB, dan PMI akan menentukan apakah ini koreksi sehat atau awal penurunan lebih dalam.',
+      en: 'The two-week $4,300–4,400 consolidation has broken: gold fell 1.7% to $4,211 and is down 5% over the month. This week, JOLTS, ADP, GDP, and PMI will decide whether this is a healthy correction or the start of a deeper slide.',
+    },
+    sections: [
+      {
+        heading: { id: 'Konsolidasi Pecah ke Bawah', en: 'The Consolidation Breaks Lower' },
+        paragraphs: [
+          {
+            id: 'Setelah dua minggu bergerak sideways di kisaran $4.300–4.400, emas akhirnya menyerah. Pada perdagangan Senin (28 September) pagi, spot merosot 1,71% ke $4.211,74 — kembali diperdagangkan di sekitar $4.253 setelahnya, tetapi kerusakan teknis sudah terjadi. Total penurunan sebulan kini mencapai 5,17%, meski secara year-on-year harga masih unggul 9,87%.',
+            en: 'After two weeks of sideways trading in the $4,300–4,400 range, gold finally gave way. In Monday morning trade (September 28), spot fell 1.71% to $4,211.74 — it has since recovered to around $4,253, but the technical damage is done. The monthly decline now totals 5.17%, even as prices remain up 9.87% year-on-year.',
+          },
+          {
+            id: 'Kontrak futures Desember yang dibuka di $4.309,50 pada 25 September kini tertinggal jauh di belakang harga pasar, tanda bahwa ekspektasi telah direvisi turun cepat. Level $4.200 menjadi garis pertahanan pertama yang diuji hari ini.',
+            en: 'December futures, which opened at $4,309.50 on September 25, now sit far below where the market expects prices to settle — a sign that expectations have been revised down fast. The $4,200 level becomes the first line of defense being tested today.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Trio Penekan Harga', en: 'A Trio of Price Pressures' },
+        paragraphs: [
+          {
+            id: 'Ada tiga kekuatan makro yang menekan emas secara bersamaan. Pertama, dolar AS yang menguat — emas dalam denominasi dolar otomatis lebih mahal bagi pembeli global. Kedua, yield Treasury AS yang berada di level tertinggi hampir dua dekade, membuat obligasi jadi pesaing serius aset tanpa imbal hasil. Ketiga, the Fed yang ternyata lebih hawkish dari dugaan: setelah menaikkan suku bunga 25 basis poin ke 3,75–4,00% pada 16 September di bawah ketua baru Kevin Warsh, dot plot median mematok 4,1% untuk akhir 2026, dan 16 dari 18 pejabat memproyeksikan setidaknya satu kenaikan lagi.',
+            en: 'Three macro forces are pressing gold at once. First, a stronger US dollar — dollar-denominated gold automatically becomes pricier for global buyers. Second, Treasury yields at near two-decade highs, making bonds a serious rival to a zero-yield asset. Third, a Fed that turned out more hawkish than expected: after raising rates 25 basis points to 3.75–4.00% on September 16 under new Chair Kevin Warsh, the median dot plot pins 4.1% for end-2026, and 16 of 18 officials project at least one more hike.',
+          },
+          {
+            id: 'Akibatnya, CME FedWatch kini mematok sekitar 69% peluang kenaikan lagi pada FOMC 27–28 Oktober. Di saat yang sama, premi geopolitik menyusut: KTT AS–China berakhir pada 25 September, dan pembicaraan AS–Iran membuka harapan Selat Hormuz kembali normal — menggerus permintaan safe-haven meski minyak bertahan di atas $100 per barel dan diesel mencetak rekor $6,31 per galon.',
+            en: 'As a result, CME FedWatch now prices roughly 69% odds of another hike at the October 27–28 FOMC. At the same time, the geopolitical premium is shrinking: the US–China summit wrapped up on September 25, and US–Iran talks have raised hopes of the Strait of Hormuz reopening — eroding safe-haven demand even as oil holds above $100 a barrel and diesel hits a record $6.31 a gallon.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Kalender Pekan Ini: Empat Rilis Penentu', en: 'This Week\u2019s Calendar: Four Decisive Releases' },
+        paragraphs: [
+          {
+            id: 'Pekan ini padat data dan setiap rilis berpotensi menggerakkan emas dua arah. Selasa 29 September: CB Consumer Confidence dan JOLTS Agustus — lowongan kerja yang masih tinggi akan memperkuat argumen Fed untuk mengetat. Rabu 30 September: laporan pekerjaan ADP September dan PDB Q2 AS, dua pengukur langsung kekuatan ekonomi. Kamis 1 Oktober: jobless claims mingguan dan PMI manufaktur September sebagai penutup.',
+            en: 'This week is packed with data, and each release can move gold in either direction. Tuesday, September 29: CB Consumer Confidence and August JOLTS — still-elevated job openings would strengthen the Fed\u2019s case for tightening. Wednesday, September 30: the September ADP employment report and Q2 US GDP, two direct gauges of economic strength. Thursday, October 1: weekly jobless claims and September manufacturing PMI to close it out.',
+          },
+          {
+            id: 'Skenarionya sederhana. Jika data ternyata kuat — pasar tenaga kerja ketat, ekonomi tangguh — pasar akan semakin yakin Fed menaikkan suku bunga Oktober, dan emas berisiko menembus support $4.200 menuju $4.157, bahkan $4.000. Sebaliknya, data yang melemah bisa memangkas odds kenaikan itu dan memicu pantulan ke resistance $4.313, lalu $4.376 dan $4.441.',
+            en: 'The scenarios are simple. If the data comes in strong — a tight labor market, a resilient economy — markets will grow more convinced the Fed hikes in October, and gold risks breaking $4,200 support toward $4,157 and even $4,000. Conversely, weak data could slash those hike odds and spark a rebound toward resistance at $4,313, then $4,376 and $4,441.',
+          },
+          {
+            id: 'Yang patut dicatat, 60-day moving average sudah membuktikan diri: pada 16 September ia menahan penurunan tepat di titik terendah $4.235. Garis itu kini kembali menjadi wasit teknikal utama pekan ini.',
+            en: 'Notably, the 60-day moving average has already proven itself: on September 16 it contained the decline right at the $4,235 low. That line is once again the key technical referee this week.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yang Menahan dari Jatuh Lebih Dalam', en: 'What\u2019s Keeping the Floor Intact' },
+        paragraphs: [
+          {
+            id: 'Di balik tekanan jangka pendek, fondasi struktural emas belum runtuh. Bank sentral global membeli rekor 288,9 ton pada Q2 2026 — diversifikasi cadangan devisa dari dolar terus berjalan apapun keputusan Fed.',
+            en: 'Beneath the short-term pressure, gold\u2019s structural foundation has not collapsed. Global central banks bought a record 288.9 tonnes in Q2 2026 — reserve diversification away from the dollar continues regardless of what the Fed does.',
+          },
+          {
+            id: 'Target institusional pun masih jauh di atas harga sekarang. Goldman Sachs memang merevisi turun proyeksi akhir 2026 ke $4.650 (dari $4.900) pasca kenaikan Fed, tetapi itu tetap menyiratkan kenaikan sekitar 10% dari level hari ini. JPMorgan mematok $4.500 untuk Q4, dan model Trading Economics memproyeksikan $4.289 di akhir kuartal ini serta $4.705 dalam 12 bulan.',
+            en: 'Institutional targets also remain well above current prices. Goldman Sachs did cut its end-2026 projection to $4,650 (from $4,900) after the Fed hike, but that still implies roughly 10% upside from today\u2019s level. JPMorgan pegs Q4 at $4,500, and Trading Economics\u2019 model projects $4,289 by quarter-end and $4,705 over 12 months.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Sudut Investor Indonesia', en: 'The Indonesian Investor\u2019s Angle' },
+        paragraphs: [
+          {
+            id: 'Di pasar domestik, koreksi ikut terasa: harga dasar Antam turun dua hari beruntun dari Rp2.630.000 (23 September) ke Rp2.590.000 (25 September), sebelum rebound Rp23.000 ke Rp2.613.000 pada 26 September — dengan buyback di Rp2.438.000. Jarak dari rekor Rp3.168.000 (29 Januari 2026) kini sekitar 17%.',
+            en: 'Domestically, the correction is being felt too: Antam\u2019s base price fell two straight days from Rp2,630,000 (September 23) to Rp2,590,000 (September 25), before rebounding Rp23,000 to Rp2,613,000 on September 26 — with buyback at Rp2,438,000. It now sits roughly 17% below the Rp3,168,000 record (January 29, 2026).',
+          },
+          {
+            id: 'Bagi investor jangka panjang, koreksi 5% dalam sebulan lebih tepat dibaca sebagai window akumulasi bertahap (dollar-cost averaging), bukan alasan panik — terutama selama support $4.200 dan $4.157 bertahan. Namun pekan ini volatilitas akan tinggi, jadi disiplin porsi lebih penting dari timing. Konten ini bersifat edukatif dan bukan saran keuangan.',
+            en: 'For long-term investors, a 5% monthly correction is better read as a window for gradual accumulation (dollar-cost averaging), not a reason to panic — especially while $4,200 and $4,157 support holds. That said, this week\u2019s volatility will be high, so position discipline matters more than timing. This content is educational and not financial advice.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Data kuat bisa menyeret emas ke $4.000; data lemah bisa memantulkannya ke $4.441. Pekan ini, kalender ekonomi-lah wasitnya.',
+      en: 'Strong data could drag gold toward $4,000; weak data could rebound it to $4,441. This week, the economic calendar is the referee.',
+    },
+    callout: 'rates',
+    image: '/article-data-week.png',
+    publishedAt: Date.parse('2026-09-28T02:30:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+  },
+  {
+    slug: 'gold-futures-curve-after-fed-hike',
+    category: 'market',
     title: {
       id: 'Seminggu Pasca Kenaikan Fed: Apa yang Dikatakan Kurva Futures Emas?',
       en: "One Week After the Fed Hike: What Gold's Futures Curve Is Saying",
