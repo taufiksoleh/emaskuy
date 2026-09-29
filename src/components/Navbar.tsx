@@ -12,7 +12,7 @@ import { useI18n } from '@/lib/i18n';
 import { useTheme } from '@/hooks/useTheme';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { convertPrice, formatUnitPrice, formatPct } from '@/lib/gold';
-import { cn } from '@/lib/utils';
+import { cn, withBase } from '@/lib/utils';
 import { SegToggle } from './ui-atoms/SegToggle';
 
 const LINKS = [
@@ -94,7 +94,7 @@ export function Navbar() {
         <div className="mx-auto flex h-full max-w-[1440px] items-center gap-4 px-4 md:px-6">
           {/* Left: logo + wordmark + status */}
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
-            <img src="/logo.svg" alt="EmasKuy" className="h-7 w-7" />
+            <img src={withBase('/logo.svg')} alt="EmasKuy" className="h-7 w-7" />
             <span className="hidden font-display text-lg font-bold tracking-[-0.02em] text-t1 min-[420px]:inline">
               EmasKuy
             </span>

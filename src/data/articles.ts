@@ -7,6 +7,7 @@
  * tells the reader which live-data callout panel to render.
  */
 import { registerStrings } from '@/lib/i18n';
+import { withBase } from '@/lib/utils';
 
 registerStrings({
   'article.cat.market': { id: 'Harga & Tren', en: 'Price & Trends' },
@@ -413,7 +414,7 @@ export const ARTICLES: Article[] = [
       en: 'This rally has macro justification, not mere euphoria — but record highs are not an invitation to chase.',
     },
     callout: 'rally',
-    image: '/article-gold-rally.png',
+    image: withBase('/article-gold-rally.png'),
     publishedAt: Date.parse('2026-09-21T08:00:00Z'),
     readMinutes: 8,
     author: TEAM,
@@ -475,7 +476,7 @@ export const ARTICLES: Article[] = [
       en: 'Powell’s tone moves before the dots do — and gold knows it.',
     },
     callout: 'rates',
-    image: '/article-fed-rates.png',
+    image: withBase('/article-fed-rates.png'),
     publishedAt: Date.parse('2026-09-19T10:30:00Z'),
     readMinutes: 6,
     author: TEAM,
@@ -537,7 +538,7 @@ export const ARTICLES: Article[] = [
       en: 'Automatic discipline beats good intentions. In retail investing, behavior is the variable that decides everything.',
     },
     callout: 'dca',
-    image: '/article-dca-strategy.png',
+    image: withBase('/article-dca-strategy.png'),
     publishedAt: Date.parse('2026-09-15T07:00:00Z'),
     readMinutes: 7,
     author: TEAM,
@@ -595,7 +596,7 @@ export const ARTICLES: Article[] = [
       en: 'Gold cannot be frozen by a third party — and to post-2022 central banks, that sentence is worth 1,000 tonnes a year.',
     },
     callout: 'reserves',
-    image: '/article-central-banks.png',
+    image: withBase('/article-central-banks.png'),
     publishedAt: Date.parse('2026-09-10T09:15:00Z'),
     readMinutes: 9,
     author: TEAM,
@@ -653,7 +654,7 @@ export const ARTICLES: Article[] = [
       en: 'A healthy portfolio does not choose gold or stocks — it doses both.',
     },
     callout: 'compare',
-    image: '/article-gold-vs-stocks.png',
+    image: withBase('/article-gold-vs-stocks.png'),
     publishedAt: Date.parse('2026-09-05T13:00:00Z'),
     readMinutes: 8,
     author: TEAM,
@@ -711,7 +712,7 @@ export const ARTICLES: Article[] = [
       en: 'Mean-reversion is a statistical law, not a schedule. The ratio sizes positions — it does not trigger entries.',
     },
     callout: 'ratio',
-    image: '/article-silver-correlation.png',
+    image: withBase('/article-silver-correlation.png'),
     publishedAt: Date.parse('2026-09-01T06:45:00Z'),
     readMinutes: 6,
     author: TEAM,
