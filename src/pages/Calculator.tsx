@@ -178,7 +178,7 @@ export default function CalculatorPage() {
           </motion.div>
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="mt-2 font-display text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-t1"
+            className="mt-2 font-display text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-t1 md:text-[40px]"
           >
             {t('calc.title')}
           </motion.h1>
@@ -207,10 +207,10 @@ export default function CalculatorPage() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="grid gap-4 py-4 lg:grid-cols-12"
+        className="grid grid-cols-1 gap-4 py-4 lg:grid-cols-12"
       >
         {/* mobile: results first */}
-        <div className="order-1 lg:order-2 lg:col-span-7">
+        <div className="order-1 min-w-0 lg:order-2 lg:col-span-7">
           {result && (
             <ResultsPanel
               result={result}
@@ -221,7 +221,7 @@ export default function CalculatorPage() {
             />
           )}
         </div>
-        <div className="order-2 lg:order-1 lg:col-span-5">
+        <div className="order-2 min-w-0 lg:order-1 lg:col-span-5">
           <InputsPanel
             mode={mode}
             onMode={setMode}
