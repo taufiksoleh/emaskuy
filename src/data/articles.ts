@@ -48,9 +48,101 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-pullback-data-week-ahead',
+    slug: 'antam-terendah-rupiah-18000',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Antam Sentuh Rp2,58 Juta — Terendah Sejak Januari. Saatnya Akumulasi?',
+      en: 'Antam Hits Rp2.58M — Lowest Since January. Time to Accumulate?',
+    },
+    excerpt: {
+      id: 'Harga Antam turun Rp17.000 ke Rp2.580.000 per gram — terendah sejak 9 Januari 2026 dan 18,6% di bawah rekor. Kabar baiknya: rupiah yang mendekati Rp18.000 menahan penurunan versi rupiah lebih dangkal. Begini cara membacanya.',
+      en: 'Antam fell Rp17,000 to Rp2,580,000 per gram — the lowest since January 9, 2026 and 18.6% below its record. The silver lining: a rupiah nearing Rp18,000 keeps the rupiah-denominated decline shallower. Here is how to read it.',
+    },
+    sections: [
+      {
+        heading: { id: 'Apa yang Terjadi Hari Ini', en: 'What Happened Today' },
+        paragraphs: [
+          {
+            id: 'Selasa pagi, 29 September 2026, harga dasar emas Antam 1 gram resmi turun Rp17.000 ke Rp2.580.000 — meneruskan penurunan dari Rp2.613.000 (26 Sep) dan Rp2.597.000 (28 Sep). Ini adalah level terendah Antam sejak 9 Januari 2026, dan berarti harga kini terpangkas 18,6% dari rekor tertinggi sepanjang masa Rp3.168.000 yang tercetak 29 Januari lalu.',
+            en: 'On Tuesday morning, September 29, 2026, Antam\u2019s 1-gram base price officially fell Rp17,000 to Rp2,580,000 — extending the slide from Rp2,613,000 (Sep 26) and Rp2,597,000 (Sep 28). This is Antam\u2019s lowest level since January 9, 2026, and means the price is now 18.6% below its all-time high of Rp3,168,000 set on January 29.',
+          },
+          {
+            id: 'Yang tak kalah penting: harga buyback ikut anjlok Rp47.000 ke Rp2.375.000. Galeri24 bernasib serupa — turun Rp22.000 ke Rp2.527.000 per gram dengan buyback Rp2.379.000. Koreksi ini bukan fenomena satu merek, melainkan penyesuaian seluruh pasar emas fisik domestik terhadap jatuhnya harga dunia.',
+            en: 'Just as important: the buyback price plunged Rp47,000 to Rp2,375,000. Galeri24 fared similarly — down Rp22,000 to Rp2,527,000 per gram with a buyback of Rp2,379,000. This correction is not a single-brand phenomenon but a market-wide adjustment of domestic physical gold to falling global prices.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Dua Mesin Penurunan — Satu Bantal Lokal', en: 'Two Engines of Decline — One Local Cushion' },
+        paragraphs: [
+          {
+            id: 'Mesin pertama berada di pasar global. Emas spot anjlok 2,95% ke $4.159,92 pada 28 September — total -6,65% dalam sebulan dan -18% lebih dari ATH $5.597. Penyebabnya: The Fed yang hawkish di bawah Kevin Warsh, dolar AS yang kuat, dan — seperti dicatat WSJ — reli minyak yang justru memperkuat ekspektasi kenaikan suku bunga Oktober, membuat futures emas jatuh 3% dalam sehari.',
+            en: 'The first engine sits in global markets. Spot gold plunged 2.95% to $4,159.92 on September 28 — down 6.65% over the month and over 18% from its $5,597 ATH. The causes: a hawkish Fed under Kevin Warsh, a strong US dollar, and — as the WSJ noted — an oil rally that is actually strengthening expectations of an October rate hike, sending gold futures down 3% in a day.',
+          },
+          {
+            id: 'Mesin kedua justru bekerja melawan arah di Indonesia. Rupiah melemah mendekati Rp18.000 per dolar (penutupan 28 Sep) di tengah ambruknya IHSG ke 6.147 dan net sell asing Rp1,13 triliun. Karena harga emas domestik dihitung dari harga dunia dikali kurs, rupiah yang lemah menahan penurunan versi rupiah: andai rupiah stabil di 17.500, harga Antam hari ini bisa lebih murah lagi. Bagi pembeli IDR, ini bantal — sekaligus pengingat bahwa koreksi belum tentu selesai jika rupiah menguat kembali.',
+            en: 'The second engine works in the opposite direction in Indonesia. The rupiah weakened toward Rp18,000 per dollar (September 28 close) as the JCI tumbled to 6,147 on Rp1.13 trillion of foreign net selling. Because domestic gold prices are global prices times the exchange rate, a weak rupiah cushions the rupiah-denominated decline: had the rupiah held at 17,500, Antam would be even cheaper today. For IDR buyers this is a cushion — and a reminder that the correction may not be over if the rupiah strengthens again.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Membaca Spread Rp205 Ribu yang Melebar', en: 'Reading the Widening Rp205K Spread' },
+        paragraphs: [
+          {
+            id: 'Dengan harga jual Rp2.580.000 dan buyback Rp2.375.000, spread transaksi Antam kini Rp205.000 per gram — sekitar 7,9% dari harga jual. Artinya, jika Anda membeli hari ini dan langsung menjualnya kembali, Anda otomatis rugi hampir 8% sebelum biaya lain. Spread yang melebar di pasar volatile adalah cara gerai melindungi diri dari ayunan harga harian.',
+            en: 'With a selling price of Rp2,580,000 and a buyback of Rp2,375,000, Antam\u2019s transaction spread is now Rp205,000 per gram — about 7.9% of the selling price. In other words, buying today and selling straight back locks in a loss of nearly 8% before any other costs. A widening spread in volatile markets is how dealers protect themselves from daily price swings.',
+          },
+          {
+            id: 'Pelajarannya klasik namun sering dilupakan saat pasar merah: emas fisik adalah permainan jangka panjang, bukan trading harian. Investor yang panik menjual di fase seperti ini membayar dua kali — harga yang sedang turun dan spread yang sedang lebar. Sebaliknya, horizon multi-tahun membuat spread Rp205 ribu relatif kecil dibanding potensi apresiasi.',
+            en: 'The lesson is classic but easily forgotten when markets are red: physical gold is a long-term game, not day trading. Investors who panic-sell in phases like this pay twice — a falling price and a wide spread. Conversely, a multi-year horizon makes a Rp205K spread relatively small against potential appreciation.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Data yang Menahan Kejatuhan Lebih Dalam', en: 'The Data Holding Back a Deeper Fall' },
+        paragraphs: [
+          {
+            id: 'Fondasi struktural emas belum runtuh. Permintaan bank sentral global tetap kuat di rata-rata sekitar 91 ton per bulan — naik drastis dari sekitar 17 ton per bulan sebelum 2022. Goldman Sachs pun tetap mematok target $4.650 untuk akhir 2026, jauh di atas harga spot hari ini.',
+            en: 'Gold\u2019s structural foundation has not collapsed. Global central-bank demand remains strong at roughly 91 tonnes per month on average — up sharply from about 17 tonnes per month before 2022. Goldman Sachs also still targets $4,650 by end-2026, well above today\u2019s spot price.',
+          },
+          {
+            id: 'Dalam jangka sangat pendek, arah ditentukan hari ini: rilis JOLTS dan CB Consumer Confidence (29 Sep) akan menguji apakah support $4.157 bertahan. Data tenaga kerja yang kuat memperbesar peluang tembus ke $4.000; data yang melemah bisa memicu pantulan menuju resistance $4.313 lalu $4.441. Besok menyusul ADP dan PDB Q2, lalu PMI pada 1 Oktober.',
+            en: 'In the very short term, direction is decided today: the JOLTS and CB Consumer Confidence releases (Sep 29) will test whether $4,157 support holds. Strong labor data raises the odds of a break toward $4,000; weak data could spark a rebound toward resistance at $4,313 and then $4,441. ADP and Q2 GDP follow tomorrow, then PMI on October 1.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook Investor Ritel', en: 'The Retail Investor\u2019s Playbook' },
+        paragraphs: [
+          {
+            id: 'Pertama, akumulasi bertahap (DCA) terjadwal tetap strategi paling masuk akal: alih-alih menebak titik dasar, beli dalam nominal tetap setiap periode sehingga harga rata-rata ikut turun saat pasar koreksi. Kedua, pecah ukuran gram sesuai bujet — denominasi kecil membuat jadwal DCA lebih fleksibel meski premi per gramnya sedikit lebih tinggi.',
+            en: 'First, scheduled gradual accumulation (DCA) remains the most sensible strategy: rather than guessing the bottom, buy a fixed amount every period so your average cost falls as the market corrects. Second, split gram sizes to fit your budget — smaller denominations make a DCA schedule more flexible even if the per-gram premium is slightly higher.',
+          },
+          {
+            id: 'Ketiga, bandingkan sebelum membeli: hari ini Antam Rp2.580.000 versus Galeri24 Rp2.527.000 — selisih lebih dari Rp50.000 per gram dengan kualitas 99,99% yang sama. Pantau juga harga spot IDR live di situs kami untuk melihat seberapa jauh premi fisik dari harga dunia.',
+            en: 'Third, compare before you buy: today Antam is Rp2,580,000 versus Galeri24 at Rp2,527,000 — a gap of over Rp50,000 per gram for the same 99.99% purity. Also track our site\u2019s live IDR spot price to see how far the physical premium stretches above world prices.',
+          },
+          {
+            id: 'Artikel ini adalah analisis edukatif, bukan nasihat keuangan personal. Harga emas bisa bergerak tajam dua arah — sesuaikan keputusan dengan profil risiko, horizon investasi, dan kondisi keuangan Anda masing-masing.',
+            en: 'This article is educational analysis, not personalized financial advice. Gold prices can move sharply in either direction — tailor any decision to your own risk profile, investment horizon, and financial situation.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Rupiah yang mendekati Rp18.000 adalah bantal sekaligus peringatan: penurunan Antam lebih dangkal dari emas dunia, tetapi belum tentu selesai.',
+      en: 'A rupiah nearing Rp18,000 is both a cushion and a warning: Antam\u2019s decline is shallower than world gold\u2019s, but it may not be over.',
+    },
+    callout: 'dca',
+    image: '/article-antam-rupiah.png',
+    publishedAt: Date.parse('2026-09-29T04:00:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+  },
+  {
+    slug: 'gold-pullback-data-week-ahead',
+    category: 'market',
     title: {
       id: 'Emas Turun ke $4.200-an: Pekan Data AS yang Menentukan Arah Selanjutnya',
       en: 'Gold Falls to the $4,200s: The US Data Week That Will Decide What Comes Next',
