@@ -49,9 +49,101 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'real-yields-gold-oil-paradox',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Bukan Inflasi, Tapi Imbal Hasil Riil: Mengapa Emas Turun Saat Minyak Tembus $100',
+      en: 'It’s Not Inflation, It’s Real Yields: Why Gold Falls While Oil Tops $100',
+    },
+    excerpt: {
+      id: 'Brent menembus $107 dan Selat Hormuz belum dibuka, tetapi emas justru jatuh ke level terendah sekitar dua bulan. Jawabannya bukan inflasi, melainkan imbal hasil riil 10 tahun yang mencapai sekitar 2,9% — tertinggi dalam 18 tahun. Kami bedah mekanismenya dan tiga skenario menuju akhir pekan.',
+      en: 'Brent has topped $107 and the Strait of Hormuz remains shut, yet gold has fallen to a roughly two-month low. The answer is not inflation but the 10-year real yield near 2.9% — an 18-year high. We break down the mechanism and three scenarios into the weekend.',
+    },
+    sections: [
+      {
+        heading: { id: 'Paradoks Selasa Pagi: Minyak Melonjak, Emas Jatuh', en: 'Tuesday’s Paradox: Oil Surges, Gold Sinks' },
+        paragraphs: [
+          {
+            id: 'Logika lama pasar berbunyi: perang, minyak naik, inflasi naik, emas naik. Pekan ini rumus itu terbalik. Pada Senin (28 September), Brent melonjak 2,89% ke $107,34 per barel setelah Presiden Trump menolak proposal Iran untuk membuka kembali Selat Hormuz — namun emas spot justru anjlok sekitar 3–4% ke kisaran $4.130–4.160, level terendah dalam sekitar dua bulan. Sumber berbeda melaporkan angka penutupan yang sedikit berlainan, tetapi arahnya sama.',
+            en: 'The old market logic runs: war, higher oil, higher inflation, higher gold. This week the formula flipped. On Monday (September 28), Brent jumped 2.89% to $107.34 a barrel after President Trump rejected Iran’s proposal to reopen the Strait of Hormuz — yet spot gold plunged roughly 3–4% to the $4,130–4,160 zone, its lowest in about two months. Sources report slightly different closing figures, but the direction is the same.',
+          },
+          {
+            id: 'Selasa pagi (29 September), emas memantul sekitar 1,1% ke $4.163 karena pembeli mencari harga murah dan premi Shanghai menyentuh level tertinggi tiga bulan menjelang libur Golden Week China. Namun pantulan itu rapuh: peluang kenaikan suku bunga Fed pada Oktober kini dipatok sekitar 70% (sumber berbeda menyebut 66–72,5%), naik dari sekitar 58% seminggu sebelumnya, dan yield Treasury 10 tahun ditutup di 5,244% — tertinggi sejak 2007.',
+            en: 'On Tuesday morning (September 29), gold bounced about 1.1% to $4,163 as bargain hunters stepped in and the Shanghai premium hit a three-month high ahead of China’s Golden Week holiday. But the rebound is fragile: odds of an October Fed hike are now priced near 70% (sources cite 66–72.5%), up from about 58% a week earlier, and the 10-year Treasury yield closed at 5.244% — the highest since 2007.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Kuncinya: Ini Cerita Imbal Hasil Riil, Bukan Inflasi', en: 'The Key: This Is a Real-Yield Story, Not an Inflation Story' },
+        paragraphs: [
+          {
+            id: 'Untuk menjelaskan paradoks itu, pecah yield nominal menjadi dua komponen: ekspektasi inflasi (breakeven) dan imbal hasil riil. Sejak 8 September, yield nominal 10 tahun naik sekitar 31 basis poin, sementara yield riil naik sekitar 33 basis poin dan breakeven inflasi nyaris datar di sekitar 2,3%. Artinya, seluruh kenaikan yield berasal dari komponen riil — harga uang, bukan ketakutan inflasi. Yield riil 10 tahun kini sekitar 2,9%, tertinggi dalam 18 tahun dan naik dari sekitar 1,7% sebelum perang.',
+            en: 'To explain the paradox, split the nominal yield into two parts: inflation expectations (breakeven) and the real yield. Since September 8, the 10-year nominal yield has risen about 31 basis points, while the real yield rose about 33 basis points and breakeven inflation stayed nearly flat around 2.3%. In other words, the entire rise in yields came from the real component — the price of money, not inflation fear. The 10-year real yield is now around 2.9%, an 18-year high and up from roughly 1.7% before the war.',
+          },
+          {
+            id: 'Emas tidak memberi bunga. Ketika obligasi pemerintah AS menjanjikan imbal hasil riil hampir 3% per tahun, biaya peluang memegang emas melonjak. Sebagai ilustrasi sederhana, 2,9% dari nilai emas $4.160 setara sekitar $120 per ons per tahun yang "dilepas" pemegang emas. Karena itu minyak $107 tidak menolong: pasar tidak lagi membaca guncangan minyak sebagai inflasi yang dibiarkan, melainkan sebagai alasan the Fed mengetatkan lebih lama — yang mengerek yield riil dan dolar (indeks dolar sekitar 101,2).',
+            en: 'Gold pays no interest. When US government bonds promise a real return near 3% a year, the opportunity cost of holding gold jumps. As a simple illustration, 2.9% of a $4,160 gold position is roughly $120 per ounce per year that gold holders are “giving up”. That is why $107 oil does not help: the market no longer reads the oil shock as inflation being tolerated, but as a reason for the Fed to tighten for longer — which lifts real yields and the dollar (the dollar index sits around 101.2).',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Emas Sempat Melawan, Lalu Retak', en: 'Gold Resisted, Then Cracked' },
+        paragraphs: [
+          {
+            id: 'Ini bukan pertama kalinya yield menguji emas bulan ini. Pada 15 September, yield 10 tahun menembus 5,02% — tertinggi sejak 2007 — tetapi emas bertahan di sekitar $4.278 dan perak nyaris datar. Saat itu pasar memperlakukan kenaikan suku bunga pertama the Fed dalam tiga tahun sebagai guncangan taktis, dengan permintaan bank sentral sebagai lantai.',
+            en: 'This is not the first time yields have tested gold this month. On September 15, the 10-year yield broke through 5.02% — the highest since 2007 — yet gold held near $4,278 and silver was almost flat. At the time, the market treated the Fed’s first hike in three years as a tactical shock, with central-bank demand acting as a floor.',
+          },
+          {
+            id: 'Dua minggu kemudian daya tahan itu menipis: yield riil bertambah lagi, peluang kenaikan Oktober naik, dan emas kehilangan sekitar 3% dalam sehari. Pelajarannya, lantai struktural dari bank sentral bekerja dalam hitungan kuartal, bukan hari. Ia menahan harga dalam jangka panjang, tetapi tidak mencegah koreksi tajam ketika yield riil bergerak cepat.',
+            en: 'Two weeks later that resilience has worn thin: real yields rose again, October hike odds climbed, and gold lost about 3% in a single day. The lesson is that the structural floor from central banks works over quarters, not days. It supports prices over the long run but does not prevent sharp corrections when real yields move fast.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Tiga Skenario Menuju Akhir Pekan', en: 'Three Scenarios Into the Weekend' },
+        paragraphs: [
+          {
+            id: 'Kalender pekan ini kini berfungsi sebagai referendum atas yield riil: JOLTS dan CB Consumer Confidence hari ini, data inflasi PCE pada Rabu (30 September), ISM Manufaktur pada Kamis (1 Oktober), dan laporan tenaga kerja Nonfarm Payrolls pada Jumat (2 Oktober). Data yang lebih panas dari perkiraan akan memperkuat taruhan kenaikan Oktober; data lunak menjadi kesempatan pertama yang nyata bagi peluang itu, dan emas, untuk berbalik.',
+            en: 'This week’s calendar now works as a referendum on real yields: JOLTS and CB Consumer Confidence today, PCE inflation on Wednesday (September 30), ISM Manufacturing on Thursday (October 1), and the Nonfarm Payrolls jobs report on Friday (October 2). Hotter-than-expected data would reinforce bets on an October hike; soft data would be the first real chance for those odds, and gold, to reverse.',
+          },
+          {
+            id: 'Kerangka skenario kami: (1) Panas — PCE atau payrolls kuat, yield riil bertahan di sekitar 2,9% atau lebih, emas berisiko menguji dasar Senin di kisaran $4.130 lalu level psikologis $4.000. (2) Dingin — data melunak, peluang kenaikan Oktober terpangkas, yield riil turun dan emas punya ruang memantul menuju resistance $4.313. (3) Campuran — emas bergerak menyamping menunggu FOMC 27–28 Oktober. Sebagai aturan praktis, bukan hukum, pantau yield TIPS 10 tahun: penurunannya biasanya lebih dulu daripada pemulihan emas.',
+            en: 'Our scenario framework: (1) Hot — strong PCE or payrolls keep the real yield near 2.9% or higher, and gold risks testing Monday’s low around $4,130 and then the psychological $4,000 level. (2) Cold — data softens, October hike odds are trimmed, real yields ease and gold gains room to rebound toward $4,313 resistance. (3) Mixed — gold drifts sideways awaiting the October 27–28 FOMC. As a rule of thumb, not a law, watch the 10-year TIPS yield: its decline usually comes before a recovery in gold.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Implikasi bagi Investor Indonesia', en: 'What It Means for Indonesian Investors' },
+        paragraphs: [
+          {
+            id: 'Yield riil AS yang tinggi adalah pedang bermata dua bagi pembeli rupiah. Ia menekan emas dunia, tetapi juga menguatkan dolar dan mendorong rupiah menembus Rp18.000 per dolar (sekitar Rp18.001 pada 29 September). Karena harga emas domestik adalah harga dunia dikali kurs, rupiah yang lemah meredam sebagian penurunan: Antam 1 gram turun Rp17.000 ke Rp2.580.000, sementara buyback anjlok Rp47.000 ke Rp2.375.000 sehingga spread melebar ke Rp205.000 (sekitar 7,95%).',
+            en: 'High US real yields are a double-edged sword for rupiah buyers. They weigh on world gold, but they also strengthen the dollar and push the rupiah through Rp18,000 per dollar (around Rp18,001 on September 29). Because domestic gold is the world price times the exchange rate, a weak rupiah cushions part of the decline: Antam 1 gram fell Rp17,000 to Rp2,580,000, while buyback plunged Rp47,000 to Rp2,375,000, widening the spread to Rp205,000 (about 7.95%).',
+          },
+          {
+            id: 'Implikasinya: untuk horizon multi-tahun, volatilitas yield riil adalah alasan memecah pembelian menjadi beberapa tahap (DCA) alih-alih menebak dasar, dan spread hampir 8% membuat masuk-keluar cepat sangat mahal. Untuk horizon pendek, kalender data dan yield TIPS di atas adalah instrumen navigasi yang lebih berguna daripada headline minyak.',
+            en: 'The implication: for multi-year horizons, real-yield volatility is a reason to split purchases into stages (DCA) rather than try to call the bottom, and a spread near 8% makes quick in-and-out trades very expensive. For shorter horizons, the data calendar and TIPS yield above are more useful navigation tools than oil headlines.',
+          },
+          {
+            id: 'Artikel ini adalah analisis edukatif, bukan nasihat keuangan personal. Harga emas bisa bergerak tajam dua arah — sesuaikan keputusan dengan profil risiko, horizon investasi, dan kondisi keuangan Anda masing-masing.',
+            en: 'This article is educational analysis, not personalized financial advice. Gold prices can move sharply in either direction — tailor any decision to your own risk profile, investment horizon, and financial situation.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas tidak jatuh karena minyak mahal. Emas jatuh karena uang yang aman kini membayar hampir 3% di atas inflasi.',
+      en: 'Gold isn’t falling because oil is expensive. It’s falling because safe money now pays nearly 3% above inflation.',
+    },
+    callout: 'rates',
+    image: withBase('/article-fed-rates.png'),
+    publishedAt: Date.parse('2026-09-29T15:00:00Z'),
+    readMinutes: 7,
+    author: TEAM,
+  },
+  {
     slug: 'antam-terendah-rupiah-18000',
     category: 'market',
-    featured: true,
     title: {
       id: 'Antam Sentuh Rp2,58 Juta — Terendah Sejak Januari. Saatnya Akumulasi?',
       en: 'Antam Hits Rp2.58M — Lowest Since January. Time to Accumulate?',
