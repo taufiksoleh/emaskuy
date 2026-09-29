@@ -9,6 +9,9 @@ import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { TickerStrip } from '@/components/home/TickerStrip';
 import { HeroBand } from '@/components/home/HeroBand';
 import { ChartPanel } from '@/components/home/ChartPanel';
+import { AiInsightPanel } from '@/components/home/AiInsightPanel';
+import { AlertsPanel } from '@/components/home/AlertsPanel';
+import { AntamPanel } from '@/components/home/AntamPanel';
 import { StatsGrid } from '@/components/home/StatsGrid';
 import { AnalysisPreview } from '@/components/home/AnalysisPreview';
 import { CtaBand } from '@/components/home/CtaBand';
@@ -34,8 +37,8 @@ registerStrings({
   'home.stats.vol30': { id: 'Volatilitas 30 Hari', en: '30d Volatility' },
   'home.chart.title': { id: 'Grafik Harga Emas', en: 'Gold Price Chart' },
   'home.chart.footnote': {
-    id: '7D–1Y: seri harian resmi (NBP) dinormalisasi ke harga live · 1H/24H: tick live dari sesi browser Anda',
-    en: '7D–1Y: official daily series (NBP) normalized to live price · 1H/24H: live ticks from your browser session',
+    id: '7D–1Y: seri harian resmi (NBP) dinormalisasi ke harga live · ALL: histori penuh sejak 2013 · 1H/24H: tick live dari sesi browser Anda',
+    en: '7D–1Y: official daily series (NBP) normalized to live price · ALL: full history since 2013 · 1H/24H: live ticks from your browser session',
   },
   'home.metals.title': { id: 'Perbandingan Multi-Logam', en: 'Multi-Metal Comparison' },
   'home.conv.title': { id: 'Konverter Cepat', en: 'Quick Converter' },
@@ -93,6 +96,11 @@ export default function Home() {
       </AnimatePresence>
       <HeroBand />
       <ChartPanel />
+      <AiInsightPanel />
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 xl:grid-cols-2">
+        <AlertsPanel />
+        <AntamPanel />
+      </div>
       <StatsGrid />
       <AnalysisPreview />
       <div className="mb-8">

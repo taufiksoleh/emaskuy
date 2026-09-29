@@ -7,6 +7,7 @@ import Home from '@/pages/Home';
 import Analysis from '@/pages/Analysis';
 import Article from '@/pages/Article';
 import CalculatorPage from '@/pages/Calculator';
+import Portfolio from '@/pages/Portfolio';
 import About from '@/pages/About';
 
 function ThemedToaster() {
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/analisis" element={<Analysis />} />
             <Route path="/analisis/:slug" element={<Article />} />
             <Route path="/kalkulator" element={<CalculatorPage />} />
+            <Route path="/portofolio" element={<Portfolio />} />
             <Route path="/tentang" element={<About />} />
           </Routes>
         </Layout>

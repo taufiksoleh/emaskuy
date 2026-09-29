@@ -14,7 +14,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Coins, Landmark, LineChart } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { formatTimeUtc } from '@/lib/gold';
+import { formatTimeLocal } from '@/lib/gold';
 import { Badge } from '@/components/ui-atoms/Badge';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { cn } from '@/lib/utils';
@@ -113,7 +113,7 @@ function SourceCard({ source, index }: { source: Source; index: number }) {
             <span className="font-mono text-[11px] text-t3">GET {source.endpoint}</span>
             {index === 0 && gold && gold.updatedAt > 0 && (
               <span className="font-mono text-[11px] tabular text-golddim">
-                {t('about.sources.lastFetched')}: {formatTimeUtc(gold.updatedAt)}
+                {t('about.sources.lastFetched')}: {formatTimeLocal(gold.updatedAt)}
               </span>
             )}
           </div>

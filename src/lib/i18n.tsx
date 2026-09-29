@@ -42,6 +42,7 @@ registerStrings({
   'nav.dashboard': { id: 'Dasbor', en: 'Dashboard' },
   'nav.analysis': { id: 'Analisis', en: 'Analysis' },
   'nav.calculator': { id: 'Kalkulator', en: 'Calculator' },
+  'nav.portfolio': { id: 'Portofolio', en: 'Portfolio' },
   'nav.about': { id: 'Tentang', en: 'About' },
   'common.live': { id: 'LIVE', en: 'LIVE' },
   'common.cached': { id: 'CACHE', en: 'CACHE' },

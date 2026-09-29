@@ -32,7 +32,7 @@ export function ScenarioChart({
 }) {
   const { lang } = useI18n();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(560);
+  const [width, setWidth] = useState(0);
   const height = 220;
   const [progress, setProgress] = useState(1);
   const keyRef = useRef('');
@@ -93,7 +93,7 @@ export function ScenarioChart({
 
   return (
     <div ref={wrapRef} className="w-full select-none">
-      <svg width={width} height={height} className="block">
+      <svg width={width} height={height} className="block max-w-full" style={{ display: width > 0 ? undefined : 'none' }}>
         {yTicks.map((tk, i) => (
           <g key={i}>
             <line x1={PAD.left} x2={width - PAD.right} y1={tk.y} y2={tk.y} stroke="var(--line)" strokeWidth={1} strokeDasharray="2 4" />
