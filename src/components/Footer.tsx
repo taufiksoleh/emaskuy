@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { withBase } from '@/lib/utils';
 
 export function Footer() {
   const { t } = useI18n();
@@ -21,7 +22,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-3 md:px-6">
         <div>
           <div className="flex items-center gap-2.5">
-            <img src="/logo.svg" alt="EmasKuy" className="h-6 w-6" />
+            <img src={withBase('/logo.svg')} alt="EmasKuy" className="h-6 w-6" />
             <span className="font-display text-base font-bold text-t1">EmasKuy</span>
           </div>
           <p className="mt-3 max-w-xs text-sm leading-[1.5] text-t2">{t('footer.tagline')}</p>

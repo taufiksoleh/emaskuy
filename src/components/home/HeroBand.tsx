@@ -17,7 +17,7 @@ import {
   formatNumber,
   xauUsdToIdrGram,
 } from '@/lib/gold';
-import { cn } from '@/lib/utils';
+import { cn, withBase } from '@/lib/utils';
 import { Badge } from '../ui-atoms/Badge';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
 import { SegToggle } from '../ui-atoms/SegToggle';
@@ -104,7 +104,10 @@ export function HeroBand() {
     >
       <div
         className="hero-texture pointer-events-none absolute inset-0 opacity-[0.05]"
-        style={{ backgroundImage: 'url(/home-hero-texture.png)', backgroundSize: '1920px 600px' }}
+        style={{
+          backgroundImage: `url(${withBase('/home-hero-texture.png')})`,
+          backgroundSize: '1920px 600px',
+        }}
         aria-hidden
       />
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-4 px-4 md:px-6 xl:grid-cols-12">

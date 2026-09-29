@@ -6,6 +6,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { withBase } from '@/lib/utils';
 
 export function AboutHero() {
   const { t } = useI18n();
@@ -16,7 +17,7 @@ export function AboutHero() {
     <section className="on-dark relative flex h-[70vh] min-h-[420px] items-center justify-center overflow-hidden">
       {/* Backdrop */}
       <motion.img
-        src="/about-hero.png"
+        src={withBase('/about-hero.png')}
         alt=""
         aria-hidden
         initial={false}

@@ -4,12 +4,13 @@
 import { motion } from 'framer-motion';
 import { Scale, Shield, TrendingUp } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { withBase } from '@/lib/utils';
 import { Panel } from '../ui-atoms/Panel';
 
 export function EduCards() {
   const { t } = useI18n();
   const cards = [
-    { icon: TrendingUp, title: t('calc.edu1.title'), body: t('calc.edu1.body'), img: '/article-dca-strategy.png' },
+    { icon: TrendingUp, title: t('calc.edu1.title'), body: t('calc.edu1.body'), img: withBase('/article-dca-strategy.png') },
     { icon: Scale, title: t('calc.edu2.title'), body: t('calc.edu2.body'), img: null },
     { icon: Shield, title: t('calc.edu3.title'), body: t('calc.edu3.body'), img: null },
   ];
