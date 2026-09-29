@@ -20,24 +20,24 @@ export interface AiInsight {
 }
 
 export const AI_INSIGHT: AiInsight = {
-  generatedAt: Date.parse('2026-09-29T03:00:00Z'),
-  sentiment: 'bearish',
+  generatedAt: Date.parse('2026-09-29T07:00:00Z'),
+  sentiment: 'neutral',
   bullets: [
     {
-      id: 'Tekanan jual berlanjut: emas spot turun 2,95% ke $4.159,92 (terendah intraday $4.139,69) dan futures -3% — reli minyak memperkuat ekspektasi kenaikan Fed Oktober. Total penurunan sebulan kini 6,65%.',
-      en: 'Selling pressure continues: spot gold fell 2.95% to $4,159.92 (intraday low $4,139.69) and futures dropped 3% — rising oil is strengthening expectations of an October Fed hike. The monthly decline now totals 6.65%.',
+      id: 'Emas spot memantul +1,1% ke sekitar $4.163 setelah menyentuh level terendah sekitar dua bulan pada Senin. Pemicunya pembeli yang masuk saat harga murah dan premium Shanghai tertinggi dalam 3 bulan menjelang libur Golden Week China.',
+      en: 'Spot gold bounced 1.1% to around $4,163 after hitting a roughly two-month low on Monday, on bargain buying and the highest Shanghai premium in 3 months ahead of China’s Golden Week holiday.',
     },
     {
-      id: 'Katalis hari ini: rilis JOLTS dan CB Consumer Confidence (29 Sep). Data pasar tenaga kerja yang masih ketat bisa membawa emas menembus support $4.157 menuju $4.000; data lemah membuka pantulan ke $4.313.',
-      en: 'Today\u2019s catalysts: JOLTS and CB Consumer Confidence (Sep 29). Still-tight labor data could push gold through $4,157 support toward $4,000; weak data opens a rebound to $4,313.',
+      id: 'Tekanan utama belum hilang: minyak di atas $100 (usulan Iran membuka Selat Hormuz ditolak AS) menjaga risiko inflasi, dan peluang kenaikan Fed Oktober dipatok mendekati 70% setelah kenaikan 25 bps ke 3,75–4,00% pada 16 Sep. Yield tinggi membatasi pantulan emas.',
+      en: 'The main pressure has not gone away: oil above $100 (Washington rejected Iran’s offer to reopen the Strait of Hormuz) keeps inflation risk alive, and odds of an October Fed hike are near 70% after the 25 bp hike to 3.75–4.00% on Sep 16. High yields cap the rebound.',
     },
     {
-      id: 'Antam turun Rp17.000 ke Rp2.580.000 — terendah sejak Januari 2026. Namun rupiah yang melemah mendekati Rp18.000/USD menahan sebagian penurunan: versi rupiah jatuh lebih dangkal daripada versi dolar.',
-      en: 'Antam fell Rp17,000 to Rp2,580,000 — the lowest since January 2026. But a rupiah weakening toward Rp18,000/USD cushioned part of the drop: the rupiah-denominated decline is shallower than the dollar one.',
+      id: 'Antam bertahan di Rp2.580.000/gram (turun Rp17.000), sementara buyback anjlok Rp47.000 ke Rp2.375.000. Rupiah yang menembus Rp18.000/USD menahan sebagian penurunan harga emas dalam rupiah.',
+      en: 'Antam holds at Rp2,580,000/gram (down Rp17,000) while buyback dropped Rp47,000 to Rp2,375,000. A rupiah breaking through Rp18,000/USD cushions part of the fall in rupiah-denominated gold.',
     },
     {
-      id: 'Spread jual–buyback Antam melebar ke Rp205.000 — biaya transaksi naik saat pasar volatile. Ini saatnya akumulasi bertahap (DCA), bukan jual cepat yang terkunci rugi spread.',
-      en: 'Antam\u2019s sell–buyback spread widened to Rp205,000 — transaction costs rise in volatile markets. This is a time for gradual accumulation (DCA), not quick sells locked into the spread loss.',
+      id: 'Spread jual–buyback Antam Rp205.000 (7,95%) — biaya transaksi tinggi di pasar yang volatile. Cocok untuk akumulasi bertahap (DCA), bukan jual cepat. Pantau data JOLTS dan CB Consumer Confidence hari ini serta support sekitar $4.140.',
+      en: 'Antam’s sell–buyback spread is Rp205,000 (7.95%) — high transaction costs in a volatile market. Suited to gradual accumulation (DCA), not quick sells. Watch today’s JOLTS and CB Consumer Confidence data and support near $4,140.',
     },
   ],
 };
