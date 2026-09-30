@@ -208,7 +208,7 @@ export default function CalculatorPage() {
       >
         {/* mobile: results first */}
         <div className="order-1 min-w-0 lg:order-2 lg:col-span-7">
-          {result && (
+          {result ? (
             <ResultsPanel
               result={result}
               currency={currency}
@@ -217,6 +217,9 @@ export default function CalculatorPage() {
               shareText={shareText}
               onReset={reset}
             />
+          ) : (
+            // Placeholder until the live price arrives, so the results don't push the form down.
+            <div aria-hidden className="skeleton-shimmer h-[900px] rounded-[10px] lg:h-[1000px]" />
           )}
         </div>
         <div className="order-2 min-w-0 lg:order-1 lg:col-span-5">

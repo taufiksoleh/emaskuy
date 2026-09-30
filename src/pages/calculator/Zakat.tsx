@@ -19,6 +19,7 @@ import { loadHoldings, summarize } from '@/lib/portfolio';
 import { NISAB_GRAMS, computeZakat } from '@/lib/zakat';
 import { buildResultText } from '@/lib/share';
 import { WhatsAppButton } from '@/components/share/WhatsAppButton';
+import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { cn, fill } from '@/lib/utils';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { MoneyInput } from '@/components/ui-atoms/MoneyInput';
@@ -140,6 +141,7 @@ export default function ZakatPage() {
   const kadarPct = parseAmount(kadarRaw, lang);
   const kadarInvalid = !Number.isFinite(kadarPct) || kadarPct <= 0 || kadarPct > 100;
   const { perGram, status } = useGramPrice(basis, currency, num(manualRaw));
+  const { loading } = useGoldPrice();
 
   const r = computeZakat({
     investGrams: num(investRaw),
@@ -209,7 +211,8 @@ export default function ZakatPage() {
                   label={t('zakat.totalPure')}
                   value={r.pureGrams}
                   format={(v) => `${grams(v)} gr`}
-                  sub={r.totalValue !== null ? money(r.totalValue) : undefined}
+                  // The value line is reserved while the price loads, so the card doesn't grow.
+                  sub={r.totalValue !== null ? money(r.totalValue) : <span className="invisible">—</span>}
                 />
                 <StatCard
                   label={t('zakat.nisabToday')}
@@ -238,7 +241,7 @@ export default function ZakatPage() {
                 </div>
               </div>
 
-              {perGram === null && <p className="text-xs text-t3">{t('zakat.noPrice')}</p>}
+              {perGram === null && !loading && <p className="text-xs text-t3">{t('zakat.noPrice')}</p>}
 
               <WhatsAppButton
                 className="self-start"

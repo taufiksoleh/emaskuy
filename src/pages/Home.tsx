@@ -2,10 +2,10 @@
  * Page: Dashboard (Home) — `/`  (design home.md)
  */
 import { lazy, Suspense, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { useIdleAfterPaint } from '@/hooks/useIdleAfterPaint';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { TickerStrip } from '@/components/home/TickerStrip';
 import { HeroBand } from '@/components/home/HeroBand';
@@ -15,7 +15,7 @@ import { AntamPanel } from '@/components/home/AntamPanel';
 import { StatsGrid } from '@/components/home/StatsGrid';
 import { CtaBand } from '@/components/home/CtaBand';
 
-// lightweight-charts is the heaviest dependency; keep it off the first paint.
+// lightweight-charts is the heaviest dependency; it loads after the first paint.
 const ChartPanel = lazy(() => import('@/components/home/ChartPanel').then((m) => ({ default: m.ChartPanel })));
 
 // Below the fold; also keeps the article texts out of the main bundle.
@@ -81,37 +81,29 @@ export default function Home() {
   const { status, loading } = useGoldPrice();
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const showBanner = !loading && status === 'offline' && !bannerDismissed;
+  // The hero paints first; the chart and article chunks load right after.
+  const afterPaint = useIdleAfterPaint();
 
   return (
     <>
       <TickerStrip />
-      <AnimatePresence>
-        {showBanner && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden border-b border-hairline bg-bg2"
-          >
-            <div className="mx-auto flex max-w-[1440px] items-center gap-2 px-4 py-2 md:px-6">
-              <span className="h-2 w-2 rounded-full bg-down" />
-              <span className="text-xs text-t2">{t('common.offlineBanner')}</span>
-              <button
-                onClick={() => setBannerDismissed(true)}
-                aria-label="Dismiss"
-                className="ml-auto cursor-pointer text-t3 transition-colors hover:text-t1"
-              >
-                <X className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showBanner && (
+        <div className="fade-in-down overflow-hidden border-b border-hairline bg-bg2">
+          <div className="mx-auto flex max-w-[1440px] items-center gap-2 px-4 py-2 md:px-6">
+            <span className="h-2 w-2 rounded-full bg-down" />
+            <span className="text-xs text-t2">{t('common.offlineBanner')}</span>
+            <button
+              onClick={() => setBannerDismissed(true)}
+              aria-label="Dismiss"
+              className="ml-auto cursor-pointer text-t3 transition-colors hover:text-t1"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+      )}
       <HeroBand />
-      <Suspense fallback={<ChartFallback />}>
-        <ChartPanel />
-      </Suspense>
+      <Suspense fallback={<ChartFallback />}>{afterPaint ? <ChartPanel /> : <ChartFallback />}</Suspense>
       {/* The panels center themselves with mx-auto, which would size a grid item to its content. */}
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 xl:grid-cols-2 [&>*]:w-full">
         <AiInsightPanel />
@@ -119,9 +111,7 @@ export default function Home() {
       </div>
       <AntamPanel />
       <StatsGrid />
-      <Suspense fallback={null}>
-        <AnalysisPreview />
-      </Suspense>
+      <Suspense fallback={null}>{afterPaint && <AnalysisPreview />}</Suspense>
       <div className="mb-8">
         <CtaBand />
       </div>

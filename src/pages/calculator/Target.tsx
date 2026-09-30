@@ -160,16 +160,20 @@ export default function TargetPage() {
                 />
                 <StatCard label={t('target.futurePrice')} value={plan.futurePrice} format={money} />
               </div>
-              {projection && (
-                <div>
-                  <div className="label-micro mb-2">{t('target.chart')}</div>
+              <div>
+                <div className="label-micro mb-2">{t('target.chart')}</div>
+                {projection ? (
                   <ProjectionChart points={projection.monthly} years={months / 12} currency={currency} />
-                </div>
-              )}
+                ) : (
+                  // Legend + 300px chart, until the price is known.
+                  <div aria-hidden className="skeleton-shimmer h-[328px] rounded-lg" />
+                )}
+              </div>
               <p className="flex gap-2 text-[12px] leading-relaxed text-t3">
                 <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
                 {t('target.note')}
               </p>
+              {perGram === null && <div aria-hidden className="h-[38px]" />}
               {perGram !== null && targetGrams > 0 && (
                 <WhatsAppButton
                   className="self-start"

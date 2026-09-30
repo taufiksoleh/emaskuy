@@ -1,6 +1,7 @@
 /**
  * DeltaChip — pill with mono font, colored bg at 12% opacity of up/down,
- * colored text (design.md §9).
+ * colored text (design.md §9) nudged toward the theme's text color so it
+ * keeps ≥4.5:1 contrast on the tint in both themes.
  */
 import { TrendingDown, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -33,7 +34,9 @@ export function DeltaChip({ value, prefix, size = 'md', className, formatOpts }:
         backgroundColor: positive
           ? 'color-mix(in srgb, var(--up) 12%, transparent)'
           : 'color-mix(in srgb, var(--down) 12%, transparent)',
-        color: positive ? 'var(--up)' : 'var(--down)',
+        color: positive
+          ? 'color-mix(in srgb, var(--up) 80%, var(--text-1))'
+          : 'color-mix(in srgb, var(--down) 80%, var(--text-1))',
       }}
     >
       <Icon className={size === 'lg' ? 'h-3.5 w-3.5' : 'h-3 w-3'} strokeWidth={2.5} />

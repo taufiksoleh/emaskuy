@@ -1,8 +1,7 @@
 /**
  * Section 1 — Hero price band: main price panel (glow) + 2×2 quick stats.
  */
-import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { RefreshCw } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { antamOneGram, useAntam } from '@/lib/antam';
@@ -32,7 +31,6 @@ registerStrings({
   'share.last30': { id: '30 hari terakhir', en: 'Last 30 days' },
 });
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function HeroBand() {
   const { lang, t } = useI18n();
@@ -52,10 +50,11 @@ export function HeroBand() {
   // Auto-fit the big numeral: estimate width from the FINAL string
   // (tabular chars ≈ 0.64em) so sizing never depends on the count-up
   // animation frame. IDR/gr strings are much longer than USD/oz, so a
-  // fixed clamp() overflows on small screens.
+  // fixed clamp() overflows on small screens. Measured before paint, so the
+  // numeral never shows at a wrong size first.
   const numRef = useRef<HTMLDivElement>(null);
   const finalText = display > 0 ? fmt(display) : '—';
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = numRef.current;
     if (!el) return;
     const fit = () => {
@@ -155,11 +154,7 @@ export function HeroBand() {
     >
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-4 px-4 md:px-6 xl:grid-cols-12">
         {/* Main price panel (7 cols, glow) */}
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.45, ease }}
-          className="panel-glow rounded-[10px] border border-hairline bg-bg1 p-5 md:p-6 xl:col-span-7"
+        <div className="panel-glow rounded-[10px] border border-hairline bg-bg1 p-5 md:p-6 xl:col-span-7"
         >
           {/* Row 1 */}
           <div className="flex flex-wrap items-center gap-3">
@@ -170,20 +165,21 @@ export function HeroBand() {
             </div>
           </div>
 
-          {/* Row 2: the number */}
+          {/* Row 2: the number. The row keeps the numeral's largest size
+              (see fit above) so the price arriving doesn't move the page. */}
           <div
             className={cn(
-              'mt-3 rounded-lg px-1 -mx-1',
+              'mt-3 flex h-[52px] items-center rounded-lg px-1 -mx-1 md:h-[76px] xl:h-[96px]',
               flash === 'up' && 'tick-up',
               flash === 'down' && 'tick-down',
             )}
           >
             {loading ? (
-              <div className="skeleton-shimmer h-16 w-72 rounded-lg md:h-24" />
+              <div className="skeleton-shimmer h-full w-72 rounded-lg" />
             ) : (
               <div
                 ref={numRef}
-                className="text-gold-gradient font-mono font-bold tabular leading-none whitespace-nowrap"
+                className="text-gold-gradient w-full font-mono font-bold tabular leading-none whitespace-nowrap"
               >
                 {display > 0 ? fmt(shown) : '—'}
               </div>
@@ -191,7 +187,7 @@ export function HeroBand() {
           </div>
 
           {/* Row 3: delta + range */}
-          <div className="mt-4 flex flex-wrap items-center gap-3">
+          <div className="mt-4 flex min-h-7 flex-wrap items-center gap-3">
             {gold && (
               <DeltaChip
                 value={change.pct}
@@ -213,15 +209,13 @@ export function HeroBand() {
           {/* Row 4: meta + refresh */}
           <div className="mt-4 flex items-center gap-2 border-t border-hairline pt-4 font-mono text-[13px] tabular text-t3">
             <span className="min-w-0 flex-1 leading-relaxed">
-              {CURRENCY[d.currency].name[lang]}, {perUnit} · {t('home.hero.source')}: gold-api.com
-              {lastUpdated > 0 && (
-                <>
-                  {' '}
-                  · {t('home.hero.updated')} {formatClockZone(lastUpdated, lang, { seconds: true })}
-                </>
-              )}
+              {CURRENCY[d.currency].name[lang]}, {perUnit} · {t('home.hero.source')}: gold-api.com{' '}
+              {/* Hidden until the first update; same width either way (mono digits). */}
+              <span className={cn(lastUpdated === 0 && 'invisible')}>
+                · {t('home.hero.updated')} {formatClockZone(lastUpdated, lang, { seconds: true })}
+              </span>
             </span>
-            {price > 0 && <ShareDialog build={buildShare} filename="harga-emas-emaskuy" className="ml-auto" />}
+            <ShareDialog build={buildShare} filename="harga-emas-emaskuy" className="ml-auto" disabled={price <= 0} />
             <button
               onClick={() => refetch()}
               aria-label={t('home.hero.refresh')}
@@ -230,11 +224,11 @@ export function HeroBand() {
               <RefreshCw className={cn('h-3.5 w-3.5', refetching && 'spin-once')} />
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Quick stats (5 cols, 2×2) */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-5">
-          <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45, ease, delay: 0.08 }}>
+          <div>
             <StatCard
               className="h-full"
               label={t('home.stats.gramIdr')}
@@ -242,8 +236,8 @@ export function HeroBand() {
               format={(v) => (v > 0 ? formatIdr(v, lang) : '—')}
               delta={gramChange.pct}
             />
-          </motion.div>
-          <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45, ease, delay: 0.16 }}>
+          </div>
+          <div>
             <StatCard
               className="h-full"
               label={fill(t('home.stats.usdRate'), { cur: fxCurrency })}
@@ -251,24 +245,24 @@ export function HeroBand() {
               format={(v) => (v > 0 ? formatNumber(v, lang, { decimals: v >= 100 ? 0 : 4 }) : '—')}
               sub={t('home.stats.fxSource')}
             />
-          </motion.div>
-          <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45, ease, delay: 0.24 }}>
+          </div>
+          <div>
             <StatCard
               className="h-full"
               label={t('home.stats.change24')}
               value={change.pct}
               format={(v) => formatPct(v, lang)}
               sub={
-                gold &&
-                change.abs !== 0 && (
-                  <span style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}>
-                    {formatAbs(Math.abs(change.abs))}
-                  </span>
-                )
+                <span
+                  className={cn(!(gold && change.abs !== 0) && 'invisible')}
+                  style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}
+                >
+                  {formatAbs(Math.abs(change.abs))}
+                </span>
               }
             />
-          </motion.div>
-          <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45, ease, delay: 0.32 }}>
+          </div>
+          <div>
             <StatCard
               className="h-full"
               label={t('home.stats.change30')}
@@ -276,7 +270,7 @@ export function HeroBand() {
               format={(v) => formatPct(v, lang)}
               sparkline={spark30.length > 1 ? <Sparkline data={spark30} width={72} height={24} /> : undefined}
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

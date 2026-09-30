@@ -2,14 +2,13 @@
  * Section 4 — Latest analysis preview: featured card + 2 compact cards.
  */
 import { Link } from 'react-router';
-import { motion } from 'framer-motion';
+import { Reveal } from '../ui-atoms/Reveal';
 import { ArrowRight } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { pathFor } from '@/lib/routes';
 import { sortedArticles } from '@/data/articles';
 import { ArticleCard } from '../ui-atoms/ArticleCard';
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function AnalysisPreview() {
   const { lang, t } = useI18n();
@@ -31,26 +30,14 @@ export function AnalysisPreview() {
       </div>
 
       <div className="mt-5 grid grid-cols-1 gap-4 xl:grid-cols-12">
-        <motion.div
-          initial={{ y: 32, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease }}
-          className="xl:col-span-5"
-        >
+        <Reveal y={32} amount={0.2} duration={0.5} className="xl:col-span-5">
           {featured && <ArticleCard article={featured} variant="featured" className="h-full" />}
-        </motion.div>
+        </Reveal>
         <div className="flex flex-col gap-4 xl:col-span-7">
           {rest.slice(0, 2).map((a, i) => (
-            <motion.div
-              key={a.slug}
-              initial={{ y: 24, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, ease, delay: 0.1 + i * 0.1 }}
-            >
+            <Reveal key={a.slug} amount={0.2} delay={0.1 + i * 0.1}>
               <ArticleCard article={a} variant="compact" />
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
