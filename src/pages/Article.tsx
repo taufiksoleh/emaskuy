@@ -272,9 +272,13 @@ export default function Article() {
       </div>
 
       <div className="mx-auto max-w-[1440px] px-4 md:px-6">
-        <div className="xl:grid xl:grid-cols-[220px_minmax(0,720px)_1fr] xl:gap-10">
+        {/* Sticky rail needs a containing block as tall as the whole
+            article (header + hero + body), not just the header — so it
+            shares this flex row with everything else instead of a grid
+            row scoped to the header alone. */}
+        <div className="xl:flex xl:gap-10">
           {/* Sticky side rail (desktop ≥1280px) */}
-          <aside className="hidden pt-10 xl:block">
+          <aside className="hidden pt-10 xl:block xl:w-[220px] xl:shrink-0">
             <div className="sticky top-24 flex flex-col gap-4">
               <MiniLivePrice className="w-full justify-between" />
               <div>
@@ -303,8 +307,12 @@ export default function Article() {
             </div>
           </aside>
 
-          {/* Article column */}
-          <article className="max-w-[720px]">
+          {/* Content column: header + hero + body together, so this column's
+              height spans the full article — giving the sticky aside room
+              to track scroll all the way down, not just past the header. */}
+          <div className="min-w-0 flex-1">
+            {/* Article header */}
+            <article className="max-w-[720px]">
             <Link
               to={pathFor('analysis', lang)}
               className="mt-6 inline-flex items-center gap-2 rounded-lg px-2 py-1 text-sm text-t2 transition-colors hover:text-gold"
@@ -328,83 +336,83 @@ export default function Article() {
               ))}
             </h1>
             <div className="mt-4 font-mono text-[13px] tabular text-t3">{meta}</div>
-          </article>
-          <div className="hidden xl:block" />
-        </div>
+            </article>
 
-        {/* Full-bleed hero with parallax + bottom gradient */}
-        <div className="relative mx-auto mt-8 aspect-video max-w-[1100px] overflow-hidden rounded-[10px] border border-hairline">
-          <Img
-            ref={heroImgRef}
-            src={article.image}
-            sizes="(min-width: 1100px) 1100px, 100vw"
-            alt={article.title[lang]}
-            fetchPriority="high"
-            className="h-full w-full object-cover"
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-            style={{ background: 'linear-gradient(180deg, transparent, var(--bg-0))' }}
-          />
-        </div>
-
-        {/* Body + footer */}
-        <div className="mx-auto max-w-[720px] pb-4">
-          {bodyBlocks}
-
-          {/* Share row + author */}
-          <div data-reveal className="mt-12 border-t border-hairline pt-6">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <div className="font-display text-sm font-semibold text-t1">
-                  {article.author[lang]}
-                </div>
-                <div className="mt-0.5 font-mono text-[13px] tabular text-t3">
-                  {formatDate(article.publishedAt, lang)}
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="label-micro mr-1">{t('art.share')}</span>
-                <a
-                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="X"
-                  className="rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
-                <button
-                  onClick={copyLink}
-                  aria-label={t('art.copy')}
-                  className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold"
-                >
-                  {copied ? <Check className="h-4 w-4 text-up" /> : <Link2 className="h-4 w-4" />}
-                </button>
-                <a
-                  href={waLink(`*${shareText}*\n${url}`)}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="WhatsApp"
-                  className="rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                </a>
-              </div>
+            {/* Full-bleed hero with parallax + bottom gradient */}
+            <div className="relative mx-auto mt-8 aspect-video max-w-[1100px] overflow-hidden rounded-[10px] border border-hairline">
+              <Img
+                ref={heroImgRef}
+                src={article.image}
+                sizes="(min-width: 1100px) 1100px, 100vw"
+                alt={article.title[lang]}
+                fetchPriority="high"
+                className="h-full w-full object-cover"
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+                style={{ background: 'linear-gradient(180deg, transparent, var(--bg-0))' }}
+              />
             </div>
-          </div>
 
-          {/* Related articles */}
-          <div className="mt-10">
-            <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-t1">
-              {t('art.related')}
-            </h3>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              {related.map((a) => (
-                <div key={a.slug} data-related>
-                  <ArticleCard article={a} variant="featured" className="h-full" />
+            {/* Body + footer */}
+            <div className="mx-auto max-w-[720px] pb-4">
+              {bodyBlocks}
+
+              {/* Share row + author */}
+              <div data-reveal className="mt-12 border-t border-hairline pt-6">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <div className="font-display text-sm font-semibold text-t1">
+                      {article.author[lang]}
+                    </div>
+                    <div className="mt-0.5 font-mono text-[13px] tabular text-t3">
+                      {formatDate(article.publishedAt, lang)}
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="label-micro mr-1">{t('art.share')}</span>
+                    <a
+                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="X"
+                      className="rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold"
+                    >
+                      <Twitter className="h-4 w-4" />
+                    </a>
+                    <button
+                      onClick={copyLink}
+                      aria-label={t('art.copy')}
+                      className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold"
+                    >
+                      {copied ? <Check className="h-4 w-4 text-up" /> : <Link2 className="h-4 w-4" />}
+                    </button>
+                    <a
+                      href={waLink(`*${shareText}*\n${url}`)}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="WhatsApp"
+                      className="rounded-lg border border-hairline bg-bg2 p-2 text-t2 transition-colors hover:border-goldline hover:text-gold"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Related articles */}
+              <div className="mt-10">
+                <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-t1">
+                  {t('art.related')}
+                </h3>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {related.map((a) => (
+                    <div key={a.slug} data-related>
+                      <ArticleCard article={a} variant="featured" className="h-full" />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
