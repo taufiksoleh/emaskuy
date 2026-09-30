@@ -18,7 +18,7 @@
     --down: #ef4444;
     --text-1: #f2f4f8;
     --text-2: #9aa3b2;
-    --text-3: #5b6474;
+    --text-3: #808a9b;
     --info: #5ac8fa;
 
     /* shadcn/ui token bridge (dark EmasKuy theme) */
@@ -53,14 +53,14 @@
     --bg-3: #eae7dd;
     --line: #e3e0d6;
     --line-gold: #d3b978;
-    --gold: #9a6a08;
+    --gold: #875c06;
     --gold-bright: #b8860b;
     --gold-dim: #8a6d2f;
     --up: #15803d;
     --down: #dc2626;
     --text-1: #171a21;
     --text-2: #4a5261;
-    --text-3: #6b7383;
+    --text-3: #5f6776;
     --info: #0369a1;
 
     /* shadcn/ui token bridge (light) */
@@ -107,7 +107,7 @@
   body {
     background-color: var(--bg-0);
     color: var(--text-1);
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Inter Variable", "Inter", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -137,7 +137,7 @@
 @layer components {
   /* Micro all-caps label (design.md §3 "Label") */
   .label-micro {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk Variable", "Space Grotesk", sans-serif;
     font-size: 11px;
     font-weight: 600;
     line-height: 1.3;
@@ -161,10 +161,6 @@
   }
 
   /* The hero texture is dark editorial imagery — hide it in light mode. */
-  :root[data-theme='light'] .hero-texture {
-    display: none;
-  }
-
   /* Theme toggle icon swap (rotate + fade); disabled by reduced-motion below */
   .theme-icon-swap {
     transition: transform 200ms ease, opacity 200ms ease;

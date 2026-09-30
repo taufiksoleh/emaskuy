@@ -16,11 +16,12 @@ import { ArrowLeft, Check, Link2, Twitter, MessageCircle } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { copyText } from '@/lib/clipboard';
 import { waLink } from '@/lib/share';
-import { ROUTE_META, fullTitle, localize } from '@/lib/seo';
+import { ROUTE_META, articleHead, articlePath, absoluteUrl, localize } from '@/lib/seo';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { getArticle, relatedArticles } from '@/data/articles';
 import { formatDate } from '@/lib/gold';
 import { ArticleCard } from '@/components/ui-atoms/ArticleCard';
+import { Img } from '@/components/ui-atoms/Img';
 import { MiniLivePrice } from '@/components/analysis/MiniLivePrice';
 import { LiveCallout } from '@/components/analysis/LiveCallout';
 import { cn } from '@/lib/utils';
@@ -43,11 +44,7 @@ export default function Article() {
   const [searchParams] = useSearchParams();
   const article = getArticle(slug ?? searchParams.get('slug') ?? '');
   const { lang, t } = useI18n();
-  useDocumentMeta(
-    article
-      ? { title: fullTitle(article.title[lang]), description: article.excerpt[lang] }
-      : localize(ROUTE_META.notFound, lang),
-  );
+  useDocumentMeta(article ? articleHead(article, lang) : localize(ROUTE_META.notFound, lang));
   const rootRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLImageElement>(null);
@@ -59,6 +56,10 @@ export default function Article() {
 
   /* Lenis smooth scroll, synced to ScrollTrigger */
   useEffect(() => {
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo(0, 0);
+      return;
+    }
     const lenis = new Lenis({ duration: 1.1 });
     lenisRef.current = lenis;
     lenis.on('scroll', ScrollTrigger.update);
@@ -88,6 +89,8 @@ export default function Article() {
           },
         );
       }
+      // The reading-progress bar is functional; the rest is decoration.
+      if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
       if (heroImgRef.current) {
         gsap.fromTo(
           heroImgRef.current,
@@ -186,7 +189,8 @@ export default function Article() {
     lang === 'id' ? 'mnt baca' : 'min read'
   } · ${article.author[lang]}`;
 
-  const url = typeof window !== 'undefined' ? window.location.href : '';
+  // Share the canonical address, not whatever query string brought us here.
+  const url = absoluteUrl(articlePath(article.slug));
   const shareText = article.title[lang];
   const copyLink = async () => {
     if (!(await copyText(url))) {
@@ -260,7 +264,9 @@ export default function Article() {
                     <button
                       key={i}
                       onClick={() =>
-                        lenisRef.current?.scrollTo(`#sec-${i}`, { duration: 0.8, offset: -88 })
+                        lenisRef.current
+                          ? lenisRef.current.scrollTo(`#sec-${i}`, { duration: 0.8, offset: -88 })
+                          : document.getElementById(`sec-${i}`)?.scrollIntoView()
                       }
                       className={cn(
                         'cursor-pointer border-l-2 py-1.5 pl-3 text-left text-[13px] leading-snug transition-colors duration-150',
@@ -308,10 +314,12 @@ export default function Article() {
 
         {/* Full-bleed hero with parallax + bottom gradient */}
         <div className="relative mx-auto mt-8 aspect-video max-w-[1100px] overflow-hidden rounded-[10px] border border-hairline">
-          <img
+          <Img
             ref={heroImgRef}
             src={article.image}
+            sizes="(min-width: 1100px) 1100px, 100vw"
             alt={article.title[lang]}
+            fetchPriority="high"
             className="h-full w-full object-cover"
           />
           <div

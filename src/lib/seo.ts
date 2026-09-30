@@ -1,27 +1,40 @@
 /**
- * EmasKuy — per-route titles and descriptions (ID/EN).
+ * EmasKuy — per-route titles, descriptions and link-preview data (ID/EN).
  *
- * One registry feeds the browser tab title and meta tags at runtime
- * (useDocumentMeta). Keep titles close to what people search for:
- * "harga emas hari ini", "kalkulator investasi emas", …
+ * One registry feeds both the build-time prerendered HTML of every route
+ * (src/seo/prerender.ts) and the runtime tags (useDocumentMeta). Keep
+ * titles close to what people search for: "harga emas hari ini",
+ * "kalkulator zakat emas", …
  */
-import type { Lang } from './i18n';
+import type { Article } from '@/data/articles';
+import { ogImagePath } from './img';
+import type { Lang } from './strings';
 
 export const SITE_NAME = 'EmasKuy';
+export const SITE_URL = 'https://emaskuy.com';
+const DEFAULT_OG_IMAGE = '/og-cover.png';
 
 export interface L10n {
   id: string;
   en: string;
 }
 
+/** What kind of structured data the page gets. */
+export type PageKind = 'home' | 'collection' | 'app' | 'faq' | 'none';
+
 export interface PageMeta {
   title: L10n;
   description: L10n;
+  /** Route path; absent for pages that are never prerendered */
+  path?: string;
+  kind?: PageKind;
   noindex?: boolean;
 }
 
-export const ROUTE_META = {
+const ROUTES = {
   home: {
+    path: '/',
+    kind: 'home',
     title: {
       id: 'Harga Emas Hari Ini: Live per Gram, Antam & Grafik',
       en: 'Gold Price Today: Live per Gram, Antam & Charts',
@@ -32,6 +45,8 @@ export const ROUTE_META = {
     },
   },
   analysis: {
+    path: '/analisis',
+    kind: 'collection',
     title: {
       id: 'Analisis Harga Emas Terbaru & Prediksi Pasar',
       en: 'Latest Gold Price Analysis & Market Outlook',
@@ -42,6 +57,8 @@ export const ROUTE_META = {
     },
   },
   calculator: {
+    path: '/kalkulator',
+    kind: 'app',
     title: {
       id: 'Kalkulator Investasi Emas: Simulasi DCA & Lump Sum',
       en: 'Gold Investment Calculator: DCA & Lump-Sum Simulator',
@@ -52,6 +69,8 @@ export const ROUTE_META = {
     },
   },
   calcZakat: {
+    path: '/kalkulator/zakat',
+    kind: 'app',
     title: {
       id: `Kalkulator Zakat Emas ${new Date().getFullYear()}: Nisab 85 Gram`,
       en: `Gold Zakat Calculator ${new Date().getFullYear()}: 85-Gram Nisab`,
@@ -62,6 +81,8 @@ export const ROUTE_META = {
     },
   },
   calcJewelry: {
+    path: '/kalkulator/perhiasan',
+    kind: 'app',
     title: {
       id: 'Kalkulator Harga Emas Perhiasan per Gram (Karat & Kadar)',
       en: 'Gold Jewelry Value Calculator by Karat & Purity',
@@ -72,6 +93,8 @@ export const ROUTE_META = {
     },
   },
   calcTarget: {
+    path: '/kalkulator/target',
+    kind: 'app',
     title: {
       id: 'Kalkulator Target Tabungan Emas: Mahar, Umrah, Pendidikan',
       en: 'Gold Savings Target Calculator',
@@ -82,6 +105,8 @@ export const ROUTE_META = {
     },
   },
   portfolio: {
+    path: '/portofolio',
+    kind: 'app',
     title: {
       id: 'Portofolio Emas: Catat Pembelian & Untung Rugi',
       en: 'Gold Portfolio: Track Purchases and Profit/Loss',
@@ -92,6 +117,8 @@ export const ROUTE_META = {
     },
   },
   about: {
+    path: '/tentang',
+    kind: 'faq',
     title: {
       id: 'Tentang EmasKuy: Sumber Data & Metodologi',
       en: 'About EmasKuy: Data Sources & Methodology',
@@ -111,16 +138,63 @@ export const ROUTE_META = {
   },
 } satisfies Record<string, PageMeta>;
 
-export type RouteKey = keyof typeof ROUTE_META;
+export type RouteKey = keyof typeof ROUTES;
+export const ROUTE_META: Record<RouteKey, PageMeta> = ROUTES;
+
+/** Routes written as static HTML at build time, in sitemap order. */
+export const PRERENDERED_ROUTES: RouteKey[] = [
+  'home',
+  'analysis',
+  'calculator',
+  'calcZakat',
+  'calcJewelry',
+  'calcTarget',
+  'portfolio',
+  'about',
+];
 
 export function fullTitle(title: string): string {
   return `${title} | ${SITE_NAME}`;
 }
 
-export function localize(meta: PageMeta, lang: Lang) {
+export function absoluteUrl(path: string): string {
+  return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+}
+
+/** Everything that goes into <head> for one page. */
+export interface HeadData {
+  title: string;
+  description: string;
+  /** Absolute URL, no trailing slash except the root */
+  canonical?: string;
+  /** Absolute URL */
+  ogImage: string;
+  ogType: 'website' | 'article';
+  noindex: boolean;
+}
+
+export function localize(meta: PageMeta, lang: Lang): HeadData {
   return {
     title: fullTitle(meta.title[lang]),
     description: meta.description[lang],
+    canonical: meta.path ? absoluteUrl(meta.path) : undefined,
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    ogType: 'website',
     noindex: meta.noindex ?? false,
+  };
+}
+
+export function articlePath(slug: string): string {
+  return `/analisis/${slug}`;
+}
+
+export function articleHead(article: Article, lang: Lang): HeadData {
+  return {
+    title: fullTitle(article.title[lang]),
+    description: article.excerpt[lang],
+    canonical: absoluteUrl(articlePath(article.slug)),
+    ogImage: absoluteUrl(ogImagePath(article.image) ?? DEFAULT_OG_IMAGE),
+    ogType: 'article',
+    noindex: false,
   };
 }

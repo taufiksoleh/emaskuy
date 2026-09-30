@@ -17,6 +17,7 @@ import { Badge } from '@/components/ui-atoms/Badge';
 import { MiniLivePrice } from '@/components/analysis/MiniLivePrice';
 import { Newsletter } from '@/components/analysis/Newsletter';
 import { newsletterEnabled } from '@/lib/newsletter';
+import { WebpSource } from '@/components/ui-atoms/Img';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 
 registerStrings({
@@ -141,9 +142,11 @@ export default function Analysis() {
             <label className="relative">
               <Search className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-t3" />
               <input
+                type="search"
                 value={rawQuery}
                 onChange={(e) => setRawQuery(e.target.value)}
                 placeholder={t('ana.search')}
+                aria-label={t('ana.search')}
                 className="w-[180px] rounded-lg border border-hairline bg-bg3 py-2 pl-8 pr-3 font-mono text-[13px] text-t1 placeholder:text-t3 focus:border-gold/60 focus:outline-none sm:w-[260px]"
               />
             </label>
@@ -159,12 +162,16 @@ export default function Analysis() {
             className="group grid overflow-hidden rounded-[10px] border border-hairline bg-bg1 transition-[border-color,background-color] duration-200 hover:border-goldline hover:bg-bg2 lg:grid-cols-12"
           >
             <div className="relative aspect-video overflow-hidden lg:col-span-7 lg:aspect-auto lg:min-h-[360px]">
-              <motion.img
-                src={featured.image}
-                alt={featured.title[lang]}
-                style={{ y: parallaxY }}
-                className="absolute inset-0 h-[calc(100%+40px)] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-              />
+              <picture className="contents">
+                <WebpSource src={featured.image} sizes="(min-width: 1024px) 58vw, 100vw" />
+                <motion.img
+                  src={featured.image}
+                  alt={featured.title[lang]}
+                  fetchPriority="high"
+                  style={{ y: parallaxY }}
+                  className="absolute inset-0 h-[calc(100%+40px)] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                />
+              </picture>
             </div>
             <div className="flex flex-col justify-center p-5 md:p-8 lg:col-span-5">
               <div className="flex items-center gap-2">

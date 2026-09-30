@@ -98,7 +98,7 @@ export function ScenarioChart({
         {yTicks.map((tk, i) => (
           <g key={i}>
             <line x1={PAD.left} x2={width - PAD.right} y1={tk.y} y2={tk.y} stroke="var(--line)" strokeWidth={1} strokeDasharray="2 4" />
-            <text x={PAD.left - 8} y={tk.y + 3} textAnchor="end" fontSize={10} fill="var(--text-3)" fontFamily="JetBrains Mono, monospace">
+            <text x={PAD.left - 8} y={tk.y + 3} textAnchor="end" fontSize={10} fill="var(--text-3)" fontFamily="JetBrains Mono Variable, JetBrains Mono, monospace">
               {tk.label}
             </text>
           </g>
@@ -111,7 +111,7 @@ export function ScenarioChart({
             textAnchor="middle"
             fontSize={10}
             fill="var(--text-3)"
-            fontFamily="JetBrains Mono, monospace"
+            fontFamily="JetBrains Mono Variable, JetBrains Mono, monospace"
           >
             {yr}
           </text>

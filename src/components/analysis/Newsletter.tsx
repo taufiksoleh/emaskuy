@@ -98,16 +98,16 @@ export function Newsletter() {
                 transition={{ duration: 0.4, delay: 0.15 }}
               />
             </svg>
-            <h3 className="mt-4 font-display text-xl font-semibold tracking-[-0.02em] text-t1">
+            <h2 className="mt-4 font-display text-xl font-semibold tracking-[-0.02em] text-t1">
               {t('news.thanks')}
-            </h3>
+            </h2>
             <p className="mt-2 text-sm text-t2">{t('news.thanksSub')}</p>
           </div>
         ) : (
           <>
-            <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-t1">
+            <h2 className="font-display text-xl font-semibold tracking-[-0.02em] text-t1">
               {t('news.title')}
-            </h3>
+            </h2>
             <p className="mt-2 text-sm text-t2">{t('news.desc')}</p>
             <form onSubmit={submit} className="mt-5 flex flex-col gap-2 sm:flex-row" noValidate>
               <label className="relative flex-1">

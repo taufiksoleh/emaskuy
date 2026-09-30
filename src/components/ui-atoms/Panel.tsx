@@ -35,9 +35,9 @@ export function Panel({
       {(title || actions) && (
         <header className="flex items-center justify-between gap-3 px-4 pt-4 md:px-6 md:pt-5">
           {typeof title === 'string' ? (
-            <h3 className="font-display text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-t1">
+            <h2 className="font-display text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-t1">
               {title}
-            </h3>
+            </h2>
           ) : (
             title
           )}

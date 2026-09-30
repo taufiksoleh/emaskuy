@@ -98,6 +98,7 @@ export function TickerStrip() {
         <button
           key={`${keyPrefix}-${item.id}`}
           onClick={() => onClick(item)}
+          tabIndex={keyPrefix === 'b' ? -1 : undefined}
           title={`${item.nameKey ? t(item.nameKey) : item.symbol} · ${item.note ?? formatAgo(item.updatedAt, lang)}`}
           className="group flex h-full cursor-pointer items-center gap-2.5 border-r border-hairline px-5 transition-colors hover:bg-bg2"
         >

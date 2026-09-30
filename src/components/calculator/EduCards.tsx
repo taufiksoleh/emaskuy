@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Scale, Shield, TrendingUp } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { withBase } from '@/lib/utils';
+import { Img } from '../ui-atoms/Img';
 import { Panel } from '../ui-atoms/Panel';
 
 export function EduCards() {
@@ -28,8 +29,9 @@ export function EduCards() {
         >
           <Panel interactive className="relative h-full overflow-hidden">
             {c.img && (
-              <img
+              <Img
                 src={c.img}
+                sizes="96px"
                 alt=""
                 className="pointer-events-none absolute right-3 top-3 h-[54px] w-24 rounded-md object-cover opacity-60"
                 loading="lazy"

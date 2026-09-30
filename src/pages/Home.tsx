@@ -1,7 +1,7 @@
 /**
  * Page: Dashboard (Home) — `/`  (design home.md)
  */
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
@@ -9,16 +9,30 @@ import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { TickerStrip } from '@/components/home/TickerStrip';
 import { HeroBand } from '@/components/home/HeroBand';
-import { ChartPanel } from '@/components/home/ChartPanel';
 import { AiInsightPanel } from '@/components/home/AiInsightPanel';
 import { AlertsPanel } from '@/components/home/AlertsPanel';
 import { AntamPanel } from '@/components/home/AntamPanel';
 import { StatsGrid } from '@/components/home/StatsGrid';
-import { AnalysisPreview } from '@/components/home/AnalysisPreview';
 import { CtaBand } from '@/components/home/CtaBand';
 
+// lightweight-charts is the heaviest dependency; keep it off the first paint.
+const ChartPanel = lazy(() => import('@/components/home/ChartPanel').then((m) => ({ default: m.ChartPanel })));
+
+// Below the fold; also keeps the article texts out of the main bundle.
+const AnalysisPreview = lazy(() =>
+  import('@/components/home/AnalysisPreview').then((m) => ({ default: m.AnalysisPreview })),
+);
+
+function ChartFallback() {
+  return (
+    <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
+      <div className="skeleton-shimmer h-[380px] rounded-[10px] md:h-[500px]" />
+    </section>
+  );
+}
+
 registerStrings({
-  'home.hero.label': { id: 'Harga Emas Spot', en: 'Spot Gold Price' },
+  'home.hero.label': { id: 'Harga Emas Hari Ini', en: 'Gold Price Today' },
   'home.hero.today': { id: 'hari ini', en: 'today' },
   'home.hero.perOz': { id: 'Per troy ounce', en: 'Per troy ounce' },
   'home.hero.perGram': { id: 'Per gram', en: 'Per gram' },
@@ -99,14 +113,18 @@ export default function Home() {
         )}
       </AnimatePresence>
       <HeroBand />
-      <ChartPanel />
+      <Suspense fallback={<ChartFallback />}>
+        <ChartPanel />
+      </Suspense>
       <AiInsightPanel />
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 xl:grid-cols-2">
         <AlertsPanel />
         <AntamPanel />
       </div>
       <StatsGrid />
-      <AnalysisPreview />
+      <Suspense fallback={null}>
+        <AnalysisPreview />
+      </Suspense>
       <div className="mb-8">
         <CtaBand />
       </div>

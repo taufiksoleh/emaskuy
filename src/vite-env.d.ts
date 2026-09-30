@@ -7,6 +7,8 @@ interface ImportMetaEnv {
   readonly VITE_NEWSLETTER_EMAIL_FIELD?: string;
   /** Extra fixed form fields, URL-encoded. */
   readonly VITE_NEWSLETTER_EXTRA?: string;
+  /** Cloudflare Web Analytics beacon token. Unset → no analytics. */
+  readonly VITE_CF_BEACON_TOKEN?: string;
 }
 
 interface ImportMeta {

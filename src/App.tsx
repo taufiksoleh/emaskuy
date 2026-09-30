@@ -1,3 +1,5 @@
+import { lazy, Suspense } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { Link, Routes, Route, useLocation } from 'react-router';
 import { Toaster } from 'sonner';
 import { I18nProvider, registerStrings, useI18n } from '@/lib/i18n';
@@ -6,16 +8,29 @@ import { Layout } from '@/components/Layout';
 import { AppCrashFallback, ErrorBoundary } from '@/components/ErrorBoundary';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import Home from '@/pages/Home';
-import Analysis from '@/pages/Analysis';
-import Article from '@/pages/Article';
-import CalculatorPage from '@/pages/Calculator';
-import CalculatorHub from '@/pages/calculator/CalculatorHub';
-import ZakatPage from '@/pages/calculator/Zakat';
-import PerhiasanPage from '@/pages/calculator/Perhiasan';
-import TargetPage from '@/pages/calculator/Target';
-import Portfolio from '@/pages/Portfolio';
-import About from '@/pages/About';
-import NotFound from '@/pages/NotFound';
+
+// Home is the landing page and ships in the main bundle; every other page
+// (and its heavy libraries: GSAP, Lenis, the calculators) loads on demand.
+const Analysis = lazy(() => import('@/pages/Analysis'));
+const Article = lazy(() => import('@/pages/Article'));
+const CalculatorHub = lazy(() => import('@/pages/calculator/CalculatorHub'));
+const CalculatorPage = lazy(() => import('@/pages/Calculator'));
+const ZakatPage = lazy(() => import('@/pages/calculator/Zakat'));
+const PerhiasanPage = lazy(() => import('@/pages/calculator/Perhiasan'));
+const TargetPage = lazy(() => import('@/pages/calculator/Target'));
+const Portfolio = lazy(() => import('@/pages/Portfolio'));
+const About = lazy(() => import('@/pages/About'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
+
+function PageFallback() {
+  return (
+    <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-4 py-10 md:px-6" aria-busy="true">
+      <div className="skeleton-shimmer h-10 w-2/3 max-w-md rounded-lg" />
+      <div className="skeleton-shimmer h-4 w-full max-w-xl rounded" />
+      <div className="skeleton-shimmer mt-4 h-64 w-full rounded-[10px]" />
+    </div>
+  );
+}
 
 registerStrings({
   'error.title': { id: 'Bagian ini gagal dimuat', en: 'This part failed to load' },
@@ -62,7 +77,7 @@ function ThemedToaster() {
           background: 'var(--bg-2)',
           border: '1px solid var(--line-gold)',
           color: 'var(--text-1)',
-          fontFamily: '"JetBrains Mono", monospace',
+          fontFamily: '"JetBrains Mono Variable", "JetBrains Mono", monospace',
         },
       }}
     />
@@ -73,11 +88,13 @@ export default function App() {
   const { pathname } = useLocation();
   return (
     <ErrorBoundary fallback={() => <AppCrashFallback />}>
+      <MotionConfig reducedMotion="user">
       <I18nProvider>
         <ThemeProvider>
           <ScrollToTop />
           <Layout>
             <ErrorBoundary resetKey={pathname} fallback={() => <RouteErrorFallback />}>
+              <Suspense fallback={<PageFallback />}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/analisis" element={<Analysis />} />
@@ -92,11 +109,13 @@ export default function App() {
                 <Route path="/tentang" element={<About />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              </Suspense>
             </ErrorBoundary>
           </Layout>
           <ThemedToaster />
         </ThemeProvider>
       </I18nProvider>
+      </MotionConfig>
     </ErrorBoundary>
   );
 }
