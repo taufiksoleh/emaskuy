@@ -52,15 +52,17 @@ export function usePriceAlerts(): UsePriceAlerts {
   // Guards against double-fire across re-renders for the same trigger event.
   const toastedRef = useRef<Set<string>>(new Set());
 
-  const update = (next: PriceAlert[]) => {
-    setAlerts(next);
-    saveAlerts(next);
+  /** Persist first; a user edit that can't be saved is not applied. */
+  const update = (next: PriceAlert[], applyOnFailure = false): boolean => {
+    const saved = saveAlerts(next);
+    if (!saved) toast.error(t('common.saveFailed'), { id: 'save-failed' });
+    if (saved || applyOnFailure) setAlerts(next);
+    return saved;
   };
 
   const addAlert = (alert: PriceAlert): boolean => {
     if (alerts.length >= MAX_ALERTS) return false;
-    update([...alerts, alert]);
-    return true;
+    return update([...alerts, alert]);
   };
 
   const removeAlert = (id: string) => {
@@ -99,7 +101,8 @@ export function usePriceAlerts(): UsePriceAlerts {
       return { ...a, triggeredAt: now };
     });
     prevRef.current = next;
-    if (changed) update(next);
+    // Mark triggers even if storage fails, so the same alert doesn't re-fire.
+    if (changed) update(next, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [price, usdIdr, alerts]);
 

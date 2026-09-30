@@ -9,13 +9,16 @@ import { Trash2, Wallet } from 'lucide-react';
 import { toast } from 'sonner';
 import { useI18n, registerStrings } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { xauUsdToIdrGram, formatIdr, formatNumber, formatDate, formatPct } from '@/lib/gold';
+import { useRouteMeta } from '@/hooks/useDocumentMeta';
+import { xauUsdToIdrGram, formatIdr, formatNumber, formatDateOnly, formatPct } from '@/lib/gold';
+import { parseAmount } from '@/lib/number';
 import {
   loadHoldings,
   saveHoldings,
   summarize,
   type Holding,
 } from '@/lib/portfolio';
+import { MoneyInput } from '@/components/ui-atoms/MoneyInput';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { StatCard } from '@/components/ui-atoms/StatCard';
 import { cn } from '@/lib/utils';
@@ -34,6 +37,7 @@ registerStrings({
   'portfolio.add': { id: 'Tambah', en: 'Add' },
   'portfolio.added': { id: 'Kepemilikan ditambahkan', en: 'Holding added' },
   'portfolio.removed': { id: 'Kepemilikan dihapus', en: 'Holding removed' },
+  'portfolio.remove': { id: 'Hapus kepemilikan', en: 'Remove holding' },
   'portfolio.invalid': {
     id: 'Gram dan harga beli harus lebih dari 0.',
     en: 'Grams and buy price must be greater than 0.',
@@ -76,6 +80,7 @@ function StatSkeleton() {
 
 export default function PortfolioPage() {
   const { lang, t } = useI18n();
+  useRouteMeta('portfolio');
   const { gold, usdIdr, loading } = useGoldPrice();
 
   const [holdings, setHoldings] = useState<Holding[]>(loadHoldings);
@@ -96,8 +101,8 @@ export default function PortfolioPage() {
 
   const addHolding = (e: React.FormEvent) => {
     e.preventDefault();
-    const grams = Number(gramsRaw);
-    const price = Number(priceRaw);
+    const grams = parseAmount(gramsRaw, lang);
+    const price = parseAmount(priceRaw, lang);
     if (!Number.isFinite(grams) || grams <= 0 || !Number.isFinite(price) || price <= 0) {
       setInvalid(true);
       toast.error(t('portfolio.invalid'));
@@ -114,8 +119,11 @@ export default function PortfolioPage() {
       note: noteRaw.trim() || undefined,
     };
     const next = [...holdings, holding];
+    if (!saveHoldings(next)) {
+      toast.error(t('common.saveFailed'), { id: 'save-failed' });
+      return;
+    }
     setHoldings(next);
-    saveHoldings(next);
     setGramsRaw('');
     setPriceRaw('');
     setDateRaw(todayIso());
@@ -126,8 +134,11 @@ export default function PortfolioPage() {
 
   const removeHolding = (id: string) => {
     const next = holdings.filter((h) => h.id !== id);
+    if (!saveHoldings(next)) {
+      toast.error(t('common.saveFailed'), { id: 'save-failed' });
+      return;
+    }
     setHoldings(next);
-    saveHoldings(next);
     toast.success(t('portfolio.removed'));
   };
 
@@ -192,29 +203,28 @@ export default function PortfolioPage() {
             <label className={fieldLabel} htmlFor="pf-grams">
               {t('portfolio.grams')}
             </label>
-            <input
+            <MoneyInput
               id="pf-grams"
-              type="number"
-              step="0.01"
-              min="0"
-              inputMode="decimal"
               value={gramsRaw}
-              onChange={(e) => setGramsRaw(e.target.value)}
-              className={cn(inputCls, invalid && 'border-down')}
+              onChange={setGramsRaw}
+              suffix="gr"
+              decimals={4}
+              invalid={invalid}
+              placeholder="5"
             />
           </div>
           <div className="flex flex-col gap-1.5">
             <label className={fieldLabel} htmlFor="pf-price">
               {t('portfolio.buyPrice')}
             </label>
-            <input
+            <MoneyInput
               id="pf-price"
-              type="number"
-              min="0"
-              inputMode="decimal"
               value={priceRaw}
-              onChange={(e) => setPriceRaw(e.target.value)}
-              className={cn(inputCls, invalid && 'border-down')}
+              onChange={setPriceRaw}
+              prefix="Rp"
+              decimals={0}
+              invalid={invalid}
+              placeholder={lang === 'id' ? '2.580.000' : '2,580,000'}
             />
           </div>
           <div className="flex flex-col gap-1.5">
@@ -269,7 +279,7 @@ export default function PortfolioPage() {
               const invested = h.grams * h.buyPriceIdrPerGram;
               const hPnl = value - invested;
               const hPnlPct = invested > 0 ? (hPnl / invested) * 100 : 0;
-              const dateTs = new Date(h.date).getTime();
+
               return (
                 <motion.li
                   key={h.id}
@@ -288,7 +298,7 @@ export default function PortfolioPage() {
                     </div>
                   </div>
                   <div className="min-w-[90px] text-xs text-t3">
-                    {Number.isFinite(dateTs) ? formatDate(dateTs, lang) : h.date}
+                    {formatDateOnly(h.date, lang)}
                   </div>
                   {h.note && <div className="min-w-0 flex-1 text-xs text-t2">{h.note}</div>}
                   <div className="ml-auto flex items-center gap-3">
@@ -310,7 +320,7 @@ export default function PortfolioPage() {
                     </div>
                     <button
                       onClick={() => removeHolding(h.id)}
-                      aria-label={t('portfolio.removed')}
+                      aria-label={t('portfolio.remove')}
                       className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t3 transition-colors hover:border-down hover:text-down"
                     >
                       <Trash2 className="h-4 w-4" />

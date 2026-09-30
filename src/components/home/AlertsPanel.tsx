@@ -15,9 +15,11 @@ import {
 } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { formatDate, formatUnitPrice, xauUsdToIdrGram } from '@/lib/gold';
+import { formatRaw, parseAmount } from '@/lib/number';
 import { MAX_ALERTS, type PriceAlert } from '@/lib/alerts';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { usePriceAlerts } from '@/hooks/usePriceAlerts';
+import { MoneyInput } from '../ui-atoms/MoneyInput';
 import { Panel } from '../ui-atoms/Panel';
 import { SegToggle } from '../ui-atoms/SegToggle';
 
@@ -26,6 +28,9 @@ registerStrings({
   'alerts.direction.above': { id: 'Di atas', en: 'Above' },
   'alerts.direction.below': { id: 'Di bawah', en: 'Below' },
   'alerts.add': { id: 'Tambah', en: 'Add' },
+  'alerts.target': { id: 'Target harga', en: 'Target price' },
+  'alerts.reset': { id: 'Aktifkan lagi', en: 'Re-arm alert' },
+  'alerts.remove': { id: 'Hapus alert', en: 'Delete alert' },
   'alerts.unitHint.usd-oz': { id: 'dalam USD/oz', en: 'in USD/oz' },
   'alerts.unitHint.idr-gr': { id: 'per IDR/gr', en: 'per IDR/gr' },
   'alerts.currentPrice': { id: 'Harga saat ini', en: 'Current price' },
@@ -37,8 +42,8 @@ registerStrings({
   'alerts.status.waiting': { id: 'menunggu', en: 'waiting' },
   'alerts.maxReached': { id: 'Maks. 10 alert', en: 'Max 10 alerts' },
   'alerts.footer': {
-    id: 'Alert disimpan di browser ini dan diperiksa terhadap harga live setiap 30 detik selama situs terbuka.',
-    en: 'Alerts are stored in this browser and checked against the live price every 30 seconds while the site is open.',
+    id: 'Alert disimpan di browser ini dan diperiksa terhadap harga live setiap 30 detik selama halaman ini terbuka dan terlihat.',
+    en: 'Alerts are stored in this browser and checked against the live price every 30 seconds while this page is open and visible.',
   },
 });
 
@@ -51,7 +56,7 @@ export function AlertsPanel() {
   const [direction, setDirection] = useState<'above' | 'below'>('above');
   const [rawTarget, setRawTarget] = useState('');
 
-  const target = Number(rawTarget.replace(',', '.'));
+  const target = parseAmount(rawTarget, lang);
   const targetValid = rawTarget.trim() !== '' && Number.isFinite(target) && target > 0;
   const maxReached = alerts.length >= MAX_ALERTS;
   const canAdd = targetValid && !maxReached;
@@ -115,15 +120,16 @@ export function AlertsPanel() {
               ]}
               ariaLabel={t('alerts.title')}
             />
-            <input
-              type="number"
-              inputMode="decimal"
-              min={0}
+            <MoneyInput
               value={rawTarget}
-              onChange={(e) => setRawTarget(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && onAdd()}
-              placeholder={unit === 'idr-gr' ? '2500000' : '4350'}
-              className="w-36 rounded-lg border border-hairline bg-bg3 px-3 py-2 font-mono text-sm text-t1 tabular-nums outline-none transition-colors placeholder:text-t3 focus:border-goldline focus:ring-1 focus:ring-gold/50"
+              onChange={setRawTarget}
+              onEnter={onAdd}
+              prefix={unit === 'idr-gr' ? 'Rp' : '$'}
+              decimals={unit === 'idr-gr' ? 0 : 2}
+              ariaLabel={t('alerts.target')}
+              placeholder={formatRaw(currentPrice > 0 ? Math.round(currentPrice) : unit === 'idr-gr' ? 2500000 : 4350, lang, 0)}
+              className="w-44"
+              inputClassName="py-2"
             />
             <button
               onClick={onAdd}
@@ -179,7 +185,8 @@ export function AlertsPanel() {
                           </span>
                           <button
                             onClick={() => resetAlert(a.id)}
-                            title={t('alerts.status.waiting')}
+                            aria-label={t('alerts.reset')}
+                            title={t('alerts.reset')}
                             className="text-t3 transition-colors hover:text-gold"
                           >
                             <RotateCcw className="h-3.5 w-3.5" />
@@ -192,6 +199,8 @@ export function AlertsPanel() {
                       )}
                       <button
                         onClick={() => removeAlert(a.id)}
+                        aria-label={t('alerts.remove')}
+                        title={t('alerts.remove')}
                         className="text-t3 transition-colors hover:text-down"
                       >
                         <Trash2 className="h-4 w-4" />

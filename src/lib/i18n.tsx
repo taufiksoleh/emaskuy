@@ -14,11 +14,13 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from 'react';
 import type { Unit } from './gold';
+import { LANG_KEY, UNIT_KEY, detectLang, detectUnit, readPref, writePref } from './preferences';
 
 export type Lang = 'id' | 'en';
 
@@ -44,6 +46,9 @@ registerStrings({
   'nav.calculator': { id: 'Kalkulator', en: 'Calculator' },
   'nav.portfolio': { id: 'Portofolio', en: 'Portfolio' },
   'nav.about': { id: 'Tentang', en: 'About' },
+  'nav.main': { id: 'Navigasi utama', en: 'Main navigation' },
+  'nav.unit': { id: 'Satuan harga', en: 'Price unit' },
+  'nav.language': { id: 'Bahasa', en: 'Language' },
   'common.live': { id: 'LIVE', en: 'LIVE' },
   'common.cached': { id: 'CACHE', en: 'CACHE' },
   'common.offline': { id: 'OFFLINE', en: 'OFFLINE' },
@@ -52,6 +57,10 @@ registerStrings({
   'common.silver': { id: 'Perak', en: 'Silver' },
   'common.platinum': { id: 'Platinum', en: 'Platinum' },
   'common.palladium': { id: 'Paladium', en: 'Palladium' },
+  'common.saveFailed': {
+    id: 'Gagal menyimpan: penyimpanan browser penuh atau diblokir. Perubahan belum tersimpan.',
+    en: 'Could not save: browser storage is full or blocked. Your change was not saved.',
+  },
   'common.offlineBanner': {
     id: 'Menampilkan data terakhir tersimpan',
     en: 'Showing last saved data',
@@ -72,31 +81,6 @@ registerStrings({
   'footer.legal': { id: 'Legal', en: 'Legal' },
 });
 
-const LANG_KEY = 'emaskuy.lang';
-const UNIT_KEY = 'emaskuy.unit';
-
-function detectLang(): Lang {
-  try {
-    const saved = localStorage.getItem(LANG_KEY);
-    if (saved === 'id' || saved === 'en') return saved;
-  } catch {
-    /* ignore */
-  }
-  const nav = typeof navigator !== 'undefined' ? navigator.language?.toLowerCase() ?? '' : '';
-  // Default ID (primary audience); browser override when it starts with `en`.
-  return nav.startsWith('en') ? 'en' : 'id';
-}
-
-function detectUnit(): Unit {
-  try {
-    const saved = localStorage.getItem(UNIT_KEY);
-    if (saved === 'usd-oz' || saved === 'idr-gr') return saved;
-  } catch {
-    /* ignore */
-  }
-  return 'usd-oz';
-}
-
 export interface I18nValue {
   lang: Lang;
   setLang: (lang: Lang) => void;
@@ -111,24 +95,22 @@ const I18nContext = createContext<I18nValue | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectLang);
-  const [unit, setUnitState] = useState<Unit>(detectUnit);
+  const [unit, setUnitState] = useState<Unit>(() => detectUnit(detectLang()));
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
-    try {
-      localStorage.setItem(LANG_KEY, l);
-    } catch {
-      /* ignore */
-    }
+    writePref(LANG_KEY, l);
+    // Follow the language until the visitor picks a unit themselves.
+    if (!readPref(UNIT_KEY)) setUnitState(detectUnit(l));
   }, []);
 
   const setUnit = useCallback((u: Unit) => {
     setUnitState(u);
-    try {
-      localStorage.setItem(UNIT_KEY, u);
-    } catch {
-      /* ignore */
-    }
+    writePref(UNIT_KEY, u);
   }, []);
 
   const t = useCallback(

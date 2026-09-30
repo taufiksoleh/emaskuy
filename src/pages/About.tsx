@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '@/lib/about-strings';
+import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { AboutHero } from '@/components/about/AboutHero';
 import { DataSources } from '@/components/about/DataSources';
 import { HowWeCalculate } from '@/components/about/HowWeCalculate';
@@ -15,6 +16,7 @@ import { FaqSection } from '@/components/about/FaqSection';
 import { DisclaimerSection } from '@/components/about/DisclaimerSection';
 
 export default function About() {
+  useRouteMeta('about');
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const lenis = new Lenis({ duration: 1.1 });

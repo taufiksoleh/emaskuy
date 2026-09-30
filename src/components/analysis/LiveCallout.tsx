@@ -1,12 +1,13 @@
 /**
  * LiveCallout — inline data panel inside the article reader.
- * A StatCard trio whose values come live from useGoldPrice()/useDailySeries();
+ * A StatCard trio whose values come live from useGoldPrice()/useHistory();
  * which trio renders is keyed by the article's `callout` field.
  */
 import { useMemo } from 'react';
 import { Activity } from 'lucide-react';
-import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { useDailySeries } from '@/hooks/useDailySeries';
+import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
+import { useHistory } from '@/hooks/useHistory';
+import { pointAtOrBefore, unitValue } from '@/lib/history';
 import { useI18n, registerStrings } from '@/lib/i18n';
 import { formatUsd, formatIdr, formatNumber, xauUsdToIdrGram } from '@/lib/gold';
 import { StatCard } from '@/components/ui-atoms/StatCard';
@@ -25,21 +26,25 @@ registerStrings({
 
 export function LiveCallout({ kind }: { kind: ArticleCallout }) {
   const { lang, t } = useI18n();
-  const { gold, metals, usdIdr } = useGoldPrice();
-  const { points } = useDailySeries(kind === 'dca' || kind === 'compare' ? 31 : 2);
+  const { gold, metals, usdIdr, lastUpdated } = useGoldPrice();
+  const { points } = useHistory('1y', kind === 'dca' || kind === 'compare');
+  // The DCA story is about rupiah savers; the rest compare dollar prices.
+  const unit = kind === 'dca' ? 'idr-gr' : 'usd-oz';
+  const idrChange = useXauChange('idr-gr');
 
   const price = gold?.price ?? 0;
-  const chg24 = gold?.changePct ?? 0;
+  const chg24 = kind === 'dca' ? idrChange.pct : (gold?.changePct ?? 0);
   const idrGram = usdIdr > 0 ? xauUsdToIdrGram(price, usdIdr) : 0;
   const silver = metals.find((m) => m.symbol === 'XAG')?.price ?? 0;
   const ratio = price > 0 && silver > 0 ? price / silver : 0;
 
   const chg30 = useMemo(() => {
-    if (points.length < 2) return 0;
-    const first = points[0].close;
-    const last = points[points.length - 1].close;
-    return first > 0 ? ((last - first) / first) * 100 : 0;
-  }, [points]);
+    const live = unit === 'idr-gr' ? idrGram : price;
+    const refNow = lastUpdated || (points.length > 0 ? points[points.length - 1].t : 0);
+    const anchor = pointAtOrBefore(points, refNow - 30 * 24 * 60 * 60 * 1000);
+    const base = anchor ? unitValue(anchor, unit) : 0;
+    return base > 0 && live > 0 ? ((live - base) / base) * 100 : 0;
+  }, [points, unit, idrGram, price, lastUpdated]);
 
   type Spec = { label: string; value: number; format: (v: number) => string; delta?: number };
   const usd = (v: number) => formatUsd(v, lang);

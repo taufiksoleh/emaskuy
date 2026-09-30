@@ -6,12 +6,16 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeftRight } from 'lucide-react';
 import { toast } from 'sonner';
-import { useI18n } from '@/lib/i18n';
+import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { useDailySeries } from '@/hooks/useDailySeries';
+import { useHistory } from '@/hooks/useHistory';
+import { sliceSince, unitValue } from '@/lib/history';
+import { parseAmount } from '@/lib/number';
 import {
   TROY_OZ_GRAMS,
+  convertPrice,
   formatDate,
+  formatDateOnly,
   formatIdr,
   formatNumber,
   formatUsd,
@@ -21,6 +25,10 @@ import { DeltaChip } from '../ui-atoms/DeltaChip';
 import { Panel } from '../ui-atoms/Panel';
 import { StatCard } from '../ui-atoms/StatCard';
 import { Sparkline } from '../ui-atoms/Sparkline';
+
+registerStrings({
+  'home.conv.swap': { id: 'Balik arah konversi', en: 'Swap direction' },
+});
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const METAL_NAME_KEYS = { XAU: 'common.gold', XAG: 'common.silver', XPT: 'common.platinum', XPD: 'common.palladium' } as const;
@@ -81,7 +89,8 @@ function QuickConverter() {
 
   const xau = gold?.price ?? 0;
   const gramsPerUnit: Record<ConvUnit, number> = { oz: TROY_OZ_GRAMS, gr: 1, kg: 1000 };
-  const amt = parseFloat(amount.replace(',', '.')) || 0;
+  const parsed = parseAmount(amount, lang);
+  const amt = Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
   const pricePerGramIdr = xau > 0 && usdIdr > 0 ? (xau / TROY_OZ_GRAMS) * usdIdr : 0;
 
   // gold→money: grams in → USD/IDR out. money→gold: IDR in → grams/oz out.
@@ -123,7 +132,7 @@ function QuickConverter() {
             setMoneyToGold((v) => !v);
             setFlip((f) => f + 1);
           }}
-          aria-label="Swap direction"
+          aria-label={t('home.conv.swap')}
           className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2.5 text-t3 transition-colors hover:border-goldline hover:text-gold"
         >
           <ArrowLeftRight
@@ -162,31 +171,46 @@ function QuickConverter() {
   );
 }
 
+interface Extreme {
+  value: number;
+  /** YYYY-MM-DD of a daily fixing, or null for the live price */
+  date: string | null;
+}
+
 export function StatsGrid() {
-  const { lang, t } = useI18n();
-  const { metals } = useGoldPrice();
-  const daily = useDailySeries(370);
+  const { lang, t, unit } = useI18n();
+  const { metals, gold, usdIdr, lastUpdated } = useGoldPrice();
+  const history = useHistory('1y');
+  const live = gold && gold.price > 0 ? convertPrice(gold.price, usdIdr, unit) : 0;
 
   const stats = useMemo(() => {
-    const pts = daily.points;
+    const pts = history.points;
     if (pts.length < 30) return null;
-    const year = pts.slice(-260);
-    let hi = year[0];
-    let lo = year[0];
+    const refNow = lastUpdated || pts[pts.length - 1].t;
+    const year = sliceSince(pts, refNow - 365 * 24 * 60 * 60 * 1000);
+    let hi: Extreme = { value: unitValue(year[0], unit), date: year[0].date };
+    let lo = hi;
     for (const p of year) {
-      if (p.close > hi.close) hi = p;
-      if (p.close < lo.close) lo = p;
+      const v = unitValue(p, unit);
+      if (v > hi.value) hi = { value: v, date: p.date };
+      if (v < lo.value) lo = { value: v, date: p.date };
     }
-    const last30 = pts.slice(-31);
+    if (live > 0 && live > hi.value) hi = { value: live, date: null };
+    if (live > 0 && live < lo.value) lo = { value: live, date: null };
+    const last30 = pts.slice(-31).map((p) => unitValue(p, unit));
     const returns: number[] = [];
     for (let i = 1; i < last30.length; i++) {
-      returns.push(Math.log(last30[i].close / last30[i - 1].close));
+      returns.push(Math.log(last30[i] / last30[i - 1]));
     }
     const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
     const variance = returns.reduce((a, r) => a + (r - mean) ** 2, 0) / returns.length;
     const vol30 = Math.sqrt(variance) * Math.sqrt(252) * 100;
-    return { hi, lo, vol30, returns };
-  }, [daily.points]);
+    return { hi, lo, vol30, returns, refNow };
+  }, [history.points, unit, live, lastUpdated]);
+
+  const fmtPrice = (v: number) => (unit === 'usd-oz' ? formatUsd(v, lang, { decimals: 0 }) : formatIdr(v, lang));
+  const reached = (e: Extreme, refNow: number) =>
+    `${t('home.stats.reached')} ${e.date ? formatDateOnly(e.date, lang) : formatDate(refNow, lang)}`;
 
   const xau = metals.find((m) => m.symbol === 'XAU');
   const xag = metals.find((m) => m.symbol === 'XAG');
@@ -201,16 +225,16 @@ export function StatsGrid() {
           <StatCard
             key="hi"
             label={t('home.stats.high52')}
-            value={stats?.hi.close ?? 0}
-            format={(v) => (v > 0 ? formatUsd(v, lang, { decimals: 0 }) : '—')}
-            sub={stats ? `${t('home.stats.reached')} ${formatDate(stats.hi.t, lang)}` : undefined}
+            value={stats?.hi.value ?? 0}
+            format={(v) => (v > 0 ? fmtPrice(v) : '—')}
+            sub={stats ? reached(stats.hi, stats.refNow) : undefined}
           />,
           <StatCard
             key="lo"
             label={t('home.stats.low52')}
-            value={stats?.lo.close ?? 0}
-            format={(v) => (v > 0 ? formatUsd(v, lang, { decimals: 0 }) : '—')}
-            sub={stats ? `${t('home.stats.reached')} ${formatDate(stats.lo.t, lang)}` : undefined}
+            value={stats?.lo.value ?? 0}
+            format={(v) => (v > 0 ? fmtPrice(v) : '—')}
+            sub={stats ? reached(stats.lo, stats.refNow) : undefined}
           />,
           <StatCard
             key="ratio"

@@ -14,6 +14,9 @@ import Lenis from 'lenis';
 import { toast } from 'sonner';
 import { ArrowLeft, Check, Link2, Twitter, MessageCircle } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { copyText } from '@/lib/clipboard';
+import { ROUTE_META, fullTitle, localize } from '@/lib/seo';
+import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { getArticle, relatedArticles } from '@/data/articles';
 import { formatDate } from '@/lib/gold';
 import { ArticleCard } from '@/components/ui-atoms/ArticleCard';
@@ -29,6 +32,7 @@ registerStrings({
   'art.related': { id: 'Artikel Terkait', en: 'Related Articles' },
   'art.share': { id: 'Bagikan', en: 'Share' },
   'art.copied': { id: 'Tautan disalin', en: 'Link copied' },
+  'art.copyFailed': { id: 'Gagal menyalin tautan', en: 'Could not copy the link' },
   'art.copy': { id: 'Salin tautan', en: 'Copy link' },
   'art.notFound': { id: 'Artikel tidak ditemukan', en: 'Article not found' },
 });
@@ -38,6 +42,11 @@ export default function Article() {
   const [searchParams] = useSearchParams();
   const article = getArticle(slug ?? searchParams.get('slug') ?? '');
   const { lang, t } = useI18n();
+  useDocumentMeta(
+    article
+      ? { title: fullTitle(article.title[lang]), description: article.excerpt[lang] }
+      : localize(ROUTE_META.notFound, lang),
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLImageElement>(null);
@@ -179,10 +188,9 @@ export default function Article() {
   const url = typeof window !== 'undefined' ? window.location.href : '';
   const shareText = article.title[lang];
   const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      /* clipboard unavailable */
+    if (!(await copyText(url))) {
+      toast.error(t('art.copyFailed'));
+      return;
     }
     setCopied(true);
     toast.success(t('art.copied'));

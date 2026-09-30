@@ -16,6 +16,8 @@ import { SegToggle } from '@/components/ui-atoms/SegToggle';
 import { Badge } from '@/components/ui-atoms/Badge';
 import { MiniLivePrice } from '@/components/analysis/MiniLivePrice';
 import { Newsletter } from '@/components/analysis/Newsletter';
+import { newsletterEnabled } from '@/lib/newsletter';
+import { useRouteMeta } from '@/hooks/useDocumentMeta';
 
 registerStrings({
   'ana.label': { id: 'Analisis Pasar', en: 'Market Analysis' },
@@ -39,6 +41,7 @@ const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function Analysis() {
   const { lang, t } = useI18n();
+  useRouteMeta('analysis');
   const [filter, setFilter] = useState<Filter>('all');
   const [rawQuery, setRawQuery] = useState('');
   const [query, setQuery] = useState('');
@@ -230,10 +233,12 @@ export default function Analysis() {
         </motion.div>
       )}
 
-      {/* Section 5 — newsletter CTA */}
-      <div className="py-10">
-        <Newsletter />
-      </div>
+      {/* Section 5 — newsletter CTA (only when a provider is configured) */}
+      {newsletterEnabled && (
+        <div className="py-10">
+          <Newsletter />
+        </div>
+      )}
     </div>
   );
 }

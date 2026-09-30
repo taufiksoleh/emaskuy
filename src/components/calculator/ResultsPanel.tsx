@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Copy, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
+import { copyText } from '@/lib/clipboard';
 import { useI18n } from '@/lib/i18n';
 import { formatNumber, gramsToOz } from '@/lib/gold';
 import { fmtMoney, type CalcCurrency, type CalcResult } from '@/lib/calc';
@@ -123,12 +124,8 @@ export function ResultsPanel({ result, currency, years, summaryText, onReset }: 
   const money = (v: number) => fmtMoney(v, currency, lang);
 
   const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(summaryText);
-      toast.success(t('calc.copied'));
-    } catch {
-      toast.success(t('calc.copied'));
-    }
+    if (await copyText(summaryText)) toast.success(t('calc.copied'));
+    else toast.error(t('calc.copyFailed'));
   };
 
   return (

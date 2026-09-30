@@ -3,7 +3,7 @@
  * analysis index header and the article reader's sticky rail.
  */
 import { useEffect, useRef, useState } from 'react';
-import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { useI18n } from '@/lib/i18n';
 import { convertPrice, formatUnitPrice, formatPct } from '@/lib/gold';
 import { cn } from '@/lib/utils';
@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 export function MiniLivePrice({ className }: { className?: string }) {
   const { lang, unit } = useI18n();
   const { gold, usdIdr, status } = useGoldPrice();
+  const change = useXauChange(unit);
   const [flash, setFlash] = useState<'up' | 'down' | null>(null);
   const prevRef = useRef<number | null>(null);
   const price = gold?.price ?? 0;
@@ -43,8 +44,8 @@ export function MiniLivePrice({ className }: { className?: string }) {
         }}
       />
       <span className="text-gold">{price > 0 ? formatUnitPrice(display, unit, lang) : '—'}</span>
-      <span style={{ color: gold.changePct >= 0 ? 'var(--up)' : 'var(--down)' }}>
-        {formatPct(gold.changePct, lang)}
+      <span style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}>
+        {formatPct(change.pct, lang)}
       </span>
     </div>
   );

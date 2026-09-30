@@ -34,8 +34,8 @@ registerStrings({
     en: 'Official daily USD/IDR rates from the European Central Bank.',
   },
   'about.sources.3.desc': {
-    id: 'Seri harga emas harian resmi sejak 2013, kami normalisasi ke harga live untuk grafik historis.',
-    en: 'Official daily gold price series since 2013, normalized to the live price for historical charts.',
+    id: 'Fixing harga emas harian resmi sejak 2013 (PLN per gram), kami konversi ke USD dan Rupiah dengan kurs ECB di hari yang sama.',
+    en: 'Official daily gold fixings since 2013 (PLN per gram), converted to USD and rupiah at the same day\'s ECB rates.',
   },
 
   // Section 3 — How we calculate
@@ -88,8 +88,8 @@ registerStrings({
     en: 'Where does historical chart data come from?',
   },
   'about.faq.3.a': {
-    id: 'Seri harian dari Narodowy Bank Polski (NBP) sejak 2013, dinormalisasi ke harga live saat ini.',
-    en: 'Daily series from Narodowy Bank Polski (NBP) since 2013, normalized to the current live price.',
+    id: 'Fixing harian dari Narodowy Bank Polski (NBP) sejak 2013. Setiap hari dikonversi dengan kurs ECB (via Frankfurter) pada tanggal yang sama, jadi grafik Rupiah memakai kurs historis, bukan kurs hari ini.',
+    en: 'Daily fixings from Narodowy Bank Polski (NBP) since 2013. Each day is converted with that same day\'s ECB rate (via Frankfurter), so the rupiah chart uses historical exchange rates, not today\'s.',
   },
   'about.faq.4.q': {
     id: 'Apakah kalkulator menjamin keuntungan?',
