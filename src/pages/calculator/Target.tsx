@@ -14,6 +14,8 @@ import { formatNumber } from '@/lib/gold';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { formatRaw, parseAmount } from '@/lib/number';
 import { MAX_TARGET_MONTHS, computeTarget } from '@/lib/target';
+import { buildResultText } from '@/lib/share';
+import { WhatsAppButton } from '@/components/share/WhatsAppButton';
 import { cn } from '@/lib/utils';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { MoneyInput } from '@/components/ui-atoms/MoneyInput';
@@ -166,6 +168,21 @@ export default function TargetPage() {
                 <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
                 {t('target.note')}
               </p>
+              {perGram !== null && targetGrams > 0 && (
+                <WhatsAppButton
+                  className="self-start"
+                  text={buildResultText(
+                    t('target.title'),
+                    [
+                      [t('target.grams'), `${formatNumber(targetGrams, lang, { decimals: 2, minDecimals: 0 })} gr · ${months} ${t('target.monthsUnit')}`],
+                      [t('target.monthly'), money(plan.monthly), true],
+                      [t('target.totalPaid'), money(plan.totalPaid)],
+                    ],
+                    '/kalkulator/target',
+                    t,
+                  )}
+                />
+              )}
             </div>
           </Panel>
         </motion.div>

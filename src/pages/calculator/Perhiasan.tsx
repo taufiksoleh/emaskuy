@@ -14,6 +14,8 @@ import { formatNumber } from '@/lib/gold';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { KARAT_PURITY, computeJewelry } from '@/lib/jewelry';
 import { formatRaw, parseAmount } from '@/lib/number';
+import { buildResultText } from '@/lib/share';
+import { WhatsAppButton } from '@/components/share/WhatsAppButton';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { MoneyInput } from '@/components/ui-atoms/MoneyInput';
 import { StatCard } from '@/components/ui-atoms/StatCard';
@@ -113,6 +115,21 @@ export default function PerhiasanPage() {
                 <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
                 {t('jewelry.note')}
               </p>
+              {perGram !== null && (
+                <WhatsAppButton
+                  className="self-start"
+                  text={buildResultText(
+                    t('jewelry.title'),
+                    [
+                      [t('jewelry.weight'), `${grams(num(weightRaw))} gr · ${formatNumber(kadarInvalid ? 0 : kadarPct, lang, { decimals: 1, minDecimals: 0 })}%`],
+                      [t('jewelry.value'), money(r.value), true],
+                      [t('jewelry.sellBack'), money(r.sellBack)],
+                    ],
+                    '/kalkulator/perhiasan',
+                    t,
+                  )}
+                />
+              )}
             </div>
           </Panel>
         </motion.div>

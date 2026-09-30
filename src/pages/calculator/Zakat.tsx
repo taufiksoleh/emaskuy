@@ -15,6 +15,8 @@ import type { PriceBasis } from '@/lib/gramPrice';
 import { formatRaw, parseAmount } from '@/lib/number';
 import { loadHoldings } from '@/lib/portfolio';
 import { NISAB_GRAMS, computeZakat } from '@/lib/zakat';
+import { buildResultText } from '@/lib/share';
+import { WhatsAppButton } from '@/components/share/WhatsAppButton';
 import { cn, fill } from '@/lib/utils';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { MoneyInput } from '@/components/ui-atoms/MoneyInput';
@@ -217,6 +219,22 @@ export default function ZakatPage() {
               </div>
 
               {perGram === null && <p className="text-xs text-t3">{t('zakat.noPrice')}</p>}
+
+              <WhatsAppButton
+                className="self-start"
+                text={buildResultText(
+                  t('zakat.title'),
+                  [
+                    [t('zakat.totalPure'), `${grams(r.pureGrams)} gr`],
+                    [t('zakat.nisabToday'), r.nisabValue !== null ? money(r.nisabValue) : `${NISAB_GRAMS} gr`],
+                    r.due
+                      ? [t('zakat.amount'), `${r.zakatValue !== null ? money(r.zakatValue) : '—'} (${grams(r.zakatGrams, 3)} gr)`, true]
+                      : [t('zakat.result'), t('zakat.notDue'), true],
+                  ],
+                  '/kalkulator/zakat',
+                  t,
+                )}
+              />
             </div>
           </Panel>
         </motion.div>

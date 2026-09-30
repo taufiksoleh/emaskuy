@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Copy, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
 import { copyText } from '@/lib/clipboard';
+import { WhatsAppButton } from '../share/WhatsAppButton';
 import { useI18n } from '@/lib/i18n';
 import { formatNumber, gramsToOz } from '@/lib/gold';
 import { fmtMoney, type CalcCurrency, type CalcResult } from '@/lib/calc';
@@ -21,6 +22,8 @@ export interface ResultsPanelProps {
   currency: CalcCurrency;
   years: number;
   summaryText: string;
+  /** WhatsApp-formatted result */
+  shareText: string;
   onReset: () => void;
 }
 
@@ -103,7 +106,7 @@ function YearTable({ result, currency }: { result: CalcResult; currency: CalcCur
   );
 }
 
-export function ResultsPanel({ result, currency, years, summaryText, onReset }: ResultsPanelProps) {
+export function ResultsPanel({ result, currency, years, summaryText, shareText, onReset }: ResultsPanelProps) {
   const { lang, t } = useI18n();
   const hero = useCountUp(result.finalValue, 400);
   const money = (v: number) => fmtMoney(v, currency, lang);
@@ -155,6 +158,7 @@ export function ResultsPanel({ result, currency, years, summaryText, onReset }: 
 
         {/* Actions */}
         <div className="flex flex-wrap gap-2">
+          <WhatsAppButton text={shareText} />
           <button
             onClick={copy}
             className="flex cursor-pointer items-center gap-2 rounded-lg border border-hairline bg-bg2 px-4 py-2 font-display text-sm font-medium text-t1 transition-all duration-150 hover:border-goldline hover:text-gold active:scale-[0.97]"

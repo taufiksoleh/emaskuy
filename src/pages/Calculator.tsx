@@ -19,6 +19,7 @@ import {
   type CalcMode,
 } from '@/lib/calc';
 import { formatRaw, parseAmount, reformatRaw } from '@/lib/number';
+import { buildResultText } from '@/lib/share';
 import { Panel } from '@/components/ui-atoms/Panel';
 import { CalcHeader } from '@/components/calculator/CalcHeader';
 import { InputsPanel } from '@/components/calculator/InputsPanel';
@@ -176,6 +177,24 @@ export default function CalculatorPage() {
     return lines.join('\n');
   }, [debounced, result, currency, lang, t]);
 
+  const shareText = useMemo(() => {
+    if (!debounced || !result) return '';
+    const money = (v: number) => fmtMoney(v, currency, lang);
+    const mode = debounced.mode === 'lump' ? t('calc.mode.lump') : t('calc.mode.dca');
+    return buildResultText(
+      t('calc.label'),
+      [
+        [t('calc.mode'), debounced.mode === 'dca' ? `${mode}, ${money(debounced.monthly)}${t('calc.perMonth')}` : mode],
+        [t('calc.initial'), money(debounced.initial)],
+        [t('calc.duration'), `${debounced.years} ${t('calc.yearsUnit')} · ${formatNumber(debounced.growthPct, lang, { decimals: 1 })}%${t('calc.perYear')}`],
+        [t('calc.finalValue'), `${money(result.finalValue)} (${formatNumber(result.profitPct, lang, { decimals: 1 })}%)`, true],
+        [t('calc.goldEq'), `${formatNumber(result.grams, lang, { decimals: 2 })} gr`],
+      ],
+      '/kalkulator',
+      t,
+    );
+  }, [debounced, result, currency, lang, t]);
+
   const reset = () => {
     const dec = moneyDecimals(currency);
     setMode('lump');
@@ -212,6 +231,7 @@ export default function CalculatorPage() {
               currency={currency}
               years={debounced?.years ?? years}
               summaryText={summaryText}
+              shareText={shareText}
               onReset={reset}
             />
           )}
