@@ -132,12 +132,10 @@ export const ARTICLES: Article[] = [
       en: 'A two-day rebound is not a turning point until the data proves it — an overbought market below the 50-day EMA is a market prone to traps.',
     },
     callout: 'rates',
-    image: '/article-rebound-data.png',
+    image: withBase('/article-rebound-data.png'),
     publishedAt: Date.parse('2026-09-30T03:30:00Z'),
     readMinutes: 6,
     author: TEAM,
-  },
-  {
   },
   {
     slug: 'antam-terendah-rupiah-18000',
