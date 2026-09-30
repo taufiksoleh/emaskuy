@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { ageInDays, formatDate } from '@/lib/gold';
+import { formatClockZone } from '@/lib/time';
 import { cn } from '@/lib/utils';
 import { AI_INSIGHT, type InsightSentiment } from '@/data/aiInsight';
 import { Panel } from '../ui-atoms/Panel';
@@ -94,7 +95,8 @@ export function AiInsightPanel() {
             ))}
           </ul>
           <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
-            {formatDate(insight.generatedAt, lang)} · {t('ai.disclaimer')}
+            {formatDate(insight.generatedAt, lang)},{' '}
+            {formatClockZone(insight.generatedAt, lang, { tz: 'Asia/Jakarta' })} · {t('ai.disclaimer')}
           </p>
         </Panel>
       </motion.div>

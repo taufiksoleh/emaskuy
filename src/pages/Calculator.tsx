@@ -9,7 +9,7 @@ import { Info } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
-import { TROY_OZ_GRAMS, xauUsdToIdrGram, formatNumber, formatUnitPrice, convertPrice } from '@/lib/gold';
+import { TROY_OZ_GRAMS, xauUsdToIdrGram, formatNumber } from '@/lib/gold';
 import {
   clamp,
   fmtMoney,
@@ -20,7 +20,7 @@ import {
 } from '@/lib/calc';
 import { formatRaw, parseAmount, reformatRaw } from '@/lib/number';
 import { Panel } from '@/components/ui-atoms/Panel';
-import { Badge } from '@/components/ui-atoms/Badge';
+import { CalcHeader } from '@/components/calculator/CalcHeader';
 import { InputsPanel } from '@/components/calculator/InputsPanel';
 import { ResultsPanel } from '@/components/calculator/ResultsPanel';
 import { EduCards } from '@/components/calculator/EduCards';
@@ -193,49 +193,9 @@ export default function CalculatorPage() {
     if (liveGram > 0) setBuyRaw(formatRaw(liveGram, lang, moneyDecimals(currency)));
   };
 
-  const statusVariant = status === 'live' ? 'live' : status === 'cached' ? 'cached' : 'offline';
-
   return (
-    <div className="mx-auto max-w-[1440px] px-4 md:px-6">
-      {/* Section 1 — header */}
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.09 } } }}
-        className="flex flex-wrap items-end justify-between gap-4 pb-6 pt-10"
-      >
-        <div className="max-w-2xl">
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="label-micro !text-gold"
-          >
-            {t('calc.label')}
-          </motion.div>
-          <motion.h1
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="mt-2 font-display text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-t1 md:text-[40px]"
-          >
-            {t('calc.title')}
-          </motion.h1>
-          <motion.p
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-            className="mt-3 text-sm leading-[1.5] text-t2"
-          >
-            {t('calc.subtitle')}
-          </motion.p>
-        </div>
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-          className="flex items-center gap-2"
-        >
-          {gold && (
-            <span className="rounded-lg border border-hairline bg-bg2 px-3 py-1.5 font-mono text-sm tabular text-gold">
-              {formatUnitPrice(convertPrice(gold.price, usdIdr, unit), unit, lang)}
-            </span>
-          )}
-          <Badge variant={statusVariant} />
-        </motion.div>
-      </motion.div>
+    <>
+      <CalcHeader title={t('calc.title')} subtitle={t('calc.subtitle')} />
 
       {/* Section 2 — app */}
       <motion.div
@@ -301,6 +261,6 @@ export default function CalculatorPage() {
           <p className="text-sm leading-[1.5] text-t3">{t('calc.disclaimer')}</p>
         </div>
       </Panel>
-    </div>
+    </>
   );
 }

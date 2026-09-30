@@ -9,6 +9,10 @@ import Home from '@/pages/Home';
 import Analysis from '@/pages/Analysis';
 import Article from '@/pages/Article';
 import CalculatorPage from '@/pages/Calculator';
+import CalculatorHub from '@/pages/calculator/CalculatorHub';
+import ZakatPage from '@/pages/calculator/Zakat';
+import PerhiasanPage from '@/pages/calculator/Perhiasan';
+import TargetPage from '@/pages/calculator/Target';
 import Portfolio from '@/pages/Portfolio';
 import About from '@/pages/About';
 import NotFound from '@/pages/NotFound';
@@ -78,7 +82,12 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/analisis" element={<Analysis />} />
                 <Route path="/analisis/:slug" element={<Article />} />
-                <Route path="/kalkulator" element={<CalculatorPage />} />
+                <Route path="/kalkulator" element={<CalculatorHub />}>
+                  <Route index element={<CalculatorPage />} />
+                  <Route path="zakat" element={<ZakatPage />} />
+                  <Route path="perhiasan" element={<PerhiasanPage />} />
+                  <Route path="target" element={<TargetPage />} />
+                </Route>
                 <Route path="/portofolio" element={<Portfolio />} />
                 <Route path="/tentang" element={<About />} />
                 <Route path="*" element={<NotFound />} />

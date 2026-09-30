@@ -30,6 +30,8 @@ export interface CalcInputs {
   buyPrice: number;
   /** Buy spread fee, percent */
   spreadPct: number;
+  /** Exact number of months (1–360); overrides `years`, e.g. for targets */
+  months?: number;
 }
 
 export interface YearRow {
@@ -66,7 +68,10 @@ export function monthlyRate(annualPct: number): number {
 }
 
 export function simulate(inp: CalcInputs): CalcResult {
-  const months = Math.max(1, Math.round(clamp(inp.years, 1, 30) * 12));
+  const months =
+    inp.months !== undefined
+      ? clamp(Math.round(inp.months), 1, 360)
+      : Math.max(1, Math.round(clamp(inp.years, 1, 30) * 12));
   const r = monthlyRate(clamp(inp.growthPct, 0, 20));
   const spread = Math.max(0, inp.spreadPct) / 100;
   const p0 = Math.max(0, inp.buyPrice);

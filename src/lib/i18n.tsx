@@ -47,6 +47,11 @@ registerStrings({
   'nav.portfolio': { id: 'Portofolio', en: 'Portfolio' },
   'nav.about': { id: 'Tentang', en: 'About' },
   'nav.main': { id: 'Navigasi utama', en: 'Main navigation' },
+  // Calculator names: also used by the footer and home CTA.
+  'calc.tab.investment': { id: 'Investasi', en: 'Investment' },
+  'calc.tab.zakat': { id: 'Zakat Emas', en: 'Gold Zakat' },
+  'calc.tab.jewelry': { id: 'Perhiasan', en: 'Jewelry' },
+  'calc.tab.target': { id: 'Target Emas', en: 'Gold Target' },
   'nav.unit': { id: 'Satuan harga', en: 'Price unit' },
   'nav.language': { id: 'Bahasa', en: 'Language' },
   'common.live': { id: 'LIVE', en: 'LIVE' },

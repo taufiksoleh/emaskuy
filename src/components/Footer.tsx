@@ -3,9 +3,15 @@
  */
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { useI18n } from '@/lib/i18n';
+import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { withBase } from '@/lib/utils';
+
+registerStrings({
+  'footer.calculators': { id: 'Kalkulator', en: 'Calculators' },
+});
+
+const linkCls = 'text-sm text-t2 transition-colors hover:text-gold';
 
 export function Footer() {
   const { t } = useI18n();
@@ -19,7 +25,7 @@ export function Footer() {
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className="mt-8 border-t border-hairline bg-bg1 pb-24 lg:pb-0"
     >
-      <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-3 md:px-6">
+      <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-4 md:px-6">
         <div>
           <div className="flex items-center gap-2.5">
             <img src={withBase('/logo.svg')} alt="EmasKuy" className="h-6 w-6" />
@@ -40,8 +46,28 @@ export function Footer() {
             <Link to="/kalkulator" className="text-sm text-t2 transition-colors hover:text-gold">
               {t('nav.calculator')}
             </Link>
+            <Link to="/portofolio" className={linkCls}>
+              {t('nav.portfolio')}
+            </Link>
             <Link to="/tentang" className="text-sm text-t2 transition-colors hover:text-gold">
               {t('nav.about')}
+            </Link>
+          </nav>
+        </div>
+        <div>
+          <div className="label-micro">{t('footer.calculators')}</div>
+          <nav className="mt-3 flex flex-col gap-2">
+            <Link to="/kalkulator" className={linkCls}>
+              {t('calc.tab.investment')}
+            </Link>
+            <Link to="/kalkulator/zakat" className={linkCls}>
+              {t('calc.tab.zakat')}
+            </Link>
+            <Link to="/kalkulator/perhiasan" className={linkCls}>
+              {t('calc.tab.jewelry')}
+            </Link>
+            <Link to="/kalkulator/target" className={linkCls}>
+              {t('calc.tab.target')}
             </Link>
           </nav>
         </div>
