@@ -49,9 +49,99 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'antam-terendah-rupiah-18000',
+    slug: 'gold-rebound-triple-data',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Rebound 1,6% ke $4.180: Titik Balik atau Jebakan? Triple Data AS Hari Ini Penentunya',
+      en: 'Gold Rebounds 1.6% to $4,180: Turning Point or Trap? Today\u2019s US Data Triple-Header Decides',
+    },
+    excerpt: {
+      id: 'Setelah crash 4%, emas memantul dua hari beruntun ke $4.180,54 dengan futures di $4.212. Tapi harga masih di bawah EMA50 dan RSI sudah overbought. Triple data AS hari ini — ADP, PDB Q2, dan PCE — menentukan apakah ini titik balik atau dead cat bounce.',
+      en: 'After a 4% crash, gold has bounced two days straight to $4,180.54 with futures at $4,212. But price remains below the 50-day EMA and RSI is already overbought. Today\u2019s US data triple-header — ADP, Q2 GDP, and PCE — decides whether this is a turning point or a dead cat bounce.',
+    },
+    sections: [
+      {
+        heading: { id: 'Tiga Hari yang Menguji Nyali', en: 'Three Days That Tested Nerves' },
+        paragraphs: [
+          {
+            id: 'Kronologinya cepat dan brutal. Senin, 28 September, emas spot crash sekitar 4% hingga menyentuh $4.139,69 — kejatuhan harian terdalam dalam berbulan-bulan. Selasa, tekanan mereda dan harga rebound 0,7% ke $4.142,89. Rabu pagi ini, 30 September, pantulan berlanjut sekitar 1,6% ke $4.180,54, dengan futures naik 0,8% ke $4.212,01.',
+            en: 'The sequence was fast and brutal. On Monday, September 28, spot gold crashed around 4% to touch $4,139.69 — the deepest daily drop in months. On Tuesday, pressure eased and price rebounded 0.7% to $4,142.89. This Wednesday morning, September 30, the bounce extended roughly 1.6% to $4,180.54, with futures up 0.8% at $4,212.01.',
+          },
+          {
+            id: 'Pemicunya bukan berita emas, melainkan pasar energi: harga minyak yang turun meredakan kekhawatiran inflasi dan sedikit mengendurkan ekspektasi kenaikan suku bunga Fed. Masalahnya, bantalan ini rapuh — yield obligasi tetap tinggi, sehingga rebound berjalan di atas fondasi yang belum benar-benar membaik.',
+            en: 'The trigger was not gold news but the energy market: falling oil prices eased inflation worries and slightly loosened expectations of a Fed rate hike. The problem is that this cushion is fragile — bond yields remain high, so the rebound is running on a foundation that has not truly improved.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Rebound Ini Belum Aman', en: 'Why This Rebound Is Not Safe Yet' },
+        paragraphs: [
+          {
+            id: 'Secara teknikal, tren jangka pendek masih bearish. Harga masih berada di bawah EMA50, dan RSI intraday justru sudah overbought setelah dua hari memantul — kombinasi yang membuat rebound rawan kehilangan momentum tepat saat ritel mulai berani masuk. Level yang perlu diawasi: support $4.157, lalu $4.100, dan terakhir $4.000; resistance $4.313 lalu $4.400.',
+            en: 'Technically, the short-term trend is still bearish. Price remains below the 50-day EMA, and intraday RSI is already overbought after two days of bouncing — a combination that makes the rebound prone to losing momentum just as retail traders get brave. Levels to watch: support at $4,157, then $4,100, and finally $4,000; resistance at $4,313 then $4,400.',
+          },
+          {
+            id: 'Latar makronya juga belum berubah. DXY bertengger di sekitar 101,40 — tertinggi sejak Juli. Yield 10-tahun AS menembus di atas 5% ke 5,106%, level tertinggi sejak 2007, dan peluang kenaikan Fed Oktober sempat menyentuh 70,9% pekan lalu. Tak heran para strategis menegaskan: pandangan bearish baru batal jika emas mampu ditutup di atas $4.400 — jauh dari harga sekarang.',
+            en: 'The macro backdrop has not changed either. The DXY sits around 101.40 — its highest since July. The 10-year US yield broke above 5% to 5.106%, the highest since 2007, and odds of an October Fed hike touched 70.9% last week. No wonder strategists insist: the bearish view is only invalidated on a close above $4,400 — a long way from current prices.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Triple Data Hari Ini: ADP, PDB, PCE', en: 'Today\u2019s Triple-Header: ADP, GDP, PCE' },
+        paragraphs: [
+          {
+            id: 'Rabu ini pasar menghadapi tiga rilis sekaligus. ADP September (sebelumnya hanya 38 ribu, terlemah sejak Januari) menguji seberapa cepat pasar tenaga kerja mendingin. Estimasi ketiga PDB Q2 (sebelumnya 1,5%) memastikan apakah ekonomi benar-benar melambat. Dan PCE Agustus (sebelumnya 3,7%, core 3,3%) menjadi ukuran inflasi favorit The Fed menjelang keputusan Oktober.',
+            en: 'This Wednesday, markets face three releases at once. September ADP (previously just 38K, the weakest since January) tests how fast the labor market is cooling. The third Q2 GDP estimate (previously 1.5%) confirms whether the economy is truly slowing. And August PCE (previously 3.7%, core 3.3%) is the Fed\u2019s preferred inflation gauge ahead of the October decision.',
+          },
+          {
+            id: 'Skenarionya dua arah dan tegas. Jika data panas — ADP kuat, PDB direvisi naik, PCE lengket — ekspektasi kenaikan Oktober menguat, dolar dan yield naik, dan emas berisiko menembus $4.157 menuju $4.100 lalu $4.000. Jika data dingin, rebound bisa berlanjut ke resistance $4.313, bahkan menguji $4.400. Dan ini belum final: besok ada jobless claims dan PMI, lalu Jumat NFP (sebelumnya 162 ribu, unemployment 4,1%).',
+            en: 'The scenarios are two-sided and clear-cut. If data runs hot — strong ADP, an upward GDP revision, sticky PCE — October hike expectations firm up, the dollar and yields rise, and gold risks breaking $4,157 toward $4,100 then $4,000. If data runs cold, the rebound could extend to $4,313 resistance, even testing $4,400. And this is not the finale: jobless claims and PMI land tomorrow, then Friday\u2019s NFP (previously 162K, unemployment 4.1%).',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Ikut Memantul', en: 'Antam Bounces Along' },
+        paragraphs: [
+          {
+            id: 'Harga dasar Antam 1 gram naik Rp15.000 ke Rp2.595.000 pada Rabu pagi — rebound tepat sehari setelah mencetak Rp2.580.000, level terendah sejak 9 Januari 2026. Harga buyback ikut naik Rp30.000 ke Rp2.405.000 per gram, sehingga spread jual–buyback mengecil ke Rp190.000 dari Rp205.000 kemarin — biaya transaksi sedikit lebih bersahabat.',
+            en: 'Antam\u2019s 1-gram base price rose Rp15,000 to Rp2,595,000 on Wednesday morning — a rebound just one day after printing Rp2,580,000, its lowest since January 9, 2026. The buyback price also climbed Rp30,000 to Rp2,405,000 per gram, narrowing the sell–buyback spread to Rp190,000 from Rp205,000 yesterday — transaction costs just got a bit friendlier.',
+          },
+          {
+            id: 'Faktor kurs masih bekerja dua arah. Rupiah bertahan di kisaran Rp17.942–18.000 per dolar, menahan penurunan harga emas versi rupiah agar lebih dangkal dari versi dolar. Bagi pemegang IDR ini bantal; tapi ingat, jika rupiah menguat saat harga dunia masih tertekan, diskon domestik bisa muncul lagi.',
+            en: 'The exchange-rate factor still cuts both ways. The rupiah is holding around Rp17,942–18,000 per dollar, keeping the rupiah-denominated gold decline shallower than the dollar one. For IDR holders this is a cushion; but remember, if the rupiah strengthens while world prices stay under pressure, a domestic discount can reappear.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: DCA, Bukan All-In', en: 'Playbook: DCA, Not All-In' },
+        paragraphs: [
+          {
+            id: 'Bantal struktural emas tidak hilang karena satu minggu yang buruk. Bank sentral global membeli 289 ton di Q2 2026 — rekor kuartalan, naik 62% year-on-year. Goldman Sachs mempertahankan target $4.650 untuk akhir 2026, dan proyeksi 12 bulan Trading Economics berada di $4.705. Rebound dua hari ini bisa jadi awal pemulihan, bisa jadi jebakan — pasar sendiri belum tahu sebelum data keluar.',
+            en: 'Gold\u2019s structural cushion did not vanish because of one bad week. Global central banks bought 289 tonnes in Q2 2026 — a quarterly record, up 62% year-on-year. Goldman Sachs holds its $4,650 target for end-2026, and Trading Economics\u2019 12-month projection sits at $4,705. This two-day rebound could be the start of a recovery or a trap — the market itself will not know until the data lands.',
+          },
+          {
+            id: 'Karena itu strategi paling rasional tetap sama: DCA terjadwal dengan nominal tetap, bukan all-in menebak titik balik. Jika triple data hari ini dingin, Anda sudah punya posisi; jika panas dan harga menembus $4.100, pembelian berikutnya justru lebih murah. Artikel ini analisis edukatif, bukan nasihat keuangan personal — sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'That is why the most rational strategy stays the same: scheduled DCA with a fixed amount, not all-in bets on a turning point. If today\u2019s triple-header runs cold, you already hold a position; if it runs hot and price breaks $4,100, your next purchase simply gets cheaper. This article is educational analysis, not personalized financial advice — tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Rebound dua hari bukan titik balik sampai data membuktikannya — pasar yang overbought di bawah EMA50 adalah pasar yang rawan jebakan.',
+      en: 'A two-day rebound is not a turning point until the data proves it — an overbought market below the 50-day EMA is a market prone to traps.',
+    },
+    callout: 'rates',
+    image: '/article-rebound-data.png',
+    publishedAt: Date.parse('2026-09-30T03:30:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+  },
+  {
+  },
+  {
+    slug: 'antam-terendah-rupiah-18000',
+    category: 'market',
     title: {
       id: 'Antam Sentuh Rp2,58 Juta — Terendah Sejak Januari. Saatnya Akumulasi?',
       en: 'Antam Hits Rp2.58M — Lowest Since January. Time to Accumulate?',
