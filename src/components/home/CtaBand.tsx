@@ -2,12 +2,11 @@
  * Section 5 — Calculator CTA band with drifting gold glow + word reveal.
  */
 import { Link } from 'react-router';
-import { motion } from 'framer-motion';
+import { Reveal } from '../ui-atoms/Reveal';
 import { Calculator, BookOpen, Gem, HandCoins, Target } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { pathFor } from '@/lib/routes';
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function CtaBand() {
   const { lang, t } = useI18n();
@@ -15,11 +14,9 @@ export function CtaBand() {
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-12 md:px-6">
-      <motion.div
-        initial={{ y: 24, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, ease }}
+      <Reveal
+        amount={0.2}
+        duration={0.5}
         className="glow-drift relative overflow-hidden rounded-[10px] border border-goldline bg-bg1"
         style={{
           backgroundImage:
@@ -31,27 +28,14 @@ export function CtaBand() {
           <div className="xl:col-span-8">
             <h2 className="font-display text-[28px] font-semibold leading-[1.2] tracking-[-0.02em] text-t1 md:text-4xl">
               {headline.map((w, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block overflow-hidden align-bottom"
-                  initial={{ y: 12, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.35, ease, delay: i * 0.04 }}
-                >
+                <Reveal key={i} as="span" y={12} amount={0.4} duration={0.35} delay={i * 0.04} className="inline-block overflow-hidden align-bottom">
                   <span className="inline-block">{w}&nbsp;</span>
-                </motion.span>
+                </Reveal>
               ))}
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-[1.5] text-t2">{t('home.cta.body')}</p>
           </div>
-          <motion.div
-            initial={{ y: 24, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.45, ease, delay: 0.12 }}
-            className="flex flex-col gap-3 xl:col-span-4"
-          >
+          <Reveal amount={0.4} delay={0.12} className="flex flex-col gap-3 xl:col-span-4">
             <Link
               to={pathFor('calculator', lang)}
               className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-display text-sm font-semibold transition-all duration-150 hover:-translate-y-px hover:brightness-108 active:scale-[0.97]"
@@ -88,9 +72,9 @@ export function CtaBand() {
               <BookOpen className="h-4 w-4" />
               {t('home.cta.methodology')}
             </Link>
-          </motion.div>
+          </Reveal>
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

@@ -24,6 +24,7 @@ import { TROY_OZ_GRAMS, isoDateUtc } from '@/lib/gold';
 import { PEGGED, WEIGHT, pricePer, rateOnOrBefore, type Currency, type Rates, type WeightUnit } from '@/lib/money';
 import { prevCloseBefore, type HistoryPoint } from '@/lib/history';
 import { readJson, writeJson } from '@/lib/storage';
+import { afterFirstPaint } from '@/lib/afterPaint';
 import { historyStore } from './useHistory';
 
 export interface Tick {
@@ -298,7 +299,9 @@ export function setBackgroundPolling(on: boolean): void {
 function ensureStarted() {
   if (started) return;
   started = true;
-  void pollNow();
+  // Cached prices (or skeletons) show first; the first request waits until
+  // that screen has painted.
+  afterFirstPaint(() => void pollNow());
   if (typeof document === 'undefined') {
     startTimer();
     return;

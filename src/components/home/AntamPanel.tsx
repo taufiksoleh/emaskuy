@@ -6,7 +6,7 @@
  * Antam, buyback and spot.
  */
 import { useState, type CSSProperties } from 'react';
-import { motion } from 'framer-motion';
+import { Reveal } from '../ui-atoms/Reveal';
 import { ExternalLink, Scale } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { formatDate, formatDateOnly, formatIdr, formatNumber, formatPct, xauUsdToIdrGram } from '@/lib/gold';
@@ -60,7 +60,6 @@ registerStrings({
   'antam.disclaimer': { id: 'Bukan saran investasi', en: 'Not investment advice' },
 });
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 /** Sizes shown on phones before "show all". */
 const COMMON_SIZES = new Set([1, 5, 10, 25, 50, 100]);
@@ -120,12 +119,7 @@ export function AntamPanel() {
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
-      <motion.div
-        initial={{ y: 24, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.5, ease }}
-      >
+      <Reveal duration={0.5}>
         <Panel
           glow
           className="relative overflow-hidden"
@@ -277,7 +271,7 @@ export function AntamPanel() {
             · {t('antam.disclaimer')}
           </p>
         </Panel>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

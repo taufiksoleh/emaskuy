@@ -3,7 +3,7 @@
  * Membaca dari `src/content/ai-insight.json` (ditulis agen konten, divalidasi
  * di CI). Tampil di beranda setelah ChartPanel.
  */
-import { motion } from 'framer-motion';
+import { Reveal } from '../ui-atoms/Reveal';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { ageInDays, formatDate } from '@/lib/gold';
@@ -28,7 +28,6 @@ registerStrings({
   },
 });
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const SENTIMENT_STYLE: Record<InsightSentiment, string> = {
   bullish: 'border-up/40 bg-up/10 text-up',
@@ -43,12 +42,7 @@ export function AiInsightPanel() {
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
-      <motion.div
-        initial={{ y: 24, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, ease }}
-      >
+      <Reveal amount={0.2} duration={0.5}>
         <Panel
           glow
           className="relative overflow-hidden"
@@ -82,17 +76,10 @@ export function AiInsightPanel() {
         >
           <ul className="mt-4 space-y-3">
             {insight.bullets.map((b, i) => (
-              <motion.li
-                key={i}
-                initial={{ x: -10, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.35, ease, delay: 0.08 + i * 0.07 }}
-                className="flex items-start gap-3"
-              >
+              <Reveal key={i} as="li" x={-10} y={0} amount={0.4} duration={0.35} delay={0.08 + i * 0.07} className="flex items-start gap-3">
                 <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                 <p className="text-sm leading-relaxed text-t2">{lang === 'id' ? b.id : b.en}</p>
-              </motion.li>
+              </Reveal>
             ))}
           </ul>
           {insight.sources.length > 0 && (
@@ -119,7 +106,7 @@ export function AiInsightPanel() {
             {formatClockZone(insight.generatedAt, lang, { tz: 'Asia/Jakarta' })} · {t('ai.disclaimer')}
           </p>
         </Panel>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

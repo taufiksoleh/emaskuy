@@ -3,7 +3,7 @@
  * quick converter (design home.md §3).
  */
 import { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { Reveal } from '../ui-atoms/Reveal';
 import { ArrowLeftRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { registerStrings, useI18n } from '@/lib/i18n';
@@ -25,7 +25,6 @@ registerStrings({
   'home.conv.swap': { id: 'Balik arah konversi', en: 'Swap direction' },
 });
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const METAL_NAME_KEYS = { XAU: 'common.gold', XAG: 'common.silver', XPT: 'common.platinum', XPD: 'common.palladium' } as const;
 
 function MultiMetalTable() {
@@ -60,13 +59,7 @@ function MultiMetalTable() {
           );
           const row = 'flex w-full items-center gap-3 px-4 py-3 text-left transition-colors duration-150 md:px-6';
           return (
-            <motion.div
-              key={m.symbol}
-              initial={{ x: -8, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.3, ease, delay: i * 0.04 }}
-            >
+            <Reveal key={m.symbol} x={-8} y={0} amount={0.3} duration={0.3} delay={i * 0.04}>
               {m.symbol === 'XAU' ? (
                 <div className={row}>{cells}</div>
               ) : (
@@ -74,7 +67,7 @@ function MultiMetalTable() {
                   {cells}
                 </Link>
               )}
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>
@@ -264,36 +257,20 @@ export function StatsGrid() {
             }
           />,
         ].map((card, i) => (
-          <motion.div
-            key={i}
-            initial={{ y: 24, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45, ease, delay: i * 0.07 }}
-          >
+          <Reveal key={i} delay={i * 0.07}>
             {card}
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 
       {/* Row B — 2 panels */}
       <div className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-2">
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.45, ease }}
-        >
+        <Reveal >
           <MultiMetalTable />
-        </motion.div>
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.45, ease, delay: 0.07 }}
-        >
+        </Reveal>
+        <Reveal delay={0.07}>
           <QuickConverter />
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

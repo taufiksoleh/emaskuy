@@ -231,6 +231,7 @@ export function ProjectionChart({
           {t('calc.legend.invested')}
         </span>
       </div>
+      <div style={{ height }}>
       {width > 0 && (
       <svg
         width={width}
@@ -283,6 +284,7 @@ export function ProjectionChart({
         )}
       </svg>
       )}
+      </div>
       {/* tooltip */}
       {hp && (
         <div

@@ -5,6 +5,7 @@
  * also serves the 1-year one.
  */
 import { useEffect, useSyncExternalStore } from 'react';
+import { afterFirstPaint } from '@/lib/afterPaint';
 import { fetchUsdFxSeries } from '@/lib/api';
 import type { HistoryWindow } from '@/lib/history';
 import { dailyRateLookup, type Currency, type RateOn } from '@/lib/money';
@@ -45,7 +46,7 @@ function load(currency: Currency, range: HistoryWindow) {
 export function useFxSeries(currency: Currency, range: HistoryWindow, enabled: boolean): { on: RateOn | null; error: boolean } {
   useSyncExternalStore(subscribe, () => version);
   useEffect(() => {
-    if (enabled) load(currency, range);
+    if (enabled) return afterFirstPaint(() => load(currency, range));
   }, [currency, range, enabled]);
   if (!enabled) return { on: null, error: false };
   const on = series.get(`${currency}:all`) ?? series.get(`${currency}:${range}`) ?? null;

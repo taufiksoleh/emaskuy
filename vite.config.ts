@@ -28,6 +28,34 @@ function cloudflareAnalytics(token: string | undefined): Plugin {
   }
 }
 
+/**
+ * Preload the latin subsets of the three variable fonts. Every page uses all
+ * three above the fold, and the browser would otherwise find them only after
+ * the app's JavaScript has rendered text.
+ */
+function preloadFonts(): Plugin {
+  let base = "/"
+  return {
+    name: "emaskuy:preload-fonts",
+    apply: "build",
+    configResolved: (config) => {
+      base = config.base
+    },
+    transformIndexHtml: {
+      order: "post",
+      handler: (_html, ctx) =>
+        Object.keys(ctx.bundle ?? {})
+          .filter((file) => /-latin-wght-normal-[\w-]+\.woff2$/.test(file))
+          .sort()
+          .map((file) => ({
+            tag: "link",
+            injectTo: "head",
+            attrs: { rel: "preload", as: "font", type: "font/woff2", href: `${base}${file}`, crossorigin: true },
+          })),
+    },
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   base: '/',
@@ -87,6 +115,7 @@ export default defineConfig(({ mode }) => ({
         ],
       },
     }),
+    preloadFonts(),
   ],
   server: {
     port: 3000,

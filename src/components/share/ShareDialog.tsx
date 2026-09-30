@@ -53,11 +53,14 @@ export function ShareDialog({
   build,
   filename,
   className,
+  disabled,
 }: {
   /** Called on open, so the card shows the price at that moment */
   build: () => Snapshot;
   filename: string;
   className?: string;
+  /** Shown but inactive, e.g. until there is a price to share. */
+  disabled?: boolean;
 }) {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
@@ -113,9 +116,10 @@ export function ShareDialog({
     <>
       <button
         type="button"
+        disabled={disabled}
         onClick={() => onOpenChange(true)}
         className={cn(
-          'flex cursor-pointer items-center gap-1.5 rounded-md border border-hairline bg-bg2 px-2 py-1.5 font-display text-xs font-medium text-t2 transition-colors hover:border-goldline hover:text-gold',
+          'flex cursor-pointer items-center gap-1.5 rounded-md border border-hairline bg-bg2 px-2 py-1.5 font-display text-xs font-medium text-t2 transition-colors hover:border-goldline hover:text-gold disabled:cursor-default disabled:opacity-50 disabled:hover:border-hairline disabled:hover:text-t2',
           className,
         )}
       >

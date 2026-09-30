@@ -5,7 +5,7 @@
  * against the 30s live poll.
  */
 import { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { Reveal } from '../ui-atoms/Reveal';
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -54,7 +54,6 @@ registerStrings({
   },
 });
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function AlertsPanel() {
   const { t, lang } = useI18n();
@@ -89,12 +88,7 @@ export function AlertsPanel() {
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
-      <motion.div
-        initial={{ y: 24, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, ease }}
-      >
+      <Reveal amount={0.2} duration={0.5}>
         <Panel
           title={
             <span className="flex items-center gap-2.5">
@@ -164,14 +158,7 @@ export function AlertsPanel() {
               {alerts.map((a, i) => {
                 const triggered = a.triggeredAt != null;
                 return (
-                  <motion.li
-                    key={a.id}
-                    initial={{ x: -10, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.35, ease, delay: 0.05 + i * 0.05 }}
-                    className="flex items-center gap-3 py-2.5"
-                  >
+                  <Reveal key={a.id} as="li" x={-10} y={0} amount={0.4} duration={0.35} delay={0.05 + i * 0.05} className="flex items-center gap-3 py-2.5">
                     {a.direction === 'above' ? (
                       <ArrowUpRight className="h-4 w-4 shrink-0 text-up" />
                     ) : (
@@ -213,7 +200,7 @@ export function AlertsPanel() {
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </span>
-                  </motion.li>
+                  </Reveal>
                 );
               })}
             </ul>
@@ -226,7 +213,7 @@ export function AlertsPanel() {
             )}
           </p>
         </Panel>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

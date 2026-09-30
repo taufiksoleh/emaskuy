@@ -2,7 +2,7 @@
  * Footer — bg1, top hairline, 3 columns + bottom row (design.md §9).
  */
 import { Link } from 'react-router';
-import { motion } from 'framer-motion';
+import { Reveal } from './ui-atoms/Reveal';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useInstallPrompt } from '@/hooks/useInstallPrompt';
@@ -27,13 +27,7 @@ export function Footer() {
   const { canPrompt, iosHint, install } = useInstallPrompt();
 
   return (
-    <motion.footer
-      initial={{ y: 20, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="mt-8 border-t border-hairline bg-bg1 pb-24 lg:pb-0"
-    >
+    <Reveal as="footer" y={20} className="mt-8 border-t border-hairline bg-bg1 pb-24 lg:pb-0">
       <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-4 md:px-6">
         <div>
           <div className="flex items-center gap-2.5">
@@ -115,6 +109,6 @@ export function Footer() {
           </span>
         </div>
       </div>
-    </motion.footer>
+    </Reveal>
   );
 }

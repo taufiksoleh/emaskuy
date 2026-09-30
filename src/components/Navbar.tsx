@@ -6,13 +6,13 @@
  * Mobile: bottom navigation bar fixed (gaya trading app modern).
  */
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink } from 'react-router';
-import { motion } from 'framer-motion';
+import { Link, NavLink, useLocation } from 'react-router';
 import { Briefcase, Calculator, Info, LayoutDashboard, Moon, Newspaper, Sun } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { useTheme } from '@/hooks/useTheme';
 import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
+import { SLIDE_CLASS, useSlidingIndicator } from '@/hooks/useSlidingIndicator';
 import { formatPct } from '@/lib/gold';
 import { pathFor } from '@/lib/routes';
 import { cn, withBase } from '@/lib/utils';
@@ -65,6 +65,9 @@ function LivePriceChip() {
 
 export function Navbar() {
   const { lang, setLang, t } = useI18n();
+  const { pathname } = useLocation();
+  const { ref: topNavRef, box: topBox } = useSlidingIndicator<HTMLElement>('[aria-current="page"]', pathname);
+  const { ref: bottomNavRef, box: bottomBox } = useSlidingIndicator<HTMLDivElement>('[aria-current="page"]', pathname);
   const { theme, toggleTheme } = useTheme();
   const { status } = useGoldPrice();
 
@@ -129,7 +132,14 @@ export function Navbar() {
           </Link>
 
           {/* Center: links */}
-          <nav className="mx-auto hidden items-center gap-1 lg:flex">
+          <nav ref={topNavRef} className="relative mx-auto hidden items-center gap-1 lg:flex">
+            {topBox && (
+              <span
+                aria-hidden
+                className={cn('absolute -bottom-[13px] left-0 h-0.5 bg-gold', topBox.moved && SLIDE_CLASS)}
+                style={{ width: Math.max(0, topBox.w - 24), transform: `translateX(${topBox.x + 12}px)` }}
+              />
+            )}
             {LINKS.map((l) => (
               <NavLink
                 key={l.page}
@@ -137,18 +147,7 @@ export function Navbar() {
                 end={l.page === 'home'}
                 className="relative px-3 py-2 font-display text-sm font-medium text-t2 transition-colors duration-150 hover:text-t1"
               >
-                {({ isActive }) => (
-                  <>
-                    <span className={cn(isActive && 'text-gold')}>{t(l.key)}</span>
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-underline"
-                        transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-                        className="absolute inset-x-3 -bottom-[13px] h-0.5 bg-gold"
-                      />
-                    )}
-                  </>
-                )}
+                {({ isActive }) => <span className={cn(isActive && 'text-gold')}>{t(l.key)}</span>}
               </NavLink>
             ))}
           </nav>
@@ -177,7 +176,15 @@ export function Navbar() {
         aria-label={t('nav.main')}
         className="fixed bottom-0 z-50 w-full border-t border-hairline bg-bg1/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] lg:hidden"
       >
-        <div className="grid grid-cols-5">
+        <div ref={bottomNavRef} className="relative grid grid-cols-5">
+          {/* Indikator garis gold di atas ikon menu yang aktif */}
+          {bottomBox && (
+            <span
+              aria-hidden
+              className={cn('absolute left-0 top-0 h-0.5 rounded-b-full bg-gold', bottomBox.moved && SLIDE_CLASS)}
+              style={{ width: Math.max(0, bottomBox.w - 48), transform: `translateX(${bottomBox.x + 24}px)` }}
+            />
+          )}
           {LINKS.map((l) => (
             <NavLink
               key={l.page}
@@ -192,14 +199,6 @@ export function Navbar() {
             >
               {({ isActive }) => (
                 <>
-                  {/* Indikator garis gold di atas ikon saat aktif */}
-                  {isActive && (
-                    <motion.span
-                      layoutId="bottomnav-indicator"
-                      transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-                      className="absolute inset-x-6 top-0 h-0.5 rounded-b-full bg-gold"
-                    />
-                  )}
                   <l.icon className="h-5 w-5" strokeWidth={isActive ? 2.4 : 1.8} aria-hidden />
                   <span className="font-display text-[10px] font-medium leading-none">
                     {t(l.key)}

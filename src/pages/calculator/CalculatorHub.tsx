@@ -23,7 +23,7 @@ export default function CalculatorHub() {
     <div className="mx-auto max-w-[1440px] px-4 md:px-6">
       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 pt-6">
         <span className="label-micro !text-gold">{t('calc.hub.label')}</span>
-        <div className="flex items-center gap-2">
+        <div className="flex min-h-[34px] items-center gap-2">
           {gold && gold.price > 0 && (
             <span className="rounded-lg border border-hairline bg-bg2 px-3 py-1.5 font-mono text-sm tabular text-gold">
               {d.approx}
