@@ -1,11 +1,13 @@
 /**
- * CalcTabs — navigation between the gold calculators under /kalkulator.
+ * CalcTabs — navigation between the gold calculators under /kalkulator
+ * (/en/calculator).
  * Sticky under the navbar; scrolls sideways on small screens.
  */
 import { NavLink } from 'react-router';
 import { motion } from 'framer-motion';
 import { Gem, HandCoins, Target, TrendingUp } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { cn } from '@/lib/utils';
 
 registerStrings({
@@ -13,24 +15,24 @@ registerStrings({
 });
 
 const TABS = [
-  { to: '/kalkulator', key: 'calc.tab.investment', icon: TrendingUp },
-  { to: '/kalkulator/zakat', key: 'calc.tab.zakat', icon: HandCoins },
-  { to: '/kalkulator/perhiasan', key: 'calc.tab.jewelry', icon: Gem },
-  { to: '/kalkulator/target', key: 'calc.tab.target', icon: Target },
+  { page: 'calculator', key: 'calc.tab.investment', icon: TrendingUp },
+  { page: 'calcZakat', key: 'calc.tab.zakat', icon: HandCoins },
+  { page: 'calcJewelry', key: 'calc.tab.jewelry', icon: Gem },
+  { page: 'calcTarget', key: 'calc.tab.target', icon: Target },
 ] as const;
 
 export function CalcTabs() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   return (
     <nav
       aria-label={t('calc.tabs')}
       className="sticky top-16 z-30 -mx-4 overflow-x-auto border-b border-hairline bg-bg0/90 px-4 backdrop-blur-[12px] [scrollbar-width:none] md:-mx-6 md:px-6 [&::-webkit-scrollbar]:hidden"
     >
       <div className="flex min-w-max gap-1">
-        {TABS.map(({ to, key, icon: Icon }) => (
+        {TABS.map(({ page, key, icon: Icon }) => (
           <NavLink
-            key={to}
-            to={to}
+            key={page}
+            to={pathFor(page, lang)}
             end
             className={({ isActive }) =>
               cn(

@@ -7,6 +7,7 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Info } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { useCalcCurrency, useGramPrice } from '@/hooks/useGramPrice';
 import { simulate } from '@/lib/calc';
@@ -179,7 +180,7 @@ export default function TargetPage() {
                       [t('target.monthly'), money(plan.monthly), true],
                       [t('target.totalPaid'), money(plan.totalPaid)],
                     ],
-                    '/kalkulator/target',
+                    pathFor('calcTarget', lang),
                     t,
                   )}
                 />

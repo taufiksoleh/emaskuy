@@ -2,7 +2,8 @@ import { lazy, Suspense } from 'react';
 import { MotionConfig } from 'framer-motion';
 import { Link, Routes, Route, useLocation } from 'react-router';
 import { Toaster } from 'sonner';
-import { I18nProvider, registerStrings, useI18n } from '@/lib/i18n';
+import { I18nProvider, registerStrings, useI18n, type Lang } from '@/lib/i18n';
+import { pathFor, type PageKey } from '@/lib/routes';
 import { ThemeProvider, useTheme } from '@/hooks/useTheme';
 import { Layout } from '@/components/Layout';
 import { AppCrashFallback, ErrorBoundary } from '@/components/ErrorBoundary';
@@ -42,8 +43,27 @@ registerStrings({
   'error.home': { id: 'Ke beranda', en: 'Go home' },
 });
 
+/** The same pages at /… (Indonesian) and /en/… (English); see routes.ts. */
+function routesFor(lang: Lang) {
+  const p = (key: PageKey) => pathFor(key, lang);
+  const child = (key: PageKey) => p(key).slice(p('calculator').length + 1);
+  return [
+    <Route key={`${lang}-home`} path={p('home')} element={<Home />} />,
+    <Route key={`${lang}-analysis`} path={p('analysis')} element={<Analysis />} />,
+    <Route key={`${lang}-article`} path={`${p('analysis')}/:slug`} element={<Article />} />,
+    <Route key={`${lang}-calculator`} path={p('calculator')} element={<CalculatorHub />}>
+      <Route index element={<CalculatorPage />} />
+      <Route path={child('calcZakat')} element={<ZakatPage />} />
+      <Route path={child('calcJewelry')} element={<PerhiasanPage />} />
+      <Route path={child('calcTarget')} element={<TargetPage />} />
+    </Route>,
+    <Route key={`${lang}-portfolio`} path={p('portfolio')} element={<Portfolio />} />,
+    <Route key={`${lang}-about`} path={p('about')} element={<About />} />,
+  ];
+}
+
 function RouteErrorFallback() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   return (
     <div className="mx-auto flex max-w-[720px] flex-col items-center px-4 py-24 text-center" role="alert">
       <p className="font-display text-2xl font-semibold text-t1">{t('error.title')}</p>
@@ -56,7 +76,7 @@ function RouteErrorFallback() {
           {t('error.reload')}
         </button>
         <Link
-          to="/"
+          to={pathFor('home', lang)}
           className="rounded-lg border border-hairline bg-bg2 px-4 py-2.5 font-display text-sm font-medium text-t2"
         >
           {t('error.home')}
@@ -96,17 +116,8 @@ export default function App() {
             <ErrorBoundary resetKey={pathname} fallback={() => <RouteErrorFallback />}>
               <Suspense fallback={<PageFallback />}>
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/analisis" element={<Analysis />} />
-                <Route path="/analisis/:slug" element={<Article />} />
-                <Route path="/kalkulator" element={<CalculatorHub />}>
-                  <Route index element={<CalculatorPage />} />
-                  <Route path="zakat" element={<ZakatPage />} />
-                  <Route path="perhiasan" element={<PerhiasanPage />} />
-                  <Route path="target" element={<TargetPage />} />
-                </Route>
-                <Route path="/portofolio" element={<Portfolio />} />
-                <Route path="/tentang" element={<About />} />
+                {routesFor('id')}
+                {routesFor('en')}
                 <Route path="*" element={<NotFound />} />
               </Routes>
               </Suspense>

@@ -9,6 +9,7 @@ import { Link } from 'react-router';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Search, SearchX } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { articlePath } from '@/lib/routes';
 import { sortedArticles, type ArticleCategory } from '@/data/articles';
 import { formatDate } from '@/lib/gold';
 import { ArticleCard } from '@/components/ui-atoms/ArticleCard';
@@ -158,7 +159,7 @@ export default function Analysis() {
       {showFeatured && (
         <div className="py-6" ref={featuredRef}>
           <Link
-            to={`/analisis/${featured.slug}`}
+            to={articlePath(featured.slug, lang)}
             className="group grid overflow-hidden rounded-[10px] border border-hairline bg-bg1 transition-[border-color,background-color] duration-200 hover:border-goldline hover:bg-bg2 lg:grid-cols-12"
           >
             <div className="relative aspect-video overflow-hidden lg:col-span-7 lg:aspect-auto lg:min-h-[360px]">

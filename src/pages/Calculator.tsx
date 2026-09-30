@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Info } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
@@ -172,7 +173,7 @@ export default function CalculatorPage() {
         [t('calc.finalValue'), `${money(result.finalValue)} (${formatNumber(result.profitPct, lang, { decimals: 1 })}%)`, true],
         [t('calc.goldEq'), `${formatNumber(result.grams, lang, { decimals: 2 })} gr`],
       ],
-      '/kalkulator',
+      pathFor('calculator', lang),
       t,
     );
   }, [debounced, result, currency, lang, t]);

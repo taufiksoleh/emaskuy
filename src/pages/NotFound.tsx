@@ -4,6 +4,7 @@
 import { Link } from 'react-router';
 import { ArrowLeft, SearchX } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 
 registerStrings({
@@ -17,7 +18,7 @@ registerStrings({
 });
 
 export default function NotFound() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   useRouteMeta('notFound');
 
   return (
@@ -27,14 +28,14 @@ export default function NotFound() {
       <p className="mt-3 text-sm text-t2">{t('notFound.body')}</p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <Link
-          to="/"
+          to={pathFor('home', lang)}
           className="inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2.5 font-display text-sm font-semibold text-bg0"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           {t('notFound.home')}
         </Link>
         <Link
-          to="/analisis"
+          to={pathFor('analysis', lang)}
           className="rounded-lg border border-hairline bg-bg2 px-4 py-2.5 font-display text-sm font-medium text-t2 transition-colors hover:border-goldline hover:text-gold"
         >
           {t('notFound.analysis')}

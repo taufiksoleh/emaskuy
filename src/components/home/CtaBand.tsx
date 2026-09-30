@@ -5,11 +5,12 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { Calculator, BookOpen, Gem, HandCoins, Target } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function CtaBand() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const headline = t('home.cta.headline').split(' ');
 
   return (
@@ -52,7 +53,7 @@ export function CtaBand() {
             className="flex flex-col gap-3 xl:col-span-4"
           >
             <Link
-              to="/kalkulator"
+              to={pathFor('calculator', lang)}
               className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-display text-sm font-semibold transition-all duration-150 hover:-translate-y-px hover:brightness-108 active:scale-[0.97]"
               style={{
                 background: 'linear-gradient(135deg, #FFD975 0%, #F5B93E 45%, #C98A1B 100%)',
@@ -65,14 +66,14 @@ export function CtaBand() {
             <div className="grid grid-cols-3 gap-2">
               {(
                 [
-                  { to: '/kalkulator/zakat', key: 'calc.tab.zakat', Icon: HandCoins },
-                  { to: '/kalkulator/perhiasan', key: 'calc.tab.jewelry', Icon: Gem },
-                  { to: '/kalkulator/target', key: 'calc.tab.target', Icon: Target },
+                  { page: 'calcZakat', key: 'calc.tab.zakat', Icon: HandCoins },
+                  { page: 'calcJewelry', key: 'calc.tab.jewelry', Icon: Gem },
+                  { page: 'calcTarget', key: 'calc.tab.target', Icon: Target },
                 ] as const
-              ).map(({ to, key, Icon }) => (
+              ).map(({ page, key, Icon }) => (
                 <Link
-                  key={to}
-                  to={to}
+                  key={page}
+                  to={pathFor(page, lang)}
                   className="flex flex-col items-center gap-1 rounded-lg border border-hairline px-2 py-2.5 text-center font-display text-xs font-medium text-t2 transition-colors hover:border-goldline hover:text-gold"
                 >
                   <Icon className="h-4 w-4" aria-hidden />
@@ -81,7 +82,7 @@ export function CtaBand() {
               ))}
             </div>
             <Link
-              to="/tentang"
+              to={pathFor('about', lang)}
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-hairline px-5 py-3 font-display text-sm font-medium text-t1 transition-colors duration-150 hover:border-goldline hover:text-gold active:scale-[0.97]"
             >
               <BookOpen className="h-4 w-4" />
