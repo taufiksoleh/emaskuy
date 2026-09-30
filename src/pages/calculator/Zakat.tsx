@@ -10,7 +10,7 @@ import { toast } from 'sonner';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { useCalcCurrency, useGramPrice } from '@/hooks/useGramPrice';
-import { fmtMoney } from '@/lib/calc';
+import { formatMoney } from '@/lib/money';
 import { formatNumber } from '@/lib/gold';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { formatRaw, parseAmount } from '@/lib/number';
@@ -149,7 +149,7 @@ export default function ZakatPage() {
   });
 
   const grams = (g: number, decimals = 2) => formatNumber(g, lang, { decimals, minDecimals: 0 });
-  const money = (v: number) => fmtMoney(v, currency, lang);
+  const money = (v: number) => formatMoney(v, currency, lang);
 
   const fromPortfolio = () => {
     const s = summarize(loadHoldings());

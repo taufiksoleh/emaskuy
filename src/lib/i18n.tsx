@@ -19,8 +19,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import type { Unit } from './gold';
-import { LANG_KEY, UNIT_KEY, detectLang, detectUnit, readPref, writePref } from './preferences';
+import { LANG_KEY, detectLang, writePref } from './preferences';
 import { registerStrings, translate, type Lang } from './strings';
 
 export { registerStrings } from './strings';
@@ -39,7 +38,6 @@ registerStrings({
   'calc.tab.zakat': { id: 'Zakat Emas', en: 'Gold Zakat' },
   'calc.tab.jewelry': { id: 'Perhiasan', en: 'Jewelry' },
   'calc.tab.target': { id: 'Target Emas', en: 'Gold Target' },
-  'nav.unit': { id: 'Satuan harga', en: 'Price unit' },
   'nav.language': { id: 'Bahasa', en: 'Language' },
   'common.live': { id: 'LIVE', en: 'LIVE' },
   'common.cached': { id: 'CACHE', en: 'CACHE' },
@@ -78,16 +76,12 @@ export interface I18nValue {
   setLang: (lang: Lang) => void;
   /** Translate a registered key. Falls back to the key itself when missing. */
   t: (key: string) => string;
-  /** Display unit for prices, shared between navbar and hero. */
-  unit: Unit;
-  setUnit: (unit: Unit) => void;
 }
 
 const I18nContext = createContext<I18nValue | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectLang);
-  const [unit, setUnitState] = useState<Unit>(() => detectUnit(detectLang()));
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -96,21 +90,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
     writePref(LANG_KEY, l);
-    // Follow the language until the visitor picks a unit themselves.
-    if (!readPref(UNIT_KEY)) setUnitState(detectUnit(l));
-  }, []);
-
-  const setUnit = useCallback((u: Unit) => {
-    setUnitState(u);
-    writePref(UNIT_KEY, u);
   }, []);
 
   const t = useCallback((key: string): string => translate(key, lang), [lang]);
 
-  const value = useMemo(
-    () => ({ lang, setLang, t, unit, setUnit }),
-    [lang, setLang, t, unit, setUnit],
-  );
+  const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }

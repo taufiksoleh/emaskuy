@@ -1,7 +1,8 @@
 /**
  * Navbar — sticky 64px, bg0/80 + backdrop-blur, bottom hairline (design.md §9).
  * Left: logo + wordmark + LIVE badge. Center: nav links with gold underline
- * (layoutId). Right: unit toggle + ID|EN pill + live price chip (tick-flash).
+ * (layoutId). Right: live price chip (tick-flash) + currency/unit picker +
+ * ID|EN pill + theme.
  * Mobile: bottom navigation bar fixed (gaya trading app modern).
  */
 import { useEffect, useRef, useState } from 'react';
@@ -10,9 +11,11 @@ import { motion } from 'framer-motion';
 import { Briefcase, Calculator, Info, LayoutDashboard, Moon, Newspaper, Sun } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { useTheme } from '@/hooks/useTheme';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
-import { convertPrice, formatUnitPrice, formatPct } from '@/lib/gold';
+import { formatPct } from '@/lib/gold';
 import { cn, withBase } from '@/lib/utils';
+import { DisplayPicker } from './DisplayPicker';
 import { SegToggle } from './ui-atoms/SegToggle';
 
 const LINKS = [
@@ -24,9 +27,10 @@ const LINKS = [
 ] as const;
 
 function LivePriceChip() {
-  const { lang, unit } = useI18n();
-  const { gold, usdIdr, status } = useGoldPrice();
-  const change = useXauChange(unit);
+  const { lang } = useI18n();
+  const d = useDisplay();
+  const { gold, status } = useGoldPrice();
+  const change = useXauChange(d.currency, d.weight);
   const [flash, setFlash] = useState<'up' | 'down' | null>(null);
   const prevRef = useRef<number | null>(null);
   const price = gold?.price ?? 0;
@@ -41,7 +45,7 @@ function LivePriceChip() {
   }, [price]);
 
   if (!gold) return null;
-  const display = convertPrice(price, usdIdr, unit);
+  const display = d.price(price);
   return (
     <div
       className={cn(
@@ -50,7 +54,7 @@ function LivePriceChip() {
         flash === 'down' && 'tick-down',
       )}
     >
-      <span className="text-gold">{price > 0 ? formatUnitPrice(display, unit, lang) : '—'}</span>
+      <span className="text-gold">{display > 0 ? `${d.approx}${d.format(display)}` : '—'}</span>
       <span style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}>
         {price > 0 && status !== 'offline' ? formatPct(change.pct, lang) : '—'}
       </span>
@@ -59,7 +63,7 @@ function LivePriceChip() {
 }
 
 export function Navbar() {
-  const { lang, setLang, t, unit, setUnit } = useI18n();
+  const { lang, setLang, t } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const { status } = useGoldPrice();
 
@@ -148,19 +152,10 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right: unit toggle + lang pill + price chip + hamburger */}
+          {/* Right: price chip + currency/unit + language + theme */}
           <div className="ml-auto flex items-center gap-2 lg:ml-0">
             <LivePriceChip />
-            <SegToggle
-              ariaLabel={t('nav.unit')}
-              size="sm"
-              value={unit}
-              onChange={setUnit}
-              options={[
-                { value: 'usd-oz', label: 'USD/oz' },
-                { value: 'idr-gr', label: 'IDR/gr' },
-              ]}
-            />
+            <DisplayPicker size="sm" />
             <SegToggle
               ariaLabel={t('nav.language')}
               size="sm"

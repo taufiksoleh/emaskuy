@@ -7,20 +7,21 @@
  * while the tab is hidden.
  *
  * ```ts
- * const { gold, metals, usdIdr, status, ticks, refetch, refetching } = useGoldPrice();
+ * const { gold, metals, usdIdr, rates, status, ticks, refetch, refetching } = useGoldPrice();
  * ```
  */
 import { useSyncExternalStore } from 'react';
 import {
+  cachedFx,
   cachedMetals,
-  cachedUsdIdr,
   fetchAllMetals,
-  fetchUsdIdr,
+  fetchFx,
   type DataStatus,
-  type FxRate,
+  type FxRates,
   type MetalQuote,
 } from '@/lib/api';
-import { isoDateUtc, xauUsdToIdrGram, type Unit } from '@/lib/gold';
+import { TROY_OZ_GRAMS, isoDateUtc } from '@/lib/gold';
+import { PEGGED, WEIGHT, pricePer, rateOnOrBefore, type Currency, type Rates, type WeightUnit } from '@/lib/money';
 import { prevCloseBefore, type HistoryPoint } from '@/lib/history';
 import { readJson, writeJson } from '@/lib/storage';
 import { historyStore } from './useHistory';
@@ -39,8 +40,10 @@ export interface GoldPriceState {
   gold: MetalQuote | null;
   /** USD→IDR rate (0 when offline with no cache) */
   usdIdr: number;
-  /** Latest ECB USD/IDR reference rate */
-  fx: FxRate | null;
+  /** Units of each currency per USD (pegs only when offline with no cache) */
+  rates: Rates;
+  /** Latest ECB reference rates, with the last ~10 days */
+  fx: FxRates | null;
   /** Previous daily close (NBP fixing at same-day ECB rates) */
   prevClose: HistoryPoint | null;
   /** Combined data status (worst of metals/fx) */
@@ -78,13 +81,25 @@ function currentPrevClose(): HistoryPoint | null {
 }
 
 /** Returning visitors see the last known price at once, marked as cached. */
-function bootState(): Pick<GoldPriceState, 'metals' | 'gold' | 'usdIdr' | 'fx' | 'prevClose' | 'status' | 'loading'> {
+function bootState(): Pick<
+  GoldPriceState,
+  'metals' | 'gold' | 'usdIdr' | 'rates' | 'fx' | 'prevClose' | 'status' | 'loading'
+> {
   const prevClose = currentPrevClose();
   const metals = applyXauChange(cachedMetals(), prevClose);
   const gold = metals.find((m) => m.symbol === 'XAU') ?? null;
-  const fx = cachedUsdIdr();
+  const fx = cachedFx();
   const ready = gold !== null && fx !== null;
-  return { metals, gold, usdIdr: fx?.rate ?? 0, fx, prevClose, status: ready ? 'cached' : 'offline', loading: !ready };
+  return {
+    metals,
+    gold,
+    usdIdr: fx?.rates.IDR ?? 0,
+    rates: fx?.rates ?? { ...PEGGED },
+    fx,
+    prevClose,
+    status: ready ? 'cached' : 'offline',
+    loading: !ready,
+  };
 }
 
 let state: GoldPriceState = {
@@ -177,7 +192,7 @@ async function pollNow(): Promise<void> {
     const needFx = !state.fx || state.fx.status !== 'live' || Date.now() - fxFetchedAt > FX_REFRESH_MS;
     const [metalsRaw, fx] = await Promise.all([
       fetchAllMetals(),
-      needFx ? fetchUsdIdr() : Promise.resolve(state.fx as FxRate),
+      needFx ? fetchFx() : Promise.resolve(state.fx as FxRates),
     ]);
     if (needFx && fx.status === 'live') fxFetchedAt = Date.now();
     const metals = applyXauChange(applySessionBaseline(metalsRaw), state.prevClose);
@@ -200,7 +215,8 @@ async function pollNow(): Promise<void> {
     setState({
       metals,
       gold,
-      usdIdr: fx.rate,
+      usdIdr: fx.rates.IDR ?? 0,
+      rates: fx.rates,
       fx,
       status,
       loading: false,
@@ -266,14 +282,19 @@ export function useGoldPrice(): GoldPriceState {
 }
 
 /**
- * Gold's change since the previous daily close, in the given display unit.
- * The IDR figure includes the rupiah's own move against the dollar.
+ * Gold's change since the previous daily close in `currency` per `weight`.
+ * Outside USD it includes the currency's own move against the dollar: the
+ * close is valued at that day's exchange rate.
  */
-export function useXauChange(unit: Unit): { pct: number; abs: number } {
-  const { gold, usdIdr, prevClose } = useGoldPrice();
+export function useXauChange(currency: Currency, weight: WeightUnit): { pct: number; abs: number } {
+  const { gold, rates, fx, prevClose } = useGoldPrice();
   if (!gold || gold.price <= 0) return { pct: 0, abs: 0 };
-  if (unit === 'usd-oz') return { pct: gold.changePct, abs: gold.change };
-  if (!prevClose || prevClose.idr <= 0 || usdIdr <= 0) return { pct: gold.changePct, abs: 0 };
-  const abs = xauUsdToIdrGram(gold.price, usdIdr) - prevClose.idr;
-  return { pct: (abs / prevClose.idr) * 100, abs };
+  const grams = WEIGHT[weight].grams;
+  if (currency === 'USD') return { pct: gold.changePct, abs: (gold.change / TROY_OZ_GRAMS) * grams };
+  const now = pricePer(gold.price, currency, 'g', rates);
+  let prev = 0;
+  if (prevClose && currency === 'IDR') prev = prevClose.idr;
+  else if (prevClose && fx) prev = (prevClose.usd / TROY_OZ_GRAMS) * rateOnOrBefore(fx.recent, prevClose.date, currency);
+  if (now <= 0 || prev <= 0) return { pct: gold.changePct, abs: 0 };
+  return { pct: (now / prev - 1) * 100, abs: (now - prev) * grams };
 }

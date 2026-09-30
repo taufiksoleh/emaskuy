@@ -3,15 +3,17 @@
  * analysis index header and the article reader's sticky rail.
  */
 import { useEffect, useRef, useState } from 'react';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { useI18n } from '@/lib/i18n';
-import { convertPrice, formatUnitPrice, formatPct } from '@/lib/gold';
+import { formatPct } from '@/lib/gold';
 import { cn } from '@/lib/utils';
 
 export function MiniLivePrice({ className }: { className?: string }) {
-  const { lang, unit } = useI18n();
-  const { gold, usdIdr, status } = useGoldPrice();
-  const change = useXauChange(unit);
+  const { lang } = useI18n();
+  const d = useDisplay();
+  const { gold, status } = useGoldPrice();
+  const change = useXauChange(d.currency, d.weight);
   const [flash, setFlash] = useState<'up' | 'down' | null>(null);
   const prevRef = useRef<number | null>(null);
   const price = gold?.price ?? 0;
@@ -26,7 +28,7 @@ export function MiniLivePrice({ className }: { className?: string }) {
   }, [price]);
 
   if (!gold) return null;
-  const display = convertPrice(price, usdIdr, unit);
+  const display = d.price(price);
   return (
     <div
       className={cn(
@@ -43,7 +45,7 @@ export function MiniLivePrice({ className }: { className?: string }) {
             status === 'live' ? 'var(--up)' : status === 'cached' ? 'var(--gold)' : 'var(--down)',
         }}
       />
-      <span className="text-gold">{price > 0 ? formatUnitPrice(display, unit, lang) : '—'}</span>
+      <span className="text-gold">{display > 0 ? `${d.approx}${d.format(display)}` : '—'}</span>
       <span style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}>
         {formatPct(change.pct, lang)}
       </span>

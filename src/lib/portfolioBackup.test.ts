@@ -55,12 +55,12 @@ describe('exportCsv', () => {
   it('uses semicolons, decimal commas and a BOM for Indonesian Excel', () => {
     const csv = exportCsv([h('a', 1, { grams: 2.5, note: 'hadiah; ultah' })], 'id', label);
     expect(csv.startsWith('\uFEFFTanggal;Jenis;')).toBe(true);
-    expect(csv).toContain('2026-09-30;Antam;2,5;100;2580000;6450000;"hadiah; ultah"\r\n');
+    expect(csv).toContain('2026-09-30;Antam;2,5;100;IDR;2580000;6450000;"hadiah; ultah"\r\n');
   });
 
   it('uses commas and decimal points in English', () => {
     const csv = exportCsv([h('a', 1, { grams: 2.5 })], 'en', label);
-    expect(csv).toContain('2026-09-30,Antam,2.5,100,2580000,6450000,\r\n');
+    expect(csv).toContain('2026-09-30,Antam,2.5,100,IDR,2580000,6450000,\r\n');
   });
 
   it('defuses formulas and quotes quotes', () => {

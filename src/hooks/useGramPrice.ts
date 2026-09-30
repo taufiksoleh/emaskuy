@@ -4,28 +4,27 @@
  * display unit.
  */
 import type { DataStatus } from '@/lib/api';
-import type { CalcCurrency } from '@/lib/calc';
 import { antamOneGram, staleness, useAntam } from '@/lib/antam';
 import { resolveGramPrice, type PriceBasis } from '@/lib/gramPrice';
-import { useI18n } from '@/lib/i18n';
+import type { Currency } from '@/lib/money';
+import { useDisplay } from './useDisplay';
 import { useGoldPrice } from './useGoldPrice';
 
-/** Rupiah when prices are shown per gram in IDR, else dollars. */
-export function useCalcCurrency(): CalcCurrency {
-  const { unit } = useI18n();
-  return unit === 'idr-gr' ? 'idr' : 'usd';
+/** Calculators work per gram in the display currency. */
+export function useCalcCurrency(): Currency {
+  return useDisplay().currency;
 }
 
 export function useGramPrice(
   basis: PriceBasis,
-  currency: CalcCurrency,
+  currency: Currency,
   manual: number,
 ): { perGram: number | null; status: DataStatus } {
-  const { gold, usdIdr, status, lastUpdated } = useGoldPrice();
+  const { gold, rates, status, lastUpdated } = useGoldPrice();
   const antam = useAntam();
   const perGram = resolveGramPrice(basis, {
     xauUsd: gold?.price ?? 0,
-    usdIdr,
+    rates,
     currency,
     manual,
     antam: { sellPerGram: antamOneGram(antam), buybackPerGram: antam.antam.buybackPerGram },

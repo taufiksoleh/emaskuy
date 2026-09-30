@@ -5,9 +5,11 @@
 import { useMemo } from 'react';
 import { toast } from 'sonner';
 import { useI18n } from '@/lib/i18n';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
-import { formatUsd, formatIdr, formatAgo, formatDateOnly, xauUsdToIdrGram, type Unit } from '@/lib/gold';
+import { formatUsd, formatIdr, formatAgo, formatDateOnly, formatNumber, xauUsdToIdrGram } from '@/lib/gold';
 import type { MetalSymbol } from '@/lib/api';
+import { WEIGHT, formatMoney, pricePer, rateOf } from '@/lib/money';
 import { cn } from '@/lib/utils';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
 
@@ -24,9 +26,11 @@ interface TickerItem {
 }
 
 export function TickerStrip() {
-  const { lang, t, unit } = useI18n();
-  const { metals, usdIdr, fx, status, loading } = useGoldPrice();
-  const idrChange = useXauChange('idr-gr').pct;
+  const { lang, t } = useI18n();
+  const { currency, weight } = useDisplay();
+  const { metals, usdIdr, rates, fx, status, loading } = useGoldPrice();
+  const idrChange = useXauChange('IDR', 'g').pct;
+  const localChange = useXauChange(currency, weight).pct;
 
   const items = useMemo<TickerItem[]>(() => {
     const nameKeys: Record<MetalSymbol, string> = {
@@ -46,6 +50,8 @@ export function TickerStrip() {
         updatedAt: m.updatedAt,
         isGold: m.symbol === 'XAU',
       }));
+    // ECB publishes one reference rate per business day.
+    const ecbNote = fx?.date ? `ECB ${formatDateOnly(fx.date, lang)}` : undefined;
     if (usdIdr > 0) {
       list.push({
         id: 'USDIDR',
@@ -53,8 +59,7 @@ export function TickerStrip() {
         render: () => formatIdr(usdIdr, lang),
         deltaPct: 0,
         updatedAt: fx?.updatedAt ?? 0,
-        // ECB publishes one reference rate per business day.
-        note: fx?.date ? `ECB ${formatDateOnly(fx.date, lang)}` : undefined,
+        note: ecbNote,
         isGold: false,
       });
     }
@@ -69,8 +74,31 @@ export function TickerStrip() {
         isGold: true,
       });
     }
+    // The visitor's own currency, when it's neither of the above
+    const rate = rateOf(currency, rates);
+    if (currency !== 'USD' && currency !== 'IDR' && rate > 0) {
+      list.push({
+        id: `USD${currency}`,
+        symbol: `USD/${currency}`,
+        render: () => formatNumber(rate, lang, { decimals: rate >= 100 ? 2 : 4 }),
+        deltaPct: 0,
+        updatedAt: fx?.updatedAt ?? 0,
+        note: ecbNote,
+        isGold: false,
+      });
+      if (gold && gold.price > 0) {
+        list.push({
+          id: `XAU${currency}`,
+          symbol: `XAU/${currency} ${WEIGHT[weight].short}`,
+          render: () => formatMoney(pricePer(gold.price, currency, weight, rates), currency, lang),
+          deltaPct: localChange,
+          updatedAt: gold.updatedAt,
+          isGold: true,
+        });
+      }
+    }
     return list;
-  }, [metals, usdIdr, fx, idrChange, lang]);
+  }, [metals, usdIdr, rates, fx, idrChange, localChange, currency, weight, lang]);
 
   if (items.length === 0) {
     return (
@@ -103,10 +131,7 @@ export function TickerStrip() {
           className="group flex h-full cursor-pointer items-center gap-2.5 border-r border-hairline px-5 transition-colors hover:bg-bg2"
         >
           <span className="label-micro group-hover:text-t2">{item.symbol}</span>
-          <span
-            className="font-mono text-[13px] font-medium tabular text-t1"
-            key={unit /* re-render on unit switch for consistency */}
-          >
+          <span className="font-mono text-[13px] font-medium tabular text-t1">
             {item.render()}
           </span>
           {item.deltaPct !== 0 && <DeltaChip value={item.deltaPct} size="sm" />}
@@ -130,4 +155,3 @@ export function TickerStrip() {
   );
 }
 
-export type { Unit };

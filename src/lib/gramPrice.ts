@@ -4,8 +4,7 @@
  * Kept separate from the calculators so later sources (Antam, buyback,
  * other currencies) only change this resolver.
  */
-import type { CalcCurrency } from './calc';
-import { TROY_OZ_GRAMS, xauUsdToIdrGram } from './gold';
+import { convertMoney, pricePer, type Currency, type Rates } from './money';
 
 /** Where the price per gram comes from. */
 export type PriceBasis = 'spot' | 'antam' | 'buyback' | 'manual';
@@ -13,8 +12,9 @@ export type PriceBasis = 'spot' | 'antam' | 'buyback' | 'manual';
 export interface GramPriceInputs {
   /** Live spot, USD per troy ounce */
   xauUsd: number;
-  usdIdr: number;
-  currency: CalcCurrency;
+  /** Units of each currency per USD */
+  rates: Rates;
+  currency: Currency;
   /** User-typed price per gram (manual basis) */
   manual: number;
   /** Antam prices in rupiah per gram */
@@ -27,10 +27,8 @@ export function resolveGramPrice(basis: PriceBasis, inp: GramPriceInputs): numbe
   if (basis === 'antam' || basis === 'buyback') {
     const idr = basis === 'antam' ? inp.antam?.sellPerGram : inp.antam?.buybackPerGram;
     if (!idr || idr <= 0) return null;
-    if (inp.currency === 'idr') return idr;
-    return inp.usdIdr > 0 ? idr / inp.usdIdr : null;
+    return convertMoney(idr, 'IDR', inp.currency, inp.rates);
   }
-  if (!(inp.xauUsd > 0)) return null;
-  if (inp.currency === 'usd') return inp.xauUsd / TROY_OZ_GRAMS;
-  return inp.usdIdr > 0 ? xauUsdToIdrGram(inp.xauUsd, inp.usdIdr) : null;
+  const spot = pricePer(inp.xauUsd, inp.currency, 'g', inp.rates);
+  return spot > 0 ? spot : null;
 }

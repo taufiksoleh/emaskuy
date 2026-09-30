@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { simulate, type CalcInputs } from './calc';
+import { calcPresets, simulate, type CalcInputs } from './calc';
 
 const base: CalcInputs = {
   mode: 'lump',
@@ -37,5 +37,24 @@ describe('simulate', () => {
   it('clamps the duration to 1–30 years', () => {
     expect(simulate({ ...base, years: 99 }).yearly).toHaveLength(30);
     expect(simulate({ ...base, years: 0 }).yearly).toHaveLength(1);
+  });
+});
+
+describe('calcPresets', () => {
+  it('keeps the hand-picked rupiah and dollar amounts', () => {
+    expect(calcPresets('IDR', {}).initial).toBe(10_000_000);
+    expect(calcPresets('USD', {}).chips.monthly).toEqual([25, 50, 100, 250]);
+  });
+
+  it('converts the dollar amounts to 1-2-5 steps in other currencies', () => {
+    const myr = calcPresets('MYR', { MYR: 4.081 });
+    expect(myr.initial).toBe(2000);
+    expect(myr.monthly).toBe(500);
+    expect(myr.chips.initial).toEqual([500, 2000, 5000, 20_000]);
+    expect(calcPresets('JPY', { JPY: 148.2 }).initial).toBe(100_000);
+  });
+
+  it('falls back to dollar amounts without a rate', () => {
+    expect(calcPresets('THB', {}).initial).toBe(500);
   });
 });

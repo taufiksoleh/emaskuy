@@ -9,7 +9,8 @@ import { CheckCircle2, Info } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { useCalcCurrency, useGramPrice } from '@/hooks/useGramPrice';
-import { fmtMoney, simulate } from '@/lib/calc';
+import { simulate } from '@/lib/calc';
+import { CURRENCY, formatMoney } from '@/lib/money';
 import { formatNumber } from '@/lib/gold';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { formatRaw, parseAmount } from '@/lib/number';
@@ -118,7 +119,7 @@ export default function TargetPage() {
     [perGram, targetGrams, initial, plan.monthly, months, growth, spread],
   );
 
-  const money = (v: number) => (perGram !== null ? fmtMoney(v, currency, lang) : '—');
+  const money = (v: number) => (perGram !== null ? formatMoney(v, currency, lang) : '—');
   const activePreset = PRESETS.find((p) => p.grams === targetGrams && p.months === months)?.key;
 
   return (
@@ -238,8 +239,8 @@ export default function TargetPage() {
                   id="target-initial"
                   value={initialRaw}
                   onChange={setInitialRaw}
-                  prefix={currency === 'idr' ? 'Rp' : '$'}
-                  decimals={currency === 'idr' ? 0 : 2}
+                  prefix={CURRENCY[currency].symbol}
+                  decimals={CURRENCY[currency].decimals}
                   placeholder="0"
                 />
               </Field>

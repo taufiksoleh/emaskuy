@@ -10,11 +10,10 @@
  * - Lump-sum: one purchase at month 0. DCA: purchase at every month.
  * - Portfolio value at month m = grams accumulated * price(m).
  */
-import { formatIdr, formatUsd } from '@/lib/gold';
-import { registerStrings, type Lang } from '@/lib/i18n';
+import { registerStrings } from '@/lib/i18n';
+import { niceRound, rateOf, type Currency, type Rates } from '@/lib/money';
 
 export type CalcMode = 'lump' | 'dca';
-export type CalcCurrency = 'idr' | 'usd';
 
 export interface CalcInputs {
   mode: CalcMode;
@@ -132,29 +131,40 @@ export function clamp(v: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, v));
 }
 
-/** Format a money amount in the calculator's selected currency, locale-aware. */
-export function fmtMoney(v: number, currency: CalcCurrency, lang: Lang, decimals?: number): string {
-  if (currency === 'idr') return formatIdr(v, lang, decimals !== undefined ? { decimals } : {});
-  return formatUsd(v, lang, decimals !== undefined ? { decimals } : {});
+export interface CalcPresets {
+  initial: number;
+  monthly: number;
+  chips: { initial: number[]; monthly: number[] };
 }
 
-/** Compact money for chart axes: Rp187 jt / $1.2k, negative -Rp5 jt */
-export function fmtMoneyCompact(v: number, currency: CalcCurrency, lang: Lang): string {
-  const abs = Math.abs(v);
-  const fix = (n: number) => {
-    const s = n >= 100 ? Math.round(n).toString() : n.toFixed(1);
-    return lang === 'id' ? s.replace('.', ',') : s;
+const IDR_PRESETS: CalcPresets = {
+  initial: 10_000_000,
+  monthly: 1_000_000,
+  chips: { initial: [1_000_000, 5_000_000, 10_000_000, 50_000_000], monthly: [250_000, 500_000, 1_000_000, 2_000_000] },
+};
+
+const USD_PRESETS: CalcPresets = {
+  initial: 500,
+  monthly: 100,
+  chips: { initial: [100, 500, 1000, 5000], monthly: [25, 50, 100, 250] },
+};
+
+/**
+ * Starting amounts and quick chips in `currency`: hand-picked for rupiah and
+ * dollars; other currencies get the dollar ones converted and rounded to
+ * 1-2-5 steps (RM2,000 rather than RM2,040).
+ */
+export function calcPresets(currency: Currency, rates: Rates): CalcPresets {
+  if (currency === 'IDR') return IDR_PRESETS;
+  const rate = rateOf(currency, rates);
+  if (currency === 'USD' || rate <= 0) return USD_PRESETS;
+  const conv = (v: number) => niceRound(v * rate);
+  const uniq = (vs: number[]) => [...new Set(vs.map(conv))];
+  return {
+    initial: conv(USD_PRESETS.initial),
+    monthly: conv(USD_PRESETS.monthly),
+    chips: { initial: uniq(USD_PRESETS.chips.initial), monthly: uniq(USD_PRESETS.chips.monthly) },
   };
-  let text: string;
-  if (currency === 'idr') {
-    if (abs >= 1e9) text = `Rp${fix(abs / 1e9)} ${lang === 'id' ? 'M' : 'B'}`;
-    else if (abs >= 1e6) text = `Rp${fix(abs / 1e6)} ${lang === 'id' ? 'jt' : 'M'}`;
-    else if (abs >= 1e3) text = `Rp${fix(abs / 1e3)} ${lang === 'id' ? 'rb' : 'k'}`;
-    else text = `Rp${Math.round(abs)}`;
-  } else if (abs >= 1e6) text = `$${fix(abs / 1e6)}M`;
-  else if (abs >= 1e3) text = `$${fix(abs / 1e3)}k`;
-  else text = `$${Math.round(abs)}`;
-  return v < 0 && /[1-9]/.test(text) ? `-${text}` : text;
 }
 
 /* ------------------------------------------------------------------ */

@@ -10,7 +10,8 @@ import { copyText } from '@/lib/clipboard';
 import { WhatsAppButton } from '../share/WhatsAppButton';
 import { useI18n } from '@/lib/i18n';
 import { formatNumber, gramsToOz } from '@/lib/gold';
-import { fmtMoney, type CalcCurrency, type CalcResult } from '@/lib/calc';
+import type { CalcResult } from '@/lib/calc';
+import { formatMoney, type Currency } from '@/lib/money';
 import { cn } from '@/lib/utils';
 import { Panel } from '../ui-atoms/Panel';
 import { StatCard, useCountUp } from '../ui-atoms/StatCard';
@@ -19,7 +20,7 @@ import { ProjectionChart } from './ProjectionChart';
 
 export interface ResultsPanelProps {
   result: CalcResult;
-  currency: CalcCurrency;
+  currency: Currency;
   years: number;
   summaryText: string;
   /** WhatsApp-formatted result */
@@ -27,7 +28,7 @@ export interface ResultsPanelProps {
   onReset: () => void;
 }
 
-function YearTable({ result, currency }: { result: CalcResult; currency: CalcCurrency }) {
+function YearTable({ result, currency }: { result: CalcResult; currency: Currency }) {
   const { lang, t } = useI18n();
   const [open, setOpen] = useState(false);
   const rows = result.yearly;
@@ -43,17 +44,17 @@ function YearTable({ result, currency }: { result: CalcResult; currency: CalcCur
     >
       <td className="py-2 pr-3 font-mono text-[13px] tabular text-t3">{r.year}</td>
       <td className="py-2 px-3 text-right font-mono text-[13px] tabular text-t2">
-        {fmtMoney(r.invested, currency, lang)}
+        {formatMoney(r.invested, currency, lang)}
       </td>
       <td className="py-2 px-3 text-right font-mono text-[13px] tabular text-t1">
-        {fmtMoney(r.value, currency, lang)}
+        {formatMoney(r.value, currency, lang)}
       </td>
       <td
         className="py-2 pl-3 text-right font-mono text-[13px] tabular"
         style={{ color: r.profit >= 0 ? 'var(--up)' : 'var(--down)' }}
       >
         {r.profit >= 0 ? '+' : ''}
-        {fmtMoney(r.profit, currency, lang)}
+        {formatMoney(r.profit, currency, lang)}
       </td>
     </motion.tr>
   );
@@ -109,7 +110,7 @@ function YearTable({ result, currency }: { result: CalcResult; currency: CalcCur
 export function ResultsPanel({ result, currency, years, summaryText, shareText, onReset }: ResultsPanelProps) {
   const { lang, t } = useI18n();
   const hero = useCountUp(result.finalValue, 400);
-  const money = (v: number) => fmtMoney(v, currency, lang);
+  const money = (v: number) => formatMoney(v, currency, lang);
 
   const copy = async () => {
     if (await copyText(summaryText)) toast.success(t('calc.copied'));

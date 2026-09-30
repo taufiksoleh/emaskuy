@@ -30,12 +30,12 @@ registerStrings({
     en: 'Real-time spot gold prices, updated every few seconds. No API key.',
   },
   'about.sources.2.desc': {
-    id: 'Kurs USD/IDR resmi harian dari Bank Sentral Eropa.',
-    en: 'Official daily USD/IDR rates from the European Central Bank.',
+    id: 'Kurs referensi harian Bank Sentral Eropa: rupiah dan 12 mata uang lain terhadap dolar AS. Riyal Saudi dan dirham UEA memakai patokan resminya.',
+    en: 'Daily European Central Bank reference rates: the rupiah and 12 other currencies against the US dollar. The Saudi riyal and UAE dirham use their official pegs.',
   },
   'about.sources.3.desc': {
-    id: 'Fixing harga emas harian resmi sejak 2013 (PLN per gram), kami konversi ke USD dan Rupiah dengan kurs ECB di hari yang sama.',
-    en: 'Official daily gold fixings since 2013 (PLN per gram), converted to USD and rupiah at the same day\'s ECB rates.',
+    id: 'Fixing harga emas harian resmi sejak 2013 (PLN per gram), kami konversi ke mata uang pilihan Anda dengan kurs ECB di hari yang sama.',
+    en: 'Official daily gold fixings since 2013 (PLN per gram), converted to your currency at the same day\'s ECB rates.',
   },
 
   // Section 3 — How we calculate
@@ -48,8 +48,8 @@ registerStrings({
   },
   'about.calc.step2.title': { id: 'Konversi satuan & kurs', en: 'Convert units & FX' },
   'about.calc.step2.desc': {
-    id: 'Harga per ons troy dikonversi ke rupiah per gram.',
-    en: 'Price per troy ounce converted to rupiah per gram.',
+    id: 'Harga per ons troy dikonversi ke mata uang dan satuan pilihan Anda, misalnya rupiah per gram.',
+    en: 'Price per troy ounce converted to your currency and unit, e.g. rupiah per gram.',
   },
   'about.calc.step3.title': { id: 'Tampilkan & cache', en: 'Display & cache' },
   'about.calc.step3.desc': {

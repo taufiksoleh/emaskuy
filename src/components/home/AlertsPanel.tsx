@@ -1,7 +1,8 @@
 /**
- * AlertsPanel — price alerts: users set an above/below target in the active
- * display unit and get a toast when the live price crosses it. Alerts are
- * stored in localStorage and checked against the 30s live poll.
+ * AlertsPanel — price alerts: users set an above/below target in the display
+ * currency and weight and get a toast when the live price crosses it. Each
+ * alert keeps its own unit. Alerts are stored in localStorage and checked
+ * against the 30s live poll.
  */
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
@@ -14,9 +15,12 @@ import {
   Trash2,
 } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
-import { formatDate, formatUnitPrice, xauUsdToIdrGram } from '@/lib/gold';
+import { formatDate } from '@/lib/gold';
 import { formatRaw, parseAmount } from '@/lib/number';
 import { MAX_ALERTS, type PriceAlert } from '@/lib/alerts';
+import { CURRENCY, formatMoney, unitLabel } from '@/lib/money';
+import { fill } from '@/lib/utils';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { usePriceAlerts } from '@/hooks/usePriceAlerts';
 import { MoneyInput } from '../ui-atoms/MoneyInput';
@@ -31,8 +35,7 @@ registerStrings({
   'alerts.target': { id: 'Target harga', en: 'Target price' },
   'alerts.reset': { id: 'Aktifkan lagi', en: 'Re-arm alert' },
   'alerts.remove': { id: 'Hapus alert', en: 'Delete alert' },
-  'alerts.unitHint.usd-oz': { id: 'dalam USD/oz', en: 'in USD/oz' },
-  'alerts.unitHint.idr-gr': { id: 'per IDR/gr', en: 'per IDR/gr' },
+  'alerts.unitHint': { id: 'dalam {label}', en: 'in {label}' },
   'alerts.currentPrice': { id: 'Harga saat ini', en: 'Current price' },
   'alerts.empty': {
     id: 'Belum ada alert. Buat target harga dan kami beri tahu saat tercapai.',
@@ -50,8 +53,9 @@ registerStrings({
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function AlertsPanel() {
-  const { t, lang, unit } = useI18n();
-  const { gold, usdIdr } = useGoldPrice();
+  const { t, lang } = useI18n();
+  const d = useDisplay();
+  const { gold } = useGoldPrice();
   const { alerts, addAlert, removeAlert, resetAlert } = usePriceAlerts();
   const [direction, setDirection] = useState<'above' | 'below'>('above');
   const [rawTarget, setRawTarget] = useState('');
@@ -61,16 +65,16 @@ export function AlertsPanel() {
   const maxReached = alerts.length >= MAX_ALERTS;
   const canAdd = targetValid && !maxReached;
 
-  const currentPrice = useMemo(() => {
-    if (!gold || gold.price <= 0) return 0;
-    return unit === 'idr-gr' ? xauUsdToIdrGram(gold.price, usdIdr) : gold.price;
-  }, [gold, usdIdr, unit]);
+  const currentPrice = useMemo(() => (gold && gold.price > 0 ? d.price(gold.price) : 0), [gold, d]);
+  const decimals = CURRENCY[d.currency].decimals;
 
   const onAdd = () => {
     if (!canAdd) return;
     const alert: PriceAlert = {
       id: `a-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
-      unit,
+      metal: 'XAU',
+      currency: d.currency,
+      weight: d.weight,
       direction,
       target,
       createdAt: Date.now(),
@@ -104,7 +108,7 @@ export function AlertsPanel() {
             currentPrice > 0 ? (
               <span className="font-mono text-xs text-t3 tabular-nums">
                 {t('alerts.currentPrice')}:{' '}
-                <span className="text-gold">{formatUnitPrice(currentPrice, unit, lang)}</span>
+                <span className="text-gold">{d.format(currentPrice)}</span>
               </span>
             ) : undefined
           }
@@ -124,10 +128,10 @@ export function AlertsPanel() {
               value={rawTarget}
               onChange={setRawTarget}
               onEnter={onAdd}
-              prefix={unit === 'idr-gr' ? 'Rp' : '$'}
-              decimals={unit === 'idr-gr' ? 0 : 2}
+              prefix={CURRENCY[d.currency].symbol}
+              decimals={decimals}
               ariaLabel={t('alerts.target')}
-              placeholder={formatRaw(currentPrice > 0 ? Math.round(currentPrice) : unit === 'idr-gr' ? 2500000 : 4350, lang, 0)}
+              placeholder={currentPrice > 0 ? formatRaw(Math.round(currentPrice), lang, 0) : undefined}
               className="w-44"
               inputClassName="py-2"
             />
@@ -139,7 +143,7 @@ export function AlertsPanel() {
               {t('alerts.add')}
             </button>
             <span className="font-mono text-[11px] text-t3">
-              {t(`alerts.unitHint.${unit}`)}
+              {fill(t('alerts.unitHint'), { label: d.label })}
               {maxReached && <span className="text-down"> · {t('alerts.maxReached')}</span>}
             </span>
           </div>
@@ -169,11 +173,9 @@ export function AlertsPanel() {
                       <ArrowDownRight className="h-4 w-4 shrink-0 text-down" />
                     )}
                     <span className="font-mono text-sm font-medium text-t1 tabular-nums">
-                      {formatUnitPrice(a.target, a.unit, lang)}
+                      {formatMoney(a.target, a.currency, lang)}
                     </span>
-                    <span className="font-mono text-[11px] text-t3">
-                      {a.unit === 'idr-gr' ? 'IDR/gr' : 'USD/oz'}
-                    </span>
+                    <span className="font-mono text-[11px] text-t3">{unitLabel(a.currency, a.weight)}</span>
                     <span className="hidden font-mono text-[11px] text-t3 sm:inline">
                       {formatDate(a.createdAt, lang)}
                     </span>
