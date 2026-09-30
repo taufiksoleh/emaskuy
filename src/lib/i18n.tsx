@@ -36,7 +36,6 @@ registerStrings({
   'common.live': { id: 'LIVE', en: 'LIVE' },
   'common.cached': { id: 'CACHE', en: 'CACHE' },
   'common.offline': { id: 'OFFLINE', en: 'OFFLINE' },
-  'common.comingSoon': { id: 'Segera hadir', en: 'Coming soon' },
   'common.gold': { id: 'Emas', en: 'Gold' },
   'common.silver': { id: 'Perak', en: 'Silver' },
   'common.platinum': { id: 'Platinum', en: 'Platinum' },

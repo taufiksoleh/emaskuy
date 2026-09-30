@@ -1,15 +1,17 @@
 /**
  * Section 0 — Ticker strip: full-width 40px marquee, hairlines top+bottom.
- * Hover pauses; item hover shows "updated ago"; click non-XAU → toast.
+ * Hover pauses; item hover shows "updated ago"; silver, platinum and
+ * palladium link to their pages.
  */
 import { useMemo } from 'react';
-import { toast } from 'sonner';
+import { Link } from 'react-router';
 import { useI18n } from '@/lib/i18n';
 import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { formatUsd, formatIdr, formatAgo, formatDateOnly, formatNumber, xauUsdToIdrGram } from '@/lib/gold';
 import type { MetalSymbol } from '@/lib/api';
 import { WEIGHT, formatMoney, pricePer, rateOf } from '@/lib/money';
+import { metalPath } from '@/lib/routes';
 import { cn } from '@/lib/utils';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
 
@@ -23,6 +25,8 @@ interface TickerItem {
   /** Tooltip detail; defaults to "updated … ago" */
   note?: string;
   isGold: boolean;
+  /** Page the item links to */
+  to?: string;
 }
 
 export function TickerStrip() {
@@ -49,6 +53,7 @@ export function TickerStrip() {
         deltaPct: m.changePct,
         updatedAt: m.updatedAt,
         isGold: m.symbol === 'XAU',
+        to: m.symbol === 'XAU' ? undefined : metalPath(m.symbol, lang),
       }));
     // ECB publishes one reference rate per business day.
     const ecbNote = fx?.date ? `ECB ${formatDateOnly(fx.date, lang)}` : undefined;
@@ -112,32 +117,31 @@ export function TickerStrip() {
     );
   }
 
-  const onClick = (item: TickerItem) => {
-    if (!item.isGold) {
-      toast(t('common.comingSoon'), {
-        description: item.symbol,
-      });
-    }
-  };
-
   const row = (keyPrefix: string) => (
     <div className="flex h-10 shrink-0 items-center" aria-hidden={keyPrefix === 'b'}>
-      {items.map((item) => (
-        <button
-          key={`${keyPrefix}-${item.id}`}
-          onClick={() => onClick(item)}
-          tabIndex={keyPrefix === 'b' ? -1 : undefined}
-          title={`${item.nameKey ? t(item.nameKey) : item.symbol} · ${item.note ?? formatAgo(item.updatedAt, lang)}`}
-          className="group flex h-full cursor-pointer items-center gap-2.5 border-r border-hairline px-5 transition-colors hover:bg-bg2"
-        >
-          <span className="label-micro group-hover:text-t2">{item.symbol}</span>
-          <span className="font-mono text-[13px] font-medium tabular text-t1">
-            {item.render()}
-          </span>
-          {item.deltaPct !== 0 && <DeltaChip value={item.deltaPct} size="sm" />}
-          {status !== 'live' && <span className="h-1.5 w-1.5 rounded-full bg-gold" />}
-        </button>
-      ))}
+      {items.map((item) => {
+        const body = (
+          <>
+            <span className="label-micro group-hover:text-t2">{item.symbol}</span>
+            <span className="font-mono text-[13px] font-medium tabular text-t1">{item.render()}</span>
+            {item.deltaPct !== 0 && <DeltaChip value={item.deltaPct} size="sm" />}
+            {status !== 'live' && <span className="h-1.5 w-1.5 rounded-full bg-gold" />}
+          </>
+        );
+        const props = {
+          title: `${item.nameKey ? t(item.nameKey) : item.symbol} · ${item.note ?? formatAgo(item.updatedAt, lang)}`,
+          className: 'group flex h-full items-center gap-2.5 border-r border-hairline px-5 transition-colors hover:bg-bg2',
+        };
+        return item.to ? (
+          <Link key={`${keyPrefix}-${item.id}`} to={item.to} tabIndex={keyPrefix === 'b' ? -1 : undefined} {...props}>
+            {body}
+          </Link>
+        ) : (
+          <div key={`${keyPrefix}-${item.id}`} {...props}>
+            {body}
+          </div>
+        );
+      })}
     </div>
   );
 

@@ -29,6 +29,12 @@ describe('routes', () => {
     expect(alternate('/en/analysis/gold-vs-stocks-2026', 'id')).toBe('/analisis/gold-vs-stocks-2026');
   });
 
+  it('maps metal pages by their own slugs', () => {
+    expect(alternate('/logam/perak', 'en')).toBe('/en/metals/silver');
+    expect(alternate('/en/metals/palladium', 'id')).toBe('/logam/paladium');
+    expect(alternate('/logam/emas', 'en')).toBe('/en');
+  });
+
   it('stays put in the same language and sends unknown pages home', () => {
     expect(alternate('/portofolio', 'id')).toBe('/portofolio');
     expect(alternate('/tidak-ada', 'en')).toBe('/en');

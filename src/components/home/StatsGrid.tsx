@@ -5,7 +5,7 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeftRight } from 'lucide-react';
-import { toast } from 'sonner';
+import { Link } from 'react-router';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useDisplay } from '@/hooks/useDisplay';
 import { useDisplayHistory } from '@/hooks/useDisplayHistory';
@@ -14,6 +14,7 @@ import { sliceSince } from '@/lib/history';
 import { parseAmount } from '@/lib/number';
 import { TROY_OZ_GRAMS, formatDate, formatDateOnly, formatNumber, formatUsd } from '@/lib/gold';
 import { CURRENCY, formatMoney, pricePer } from '@/lib/money';
+import { metalPath } from '@/lib/routes';
 import { cn } from '@/lib/utils';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
 import { Panel } from '../ui-atoms/Panel';
@@ -40,32 +41,42 @@ function MultiMetalTable() {
               <div className="skeleton-shimmer h-8 w-full rounded" />
             </div>
           ))}
-        {metals.map((m, i) => (
-          <motion.button
-            key={m.symbol}
-            initial={{ x: -8, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.3, ease, delay: i * 0.04 }}
-            onClick={() => {
-              if (m.symbol !== 'XAU') toast(t('common.comingSoon'), { description: `${m.symbol}/USD` });
-            }}
-            className="flex w-full cursor-pointer items-center gap-3 px-4 py-3 text-left transition-colors duration-150 hover:bg-bg2 md:px-6"
-          >
-            <span className="rounded-md border border-goldline bg-bg3 px-2 py-1 font-mono text-xs font-semibold tabular text-gold">
-              {m.symbol}
-            </span>
-            <span className="min-w-16 text-sm text-t2">{t(METAL_NAME_KEYS[m.symbol])}</span>
-            <span className="ml-auto font-mono text-sm font-medium tabular text-t1">
-              {m.price > 0 ? formatUsd(m.price, lang, { decimals: 2 }) : '—'}
-            </span>
-            {m.price > 0 ? (
-              <DeltaChip value={m.changePct} size="sm" className="w-24 justify-center" />
-            ) : (
-              <span className="w-24 text-center font-mono text-xs text-t3">—</span>
-            )}
-          </motion.button>
-        ))}
+        {metals.map((m, i) => {
+          const cells = (
+            <>
+              <span className="rounded-md border border-goldline bg-bg3 px-2 py-1 font-mono text-xs font-semibold tabular text-gold">
+                {m.symbol}
+              </span>
+              <span className="min-w-16 text-sm text-t2">{t(METAL_NAME_KEYS[m.symbol])}</span>
+              <span className="ml-auto font-mono text-sm font-medium tabular text-t1">
+                {m.price > 0 ? formatUsd(m.price, lang, { decimals: 2 }) : '—'}
+              </span>
+              {m.price > 0 ? (
+                <DeltaChip value={m.changePct} size="sm" className="w-24 justify-center" />
+              ) : (
+                <span className="w-24 text-center font-mono text-xs text-t3">—</span>
+              )}
+            </>
+          );
+          const row = 'flex w-full items-center gap-3 px-4 py-3 text-left transition-colors duration-150 md:px-6';
+          return (
+            <motion.div
+              key={m.symbol}
+              initial={{ x: -8, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.3, ease, delay: i * 0.04 }}
+            >
+              {m.symbol === 'XAU' ? (
+                <div className={row}>{cells}</div>
+              ) : (
+                <Link to={metalPath(m.symbol, lang)} className={`${row} hover:bg-bg2`}>
+                  {cells}
+                </Link>
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </Panel>
   );

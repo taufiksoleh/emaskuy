@@ -4,6 +4,7 @@ import {
   LEGACY_ALERTS_KEY,
   alertHit,
   alertPrice,
+  checkAlerts,
   loadAlerts,
   migrateV1Alert,
   normalizeAlert,
@@ -80,5 +81,30 @@ describe('alert checks', () => {
     expect(alertHit(alert, 549.9)).toBe(false);
     expect(alertHit({ ...alert, direction: 'below' }, 549.9)).toBe(true);
     expect(alertHit({ ...alert, direction: 'below' }, 0)).toBe(false);
+  });
+});
+
+describe('checkAlerts', () => {
+  const base = migrateV1Alert(v1)!;
+  const above: PriceAlert = { ...base, id: 'up', currency: 'USD', weight: 'ozt', direction: 'above', target: 4100 };
+  const below: PriceAlert = { ...base, id: 'down', currency: 'USD', weight: 'ozt', direction: 'below', target: 4000 };
+
+  it('fires the alerts the price crossed, once', () => {
+    const { next, fired } = checkAlerts([above, below], 4147.6, {}, 99);
+    expect(fired.map((a) => a.id)).toEqual(['up']);
+    expect(next.find((a) => a.id === 'up')?.triggeredAt).toBe(99);
+    expect(next.find((a) => a.id === 'down')?.triggeredAt).toBeUndefined();
+    expect(checkAlerts(next, 4200, {}, 100).fired).toEqual([]);
+  });
+
+  it('returns the same list when nothing fires', () => {
+    const list = [above, below];
+    expect(checkAlerts(list, 4050, {}, 1).next).toBe(list);
+  });
+
+  it('compares in each alert’s own currency', () => {
+    const idr: PriceAlert = { ...above, id: 'idr', currency: 'IDR', weight: 'g', target: 2_400_000 };
+    expect(checkAlerts([idr], 4147.6, { IDR: 17_921.7 }, 1).fired).toHaveLength(0);
+    expect(checkAlerts([idr], 4200, { IDR: 17_921.7 }, 1).fired).toHaveLength(1);
   });
 });

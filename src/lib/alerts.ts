@@ -96,3 +96,20 @@ export function alertHit(a: PriceAlert, current: number): boolean {
   if (current <= 0) return false;
   return a.direction === 'above' ? current >= a.target : current <= a.target;
 }
+
+/** Marks the armed alerts the live price crossed; `fired` lists them. */
+export function checkAlerts(
+  alerts: PriceAlert[],
+  usdPerOz: number,
+  rates: Rates,
+  now: number,
+): { next: PriceAlert[]; fired: PriceAlert[] } {
+  const fired: PriceAlert[] = [];
+  const next = alerts.map((a) => {
+    if (a.triggeredAt || !alertHit(a, alertPrice(a, usdPerOz, rates))) return a;
+    const hit = { ...a, triggeredAt: now };
+    fired.push(hit);
+    return hit;
+  });
+  return { next: fired.length > 0 ? next : alerts, fired };
+}

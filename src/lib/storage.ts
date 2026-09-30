@@ -27,6 +27,7 @@ const PRUNE_TIERS: Array<(key: string) => boolean> = [
   (k) => k.startsWith('emaskuy.cache.nbp.'),
   (k) => k === 'emaskuy.cache.hist.all',
   (k) => k.startsWith('emaskuy.cache.'),
+  (k) => k.startsWith('emaskuy.ticks.') && k !== 'emaskuy.ticks.xau',
   (k) => k === 'emaskuy.ticks.xau',
 ];
 

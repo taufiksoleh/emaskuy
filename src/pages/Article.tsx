@@ -35,6 +35,7 @@ registerStrings({
   'art.related': { id: 'Artikel Terkait', en: 'Related Articles' },
   'art.share': { id: 'Bagikan', en: 'Share' },
   'art.copied': { id: 'Tautan disalin', en: 'Link copied' },
+  'art.sources': { id: 'Sumber', en: 'Sources' },
   'art.copyFailed': { id: 'Gagal menyalin tautan', en: 'Could not copy the link' },
   'art.copy': { id: 'Salin tautan', en: 'Copy link' },
   'art.notFound': { id: 'Artikel tidak ditemukan', en: 'Article not found' },
@@ -240,6 +241,24 @@ export default function Article() {
       );
     }
   });
+  if (article.sources?.length) {
+    bodyBlocks.push(
+      <section key="src" aria-labelledby="art-sources" className="mt-10 border-t border-hairline pt-6">
+        <h2 id="art-sources" className="label-micro">
+          {t('art.sources')}
+        </h2>
+        <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-t2">
+          {article.sources.map((s) => (
+            <li key={s.url}>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted hover:text-gold">
+                {s.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>,
+    );
+  }
 
   return (
     <div ref={rootRef}>

@@ -112,6 +112,13 @@ export function checkArticles(source, { publicDir, now }) {
     else if (statSync(file).size > MAX_IMAGE_BYTES) errors.push(`image ${src} is over ${MAX_IMAGE_BYTES / 1000} KB`);
   }
 
+  const featured = source.match(/^\s{4}featured:\s*true/gm)?.length ?? 0;
+  if (featured > 1) errors.push(`${featured} articles set featured: true; at most one may`);
+
+  for (const m of source.matchAll(/\burl:\s*'([^']*)'/g)) {
+    if (!/^https:\/\/[^\s]+\.[^\s]+$/.test(m[1])) errors.push(`source url '${m[1]}' must be a full https:// address`);
+  }
+
   for (const m of source.matchAll(/publishedAt:\s*Date\.parse\('([^']+)'\)/g)) {
     const t = Date.parse(m[1]);
     if (!Number.isFinite(t)) errors.push(`publishedAt '${m[1]}' is not a date`);
