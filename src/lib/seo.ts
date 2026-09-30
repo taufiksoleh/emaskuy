@@ -8,6 +8,7 @@
  */
 import type { Article } from '@/data/articles';
 import { ogImagePath } from './img';
+import { PAGE_PATHS, articlePath, isPageKey } from './routes';
 import type { Lang } from './strings';
 
 export const SITE_NAME = 'EmasKuy';
@@ -22,18 +23,16 @@ export interface L10n {
 /** What kind of structured data the page gets. */
 export type PageKind = 'home' | 'collection' | 'app' | 'faq' | 'none';
 
+/** Titles and descriptions; the URLs are in routes.ts under the same keys. */
 export interface PageMeta {
   title: L10n;
   description: L10n;
-  /** Route path; absent for pages that are never prerendered */
-  path?: string;
   kind?: PageKind;
   noindex?: boolean;
 }
 
 const ROUTES = {
   home: {
-    path: '/',
     kind: 'home',
     title: {
       id: 'Harga Emas Hari Ini: Live per Gram, Antam & Grafik',
@@ -45,7 +44,6 @@ const ROUTES = {
     },
   },
   analysis: {
-    path: '/analisis',
     kind: 'collection',
     title: {
       id: 'Analisis Harga Emas Terbaru & Prediksi Pasar',
@@ -57,7 +55,6 @@ const ROUTES = {
     },
   },
   calculator: {
-    path: '/kalkulator',
     kind: 'app',
     title: {
       id: 'Kalkulator Investasi Emas: Simulasi DCA & Lump Sum',
@@ -69,7 +66,6 @@ const ROUTES = {
     },
   },
   calcZakat: {
-    path: '/kalkulator/zakat',
     kind: 'app',
     title: {
       id: `Kalkulator Zakat Emas ${new Date().getFullYear()}: Nisab 85 Gram`,
@@ -81,7 +77,6 @@ const ROUTES = {
     },
   },
   calcJewelry: {
-    path: '/kalkulator/perhiasan',
     kind: 'app',
     title: {
       id: 'Kalkulator Harga Emas Perhiasan per Gram (Karat & Kadar)',
@@ -93,7 +88,6 @@ const ROUTES = {
     },
   },
   calcTarget: {
-    path: '/kalkulator/target',
     kind: 'app',
     title: {
       id: 'Kalkulator Target Tabungan Emas: Mahar, Umrah, Pendidikan',
@@ -105,7 +99,6 @@ const ROUTES = {
     },
   },
   portfolio: {
-    path: '/portofolio',
     kind: 'app',
     title: {
       id: 'Portofolio Emas: Catat Pembelian & Untung Rugi',
@@ -117,7 +110,6 @@ const ROUTES = {
     },
   },
   about: {
-    path: '/tentang',
     kind: 'faq',
     title: {
       id: 'Tentang EmasKuy: Sumber Data & Metodologi',
@@ -141,18 +133,6 @@ const ROUTES = {
 export type RouteKey = keyof typeof ROUTES;
 export const ROUTE_META: Record<RouteKey, PageMeta> = ROUTES;
 
-/** Routes written as static HTML at build time, in sitemap order. */
-export const PRERENDERED_ROUTES: RouteKey[] = [
-  'home',
-  'analysis',
-  'calculator',
-  'calcZakat',
-  'calcJewelry',
-  'calcTarget',
-  'portfolio',
-  'about',
-];
-
 export function fullTitle(title: string): string {
   return `${title} | ${SITE_NAME}`;
 }
@@ -163,36 +143,41 @@ export function absoluteUrl(path: string): string {
 
 /** Everything that goes into <head> for one page. */
 export interface HeadData {
+  lang: Lang;
   title: string;
   description: string;
   /** Absolute URL, no trailing slash except the root */
   canonical?: string;
+  /** Absolute URL of this page in each language (hreflang) */
+  alternates?: Record<Lang, string>;
   /** Absolute URL */
   ogImage: string;
   ogType: 'website' | 'article';
   noindex: boolean;
 }
 
-export function localize(meta: PageMeta, lang: Lang): HeadData {
+export function routeHead(key: RouteKey, lang: Lang): HeadData {
+  const meta = ROUTE_META[key];
+  const paths = isPageKey(key) ? PAGE_PATHS[key] : null;
   return {
+    lang,
     title: fullTitle(meta.title[lang]),
     description: meta.description[lang],
-    canonical: meta.path ? absoluteUrl(meta.path) : undefined,
+    canonical: paths ? absoluteUrl(paths[lang]) : undefined,
+    alternates: paths ? { id: absoluteUrl(paths.id), en: absoluteUrl(paths.en) } : undefined,
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
     ogType: 'website',
     noindex: meta.noindex ?? false,
   };
 }
 
-export function articlePath(slug: string): string {
-  return `/analisis/${slug}`;
-}
-
 export function articleHead(article: Article, lang: Lang): HeadData {
   return {
+    lang,
     title: fullTitle(article.title[lang]),
     description: article.excerpt[lang],
-    canonical: absoluteUrl(articlePath(article.slug)),
+    canonical: absoluteUrl(articlePath(article.slug, lang)),
+    alternates: { id: absoluteUrl(articlePath(article.slug, 'id')), en: absoluteUrl(articlePath(article.slug, 'en')) },
     ogImage: absoluteUrl(ogImagePath(article.image) ?? DEFAULT_OG_IMAGE),
     ogType: 'article',
     noindex: false,

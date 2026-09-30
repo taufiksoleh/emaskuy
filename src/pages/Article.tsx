@@ -16,7 +16,8 @@ import { ArrowLeft, Check, Link2, Twitter, MessageCircle } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { copyText } from '@/lib/clipboard';
 import { waLink } from '@/lib/share';
-import { ROUTE_META, articleHead, articlePath, absoluteUrl, localize } from '@/lib/seo';
+import { absoluteUrl, articleHead, routeHead } from '@/lib/seo';
+import { articlePath, pathFor } from '@/lib/routes';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { getArticle, relatedArticles } from '@/data/articles';
 import { formatDate } from '@/lib/gold';
@@ -44,7 +45,7 @@ export default function Article() {
   const [searchParams] = useSearchParams();
   const article = getArticle(slug ?? searchParams.get('slug') ?? '');
   const { lang, t } = useI18n();
-  useDocumentMeta(article ? articleHead(article, lang) : localize(ROUTE_META.notFound, lang));
+  useDocumentMeta(article ? articleHead(article, lang) : routeHead('notFound', lang));
   const rootRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLImageElement>(null);
@@ -178,7 +179,7 @@ export default function Article() {
     return (
       <div className="mx-auto max-w-[720px] px-4 py-24 text-center">
         <p className="font-display text-2xl font-semibold text-t1">{t('art.notFound')}</p>
-        <Link to="/analisis" className="mt-4 inline-flex items-center gap-2 text-sm text-gold">
+        <Link to={pathFor('analysis', lang)} className="mt-4 inline-flex items-center gap-2 text-sm text-gold">
           <ArrowLeft className="h-4 w-4" /> {t('art.back')}
         </Link>
       </div>
@@ -190,7 +191,7 @@ export default function Article() {
   } · ${article.author[lang]}`;
 
   // Share the canonical address, not whatever query string brought us here.
-  const url = absoluteUrl(articlePath(article.slug));
+  const url = absoluteUrl(articlePath(article.slug, lang));
   const shareText = article.title[lang];
   const copyLink = async () => {
     if (!(await copyText(url))) {
@@ -286,7 +287,7 @@ export default function Article() {
           {/* Article column */}
           <article className="max-w-[720px]">
             <Link
-              to="/analisis"
+              to={pathFor('analysis', lang)}
               className="mt-6 inline-flex items-center gap-2 rounded-lg px-2 py-1 text-sm text-t2 transition-colors hover:text-gold"
             >
               <ArrowLeft className="h-4 w-4" /> {t('art.back')}

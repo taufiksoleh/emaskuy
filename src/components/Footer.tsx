@@ -7,6 +7,7 @@ import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useInstallPrompt } from '@/hooks/useInstallPrompt';
 import { Download } from 'lucide-react';
+import { pathFor } from '@/lib/routes';
 import { withBase } from '@/lib/utils';
 
 registerStrings({
@@ -21,7 +22,7 @@ registerStrings({
 const linkCls = 'text-sm text-t2 transition-colors hover:text-gold';
 
 export function Footer() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const { status } = useGoldPrice();
   const { canPrompt, iosHint, install } = useInstallPrompt();
 
@@ -56,19 +57,19 @@ export function Footer() {
         <div>
           <div className="label-micro">{t('footer.navigate')}</div>
           <nav className="mt-3 flex flex-col gap-2">
-            <Link to="/" className="text-sm text-t2 transition-colors hover:text-gold">
+            <Link to={pathFor('home', lang)} className="text-sm text-t2 transition-colors hover:text-gold">
               {t('nav.dashboard')}
             </Link>
-            <Link to="/analisis" className="text-sm text-t2 transition-colors hover:text-gold">
+            <Link to={pathFor('analysis', lang)} className="text-sm text-t2 transition-colors hover:text-gold">
               {t('nav.analysis')}
             </Link>
-            <Link to="/kalkulator" className="text-sm text-t2 transition-colors hover:text-gold">
+            <Link to={pathFor('calculator', lang)} className="text-sm text-t2 transition-colors hover:text-gold">
               {t('nav.calculator')}
             </Link>
-            <Link to="/portofolio" className={linkCls}>
+            <Link to={pathFor('portfolio', lang)} className={linkCls}>
               {t('nav.portfolio')}
             </Link>
-            <Link to="/tentang" className="text-sm text-t2 transition-colors hover:text-gold">
+            <Link to={pathFor('about', lang)} className="text-sm text-t2 transition-colors hover:text-gold">
               {t('nav.about')}
             </Link>
           </nav>
@@ -76,16 +77,16 @@ export function Footer() {
         <div>
           <div className="label-micro">{t('footer.calculators')}</div>
           <nav className="mt-3 flex flex-col gap-2">
-            <Link to="/kalkulator" className={linkCls}>
+            <Link to={pathFor('calculator', lang)} className={linkCls}>
               {t('calc.tab.investment')}
             </Link>
-            <Link to="/kalkulator/zakat" className={linkCls}>
+            <Link to={pathFor('calcZakat', lang)} className={linkCls}>
               {t('calc.tab.zakat')}
             </Link>
-            <Link to="/kalkulator/perhiasan" className={linkCls}>
+            <Link to={pathFor('calcJewelry', lang)} className={linkCls}>
               {t('calc.tab.jewelry')}
             </Link>
-            <Link to="/kalkulator/target" className={linkCls}>
+            <Link to={pathFor('calcTarget', lang)} className={linkCls}>
               {t('calc.tab.target')}
             </Link>
           </nav>

@@ -10,16 +10,10 @@
  * const title = t('calc.title');
  * ```
  */
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react';
-import { LANG_KEY, detectLang, writePref } from './preferences';
+import { createContext, useCallback, useContext, useEffect, useMemo, type ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router';
+import { LANG_KEY, writePref } from './preferences';
+import { alternate, langOfPath } from './routes';
 import { registerStrings, translate, type Lang } from './strings';
 
 export { registerStrings } from './strings';
@@ -72,7 +66,9 @@ registerStrings({
 });
 
 export interface I18nValue {
+  /** From the URL: English under /en, else Indonesian */
   lang: Lang;
+  /** Go to the same page in the other language (and remember the choice) */
   setLang: (lang: Lang) => void;
   /** Translate a registered key. Falls back to the key itself when missing. */
   t: (key: string) => string;
@@ -81,16 +77,21 @@ export interface I18nValue {
 const I18nContext = createContext<I18nValue | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(detectLang);
+  const { pathname, search, hash } = useLocation();
+  const navigate = useNavigate();
+  const lang = langOfPath(pathname);
 
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const setLang = useCallback((l: Lang) => {
-    setLangState(l);
-    writePref(LANG_KEY, l);
-  }, []);
+  const setLang = useCallback(
+    (l: Lang) => {
+      writePref(LANG_KEY, l);
+      if (l !== lang) navigate(`${alternate(pathname, l)}${search}${hash}`);
+    },
+    [lang, pathname, search, hash, navigate],
+  );
 
   const t = useCallback((key: string): string => translate(key, lang), [lang]);
 

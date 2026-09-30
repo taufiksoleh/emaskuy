@@ -5,8 +5,13 @@
  */
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigationType } from 'react-router';
+import { pathFor } from '@/lib/routes';
 
-const section = (path: string) => path.split('/')[1] ?? '';
+const inCalculators = (path: string) =>
+  (['id', 'en'] as const).some((lang) => {
+    const base = pathFor('calculator', lang);
+    return path === base || path.startsWith(`${base}/`);
+  });
 
 export function ScrollToTop() {
   const { pathname } = useLocation();
@@ -14,7 +19,7 @@ export function ScrollToTop() {
   const prevPath = useRef(pathname);
 
   useEffect(() => {
-    const sameHub = section(prevPath.current) === 'kalkulator' && section(pathname) === 'kalkulator';
+    const sameHub = inCalculators(prevPath.current) && inCalculators(pathname);
     prevPath.current = pathname;
     if (navType !== 'POP' && !sameHub) window.scrollTo(0, 0);
   }, [pathname, navType]);

@@ -5,13 +5,14 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { sortedArticles } from '@/data/articles';
 import { ArticleCard } from '../ui-atoms/ArticleCard';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function AnalysisPreview() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const [featured, ...rest] = sortedArticles();
 
   return (
@@ -21,7 +22,7 @@ export function AnalysisPreview() {
           {t('home.analysis.title')}
         </h2>
         <Link
-          to="/analisis"
+          to={pathFor('analysis', lang)}
           className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-hairline px-4 py-2 font-display text-sm font-medium text-t1 transition-colors duration-150 hover:border-goldline hover:text-gold"
         >
           {t('home.analysis.viewAll')}

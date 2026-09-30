@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Info } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { useCalcCurrency, useGramPrice } from '@/hooks/useGramPrice';
 import { formatMoney } from '@/lib/money';
@@ -125,7 +126,7 @@ export default function PerhiasanPage() {
                       [t('jewelry.value'), money(r.value), true],
                       [t('jewelry.sellBack'), money(r.sellBack)],
                     ],
-                    '/kalkulator/perhiasan',
+                    pathFor('calcJewelry', lang),
                     t,
                   )}
                 />

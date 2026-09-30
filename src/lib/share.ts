@@ -7,6 +7,7 @@
 import { formatDateOnly, formatIdr, formatPct, formatUsd } from './gold';
 import type { Lang } from './i18n';
 import { registerStrings } from './i18n';
+import { pathFor } from './routes';
 import { SITE_URL } from './seo';
 import { formatClockZone } from './time';
 
@@ -67,7 +68,7 @@ export function buildDailyPriceText(inp: DailyPriceInput, t: Translate): string 
       lines.push(`• ${t('share.buyback')}: ${formatIdr(inp.antam.buyback, lang)}/gram`);
     }
   }
-  lines.push('', `${t('share.daily.live')}: ${SITE_URL}/`, `_${t('share.disclaimer')}_`);
+  lines.push('', `${t('share.daily.live')}: ${SITE_URL}${pathFor('home', inp.lang)}`, `_${t('share.disclaimer')}_`);
   return lines.join('\n');
 }
 

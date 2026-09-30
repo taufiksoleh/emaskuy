@@ -9,6 +9,7 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { formatDate } from '@/lib/gold';
 import { useI18n } from '@/lib/i18n';
+import { articlePath } from '@/lib/routes';
 import type { Article } from '@/data/articles';
 import { Img } from './Img';
 
@@ -72,7 +73,7 @@ export function ArticleCard({ article, variant = 'featured', className }: Articl
 
   return (
     <Link
-      to={`/analisis/${article.slug}`}
+      to={articlePath(article.slug, lang)}
       className={cn(
         'group block overflow-hidden rounded-[10px] border border-hairline bg-bg1 transition-[border-color,background-color] duration-[250ms] hover:border-goldline hover:bg-bg2',
         variant === 'compact' && 'flex',

@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { HandCoins, Info, Wallet } from 'lucide-react';
 import { toast } from 'sonner';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { pathFor } from '@/lib/routes';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { useCalcCurrency, useGramPrice } from '@/hooks/useGramPrice';
 import { formatMoney } from '@/lib/money';
@@ -250,7 +251,7 @@ export default function ZakatPage() {
                       ? [t('zakat.amount'), `${r.zakatValue !== null ? money(r.zakatValue) : '—'} (${grams(r.zakatGrams, 3)} gr)`, true]
                       : [t('zakat.result'), t('zakat.notDue'), true],
                   ],
-                  '/kalkulator/zakat',
+                  pathFor('calcZakat', lang),
                   t,
                 )}
               />

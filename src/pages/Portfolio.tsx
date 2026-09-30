@@ -28,6 +28,7 @@ import {
 } from '@/lib/portfolio';
 import { buybackPerGramFor, staleness, useAntam } from '@/lib/antam';
 import { readPref, writePref } from '@/lib/preferences';
+import { pathFor } from '@/lib/routes';
 import { SegToggle } from '@/components/ui-atoms/SegToggle';
 import { mergeHoldings } from '@/lib/portfolioBackup';
 import { cn, fill } from '@/lib/utils';
@@ -175,7 +176,7 @@ export default function PortfolioPage() {
   };
 
   const toZakat = () =>
-    navigate('/kalkulator/zakat', {
+    navigate(pathFor('calcZakat', lang), {
       state: { prefill: { investGrams: summary.investGrams, jewelryPureGrams: summary.jewelryGrams } },
     });
 

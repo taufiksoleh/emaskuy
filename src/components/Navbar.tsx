@@ -14,16 +14,17 @@ import { useTheme } from '@/hooks/useTheme';
 import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { formatPct } from '@/lib/gold';
+import { pathFor } from '@/lib/routes';
 import { cn, withBase } from '@/lib/utils';
 import { DisplayPicker } from './DisplayPicker';
 import { SegToggle } from './ui-atoms/SegToggle';
 
 const LINKS = [
-  { to: '/', key: 'nav.dashboard', icon: LayoutDashboard },
-  { to: '/analisis', key: 'nav.analysis', icon: Newspaper },
-  { to: '/kalkulator', key: 'nav.calculator', icon: Calculator },
-  { to: '/portofolio', key: 'nav.portfolio', icon: Briefcase },
-  { to: '/tentang', key: 'nav.about', icon: Info },
+  { page: 'home', key: 'nav.dashboard', icon: LayoutDashboard },
+  { page: 'analysis', key: 'nav.analysis', icon: Newspaper },
+  { page: 'calculator', key: 'nav.calculator', icon: Calculator },
+  { page: 'portfolio', key: 'nav.portfolio', icon: Briefcase },
+  { page: 'about', key: 'nav.about', icon: Info },
 ] as const;
 
 function LivePriceChip() {
@@ -98,7 +99,7 @@ export function Navbar() {
       <header className="sticky top-0 z-50 h-16 border-b border-hairline bg-bg0/80 backdrop-blur-[12px]">
         <div className="mx-auto flex h-full max-w-[1440px] items-center gap-4 px-4 md:px-6">
           {/* Left: logo + wordmark + status */}
-          <Link to="/" className="flex shrink-0 items-center gap-2.5">
+          <Link to={pathFor('home', lang)} className="flex shrink-0 items-center gap-2.5">
             <img src={withBase('/logo.svg')} alt="EmasKuy" className="h-7 w-7" />
             <span className="hidden font-display text-lg font-bold tracking-[-0.02em] text-t1 min-[420px]:inline">
               EmasKuy
@@ -131,9 +132,9 @@ export function Navbar() {
           <nav className="mx-auto hidden items-center gap-1 lg:flex">
             {LINKS.map((l) => (
               <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.to === '/'}
+                key={l.page}
+                to={pathFor(l.page, lang)}
+                end={l.page === 'home'}
                 className="relative px-3 py-2 font-display text-sm font-medium text-t2 transition-colors duration-150 hover:text-t1"
               >
                 {({ isActive }) => (
@@ -179,9 +180,9 @@ export function Navbar() {
         <div className="grid grid-cols-5">
           {LINKS.map((l) => (
             <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === '/'}
+              key={l.page}
+              to={pathFor(l.page, lang)}
+              end={l.page === 'home'}
               className={({ isActive }) =>
                 cn(
                   'relative flex flex-col items-center gap-1 pb-2 pt-2.5 transition-colors',

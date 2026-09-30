@@ -1,8 +1,10 @@
 /**
  * CI check on the built site (run after `npm run build`): every prerendered
- * page has one title, an absolute canonical matching og:url, an absolute
+ * page has one title, an absolute canonical matching og:url and its own
+ * hreflang, hreflang links for both languages and x-default, an absolute
  * og:image that exists and fits WhatsApp's preview limit, valid JSON-LD and
- * lang="id"; the sitemap lists exactly those pages; the PWA files exist.
+ * the right lang (en under en/, else id); the sitemap lists exactly those
+ * pages; the feeds and PWA files exist.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
@@ -21,6 +23,14 @@ function htmlFiles(dir) {
   });
 }
 
+// GitHub Pages serves /kalkulator from kalkulator.html next to a kalkulator/
+// folder only while that folder has no index.html; with one it would
+// redirect to /kalkulator/ instead.
+const isFolderIndex = (file) => path.basename(file) === 'index.html' && path.dirname(file) !== DIST;
+for (const file of htmlFiles(DIST).filter(isFolderIndex)) {
+  fail(path.relative(DIST, file), 'folder index.html would make GitHub Pages redirect the page to a trailing slash');
+}
+
 const attr = (html, selector) => {
   const m = html.match(new RegExp(`<meta ${selector} content="([^"]*)"`));
   return m?.[1];
@@ -32,11 +42,20 @@ for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const titles = html.match(/<title>/g)?.length ?? 0;
   if (titles !== 1) fail(rel, `expected 1 <title>, found ${titles}`);
-  if (!html.startsWith('<!doctype html>\n<html lang="id"')) fail(rel, 'missing lang="id"');
+  const lang = rel === 'en.html' || rel.startsWith(`en${path.sep}`) ? 'en' : 'id';
+  if (!html.startsWith(`<!doctype html>\n<html lang="${lang}"`)) fail(rel, `missing lang="${lang}"`);
   if (!html.includes('<div data-prerender>')) fail(rel, 'missing prerendered body');
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   if (!canonical?.startsWith(SITE)) fail(rel, `canonical not absolute: ${canonical}`);
   if (attr(html, 'property="og:url"') !== canonical) fail(rel, 'og:url differs from canonical');
+  const hreflang = Object.fromEntries(
+    [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]),
+  );
+  for (const h of ['id', 'en', 'x-default']) {
+    if (!hreflang[h]?.startsWith(SITE)) fail(rel, `hreflang="${h}" missing or not absolute`);
+  }
+  if (hreflang[lang] !== canonical) fail(rel, `hreflang="${lang}" differs from canonical`);
+  if (hreflang['x-default'] !== hreflang.en) fail(rel, 'x-default should be the English page');
   const og = attr(html, 'property="og:image"');
   if (!og?.startsWith(`${SITE}/`)) {
     fail(rel, `og:image not absolute: ${og}`);
@@ -58,7 +77,7 @@ for (const file of pages) {
 const sitemap = readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
 const locs = sitemap.match(/<loc>/g)?.length ?? 0;
 if (locs !== pages.length) fail('sitemap.xml', `${locs} URLs for ${pages.length} pages`);
-for (const f of ['robots.txt', 'rss.xml', 'sw.js', 'manifest.webmanifest', 'CNAME', '404.html']) {
+for (const f of ['robots.txt', 'rss.xml', 'en/rss.xml', 'sw.js', 'manifest.webmanifest', 'CNAME', '404.html']) {
   if (!existsSync(path.join(DIST, f))) fail(f, 'missing');
 }
 for (const f of readdirSync(path.join(DIST, 'assets')).filter((n) => n.endsWith('.js'))) {
