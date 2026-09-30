@@ -1,0 +1,95 @@
+import { describe, expect, it } from 'vitest';
+import {
+  LEGACY_PORTFOLIO_KEY,
+  PORTFOLIO_KEY,
+  loadHoldings,
+  normalizeHolding,
+  pureGrams,
+  saveHoldings,
+  summarize,
+  type Holding,
+} from './portfolio';
+import type { KV } from './storage';
+
+function memoryStore(seed: Record<string, string> = {}): KV & { data: Map<string, string> } {
+  const data = new Map(Object.entries(seed));
+  return {
+    data,
+    get length() {
+      return data.size;
+    },
+    key: (i) => [...data.keys()][i] ?? null,
+    getItem: (k) => data.get(k) ?? null,
+    setItem: (k, v) => void data.set(k, v),
+    removeItem: (k) => void data.delete(k),
+  };
+}
+
+const bar: Holding = {
+  id: 'a',
+  type: 'antam',
+  grams: 10,
+  kadarPct: 100,
+  buyPricePerGram: 2_500_000,
+  currency: 'IDR',
+  date: '2026-09-01',
+  updatedAt: 1,
+};
+
+describe('normalizeHolding', () => {
+  it('reads the v1 shape as an untyped item', () => {
+    expect(normalizeHolding({ id: 'x', grams: 5, buyPriceIdrPerGram: 2_580_000, date: '2026-09-30' })).toEqual({
+      id: 'x',
+      type: 'lainnya',
+      grams: 5,
+      kadarPct: 100,
+      buyPricePerGram: 2_580_000,
+      currency: 'IDR',
+      date: '2026-09-30',
+      note: undefined,
+      updatedAt: 0,
+    });
+  });
+
+  it('keeps purity only for jewelry', () => {
+    expect(normalizeHolding({ ...bar, type: 'perhiasan', kadarPct: 75 })?.kadarPct).toBe(75);
+    expect(normalizeHolding({ ...bar, kadarPct: 75 })?.kadarPct).toBe(100);
+    expect(normalizeHolding({ ...bar, type: 'perhiasan', kadarPct: 150 })?.kadarPct).toBe(100);
+  });
+
+  it('rejects unusable rows', () => {
+    for (const raw of [null, 'x', { ...bar, id: '' }, { ...bar, grams: 0 }, { ...bar, buyPricePerGram: -1 }]) {
+      expect(normalizeHolding(raw)).toBeNull();
+    }
+  });
+});
+
+describe('storage', () => {
+  it('migrates the v1 list and leaves it in place', () => {
+    const v1 = JSON.stringify([{ id: 'x', grams: 5, buyPriceIdrPerGram: 2_580_000, date: '2026-09-30' }]);
+    const store = memoryStore({ [LEGACY_PORTFOLIO_KEY]: v1 });
+    const loaded = loadHoldings(store);
+    expect(loaded).toHaveLength(1);
+    expect(store.data.get(LEGACY_PORTFOLIO_KEY)).toBe(v1);
+    expect(JSON.parse(store.data.get(PORTFOLIO_KEY)!).v).toBe(2);
+  });
+
+  it('prefers v2 once it exists, even when empty', () => {
+    const store = memoryStore({ [LEGACY_PORTFOLIO_KEY]: JSON.stringify([bar]) });
+    saveHoldings([], store);
+    expect(loadHoldings(store)).toEqual([]);
+  });
+});
+
+describe('summary', () => {
+  it('counts jewelry by its pure gold', () => {
+    const ring: Holding = { ...bar, id: 'r', type: 'perhiasan', grams: 10, kadarPct: 75, buyPricePerGram: 1_900_000 };
+    expect(pureGrams(ring)).toBe(7.5);
+    expect(summarize([bar, ring])).toEqual({
+      totalGrams: 17.5,
+      investGrams: 10,
+      jewelryGrams: 7.5,
+      totalInvested: 25_000_000 + 19_000_000,
+    });
+  });
+});

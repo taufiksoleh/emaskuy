@@ -115,6 +115,13 @@ export function formatDateOnly(iso: string, lang: Lang): string {
   return d ? formatDate(d.getTime(), lang) : iso;
 }
 
+/** `YYYY-MM-DD` of a timestamp in the device's time zone (default: today). */
+export function isoDateLocal(ms: number = Date.now()): string {
+  const d = new Date(ms);
+  const p = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
 /** `YYYY-MM-DD` of a timestamp in UTC. */
 export function isoDateUtc(ms: number): string {
   return new Date(ms).toISOString().slice(0, 10);

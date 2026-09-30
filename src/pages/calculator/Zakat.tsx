@@ -3,6 +3,7 @@
  * Nisab 85 g of pure gold, 2.5% after a lunar year, jewelry by purity.
  */
 import { useState } from 'react';
+import { useLocation } from 'react-router';
 import { motion } from 'framer-motion';
 import { HandCoins, Info, Wallet } from 'lucide-react';
 import { toast } from 'sonner';
@@ -13,7 +14,7 @@ import { fmtMoney } from '@/lib/calc';
 import { formatNumber } from '@/lib/gold';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { formatRaw, parseAmount } from '@/lib/number';
-import { loadHoldings } from '@/lib/portfolio';
+import { loadHoldings, summarize } from '@/lib/portfolio';
 import { NISAB_GRAMS, computeZakat } from '@/lib/zakat';
 import { buildResultText } from '@/lib/share';
 import { WhatsAppButton } from '@/components/share/WhatsAppButton';
@@ -101,14 +102,30 @@ registerStrings({
 
 type JewelryUse = 'stored' | 'worn';
 
+/** Totals handed over by the portfolio page ("Hitung zakat"). */
+interface Prefill {
+  investGrams: number;
+  jewelryPureGrams: number;
+}
+
+function readPrefill(state: unknown): Prefill | null {
+  const p = (state as { prefill?: Partial<Prefill> } | null)?.prefill;
+  if (!p || typeof p.investGrams !== 'number' || typeof p.jewelryPureGrams !== 'number') return null;
+  return { investGrams: p.investGrams, jewelryPureGrams: p.jewelryPureGrams };
+}
+
 export default function ZakatPage() {
   const { lang, t } = useI18n();
   useRouteMeta('calcZakat');
   const currency = useCalcCurrency();
+  const prefill = readPrefill(useLocation().state);
 
-  const [investRaw, setInvestRaw] = useState('');
-  const [jewelryRaw, setJewelryRaw] = useState('');
-  const [kadarRaw, setKadarRaw] = useState(() => formatRaw(75, lang, 1));
+  const [investRaw, setInvestRaw] = useState(() => (prefill?.investGrams ? formatRaw(prefill.investGrams, lang, 4) : ''));
+  const [jewelryRaw, setJewelryRaw] = useState(() =>
+    prefill?.jewelryPureGrams ? formatRaw(prefill.jewelryPureGrams, lang, 4) : '',
+  );
+  // Portfolio jewelry arrives as pure gold already.
+  const [kadarRaw, setKadarRaw] = useState(() => formatRaw(prefill?.jewelryPureGrams ? 100 : 75, lang, 1));
   const [use, setUse] = useState<JewelryUse>('stored');
   const [includeWorn, setIncludeWorn] = useState(false);
   const [haul, setHaul] = useState<'yes' | 'no'>('yes');
@@ -135,13 +152,15 @@ export default function ZakatPage() {
   const money = (v: number) => fmtMoney(v, currency, lang);
 
   const fromPortfolio = () => {
-    const total = loadHoldings().reduce((sum, h) => sum + h.grams, 0);
-    if (total <= 0) {
+    const s = summarize(loadHoldings());
+    if (s.totalGrams <= 0) {
       toast(t('zakat.portfolioEmpty'));
       return;
     }
-    setInvestRaw(formatRaw(total, lang, 4));
-    toast.success(fill(t('zakat.portfolioLoaded'), { g: grams(total) }));
+    setInvestRaw(formatRaw(s.investGrams, lang, 4));
+    setJewelryRaw(s.jewelryGrams > 0 ? formatRaw(s.jewelryGrams, lang, 4) : '');
+    if (s.jewelryGrams > 0) setKadarRaw(formatRaw(100, lang, 1));
+    toast.success(fill(t('zakat.portfolioLoaded'), { g: grams(s.totalGrams) }));
   };
 
   return (
