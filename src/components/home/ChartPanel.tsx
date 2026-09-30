@@ -313,6 +313,9 @@ export function ChartPanel() {
         .filter((tk) => tk.t > cutoff)
         .map((tk) => ({ t: tk.t, v: toUnit(tk.p) }))
         .filter((p) => p.v > 0);
+      // A single point draws a flat axis full of identical labels; keep the
+      // chart empty behind the "collecting" overlay until there are two.
+      if (pts.length < 2) pts = [];
     } else {
       const days = TF_DAYS[tf];
       const cutoff = days === undefined ? -Infinity : now - days * DAY_MS;
@@ -373,7 +376,7 @@ export function ChartPanel() {
   const intradayFx = intraday && unit === 'idr-gr' ? usdIdr : 0;
   useEffect(() => {
     rebuild();
-  }, [tf, unit, effType, daily.points, rebuildNonce, lang, theme, intradayFx]);
+  }, [tf, unit, effType, daily.points, rebuildNonce, lang, theme, intradayFx, collecting]);
 
   /* ---------- live tick: update in place ---------- */
   const applyTick = useEffectEvent(() => {
@@ -383,6 +386,7 @@ export function ChartPanel() {
     if (v <= 0) return;
     const pts = ptsRef.current;
 
+    if (collecting) return;
     if (!intraday) {
       if (pts.length === 0) return;
       if (liveSlotRef.current === null) {
@@ -499,7 +503,7 @@ export function ChartPanel() {
         </div>
       )}
       {!showSkeleton && collecting && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg1/80 px-6 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg1/90 px-6 text-center">
           <p className="max-w-md text-sm leading-relaxed text-t2">
             {fill(t('home.chart.collecting'), { n: windowTicks.length })}
             {firstTick && <> ({fill(t('home.chart.collectingSince'), { time: formatTimeLocal(firstTick.t).slice(0, 5) })})</>}
