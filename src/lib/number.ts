@@ -10,6 +10,12 @@ import { formatNumber } from './gold';
 import type { Lang } from './i18n';
 
 const GROUP_SEP: Record<Lang, string> = { id: '.', en: ',' };
+const DECIMAL_SEP: Record<Lang, string> = { id: ',', en: '.' };
+
+/** The thousands and decimal separators `formatWhileTyping` writes for `lang`. */
+export function separatorsFor(lang: Lang): { group: string; decimal: string } {
+  return { group: GROUP_SEP[lang], decimal: DECIMAL_SEP[lang] };
+}
 
 /**
  * Parse free-form numeric text. Accepts `Rp`, `$`, `%` and spaces (incl. NBSP).
@@ -75,6 +81,44 @@ export function parseAmount(raw: string, lang: Lang): number {
 /** Format a number for an input field: grouped, no trailing zeros. */
 export function formatRaw(value: number, lang: Lang, decimals = 2): string {
   return formatNumber(value, lang, { decimals, minDecimals: 0 });
+}
+
+/**
+ * Reshape text as the user types it, so the thousands grouping is visible
+ * before the field ever loses focus. Only the active language's own
+ * separators are recognized — a stray group separator, the other
+ * language's decimal mark, or any other character is dropped rather than
+ * guessed at, so the field always redraws as one unambiguous shape
+ * (unlike `parseAmount`, which has to guess intent from free-form text
+ * written elsewhere). The fraction is capped at `decimals` digits so
+ * typing past the field's precision has no effect, matching what blur
+ * would round to anyway.
+ */
+export function formatWhileTyping(raw: string, lang: Lang, decimals: number): string {
+  const groupSep = GROUP_SEP[lang];
+  const decSep = DECIMAL_SEP[lang];
+  const negative = raw.trimStart().startsWith('-');
+
+  let intPart = '';
+  let fracPart = '';
+  let sawDecimal = false;
+  for (const ch of raw) {
+    if (ch >= '0' && ch <= '9') {
+      if (sawDecimal) {
+        if (fracPart.length < decimals) fracPart += ch;
+      } else {
+        intPart += ch;
+      }
+    } else if (ch === decSep && !sawDecimal && decimals > 0) {
+      sawDecimal = true;
+    }
+  }
+  if (intPart.length > 1) intPart = intPart.replace(/^0+/, '') || '0';
+
+  let result = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, groupSep);
+  if (sawDecimal) result += decSep + fracPart;
+  if (negative && (intPart || fracPart)) result = `-${result}`;
+  return result;
 }
 
 /** Re-express raw input text written for one language in another. */

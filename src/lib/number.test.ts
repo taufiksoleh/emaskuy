@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatRaw, parseAmount, reformatRaw } from './number';
+import { formatRaw, formatWhileTyping, parseAmount, reformatRaw } from './number';
 
 describe('parseAmount (id)', () => {
   it.each([
@@ -62,5 +62,57 @@ describe('formatRaw round-trip', () => {
     expect(reformatRaw('250.000', 'id', 'en', 0)).toBe('250,000');
     expect(reformatRaw('77,39', 'id', 'en')).toBe('77.39');
     expect(reformatRaw('oops', 'id', 'en')).toBe('oops');
+  });
+});
+
+describe('formatWhileTyping', () => {
+  it('groups the integer part as digits accumulate (id)', () => {
+    expect(formatWhileTyping('1', 'id', 0)).toBe('1');
+    expect(formatWhileTyping('12', 'id', 0)).toBe('12');
+    expect(formatWhileTyping('123', 'id', 0)).toBe('123');
+    expect(formatWhileTyping('1234', 'id', 0)).toBe('1.234');
+    expect(formatWhileTyping('1234567', 'id', 0)).toBe('1.234.567');
+  });
+
+  it('groups with the en-US separator', () => {
+    expect(formatWhileTyping('1234567', 'en', 0)).toBe('1,234,567');
+  });
+
+  it('keeps a decimal part typed with the active language separator', () => {
+    expect(formatWhileTyping('2500,5', 'id', 2)).toBe('2.500,5');
+    expect(formatWhileTyping('2500.5', 'en', 2)).toBe('2,500.5');
+  });
+
+  it('caps the fraction at the given number of decimals', () => {
+    expect(formatWhileTyping('1,23456', 'id', 4)).toBe('1,2345');
+    // with decimals=0 there is no decimal separator at all, so a comma is
+    // just dropped and the digits on both sides merge as one integer
+    expect(formatWhileTyping('1,5', 'id', 0)).toBe('15');
+  });
+
+  it('drops the other language\'s separators and any other stray characters, then regroups the remaining digits', () => {
+    // a manually typed group separator is dropped, but the digits it left
+    // still get regrouped by our own logic — "1234" groups the same way
+    expect(formatWhileTyping('1.234', 'id', 0)).toBe('1.234');
+    // "." is not id's decimal mark, so it's dropped and every digit
+    // (both sides of it) becomes part of the integer, then regrouped
+    expect(formatWhileTyping('2500.5', 'id', 2)).toBe('25.005');
+    expect(formatWhileTyping('Rp 1000', 'id', 0)).toBe('1.000');
+  });
+
+  it('collapses redundant leading zeros but keeps a lone one', () => {
+    expect(formatWhileTyping('0', 'id', 0)).toBe('0');
+    expect(formatWhileTyping('00', 'id', 0)).toBe('0');
+    expect(formatWhileTyping('0500', 'id', 0)).toBe('500');
+  });
+
+  it('every prefix of a typed number round-trips through parseAmount', () => {
+    const target = '2580000';
+    let typed = '';
+    for (const ch of target) {
+      typed += ch;
+      const shown = formatWhileTyping(typed, 'id', 0);
+      expect(parseAmount(shown, 'id')).toBe(Number(typed));
+    }
   });
 });
