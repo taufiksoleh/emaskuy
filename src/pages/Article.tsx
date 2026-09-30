@@ -15,6 +15,7 @@ import { toast } from 'sonner';
 import { ArrowLeft, Check, Link2, Twitter, MessageCircle } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { copyText } from '@/lib/clipboard';
+import { waLink } from '@/lib/share';
 import { ROUTE_META, fullTitle, localize } from '@/lib/seo';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { getArticle, relatedArticles } from '@/data/articles';
@@ -353,7 +354,7 @@ export default function Article() {
                   {copied ? <Check className="h-4 w-4 text-up" /> : <Link2 className="h-4 w-4" />}
                 </button>
                 <a
-                  href={`https://wa.me/?text=${encodeURIComponent(`${shareText} ${url}`)}`}
+                  href={waLink(`*${shareText}*\n${url}`)}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="WhatsApp"

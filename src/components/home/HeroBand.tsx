@@ -4,11 +4,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
-import { useI18n } from '@/lib/i18n';
+import { registerStrings, useI18n } from '@/lib/i18n';
+import { ANTAM } from '@/data/antam';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { useHistory } from '@/hooks/useHistory';
 import { pointAtOrBefore, sliceSince, unitValue } from '@/lib/history';
 import { formatClockZone } from '@/lib/time';
+import { buildDailyPriceText, formatShareDate } from '@/lib/share';
+import type { ShareCardModel } from '@/lib/shareCard';
 import {
   convertPrice,
   formatPct,
@@ -16,6 +19,7 @@ import {
   formatUsd,
   formatIdr,
   formatNumber,
+  formatDateOnly,
   xauUsdToIdrGram,
 } from '@/lib/gold';
 import { cn, withBase } from '@/lib/utils';
@@ -24,6 +28,14 @@ import { DeltaChip } from '../ui-atoms/DeltaChip';
 import { SegToggle } from '../ui-atoms/SegToggle';
 import { StatCard, useCountUp } from '../ui-atoms/StatCard';
 import { Sparkline } from '../ui-atoms/Sparkline';
+import { ShareDialog } from '../share/ShareDialog';
+
+registerStrings({
+  'share.perGram': { id: 'per gram · emas murni', en: 'per gram · pure gold' },
+  'share.perOz': { id: 'per troy ounce', en: 'per troy ounce' },
+  'share.gramLine': { id: 'Emas per gram', en: 'Gold per gram' },
+  'share.last30': { id: '30 hari terakhir', en: 'Last 30 days' },
+});
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -94,6 +106,42 @@ export function HeroBand() {
   ];
 
   const gramIdr = price > 0 && usdIdr > 0 ? xauUsdToIdrGram(price, usdIdr) : 0;
+
+  // Snapshot for sharing, taken when the share dialog opens.
+  const buildShare = () => {
+    const at = Date.now();
+    const text = buildDailyPriceText(
+      {
+        at,
+        lang,
+        idrPerGram: gramIdr > 0 ? gramIdr : null,
+        usdPerOz: price > 0 ? price : null,
+        changePct: gramIdr > 0 ? gramChange.pct : null,
+        antam: { price: ANTAM.gramIdr, date: ANTAM.date },
+      },
+      t,
+    );
+    const lines = [
+      unit === 'idr-gr'
+        ? `XAU/USD   ${formatUsd(price, lang)}/oz`
+        : `${t('share.gramLine')}   ${formatIdr(gramIdr, lang)}`,
+      `Antam 1 gr   ${formatIdr(ANTAM.gramIdr, lang)} (${formatDateOnly(ANTAM.date, lang)})`,
+    ];
+    const model: ShareCardModel = {
+      title: t('share.daily.title'),
+      dateLine: formatShareDate(at, lang),
+      price: formatUnitPrice(display, unit, lang),
+      unit: unit === 'idr-gr' ? t('share.perGram') : t('share.perOz'),
+      change: gold
+        ? { text: `${change.pct >= 0 ? '▲' : '▼'} ${formatPct(change.pct, lang)} · ${t('share.daily.24h')}`, up: change.pct >= 0 }
+        : null,
+      lines,
+      spark: spark30,
+      sparkLabel: t('share.last30'),
+      footer: t('share.disclaimer'),
+    };
+    return { model, text };
+  };
   const formatAbs = (v: number) => (unit === 'usd-oz' ? formatUsd(v, lang, { decimals: 2 }) : formatIdr(v, lang));
 
   return (
@@ -190,10 +238,11 @@ export function HeroBand() {
                 </>
               )}
             </span>
+            {price > 0 && <ShareDialog build={buildShare} filename="harga-emas-emaskuy" className="ml-auto" />}
             <button
               onClick={() => refetch()}
               aria-label={t('home.hero.refresh')}
-              className="ml-auto cursor-pointer rounded-md border border-hairline bg-bg2 p-1.5 text-t3 transition-all duration-150 hover:border-goldline hover:text-gold active:scale-[0.97]"
+              className="cursor-pointer rounded-md border border-hairline bg-bg2 p-1.5 text-t3 transition-all duration-150 hover:border-goldline hover:text-gold active:scale-[0.97]"
             >
               <RefreshCw className={cn('h-3.5 w-3.5', refetching && 'spin-once')} />
             </button>

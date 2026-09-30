@@ -178,6 +178,8 @@ registerStrings({
   'calc.duration': { id: 'Durasi', en: 'Duration' },
   'calc.yearsUnit': { id: 'tahun', en: 'years' },
   'calc.yearUnit': { id: 'tahun', en: 'year' },
+  'calc.perMonth': { id: '/bln', en: '/mo' },
+  'calc.perYear': { id: '/thn', en: '/yr' },
   'calc.growth': { id: 'Asumsi kenaikan tahunan', en: 'Assumed annual growth' },
   'calc.growthHelp': {
     id: 'Rata-rata historis emas ±8%/thn (20 thn terakhir)',
