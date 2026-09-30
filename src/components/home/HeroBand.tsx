@@ -6,26 +6,19 @@ import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { antamOneGram, useAntam } from '@/lib/antam';
+import { useDisplay } from '@/hooks/useDisplay';
+import { useDisplayHistory } from '@/hooks/useDisplayHistory';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
-import { useHistory } from '@/hooks/useHistory';
-import { pointAtOrBefore, sliceSince, unitValue } from '@/lib/history';
+import { pointAtOrBefore, sliceSince } from '@/lib/history';
+import { CURRENCY, WEIGHT, rateOf } from '@/lib/money';
 import { formatClockZone } from '@/lib/time';
 import { buildDailyPriceText, formatShareDate } from '@/lib/share';
 import type { ShareCardModel } from '@/lib/shareCard';
-import {
-  convertPrice,
-  formatPct,
-  formatUnitPrice,
-  formatUsd,
-  formatIdr,
-  formatNumber,
-  formatDateOnly,
-  xauUsdToIdrGram,
-} from '@/lib/gold';
-import { cn } from '@/lib/utils';
+import { formatPct, formatUsd, formatIdr, formatNumber, formatDateOnly, xauUsdToIdrGram } from '@/lib/gold';
+import { cn, fill } from '@/lib/utils';
+import { DisplayPicker } from '../DisplayPicker';
 import { Badge } from '../ui-atoms/Badge';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
-import { SegToggle } from '../ui-atoms/SegToggle';
 import { StatCard, useCountUp } from '../ui-atoms/StatCard';
 import { Sparkline } from '../ui-atoms/Sparkline';
 import { ShareDialog } from '../share/ShareDialog';
@@ -33,6 +26,8 @@ import { ShareDialog } from '../share/ShareDialog';
 registerStrings({
   'share.perGram': { id: 'per gram · emas murni', en: 'per gram · pure gold' },
   'share.perOz': { id: 'per troy ounce', en: 'per troy ounce' },
+  'share.perUnit': { id: 'per {unit} · emas murni', en: 'per {unit} · pure gold' },
+  'home.stats.usdRate': { id: 'Kurs USD/{cur}', en: 'USD/{cur} Rate' },
   'share.gramLine': { id: 'Emas per gram', en: 'Gold per gram' },
   'share.last30': { id: '30 hari terakhir', en: 'Last 30 days' },
 });
@@ -40,24 +35,26 @@ registerStrings({
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function HeroBand() {
-  const { lang, t, unit, setUnit } = useI18n();
-  const { gold, usdIdr, status, lastUpdated, refetch, refetching, ticks, loading } = useGoldPrice();
-  const history = useHistory('1y');
-  const change = useXauChange(unit);
-  const gramChange = useXauChange('idr-gr');
+  const { lang, t } = useI18n();
+  const d = useDisplay();
+  const { gold, usdIdr, rates, status, lastUpdated, refetch, refetching, ticks, loading } = useGoldPrice();
+  const history = useDisplayHistory('1y');
+  const change = useXauChange(d.currency, d.weight);
+  const gramChange = useXauChange('IDR', 'g');
   const antam = useAntam();
   const antamGram = antamOneGram(antam);
 
   const price = gold?.price ?? 0;
-  const display = convertPrice(price, usdIdr, unit);
+  const display = d.price(price);
   const shown = useCountUp(display, 900);
+  const fmt = (v: number) => `${d.approx}${d.format(v)}`;
 
   // Auto-fit the big numeral: estimate width from the FINAL string
   // (tabular chars ≈ 0.64em) so sizing never depends on the count-up
   // animation frame. IDR/gr strings are much longer than USD/oz, so a
   // fixed clamp() overflows on small screens.
   const numRef = useRef<HTMLDivElement>(null);
-  const finalText = price > 0 ? formatUnitPrice(display, unit, lang) : '—';
+  const finalText = display > 0 ? fmt(display) : '—';
   useEffect(() => {
     const el = numRef.current;
     if (!el) return;
@@ -92,20 +89,23 @@ export function HeroBand() {
     rangeLow = Math.min(...ps);
     rangeHigh = Math.max(...ps);
   }
-  const rangeIdr = (usd: number) => formatIdr(xauUsdToIdrGram(usd, usdIdr), lang);
 
-  // 30d change + sparkline in the selected unit, ending at the live price
+  // 30d change + sparkline in the display unit, ending at the live price
   const points = history.points;
   const refNow = lastUpdated || (points.length > 0 ? points[points.length - 1].t : 0);
   let change30: number | undefined;
   const anchor = pointAtOrBefore(points, refNow - 30 * 24 * 60 * 60 * 1000);
-  if (anchor && display > 0 && unitValue(anchor, unit) > 0) {
-    change30 = ((display - unitValue(anchor, unit)) / unitValue(anchor, unit)) * 100;
-  }
+  if (anchor && display > 0 && anchor.v > 0) change30 = ((display - anchor.v) / anchor.v) * 100;
   const spark30 = [
-    ...sliceSince(points, refNow - 30 * 24 * 60 * 60 * 1000).map((p) => unitValue(p, unit)),
+    ...sliceSince(points, refNow - 30 * 24 * 60 * 60 * 1000).map((p) => p.v),
     ...(display > 0 ? [display] : []),
   ];
+
+  // Second quick stat: the dollar rate of the display currency (rupiah for dollar users)
+  const fxCurrency = d.currency === 'USD' ? 'IDR' : d.currency;
+  const fxRate = rateOf(fxCurrency, rates);
+  const perUnit =
+    d.weight === 'g' ? t('share.perGram') : d.weight === 'ozt' ? t('share.perOz') : fill(t('share.perUnit'), { unit: WEIGHT[d.weight].name[lang] });
 
   const gramIdr = price > 0 && usdIdr > 0 ? xauUsdToIdrGram(price, usdIdr) : 0;
 
@@ -124,16 +124,15 @@ export function HeroBand() {
       t,
     );
     const lines = [
-      unit === 'idr-gr'
-        ? `XAU/USD   ${formatUsd(price, lang)}/oz`
-        : `${t('share.gramLine')}   ${formatIdr(gramIdr, lang)}`,
+      ...(d.currency === 'USD' && d.weight === 'ozt' ? [] : [`XAU/USD   ${formatUsd(price, lang)}/oz`]),
+      ...(d.currency === 'IDR' && d.weight === 'g' ? [] : [`${t('share.gramLine')}   ${formatIdr(gramIdr, lang)}`]),
       `Antam 1 gr   ${formatIdr(antamGram, lang)} (${formatDateOnly(antam.priceDate, lang)})`,
     ];
     const model: ShareCardModel = {
       title: t('share.daily.title'),
       dateLine: formatShareDate(at, lang),
-      price: formatUnitPrice(display, unit, lang),
-      unit: unit === 'idr-gr' ? t('share.perGram') : t('share.perOz'),
+      price: fmt(display),
+      unit: perUnit,
       change: gold
         ? { text: `${change.pct >= 0 ? '▲' : '▼'} ${formatPct(change.pct, lang)} · ${t('share.daily.24h')}`, up: change.pct >= 0 }
         : null,
@@ -144,7 +143,7 @@ export function HeroBand() {
     };
     return { model, text };
   };
-  const formatAbs = (v: number) => (unit === 'usd-oz' ? formatUsd(v, lang, { decimals: 2 }) : formatIdr(v, lang));
+  const formatAbs = (v: number) => d.format(v);
 
   return (
     <section
@@ -167,15 +166,7 @@ export function HeroBand() {
             <h1 className="label-micro">{t('home.hero.label')}</h1>
             <Badge variant={status === 'live' ? 'live' : status === 'cached' ? 'cached' : 'offline'} />
             <div className="ml-auto">
-              <SegToggle
-                ariaLabel={t('home.hero.unit')}
-                value={unit}
-                onChange={setUnit}
-                options={[
-                  { value: 'usd-oz', label: 'USD/oz' },
-                  { value: 'idr-gr', label: 'IDR/gr' },
-                ]}
-              />
+              <DisplayPicker />
             </div>
           </div>
 
@@ -194,7 +185,7 @@ export function HeroBand() {
                 ref={numRef}
                 className="text-gold-gradient font-mono font-bold tabular leading-none whitespace-nowrap"
               >
-                {price > 0 ? formatUnitPrice(shown, unit, lang) : '—'}
+                {display > 0 ? fmt(shown) : '—'}
               </div>
             )}
           </div>
@@ -209,13 +200,11 @@ export function HeroBand() {
               />
             )}
             <span className="text-sm text-t3">{t('home.hero.today')}</span>
-            {rangeLow > 0 && (unit === 'usd-oz' || usdIdr > 0) && (
+            {rangeLow > 0 && display > 0 && (
               <span className="label-micro">
                 {t('home.hero.range')}:{' '}
                 <span className="font-mono text-t2">
-                  {unit === 'usd-oz'
-                    ? `${formatUsd(rangeLow, lang)} – ${formatUsd(rangeHigh, lang)}`
-                    : `${rangeIdr(rangeLow)} – ${rangeIdr(rangeHigh)}`}
+                  {fmt(d.price(rangeLow))} – {fmt(d.price(rangeHigh))}
                 </span>
               </span>
             )}
@@ -224,7 +213,7 @@ export function HeroBand() {
           {/* Row 4: meta + refresh */}
           <div className="mt-4 flex items-center gap-2 border-t border-hairline pt-4 font-mono text-[13px] tabular text-t3">
             <span className="min-w-0 flex-1 leading-relaxed">
-              {unit === 'usd-oz' ? t('home.hero.perOz') : t('home.hero.perGram')} · {t('home.hero.source')}: gold-api.com
+              {CURRENCY[d.currency].name[lang]}, {perUnit} · {t('home.hero.source')}: gold-api.com
               {lastUpdated > 0 && (
                 <>
                   {' '}
@@ -257,9 +246,9 @@ export function HeroBand() {
           <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45, ease, delay: 0.16 }}>
             <StatCard
               className="h-full"
-              label={t('home.stats.usdIdr')}
-              value={usdIdr}
-              format={(v) => (v > 0 ? formatNumber(v, lang, { decimals: 0 }) : '—')}
+              label={fill(t('home.stats.usdRate'), { cur: fxCurrency })}
+              value={fxRate}
+              format={(v) => (v > 0 ? formatNumber(v, lang, { decimals: v >= 100 ? 0 : 4 }) : '—')}
               sub={t('home.stats.fxSource')}
             />
           </motion.div>

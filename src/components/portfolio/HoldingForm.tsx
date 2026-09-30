@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { isoDateLocal as todayIso } from '@/lib/gold';
+import { CURRENCIES, CURRENCY, type Currency } from '@/lib/money';
 import { formatRaw, parseAmount } from '@/lib/number';
 import { PRODUCT_TYPES, type Holding, type ProductType } from '@/lib/portfolio';
 import { cn } from '@/lib/utils';
@@ -29,6 +30,7 @@ registerStrings({
     id: 'Harga yang Anda bayar dibagi berat barangnya.',
     en: 'What you paid divided by the weight of the item.',
   },
+  'portfolio.currency': { id: 'Mata uang pembelian', en: 'Purchase currency' },
   'portfolio.date': { id: 'Tanggal beli', en: 'Purchase date' },
   'portfolio.note': { id: 'Catatan (opsional)', en: 'Note (optional)' },
   'portfolio.invalid': {
@@ -42,6 +44,7 @@ export interface HoldingDraft {
   grams: number;
   kadarPct: number;
   buyPricePerGram: number;
+  currency: Currency;
   date: string;
   note?: string;
 }
@@ -54,10 +57,13 @@ export function HoldingForm({
   initial,
   submitLabel,
   onSubmit,
+  defaultCurrency = 'IDR',
 }: {
   idPrefix: string;
   initial?: Holding;
   submitLabel: string;
+  /** Currency of a new holding (the display currency) */
+  defaultCurrency?: Currency;
   /** Returns true when saved; the add form then clears itself */
   onSubmit: (draft: HoldingDraft) => boolean;
 }) {
@@ -67,7 +73,10 @@ export function HoldingForm({
   const [kadarRaw, setKadarRaw] = useState(() =>
     formatRaw(initial?.type === 'perhiasan' ? initial.kadarPct : 75, lang, 1),
   );
-  const [priceRaw, setPriceRaw] = useState(initial ? formatRaw(initial.buyPricePerGram, lang, 0) : '');
+  const [currency, setCurrency] = useState<Currency>(initial?.currency ?? defaultCurrency);
+  const [priceRaw, setPriceRaw] = useState(() =>
+    initial ? formatRaw(initial.buyPricePerGram, lang, CURRENCY[initial.currency].decimals) : '',
+  );
   const [date, setDate] = useState(initial?.date ?? todayIso());
   const [note, setNote] = useState(initial?.note ?? '');
   const [invalid, setInvalid] = useState(false);
@@ -88,6 +97,7 @@ export function HoldingForm({
       grams,
       kadarPct: kadar,
       buyPricePerGram: price,
+      currency,
       date: date || todayIso(),
       note: note.trim() || undefined,
     });
@@ -129,15 +139,30 @@ export function HoldingForm({
           <MoneyInput id={id('grams')} value={gramsRaw} onChange={setGramsRaw} suffix="gr" decimals={4} invalid={invalid} placeholder="5" />
         </Field>
         <Field label={t('portfolio.buyPrice')} htmlFor={id('price')} help={t('portfolio.buyPriceHelp')}>
-          <MoneyInput
-            id={id('price')}
-            value={priceRaw}
-            onChange={setPriceRaw}
-            prefix="Rp"
-            decimals={0}
-            invalid={invalid}
-            placeholder={lang === 'id' ? '2.580.000' : '2,580,000'}
-          />
+          <div className="flex gap-2">
+            <select
+              aria-label={t('portfolio.currency')}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value as Currency)}
+              className={cn(inputCls, 'w-auto shrink-0 px-2')}
+            >
+              {CURRENCIES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+            <MoneyInput
+              id={id('price')}
+              value={priceRaw}
+              onChange={setPriceRaw}
+              prefix={CURRENCY[currency].symbol}
+              decimals={CURRENCY[currency].decimals}
+              invalid={invalid}
+              placeholder={currency === 'IDR' ? (lang === 'id' ? '2.580.000' : '2,580,000') : undefined}
+              className="min-w-0 flex-1"
+            />
+          </div>
         </Field>
       </div>
 

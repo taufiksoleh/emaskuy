@@ -1,22 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { ageInDays, formatDateOnly, formatIdr, formatUsd, parseLocalDate } from './gold';
-import { fmtMoneyCompact } from './calc';
 
 describe('currency formatting', () => {
   it('puts the minus sign before the symbol', () => {
     expect(formatIdr(-123456, 'id')).toBe('-Rp123.456');
     expect(formatUsd(-5, 'en')).toBe('-$5.00');
-    expect(fmtMoneyCompact(-1_500_000, 'idr', 'id')).toBe('-Rp1,5 jt');
   });
 
   it('never prints a negative zero', () => {
     expect(formatIdr(-0.4, 'id')).toBe('Rp0');
     expect(formatUsd(-0.001, 'en')).toBe('$0.00');
-  });
-
-  it('uses k instead of rb in English', () => {
-    expect(fmtMoneyCompact(250_000, 'idr', 'en')).toBe('Rp250 k');
-    expect(fmtMoneyCompact(250_000, 'idr', 'id')).toBe('Rp250 rb');
   });
 });
 

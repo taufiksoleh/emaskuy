@@ -3,7 +3,7 @@
  *
  * Sources:
  *  - Live metal prices:  https://api.gold-api.com/price/{XAU|XAG|XPT|XPD}  (poll 30s)
- *  - USD→IDR rate:       https://api.frankfurter.dev/v1/latest?base=USD&symbols=IDR
+ *  - Exchange rates:     https://api.frankfurter.dev/v1/latest?base=USD (ECB reference rates)
  *  - Daily history:      https://api.nbp.pl/api/cenyzlota/... (PLN/g fixings), converted
  *                        with same-day ECB rates from Frankfurter (see history.ts)
  *
@@ -11,6 +11,7 @@
  * a status: 'live' | 'cached' | 'offline'. History fetchers throw; the
  * history store owns their caching.
  */
+import { ECB_CURRENCIES, PEGGED, type Currency, type Rates } from './money';
 import { readJson, writeJson } from './storage';
 
 export type DataStatus = 'live' | 'cached' | 'offline';
@@ -33,11 +34,12 @@ export interface MetalQuote {
   status: DataStatus;
 }
 
-export interface FxRate {
-  base: 'USD';
-  symbol: 'IDR';
-  rate: number;
-  /** ECB reference date, YYYY-MM-DD */
+export interface FxRates {
+  /** Units of each currency per 1 USD: ECB reference rates plus the SAR/AED pegs */
+  rates: Rates;
+  /** The same for each business day of the last ~10 days (for yesterday's close) */
+  recent: Record<string, Rates>;
+  /** ECB reference date of `rates`, YYYY-MM-DD */
   date: string;
   updatedAt: number;
   status: DataStatus;
@@ -71,6 +73,7 @@ async function fetchJson<T>(url: string): Promise<T> {
 /* ------------------------------------------------------------------ */
 
 const CACHE_PREFIX = 'emaskuy.cache.';
+const FX_CACHE = 'fx.usd';
 
 function cacheSet<T>(key: string, value: T): void {
   writeJson(CACHE_PREFIX + key, { at: Date.now(), value });
@@ -153,9 +156,17 @@ export function cachedMetals(): MetalQuote[] {
   });
 }
 
-export function cachedUsdIdr(): FxRate | null {
-  const fx = cacheGet<FxRate>('fx.usdidr')?.value;
-  return fx && fx.rate > 0 ? { ...fx, status: 'cached' } : null;
+export function cachedFx(): FxRates | null {
+  const fx = cacheGet<FxRates>(FX_CACHE)?.value;
+  if (fx?.rates?.IDR) return { ...fx, recent: fx.recent ?? {}, status: 'cached' };
+  // Before multi-currency only USD→IDR was cached.
+  const legacy = cacheGet<{ rate?: number; date?: string; updatedAt?: number }>('fx.usdidr')?.value;
+  if (legacy?.rate && legacy.rate > 0) {
+    const rates = { ...PEGGED, IDR: legacy.rate };
+    const date = legacy.date ?? '';
+    return { rates, recent: date ? { [date]: rates } : {}, date, updatedAt: legacy.updatedAt ?? 0, status: 'cached' };
+  }
+  return null;
 }
 
 export async function fetchAllMetals(): Promise<MetalQuote[]> {
@@ -164,45 +175,35 @@ export async function fetchAllMetals(): Promise<MetalQuote[]> {
 }
 
 /* ------------------------------------------------------------------ */
-/* frankfurter.dev (USD→IDR)                                           */
+/* frankfurter.dev: every supported currency per USD, one request      */
 /* ------------------------------------------------------------------ */
 
-interface FrankfurterResponse {
-  amount?: number;
-  base?: string;
-  date?: string;
-  rates?: { IDR?: number };
-}
-
-export async function fetchUsdIdr(): Promise<FxRate> {
-  const cacheKey = 'fx.usdidr';
+/**
+ * The last ~10 days of rates in one request: the newest day is today's
+ * rate, earlier days give the rate at yesterday's close in any currency.
+ */
+export async function fetchFx(): Promise<FxRates> {
   try {
-    const data = await fetchJson<FrankfurterResponse>(
-      'https://api.frankfurter.dev/v1/latest?base=USD&symbols=IDR',
+    const start = new Date(Date.now() - 10 * 86_400_000).toISOString().slice(0, 10);
+    const data = await fetchJson<{ rates?: Record<string, Record<string, number>> }>(
+      `https://api.frankfurter.dev/v1/${start}..?base=USD&symbols=${ECB_CURRENCIES.join(',')}`,
     );
-    const rate = Number(data.rates?.IDR);
-    if (!Number.isFinite(rate) || rate <= 0) throw new Error('invalid FX rate');
-    const fx: FxRate = {
-      base: 'USD',
-      symbol: 'IDR',
-      rate,
-      date: data.date ?? '',
-      updatedAt: Date.now(),
-      status: 'live',
-    };
-    cacheSet(cacheKey, fx);
+    const recent: Record<string, Rates> = {};
+    for (const [date, day] of Object.entries(data.rates ?? {})) {
+      const rates: Rates = { ...PEGGED };
+      for (const c of ECB_CURRENCIES) {
+        const r = Number(day[c]);
+        if (Number.isFinite(r) && r > 0) rates[c] = r;
+      }
+      recent[date] = rates;
+    }
+    const date = Object.keys(recent).sort().pop();
+    if (!date || !recent[date].IDR) throw new Error('invalid FX rates');
+    const fx: FxRates = { rates: recent[date], recent, date, updatedAt: Date.now(), status: 'live' };
+    cacheSet(FX_CACHE, fx);
     return fx;
   } catch {
-    const cached = cacheGet<FxRate>(cacheKey);
-    if (cached) return { ...cached.value, status: 'cached' };
-    return {
-      base: 'USD',
-      symbol: 'IDR',
-      rate: 0,
-      date: '',
-      updatedAt: 0,
-      status: 'offline',
-    };
+    return cachedFx() ?? { rates: { ...PEGGED }, recent: {}, date: '', updatedAt: 0, status: 'offline' };
   }
 }
 
@@ -254,6 +255,19 @@ export async function fetchNbpRange(start: string, end: string): Promise<NbpEntr
         ),
     );
     for (const chunk of batch) out.push(...chunk);
+  }
+  return out;
+}
+
+/** Daily ECB rates of `currency` per 1 USD from `start` to today, keyed by date. */
+export async function fetchUsdFxSeries(currency: Currency, start: string): Promise<Record<string, number>> {
+  const data = await fetchJson<{ rates?: Record<string, Record<string, number>> }>(
+    `https://api.frankfurter.dev/v1/${start}..?base=USD&symbols=${currency}`,
+  );
+  const out: Record<string, number> = {};
+  for (const [date, r] of Object.entries(data.rates ?? {})) {
+    const v = Number(r[currency]);
+    if (Number.isFinite(v) && v > 0) out[date] = v;
   }
   return out;
 }

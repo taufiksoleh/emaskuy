@@ -5,7 +5,7 @@
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useI18n } from '@/lib/i18n';
-import { fmtMoneyCompact, type CalcCurrency } from '@/lib/calc';
+import { formatMoneyCompact, type Currency } from '@/lib/money';
 
 // left fits axis labels like "Rp187,5 jt" (10px mono)
 const PAD = { top: 10, right: 10, bottom: 20, left: 72 };
@@ -29,7 +29,7 @@ export function ScenarioChart({
 }: {
   series: ScenarioSeries[];
   years: number;
-  currency: CalcCurrency;
+  currency: Currency;
 }) {
   const { lang } = useI18n();
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -87,7 +87,7 @@ export function ScenarioChart({
       const v = (maxV * k) / 3;
       return {
         y: PAD.top + innerH - (innerH * k) / 3,
-        label: fmtMoneyCompact(v, currency, lang),
+        label: formatMoneyCompact(v, currency, lang),
       };
     });
   }, [maxV, innerH, currency, lang]);

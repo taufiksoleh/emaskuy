@@ -7,7 +7,8 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n';
-import { simulate, fmtMoney, type CalcCurrency, type CalcInputs } from '@/lib/calc';
+import { simulate, type CalcInputs } from '@/lib/calc';
+import { formatMoney, type Currency } from '@/lib/money';
 import { cn } from '@/lib/utils';
 import { Panel } from '../ui-atoms/Panel';
 import { useCountUp } from '../ui-atoms/StatCard';
@@ -19,13 +20,13 @@ const PRESETS = [
   { id: 'aggressive', growth: 12, color: 'var(--up)', labelKey: 'calc.compare.aggressive' },
 ] as const;
 
-function FinalValue({ v, currency }: { v: number; currency: CalcCurrency }) {
+function FinalValue({ v, currency }: { v: number; currency: Currency }) {
   const { lang } = useI18n();
   const shown = useCountUp(v, 700);
-  return <>{fmtMoney(shown, currency, lang)}</>;
+  return <>{formatMoney(shown, currency, lang)}</>;
 }
 
-export function ScenarioLab({ base, currency }: { base: CalcInputs; currency: CalcCurrency }) {
+export function ScenarioLab({ base, currency }: { base: CalcInputs; currency: Currency }) {
   const { t } = useI18n();
   const [active, setActive] = useState<string[]>(['moderate']);
 

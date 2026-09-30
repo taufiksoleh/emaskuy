@@ -11,7 +11,8 @@
  * minutes, dedupes concurrent loads and keeps ONE cache key per window.
  */
 import type { DataStatus, FxSeries, NbpEntry } from './api';
-import { TROY_OZ_GRAMS, isoDateUtc, type Unit } from './gold';
+import { TROY_OZ_GRAMS, isoDateUtc } from './gold';
+import { PEGGED, WEIGHT, type Currency, type WeightUnit } from './money';
 import { readJson, writeJson, type KV } from './storage';
 
 export type HistoryWindow = '1y' | 'all';
@@ -87,19 +88,30 @@ export function prevCloseBefore(points: HistoryPoint[], isoDay: string): History
 }
 
 /** The latest point at or before `ms`. */
-export function pointAtOrBefore(points: HistoryPoint[], ms: number): HistoryPoint | null {
+export function pointAtOrBefore<P extends { t: number }>(points: P[], ms: number): P | null {
   for (let i = points.length - 1; i >= 0; i--) {
     if (points[i].t <= ms) return points[i];
   }
   return null;
 }
 
-export function sliceSince(points: HistoryPoint[], sinceMs: number): HistoryPoint[] {
+export function sliceSince<P extends { t: number }>(points: P[], sinceMs: number): P[] {
   return points.filter((p) => p.t >= sinceMs);
 }
 
-export function unitValue(p: HistoryPoint, unit: Unit): number {
-  return unit === 'idr-gr' ? p.idr : p.usd;
+/** True when history in `currency` needs a separate daily exchange-rate series. */
+export const needsFxSeries = (currency: Currency) => currency !== 'USD' && currency !== 'IDR' && !PEGGED[currency];
+
+/**
+ * A daily point in `currency` per `weight`, or 0 when unknown. USD and IDR
+ * are in the point itself; other currencies use `fxOn(date)`, units per USD
+ * on that day (see needsFxSeries), and pegged ones their fixed rate.
+ */
+export function historyValue(p: HistoryPoint, currency: Currency, weight: WeightUnit, fxOn?: (date: string) => number): number {
+  const grams = WEIGHT[weight].grams;
+  if (currency === 'IDR') return p.idr * grams;
+  const rate = currency === 'USD' ? 1 : (PEGGED[currency] ?? fxOn?.(p.date) ?? 0);
+  return rate > 0 ? (p.usd / TROY_OZ_GRAMS) * grams * rate : 0;
 }
 
 /** Merge two date-sorted series; `b` wins on the same date. */

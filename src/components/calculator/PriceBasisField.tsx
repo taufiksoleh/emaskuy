@@ -4,12 +4,11 @@
  * (e.g. a shop's quote).
  */
 import type { DataStatus } from '@/lib/api';
-import type { CalcCurrency } from '@/lib/calc';
-import { fmtMoney } from '@/lib/calc';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useAntam } from '@/lib/antam';
 import { formatDateOnly } from '@/lib/gold';
+import { CURRENCY, formatMoney, type Currency } from '@/lib/money';
 import { cn, fill } from '@/lib/utils';
 import { MoneyInput } from '../ui-atoms/MoneyInput';
 import { SegToggle } from '../ui-atoms/SegToggle';
@@ -53,7 +52,7 @@ export function PriceBasisField({
   onBasis: (b: PriceBasis) => void;
   manualRaw: string;
   onManual: (raw: string) => void;
-  currency: CalcCurrency;
+  currency: Currency;
   perGram: number | null;
   status: DataStatus;
 }) {
@@ -84,8 +83,8 @@ export function PriceBasisField({
           id="basis-manual"
           value={manualRaw}
           onChange={onManual}
-          prefix={currency === 'idr' ? 'Rp' : '$'}
-          decimals={currency === 'idr' ? 0 : 2}
+          prefix={CURRENCY[currency].symbol}
+          decimals={CURRENCY[currency].decimals}
           invalid={manualRaw.trim() !== '' && perGram === null}
         />
       ) : (
@@ -96,7 +95,7 @@ export function PriceBasisField({
               backgroundColor: status === 'live' ? 'var(--up)' : status === 'cached' ? 'var(--gold)' : 'var(--down)',
             }}
           />
-          <span className="text-gold">{perGram !== null ? fmtMoney(perGram, currency, lang) : t('basis.unavailable')}</span>
+          <span className="text-gold">{perGram !== null ? formatMoney(perGram, currency, lang) : t('basis.unavailable')}</span>
         </div>
       )}
     </Field>

@@ -11,8 +11,10 @@ import { ExternalLink, Scale } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { formatDate, formatDateOnly, formatIdr, formatNumber, formatPct, xauUsdToIdrGram } from '@/lib/gold';
 import { antamOneGram, antamRows, brandRows, historyWithSpot, staleness, useAntam, type BrandRow } from '@/lib/antam';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useHistory } from '@/hooks/useHistory';
+import { convertMoney, formatMoney } from '@/lib/money';
 import { cn, fill } from '@/lib/utils';
 import { MultiLineChart } from '../ui-atoms/MultiLineChart';
 import { Panel } from '../ui-atoms/Panel';
@@ -91,7 +93,8 @@ function SummaryCard({ label, value, sub, tone }: { label: string; value: string
 
 export function AntamPanel() {
   const { lang, t } = useI18n();
-  const { gold, usdIdr, lastUpdated } = useGoldPrice();
+  const { gold, usdIdr, rates, lastUpdated } = useGoldPrice();
+  const { currency } = useDisplay();
   const history = useHistory('1y');
   const antam = useAntam();
 
@@ -106,6 +109,11 @@ export function AntamPanel() {
   const brands = brandRows(antam);
   const { ageDays, level } = staleness(antam, lastUpdated || undefined);
   const asOf = formatDateOnly(antam.priceDate, lang);
+  // Antam prices are in rupiah; other currencies get an approximate figure.
+  const approx = (idr: number) => {
+    const v = currency === 'IDR' ? null : convertMoney(idr, 'IDR', currency, rates);
+    return v === null ? asOf : `${asOf} · ≈ ${formatMoney(v, currency, lang)}`;
+  };
 
   const chartRows = historyWithSpot(antam, history.points);
   const idrShort = (v: number) => `Rp${formatNumber(v / 1e6, lang, { decimals: 2, minDecimals: 2 })} jt`;
@@ -142,8 +150,8 @@ export function AntamPanel() {
           }
         >
           <div className="mt-2 grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <SummaryCard label={t('antam.sell1g')} value={formatIdr(sell1g, lang)} sub={asOf} />
-            <SummaryCard label={t('antam.buyback')} value={formatIdr(buyback, lang)} sub={asOf} />
+            <SummaryCard label={t('antam.sell1g')} value={formatIdr(sell1g, lang)} sub={approx(sell1g)} />
+            <SummaryCard label={t('antam.buyback')} value={formatIdr(buyback, lang)} sub={approx(buyback)} />
             <SummaryCard
               label={t('antam.spread')}
               value={formatIdr(spread, lang)}

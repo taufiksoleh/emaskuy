@@ -7,17 +7,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Info } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
-import { TROY_OZ_GRAMS, xauUsdToIdrGram, formatNumber } from '@/lib/gold';
-import {
-  clamp,
-  fmtMoney,
-  simulate,
-  type CalcCurrency,
-  type CalcInputs,
-  type CalcMode,
-} from '@/lib/calc';
+import { formatNumber } from '@/lib/gold';
+import { calcPresets, clamp, simulate, type CalcInputs, type CalcMode } from '@/lib/calc';
+import { CURRENCY, convertMoney, formatMoney, pricePer, type Currency } from '@/lib/money';
 import { formatRaw, parseAmount, reformatRaw } from '@/lib/number';
 import { buildResultText } from '@/lib/share';
 import { Panel } from '@/components/ui-atoms/Panel';
@@ -27,46 +22,31 @@ import { ResultsPanel } from '@/components/calculator/ResultsPanel';
 import { EduCards } from '@/components/calculator/EduCards';
 import { ScenarioLab } from '@/components/calculator/ScenarioLab';
 
-const DEFAULTS: Record<CalcCurrency, { initial: number; monthly: number }> = {
-  idr: { initial: 10_000_000, monthly: 1_000_000 },
-  usd: { initial: 500, monthly: 100 },
-};
-
-const moneyDecimals = (c: CalcCurrency) => (c === 'idr' ? 0 : 2);
-
-/** Live buy price per gram in the given currency (0 when unavailable). */
-function liveGramPrice(
-  xauUsd: number | undefined,
-  usdIdr: number,
-  currency: CalcCurrency,
-): number {
-  if (!xauUsd || xauUsd <= 0) return 0;
-  if (currency === 'usd') return xauUsd / TROY_OZ_GRAMS;
-  if (usdIdr <= 0) return 0;
-  return xauUsdToIdrGram(xauUsd, usdIdr);
-}
+const moneyDecimals = (c: Currency) => CURRENCY[c].decimals;
 
 export default function CalculatorPage() {
-  const { lang, t, unit } = useI18n();
+  const { lang, t } = useI18n();
   useRouteMeta('calculator');
-  const { gold, usdIdr, status } = useGoldPrice();
+  const display = useDisplay();
+  const { gold, rates, status } = useGoldPrice();
 
   const [mode, setMode] = useState<CalcMode>('lump');
-  const [currency, setCurrency] = useState<CalcCurrency>(unit === 'idr-gr' ? 'idr' : 'usd');
-  const [initialRaw, setInitialRaw] = useState(() =>
-    formatRaw(DEFAULTS[currency].initial, lang, moneyDecimals(currency)),
-  );
-  const [monthlyRaw, setMonthlyRaw] = useState(() =>
-    formatRaw(DEFAULTS[currency].monthly, lang, moneyDecimals(currency)),
-  );
+  const [currency, setCurrency] = useState<Currency>(display.currency);
+  const presets = calcPresets(currency, rates);
+  // Amounts follow the currency's presets (which need today's rate) until the visitor types one.
+  const [initialTyped, setInitialRaw] = useState<string | null>(null);
+  const [monthlyTyped, setMonthlyRaw] = useState<string | null>(null);
+  const initialRaw = initialTyped ?? formatRaw(presets.initial, lang, moneyDecimals(currency));
+  const monthlyRaw = monthlyTyped ?? formatRaw(presets.monthly, lang, moneyDecimals(currency));
   const [years, setYears] = useState(10);
   const [growth, setGrowth] = useState(8);
   const [buyRaw, setBuyRaw] = useState('');
   const [spreadRaw, setSpreadRaw] = useState('2');
   const [priceSynced, setPriceSynced] = useState(true);
 
-  const livePrice = gold?.price ?? 0;
-  const liveGram = liveGramPrice(livePrice, usdIdr, currency);
+  const liveGram = pricePer(gold?.price ?? 0, currency, 'g', rates);
+  // The toggle pairs a local currency with USD.
+  const localCurrency: Currency = currency !== 'USD' ? currency : display.currency !== 'USD' ? display.currency : 'IDR';
 
   // Sync buy price from live while the user hasn't overridden it.
   useEffect(() => {
@@ -83,17 +63,17 @@ export default function CalculatorPage() {
     const from = prevLang.current;
     prevLang.current = lang;
     const dec = moneyDecimals(currency);
-    setInitialRaw((s) => reformatRaw(s, from, lang, dec));
-    setMonthlyRaw((s) => reformatRaw(s, from, lang, dec));
+    setInitialRaw((s) => (s === null ? null : reformatRaw(s, from, lang, dec)));
+    setMonthlyRaw((s) => (s === null ? null : reformatRaw(s, from, lang, dec)));
     setSpreadRaw((s) => reformatRaw(s, from, lang, 2));
     if (!priceSynced) setBuyRaw((s) => reformatRaw(s, from, lang, dec));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang]);
 
-  // Currency toggle: convert amounts via the USD/IDR rate. Toggling straight
+  // Currency toggle: convert amounts at today's rate. Toggling straight
   // back restores the exact values typed before (no rounding drift).
-  const lastToggle = useRef<{ from: CalcCurrency; before: string[]; after: string[] } | null>(null);
-  const switchCurrency = (next: CalcCurrency) => {
+  const lastToggle = useRef<{ from: Currency; before: string[]; after: string[] } | null>(null);
+  const switchCurrency = (next: Currency) => {
     if (next === currency) return;
     // A synced buy price follows the live price in the new currency, so only
     // a manual one is converted.
@@ -108,21 +88,23 @@ export default function CalculatorPage() {
       undo.after.every((raw, i) => raw === before[i])
     ) {
       after = undo.before;
-    } else if (usdIdr > 0) {
+    } else if (convertMoney(1, currency, next, rates) !== null) {
       const conv = (raw: string): string => {
         const n = parseAmount(raw, lang);
-        if (!Number.isFinite(n)) return raw;
-        return formatRaw(next === 'usd' ? n / usdIdr : n * usdIdr, lang, moneyDecimals(next));
+        const v = Number.isFinite(n) ? convertMoney(n, currency, next, rates) : null;
+        return v === null ? raw : formatRaw(v, lang, moneyDecimals(next));
       };
       after = before.map(conv);
       lastToggle.current = { from: currency, before, after };
     } else {
-      // No exchange rate: start from the new currency's defaults rather than
+      // No exchange rate: start from the new currency's presets rather than
       // relabel rupiah amounts as dollars, and re-sync the buy price.
-      const dec = moneyDecimals(next);
-      after = [formatRaw(DEFAULTS[next].initial, lang, dec), formatRaw(DEFAULTS[next].monthly, lang, dec)];
+      setCurrency(next);
+      setInitialRaw(null);
+      setMonthlyRaw(null);
       setPriceSynced(true);
       setBuyRaw('');
+      return;
     }
     setCurrency(next);
     setInitialRaw(after[0]);
@@ -158,11 +140,11 @@ export default function CalculatorPage() {
 
   const summaryText = useMemo(() => {
     if (!debounced || !result) return '';
-    const money = (v: number) => fmtMoney(v, currency, lang);
+    const money = (v: number) => formatMoney(v, currency, lang);
     const modeLabel = debounced.mode === 'lump' ? t('calc.mode.lump') : t('calc.mode.dca');
     const lines = [
       `EmasKuy — ${t('calc.results')}`,
-      `${t('calc.mode')}: ${modeLabel} (${currency.toUpperCase()})`,
+      `${t('calc.mode')}: ${modeLabel} (${currency})`,
       `${t('calc.initial')}: ${money(debounced.initial)}`,
       ...(debounced.mode === 'dca'
         ? [`${t('calc.monthly')}: ${money(debounced.monthly)}`]
@@ -179,7 +161,7 @@ export default function CalculatorPage() {
 
   const shareText = useMemo(() => {
     if (!debounced || !result) return '';
-    const money = (v: number) => fmtMoney(v, currency, lang);
+    const money = (v: number) => formatMoney(v, currency, lang);
     const mode = debounced.mode === 'lump' ? t('calc.mode.lump') : t('calc.mode.dca');
     return buildResultText(
       t('calc.label'),
@@ -198,8 +180,8 @@ export default function CalculatorPage() {
   const reset = () => {
     const dec = moneyDecimals(currency);
     setMode('lump');
-    setInitialRaw(formatRaw(DEFAULTS[currency].initial, lang, dec));
-    setMonthlyRaw(formatRaw(DEFAULTS[currency].monthly, lang, dec));
+    setInitialRaw(null);
+    setMonthlyRaw(null);
     setYears(10);
     setGrowth(8);
     setSpreadRaw('2');
@@ -241,7 +223,9 @@ export default function CalculatorPage() {
             mode={mode}
             onMode={setMode}
             currency={currency}
+            currencies={[localCurrency, 'USD']}
             onCurrency={switchCurrency}
+            chips={presets.chips}
             initialRaw={initialRaw}
             onInitial={setInitialRaw}
             monthlyRaw={monthlyRaw}

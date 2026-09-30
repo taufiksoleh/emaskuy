@@ -28,11 +28,11 @@ import {
 import { AreaChart, CandlestickChart, LineChart, Maximize2, Minimize2 } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useTheme, chartPalette, type ChartPalette } from '@/hooks/useTheme';
+import { useDisplay, type Display } from '@/hooks/useDisplay';
+import { useDisplayHistory } from '@/hooks/useDisplayHistory';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { useHistory } from '@/hooks/useHistory';
-import { unitValue } from '@/lib/history';
 import { toCandles, mergeTick, type Candle, type Pt } from '@/lib/chartData';
-import { TROY_OZ_GRAMS, formatIdr, formatUsd, type Unit } from '@/lib/gold';
+import { CURRENCY, rateOf } from '@/lib/money';
 import { formatClockZone } from '@/lib/time';
 import { cn, fill } from '@/lib/utils';
 import { Badge } from '../ui-atoms/Badge';
@@ -74,8 +74,9 @@ const TF_DAYS: Partial<Record<TF, number>> = { '7D': 9, '30D': 33, '90D': 95, '1
 
 const sec = (ms: number) => Math.floor(ms / 1000) as UTCTimestamp;
 
-function fmtAxis(v: number, unit: Unit): string {
-  return unit === 'idr-gr' ? `Rp${Math.round(v).toLocaleString('id-ID')}` : `$${v.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+/** Axis labels: whole units from 1,000 up (`$4,148`, `Rp2.405.371`), else cents (`RM553.20`). */
+function fmtAxis(v: number, d: Display): string {
+  return d.format(v, { decimals: Math.min(CURRENCY[d.currency].decimals, Math.abs(v) >= 1000 ? 0 : 2) });
 }
 
 /** One value per second, ascending: lightweight-charts rejects duplicates. */
@@ -119,10 +120,11 @@ function createSeries(chart: IChartApi, type: ChartType, palette: ChartPalette):
 }
 
 export function ChartPanel() {
-  const { lang, t, unit } = useI18n();
+  const { lang, t } = useI18n();
+  const d = useDisplay();
   const { theme } = useTheme();
   const palette = useMemo(() => chartPalette(theme), [theme]);
-  const { gold, ticks, usdIdr, lastUpdated, status: liveStatus } = useGoldPrice();
+  const { gold, ticks, rates, lastUpdated, status: liveStatus } = useGoldPrice();
 
   const [tf, setTf] = useState<TF>('30D');
   const [type, setType] = useState<ChartType>('area');
@@ -133,8 +135,8 @@ export function ChartPanel() {
 
   const intraday = tf === '1H' || tf === '24H';
   const effType: ChartType = type === 'candles' && !intraday ? 'area' : type;
-  const oneYear = useHistory('1y');
-  const allTime = useHistory('all', tf === 'ALL');
+  const oneYear = useDisplayHistory('1y');
+  const allTime = useDisplayHistory('all', tf === 'ALL');
   const daily = tf === 'ALL' ? allTime : oneYear;
 
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -261,8 +263,7 @@ export function ChartPanel() {
     });
   }, [palette]);
 
-  const toUnit = (usdPerOz: number) =>
-    unit === 'idr-gr' ? (usdIdr > 0 ? (usdPerOz / TROY_OZ_GRAMS) * usdIdr : 0) : usdPerOz;
+  const toUnit = (usdPerOz: number) => d.price(usdPerOz);
 
   const setPriceLine = (series: AnySeries, price: number | undefined) => {
     if (priceLineRef.current) {
@@ -301,7 +302,7 @@ export function ChartPanel() {
     chart.applyOptions({
       localization: {
         locale: lang === 'id' ? 'id-ID' : 'en-US',
-        priceFormatter: (v: number) => fmtAxis(v, unit),
+        priceFormatter: (v: number) => fmtAxis(v, d),
       },
     });
 
@@ -320,7 +321,7 @@ export function ChartPanel() {
     } else {
       const days = TF_DAYS[tf];
       const cutoff = days === undefined ? -Infinity : now - days * DAY_MS;
-      pts = daily.points.filter((p) => p.t > cutoff).map((p) => ({ t: p.t, v: unitValue(p, unit) }));
+      pts = daily.points.filter((p) => p.t > cutoff).map((p) => ({ t: p.t, v: p.v }));
       const live = toUnit(gold?.price ?? 0);
       const lastT = pts[pts.length - 1]?.t ?? Infinity;
       if (pts.length > 0 && live > 0 && now > lastT) {
@@ -349,7 +350,7 @@ export function ChartPanel() {
       updateDot();
     };
 
-    const animKey = `${tf}|${effType}|${unit}`;
+    const animKey = `${tf}|${effType}|${d.label}`;
     const animate =
       animKeyRef.current !== animKey &&
       effType !== 'candles' &&
@@ -374,10 +375,11 @@ export function ChartPanel() {
     rafRef.current = requestAnimationFrame(step);
   });
 
-  const intradayFx = intraday && unit === 'idr-gr' ? usdIdr : 0;
+  // Ticks are in USD/oz: redraw them when the display currency's rate moves.
+  const intradayFx = intraday ? rateOf(d.currency, rates) : 0;
   useEffect(() => {
     rebuild();
-  }, [tf, unit, effType, daily.points, rebuildNonce, lang, theme, intradayFx, collecting]);
+  }, [tf, d.label, effType, daily.points, rebuildNonce, lang, theme, intradayFx, collecting]);
 
   /* ---------- live tick: update in place ---------- */
   const applyTick = useEffectEvent(() => {
@@ -421,7 +423,7 @@ export function ChartPanel() {
 
   useEffect(() => {
     applyTick();
-  }, [gold?.updatedAt, gold?.price, usdIdr]);
+  }, [gold?.updatedAt, gold?.price, rates]);
 
   /* Esc closes fullscreen */
   useEffect(() => {
@@ -532,11 +534,11 @@ export function ChartPanel() {
         >
           <div className="text-t3">{hoverDate(hover.pt.t)}</div>
           <div className="mt-0.5 text-sm font-semibold text-gold">
-            {unit === 'idr-gr' ? formatIdr(hover.pt.v, lang) : formatUsd(hover.pt.v, lang)}
+            {d.format(hover.pt.v)}
           </div>
           <div style={{ color: hover.delta >= 0 ? 'var(--up)' : 'var(--down)' }}>
             {hover.delta >= 0 ? '▲' : '▼'}{' '}
-            {unit === 'idr-gr' ? formatIdr(Math.abs(hover.delta), lang) : formatUsd(Math.abs(hover.delta), lang)}
+            {d.format(Math.abs(hover.delta))}
           </div>
         </div>
       )}

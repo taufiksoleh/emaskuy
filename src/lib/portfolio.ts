@@ -6,6 +6,7 @@
  * `emaskuy.portfolio` is migrated on first load and left in place, so
  * rolling back never loses data.
  */
+import { isCurrency, type Currency } from './money';
 import { getStorage, readJson, writeJson, type KV } from './storage';
 
 export type ProductType = 'antam' | 'ubs' | 'galeri24' | 'lotus' | 'digital' | 'perhiasan' | 'lainnya';
@@ -19,9 +20,9 @@ export interface Holding {
   grams: number;
   /** Purity in percent; 100 for bars and digital gold */
   kadarPct: number;
-  /** Price paid per gram of the item */
+  /** Price paid per gram of the item, in `currency` */
   buyPricePerGram: number;
-  currency: 'IDR';
+  currency: Currency;
   /** Purchase date, YYYY-MM-DD */
   date: string;
   note?: string;
@@ -59,7 +60,7 @@ export function normalizeHolding(raw: unknown): Holding | null {
     grams: r.grams,
     kadarPct: kadar,
     buyPricePerGram: price,
-    currency: 'IDR',
+    currency: isCurrency(r.currency) ? r.currency : 'IDR',
     date: isDate(r.date) ? r.date : new Date().toISOString().slice(0, 10),
     note: typeof r.note === 'string' && r.note.trim() ? r.note.trim().slice(0, 200) : undefined,
     updatedAt: typeof r.updatedAt === 'number' && Number.isFinite(r.updatedAt) ? r.updatedAt : 0,
@@ -99,10 +100,20 @@ export const pureGrams = (h: Holding) => (h.grams * h.kadarPct) / 100;
 
 export type Valuation = 'spot' | 'buyback';
 
-/** Bars and coins sell back at the dealer's buyback; jewelry and digital gold don't. */
-export const hasBuyback = (h: Holding) => h.type !== 'perhiasan' && h.type !== 'digital';
+/**
+ * Rupiah bars and coins sell back at the dealer's buyback (quoted in
+ * rupiah); jewelry, digital gold and holdings bought in other currencies
+ * are valued at spot.
+ */
+export const hasBuyback = (h: Holding) => h.currency === 'IDR' && h.type !== 'perhiasan' && h.type !== 'digital';
 
-/** Current value of a holding at spot or at the buyback price (rupiah per gram). */
+/** Money paid for a holding, in its own currency. */
+export const investedIn = (h: Holding) => h.grams * h.buyPricePerGram;
+
+/**
+ * Current value of a holding in its own currency: `spotPerGram` in that
+ * currency, `buybackPerGram` in rupiah (used only when hasBuyback).
+ */
 export function holdingValue(h: Holding, valuation: Valuation, spotPerGram: number, buybackPerGram: number): number {
   const perGram = valuation === 'buyback' && hasBuyback(h) && buybackPerGram > 0 ? buybackPerGram : spotPerGram;
   return pureGrams(h) * perGram;
@@ -115,18 +126,24 @@ export interface PortfolioSummary {
   investGrams: number;
   /** Pure gold in jewelry */
   jewelryGrams: number;
-  totalInvested: number;
+  /** Money paid, converted with `convert`; null when some currency can't be */
+  totalInvested: number | null;
 }
 
-export function summarize(holdings: Holding[]): PortfolioSummary {
+/** `convert` turns an amount in a holding's currency into the one shown (default: as is). */
+export function summarize(
+  holdings: Holding[],
+  convert: (amount: number, from: Currency) => number | null = (amount) => amount,
+): PortfolioSummary {
   return holdings.reduce<PortfolioSummary>(
     (acc, h) => {
       const pure = pureGrams(h);
+      const invested = convert(investedIn(h), h.currency);
       return {
         totalGrams: acc.totalGrams + pure,
         investGrams: acc.investGrams + (h.type === 'perhiasan' ? 0 : pure),
         jewelryGrams: acc.jewelryGrams + (h.type === 'perhiasan' ? pure : 0),
-        totalInvested: acc.totalInvested + h.grams * h.buyPricePerGram,
+        totalInvested: acc.totalInvested === null || invested === null ? null : acc.totalInvested + invested,
       };
     },
     { totalGrams: 0, investGrams: 0, jewelryGrams: 0, totalInvested: 0 },

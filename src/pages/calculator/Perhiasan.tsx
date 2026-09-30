@@ -9,7 +9,7 @@ import { Info } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { useCalcCurrency, useGramPrice } from '@/hooks/useGramPrice';
-import { fmtMoney } from '@/lib/calc';
+import { formatMoney } from '@/lib/money';
 import { formatNumber } from '@/lib/gold';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { KARAT_PURITY, computeJewelry } from '@/lib/jewelry';
@@ -80,7 +80,7 @@ export default function PerhiasanPage() {
     deductionPct: num(deductionRaw),
   });
 
-  const money = (v: number) => (perGram !== null ? fmtMoney(v, currency, lang) : '—');
+  const money = (v: number) => (perGram !== null ? formatMoney(v, currency, lang) : '—');
   const grams = (g: number) => formatNumber(g, lang, { decimals: 3, minDecimals: 0 });
 
   return (
@@ -180,7 +180,7 @@ export default function PerhiasanPage() {
                   <td className="px-4 py-2 md:px-6">{k.karat}K</td>
                   <td className="px-4 py-2 md:px-6">{formatNumber(k.pct, lang, { decimals: 1, minDecimals: 0 })}%</td>
                   <td className="px-4 py-2 text-right text-t1 md:px-6">
-                    {perGram !== null ? fmtMoney((perGram * k.pct) / 100, currency, lang) : '—'}
+                    {perGram !== null ? formatMoney((perGram * k.pct) / 100, currency, lang) : '—'}
                   </td>
                 </tr>
               ))}

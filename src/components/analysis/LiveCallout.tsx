@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 import { Activity } from 'lucide-react';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { useHistory } from '@/hooks/useHistory';
-import { pointAtOrBefore, unitValue } from '@/lib/history';
+import { historyValue, pointAtOrBefore } from '@/lib/history';
 import { useI18n, registerStrings } from '@/lib/i18n';
 import { formatUsd, formatIdr, formatNumber, xauUsdToIdrGram } from '@/lib/gold';
 import { StatCard } from '@/components/ui-atoms/StatCard';
@@ -28,9 +28,9 @@ export function LiveCallout({ kind }: { kind: ArticleCallout }) {
   const { lang, t } = useI18n();
   const { gold, metals, usdIdr, lastUpdated } = useGoldPrice();
   const { points } = useHistory('1y', kind === 'dca' || kind === 'compare');
-  // The DCA story is about rupiah savers; the rest compare dollar prices.
-  const unit = kind === 'dca' ? 'idr-gr' : 'usd-oz';
-  const idrChange = useXauChange('idr-gr');
+  // The DCA story is about rupiah savers (IDR/gram); the rest compare dollar prices (USD/oz).
+  const rupiah = kind === 'dca';
+  const idrChange = useXauChange('IDR', 'g');
 
   const price = gold?.price ?? 0;
   const chg24 = kind === 'dca' ? idrChange.pct : (gold?.changePct ?? 0);
@@ -39,12 +39,12 @@ export function LiveCallout({ kind }: { kind: ArticleCallout }) {
   const ratio = price > 0 && silver > 0 ? price / silver : 0;
 
   const chg30 = useMemo(() => {
-    const live = unit === 'idr-gr' ? idrGram : price;
+    const live = rupiah ? idrGram : price;
     const refNow = lastUpdated || (points.length > 0 ? points[points.length - 1].t : 0);
     const anchor = pointAtOrBefore(points, refNow - 30 * 24 * 60 * 60 * 1000);
-    const base = anchor ? unitValue(anchor, unit) : 0;
+    const base = anchor ? (rupiah ? historyValue(anchor, 'IDR', 'g') : historyValue(anchor, 'USD', 'ozt')) : 0;
     return base > 0 && live > 0 ? ((live - base) / base) * 100 : 0;
-  }, [points, unit, idrGram, price, lastUpdated]);
+  }, [points, rupiah, idrGram, price, lastUpdated]);
 
   type Spec = { label: string; value: number; format: (v: number) => string; delta?: number };
   const usd = (v: number) => formatUsd(v, lang);

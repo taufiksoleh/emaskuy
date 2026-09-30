@@ -9,7 +9,8 @@ import { useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import type { DataStatus } from '@/lib/api';
 import { formatNumber } from '@/lib/gold';
-import { type CalcCurrency, type CalcMode } from '@/lib/calc';
+import { type CalcMode, type CalcPresets } from '@/lib/calc';
+import { CURRENCY, type Currency } from '@/lib/money';
 import { formatRaw, parseAmount } from '@/lib/number';
 import { cn } from '@/lib/utils';
 import { MoneyInput } from '../ui-atoms/MoneyInput';
@@ -17,17 +18,13 @@ import { Panel } from '../ui-atoms/Panel';
 import { SegToggle } from '../ui-atoms/SegToggle';
 import { Slider } from '../ui/slider';
 
-const CHIPS: Record<CalcCurrency, { initial: number[]; monthly: number[] }> = {
-  idr: { initial: [1_000_000, 5_000_000, 10_000_000, 50_000_000], monthly: [250_000, 500_000, 1_000_000, 2_000_000] },
-  usd: { initial: [100, 500, 1000, 5000], monthly: [25, 50, 100, 250] },
-};
-
-function chipLabel(v: number, currency: CalcCurrency, lang: 'id' | 'en'): string {
-  if (currency === 'idr') {
+function chipLabel(v: number, currency: Currency, lang: 'id' | 'en'): string {
+  if (currency === 'IDR') {
     if (v >= 1_000_000) return `${formatNumber(v / 1_000_000, lang, { decimals: 0 })}jt`;
     return `${formatNumber(v / 1_000, lang, { decimals: 0 })}rb`;
   }
-  return v >= 1000 ? `$${v / 1000}k` : `$${v}`;
+  const [div, suffix] = v >= 1e6 ? [1e6, 'M'] : v >= 1e3 ? [1e3, 'k'] : [1, ''];
+  return `${CURRENCY[currency].symbol}${formatNumber(v / div, lang, { decimals: 1, minDecimals: 0 })}${suffix}`;
 }
 
 const sliderGold =
@@ -38,8 +35,11 @@ const sliderGold =
 export interface InputsPanelProps {
   mode: CalcMode;
   onMode: (m: CalcMode) => void;
-  currency: CalcCurrency;
-  onCurrency: (c: CalcCurrency) => void;
+  currency: Currency;
+  /** The two currencies the toggle switches between */
+  currencies: [Currency, Currency];
+  onCurrency: (c: Currency) => void;
+  chips: CalcPresets['chips'];
   initialRaw: string;
   onInitial: (s: string) => void;
   monthlyRaw: string;
@@ -66,9 +66,9 @@ export function InputsPanel(p: InputsPanelProps) {
   const buyInvalid = Number.isNaN(parseAmount(p.buyRaw, lang));
   const spreadInvalid = Number.isNaN(parseAmount(p.spreadRaw, lang));
 
-  const chips = CHIPS[p.currency];
-  const symbol = p.currency === 'idr' ? 'Rp' : '$';
-  const moneyDecimals = p.currency === 'idr' ? 0 : 2;
+  const chips = p.chips;
+  const symbol = CURRENCY[p.currency].symbol;
+  const moneyDecimals = CURRENCY[p.currency].decimals;
 
   const field = 'flex flex-col gap-1.5';
   const label = 'label-micro';
@@ -107,8 +107,8 @@ export function InputsPanel(p: InputsPanelProps) {
             value={p.currency}
             onChange={p.onCurrency}
             options={[
-              { value: 'idr', label: 'IDR' },
-              { value: 'usd', label: 'USD' },
+              { value: p.currencies[0], label: p.currencies[0] },
+              { value: p.currencies[1], label: p.currencies[1] },
             ]}
           />
         </motion.div>

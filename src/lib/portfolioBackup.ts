@@ -83,8 +83,8 @@ export function mergeHoldings(current: Holding[], incoming: Holding[]): MergeRes
 }
 
 const CSV_HEADERS: Record<Lang, string[]> = {
-  id: ['Tanggal', 'Jenis', 'Berat (gr)', 'Kadar (%)', 'Harga beli per gram (Rp)', 'Total beli (Rp)', 'Catatan'],
-  en: ['Date', 'Type', 'Weight (g)', 'Purity (%)', 'Buy price per gram (IDR)', 'Total cost (IDR)', 'Note'],
+  id: ['Tanggal', 'Jenis', 'Berat (gr)', 'Kadar (%)', 'Mata uang', 'Harga beli per gram', 'Total beli', 'Catatan'],
+  en: ['Date', 'Type', 'Weight (g)', 'Purity (%)', 'Currency', 'Buy price per gram', 'Total cost', 'Note'],
 };
 
 /** Quote per RFC 4180 and defuse spreadsheet formulas in text cells. */
@@ -110,6 +110,7 @@ export function exportCsv(
       csvText(typeLabel(h.type), sep),
       csvNumber(h.grams, lang),
       csvNumber(h.kadarPct, lang),
+      h.currency,
       csvNumber(h.buyPricePerGram, lang),
       csvNumber(h.grams * h.buyPricePerGram, lang),
       csvText(h.note ?? '', sep),

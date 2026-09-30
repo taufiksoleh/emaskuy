@@ -8,7 +8,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { formatNumber } from '@/lib/gold';
-import { fmtMoney, fmtMoneyCompact, type CalcCurrency, type SeriesPoint } from '@/lib/calc';
+import type { SeriesPoint } from '@/lib/calc';
+import { formatMoney, formatMoneyCompact, type Currency } from '@/lib/money';
 
 const GOLD = 'var(--gold)';
 const UP = 'var(--up)';
@@ -87,7 +88,7 @@ export function ProjectionChart({
 }: {
   points: SeriesPoint[];
   years: number;
-  currency: CalcCurrency;
+  currency: Currency;
 }) {
   const { lang, t } = useI18n();
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -191,7 +192,7 @@ export function ProjectionChart({
       const v = minV + ((maxV - minV) * k) / 4;
       ticks.push({
         y: PAD.top + innerH - (innerH * k) / 4,
-        label: fmtMoneyCompact(v, currency, lang),
+        label: formatMoneyCompact(v, currency, lang),
       });
     }
     return ticks;
@@ -299,16 +300,16 @@ export function ProjectionChart({
           </div>
           <div className="flex items-center justify-between gap-4">
             <span className="text-t2">{t('calc.tooltip.value')}</span>
-            <span className="text-gold">{fmtMoney(hp.v, currency, lang)}</span>
+            <span className="text-gold">{formatMoney(hp.v, currency, lang)}</span>
           </div>
           <div className="flex items-center justify-between gap-4">
             <span className="text-t2">{t('calc.tooltip.invested')}</span>
-            <span className="text-t1">{fmtMoney(hp.i, currency, lang)}</span>
+            <span className="text-t1">{formatMoney(hp.i, currency, lang)}</span>
           </div>
           <div className="flex items-center justify-between gap-4">
             <span className="text-t2">{t('calc.tooltip.profit')}</span>
             <span style={{ color: hp.v - hp.i >= 0 ? UP : DOWN }}>
-              {fmtMoney(hp.v - hp.i, currency, lang)}
+              {formatMoney(hp.v - hp.i, currency, lang)}
             </span>
           </div>
         </div>

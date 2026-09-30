@@ -5,22 +5,12 @@ import type { Lang } from './i18n';
 
 export const TROY_OZ_GRAMS = 31.1034768;
 
-export type Unit = 'usd-oz' | 'idr-gr';
-
 export function ozToGrams(oz: number): number {
   return oz * TROY_OZ_GRAMS;
 }
 
 export function gramsToOz(g: number): number {
   return g / TROY_OZ_GRAMS;
-}
-
-/** Convert a USD-per-ounce price into the display unit value. */
-export function convertPrice(usdPerOz: number, usdIdr: number | null, unit: Unit): number {
-  if (unit === 'idr-gr') {
-    return (usdPerOz / TROY_OZ_GRAMS) * (usdIdr ?? 0);
-  }
-  return usdPerOz;
 }
 
 /** XAU USD/oz -> IDR per gram */
@@ -57,11 +47,6 @@ export function formatUsd(value: number, lang: Lang, opts: FormatOpts = {}): str
 /** IDR with `Rp` prefix: ID `Rp1.234.567` / EN `Rp1,234,567`, negative `-Rp5` */
 export function formatIdr(value: number, lang: Lang, opts: FormatOpts = {}): string {
   return withSign(value, (v) => `Rp${formatNumber(v, lang, { decimals: 0, ...opts })}`);
-}
-
-/** Format a value already expressed in a display unit. */
-export function formatUnitPrice(value: number, unit: Unit, lang: Lang): string {
-  return unit === 'idr-gr' ? formatIdr(value, lang) : formatUsd(value, lang);
 }
 
 /** Signed percent: `+0,42%` / `+0.42%` */

@@ -10,11 +10,22 @@ import { motion } from 'framer-motion';
 import { HandCoins, Pencil, Trash2, Wallet, X } from 'lucide-react';
 import { toast } from 'sonner';
 import { useI18n, registerStrings } from '@/lib/i18n';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { commitHoldings, usePortfolio } from '@/hooks/usePortfolio';
-import { xauUsdToIdrGram, formatIdr, formatNumber, formatDateOnly, formatPct } from '@/lib/gold';
-import { hasBuyback, holdingValue, newHoldingId, pureGrams, summarize, type Holding, type Valuation } from '@/lib/portfolio';
+import { formatNumber, formatDateOnly, formatPct } from '@/lib/gold';
+import { convertMoney, formatMoney, pricePer, type Currency } from '@/lib/money';
+import {
+  hasBuyback,
+  holdingValue,
+  investedIn,
+  newHoldingId,
+  pureGrams,
+  summarize,
+  type Holding,
+  type Valuation,
+} from '@/lib/portfolio';
 import { buybackPerGramFor, staleness, useAntam } from '@/lib/antam';
 import { readPref, writePref } from '@/lib/preferences';
 import { SegToggle } from '@/components/ui-atoms/SegToggle';
@@ -52,6 +63,10 @@ registerStrings({
     en: 'No holdings yet. Add your first gold purchase above.',
   },
   'portfolio.pureOf': { id: '{g} gr emas murni', en: '{g} g pure gold' },
+  'portfolio.convertedNote': {
+    id: 'Mata uang lain dikonversi dengan kurs hari ini',
+    en: 'Other currencies converted at today’s rates',
+  },
   'portfolio.zakat': { id: 'Hitung zakat', en: 'Work out zakat' },
   'portfolio.imported': {
     id: '{added} ditambahkan, {updated} diperbarui, {skipped} dilewati',
@@ -86,7 +101,8 @@ export default function PortfolioPage() {
   const { lang, t } = useI18n();
   useRouteMeta('portfolio');
   const navigate = useNavigate();
-  const { gold, usdIdr, loading } = useGoldPrice();
+  const d = useDisplay();
+  const { gold, rates, loading } = useGoldPrice();
   const holdings = usePortfolio();
   const [editing, setEditing] = useState<Holding | null>(null);
 
@@ -101,13 +117,25 @@ export default function PortfolioPage() {
     writePref(VALUATION_KEY, v);
   };
 
-  const liveIdrGram = gold && gold.price > 0 && usdIdr > 0 ? xauUsdToIdrGram(gold.price, usdIdr) : 0;
-  const valueOf = (h: Holding) => holdingValue(h, valuation, liveIdrGram, buybackPerGramFor(antam, h.type));
-  const summary = useMemo(() => summarize(holdings), [holdings]);
-  const priced = liveIdrGram > 0 || (valuation === 'buyback' && holdings.every(hasBuyback));
-  const currentValue = priced ? holdings.reduce((sum, h) => sum + valueOf(h), 0) : 0;
-  const pnl = currentValue - summary.totalInvested;
-  const pnlPct = summary.totalInvested > 0 ? (pnl / summary.totalInvested) * 100 : 0;
+  // Each holding is valued in its own currency; totals in the display currency at today's rates.
+  const spotIn = (c: Currency) => pricePer(gold?.price ?? 0, c, 'g', rates);
+  const valueOf = (h: Holding) => holdingValue(h, valuation, spotIn(h.currency), buybackPerGramFor(antam, h.type));
+  const valueKnown = (h: Holding) => spotIn(h.currency) > 0 || (valuation === 'buyback' && hasBuyback(h));
+  const toDisplay = (amount: number, from: Currency) => convertMoney(amount, from, d.currency, rates);
+  const summary = useMemo(
+    () => summarize(holdings, (amount, from) => convertMoney(amount, from, d.currency, rates)),
+    [holdings, d.currency, rates],
+  );
+  let currentValue: number | null = holdings.every(valueKnown) ? 0 : null;
+  for (const h of holdings) {
+    const v = currentValue === null ? null : toDisplay(valueOf(h), h.currency);
+    currentValue = v === null || currentValue === null ? null : currentValue + v;
+  }
+  const invested = summary.totalInvested;
+  const pnl = currentValue !== null && invested !== null ? currentValue - invested : null;
+  const pnlPct = pnl !== null && invested ? (pnl / invested) * 100 : 0;
+  const money = (v: number | null) => (v === null ? '—' : d.format(v));
+  const mixed = holdings.some((h) => h.currency !== d.currency);
   const grams = (g: number) => formatNumber(g, lang, { decimals: 2, minDecimals: 0 });
 
   const commit = (next: Holding[]) => {
@@ -117,7 +145,7 @@ export default function PortfolioPage() {
   };
 
   const add = (draft: HoldingDraft) => {
-    const holding: Holding = { ...draft, id: newHoldingId(), currency: 'IDR', updatedAt: Date.now() };
+    const holding: Holding = { ...draft, id: newHoldingId(), updatedAt: Date.now() };
     const saved = commit([...holdings, holding]);
     if (saved) toast.success(t('portfolio.added'));
     return saved;
@@ -209,14 +237,23 @@ export default function PortfolioPage() {
         ) : (
           <>
             <StatCard label={t('portfolio.totalGrams')} value={summary.totalGrams} format={(v) => `${grams(v)} gr`} />
-            <StatCard label={t('portfolio.totalInvested')} value={summary.totalInvested} format={(v) => formatIdr(v, lang)} />
-            <StatCard label={t('portfolio.currentValue')} value={currentValue} format={(v) => formatIdr(v, lang)} />
+            <StatCard
+              label={t('portfolio.totalInvested')}
+              value={invested ?? 0}
+              format={(v) => money(invested === null ? null : v)}
+              sub={mixed ? t('portfolio.convertedNote') : undefined}
+            />
+            <StatCard
+              label={t('portfolio.currentValue')}
+              value={currentValue ?? 0}
+              format={(v) => money(currentValue === null ? null : v)}
+            />
             <StatCard
               label={t('portfolio.pnl')}
-              value={pnl}
-              format={(v) => formatIdr(v, lang)}
-              delta={pnlPct}
-              valueColor={holdings.length > 0 ? (pnl >= 0 ? 'var(--up)' : 'var(--down)') : undefined}
+              value={pnl ?? 0}
+              format={(v) => money(pnl === null ? null : v)}
+              delta={pnl === null ? undefined : pnlPct}
+              valueColor={holdings.length > 0 && pnl !== null ? (pnl >= 0 ? 'var(--up)' : 'var(--down)') : undefined}
             />
           </>
         )}
@@ -225,7 +262,7 @@ export default function PortfolioPage() {
       <div className="mt-6 grid gap-4 lg:grid-cols-12">
         {/* Add form */}
         <Panel title={t('portfolio.addTitle')} className="lg:col-span-7">
-          <HoldingForm idPrefix="pf" submitLabel={t('portfolio.add')} onSubmit={add} />
+          <HoldingForm idPrefix="pf" submitLabel={t('portfolio.add')} onSubmit={add} defaultCurrency={d.currency} />
         </Panel>
         {/* Backup */}
         <Panel title={t('backup.title')} className="h-fit lg:col-span-5">
@@ -245,10 +282,11 @@ export default function PortfolioPage() {
             {holdings.map((h) => {
               const pure = pureGrams(h);
               const value = valueOf(h);
-              const valueKnown = liveIdrGram > 0 || (valuation === 'buyback' && hasBuyback(h));
-              const invested = h.grams * h.buyPricePerGram;
-              const hPnl = value - invested;
-              const hPnlPct = invested > 0 ? (hPnl / invested) * 100 : 0;
+              const known = valueKnown(h);
+              const cost = investedIn(h);
+              const hPnl = value - cost;
+              const hPnlPct = cost > 0 ? (hPnl / cost) * 100 : 0;
+              const hMoney = (v: number) => formatMoney(v, h.currency, lang);
               return (
                 <li key={h.id} className="flex flex-wrap items-center gap-x-6 gap-y-2 py-3 first:pt-0 last:pb-0">
                   <div className="min-w-[140px]">
@@ -259,7 +297,7 @@ export default function PortfolioPage() {
                       <span className="font-mono text-sm tabular text-t1">{grams(h.grams)} gr</span>
                     </div>
                     <div className="mt-1 text-xs text-t3">
-                      {formatIdr(h.buyPricePerGram, lang)}/gr
+                      {hMoney(h.buyPricePerGram)}/gr
                       {h.type === 'perhiasan' && (
                         <> · {formatNumber(h.kadarPct, lang, { decimals: 1, minDecimals: 0 })}% · {fill(t('portfolio.pureOf'), { g: grams(pure) })}</>
                       )}
@@ -269,15 +307,15 @@ export default function PortfolioPage() {
                   {h.note && <div className="min-w-0 flex-1 text-xs text-t2">{h.note}</div>}
                   <div className="ml-auto flex items-center gap-3">
                     <div className="text-right">
-                      <div className="font-mono text-sm tabular text-t1">{valueKnown ? formatIdr(value, lang) : '—'}</div>
-                      {valueKnown && (
+                      <div className="font-mono text-sm tabular text-t1">{known ? hMoney(value) : '—'}</div>
+                      {known && (
                         <div
                           className={cn(
                             'flex items-center justify-end gap-1.5 font-mono text-xs tabular',
                             hPnl >= 0 ? 'text-up' : 'text-down',
                           )}
                         >
-                          {formatIdr(hPnl, lang)}
+                          {hMoney(hPnl)}
                           <span>({formatPct(hPnlPct, lang)})</span>
                         </div>
                       )}

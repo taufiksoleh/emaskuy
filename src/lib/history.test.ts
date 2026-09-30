@@ -4,8 +4,10 @@ import {
   HISTORY_KEYS,
   RECHECK_MS,
   createHistoryStore,
+  historyValue,
   joinNbpWithFx,
   mergeByDate,
+  needsFxSeries,
   prevCloseBefore,
   type HistoryDeps,
 } from './history';
@@ -210,5 +212,29 @@ describe('history store', () => {
 
     await createHistoryStore(deps).load('all');
     expect(deps.nbpRange).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('historyValue', () => {
+  const p = { date: '2026-09-29', t: Date.parse('2026-09-29T00:00:00Z'), usd: 4147.6, idr: 2_389_805 };
+  const OZ = 31.1034768;
+
+  it('reads USD and IDR from the point itself, in any weight', () => {
+    expect(historyValue(p, 'USD', 'ozt')).toBeCloseTo(4147.6, 9);
+    expect(historyValue(p, 'USD', 'g')).toBeCloseTo(4147.6 / OZ, 9);
+    expect(historyValue(p, 'IDR', 'g')).toBe(2_389_805);
+    expect(historyValue(p, 'IDR', 'ozt')).toBeCloseTo(2_389_805 * OZ, 6);
+  });
+
+  it("uses that day's rate for other currencies, and the peg for SAR/AED", () => {
+    const fxOn = (date: string) => (date === '2026-09-29' ? 4.081 : 0);
+    expect(historyValue(p, 'MYR', 'g', fxOn)).toBeCloseTo((4147.6 / OZ) * 4.081, 9);
+    expect(historyValue(p, 'MYR', 'g')).toBe(0);
+    expect(historyValue({ ...p, date: '2026-09-30' }, 'MYR', 'g', fxOn)).toBe(0);
+    expect(historyValue(p, 'SAR', 'tola')).toBeCloseTo((4147.6 / OZ) * 11.6638038 * 3.75, 9);
+  });
+
+  it('knows which currencies need a separate rate series', () => {
+    expect(['USD', 'IDR', 'SAR', 'AED', 'MYR', 'EUR'].filter((c) => needsFxSeries(c as 'USD'))).toEqual(['MYR', 'EUR']);
   });
 });

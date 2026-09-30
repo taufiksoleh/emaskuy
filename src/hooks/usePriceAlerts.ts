@@ -9,27 +9,20 @@
  */
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import { loadAlerts, saveAlerts, MAX_ALERTS, type PriceAlert } from '@/lib/alerts';
-import { formatUnitPrice, xauUsdToIdrGram } from '@/lib/gold';
+import { alertHit, alertPrice, loadAlerts, saveAlerts, MAX_ALERTS, type PriceAlert } from '@/lib/alerts';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { WEIGHT, formatMoney } from '@/lib/money';
+import { fill } from '@/lib/utils';
 import { useGoldPrice } from './useGoldPrice';
 
 registerStrings({
-  'alerts.toast.above.usd-oz': {
-    id: 'Alert terpicu: emas menembus {target}/oz',
-    en: 'Alert triggered: gold broke above {target}/oz',
+  'alerts.toast.above': {
+    id: 'Alert terpicu: emas menembus {target}/{unit}',
+    en: 'Alert triggered: gold broke above {target}/{unit}',
   },
-  'alerts.toast.below.usd-oz': {
-    id: 'Alert terpicu: emas turun ke {target}/oz',
-    en: 'Alert triggered: gold dropped to {target}/oz',
-  },
-  'alerts.toast.above.idr-gr': {
-    id: 'Alert terpicu: emas menyentuh {target}/gram',
-    en: 'Alert triggered: gold touched {target}/gram',
-  },
-  'alerts.toast.below.idr-gr': {
-    id: 'Alert terpicu: emas turun ke {target}/gram',
-    en: 'Alert triggered: gold dropped to {target}/gram',
+  'alerts.toast.below': {
+    id: 'Alert terpicu: emas turun ke {target}/{unit}',
+    en: 'Alert triggered: gold dropped to {target}/{unit}',
   },
 });
 
@@ -44,7 +37,7 @@ export interface UsePriceAlerts {
 
 export function usePriceAlerts(): UsePriceAlerts {
   const { t, lang } = useI18n();
-  const { gold, usdIdr } = useGoldPrice();
+  const { gold, rates } = useGoldPrice();
   const [alerts, setAlerts] = useState<PriceAlert[]>(loadAlerts);
   // Mirrors `alerts` so the price-watching effect can compare against the
   // previous state without re-subscribing on every alert change.
@@ -84,19 +77,15 @@ export function usePriceAlerts(): UsePriceAlerts {
     let changed = false;
     const next = alerts.map((a) => {
       if (a.triggeredAt) return a;
-      const current = a.unit === 'idr-gr' ? xauUsdToIdrGram(price, usdIdr) : price;
-      if (current <= 0) return a;
-      const hit =
-        (a.direction === 'above' && current >= a.target) ||
-        (a.direction === 'below' && current <= a.target);
-      if (!hit) return a;
+      if (!alertHit(a, alertPrice(a, price, rates))) return a;
       changed = true;
       // Only toast when this alert was untriggered before this check and we
       // haven't toasted for this trigger yet (re-render guard).
       const wasTriggered = prev.find((p) => p.id === a.id)?.triggeredAt != null;
       if (!wasTriggered && !toastedRef.current.has(a.id)) {
         toastedRef.current.add(a.id);
-        toast(t(`alerts.toast.${a.direction}.${a.unit}`).replace('{target}', formatUnitPrice(a.target, a.unit, lang)));
+        const target = formatMoney(a.target, a.currency, lang);
+        toast(fill(t(`alerts.toast.${a.direction}`), { target, unit: WEIGHT[a.weight].short }));
       }
       return { ...a, triggeredAt: now };
     });
@@ -104,7 +93,7 @@ export function usePriceAlerts(): UsePriceAlerts {
     // Mark triggers even if storage fails, so the same alert doesn't re-fire.
     if (changed) update(next, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [price, usdIdr, alerts]);
+  }, [price, rates, alerts]);
 
   return { alerts, addAlert, removeAlert, resetAlert };
 }

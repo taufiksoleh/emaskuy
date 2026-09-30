@@ -4,8 +4,8 @@
  */
 import { Outlet } from 'react-router';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { convertPrice, formatUnitPrice } from '@/lib/gold';
 import { Badge } from '@/components/ui-atoms/Badge';
 import { CalcTabs } from '@/components/calculator/CalcTabs';
 
@@ -14,8 +14,9 @@ registerStrings({
 });
 
 export default function CalculatorHub() {
-  const { lang, t, unit } = useI18n();
-  const { gold, usdIdr, status } = useGoldPrice();
+  const { t } = useI18n();
+  const d = useDisplay();
+  const { gold, status } = useGoldPrice();
   const statusVariant = status === 'live' ? 'live' : status === 'cached' ? 'cached' : 'offline';
 
   return (
@@ -25,7 +26,8 @@ export default function CalculatorHub() {
         <div className="flex items-center gap-2">
           {gold && gold.price > 0 && (
             <span className="rounded-lg border border-hairline bg-bg2 px-3 py-1.5 font-mono text-sm tabular text-gold">
-              {formatUnitPrice(convertPrice(gold.price, usdIdr, unit), unit, lang)}
+              {d.approx}
+              {d.format(d.price(gold.price))}/{d.label.split('/')[1]}
             </span>
           )}
           <Badge variant={statusVariant} />

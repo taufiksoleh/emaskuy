@@ -7,19 +7,13 @@ import { motion } from 'framer-motion';
 import { ArrowLeftRight } from 'lucide-react';
 import { toast } from 'sonner';
 import { registerStrings, useI18n } from '@/lib/i18n';
+import { useDisplay } from '@/hooks/useDisplay';
+import { useDisplayHistory } from '@/hooks/useDisplayHistory';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { useHistory } from '@/hooks/useHistory';
-import { sliceSince, unitValue } from '@/lib/history';
+import { sliceSince } from '@/lib/history';
 import { parseAmount } from '@/lib/number';
-import {
-  TROY_OZ_GRAMS,
-  convertPrice,
-  formatDate,
-  formatDateOnly,
-  formatIdr,
-  formatNumber,
-  formatUsd,
-} from '@/lib/gold';
+import { TROY_OZ_GRAMS, formatDate, formatDateOnly, formatNumber, formatUsd } from '@/lib/gold';
+import { CURRENCY, formatMoney, pricePer } from '@/lib/money';
 import { cn } from '@/lib/utils';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
 import { Panel } from '../ui-atoms/Panel';
@@ -81,7 +75,8 @@ type ConvUnit = 'oz' | 'gr' | 'kg';
 
 function QuickConverter() {
   const { lang, t } = useI18n();
-  const { gold, usdIdr } = useGoldPrice();
+  const d = useDisplay();
+  const { gold, rates } = useGoldPrice();
   const [amount, setAmount] = useState('10');
   const [unit, setUnit] = useState<ConvUnit>('gr');
   const [moneyToGold, setMoneyToGold] = useState(false);
@@ -91,13 +86,15 @@ function QuickConverter() {
   const gramsPerUnit: Record<ConvUnit, number> = { oz: TROY_OZ_GRAMS, gr: 1, kg: 1000 };
   const parsed = parseAmount(amount, lang);
   const amt = Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
-  const pricePerGramIdr = xau > 0 && usdIdr > 0 ? (xau / TROY_OZ_GRAMS) * usdIdr : 0;
+  // Second output currency: the display currency, or rupiah for dollar users.
+  const local = d.currency === 'USD' ? 'IDR' : d.currency;
 
-  // gold→money: grams in → USD/IDR out. money→gold: IDR in → grams/oz out.
+  // gold→money: grams in → USD and local out. money→gold: display currency in → grams/oz out.
   const grams = amt * gramsPerUnit[unit];
   const outUsd = (grams / TROY_OZ_GRAMS) * xau;
-  const outIdr = grams * pricePerGramIdr;
-  const inGrams = pricePerGramIdr > 0 ? amt / pricePerGramIdr : 0;
+  const outLocal = grams * pricePer(xau, local, 'g', rates);
+  const perGramIn = pricePer(xau, d.currency, 'g', rates);
+  const inGrams = perGramIn > 0 ? amt / perGramIn : 0;
 
   return (
     <Panel title={t('home.conv.title')} className="h-full">
@@ -110,7 +107,7 @@ function QuickConverter() {
           className="min-w-0 flex-1 rounded-lg border border-hairline bg-bg3 px-3 py-2.5 font-mono text-lg tabular text-t1 outline-none transition-shadow focus:ring-2 focus:ring-gold/40"
         />
         {moneyToGold ? (
-          <span className="rounded-lg border border-hairline bg-bg3 px-3 py-2.5 font-mono text-sm text-t2">IDR</span>
+          <span className="rounded-lg border border-hairline bg-bg3 px-3 py-2.5 font-mono text-sm text-t2">{d.currency}</span>
         ) : (
           <div className="flex overflow-hidden rounded-lg bg-bg3 p-0.5">
             {(['gr', 'oz', 'kg'] as ConvUnit[]).map((u) => (
@@ -149,9 +146,9 @@ function QuickConverter() {
             <div className="mt-1 font-mono text-2xl font-semibold tabular text-gold md:text-3xl">
               {formatUsd(outUsd, lang)}
             </div>
-            <div className="mt-3 label-micro">IDR</div>
+            <div className="mt-3 label-micro">{local}</div>
             <div className="mt-1 font-mono text-2xl font-semibold tabular text-t1 md:text-3xl">
-              {formatIdr(outIdr, lang)}
+              {formatMoney(outLocal, local, lang)}
             </div>
           </>
         ) : (
@@ -178,26 +175,26 @@ interface Extreme {
 }
 
 export function StatsGrid() {
-  const { lang, t, unit } = useI18n();
-  const { metals, gold, usdIdr, lastUpdated } = useGoldPrice();
-  const history = useHistory('1y');
-  const live = gold && gold.price > 0 ? convertPrice(gold.price, usdIdr, unit) : 0;
+  const { lang, t } = useI18n();
+  const d = useDisplay();
+  const { metals, gold, lastUpdated } = useGoldPrice();
+  const history = useDisplayHistory('1y');
+  const live = gold && gold.price > 0 ? d.price(gold.price) : 0;
 
   const stats = useMemo(() => {
     const pts = history.points;
     if (pts.length < 30) return null;
     const refNow = lastUpdated || pts[pts.length - 1].t;
     const year = sliceSince(pts, refNow - 365 * 24 * 60 * 60 * 1000);
-    let hi: Extreme = { value: unitValue(year[0], unit), date: year[0].date };
+    let hi: Extreme = { value: year[0].v, date: year[0].date };
     let lo = hi;
     for (const p of year) {
-      const v = unitValue(p, unit);
-      if (v > hi.value) hi = { value: v, date: p.date };
-      if (v < lo.value) lo = { value: v, date: p.date };
+      if (p.v > hi.value) hi = { value: p.v, date: p.date };
+      if (p.v < lo.value) lo = { value: p.v, date: p.date };
     }
     if (live > 0 && live > hi.value) hi = { value: live, date: null };
     if (live > 0 && live < lo.value) lo = { value: live, date: null };
-    const last30 = pts.slice(-31).map((p) => unitValue(p, unit));
+    const last30 = pts.slice(-31).map((p) => p.v);
     const returns: number[] = [];
     for (let i = 1; i < last30.length; i++) {
       returns.push(Math.log(last30[i] / last30[i - 1]));
@@ -206,9 +203,9 @@ export function StatsGrid() {
     const variance = returns.reduce((a, r) => a + (r - mean) ** 2, 0) / returns.length;
     const vol30 = Math.sqrt(variance) * Math.sqrt(252) * 100;
     return { hi, lo, vol30, returns, refNow };
-  }, [history.points, unit, live, lastUpdated]);
+  }, [history.points, live, lastUpdated]);
 
-  const fmtPrice = (v: number) => (unit === 'usd-oz' ? formatUsd(v, lang, { decimals: 0 }) : formatIdr(v, lang));
+  const fmtPrice = (v: number) => d.format(v, { decimals: Math.min(CURRENCY[d.currency].decimals, v >= 1000 ? 0 : 2) });
   const reached = (e: Extreme, refNow: number) =>
     `${t('home.stats.reached')} ${e.date ? formatDateOnly(e.date, lang) : formatDate(refNow, lang)}`;
 
