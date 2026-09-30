@@ -3,7 +3,8 @@
  *
  * Implemented as a module-level singleton store (one poller for the whole
  * app) consumed through `useGoldPrice()` — safe to call from Navbar, Home and
- * any page component without duplicate network polling.
+ * any page component without duplicate network polling. The poller pauses
+ * while the tab is hidden.
  *
  * ```ts
  * const { gold, metals, usdIdr, status, ticks, refetch, refetching } = useGoldPrice();
@@ -12,11 +13,15 @@
 import { useSyncExternalStore } from 'react';
 import {
   fetchAllMetals,
-  fetchNbpDaily,
   fetchUsdIdr,
   type DataStatus,
+  type FxRate,
   type MetalQuote,
 } from '@/lib/api';
+import { isoDateUtc, xauUsdToIdrGram, type Unit } from '@/lib/gold';
+import { prevCloseBefore, type HistoryPoint } from '@/lib/history';
+import { readJson, writeJson } from '@/lib/storage';
+import { historyStore } from './useHistory';
 
 export interface Tick {
   /** unix ms */
@@ -32,6 +37,10 @@ export interface GoldPriceState {
   gold: MetalQuote | null;
   /** USD→IDR rate (0 when offline with no cache) */
   usdIdr: number;
+  /** Latest ECB USD/IDR reference rate */
+  fx: FxRate | null;
+  /** Previous daily close (NBP fixing at same-day ECB rates) */
+  prevClose: HistoryPoint | null;
   /** Combined data status (worst of metals/fx) */
   status: DataStatus;
   /** True until the very first fetch resolves */
@@ -46,6 +55,8 @@ export interface GoldPriceState {
 }
 
 export const POLL_INTERVAL_MS = 30_000;
+/** ECB publishes once a day, so the rate is re-fetched at most this often. */
+const FX_REFRESH_MS = 30 * 60 * 1000;
 const TICKS_KEY = 'emaskuy.ticks.xau';
 const TICK_WINDOW_MS = 24 * 60 * 60 * 1000;
 const TICK_MAX = 4000;
@@ -55,29 +66,21 @@ const TICK_MAX = 4000;
 /* ---------------------------------------------------------------- */
 
 function loadTicks(): Tick[] {
-  try {
-    const raw = localStorage.getItem(TICKS_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as Tick[];
-    const cutoff = Date.now() - TICK_WINDOW_MS;
-    return Array.isArray(parsed) ? parsed.filter((tk) => tk.t > cutoff) : [];
-  } catch {
-    return [];
-  }
+  const parsed = readJson<Tick[]>(TICKS_KEY);
+  const cutoff = Date.now() - TICK_WINDOW_MS;
+  return Array.isArray(parsed) ? parsed.filter((tk) => tk.t > cutoff) : [];
 }
 
-function persistTicks(ticks: Tick[]): void {
-  try {
-    localStorage.setItem(TICKS_KEY, JSON.stringify(ticks.slice(-TICK_MAX)));
-  } catch {
-    /* non-fatal */
-  }
+function currentPrevClose(): HistoryPoint | null {
+  return prevCloseBefore(historyStore.get('1y').points, isoDateUtc(Date.now()));
 }
 
 let state: GoldPriceState = {
   metals: [],
   gold: null,
   usdIdr: 0,
+  fx: null,
+  prevClose: currentPrevClose(),
   status: 'offline',
   loading: true,
   refetching: false,
@@ -103,83 +106,75 @@ function worstStatus(a: DataStatus, b: DataStatus): DataStatus {
 }
 
 /* ---- 24h change derivation ---------------------------------------- */
-/* gold-api.com's free tier omits prev-close for metals. For XAU we    */
-/* derive 24h % from NBP's last two daily closes (scale-invariant).    */
-/* For other metals we fall back to a session baseline.                */
+/* gold-api.com's free tier omits prev-close. XAU compares the live     */
+/* price with the previous daily close in USD; other metals fall back   */
+/* to the first price this browser saw in the last 26 hours.            */
 
 const BASE_KEY = 'emaskuy.sessionbase';
 
 function loadBase(): Record<string, { p: number; at: number }> {
-  try {
-    const raw = localStorage.getItem(BASE_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw) as Record<string, { p: number; at: number }>;
-    // discard baselines older than 26h
-    const cutoff = Date.now() - 26 * 60 * 60 * 1000;
-    return Object.fromEntries(Object.entries(parsed).filter(([, v]) => v.at > cutoff));
-  } catch {
-    return {};
-  }
+  const parsed = readJson<Record<string, { p: number; at: number }>>(BASE_KEY) ?? {};
+  const cutoff = Date.now() - 26 * 60 * 60 * 1000;
+  return Object.fromEntries(Object.entries(parsed).filter(([, v]) => v && v.at > cutoff));
 }
 
-let sessionBase = loadBase();
+const sessionBase = loadBase();
 
-async function enrichChanges(metals: MetalQuote[]): Promise<MetalQuote[]> {
+function applyXauChange(metals: MetalQuote[], prev: HistoryPoint | null): MetalQuote[] {
+  return metals.map((m) => {
+    if (m.symbol !== 'XAU' || m.apiChange || m.price <= 0 || !prev || prev.usd <= 0) return m;
+    const change = m.price - prev.usd;
+    return { ...m, prevClose: prev.usd, change, changePct: (change / prev.usd) * 100 };
+  });
+}
+
+function applySessionBaseline(metals: MetalQuote[]): MetalQuote[] {
   const now = Date.now();
-  const out = metals.map((m) => ({ ...m }));
-  const xau = out.find((m) => m.symbol === 'XAU');
-  // XAU: NBP-derived 24h change when the API reports none
-  if (xau && xau.price > 0 && xau.changePct === 0) {
-    try {
-      const d = await fetchNbpDaily(3);
-      const pts = d.points;
-      if (pts.length >= 2) {
-        const prev = pts[pts.length - 2].raw;
-        const last = pts[pts.length - 1].raw;
-        if (prev > 0) {
-          xau.changePct = ((last - prev) / prev) * 100;
-          xau.change = (xau.price * xau.changePct) / 100;
-          xau.prevClose = xau.price - xau.change;
-        }
-      }
-    } catch {
-      /* keep zeros */
-    }
-  }
-  // Other metals: session baseline fallback
-  for (const m of out) {
-    if (m.price <= 0) continue;
+  const out = metals.map((m) => {
+    if (m.symbol === 'XAU' || m.apiChange || m.price <= 0) return m;
     const base = sessionBase[m.symbol];
     if (!base) {
       sessionBase[m.symbol] = { p: m.price, at: now };
-      if (m.symbol !== 'XAU' && m.changePct === 0) {
-        m.changePct = 0;
-        m.change = 0;
-      }
-    } else if (m.changePct === 0 && base.p > 0) {
-      m.changePct = ((m.price - base.p) / base.p) * 100;
-      m.change = m.price - base.p;
-      m.prevClose = base.p;
+      return m;
     }
-  }
-  try {
-    localStorage.setItem(BASE_KEY, JSON.stringify(sessionBase));
-  } catch {
-    /* non-fatal */
-  }
+    if (base.p <= 0) return m;
+    return {
+      ...m,
+      prevClose: base.p,
+      change: m.price - base.p,
+      changePct: ((m.price - base.p) / base.p) * 100,
+    };
+  });
+  writeJson(BASE_KEY, sessionBase);
   return out;
 }
 
+/* Re-derive the XAU change whenever the daily history updates. */
+historyStore.subscribe(() => {
+  const prevClose = currentPrevClose();
+  if (prevClose === state.prevClose) return;
+  const metals = applyXauChange(state.metals, prevClose);
+  setState({ prevClose, metals, gold: metals.find((m) => m.symbol === 'XAU') ?? null });
+});
+
 let inFlight = false;
 let started = false;
+let timer: ReturnType<typeof setInterval> | null = null;
+let fxFetchedAt = 0;
 
 async function pollNow(): Promise<void> {
   if (inFlight) return;
   inFlight = true;
   setState({ refetching: true });
+  void historyStore.load('1y');
   try {
-    const [metalsRaw, fx] = await Promise.all([fetchAllMetals(), fetchUsdIdr()]);
-    const metals = await enrichChanges(metalsRaw);
+    const needFx = !state.fx || state.fx.status !== 'live' || Date.now() - fxFetchedAt > FX_REFRESH_MS;
+    const [metalsRaw, fx] = await Promise.all([
+      fetchAllMetals(),
+      needFx ? fetchUsdIdr() : Promise.resolve(state.fx as FxRate),
+    ]);
+    if (needFx && fx.status === 'live') fxFetchedAt = Date.now();
+    const metals = applyXauChange(applySessionBaseline(metalsRaw), state.prevClose);
     const gold = metals.find((m) => m.symbol === 'XAU') ?? null;
     let ticks = state.ticks;
     if (gold && gold.price > 0) {
@@ -190,7 +185,7 @@ async function pollNow(): Promise<void> {
           (tk) => tk.t > Date.now() - TICK_WINDOW_MS,
         );
         ticks = ticks.slice(-TICK_MAX);
-        persistTicks(ticks);
+        writeJson(TICKS_KEY, ticks);
       }
     }
     let status: DataStatus = 'live';
@@ -200,6 +195,7 @@ async function pollNow(): Promise<void> {
       metals,
       gold,
       usdIdr: fx.rate,
+      fx,
       status,
       loading: false,
       refetching: false,
@@ -213,11 +209,37 @@ async function pollNow(): Promise<void> {
   }
 }
 
+function startTimer() {
+  if (timer === null) timer = setInterval(() => void pollNow(), POLL_INTERVAL_MS);
+}
+
+function stopTimer() {
+  if (timer !== null) {
+    clearInterval(timer);
+    timer = null;
+  }
+}
+
+/* Hidden tabs don't poll: saves data quota and battery on phones. */
+function onVisibilityChange() {
+  if (document.hidden) {
+    stopTimer();
+    return;
+  }
+  if (Date.now() - state.lastUpdated >= POLL_INTERVAL_MS) void pollNow();
+  startTimer();
+}
+
 function ensureStarted() {
   if (started) return;
   started = true;
   void pollNow();
-  setInterval(() => void pollNow(), POLL_INTERVAL_MS);
+  if (typeof document === 'undefined') {
+    startTimer();
+    return;
+  }
+  document.addEventListener('visibilitychange', onVisibilityChange);
+  if (!document.hidden) startTimer();
 }
 
 function subscribe(cb: () => void): () => void {
@@ -235,4 +257,17 @@ function getSnapshot(): GoldPriceState {
 /** Shared live gold-price hook. One poller app-wide. */
 export function useGoldPrice(): GoldPriceState {
   return useSyncExternalStore(subscribe, getSnapshot);
+}
+
+/**
+ * Gold's change since the previous daily close, in the given display unit.
+ * The IDR figure includes the rupiah's own move against the dollar.
+ */
+export function useXauChange(unit: Unit): { pct: number; abs: number } {
+  const { gold, usdIdr, prevClose } = useGoldPrice();
+  if (!gold || gold.price <= 0) return { pct: 0, abs: 0 };
+  if (unit === 'usd-oz') return { pct: gold.changePct, abs: gold.change };
+  if (!prevClose || prevClose.idr <= 0 || usdIdr <= 0) return { pct: gold.changePct, abs: 0 };
+  const abs = xauUsdToIdrGram(gold.price, usdIdr) - prevClose.idr;
+  return { pct: (abs / prevClose.idr) * 100, abs };
 }

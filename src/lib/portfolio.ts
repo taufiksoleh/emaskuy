@@ -2,6 +2,7 @@
  * EmasKuy — Portfolio holdings persisted in localStorage only.
  * Data never leaves the browser (key: `emaskuy.portfolio`).
  */
+import { readJson, writeJson } from './storage';
 
 export interface Holding {
   id: string;
@@ -16,29 +17,20 @@ export interface Holding {
 const STORAGE_KEY = 'emaskuy.portfolio';
 
 export function loadHoldings(): Holding[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as Holding[];
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (h) =>
-        h &&
-        typeof h.id === 'string' &&
-        Number.isFinite(h.grams) &&
-        Number.isFinite(h.buyPriceIdrPerGram),
-    );
-  } catch {
-    return [];
-  }
+  const parsed = readJson<Holding[]>(STORAGE_KEY);
+  if (!Array.isArray(parsed)) return [];
+  return parsed.filter(
+    (h) =>
+      h &&
+      typeof h.id === 'string' &&
+      Number.isFinite(h.grams) &&
+      Number.isFinite(h.buyPriceIdrPerGram),
+  );
 }
 
-export function saveHoldings(list: Holding[]): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  } catch {
-    /* non-fatal */
-  }
+/** Returns false when the browser refused the write (storage full or blocked). */
+export function saveHoldings(list: Holding[]): boolean {
+  return writeJson(STORAGE_KEY, list);
 }
 
 export interface PortfolioSummary {

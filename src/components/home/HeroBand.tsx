@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
-import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { useDailySeries } from '@/hooks/useDailySeries';
+import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
+import { useHistory } from '@/hooks/useHistory';
+import { pointAtOrBefore, sliceSince, unitValue } from '@/lib/history';
 import {
   convertPrice,
   formatPct,
@@ -29,7 +30,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 export function HeroBand() {
   const { lang, t, unit, setUnit } = useI18n();
   const { gold, usdIdr, status, lastUpdated, refetch, refetching, ticks, loading } = useGoldPrice();
-  const daily = useDailySeries(35);
+  const history = useHistory('1y');
+  const change = useXauChange(unit);
+  const gramChange = useXauChange('idr-gr');
 
   const price = gold?.price ?? 0;
   const display = convertPrice(price, usdIdr, unit);
@@ -67,32 +70,31 @@ export function HeroBand() {
     if (price > 0) prevRef.current = price;
   }, [price]);
 
-  // 24h range from ticks (fallback: last daily points)
+  // 24h range: only prices this browser actually observed (ticks keep 24h)
   let rangeLow = 0;
   let rangeHigh = 0;
   if (ticks.length > 1) {
     const ps = ticks.map((tk) => tk.p);
     rangeLow = Math.min(...ps);
     rangeHigh = Math.max(...ps);
-  } else if (daily.points.length > 1) {
-    const last2 = daily.points.slice(-2).map((p) => p.close);
-    rangeLow = Math.min(...last2);
-    rangeHigh = Math.max(...last2);
   }
+  const rangeIdr = (usd: number) => formatIdr(xauUsdToIdrGram(usd, usdIdr), lang);
 
-  // 30d change + sparkline from daily series (NBP = business days only)
-  const dailyPts = daily.points;
+  // 30d change + sparkline in the selected unit, ending at the live price
+  const points = history.points;
+  const refNow = lastUpdated || (points.length > 0 ? points[points.length - 1].t : 0);
   let change30: number | undefined;
-  if (dailyPts.length >= 2) {
-    const last = dailyPts[dailyPts.length - 1];
-    const anchor =
-      [...dailyPts].reverse().find((p) => p.t <= last.t - 29 * 24 * 60 * 60 * 1000) ?? dailyPts[0];
-    if (anchor.close > 0) change30 = ((last.close - anchor.close) / anchor.close) * 100;
+  const anchor = pointAtOrBefore(points, refNow - 30 * 24 * 60 * 60 * 1000);
+  if (anchor && display > 0 && unitValue(anchor, unit) > 0) {
+    change30 = ((display - unitValue(anchor, unit)) / unitValue(anchor, unit)) * 100;
   }
-  const spark30 = dailyPts.slice(-30).map((p) => p.close);
+  const spark30 = [
+    ...sliceSince(points, refNow - 30 * 24 * 60 * 60 * 1000).map((p) => unitValue(p, unit)),
+    ...(display > 0 ? [display] : []),
+  ];
 
   const gramIdr = price > 0 && usdIdr > 0 ? xauUsdToIdrGram(price, usdIdr) : 0;
-  const convDelta = gold?.changePct ?? 0;
+  const formatAbs = (v: number) => (unit === 'usd-oz' ? formatUsd(v, lang, { decimals: 2 }) : formatIdr(v, lang));
 
   return (
     <section
@@ -124,7 +126,7 @@ export function HeroBand() {
             <Badge variant={status === 'live' ? 'live' : status === 'cached' ? 'cached' : 'offline'} />
             <div className="ml-auto">
               <SegToggle
-                ariaLabel="Price unit"
+                ariaLabel={t('home.hero.unit')}
                 value={unit}
                 onChange={setUnit}
                 options={[
@@ -159,23 +161,19 @@ export function HeroBand() {
           <div className="mt-4 flex flex-wrap items-center gap-3">
             {gold && (
               <DeltaChip
-                value={convDelta}
-                prefix={
-                  unit === 'usd-oz'
-                    ? `${formatUsd(Math.abs(gold.change), lang, { decimals: 2 })} · `
-                    : ''
-                }
+                value={change.pct}
+                prefix={change.abs !== 0 ? `${formatAbs(Math.abs(change.abs))} · ` : ''}
                 size="lg"
               />
             )}
             <span className="text-sm text-t3">{t('home.hero.today')}</span>
-            {rangeLow > 0 && (
+            {rangeLow > 0 && (unit === 'usd-oz' || usdIdr > 0) && (
               <span className="label-micro">
-                R:{' '}
+                {t('home.hero.range')}:{' '}
                 <span className="font-mono text-t2">
                   {unit === 'usd-oz'
                     ? `${formatUsd(rangeLow, lang)} – ${formatUsd(rangeHigh, lang)}`
-                    : `${formatIdr(xauUsdToIdrGram(rangeLow, usdIdr || 1), lang)} – ${formatIdr(xauUsdToIdrGram(rangeHigh, usdIdr || 1), lang)}`}
+                    : `${rangeIdr(rangeLow)} – ${rangeIdr(rangeHigh)}`}
                 </span>
               </span>
             )}
@@ -210,7 +208,7 @@ export function HeroBand() {
               label={t('home.stats.gramIdr')}
               value={gramIdr}
               format={(v) => (v > 0 ? formatIdr(v, lang) : '—')}
-              delta={convDelta}
+              delta={gramChange.pct}
             />
           </motion.div>
           <motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.45, ease, delay: 0.16 }}>
@@ -226,12 +224,13 @@ export function HeroBand() {
             <StatCard
               className="h-full"
               label={t('home.stats.change24')}
-              value={gold?.changePct ?? 0}
+              value={change.pct}
               format={(v) => formatPct(v, lang)}
               sub={
-                gold && (
-                  <span style={{ color: (gold.changePct ?? 0) >= 0 ? 'var(--up)' : 'var(--down)' }}>
-                    {formatUsd(Math.abs(gold.change), lang)}
+                gold &&
+                change.abs !== 0 && (
+                  <span style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}>
+                    {formatAbs(Math.abs(change.abs))}
                   </span>
                 )
               }

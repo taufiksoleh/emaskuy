@@ -43,14 +43,20 @@ export function formatNumber(value: number, lang: Lang, opts: FormatOpts = {}): 
   }).format(value);
 }
 
-/** USD with `$` prefix: EN `$1,234.56` / ID `$1.234,56` */
-export function formatUsd(value: number, lang: Lang, opts: FormatOpts = {}): string {
-  return `$${formatNumber(value, lang, { decimals: 2, ...opts })}`;
+/** Put the minus sign before the currency symbol, and never print "-Rp0". */
+function withSign(value: number, format: (abs: number) => string): string {
+  const text = format(Math.abs(value));
+  return value < 0 && /[1-9]/.test(text) ? `-${text}` : text;
 }
 
-/** IDR with `Rp` prefix: ID `Rp 1.234.567` / EN `Rp 1,234,567` */
+/** USD with `$` prefix: EN `$1,234.56` / ID `$1.234,56`, negative `-$5` */
+export function formatUsd(value: number, lang: Lang, opts: FormatOpts = {}): string {
+  return withSign(value, (v) => `$${formatNumber(v, lang, { decimals: 2, ...opts })}`);
+}
+
+/** IDR with `Rp` prefix: ID `Rp1.234.567` / EN `Rp1,234,567`, negative `-Rp5` */
 export function formatIdr(value: number, lang: Lang, opts: FormatOpts = {}): string {
-  return `Rp${formatNumber(value, lang, { decimals: 0, ...opts })}`;
+  return withSign(value, (v) => `Rp${formatNumber(v, lang, { decimals: 0, ...opts })}`);
 }
 
 /** Format a value already expressed in a display unit. */
@@ -90,6 +96,38 @@ export function formatDate(ts: number, lang: Lang): string {
   const d = new Date(ts);
   const months = lang === 'id' ? MONTHS_ID : MONTHS_EN;
   return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+/**
+ * Parse `YYYY-MM-DD` as a local calendar date. `Date.parse` reads date-only
+ * strings as UTC midnight, which shows the previous day west of UTC.
+ */
+export function parseLocalDate(iso: string): Date | null {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
+  if (!m) return null;
+  const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+/** Format a `YYYY-MM-DD` calendar date without timezone shifts. */
+export function formatDateOnly(iso: string, lang: Lang): string {
+  const d = parseLocalDate(iso);
+  return d ? formatDate(d.getTime(), lang) : iso;
+}
+
+/** `YYYY-MM-DD` of a timestamp in UTC. */
+export function isoDateUtc(ms: number): string {
+  return new Date(ms).toISOString().slice(0, 10);
+}
+
+/** Whole calendar days from a date (ISO date or timestamp) to today, ≥ 0. */
+export function ageInDays(when: string | number, now = Date.now()): number {
+  const d = typeof when === 'string' ? parseLocalDate(when) : new Date(when);
+  if (!d || Number.isNaN(d.getTime())) return 0;
+  const start = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+  const today = new Date(now);
+  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+  return Math.max(0, Math.round((todayStart - start) / 86_400_000));
 }
 
 /** "Diperbarui 12 dtk lalu" / "Updated 12s ago" */

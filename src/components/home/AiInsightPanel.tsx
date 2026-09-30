@@ -6,21 +6,23 @@
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
-import { formatDate } from '@/lib/gold';
+import { ageInDays, formatDate } from '@/lib/gold';
 import { cn } from '@/lib/utils';
 import { AI_INSIGHT, type InsightSentiment } from '@/data/aiInsight';
 import { Panel } from '../ui-atoms/Panel';
 
 registerStrings({
   'ai.title': { id: 'AI Insight Hari Ini', en: "Today's AI Insight" },
+  'ai.titleDated': { id: 'AI Insight', en: 'AI Insight' },
+  'ai.stale': { id: 'Belum diperbarui', en: 'Not updated recently' },
   'ai.badge': { id: 'AI', en: 'AI' },
   'ai.sentiment.bullish': { id: 'Bullish', en: 'Bullish' },
   'ai.sentiment.bearish': { id: 'Bearish', en: 'Bearish' },
   'ai.sentiment.neutral': { id: 'Netral', en: 'Neutral' },
   'ai.sentimentLabel': { id: 'Sentimen', en: 'Sentiment' },
   'ai.disclaimer': {
-    id: 'Dihasilkan AI dari berita pasar hari ini · Diperbarui otomatis setiap 09.00 WIB · Bukan saran investasi',
-    en: 'AI-generated from today’s market news · Auto-updated daily at 09:00 WIB · Not investment advice',
+    id: 'Dihasilkan AI dari berita pasar pada tanggal di atas · Bukan saran investasi',
+    en: 'AI-generated from market news on the date above · Not investment advice',
   },
 });
 
@@ -35,6 +37,7 @@ const SENTIMENT_STYLE: Record<InsightSentiment, string> = {
 export function AiInsightPanel() {
   const { lang, t } = useI18n();
   const insight = AI_INSIGHT;
+  const age = ageInDays(insight.generatedAt);
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
@@ -52,7 +55,12 @@ export function AiInsightPanel() {
               <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-goldline bg-gold/10">
                 <Sparkles className="h-4 w-4 text-gold" />
               </span>
-              {t('ai.title')}
+              {age === 0 ? t('ai.title') : `${t('ai.titleDated')} · ${formatDate(insight.generatedAt, lang)}`}
+              {age > 2 && (
+                <span className="rounded-full border border-down/40 bg-down/10 px-2 py-0.5 font-body text-[11px] font-medium text-down">
+                  {t('ai.stale')}
+                </span>
+              )}
               <span className="rounded-md border border-goldline bg-bg3 px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-widest text-gold">
                 {t('ai.badge')}
               </span>

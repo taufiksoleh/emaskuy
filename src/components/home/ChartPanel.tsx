@@ -2,8 +2,13 @@
  * Section 2 — Interactive chart panel (design home.md §2).
  * lightweight-charts v5: area/line/candles, crosshair tooltip, last-price
  * dashed line, fullscreen overlay, draw-in animation, unit conversion.
+ *
+ * Only real data is drawn: 1H/24H use prices this browser actually observed
+ * (candles are built from those ticks); daily timeframes use NBP fixings
+ * converted at same-day ECB rates, ending at the live price. New prices
+ * update the last point in place so the user's zoom survives every poll.
  */
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 import {
   AreaSeries,
   CandlestickSeries,
@@ -12,168 +17,187 @@ import {
   CrosshairMode,
   LineSeries,
   LineStyle,
+  TickMarkType,
   type IChartApi,
+  type IPriceLine,
   type ISeriesApi,
   type MouseEventParams,
   type Time,
   type UTCTimestamp,
 } from 'lightweight-charts';
 import { AreaChart, CandlestickChart, LineChart, Maximize2, Minimize2 } from 'lucide-react';
-import { useI18n } from '@/lib/i18n';
-import { useTheme, chartPalette } from '@/hooks/useTheme';
-import { useGoldPrice, type Tick } from '@/hooks/useGoldPrice';
-import { useAllTimeSeries, useDailySeries } from '@/hooks/useDailySeries';
-import type { DailyPoint } from '@/lib/api';
-import { TROY_OZ_GRAMS, formatIdr, formatUsd } from '@/lib/gold';
-import { cn } from '@/lib/utils';
+import { registerStrings, useI18n } from '@/lib/i18n';
+import { useTheme, chartPalette, type ChartPalette } from '@/hooks/useTheme';
+import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { useHistory } from '@/hooks/useHistory';
+import { unitValue } from '@/lib/history';
+import { toCandles, mergeTick, type Candle, type Pt } from '@/lib/chartData';
+import { TROY_OZ_GRAMS, formatIdr, formatTimeLocal, formatUsd, type Unit } from '@/lib/gold';
+import { cn, fill } from '@/lib/utils';
 import { Badge } from '../ui-atoms/Badge';
 import { SegToggle } from '../ui-atoms/SegToggle';
 
+registerStrings({
+  'home.chart.timeframe': { id: 'Rentang waktu', en: 'Timeframe' },
+  'home.chart.type.line': { id: 'Grafik garis', en: 'Line chart' },
+  'home.chart.type.area': { id: 'Grafik area', en: 'Area chart' },
+  'home.chart.type.candles': { id: 'Grafik candle', en: 'Candlestick chart' },
+  'home.chart.candlesIntraday': {
+    id: 'Candle hanya untuk 1H/24H: data harian hanya punya satu harga per hari',
+    en: 'Candles are for 1H/24H only: daily data has one price per day',
+  },
+  'home.chart.fullscreen': { id: 'Layar penuh', en: 'Fullscreen' },
+  'home.chart.exitFullscreen': { id: 'Keluar layar penuh', en: 'Exit fullscreen' },
+  'home.chart.collecting': {
+    id: 'Mengumpulkan harga live: {n} titik terpantau. Grafik 1H/24H hanya memakai harga yang benar-benar tercatat di browser ini, jadi butuh beberapa menit.',
+    en: 'Collecting live prices: {n} points observed. 1H/24H only use prices actually recorded in this browser, so it takes a few minutes.',
+  },
+  'home.chart.collectingSince': { id: 'sejak {time}', en: 'since {time}' },
+  'home.chart.viewDaily': { id: 'Lihat grafik 30 hari', en: 'View 30-day chart' },
+  'home.chart.noHistory': {
+    id: 'Histori harian belum bisa dimuat. Coba lagi sebentar lagi.',
+    en: 'Daily history could not be loaded. Please try again shortly.',
+  },
+});
+
 type TF = '1H' | '24H' | '7D' | '30D' | '90D' | '1Y' | 'ALL';
 type ChartType = 'line' | 'area' | 'candles';
+type AnySeries = ISeriesApi<'Area'> | ISeriesApi<'Line'> | ISeriesApi<'Candlestick'>;
 
 const TIMEFRAMES: TF[] = ['1H', '24H', '7D', '30D', '90D', '1Y', 'ALL'];
-const TF_DAYS: Record<TF, number> = { '1H': 0, '24H': 0, '7D': 9, '30D': 33, '90D': 95, '1Y': 370, ALL: Infinity };
+const DAY_MS = 24 * 60 * 60 * 1000;
+const INTRADAY_MS: Partial<Record<TF, number>> = { '1H': 60 * 60 * 1000, '24H': DAY_MS };
+/** Candle bucket per intraday timeframe (polls arrive every 30 s). */
+const BUCKET_MS: Partial<Record<TF, number>> = { '1H': 2 * 60 * 1000, '24H': 30 * 60 * 1000 };
+const TF_DAYS: Partial<Record<TF, number>> = { '7D': 9, '30D': 33, '90D': 95, '1Y': 370 };
 
-interface Pt {
-  t: number; // unix ms
-  v: number;
+const sec = (ms: number) => Math.floor(ms / 1000) as UTCTimestamp;
+
+function fmtAxis(v: number, unit: Unit): string {
+  return unit === 'idr-gr' ? `Rp${Math.round(v).toLocaleString('id-ID')}` : `$${v.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
 }
 
-/* Deterministic PRNG for synthesized intraday series */
-function mulberry32(seed: number) {
-  let a = seed >>> 0;
-  return () => {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-/** Synthesize an intraday walk between anchor closes, pinned to live price. */
-function synthesize(fromMs: number, toMs: number, startV: number, endV: number, stepMs: number, seed: number): Pt[] {
-  const n = Math.max(2, Math.floor((toMs - fromMs) / stepMs));
-  const rnd = mulberry32(seed);
-  const pts: Pt[] = [];
-  let v = startV;
-  for (let i = 0; i < n; i++) {
-    const t = fromMs + i * stepMs;
-    const drift = (endV - startV) / n;
-    v += drift + (rnd() - 0.5) * Math.abs(endV) * 0.0009;
-    pts.push({ t, v });
-  }
-  pts.push({ t: toMs, v: endV });
-  return pts;
-}
-
-function buildSeries(
-  tf: TF,
-  ticks: Tick[],
-  daily: DailyPoint[],
-  livePrice: number,
-  allTime?: DailyPoint[],
-): Pt[] {
-  const now = Date.now();
-  if (tf === 'ALL') {
-    const pts = (allTime ?? []).map((p) => ({ t: p.t, v: p.close }));
-    if (pts.length > 0 && livePrice > 0) pts.push({ t: now, v: livePrice });
-    return pts;
-  }
-  if (tf === '1H' || tf === '24H') {
-    const windowMs = tf === '1H' ? 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
-    const minPts = tf === '1H' ? 10 : 16;
-    const inWindow = ticks.filter((tk) => tk.t > now - windowMs);
-    if (inWindow.length >= minPts) return inWindow.map((tk) => ({ t: tk.t, v: tk.p }));
-    // First visit / sparse ticks: synthesize from daily anchors.
-    const anchor = daily.length > 0 ? daily[daily.length - 1].close : livePrice;
-    const seed = Math.floor(now / 60000) % 100000;
-    return synthesize(now - windowMs, now, anchor, livePrice, tf === '1H' ? 60_000 : 300_000, seed);
-  }
-  const days = TF_DAYS[tf];
-  const cutoff = now - days * 24 * 60 * 60 * 1000;
-  const pts = daily.filter((p) => p.t > cutoff).map((p) => ({ t: p.t, v: p.close }));
-  // Pin the last point to the live price so chart ends at the real value.
-  if (pts.length > 0 && livePrice > 0) pts.push({ t: now, v: livePrice });
-  return pts;
-}
-
-function bucketCandles(pts: Pt[], buckets: number): { time: UTCTimestamp; open: number; high: number; low: number; close: number }[] {
-  if (pts.length < 2) return [];
-  const span = pts[pts.length - 1].t - pts[0].t || 1;
-  const size = span / buckets;
-  const out: { time: UTCTimestamp; open: number; high: number; low: number; close: number }[] = [];
-  for (let b = 0; b < buckets; b++) {
-    const lo = pts[0].t + b * size;
-    const hi = lo + size;
-    const inside = pts.filter((p) => p.t >= lo && p.t < hi);
-    const ref = inside.length > 0 ? inside : [pts.reduce((a, c) => (Math.abs(c.t - lo) < Math.abs(a.t - lo) ? c : a))];
-    const open = ref[0].v;
-    const close = ref[ref.length - 1].v;
-    out.push({
-      time: Math.floor(lo / 1000) as UTCTimestamp,
-      open,
-      high: Math.max(open, close, ...ref.map((p) => p.v)),
-      low: Math.min(open, close, ...ref.map((p) => p.v)),
-      close,
-    });
+/** One value per second, ascending: lightweight-charts rejects duplicates. */
+function toLineData(pts: Pt[]) {
+  const out: { time: UTCTimestamp; value: number }[] = [];
+  for (const p of pts) {
+    const time = sec(p.t);
+    const last = out[out.length - 1];
+    if (last && last.time === time) last.value = p.v;
+    else if (!last || time > last.time) out.push({ time, value: p.v });
   }
   return out;
 }
 
-function fmtAxis(v: number, unit: 'usd-oz' | 'idr-gr'): string {
-  return unit === 'idr-gr' ? `Rp${Math.round(v).toLocaleString('id-ID')}` : `$${v.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+const toCandleData = (candles: Candle[]) => candles.map((c) => ({ ...c, time: c.time as UTCTimestamp }));
+
+function createSeries(chart: IChartApi, type: ChartType, palette: ChartPalette): AnySeries {
+  if (type === 'candles') {
+    return chart.addSeries(CandlestickSeries, {
+      upColor: palette.up,
+      downColor: palette.down,
+      borderUpColor: palette.up,
+      borderDownColor: palette.down,
+      wickUpColor: palette.up,
+      wickDownColor: palette.down,
+      lastValueVisible: false,
+      priceLineVisible: false,
+    });
+  }
+  if (type === 'line') {
+    return chart.addSeries(LineSeries, { color: palette.gold, lineWidth: 2, priceLineVisible: false, lastValueVisible: false });
+  }
+  return chart.addSeries(AreaSeries, {
+    lineColor: palette.gold,
+    lineWidth: 2,
+    topColor: palette.areaTop,
+    bottomColor: palette.areaBottom,
+    priceLineVisible: false,
+    lastValueVisible: false,
+  });
 }
 
 export function ChartPanel() {
   const { lang, t, unit } = useI18n();
   const { theme } = useTheme();
   const palette = useMemo(() => chartPalette(theme), [theme]);
-  const { gold, ticks, status: liveStatus } = useGoldPrice();
-  const daily = useDailySeries(370);
+  const { gold, ticks, usdIdr, lastUpdated, status: liveStatus } = useGoldPrice();
 
   const [tf, setTf] = useState<TF>('30D');
   const [type, setType] = useState<ChartType>('area');
-  const allTime = useAllTimeSeries(tf === 'ALL');
   const [fs, setFs] = useState(false);
-  const [hover, setHover] = useState<{ x: number; y: number; pt: Pt; delta: number } | null>(null);
+  const [hover, setHover] = useState<{ x: number; y: number; width: number; pt: Pt; delta: number } | null>(null);
   const [dotPos, setDotPos] = useState<{ x: number; y: number } | null>(null);
+  const [rebuildNonce, setRebuildNonce] = useState(0);
+
+  const intraday = tf === '1H' || tf === '24H';
+  const effType: ChartType = type === 'candles' && !intraday ? 'area' : type;
+  const oneYear = useHistory('1y');
+  const allTime = useHistory('all', tf === 'ALL');
+  const daily = tf === 'ALL' ? allTime : oneYear;
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
-  const seriesRef = useRef<ISeriesApi<'Area'> | ISeriesApi<'Line'> | ISeriesApi<'Candlestick'> | null>(null);
-  const priceLineRef = useRef<ReturnType<ISeriesApi<'Area'>['createPriceLine']> | null>(null);
+  const seriesRef = useRef<AnySeries | null>(null);
+  const seriesKeyRef = useRef('');
+  const priceLineRef = useRef<IPriceLine | null>(null);
+  const ptsRef = useRef<Pt[]>([]);
+  const candlesRef = useRef<Candle[]>([]);
+  /** Time slot of the live point appended to daily data (null: none). */
+  const liveSlotRef = useRef<UTCTimestamp | null>(null);
+  const intradayRef = useRef(intraday);
   const animKeyRef = useRef('');
+  const fittedTfRef = useRef<TF | null>(null);
+  const animatingRef = useRef(false);
   const rafRef = useRef(0);
 
-  const livePrice = gold?.price ?? 0;
-  const { usdIdr } = useGoldPrice();
-  const conv = useMemo(
-    () => (v: number) => (unit === 'idr-gr' && usdIdr > 0 ? (v / TROY_OZ_GRAMS) * usdIdr : v),
-    [unit, usdIdr],
-  );
+  /* Intraday readiness, measured against the last poll (not Date.now()). */
+  const windowMs = INTRADAY_MS[tf] ?? 0;
+  const refNow = lastUpdated || ticks[ticks.length - 1]?.t || 0;
+  const windowTicks = intraday ? ticks.filter((tk) => tk.t > refNow - windowMs) : [];
+  const collecting = intraday && windowTicks.length < 2;
 
-  const intraday = tf === '1H' || tf === '24H';
-  const seriesStatus = intraday ? liveStatus : tf === 'ALL' ? allTime.status : daily.status;
-
-  const rawPts = useMemo(
-    () => buildSeries(tf, ticks, daily.points, livePrice, allTime.points),
-    [tf, ticks, daily.points, allTime.points, livePrice],
-  );
-
-  const pts = useMemo(
-    () => rawPts.map((p) => ({ t: p.t, v: conv(p.v) })),
-    [rawPts, conv],
-  );
-
-  const dataLine = useMemo(
-    () => pts.map((p) => ({ time: Math.floor(p.t / 1000) as UTCTimestamp, value: p.v })),
-    [pts],
-  );
-  const dataCandles = useMemo(() => bucketCandles(pts, tf === '1H' ? 36 : tf === '24H' ? 48 : 72), [pts, tf]);
+  const updateDot = () => {
+    const chart = chartRef.current;
+    const series = seriesRef.current;
+    const last = ptsRef.current[ptsRef.current.length - 1];
+    if (!chart || !series || !last || !intradayRef.current) {
+      setDotPos(null);
+      return;
+    }
+    const x = chart.timeScale().timeToCoordinate(sec(last.t));
+    const y = series.priceToCoordinate(last.v);
+    setDotPos(x !== null && y !== null ? { x, y } : null);
+  };
 
   /* ---------- chart lifecycle ---------- */
+  const onCrosshair = useEffectEvent((param: MouseEventParams<Time>) => {
+    const series = seriesRef.current;
+    if (!param.point || !series || param.time === undefined) {
+      setHover(null);
+      return;
+    }
+    const sd = param.seriesData.get(series) as { value?: number; close?: number } | undefined;
+    const v = sd?.value ?? sd?.close;
+    if (v === undefined) {
+      setHover(null);
+      return;
+    }
+    const pts = ptsRef.current;
+    const time = param.time as number;
+    const idx = pts.findIndex((p) => sec(p.t) >= time);
+    const prev = idx > 0 ? pts[idx - 1] : pts[0];
+    setHover({
+      x: param.point.x,
+      y: param.point.y,
+      width: wrapRef.current?.clientWidth ?? 300,
+      pt: { t: time * 1000, v },
+      delta: prev ? v - prev.v : 0,
+    });
+  });
+
+  const onRangeChange = useEffectEvent(() => updateDot());
+
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
@@ -181,37 +205,52 @@ export function ChartPanel() {
       autoSize: true,
       layout: {
         background: { type: ColorType.Solid, color: 'transparent' },
-        textColor: palette.axisText,
         fontFamily: '"JetBrains Mono", monospace',
         fontSize: 11,
       },
-      localization: { locale: lang === 'id' ? 'id-ID' : 'en-US' },
-      grid: {
-        horzLines: { color: palette.gridLine },
-        vertLines: { visible: false },
-      },
+      grid: { vertLines: { visible: false } },
       rightPriceScale: { borderVisible: false },
-      timeScale: { borderVisible: false, timeVisible: true, secondsVisible: false },
+      timeScale: {
+        borderVisible: false,
+        timeVisible: true,
+        secondsVisible: false,
+        // Intraday labels in the device's own time (matching the tooltip);
+        // daily points sit at 00:00 UTC of their fixing date.
+        tickMarkFormatter: (time: Time, kind: TickMarkType, locale: string) => {
+          const d = new Date((time as number) * 1000);
+          const timeZone = intradayRef.current ? undefined : 'UTC';
+          if (kind === TickMarkType.Year) return d.toLocaleDateString(locale, { year: 'numeric', timeZone });
+          if (kind === TickMarkType.Month) return d.toLocaleDateString(locale, { month: 'short', timeZone });
+          if (kind === TickMarkType.DayOfMonth) return d.toLocaleDateString(locale, { day: 'numeric', month: 'short', timeZone });
+          return d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
+        },
+      },
       crosshair: {
         mode: CrosshairMode.Normal,
-        vertLine: { color: palette.goldDim, width: 1, style: LineStyle.Solid, labelVisible: false },
-        horzLine: { color: palette.goldDim, width: 1, style: LineStyle.Solid, labelVisible: false },
+        vertLine: { width: 1, style: LineStyle.Solid, labelVisible: false },
+        horzLine: { width: 1, style: LineStyle.Solid, labelVisible: false },
       },
     });
     chartRef.current = chart;
+    const crosshair = (p: MouseEventParams<Time>) => onCrosshair(p);
+    const range = () => onRangeChange();
+    chart.subscribeCrosshairMove(crosshair);
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range);
     return () => {
+      chart.unsubscribeCrosshairMove(crosshair);
+      chart.timeScale().unsubscribeVisibleLogicalRangeChange(range);
+      cancelAnimationFrame(rafRef.current);
       chart.remove();
       chartRef.current = null;
       seriesRef.current = null;
+      priceLineRef.current = null;
+      seriesKeyRef.current = '';
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* re-apply theme colors (layout, grid, crosshair) when theme changes */
+  /* theme colors */
   useEffect(() => {
-    const chart = chartRef.current;
-    if (!chart) return;
-    chart.applyOptions({
+    chartRef.current?.applyOptions({
       layout: { textColor: palette.axisText },
       grid: { horzLines: { color: palette.gridLine } },
       crosshair: {
@@ -221,66 +260,43 @@ export function ChartPanel() {
     });
   }, [palette]);
 
-  /* crosshair tooltip */
-  useEffect(() => {
+  const toUnit = (usdPerOz: number) =>
+    unit === 'idr-gr' ? (usdIdr > 0 ? (usdPerOz / TROY_OZ_GRAMS) * usdIdr : 0) : usdPerOz;
+
+  const setPriceLine = (series: AnySeries, price: number | undefined) => {
+    if (priceLineRef.current) {
+      try {
+        series.removePriceLine(priceLineRef.current);
+      } catch {
+        /* series was replaced */
+      }
+      priceLineRef.current = null;
+    }
+    if (price === undefined) return;
+    priceLineRef.current = series.createPriceLine({
+      price,
+      color: palette.gold,
+      lineWidth: 1,
+      lineStyle: LineStyle.Dashed,
+      axisLabelVisible: true,
+      title: '',
+    });
+  };
+
+  /* ---------- full rebuild: timeframe, unit, type, source data ---------- */
+  const rebuild = useEffectEvent(() => {
     const chart = chartRef.current;
     if (!chart) return;
-    const handler = (param: MouseEventParams<Time>) => {
-      const series = seriesRef.current;
-      if (!param.point || !series || param.time === undefined) {
-        setHover(null);
-        return;
-      }
-      const sd = param.seriesData.get(series) as { value?: number; close?: number } | undefined;
-      const v = sd?.value ?? sd?.close;
-      if (v === undefined) {
-        setHover(null);
-        return;
-      }
-      const tMs = (param.time as number) * 1000;
-      const idx = pts.findIndex((p) => Math.floor(p.t / 1000) >= (param.time as number));
-      const prev = idx > 0 ? pts[idx - 1] : pts[0];
-      setHover({ x: param.point.x, y: param.point.y, pt: { t: tMs, v }, delta: prev ? v - prev.v : 0 });
-    };
-    chart.subscribeCrosshairMove(handler);
-    return () => chart.unsubscribeCrosshairMove(handler);
-  }, [pts]);
+    intradayRef.current = intraday;
 
-  /* series + data */
-  useEffect(() => {
-    const chart = chartRef.current;
-    if (!chart || pts.length === 0) return;
-
-    const animKey = `${tf}-${type}-${unit}`;
-    const shouldAnimate = animKeyRef.current !== animKey;
-    animKeyRef.current = animKey;
-
-    // (re)create series of the requested type
-    if (seriesRef.current) chart.removeSeries(seriesRef.current);
-    let series: ISeriesApi<'Area'> | ISeriesApi<'Line'> | ISeriesApi<'Candlestick'>;
-    if (type === 'candles') {
-      series = chart.addSeries(CandlestickSeries, {
-        upColor: palette.up,
-        downColor: palette.down,
-        borderUpColor: palette.up,
-        borderDownColor: palette.down,
-        wickUpColor: palette.up,
-        wickDownColor: palette.down,
-        lastValueVisible: false,
-      });
-    } else if (type === 'line') {
-      series = chart.addSeries(LineSeries, { color: palette.gold, lineWidth: 2, priceLineVisible: false, lastValueVisible: false });
-    } else {
-      series = chart.addSeries(AreaSeries, {
-        lineColor: palette.gold,
-        lineWidth: 2,
-        topColor: palette.areaTop,
-        bottomColor: palette.areaBottom,
-        priceLineVisible: false,
-        lastValueVisible: false,
-      });
+    const seriesKey = `${effType}|${theme}`;
+    if (!seriesRef.current || seriesKeyRef.current !== seriesKey) {
+      if (seriesRef.current) chart.removeSeries(seriesRef.current);
+      priceLineRef.current = null;
+      seriesRef.current = createSeries(chart, effType, palette);
+      seriesKeyRef.current = seriesKey;
     }
-    seriesRef.current = series;
+    const series = seriesRef.current;
     chart.applyOptions({
       localization: {
         locale: lang === 'id' ? 'id-ID' : 'en-US',
@@ -288,59 +304,123 @@ export function ChartPanel() {
       },
     });
 
-    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const now = Date.now();
+    let pts: Pt[];
+    liveSlotRef.current = null;
+    if (intraday) {
+      const cutoff = now - (INTRADAY_MS[tf] ?? DAY_MS);
+      pts = ticks
+        .filter((tk) => tk.t > cutoff)
+        .map((tk) => ({ t: tk.t, v: toUnit(tk.p) }))
+        .filter((p) => p.v > 0);
+      // A single point draws a flat axis full of identical labels; keep the
+      // chart empty behind the "collecting" overlay until there are two.
+      if (pts.length < 2) pts = [];
+    } else {
+      const days = TF_DAYS[tf];
+      const cutoff = days === undefined ? -Infinity : now - days * DAY_MS;
+      pts = daily.points.filter((p) => p.t > cutoff).map((p) => ({ t: p.t, v: unitValue(p, unit) }));
+      const live = toUnit(gold?.price ?? 0);
+      const lastT = pts[pts.length - 1]?.t ?? Infinity;
+      if (pts.length > 0 && live > 0 && now > lastT) {
+        pts.push({ t: now, v: live });
+        liveSlotRef.current = sec(now);
+      }
+    }
 
-    const setAll = () => {
-      if (type === 'candles') (series as ISeriesApi<'Candlestick'>).setData(dataCandles);
-      else (series as ISeriesApi<'Area'>).setData(dataLine);
-      chart.timeScale().fitContent();
-      // last-price dashed line
-      if (priceLineRef.current) {
-        try {
-          series.removePriceLine(priceLineRef.current);
-        } catch {
-          /* noop */
-        }
-      }
-      const last = pts[pts.length - 1];
-      if (last) {
-        priceLineRef.current = series.createPriceLine({
-          price: last.v,
-          color: palette.gold,
-          lineWidth: 1,
-          lineStyle: LineStyle.Dashed,
-          axisLabelVisible: true,
-          title: '',
-        });
-        // live dot at the last point (intraday modes)
-        if (intraday) {
-          const x = chart.timeScale().timeToCoordinate(Math.floor(last.t / 1000) as UTCTimestamp);
-          const y = series.priceToCoordinate(last.v);
-          setDotPos(x !== null && y !== null ? { x, y } : null);
-        } else {
-          setDotPos(null);
-        }
-      }
+    const prevLen = ptsRef.current.length;
+    const range = chart.timeScale().getVisibleLogicalRange();
+    const showedAll = !range || (range.from <= 0.5 && range.to >= prevLen - 1.5);
+    const refit = fittedTfRef.current !== tf || showedAll;
+    fittedTfRef.current = tf;
+    ptsRef.current = pts;
+
+    const lineData = toLineData(pts);
+    candlesRef.current = effType === 'candles' ? toCandles(pts, BUCKET_MS[tf] ?? DAY_MS) : [];
+
+    const finish = () => {
+      animatingRef.current = false;
+      if (effType === 'candles') (series as ISeriesApi<'Candlestick'>).setData(toCandleData(candlesRef.current));
+      else (series as ISeriesApi<'Area'>).setData(lineData);
+      if (refit) chart.timeScale().fitContent();
+      else if (range) chart.timeScale().setVisibleLogicalRange(range);
+      setPriceLine(series, pts[pts.length - 1]?.v);
+      updateDot();
     };
 
+    const animKey = `${tf}|${effType}|${unit}`;
+    const animate =
+      animKeyRef.current !== animKey &&
+      effType !== 'candles' &&
+      lineData.length > 8 &&
+      !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    animKeyRef.current = animKey;
+
     cancelAnimationFrame(rafRef.current);
-    if (shouldAnimate && !reduced && type !== 'candles' && dataLine.length > 8) {
-      const start = performance.now();
-      const step = (now: number) => {
-        const p = Math.min(1, (now - start) / 1200);
-        const e = 1 - Math.pow(1 - p, 3);
-        const n = Math.max(2, Math.floor(dataLine.length * e));
-        (series as ISeriesApi<'Area'>).setData(dataLine.slice(0, n));
-        if (p < 1) rafRef.current = requestAnimationFrame(step);
-        else setAll();
-      };
-      rafRef.current = requestAnimationFrame(step);
-    } else {
-      setAll();
+    if (!animate) {
+      finish();
+      return;
     }
-    return () => cancelAnimationFrame(rafRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pts, dataCandles, dataLine, type, tf, unit, lang, palette]);
+    animatingRef.current = true;
+    const start = performance.now();
+    const step = (frame: number) => {
+      const p = Math.min(1, (frame - start) / 1200);
+      const n = Math.max(2, Math.floor(lineData.length * (1 - Math.pow(1 - p, 3))));
+      (series as ISeriesApi<'Area'>).setData(lineData.slice(0, n));
+      if (p < 1) rafRef.current = requestAnimationFrame(step);
+      else finish();
+    };
+    rafRef.current = requestAnimationFrame(step);
+  });
+
+  const intradayFx = intraday && unit === 'idr-gr' ? usdIdr : 0;
+  useEffect(() => {
+    rebuild();
+  }, [tf, unit, effType, daily.points, rebuildNonce, lang, theme, intradayFx, collecting]);
+
+  /* ---------- live tick: update in place ---------- */
+  const applyTick = useEffectEvent(() => {
+    const series = seriesRef.current;
+    if (animatingRef.current || !series || !gold || gold.price <= 0) return;
+    const v = toUnit(gold.price);
+    if (v <= 0) return;
+    const pts = ptsRef.current;
+
+    if (collecting) return;
+    if (!intraday) {
+      if (pts.length === 0) return;
+      if (liveSlotRef.current === null) {
+        const slot = sec(Date.now());
+        if (slot <= sec(pts[pts.length - 1].t)) return;
+        liveSlotRef.current = slot;
+        pts.push({ t: slot * 1000, v });
+      } else {
+        pts[pts.length - 1] = { t: liveSlotRef.current * 1000, v };
+      }
+      (series as ISeriesApi<'Area'>).update({ time: liveSlotRef.current, value: v });
+    } else {
+      const tick = { t: gold.updatedAt || Date.now(), v };
+      const last = pts[pts.length - 1];
+      if (last && sec(tick.t) <= sec(last.t)) return;
+      pts.push(tick);
+      if (effType === 'candles') {
+        const candle = mergeTick(candlesRef.current, tick, BUCKET_MS[tf] ?? DAY_MS);
+        if (candle) (series as ISeriesApi<'Candlestick'>).update({ ...candle, time: candle.time as UTCTimestamp });
+      } else {
+        (series as ISeriesApi<'Area'>).update({ time: sec(tick.t), value: v });
+      }
+      // Slide the window: once the oldest point falls well outside it, rebuild.
+      const windowSpan = INTRADAY_MS[tf] ?? DAY_MS;
+      if (pts[0].t < Date.now() - windowSpan * 1.2) setRebuildNonce((n) => n + 1);
+    }
+    priceLineRef.current?.applyOptions({ price: v });
+    if (!priceLineRef.current) setPriceLine(series, v);
+    updateDot();
+  });
+
+  useEffect(() => {
+    applyTick();
+  }, [gold?.updatedAt, gold?.price, usdIdr]);
 
   /* Esc closes fullscreen */
   useEffect(() => {
@@ -352,44 +432,56 @@ export function ChartPanel() {
 
   const hoverDate = (tMs: number) => {
     const d = new Date(tMs);
+    const locale = lang === 'id' ? 'id-ID' : 'en-US';
     return intraday
-      ? d.toLocaleTimeString(lang === 'id' ? 'id-ID' : 'en-US', { hour: '2-digit', minute: '2-digit' })
-      : d.toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+      ? d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })
+      : d.toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
   };
+
+  const seriesStatus = intraday ? liveStatus : daily.status;
+  const showSkeleton = intraday ? !gold && liveStatus !== 'offline' : daily.loading && daily.points.length === 0;
+  const noHistory = !intraday && !daily.loading && daily.points.length === 0;
+  const firstTick = windowTicks[0];
+
+  const typeButtons: { v: ChartType; Icon: typeof LineChart; label: string }[] = [
+    { v: 'line', Icon: LineChart, label: t('home.chart.type.line') },
+    { v: 'area', Icon: AreaChart, label: t('home.chart.type.area') },
+    { v: 'candles', Icon: CandlestickChart, label: t('home.chart.type.candles') },
+  ];
 
   const controls = (
     <div className="flex flex-wrap items-center gap-2">
       <SegToggle
-        ariaLabel="Timeframe"
+        ariaLabel={t('home.chart.timeframe')}
         size="sm"
         value={tf}
         onChange={setTf}
         options={TIMEFRAMES.map((x) => ({ value: x, label: x }))}
       />
       <div className="inline-flex items-center gap-0.5 rounded-lg bg-bg3 p-0.5">
-        {(
-          [
-            { v: 'line' as ChartType, Icon: LineChart },
-            { v: 'area' as ChartType, Icon: AreaChart },
-            { v: 'candles' as ChartType, Icon: CandlestickChart },
-          ]
-        ).map(({ v, Icon }) => (
-          <button
-            key={v}
-            onClick={() => setType(v)}
-            aria-label={v}
-            className={cn(
-              'cursor-pointer rounded-md p-1.5 transition-colors duration-150',
-              type === v ? 'bg-bg2 text-gold ring-1 ring-gold/60' : 'text-t3 hover:text-t2',
-            )}
-          >
-            <Icon className="h-4 w-4" />
-          </button>
-        ))}
+        {typeButtons.map(({ v, Icon, label }) => {
+          const disabled = v === 'candles' && !intraday;
+          return (
+            <button
+              key={v}
+              onClick={() => setType(v)}
+              disabled={disabled}
+              aria-label={label}
+              aria-pressed={effType === v}
+              title={disabled ? t('home.chart.candlesIntraday') : label}
+              className={cn(
+                'cursor-pointer rounded-md p-1.5 transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40',
+                effType === v ? 'bg-bg2 text-gold ring-1 ring-gold/60' : 'text-t3 hover:text-t2',
+              )}
+            >
+              <Icon className="h-4 w-4" />
+            </button>
+          );
+        })}
       </div>
       <button
         onClick={() => setFs((v) => !v)}
-        aria-label="Fullscreen"
+        aria-label={fs ? t('home.chart.exitFullscreen') : t('home.chart.fullscreen')}
         className="cursor-pointer rounded-lg border border-hairline bg-bg2 p-2 text-t3 transition-colors hover:border-goldline hover:text-gold"
       >
         {fs ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
@@ -403,18 +495,37 @@ export function ChartPanel() {
         ref={wrapRef}
         className={cn('w-full cursor-crosshair', fs ? 'h-[calc(100dvh-220px)]' : 'h-[300px] md:h-[420px]')}
       />
-      {pts.length === 0 && (
+      {showSkeleton && (
         <div className="absolute inset-0 flex flex-col justify-end gap-2 p-4">
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="skeleton-shimmer h-3 rounded" style={{ width: `${92 - i * 5}%` }} />
           ))}
         </div>
       )}
+      {!showSkeleton && collecting && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg1/90 px-6 text-center">
+          <p className="max-w-md text-sm leading-relaxed text-t2">
+            {fill(t('home.chart.collecting'), { n: windowTicks.length })}
+            {firstTick && <> ({fill(t('home.chart.collectingSince'), { time: formatTimeLocal(firstTick.t).slice(0, 5) })})</>}
+          </p>
+          <button
+            onClick={() => setTf('30D')}
+            className="cursor-pointer rounded-lg border border-goldline bg-bg2 px-3 py-1.5 font-display text-sm font-medium text-gold transition-colors hover:bg-bg3"
+          >
+            {t('home.chart.viewDaily')}
+          </button>
+        </div>
+      )}
+      {noHistory && (
+        <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
+          <p className="max-w-sm text-sm text-t3">{t('home.chart.noHistory')}</p>
+        </div>
+      )}
       {hover && (
         <div
           className="pointer-events-none absolute z-10 rounded-lg border border-gold/60 bg-bg3 px-3 py-2 font-mono text-xs tabular shadow-lg"
           style={{
-            left: Math.min(Math.max(hover.x + 12, 8), (wrapRef.current?.clientWidth ?? 300) - 170),
+            left: Math.min(Math.max(hover.x + 12, 8), hover.width - 170),
             top: Math.max(hover.y - 56, 8),
           }}
         >
@@ -428,7 +539,7 @@ export function ChartPanel() {
           </div>
         </div>
       )}
-      {dotPos && (
+      {dotPos && !collecting && (
         <div
           className="pointer-events-none absolute z-10 h-2 w-2 -translate-x-1 -translate-y-1 rounded-full bg-gold chart-dot-pulse"
           style={{ left: dotPos.x, top: dotPos.y }}
@@ -450,8 +561,8 @@ export function ChartPanel() {
           <h3 className="font-display text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-t1">
             {t('home.chart.title')}
           </h3>
-          {seriesStatus === 'cached' && <Badge variant="cached" />}
-          {seriesStatus === 'offline' && <Badge variant="offline" />}
+          {!showSkeleton && seriesStatus === 'cached' && <Badge variant="cached" />}
+          {!showSkeleton && seriesStatus === 'offline' && <Badge variant="offline" />}
         </div>
         {controls}
       </header>

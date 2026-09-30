@@ -5,8 +5,8 @@
 import { useMemo } from 'react';
 import { toast } from 'sonner';
 import { useI18n } from '@/lib/i18n';
-import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { formatUsd, formatIdr, formatAgo, xauUsdToIdrGram, type Unit } from '@/lib/gold';
+import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
+import { formatUsd, formatIdr, formatAgo, formatDateOnly, xauUsdToIdrGram, type Unit } from '@/lib/gold';
 import type { MetalSymbol } from '@/lib/api';
 import { cn } from '@/lib/utils';
 import { DeltaChip } from '../ui-atoms/DeltaChip';
@@ -18,12 +18,15 @@ interface TickerItem {
   render: () => string;
   deltaPct: number;
   updatedAt: number;
+  /** Tooltip detail; defaults to "updated … ago" */
+  note?: string;
   isGold: boolean;
 }
 
 export function TickerStrip() {
   const { lang, t, unit } = useI18n();
-  const { metals, usdIdr, status, loading } = useGoldPrice();
+  const { metals, usdIdr, fx, status, loading } = useGoldPrice();
+  const idrChange = useXauChange('idr-gr').pct;
 
   const items = useMemo<TickerItem[]>(() => {
     const nameKeys: Record<MetalSymbol, string> = {
@@ -49,7 +52,9 @@ export function TickerStrip() {
         symbol: 'USD/IDR',
         render: () => formatIdr(usdIdr, lang),
         deltaPct: 0,
-        updatedAt: Date.now(),
+        updatedAt: fx?.updatedAt ?? 0,
+        // ECB publishes one reference rate per business day.
+        note: fx?.date ? `ECB ${formatDateOnly(fx.date, lang)}` : undefined,
         isGold: false,
       });
     }
@@ -59,13 +64,13 @@ export function TickerStrip() {
         id: 'XAUGR',
         symbol: 'XAU/IDR gr',
         render: () => formatIdr(xauUsdToIdrGram(gold.price, usdIdr), lang),
-        deltaPct: gold.changePct,
+        deltaPct: idrChange,
         updatedAt: gold.updatedAt,
         isGold: true,
       });
     }
     return list;
-  }, [metals, usdIdr, lang]);
+  }, [metals, usdIdr, fx, idrChange, lang]);
 
   if (items.length === 0) {
     return (
@@ -93,7 +98,7 @@ export function TickerStrip() {
         <button
           key={`${keyPrefix}-${item.id}`}
           onClick={() => onClick(item)}
-          title={`${item.nameKey ? t(item.nameKey) : item.symbol} · ${formatAgo(item.updatedAt, lang)}`}
+          title={`${item.nameKey ? t(item.nameKey) : item.symbol} · ${item.note ?? formatAgo(item.updatedAt, lang)}`}
           className="group flex h-full cursor-pointer items-center gap-2.5 border-r border-hairline px-5 transition-colors hover:bg-bg2"
         >
           <span className="label-micro group-hover:text-t2">{item.symbol}</span>

@@ -133,38 +133,23 @@ export function fmtMoney(v: number, currency: CalcCurrency, lang: Lang, decimals
   return formatUsd(v, lang, decimals !== undefined ? { decimals } : {});
 }
 
-/** Compact money for chart axes: Rp 187 jt / $1.2k */
+/** Compact money for chart axes: Rp187 jt / $1.2k, negative -Rp5 jt */
 export function fmtMoneyCompact(v: number, currency: CalcCurrency, lang: Lang): string {
   const abs = Math.abs(v);
-  const decSep = lang === 'id' ? ',' : '.';
   const fix = (n: number) => {
     const s = n >= 100 ? Math.round(n).toString() : n.toFixed(1);
-    return lang === 'id' ? s.replace('.', decSep) : s;
+    return lang === 'id' ? s.replace('.', ',') : s;
   };
+  let text: string;
   if (currency === 'idr') {
-    if (abs >= 1e9) return `Rp${fix(v / 1e9)} ${lang === 'id' ? 'M' : 'B'}`;
-    if (abs >= 1e6) return `Rp${fix(v / 1e6)} ${lang === 'id' ? 'jt' : 'M'}`;
-    if (abs >= 1e3) return `Rp${fix(v / 1e3)} rb`;
-    return `Rp${Math.round(v)}`;
-  }
-  if (abs >= 1e6) return `$${fix(v / 1e6)}M`;
-  if (abs >= 1e3) return `$${fix(v / 1e3)}k`;
-  return `$${Math.round(v)}`;
-}
-
-/** Parse a free-form numeric input (accepts both ID and EN separators). */
-export function parseAmount(raw: string, lang: Lang): number {
-  const clean = raw.replace(/[^\d.,-]/g, '');
-  if (!clean) return NaN;
-  let s = clean;
-  if (lang === 'id') {
-    // 1.234.567,89
-    s = s.replace(/\./g, '').replace(',', '.');
-  } else {
-    s = s.replace(/,/g, '');
-  }
-  const n = Number(s);
-  return Number.isFinite(n) ? n : NaN;
+    if (abs >= 1e9) text = `Rp${fix(abs / 1e9)} ${lang === 'id' ? 'M' : 'B'}`;
+    else if (abs >= 1e6) text = `Rp${fix(abs / 1e6)} ${lang === 'id' ? 'jt' : 'M'}`;
+    else if (abs >= 1e3) text = `Rp${fix(abs / 1e3)} ${lang === 'id' ? 'rb' : 'k'}`;
+    else text = `Rp${Math.round(abs)}`;
+  } else if (abs >= 1e6) text = `$${fix(abs / 1e6)}M`;
+  else if (abs >= 1e3) text = `$${fix(abs / 1e3)}k`;
+  else text = `$${Math.round(abs)}`;
+  return v < 0 && /[1-9]/.test(text) ? `-${text}` : text;
 }
 
 /* ------------------------------------------------------------------ */
@@ -196,6 +181,7 @@ registerStrings({
   'calc.buyPrice': { id: 'Harga beli per gram', en: 'Buy price per gram' },
   'calc.syncedLive': { id: 'Terhubung ke harga live', en: 'Synced to live price' },
   'calc.manualPrice': { id: 'Harga manual — klik ikon untuk sinkron ulang', en: 'Manual price — click icon to re-sync' },
+  'calc.resync': { id: 'Sinkronkan ke harga live', en: 'Re-sync to live price' },
   'calc.spread': { id: 'Spread/biaya beli (%)', en: 'Buy spread fee (%)' },
   'calc.spreadHelp': {
     id: 'Selisih harga beli-jual toko emas',
@@ -221,6 +207,7 @@ registerStrings({
   'calc.col.profit': { id: 'Untung', en: 'Profit' },
   'calc.copy': { id: 'Salin Ringkasan', en: 'Copy Summary' },
   'calc.copied': { id: 'Tersalin!', en: 'Copied!' },
+  'calc.copyFailed': { id: 'Gagal menyalin ringkasan', en: 'Could not copy the summary' },
   'calc.reset': { id: 'Atur Ulang', en: 'Reset' },
   'calc.edu1.title': { id: 'Apa itu DCA?', en: 'What is DCA?' },
   'calc.edu1.body': {

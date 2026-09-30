@@ -10,3 +10,8 @@ export function cn(...inputs: ClassValue[]) {
 export function withBase(path: string) {
   return import.meta.env.BASE_URL + path.replace(/^\//, '')
 }
+
+/** Replace `{name}` placeholders, e.g. in translated strings. */
+export function fill(text: string, vars: Record<string, string | number>): string {
+  return text.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
+}

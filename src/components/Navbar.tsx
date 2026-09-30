@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, Calculator, Info, LayoutDashboard, Moon, Newspaper, Sun } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { useTheme } from '@/hooks/useTheme';
-import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { convertPrice, formatUnitPrice, formatPct } from '@/lib/gold';
 import { cn, withBase } from '@/lib/utils';
 import { SegToggle } from './ui-atoms/SegToggle';
@@ -26,6 +26,7 @@ const LINKS = [
 function LivePriceChip() {
   const { lang, unit } = useI18n();
   const { gold, usdIdr, status } = useGoldPrice();
+  const change = useXauChange(unit);
   const [flash, setFlash] = useState<'up' | 'down' | null>(null);
   const prevRef = useRef<number | null>(null);
   const price = gold?.price ?? 0;
@@ -50,8 +51,8 @@ function LivePriceChip() {
       )}
     >
       <span className="text-gold">{price > 0 ? formatUnitPrice(display, unit, lang) : '—'}</span>
-      <span style={{ color: gold.changePct >= 0 ? 'var(--up)' : 'var(--down)' }}>
-        {price > 0 && status !== 'offline' ? formatPct(gold.changePct, lang) : '—'}
+      <span style={{ color: change.pct >= 0 ? 'var(--up)' : 'var(--down)' }}>
+        {price > 0 && status !== 'offline' ? formatPct(change.pct, lang) : '—'}
       </span>
     </div>
   );
@@ -151,7 +152,7 @@ export function Navbar() {
           <div className="ml-auto flex items-center gap-2 lg:ml-0">
             <LivePriceChip />
             <SegToggle
-              ariaLabel="Price unit"
+              ariaLabel={t('nav.unit')}
               size="sm"
               value={unit}
               onChange={setUnit}
@@ -161,7 +162,7 @@ export function Navbar() {
               ]}
             />
             <SegToggle
-              ariaLabel="Language"
+              ariaLabel={t('nav.language')}
               size="sm"
               value={lang}
               onChange={setLang}
@@ -177,7 +178,7 @@ export function Navbar() {
 
       {/* Bottom navigation bar — mobile saja (gaya trading app) */}
       <nav
-        aria-label="Navigasi utama"
+        aria-label={t('nav.main')}
         className="fixed bottom-0 z-50 w-full border-t border-hairline bg-bg1/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] lg:hidden"
       >
         <div className="grid grid-cols-5">

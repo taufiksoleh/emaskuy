@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { TickerStrip } from '@/components/home/TickerStrip';
 import { HeroBand } from '@/components/home/HeroBand';
 import { ChartPanel } from '@/components/home/ChartPanel';
@@ -24,6 +25,8 @@ registerStrings({
   'home.hero.source': { id: 'Sumber', en: 'Source' },
   'home.hero.updated': { id: 'Diperbarui', en: 'Updated' },
   'home.hero.refresh': { id: 'Muat ulang', en: 'Refresh' },
+  'home.hero.range': { id: 'Rentang', en: 'Range' },
+  'home.hero.unit': { id: 'Satuan harga', en: 'Price unit' },
   'home.stats.gramIdr': { id: 'Harga per Gram (IDR)', en: 'Price per Gram (IDR)' },
   'home.stats.usdIdr': { id: 'Kurs USD/IDR', en: 'USD/IDR Rate' },
   'home.stats.fxSource': { id: 'Sumber: Frankfurter (ECB)', en: 'Source: Frankfurter (ECB)' },
@@ -37,8 +40,8 @@ registerStrings({
   'home.stats.vol30': { id: 'Volatilitas 30 Hari', en: '30d Volatility' },
   'home.chart.title': { id: 'Grafik Harga Emas', en: 'Gold Price Chart' },
   'home.chart.footnote': {
-    id: '7D–1Y: seri harian resmi (NBP) dinormalisasi ke harga live · ALL: histori penuh sejak 2013 · 1H/24H: tick live dari sesi browser Anda',
-    en: '7D–1Y: official daily series (NBP) normalized to live price · ALL: full history since 2013 · 1H/24H: live ticks from your browser session',
+    id: '7D–ALL: fixing harian NBP dikonversi dengan kurs ECB di hari yang sama, titik terakhir = harga live · ALL: sejak 2013 · 1H/24H: harga live yang tercatat di browser ini',
+    en: '7D–ALL: NBP daily fixings converted at same-day ECB rates, last point = live price · ALL: since 2013 · 1H/24H: live prices recorded in this browser',
   },
   'home.metals.title': { id: 'Perbandingan Multi-Logam', en: 'Multi-Metal Comparison' },
   'home.conv.title': { id: 'Konverter Cepat', en: 'Quick Converter' },
@@ -64,6 +67,7 @@ registerStrings({
 
 export default function Home() {
   const { t } = useI18n();
+  useRouteMeta('home');
   const { status, loading } = useGoldPrice();
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const showBanner = !loading && status === 'offline' && !bannerDismissed;

@@ -6,7 +6,8 @@
 import { motion } from 'framer-motion';
 import { Scale } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
-import { formatDate, formatIdr, formatPct, xauUsdToIdrGram } from '@/lib/gold';
+import { ageInDays, formatDateOnly, formatIdr, formatPct, xauUsdToIdrGram } from '@/lib/gold';
+import { cn, fill } from '@/lib/utils';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { ANTAM } from '@/data/antam';
 import { Panel } from '../ui-atoms/Panel';
@@ -18,6 +19,8 @@ registerStrings({
   'antam.antam.label': { id: 'Harga Antam 1gr', en: 'Antam 1g Price' },
   'antam.premium.label': { id: 'Premium', en: 'Premium' },
   'antam.premium.above': { id: 'di atas spot', en: 'above spot' },
+  'antam.premium.below': { id: 'di bawah spot', en: 'below spot' },
+  'antam.stale': { id: 'Data per {date}, belum diperbarui', en: 'Data as of {date}, not updated since' },
   'antam.bar.antam': { id: 'Antam', en: 'Antam' },
   'antam.bar.spot': { id: 'Spot', en: 'Spot' },
   'antam.bullet.1': {
@@ -41,10 +44,14 @@ export function AntamPanel() {
   const { lang, t } = useI18n();
   const { gold, usdIdr, loading } = useGoldPrice();
 
-  const spotIdr = gold && usdIdr ? xauUsdToIdrGram(gold.price, usdIdr) : null;
+  const spotIdr = gold && gold.price > 0 && usdIdr > 0 ? xauUsdToIdrGram(gold.price, usdIdr) : null;
   const premiumIdr = spotIdr != null ? ANTAM.gramIdr - spotIdr : null;
   const premiumPct =
     spotIdr != null && spotIdr > 0 ? ((ANTAM.gramIdr - spotIdr) / spotIdr) * 100 : null;
+  const below = premiumIdr != null && premiumIdr < 0;
+  const antamDate = formatDateOnly(ANTAM.date, lang);
+  // Media quotes arrive once per business day; older than 2 days is stale.
+  const stale = ageInDays(ANTAM.date) > 2;
   const spotShare =
     spotIdr != null && ANTAM.gramIdr > 0
       ? Math.min(100, Math.max(0, (spotIdr / ANTAM.gramIdr) * 100))
@@ -67,6 +74,11 @@ export function AntamPanel() {
                 <Scale className="h-4 w-4 text-gold" />
               </span>
               {t('antam.title')}
+              {stale && (
+                <span className="rounded-full border border-down/40 bg-down/10 px-2 py-0.5 font-body text-[11px] font-medium text-down">
+                  {fill(t('antam.stale'), { date: antamDate })}
+                </span>
+              )}
             </span>
           }
         >
@@ -94,9 +106,7 @@ export function AntamPanel() {
               <p className="mt-2 font-mono text-2xl font-semibold tabular text-t1">
                 {formatIdr(ANTAM.gramIdr, lang)}
               </p>
-              <p className="mt-1.5 text-[11px] text-t3">
-                {formatDate(Date.parse(ANTAM.date), lang)}
-              </p>
+              <p className="mt-1.5 text-[11px] text-t3">{antamDate}</p>
             </div>
 
             {/* (c) Premium */}
@@ -108,13 +118,13 @@ export function AntamPanel() {
                 <div className="skeleton-shimmer mt-2 h-8 w-3/4 rounded" />
               ) : (
                 <>
-                  <p className="mt-2 font-mono text-2xl font-semibold tabular text-gold">
+                  <p className={cn('mt-2 font-mono text-2xl font-semibold tabular', below ? 'text-down' : 'text-gold')}>
                     {formatIdr(premiumIdr, lang)}
                   </p>
-                  <p className="mt-1.5 font-mono text-sm tabular text-gold">
+                  <p className={cn('mt-1.5 font-mono text-sm tabular', below ? 'text-down' : 'text-gold')}>
                     {formatPct(premiumPct, lang)}
                     <span className="ml-1.5 font-body text-[11px] text-t3">
-                      {t('antam.premium.above')}
+                      {t(below ? 'antam.premium.below' : 'antam.premium.above')}
                     </span>
                   </p>
                 </>

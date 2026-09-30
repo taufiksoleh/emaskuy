@@ -24,16 +24,22 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Test
+        run: npm test
+
       - name: Build
         run: npm run build
         env:
-          GITHUB_PAGES: "true"
+          # Optional newsletter provider (Settings → Variables); unset hides the form.
+          VITE_NEWSLETTER_ACTION: ${{ vars.NEWSLETTER_ACTION }}
+          VITE_NEWSLETTER_EMAIL_FIELD: ${{ vars.NEWSLETTER_EMAIL_FIELD }}
+          VITE_NEWSLETTER_EXTRA: ${{ vars.NEWSLETTER_EXTRA }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -9,8 +9,10 @@ import { useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import type { DataStatus } from '@/lib/api';
 import { formatNumber } from '@/lib/gold';
-import { parseAmount, type CalcCurrency, type CalcMode } from '@/lib/calc';
+import { type CalcCurrency, type CalcMode } from '@/lib/calc';
+import { formatRaw, parseAmount } from '@/lib/number';
 import { cn } from '@/lib/utils';
+import { MoneyInput } from '../ui-atoms/MoneyInput';
 import { Panel } from '../ui-atoms/Panel';
 import { SegToggle } from '../ui-atoms/SegToggle';
 import { Slider } from '../ui/slider';
@@ -55,36 +57,6 @@ export interface InputsPanelProps {
   onResync: () => void;
 }
 
-function MoneyInput({
-  raw,
-  onChange,
-  currency,
-  invalid,
-}: {
-  raw: string;
-  onChange: (s: string) => void;
-  currency: CalcCurrency;
-  invalid: boolean;
-}) {
-  return (
-    <div
-      className={cn(
-        'flex items-center rounded-lg border bg-bg3 transition-colors focus-within:ring-2 focus-within:ring-gold/40',
-        invalid ? 'border-down' : 'border-hairline',
-      )}
-    >
-      <span className="pl-3 font-mono text-sm text-t3">{currency === 'idr' ? 'Rp' : '$'}</span>
-      <input
-        inputMode="decimal"
-        value={raw}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-transparent px-2 py-2.5 text-right font-mono text-sm tabular text-t1 outline-none"
-        aria-invalid={invalid}
-      />
-    </div>
-  );
-}
-
 export function InputsPanel(p: InputsPanelProps) {
   const { lang, t } = useI18n();
   const [spinning, setSpinning] = useState(false);
@@ -95,6 +67,8 @@ export function InputsPanel(p: InputsPanelProps) {
   const spreadInvalid = Number.isNaN(parseAmount(p.spreadRaw, lang));
 
   const chips = CHIPS[p.currency];
+  const symbol = p.currency === 'idr' ? 'Rp' : '$';
+  const moneyDecimals = p.currency === 'idr' ? 0 : 2;
 
   const field = 'flex flex-col gap-1.5';
   const label = 'label-micro';
@@ -113,7 +87,7 @@ export function InputsPanel(p: InputsPanelProps) {
         <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }} className={field}>
           <span className={label}>{t('calc.mode')}</span>
           <SegToggle
-            ariaLabel="Mode"
+            ariaLabel={t('calc.mode')}
             className="w-full [&>button]:flex-1"
             value={p.mode}
             onChange={p.onMode}
@@ -128,7 +102,7 @@ export function InputsPanel(p: InputsPanelProps) {
         <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }} className={field}>
           <span className={label}>{t('calc.currency')}</span>
           <SegToggle
-            ariaLabel="Currency"
+            ariaLabel={t('calc.currency')}
             className="w-full [&>button]:flex-1"
             value={p.currency}
             onChange={p.onCurrency}
@@ -141,14 +115,21 @@ export function InputsPanel(p: InputsPanelProps) {
 
         {/* Initial */}
         <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }} className={field}>
-          <span className={label}>{t('calc.initial')}</span>
-          <MoneyInput raw={p.initialRaw} onChange={p.onInitial} currency={p.currency} invalid={initialInvalid} />
+          <label className={label} htmlFor="calc-initial">{t('calc.initial')}</label>
+          <MoneyInput
+            id="calc-initial"
+            value={p.initialRaw}
+            onChange={p.onInitial}
+            prefix={symbol}
+            decimals={moneyDecimals}
+            invalid={initialInvalid}
+          />
           {initialInvalid && <span className={err}>{t('calc.invalid')}</span>}
           <div className="flex flex-wrap gap-1.5">
             {chips.initial.map((v) => (
               <button
                 key={v}
-                onClick={() => p.onInitial(String(v))}
+                onClick={() => p.onInitial(formatRaw(v, lang, moneyDecimals))}
                 className="cursor-pointer rounded-md border border-hairline bg-bg2 px-2 py-1 font-mono text-[11px] tabular text-t2 transition-colors hover:border-goldline hover:text-gold"
               >
                 {chipLabel(v, p.currency, lang)}
@@ -166,14 +147,21 @@ export function InputsPanel(p: InputsPanelProps) {
             transition={{ duration: 0.3 }}
             className={cn(field, 'overflow-hidden')}
           >
-            <span className={label}>{t('calc.monthly')}</span>
-            <MoneyInput raw={p.monthlyRaw} onChange={p.onMonthly} currency={p.currency} invalid={monthlyInvalid} />
+            <label className={label} htmlFor="calc-monthly">{t('calc.monthly')}</label>
+            <MoneyInput
+              id="calc-monthly"
+              value={p.monthlyRaw}
+              onChange={p.onMonthly}
+              prefix={symbol}
+              decimals={moneyDecimals}
+              invalid={monthlyInvalid}
+            />
             {monthlyInvalid && <span className={err}>{t('calc.invalid')}</span>}
             <div className="flex flex-wrap gap-1.5">
               {chips.monthly.map((v) => (
                 <button
                   key={v}
-                  onClick={() => p.onMonthly(String(v))}
+                  onClick={() => p.onMonthly(formatRaw(v, lang, moneyDecimals))}
                   className="cursor-pointer rounded-md border border-hairline bg-bg2 px-2 py-1 font-mono text-[11px] tabular text-t2 transition-colors hover:border-goldline hover:text-gold"
                 >
                   {chipLabel(v, p.currency, lang)}
@@ -223,20 +211,27 @@ export function InputsPanel(p: InputsPanelProps) {
         {/* Buy price */}
         <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }} className={field}>
           <div className="flex items-center justify-between">
-            <span className={label}>{t('calc.buyPrice')}</span>
+            <label className={label} htmlFor="calc-buy">{t('calc.buyPrice')}</label>
             <button
               onClick={() => {
                 p.onResync();
                 setSpinning(true);
                 setTimeout(() => setSpinning(false), 450);
               }}
-              aria-label="Re-sync to live price"
+              aria-label={t('calc.resync')}
               className="cursor-pointer rounded-md border border-hairline bg-bg2 p-1.5 text-t2 transition-colors hover:border-goldline hover:text-gold"
             >
               <RefreshCw className={cn('h-3.5 w-3.5', spinning && 'spin-once')} />
             </button>
           </div>
-          <MoneyInput raw={p.buyRaw} onChange={p.onBuy} currency={p.currency} invalid={buyInvalid} />
+          <MoneyInput
+            id="calc-buy"
+            value={p.buyRaw}
+            onChange={p.onBuy}
+            prefix={symbol}
+            decimals={moneyDecimals}
+            invalid={buyInvalid}
+          />
           {buyInvalid && <span className={err}>{t('calc.invalid')}</span>}
           <span className={cn(help, 'flex items-center gap-1.5')}>
             <span
@@ -258,22 +253,14 @@ export function InputsPanel(p: InputsPanelProps) {
 
         {/* Spread */}
         <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }} className={field}>
-          <span className={label}>{t('calc.spread')}</span>
-          <div
-            className={cn(
-              'flex items-center rounded-lg border bg-bg3 transition-colors focus-within:ring-2 focus-within:ring-gold/40',
-              spreadInvalid ? 'border-down' : 'border-hairline',
-            )}
-          >
-            <input
-              inputMode="decimal"
-              value={p.spreadRaw}
-              onChange={(e) => p.onSpread(e.target.value)}
-              className="w-full bg-transparent px-3 py-2.5 text-right font-mono text-sm tabular text-t1 outline-none"
-              aria-invalid={spreadInvalid}
-            />
-            <span className="pr-3 font-mono text-sm text-t3">%</span>
-          </div>
+          <label className={label} htmlFor="calc-spread">{t('calc.spread')}</label>
+          <MoneyInput
+            id="calc-spread"
+            value={p.spreadRaw}
+            onChange={p.onSpread}
+            suffix="%"
+            invalid={spreadInvalid}
+          />
           {spreadInvalid && <span className={err}>{t('calc.invalid')}</span>}
           <span className={help}>{t('calc.spreadHelp')}</span>
         </motion.div>
