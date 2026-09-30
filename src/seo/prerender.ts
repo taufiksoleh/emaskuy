@@ -8,9 +8,9 @@
  * static body is included for crawlers that don't run JavaScript; it is
  * hidden for everyone else and replaced when React mounts.
  */
-import { ANTAM } from '@/data/antam';
 import { sortedArticles, type Article } from '@/data/articles';
 import '@/lib/about-strings';
+import { antamData, antamOneGram } from '@/lib/antam';
 import { formatDateOnly, formatIdr, isoDateUtc } from '@/lib/gold';
 import {
   PRERENDERED_ROUTES,
@@ -33,6 +33,7 @@ export interface PrerenderFile {
 }
 
 const LANG = 'id' as const;
+const antam = antamData();
 const t = (key: string) => translate(key, LANG);
 
 const escapeHtml = (s: string) =>
@@ -191,8 +192,10 @@ function routeBody(key: RouteKey, articles: Article[]): string {
   const meta = ROUTE_META[key];
   const intro = `<h1>${escapeHtml(meta.title[LANG])}</h1><p>${escapeHtml(meta.description[LANG])}</p>`;
   if (key === 'home') {
-    const antam = `Harga emas Antam 1 gram: ${formatIdr(ANTAM.gramIdr, LANG)} (${formatDateOnly(ANTAM.date, LANG)}).`;
-    return `${intro}<p>${escapeHtml(antam)}</p>${siteNav()}<h2>Analisis terbaru</h2>${articleList(articles.slice(0, 5))}`;
+    const line =
+      `Harga emas Antam 1 gram: ${formatIdr(antamOneGram(antam), LANG)}, buyback ${formatIdr(antam.antam.buybackPerGram, LANG)}/gram ` +
+      `(${formatDateOnly(antam.priceDate, LANG)}).`;
+    return `${intro}<p>${escapeHtml(line)}</p>${siteNav()}<h2>Analisis terbaru</h2>${articleList(articles.slice(0, 5))}`;
   }
   if (key === 'analysis') return `${intro}${articleList(articles)}${siteNav()}`;
   if (key === 'about') {
@@ -248,7 +251,7 @@ const xml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 function sitemap(articles: Article[]): string {
   const newest = articles[0] ? isoDateUtc(articles[0].publishedAt) : undefined;
-  const lastmod: Partial<Record<RouteKey, string>> = { home: ANTAM.date, analysis: newest };
+  const lastmod: Partial<Record<RouteKey, string>> = { home: antam.priceDate, analysis: newest };
   const urls = [
     ...PRERENDERED_ROUTES.map((key) => ({ loc: absoluteUrl(ROUTE_META[key].path ?? '/'), lastmod: lastmod[key] })),
     ...articles.map((a) => ({ loc: absoluteUrl(articlePath(a.slug)), lastmod: isoDateUtc(a.publishedAt) })),
@@ -300,7 +303,7 @@ export function renderSite({ template, now }: { template: string; now: Date }): 
   const files: PrerenderFile[] = PRERENDERED_ROUTES.map((key) => {
     const h = localize(ROUTE_META[key], LANG);
     if (key === 'home') {
-      h.description = `Harga emas hari ini live per gram dalam Rupiah dan USD/oz. Antam 1 gram ${formatIdr(ANTAM.gramIdr, LANG)} (${formatDateOnly(ANTAM.date, LANG)}), grafik sejak 2013, kalkulator zakat & investasi emas.`;
+      h.description = `Harga emas hari ini live per gram dalam Rupiah dan USD/oz. Antam 1 gram ${formatIdr(antamOneGram(antam), LANG)} (${formatDateOnly(antam.priceDate, LANG)}), grafik sejak 2013, kalkulator zakat & investasi emas.`;
     }
     const path = ROUTE_META[key].path ?? '/';
     return {

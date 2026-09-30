@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # The merge commit and its base: validate-content compares against
+          # the base branch (previous Antam price, files changed by the PR).
+          fetch-depth: 2
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,6 +36,9 @@ jobs:
         # Pre-existing lint debt in the codebase isn't part of this pipeline's
         # scope; surface it without blocking PRs until it's cleaned up.
         continue-on-error: true
+
+      - name: Validate content
+        run: npm run validate:content
 
       - name: Unit tests
         run: npm test

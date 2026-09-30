@@ -20,7 +20,7 @@ describe('buildDailyPriceText', () => {
     idrPerGram: 2_410_729,
     usdPerOz: 4183.8,
     changePct: 0.88,
-    antam: { price: 2_580_000, date: '2026-09-29' },
+    antam: { price: 2_580_000, buyback: 2_375_000, date: '2026-09-29' },
   };
 
   it('bolds the key prices and ends with the link', () => {
@@ -32,6 +32,7 @@ describe('buildDailyPriceText', () => {
       '• share.daily.spot: *Rp2.410.729*/gram (▲ +0,88% share.daily.24h)',
       '• XAU/USD: $4.183,80/oz',
       '• Antam 1 gr: *Rp2.580.000* (29 Sep 2026)',
+      '• share.buyback: Rp2.375.000/gram',
       '',
       'share.daily.live: https://emaskuy.com/',
       '_share.disclaimer_',

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
-import { ANTAM } from '@/data/antam';
+import { antamOneGram, useAntam } from '@/lib/antam';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { useHistory } from '@/hooks/useHistory';
 import { pointAtOrBefore, sliceSince, unitValue } from '@/lib/history';
@@ -45,6 +45,8 @@ export function HeroBand() {
   const history = useHistory('1y');
   const change = useXauChange(unit);
   const gramChange = useXauChange('idr-gr');
+  const antam = useAntam();
+  const antamGram = antamOneGram(antam);
 
   const price = gold?.price ?? 0;
   const display = convertPrice(price, usdIdr, unit);
@@ -117,7 +119,7 @@ export function HeroBand() {
         idrPerGram: gramIdr > 0 ? gramIdr : null,
         usdPerOz: price > 0 ? price : null,
         changePct: gramIdr > 0 ? gramChange.pct : null,
-        antam: { price: ANTAM.gramIdr, date: ANTAM.date },
+        antam: { price: antamGram, buyback: antam.antam.buybackPerGram, date: antam.priceDate },
       },
       t,
     );
@@ -125,7 +127,7 @@ export function HeroBand() {
       unit === 'idr-gr'
         ? `XAU/USD   ${formatUsd(price, lang)}/oz`
         : `${t('share.gramLine')}   ${formatIdr(gramIdr, lang)}`,
-      `Antam 1 gr   ${formatIdr(ANTAM.gramIdr, lang)} (${formatDateOnly(ANTAM.date, lang)})`,
+      `Antam 1 gr   ${formatIdr(antamGram, lang)} (${formatDateOnly(antam.priceDate, lang)})`,
     ];
     const model: ShareCardModel = {
       title: t('share.daily.title'),

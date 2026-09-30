@@ -116,11 +116,12 @@ export default function Home() {
       <Suspense fallback={<ChartFallback />}>
         <ChartPanel />
       </Suspense>
-      <AiInsightPanel />
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 xl:grid-cols-2">
+      {/* The panels center themselves with mx-auto, which would size a grid item to its content. */}
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-0 xl:grid-cols-2 [&>*]:w-full">
+        <AiInsightPanel />
         <AlertsPanel />
-        <AntamPanel />
       </div>
+      <AntamPanel />
       <StatsGrid />
       <Suspense fallback={null}>
         <AnalysisPreview />

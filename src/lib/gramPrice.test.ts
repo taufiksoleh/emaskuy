@@ -22,3 +22,17 @@ describe('resolveGramPrice', () => {
     expect(resolveGramPrice('manual', { ...live, currency: 'idr' })).toBeNull();
   });
 });
+
+describe('Antam bases', () => {
+  const antam = { sellPerGram: 2_580_000, buybackPerGram: 2_375_000 };
+
+  it('uses the Antam sell or buyback price per gram', () => {
+    expect(resolveGramPrice('antam', { ...live, currency: 'idr', antam })).toBe(2_580_000);
+    expect(resolveGramPrice('buyback', { ...live, currency: 'idr', antam })).toBe(2_375_000);
+  });
+
+  it('converts them to dollars with the live rate', () => {
+    expect(resolveGramPrice('antam', { ...live, currency: 'usd', antam })).toBeCloseTo(2_580_000 / 17921.7, 6);
+    expect(resolveGramPrice('buyback', { ...live, usdIdr: 0, currency: 'usd', antam })).toBeNull();
+  });
+});

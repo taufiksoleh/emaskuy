@@ -16,6 +16,7 @@ registerStrings({
   'share.daily.24h': { id: '24 jam', en: '24h' },
   'share.daily.live': { id: 'Pantau harga live', en: 'Live prices' },
   'share.try': { id: 'Hitung sendiri', en: 'Try it yourself' },
+  'share.buyback': { id: 'Buyback Antam', en: 'Antam buyback' },
   'share.disclaimer': { id: 'Bukan saran investasi', en: 'Not investment advice' },
 });
 
@@ -44,7 +45,7 @@ export interface DailyPriceInput {
   usdPerOz: number | null;
   /** Change of the rupiah price since the previous close, percent */
   changePct: number | null;
-  antam: { price: number; date: string } | null;
+  antam: { price: number; buyback: number | null; date: string } | null;
   /** Time zone for the date line (defaults to the device's) */
   tz?: string;
 }
@@ -62,6 +63,9 @@ export function buildDailyPriceText(inp: DailyPriceInput, t: Translate): string 
   if (inp.usdPerOz && inp.usdPerOz > 0) lines.push(`• XAU/USD: ${formatUsd(inp.usdPerOz, lang)}/oz`);
   if (inp.antam && inp.antam.price > 0) {
     lines.push(`• Antam 1 gr: *${formatIdr(inp.antam.price, lang)}* (${formatDateOnly(inp.antam.date, lang)})`);
+    if (inp.antam.buyback && inp.antam.buyback > 0) {
+      lines.push(`• ${t('share.buyback')}: ${formatIdr(inp.antam.buyback, lang)}/gram`);
+    }
   }
   lines.push('', `${t('share.daily.live')}: ${SITE_URL}/`, `_${t('share.disclaimer')}_`);
   return lines.join('\n');

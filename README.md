@@ -21,7 +21,7 @@ EmasKuy (*emas* is Indonesian for gold) is a real-time gold analysis terminal: l
 - **Interactive price chart** (lightweight-charts): line, area or candlestick over 1H, 24H, 7D, 30D, 90D, 1Y and ALL (daily history back to 2013).
 - **AI Insight:** a daily market sentiment (bullish, bearish or neutral) with three or four short bullets.
 - **Price alerts:** a toast fires when gold crosses a target above or below, in USD/oz or Rp/gram (up to 10 alerts).
-- **Antam vs Spot:** Antam's 1 g base price against the live theoretical spot price (XAU/USD converted to Rp/gram), with the premium. Antam is the Indonesian state-owned miner PT Aneka Tambang, whose gold bars are the most common retail reference price in Indonesia.
+- **Antam prices:** the 1 g price and the buyback price, the sell–buyback spread, the premium over the live spot price (XAU/USD converted to Rp/gram), every bar size the source quotes, Galeri24 and UBS when quoted, and a chart of Antam, buyback and spot. Antam is the Indonesian state-owned miner PT Aneka Tambang, whose gold bars are the most common retail reference price in Indonesia.
 - **Market stats:** 52-week high/low, 30-day volatility, a multi-metal table and a quick converter (g, oz or kg to USD and IDR, and IDR back to grams).
 - Previews of the latest analysis articles.
 
@@ -105,9 +105,10 @@ All requests are plain `fetch` calls from the browser (9 s timeout, no retries, 
 
 ```text
 gold-api.com  (4 metals) ─┐  every 30 s
-Frankfurter   (USD/IDR)  ─┴─▶ useGoldPrice ─▶ ticker, hero, alerts, Antam vs Spot, calculator, portfolio
-NBP           (daily)     ──▶ useDailySeries ─▶ chart history, stats
-src/data/*.ts (static)    ──▶ AI Insight, Antam price, articles
+Frankfurter   (USD/IDR)  ─┴─▶ useGoldPrice ─▶ ticker, hero, alerts, Antam panel, calculator, portfolio
+NBP           (daily)     ──▶ useHistory ─▶ chart history, stats
+src/content/*.json        ──▶ AI Insight, Antam prices   (written daily by the content agent)
+src/data/articles.ts      ──▶ articles
 ```
 
 ### Conversion
@@ -126,9 +127,9 @@ Every fetch reports `live`, `cached` or `offline` (`src/lib/api.ts`). If a reque
 | --- | --- | --- |
 | Metal spot prices, USD/IDR, Rp/gram | Live | Refreshed every 30 s |
 | Price history (7D to ALL) | Live, derived | NBP daily fixings rescaled to the live XAU/USD price (see below) |
-| AI Insight (`src/data/aiInsight.ts`) | Static file | Rewritten every day at 09:00 WIB (UTC+7) by a scheduled AI job that lives outside this repo, per the header comment in the file; no model is called at runtime |
-| Antam 1 g base price (`src/data/antam.ts`) | Static file | Updated by the same daily job; compared with live spot in the Antam vs Spot panel |
-| Articles (`src/data/articles.ts`) | Static | Bilingual, added through commits |
+| AI Insight (`src/content/ai-insight.json`) | Static file | Written every day by an AI content agent that runs outside this repo, through a pull request checked in CI ([docs/content-pipeline.md](docs/content-pipeline.md)); no model is called at runtime |
+| Antam prices (`src/content/antam.json`) | Static file | Updated by the same agent: bar prices by size, buyback per gram, optional Galeri24 and UBS quotes, and a daily history |
+| Articles (`src/data/articles.ts`) | Static | Bilingual; added by the agent or through commits |
 
 ### How some numbers are derived
 
@@ -173,7 +174,9 @@ The only third-party requests are the three APIs above and Google Fonts. The cod
 .
 ├── .github/workflows/
 │   ├── deploy-pages.yml     # build and deploy to GitHub Pages on push to main
-│   └── pr-check.yml         # lint (non-blocking) + typecheck/build on pull requests
+│   └── pr-check.yml         # lint (non-blocking), content validation, tests, typecheck/build on pull requests
+├── docs/content-pipeline.md # contract for the daily content agent
+├── scripts/                 # build helpers and the content validator (validate-content.mjs)
 ├── public/                  # copied as-is into dist/: CNAME, 404.html, logos, OG cover, hero and article images
 ├── src/
 │   ├── main.tsx             # entry point: BrowserRouter with basename = Vite BASE_URL
@@ -188,9 +191,10 @@ The only third-party requests are the three APIs above and Google Fonts. The cod
 │   │   ├── ui-atoms/        # the app's own primitives (Panel, StatCard, Badge, Sparkline, ...)
 │   │   ├── ui/              # shadcn/ui scaffold (only Slider and Accordion are used)
 │   │   └── Layout.tsx, Navbar.tsx, Footer.tsx
-│   ├── hooks/               # useGoldPrice (shared poller), useDailySeries, usePriceAlerts, useTheme
+│   ├── hooks/               # useGoldPrice (shared poller), useHistory, usePriceAlerts, useTheme
 │   ├── lib/                 # api (fetch + cache), gold (units, formatters), calc, portfolio, alerts, i18n
-│   └── data/                # static content: articles, aiInsight, antam
+│   ├── content/             # antam.json, ai-insight.json: written daily by the content agent
+│   └── data/                # articles
 ├── index.html               # entry HTML: fonts, theme bootstrap, SPA redirect restore
 ├── vite.config.ts           # base '/', dev server on port 3000, '@' alias for src/
 └── tailwind.config.js, eslint.config.js, tsconfig*.json, components.json
@@ -212,17 +216,17 @@ push to main ─▶ npm ci ─▶ npm run build ─▶ upload dist/ ─▶ GitHu
 ## Development workflow
 
 1. Create a branch and open a pull request against `main`.
-2. The **PR Check** workflow (`.github/workflows/pr-check.yml`) runs `npm ci`, `npm run lint` and `npm run build`. Lint results are reported but don't block the PR (there is pre-existing lint debt); the build must pass. It runs a strict `tsc -b` (unused locals and parameters are errors) followed by the Vite bundle.
+2. The **PR Check** workflow (`.github/workflows/pr-check.yml`) runs `npm ci`, `npm run lint`, `npm run validate:content`, `npm test` and `npm run build`. Lint results are reported but don't block the PR (there is pre-existing lint debt); everything else must pass. The build runs a strict `tsc -b` (unused locals and parameters are errors) followed by the Vite bundle.
 3. Merging to `main` deploys to production (see [Deployment](#deployment)).
 
-There are no automated tests yet, so type-checking and the production build are the only CI gates.
+Unit tests use Vitest (`npm test`) and live next to the code as `*.test.ts` (`*.test.mjs` for the scripts).
 
 Conventions:
 
 - Import from `src/` with the `@/` alias.
 - UI copy is bilingual. Register strings with `registerStrings({ key: { id: '...', en: '...' } })` and read them with `t('key')` from `useI18n()` (`src/lib/i18n.tsx`).
 - Live prices come from the shared `useGoldPrice()` poller; components read from it rather than fetching on their own.
-- `src/data/antam.ts` and `src/data/aiInsight.ts` are rewritten daily by a scheduled job. Keep their exported interfaces (`AntamQuote`, `AiInsight`) unchanged unless you also update that job's prompt, otherwise the next rewrite will break (both files say so in their header comments).
+- `src/content/antam.json` and `src/content/ai-insight.json` are rewritten daily by the content agent. Their format is a contract ([docs/content-pipeline.md](docs/content-pipeline.md), `scripts/content-schema.mjs`); change it only together with the agent's prompt, or the next daily PR will fail validation.
 
 ## Known limitations
 
@@ -230,7 +234,6 @@ Conventions:
 - Price alerts are toast-only, and they are only evaluated while the Dashboard is open in a browser tab (the hook is mounted by `AlertsPanel`).
 - On a first visit, or with sparse ticks, the 1H and 24H charts are synthesized rather than real intraday data (see [How some numbers are derived](#how-some-numbers-are-derived)).
 - Deep links such as `/analisis/some-article` are first answered with HTTP 404 by GitHub Pages and then recovered client-side (the spa-github-pages technique), so crawlers may see a 404.
-- There are no automated tests.
 
 ## Disclaimer
 
