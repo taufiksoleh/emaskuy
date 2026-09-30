@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "priceDate": "2026-09-29",
+  "updatedAt": "2026-09-29T09:00:00+07:00",
+  "source": {
+    "name": "Logam Mulia (dikutip media)",
+    "url": "https://www.logammulia.com/id/harga-emas-hari-ini"
+  },
+  "note": {
+    "id": "Harga Antam 1 gram turun Rp17.000 ke level terendah sejak Januari 2026. Ukuran lain ditampilkan bila sumber menyebutkannya.",
+    "en": "Antam's 1-gram price fell Rp17,000 to its lowest level since January 2026. Other sizes are shown when the source quotes them."
+  },
+  "antam": {
+    "buybackPerGram": 2375000,
+    "sizes": [
+      {
+        "grams": 1,
+        "sell": 2580000
+      }
+    ]
+  },
+  "others": {
+    "galeri24": {
+      "sellPerGram": 2527000,
+      "buybackPerGram": 2379000
+    }
+  },
+  "history": [
+    {
+      "date": "2026-09-16",
+      "sell1g": 2593000,
+      "buyback": null
+    },
+    {
+      "date": "2026-09-23",
+      "sell1g": 2627000,
+      "buyback": null
+    },
+    {
+      "date": "2026-09-26",
+      "sell1g": 2613000,
+      "buyback": null
+    },
+    {
+      "date": "2026-09-28",
+      "sell1g": 2597000,
+      "buyback": null
+    },
+    {
+      "date": "2026-09-29",
+      "sell1g": 2580000,
+      "buyback": 2375000
+    }
+  ]
+}

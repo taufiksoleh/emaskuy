@@ -52,3 +52,8 @@ export function formatClockZone(ts: number, lang: Lang, opts: { tz?: string; sec
   const tz = opts.tz ?? deviceTimeZone();
   return `${formatClock(ts, lang, { ...opts, tz })} ${zoneLabel(tz, ts)}`;
 }
+
+/** Today's date (YYYY-MM-DD) in Jakarta, the reference for daily prices. */
+export function todayInWib(now: number = Date.now()): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Jakarta' }).format(now);
+}

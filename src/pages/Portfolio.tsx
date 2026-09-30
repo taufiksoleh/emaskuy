@@ -14,7 +14,10 @@ import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useRouteMeta } from '@/hooks/useDocumentMeta';
 import { commitHoldings, usePortfolio } from '@/hooks/usePortfolio';
 import { xauUsdToIdrGram, formatIdr, formatNumber, formatDateOnly, formatPct } from '@/lib/gold';
-import { newHoldingId, pureGrams, summarize, type Holding } from '@/lib/portfolio';
+import { hasBuyback, holdingValue, newHoldingId, pureGrams, summarize, type Holding, type Valuation } from '@/lib/portfolio';
+import { buybackPerGramFor, staleness, useAntam } from '@/lib/antam';
+import { readPref, writePref } from '@/lib/preferences';
+import { SegToggle } from '@/components/ui-atoms/SegToggle';
 import { mergeHoldings } from '@/lib/portfolioBackup';
 import { cn, fill } from '@/lib/utils';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
@@ -54,11 +57,20 @@ registerStrings({
     id: '{added} ditambahkan, {updated} diperbarui, {skipped} dilewati',
     en: '{added} added, {updated} updated, {skipped} skipped',
   },
+  'portfolio.valuation': { id: 'Nilai dengan', en: 'Value at' },
+  'portfolio.valuation.spot': { id: 'Harga spot', en: 'Spot price' },
+  'portfolio.valuation.buyback': { id: 'Buyback Antam', en: 'Antam buyback' },
+  'portfolio.valuation.buybackNote': {
+    id: 'Batangan dinilai dengan harga buyback per {date}: harga Galeri24 dan UBS sendiri bila tersedia, merek lain memakai buyback Antam. Perhiasan dan emas digital tetap dengan harga spot.',
+    en: 'Bars are valued at the buyback price as of {date}: Galeri24 and UBS at their own price when available, other brands at the Antam buyback. Jewelry and digital gold stay at spot.',
+  },
   'portfolio.disclaimer': {
     id: 'Data portofolio tersimpan hanya di browser ini (localStorage) dan tidak dikirim ke server mana pun. Nilai dihitung dari harga emas murni spot.',
     en: 'Portfolio data is stored only in this browser (localStorage) and is never sent to any server. Values use the spot price of pure gold.',
   },
 });
+
+const VALUATION_KEY = 'emaskuy.portfolio.valuation';
 
 function StatSkeleton() {
   return (
@@ -78,9 +90,22 @@ export default function PortfolioPage() {
   const holdings = usePortfolio();
   const [editing, setEditing] = useState<Holding | null>(null);
 
+  const antam = useAntam();
+  const [valuation, setValuation] = useState<Valuation>(() => {
+    const saved = readPref(VALUATION_KEY);
+    if (saved === 'spot' || saved === 'buyback') return saved;
+    return staleness(antam).level === 'stale' ? 'spot' : 'buyback';
+  });
+  const chooseValuation = (v: Valuation) => {
+    setValuation(v);
+    writePref(VALUATION_KEY, v);
+  };
+
   const liveIdrGram = gold && gold.price > 0 && usdIdr > 0 ? xauUsdToIdrGram(gold.price, usdIdr) : 0;
+  const valueOf = (h: Holding) => holdingValue(h, valuation, liveIdrGram, buybackPerGramFor(antam, h.type));
   const summary = useMemo(() => summarize(holdings), [holdings]);
-  const currentValue = summary.totalGrams * liveIdrGram;
+  const priced = liveIdrGram > 0 || (valuation === 'buyback' && holdings.every(hasBuyback));
+  const currentValue = priced ? holdings.reduce((sum, h) => sum + valueOf(h), 0) : 0;
   const pnl = currentValue - summary.totalInvested;
   const pnlPct = summary.totalInvested > 0 ? (pnl / summary.totalInvested) * 100 : 0;
   const grams = (g: number) => formatNumber(g, lang, { decimals: 2, minDecimals: 0 });
@@ -153,6 +178,25 @@ export default function PortfolioPage() {
         )}
       </motion.div>
 
+      {/* Valuation basis */}
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <span className="label-micro">{t('portfolio.valuation')}</span>
+        <SegToggle
+          ariaLabel={t('portfolio.valuation')}
+          value={valuation}
+          onChange={chooseValuation}
+          options={[
+            { value: 'buyback', label: t('portfolio.valuation.buyback') },
+            { value: 'spot', label: t('portfolio.valuation.spot') },
+          ]}
+        />
+        {valuation === 'buyback' && (
+          <span className="text-[11px] leading-snug text-t3">
+            {fill(t('portfolio.valuation.buybackNote'), { date: formatDateOnly(antam.priceDate, lang) })}
+          </span>
+        )}
+      </div>
+
       {/* Summary */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {loading ? (
@@ -200,7 +244,8 @@ export default function PortfolioPage() {
           <ul className="flex flex-col divide-y divide-hairline">
             {holdings.map((h) => {
               const pure = pureGrams(h);
-              const value = pure * liveIdrGram;
+              const value = valueOf(h);
+              const valueKnown = liveIdrGram > 0 || (valuation === 'buyback' && hasBuyback(h));
               const invested = h.grams * h.buyPricePerGram;
               const hPnl = value - invested;
               const hPnlPct = invested > 0 ? (hPnl / invested) * 100 : 0;
@@ -224,8 +269,8 @@ export default function PortfolioPage() {
                   {h.note && <div className="min-w-0 flex-1 text-xs text-t2">{h.note}</div>}
                   <div className="ml-auto flex items-center gap-3">
                     <div className="text-right">
-                      <div className="font-mono text-sm tabular text-t1">{liveIdrGram > 0 ? formatIdr(value, lang) : '—'}</div>
-                      {liveIdrGram > 0 && (
+                      <div className="font-mono text-sm tabular text-t1">{valueKnown ? formatIdr(value, lang) : '—'}</div>
+                      {valueKnown && (
                         <div
                           className={cn(
                             'flex items-center justify-end gap-1.5 font-mono text-xs tabular',

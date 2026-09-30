@@ -1,21 +1,34 @@
 /**
  * PriceBasisField — which gold price a calculator uses: the live spot
- * price per gram, or one the user types (e.g. a shop's quote).
+ * price per gram, Antam's selling or buyback price, or one the user types
+ * (e.g. a shop's quote).
  */
 import type { DataStatus } from '@/lib/api';
 import type { CalcCurrency } from '@/lib/calc';
 import { fmtMoney } from '@/lib/calc';
 import type { PriceBasis } from '@/lib/gramPrice';
 import { registerStrings, useI18n } from '@/lib/i18n';
-import { cn } from '@/lib/utils';
+import { useAntam } from '@/lib/antam';
+import { formatDateOnly } from '@/lib/gold';
+import { cn, fill } from '@/lib/utils';
 import { MoneyInput } from '../ui-atoms/MoneyInput';
 import { SegToggle } from '../ui-atoms/SegToggle';
 import { Field } from './Field';
 
 registerStrings({
   'basis.label': { id: 'Harga emas per gram', en: 'Gold price per gram' },
-  'basis.spot': { id: 'Spot live', en: 'Live spot' },
-  'basis.manual': { id: 'Isi sendiri', en: 'Enter price' },
+  'basis.spot': { id: 'Spot', en: 'Spot' },
+  'basis.antam': { id: 'Antam', en: 'Antam' },
+  'basis.buyback': { id: 'Buyback', en: 'Buyback' },
+  'basis.manual': { id: 'Isi sendiri', en: 'Custom' },
+  'basis.antamHelp': {
+    id: 'Harga jual Antam per gram (batangan 1 gram), per {date}.',
+    en: "Antam's selling price per gram (1-gram bar), as of {date}.",
+  },
+  'basis.buybackHelp': {
+    id: 'Harga buyback Antam per gram: yang Anda terima saat menjual kembali, per {date}.',
+    en: "Antam's buyback price per gram, what you get when selling back, as of {date}.",
+  },
   'basis.spotHelp': {
     id: 'Harga emas murni dunia dikonversi ke per gram. Harga toko/Antam biasanya lebih tinggi.',
     en: 'World pure-gold price converted per gram. Shop and Antam prices are usually higher.',
@@ -45,12 +58,15 @@ export function PriceBasisField({
   status: DataStatus;
 }) {
   const { lang, t } = useI18n();
+  const antamDate = formatDateOnly(useAntam().priceDate, lang);
+  const help = {
+    spot: t('basis.spotHelp'),
+    antam: fill(t('basis.antamHelp'), { date: antamDate }),
+    buyback: fill(t('basis.buybackHelp'), { date: antamDate }),
+    manual: t('basis.manualHelp'),
+  }[basis];
   return (
-    <Field
-      label={t('basis.label')}
-      htmlFor={basis === 'manual' ? 'basis-manual' : undefined}
-      help={basis === 'spot' ? t('basis.spotHelp') : t('basis.manualHelp')}
-    >
+    <Field label={t('basis.label')} htmlFor={basis === 'manual' ? 'basis-manual' : undefined} help={help}>
       <SegToggle
         ariaLabel={t('basis.label')}
         className="w-full [&>button]:flex-1"
@@ -58,6 +74,8 @@ export function PriceBasisField({
         onChange={onBasis}
         options={[
           { value: 'spot', label: t('basis.spot') },
+          { value: 'antam', label: t('basis.antam') },
+          { value: 'buyback', label: t('basis.buyback') },
           { value: 'manual', label: t('basis.manual') },
         ]}
       />

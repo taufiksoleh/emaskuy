@@ -8,7 +8,7 @@ export default defineConfig({
     },
   },
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.ts', 'scripts/**/*.test.mjs'],
     environment: 'node',
     // A zone west of UTC surfaces date-only off-by-one bugs.
     env: { TZ: 'America/Los_Angeles' },

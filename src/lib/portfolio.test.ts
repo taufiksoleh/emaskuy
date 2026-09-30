@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  holdingValue,
   LEGACY_PORTFOLIO_KEY,
   PORTFOLIO_KEY,
   loadHoldings,
@@ -91,5 +92,24 @@ describe('summary', () => {
       jewelryGrams: 7.5,
       totalInvested: 25_000_000 + 19_000_000,
     });
+  });
+});
+
+describe('holdingValue', () => {
+  const ring: Holding = { ...bar, id: 'r', type: 'perhiasan', grams: 10, kadarPct: 75 };
+  const digital: Holding = { ...bar, id: 'd', type: 'digital', grams: 2 };
+
+  it('values bars at buyback when chosen', () => {
+    expect(holdingValue(bar, 'buyback', 2_400_000, 2_375_000)).toBe(10 * 2_375_000);
+    expect(holdingValue(bar, 'spot', 2_400_000, 2_375_000)).toBe(10 * 2_400_000);
+  });
+
+  it('keeps jewelry and digital gold at spot × purity', () => {
+    expect(holdingValue(ring, 'buyback', 2_400_000, 2_375_000)).toBe(7.5 * 2_400_000);
+    expect(holdingValue(digital, 'buyback', 2_400_000, 2_375_000)).toBe(2 * 2_400_000);
+  });
+
+  it('falls back to spot without a buyback price', () => {
+    expect(holdingValue(bar, 'buyback', 2_400_000, 0)).toBe(10 * 2_400_000);
   });
 });

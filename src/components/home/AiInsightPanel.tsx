@@ -1,15 +1,15 @@
 /**
- * AI Insight — rangkuman analisis harian yang ditulis AI dari berita pasar
- * hari ini. Membaca dari `src/data/aiInsight.ts` (diperbarui otomatis oleh
- * penjadwal setiap 09.00 WIB). Tampil di beranda setelah ChartPanel.
+ * AI Insight — rangkuman analisis harian yang ditulis AI dari berita pasar.
+ * Membaca dari `src/content/ai-insight.json` (ditulis agen konten, divalidasi
+ * di CI). Tampil di beranda setelah ChartPanel.
  */
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { ExternalLink, Sparkles } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { ageInDays, formatDate } from '@/lib/gold';
 import { formatClockZone } from '@/lib/time';
 import { cn } from '@/lib/utils';
-import { AI_INSIGHT, type InsightSentiment } from '@/data/aiInsight';
+import { useAiInsight, type InsightSentiment } from '@/lib/aiInsight';
 import { Panel } from '../ui-atoms/Panel';
 
 registerStrings({
@@ -21,6 +21,7 @@ registerStrings({
   'ai.sentiment.bearish': { id: 'Bearish', en: 'Bearish' },
   'ai.sentiment.neutral': { id: 'Netral', en: 'Neutral' },
   'ai.sentimentLabel': { id: 'Sentimen', en: 'Sentiment' },
+  'ai.sources': { id: 'Sumber', en: 'Sources' },
   'ai.disclaimer': {
     id: 'Dihasilkan AI dari berita pasar pada tanggal di atas · Bukan saran investasi',
     en: 'AI-generated from market news on the date above · Not investment advice',
@@ -37,7 +38,7 @@ const SENTIMENT_STYLE: Record<InsightSentiment, string> = {
 
 export function AiInsightPanel() {
   const { lang, t } = useI18n();
-  const insight = AI_INSIGHT;
+  const insight = useAiInsight();
   const age = ageInDays(insight.generatedAt);
 
   return (
@@ -94,6 +95,25 @@ export function AiInsightPanel() {
               </motion.li>
             ))}
           </ul>
+          {insight.sources.length > 0 && (
+            <p className="mt-4 text-[11px] leading-relaxed text-t3">
+              {t('ai.sources')}:{' '}
+              {insight.sources.map((s, i) => (
+                <span key={s.url}>
+                  {i > 0 && ' · '}
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 underline decoration-dotted hover:text-gold"
+                  >
+                    {s.title}
+                    <ExternalLink className="h-3 w-3" aria-hidden />
+                  </a>
+                </span>
+              ))}
+            </p>
+          )}
           <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
             {formatDate(insight.generatedAt, lang)},{' '}
             {formatClockZone(insight.generatedAt, lang, { tz: 'Asia/Jakarta' })} · {t('ai.disclaimer')}

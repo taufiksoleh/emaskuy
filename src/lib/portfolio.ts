@@ -97,6 +97,17 @@ export function newHoldingId(): string {
 /** Grams of pure gold in a holding. */
 export const pureGrams = (h: Holding) => (h.grams * h.kadarPct) / 100;
 
+export type Valuation = 'spot' | 'buyback';
+
+/** Bars and coins sell back at the dealer's buyback; jewelry and digital gold don't. */
+export const hasBuyback = (h: Holding) => h.type !== 'perhiasan' && h.type !== 'digital';
+
+/** Current value of a holding at spot or at the buyback price (rupiah per gram). */
+export function holdingValue(h: Holding, valuation: Valuation, spotPerGram: number, buybackPerGram: number): number {
+  const perGram = valuation === 'buyback' && hasBuyback(h) && buybackPerGram > 0 ? buybackPerGram : spotPerGram;
+  return pureGrams(h) * perGram;
+}
+
 export interface PortfolioSummary {
   /** Pure gold across all holdings */
   totalGrams: number;
