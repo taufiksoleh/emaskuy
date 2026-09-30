@@ -30,6 +30,8 @@ export interface MetalQuote {
   change: number;
   /** True when the API itself reported the change (the free tier doesn't). */
   apiChange: boolean;
+  /** When the change is measured from, if not the previous daily close (see useGoldPrice) */
+  changeSince?: number;
   updatedAt: number;
   status: DataStatus;
 }

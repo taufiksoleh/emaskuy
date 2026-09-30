@@ -10,7 +10,7 @@ import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Search, SearchX } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { articlePath } from '@/lib/routes';
-import { sortedArticles, type ArticleCategory } from '@/data/articles';
+import { ARTICLE_CATEGORIES, featuredArticle, sortedArticles, type ArticleCategory } from '@/data/articles';
 import { formatDate } from '@/lib/gold';
 import { ArticleCard } from '@/components/ui-atoms/ArticleCard';
 import { SegToggle } from '@/components/ui-atoms/SegToggle';
@@ -55,7 +55,8 @@ export default function Analysis() {
   }, [rawQuery]);
 
   const all = useMemo(() => sortedArticles(), []);
-  const featured = all[0];
+  const featured = featuredArticle(all) ?? all[0];
+  const categories = ARTICLE_CATEGORIES.filter((c) => all.some((a) => a.category === c));
 
   const filtered = useMemo(
     () =>
@@ -70,7 +71,7 @@ export default function Analysis() {
   );
   // The featured story keeps its own slot when it matches; grid gets the rest.
   const showFeatured = filtered.some((a) => a.slug === featured.slug) && !query;
-  const gridArticles = showFeatured ? filtered.slice(1) : filtered;
+  const gridArticles = showFeatured ? filtered.filter((a) => a.slug !== featured.slug) : filtered;
 
   const featuredRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -129,10 +130,7 @@ export default function Analysis() {
               onChange={setFilter}
               options={[
                 { value: 'all', label: t('ana.all') },
-                { value: 'market', label: t('article.cat.market') },
-                { value: 'macro', label: t('article.cat.macro') },
-                { value: 'strategy', label: t('article.cat.strategy') },
-                { value: 'compare', label: t('article.cat.compare') },
+                ...categories.map((c) => ({ value: c, label: t(`article.cat.${c}`) })),
               ]}
             />
           </div>

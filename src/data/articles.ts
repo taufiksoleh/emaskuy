@@ -19,6 +19,9 @@ registerStrings({
 
 export type ArticleCategory = 'market' | 'macro' | 'strategy' | 'compare' | 'metals';
 
+/** In filter order. */
+export const ARTICLE_CATEGORIES: ArticleCategory[] = ['market', 'macro', 'strategy', 'compare', 'metals'];
+
 /** Which live-data callout panel the reader renders mid-article. */
 export type ArticleCallout = 'rally' | 'rates' | 'dca' | 'reserves' | 'compare' | 'ratio';
 
@@ -31,6 +34,7 @@ export interface ArticleSection {
 export interface Article {
   slug: string;
   category: ArticleCategory;
+  /** Headlines /analisis; at most one article sets it (else the newest leads) */
   featured?: boolean;
   title: { id: string; en: string };
   excerpt: { id: string; en: string };
@@ -43,6 +47,8 @@ export interface Article {
   publishedAt: number; // unix ms
   readMinutes: number;
   author: { id: string; en: string };
+  /** Pages the article's facts come from */
+  sources?: { title: string; url: string }[];
 }
 
 const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
@@ -810,6 +816,11 @@ export const ARTICLES: Article[] = [
 /** Newest first. */
 export function sortedArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => b.publishedAt - a.publishedAt);
+}
+
+/** The article flagged `featured`, else the newest. */
+export function featuredArticle(sorted: Article[]): Article | undefined {
+  return sorted.find((a) => a.featured) ?? sorted[0];
 }
 
 export function getArticle(slug: string): Article | undefined {

@@ -210,6 +210,19 @@ describe('checkArticles', () => {
     ]);
   });
 
+  it('allows one featured article and https sources only', () => {
+    const featured = (slug) => `  {\n    slug: '${slug}',\n    featured: true,\n  },\n`;
+    expect(checkArticles(featured('a'), { publicDir: dir, now }).errors).toEqual([]);
+    expect(checkArticles(featured('a') + featured('b'), { publicDir: dir, now }).errors).toEqual([
+      '2 articles set featured: true; at most one may',
+    ]);
+    const sources = (url) => `    sources: [\n      { title: 'Reuters', url: '${url}' },\n    ],\n`;
+    expect(checkArticles(sources('https://www.reuters.com/markets/'), { publicDir: dir, now }).errors).toEqual([]);
+    expect(checkArticles(sources('reuters.com'), { publicDir: dir, now }).errors).toEqual([
+      "source url 'reuters.com' must be a full https:// address",
+    ]);
+  });
+
   it('rejects invalid and future publish dates', () => {
     const check = (publishedAt) => checkArticles(article({ publishedAt }), { publicDir: dir, now }).errors;
     expect(check('someday')).toEqual(["publishedAt 'someday' is not a date"]);

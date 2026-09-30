@@ -68,6 +68,8 @@ export default defineConfig(({ mode }) => ({
         // latin font subsets are fetched up front, to spare mobile data.
         globPatterns: ["**/*.{js,css}", "assets/*-latin-wght-normal-*.woff2", "index.html", "logo.svg", "icons/*.png"],
         navigateFallback: "index.html",
+        // Opens or focuses the app when a price-alert notification is clicked.
+        importScripts: ["sw-notify.js"],
         navigateFallbackDenylist: [/\.[a-z0-9]+$/i],
         cleanupOutdatedCaches: true,
         runtimeCaching: [

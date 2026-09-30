@@ -29,9 +29,12 @@ import { historyStore } from './useHistory';
 export interface Tick {
   /** unix ms */
   t: number;
-  /** XAU price USD/oz */
+  /** Price, USD/oz */
   p: number;
 }
+
+export type OtherMetal = 'XAG' | 'XPT' | 'XPD';
+export const OTHER_METALS: OtherMetal[] = ['XAG', 'XPT', 'XPD'];
 
 export interface GoldPriceState {
   /** All four metals (XAU, XAG, XPT, XPD) */
@@ -53,8 +56,10 @@ export interface GoldPriceState {
   /** True while a fetch round is in flight */
   refetching: boolean;
   lastUpdated: number;
-  /** Accumulated intraday ticks (localStorage-persisted, ≤24h window) */
+  /** Accumulated intraday gold ticks (localStorage-persisted, ≤24h window) */
   ticks: Tick[];
+  /** The same for silver, platinum and palladium, one per 2 minutes */
+  metalTicks: Record<OtherMetal, Tick[]>;
   /** Trigger a manual refresh round */
   refetch: () => void;
 }
@@ -65,15 +70,29 @@ const FX_REFRESH_MS = 30 * 60 * 1000;
 const TICKS_KEY = 'emaskuy.ticks.xau';
 const TICK_WINDOW_MS = 24 * 60 * 60 * 1000;
 const TICK_MAX = 4000;
+/** Other metals keep a tick per 2 minutes: enough for a day's chart at a fifth of the storage. */
+const METAL_TICK_SPACING_MS = 2 * 60 * 1000;
+const metalTicksKey = (s: OtherMetal) => `emaskuy.ticks.${s.toLowerCase()}`;
 
 /* ---------------------------------------------------------------- */
 /* singleton store                                                   */
 /* ---------------------------------------------------------------- */
 
-function loadTicks(): Tick[] {
-  const parsed = readJson<Tick[]>(TICKS_KEY);
+function loadTicks(key: string = TICKS_KEY): Tick[] {
+  const parsed = readJson<Tick[]>(key);
   const cutoff = Date.now() - TICK_WINDOW_MS;
-  return Array.isArray(parsed) ? parsed.filter((tk) => tk.t > cutoff) : [];
+  return Array.isArray(parsed) ? parsed.filter((tk) => tk && tk.t > cutoff && tk.p > 0) : [];
+}
+
+function loadMetalTicks(): Record<OtherMetal, Tick[]> {
+  return { XAG: loadTicks(metalTicksKey('XAG')), XPT: loadTicks(metalTicksKey('XPT')), XPD: loadTicks(metalTicksKey('XPD')) };
+}
+
+/** `list` plus a tick at `t`, or null when the last one is less than `spacing` older. */
+function withTick(list: Tick[], t: number, p: number, spacing: number): Tick[] | null {
+  const last = list[list.length - 1];
+  if (last && t - last.t < spacing) return null;
+  return [...list, { t, p }].filter((tk) => tk.t > Date.now() - TICK_WINDOW_MS).slice(-TICK_MAX);
 }
 
 function currentPrevClose(): HistoryPoint | null {
@@ -107,6 +126,7 @@ let state: GoldPriceState = {
   refetching: false,
   lastUpdated: 0,
   ticks: loadTicks(),
+  metalTicks: loadMetalTicks(),
   refetch: () => void pollNow(),
 };
 
@@ -156,7 +176,7 @@ function applySessionBaseline(metals: MetalQuote[]): MetalQuote[] {
     const base = sessionBase[m.symbol];
     if (!base) {
       sessionBase[m.symbol] = { p: m.price, at: now };
-      return m;
+      return { ...m, changeSince: now };
     }
     if (base.p <= 0) return m;
     return {
@@ -164,6 +184,7 @@ function applySessionBaseline(metals: MetalQuote[]): MetalQuote[] {
       prevClose: base.p,
       change: m.price - base.p,
       changePct: ((m.price - base.p) / base.p) * 100,
+      changeSince: base.at,
     };
   });
   writeJson(BASE_KEY, sessionBase);
@@ -198,15 +219,21 @@ async function pollNow(): Promise<void> {
     const metals = applyXauChange(applySessionBaseline(metalsRaw), state.prevClose);
     const gold = metals.find((m) => m.symbol === 'XAU') ?? null;
     let ticks = state.ticks;
-    if (gold && gold.price > 0) {
-      const last = ticks[ticks.length - 1];
-      // Append a tick on every poll round (dedupe identical timestamps).
-      if (!last || gold.updatedAt > last.t) {
-        ticks = [...ticks, { t: gold.updatedAt || Date.now(), p: gold.price }].filter(
-          (tk) => tk.t > Date.now() - TICK_WINDOW_MS,
-        );
-        ticks = ticks.slice(-TICK_MAX);
+    if (gold && gold.price > 0 && gold.status === 'live') {
+      // A tick on every poll round (dedupe identical timestamps).
+      const next = withTick(ticks, gold.updatedAt || Date.now(), gold.price, 1);
+      if (next) {
+        ticks = next;
         writeJson(TICKS_KEY, ticks);
+      }
+    }
+    const metalTicks = { ...state.metalTicks };
+    for (const m of metals) {
+      if (m.symbol === 'XAU' || m.price <= 0 || m.status !== 'live') continue;
+      const next = withTick(metalTicks[m.symbol], m.updatedAt || Date.now(), m.price, METAL_TICK_SPACING_MS);
+      if (next) {
+        metalTicks[m.symbol] = next;
+        writeJson(metalTicksKey(m.symbol), next);
       }
     }
     let status: DataStatus = 'live';
@@ -223,6 +250,7 @@ async function pollNow(): Promise<void> {
       refetching: false,
       lastUpdated: Date.now(),
       ticks,
+      metalTicks,
     });
   } catch {
     setState({ loading: false, refetching: false, status: 'offline' });
@@ -231,8 +259,12 @@ async function pollNow(): Promise<void> {
   }
 }
 
-function startTimer() {
-  if (timer === null) timer = setInterval(() => void pollNow(), POLL_INTERVAL_MS);
+/** While price alerts are armed, hidden tabs still check once a minute (browsers allow that). */
+const BACKGROUND_POLL_MS = 60_000;
+let backgroundPolling = false;
+
+function startTimer(ms: number = POLL_INTERVAL_MS) {
+  if (timer === null) timer = setInterval(() => void pollNow(), ms);
 }
 
 function stopTimer() {
@@ -242,14 +274,25 @@ function stopTimer() {
   }
 }
 
-/* Hidden tabs don't poll: saves data quota and battery on phones. */
+/* Hidden tabs don't poll, unless an alert is waiting: saves data quota and battery on phones. */
 function onVisibilityChange() {
+  stopTimer();
   if (document.hidden) {
-    stopTimer();
+    if (backgroundPolling) startTimer(BACKGROUND_POLL_MS);
     return;
   }
   if (Date.now() - state.lastUpdated >= POLL_INTERVAL_MS) void pollNow();
   startTimer();
+}
+
+/** Keep polling (slowly) in a hidden tab, for price alerts. */
+export function setBackgroundPolling(on: boolean): void {
+  if (backgroundPolling === on) return;
+  backgroundPolling = on;
+  if (started && typeof document !== 'undefined' && document.hidden) {
+    stopTimer();
+    if (on) startTimer(BACKGROUND_POLL_MS);
+  }
 }
 
 function ensureStarted() {
@@ -275,6 +318,9 @@ function subscribe(cb: () => void): () => void {
 function getSnapshot(): GoldPriceState {
   return state;
 }
+
+/** For code outside React (the price-alert watcher). Starts the poller. */
+export { subscribe as subscribeGoldPrice, getSnapshot as getGoldPrice };
 
 /** Shared live gold-price hook. One poller app-wide. */
 export function useGoldPrice(): GoldPriceState {

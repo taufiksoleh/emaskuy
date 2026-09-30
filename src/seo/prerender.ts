@@ -16,13 +16,16 @@ import { sortedArticles, type Article } from '@/data/articles';
 import '@/lib/about-strings';
 import { antamData, antamOneGram } from '@/lib/antam';
 import { formatDateOnly, formatIdr, isoDateUtc } from '@/lib/gold';
-import { PAGE_KEYS, articlePath, pathFor, type PageKey } from '@/lib/routes';
+import { METAL_PAGES, PAGE_KEYS, articlePath, metalPath, pathFor, type PageKey } from '@/lib/routes';
 import {
   ROUTE_META,
   SITE_NAME,
   SITE_URL,
   absoluteUrl,
   articleHead,
+  metalHead,
+  metalMeta,
+  metalName,
   routeHead,
   type HeadData,
 } from '@/lib/seo';
@@ -126,14 +129,15 @@ function page(template: string, lang: Lang, head: string, body: string): string 
     .replace('<div id="root"></div>', `<div id="root"><div data-prerender>${body}</div></div>`);
 }
 
-/** Crawlable links to the main pages, and to the same page in the other language. */
-function siteNav(lang: Lang, key: PageKey | null): string {
-  const links = PAGE_KEYS.map(
-    (k) => `<li><a href="${pathFor(k, lang)}">${escapeHtml(ROUTE_META[k].title[lang])}</a></li>`,
-  );
+/** Crawlable links to the main pages, and to this page in the other language. */
+function siteNav(lang: Lang, otherPath: string | null): string {
+  const links = [
+    ...PAGE_KEYS.map((k) => `<li><a href="${pathFor(k, lang)}">${escapeHtml(ROUTE_META[k].title[lang])}</a></li>`),
+    ...METAL_PAGES.map((s) => `<li><a href="${metalPath(s, lang)}">${escapeHtml(metalMeta(s).title[lang])}</a></li>`),
+  ];
   const other: Lang = lang === 'id' ? 'en' : 'id';
-  const switchTo = key
-    ? `<p><a href="${pathFor(key, other)}" hreflang="${other}">${other === 'en' ? 'English' : 'Bahasa Indonesia'}</a></p>`
+  const switchTo = otherPath
+    ? `<p><a href="${otherPath}" hreflang="${other}">${other === 'en' ? 'English' : 'Bahasa Indonesia'}</a></p>`
     : '';
   return `<nav><ul>${links.join('')}</ul></nav>${switchTo}`;
 }
@@ -234,7 +238,7 @@ function homeDescription(lang: Lang): string {
 function routeBody(key: PageKey, articles: Article[], lang: Lang): string {
   const meta = ROUTE_META[key];
   const intro = `<h1>${escapeHtml(meta.title[lang])}</h1><p>${escapeHtml(meta.description[lang])}</p>`;
-  const nav = siteNav(lang, key);
+  const nav = siteNav(lang, pathFor(key, lang === 'id' ? 'en' : 'id'));
   if (key === 'home') {
     return `${intro}<p>${escapeHtml(antamLine(lang))}</p>${nav}<h2>${WORDS[lang].latest}</h2>${articleList(articles.slice(0, 5), lang)}`;
   }
@@ -251,6 +255,12 @@ function routeBody(key: PageKey, articles: Article[], lang: Lang): string {
   return `${intro}${nav}`;
 }
 
+function sourceList(a: Article, lang: Lang): string {
+  if (!a.sources?.length) return '';
+  const items = a.sources.map((s) => `<li><a href="${escapeHtml(s.url)}">${escapeHtml(s.title)}</a></li>`).join('');
+  return `<h2>${lang === 'id' ? 'Sumber' : 'Sources'}</h2><ol>${items}</ol>`;
+}
+
 function articleBody(a: Article, lang: Lang): string {
   const sections = a.sections
     .map(
@@ -262,7 +272,7 @@ function articleBody(a: Article, lang: Lang): string {
   return (
     `<article><h1>${escapeHtml(a.title[lang])}</h1>` +
     `<p>${escapeHtml(`${formatDateOnly(isoDateUtc(a.publishedAt), lang)} · ${a.author[lang]}`)}</p>` +
-    `<p>${escapeHtml(a.excerpt[lang])}</p>${sections}</article>` +
+    `<p>${escapeHtml(a.excerpt[lang])}</p>${sections}${sourceList(a, lang)}</article>` +
     `<p><a href="${pathFor('analysis', lang)}">${WORDS[lang].allAnalysis}</a> · ` +
     `<a href="${articlePath(a.slug, other)}" hreflang="${other}">${escapeHtml(a.title[other])}</a></p>`
   );
@@ -284,6 +294,9 @@ function articleLd(a: Article, h: HeadData): object[] {
       author: { '@type': 'Organization', name: a.author[lang], url: absoluteUrl(pathFor('about', lang)) },
       publisher: ORGANIZATION,
       mainEntityOfPage: h.canonical,
+      ...(a.sources?.length
+        ? { citation: a.sources.map((s) => ({ '@type': 'CreativeWork', name: s.title, url: s.url })) }
+        : {}),
     },
     breadcrumbs([
       [WORDS[lang].home, pathFor('home', lang)],
@@ -302,6 +315,7 @@ function sitemap(articles: Article[]): string {
   const lastmod: Partial<Record<PageKey, string>> = { home: antam.priceDate, analysis: newest };
   const pages = [
     ...PAGE_KEYS.map((key) => ({ path: (l: Lang) => pathFor(key, l), lastmod: lastmod[key] })),
+    ...METAL_PAGES.map((s) => ({ path: (l: Lang) => metalPath(s, l), lastmod: undefined })),
     ...articles.map((a) => ({ path: (l: Lang) => articlePath(a.slug, l), lastmod: isoDateUtc(a.publishedAt) })),
   ];
   const urls = pages.flatMap((p) =>
@@ -368,6 +382,20 @@ export function renderSite({ template, now }: { template: string; now: Date }): 
         file: fileFor(pathFor(key, lang)),
         content: page(template, lang, headTags(h, { ld: routeLd(key, h, articles) }), routeBody(key, articles, lang)),
       });
+    }
+    for (const symbol of METAL_PAGES) {
+      const h = metalHead(symbol, lang);
+      const meta = metalMeta(symbol);
+      const ld = [
+        breadcrumbs([
+          [WORDS[lang].home, pathFor('home', lang)],
+          [metalName(symbol, lang), metalPath(symbol, lang)],
+        ]),
+      ];
+      const body =
+        `<h1>${escapeHtml(meta.title[lang])}</h1><p>${escapeHtml(meta.description[lang])}</p>` +
+        siteNav(lang, metalPath(symbol, lang === 'id' ? 'en' : 'id'));
+      files.push({ file: fileFor(metalPath(symbol, lang)), content: page(template, lang, headTags(h, { ld }), body) });
     }
     for (const a of articles) {
       const h = articleHead(a, lang);

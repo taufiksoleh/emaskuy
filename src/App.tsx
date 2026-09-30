@@ -3,7 +3,7 @@ import { MotionConfig } from 'framer-motion';
 import { Link, Routes, Route, useLocation } from 'react-router';
 import { Toaster } from 'sonner';
 import { I18nProvider, registerStrings, useI18n, type Lang } from '@/lib/i18n';
-import { pathFor, type PageKey } from '@/lib/routes';
+import { METAL_BASE, pathFor, type PageKey } from '@/lib/routes';
 import { ThemeProvider, useTheme } from '@/hooks/useTheme';
 import { Layout } from '@/components/Layout';
 import { AppCrashFallback, ErrorBoundary } from '@/components/ErrorBoundary';
@@ -20,6 +20,7 @@ const ZakatPage = lazy(() => import('@/pages/calculator/Zakat'));
 const PerhiasanPage = lazy(() => import('@/pages/calculator/Perhiasan'));
 const TargetPage = lazy(() => import('@/pages/calculator/Target'));
 const Portfolio = lazy(() => import('@/pages/Portfolio'));
+const MetalPage = lazy(() => import('@/pages/Metal'));
 const About = lazy(() => import('@/pages/About'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -58,6 +59,7 @@ function routesFor(lang: Lang) {
       <Route path={child('calcTarget')} element={<TargetPage />} />
     </Route>,
     <Route key={`${lang}-portfolio`} path={p('portfolio')} element={<Portfolio />} />,
+    <Route key={`${lang}-metal`} path={`${METAL_BASE[lang]}:slug`} element={<MetalPage />} />,
     <Route key={`${lang}-about`} path={p('about')} element={<About />} />,
   ];
 }

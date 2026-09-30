@@ -5,9 +5,11 @@ import '@fontsource-variable/jetbrains-mono/wght.css'
 import '@fontsource-variable/space-grotesk/wght.css'
 import './index.css'
 import App from './App.tsx'
+import { startAlertWatcher } from './hooks/usePriceAlerts'
 import { migrateStorage } from './lib/storage'
 
 migrateStorage()
+startAlertWatcher()
 
 // After a deploy, an open tab can ask for a chunk that no longer exists.
 // Reload once to pick up the new build (guarded against reload loops).

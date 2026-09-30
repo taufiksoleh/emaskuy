@@ -8,7 +8,7 @@
  */
 import type { Article } from '@/data/articles';
 import { ogImagePath } from './img';
-import { PAGE_PATHS, articlePath, isPageKey } from './routes';
+import { PAGE_PATHS, articlePath, isPageKey, metalPath, type MetalPageSymbol } from './routes';
 import type { Lang } from './strings';
 
 export const SITE_NAME = 'EmasKuy';
@@ -168,6 +168,46 @@ export function routeHead(key: RouteKey, lang: Lang): HeadData {
     ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
     ogType: 'website',
     noindex: meta.noindex ?? false,
+  };
+}
+
+const METAL_NAMES: Record<MetalPageSymbol, L10n> = {
+  XAG: { id: 'Perak', en: 'Silver' },
+  XPT: { id: 'Platinum', en: 'Platinum' },
+  XPD: { id: 'Paladium', en: 'Palladium' },
+};
+
+export function metalName(symbol: MetalPageSymbol, lang: Lang): string {
+  return METAL_NAMES[symbol][lang];
+}
+
+export function metalMeta(symbol: MetalPageSymbol): PageMeta {
+  const id = METAL_NAMES[symbol].id.toLowerCase();
+  const en = METAL_NAMES[symbol].en.toLowerCase();
+  return {
+    kind: 'none',
+    title: {
+      id: `Harga ${METAL_NAMES[symbol].id} Hari Ini: Live per Gram & Ons`,
+      en: `${METAL_NAMES[symbol].en} Price Today: Live per Gram & Ounce`,
+    },
+    description: {
+      id: `Harga ${id} (${symbol}) live per gram dan troy ounce dalam rupiah, dolar dan mata uang lain, rasio emas/${id}, dan konverter.`,
+      en: `Live ${en} (${symbol}) price per gram and troy ounce in rupiah, dollars and other currencies, the gold/${en} ratio and a converter.`,
+    },
+  };
+}
+
+export function metalHead(symbol: MetalPageSymbol, lang: Lang): HeadData {
+  const meta = metalMeta(symbol);
+  return {
+    lang,
+    title: fullTitle(meta.title[lang]),
+    description: meta.description[lang],
+    canonical: absoluteUrl(metalPath(symbol, lang)),
+    alternates: { id: absoluteUrl(metalPath(symbol, 'id')), en: absoluteUrl(metalPath(symbol, 'en')) },
+    ogImage: absoluteUrl(DEFAULT_OG_IMAGE),
+    ogType: 'website',
+    noindex: false,
   };
 }
 

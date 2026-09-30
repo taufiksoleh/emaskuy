@@ -134,8 +134,10 @@ Add a new article at the top of `ARTICLES` in `src/data/articles.ts`, following 
 - **`image`:** `withBase('/article-<name>.jpg')`, always wrapped in `withBase`. The file must be a PNG or JPG directly in `public/`, 16:9, at least 1280 px wide and at most 400 KB (JPG suits photos). The build makes the WebP and link-preview copies itself.
 - **`publishedAt`:** `Date.parse('2026-09-30T02:00:00Z')`, not in the future.
 - **`readMinutes`** and **`author`:** `author: TEAM`.
+- **`sources`:** the pages the article's facts come from, as `[{ title, url }]` with full `https://` addresses. They are listed under the article and in its structured data. Every number in the text must come from one of them.
+- **`featured`:** optional, and at most one article may set `featured: true`. That article headlines `/analisis`; without it, the newest article does.
 
-The newest article becomes the featured story on `/analisis`, and every article gets its own prerendered page and an entry in the sitemap and RSS feed. Don't edit older articles, except to fix a factual error.
+Every article gets its own prerendered page in both languages (`/analisis/<slug>` and `/en/analysis/<slug>`) and an entry in the sitemap and both RSS feeds. Don't edit older articles, except to fix a factual error; to move the headline, move the `featured` flag.
 
 ## What CI checks
 
@@ -152,6 +154,7 @@ The newest article becomes the featured story on `/analisis`, and every article 
 | A brand in `others` priced outside 0.8–1.25× the Antam 1 g price, or with buyback not below sell | |
 | `history` not sorted, a date listed twice, or its last entry not matching `priceDate`, the 1 g price and the buyback | |
 | Article image not wrapped in `withBase`, missing, not PNG/JPG, or over 400 KB; a duplicate slug | |
+| More than one `featured: true`, or a source `url` that isn't a full `https://` address | |
 | On a `content/*` branch: a file outside the list above | |
 | On any branch: `package-lock.json` changed without `package.json` | |
 

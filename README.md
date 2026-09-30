@@ -8,88 +8,119 @@
 
 **Live gold price intelligence for Indonesian investors.**
 
-EmasKuy (*emas* is Indonesian for gold) is a real-time gold analysis terminal: live spot prices in USD per troy ounce or Indonesian rupiah (Rp) per gram, interactive charts, market analysis articles, an investment calculator and a portfolio tracker. It runs entirely in the browser, with no backend and no API keys, and is available in Indonesian and English.
+EmasKuy (*emas* is Indonesian for gold) is a real-time gold analysis terminal. It shows live gold prices per gram in rupiah or in any of 15 other currencies, and Antam, Galeri24 and UBS retail prices. It has daily history charts back to 2013, market analysis, gold calculators (investment, zakat, jewelry and savings target), a portfolio tracker and price alerts. It runs entirely in the browser, with no backend and no API keys, in Indonesian and English, and it can be installed as an app.
 
-**Live site: <https://emaskuy.com>**
+**Live site: <https://emaskuy.com>** (English: <https://emaskuy.com/en>)
 
 ## Features
 
-### Dashboard (`/`)
+### Dashboard (`/`, `/en`)
 
-- **Ticker strip** with live spot prices for gold (XAU), silver (XAG), platinum (XPT) and palladium (XPD), plus the USD/IDR rate and gold in Rp/gram.
-- **Hero price panel.** The navbar switches the display unit between USD/oz and Rp/gram.
-- **Interactive price chart** (lightweight-charts): line, area or candlestick over 1H, 24H, 7D, 30D, 90D, 1Y and ALL (daily history back to 2013).
-- **AI Insight:** a daily market sentiment (bullish, bearish or neutral) with three or four short bullets.
-- **Price alerts:** a toast fires when gold crosses a target above or below, in USD/oz or Rp/gram (up to 10 alerts).
-- **Antam prices:** the 1 g price and the buyback price, the sell–buyback spread, the premium over the live spot price (XAU/USD converted to Rp/gram), every bar size the source quotes, Galeri24 and UBS when quoted, and a chart of Antam, buyback and spot. Antam is the Indonesian state-owned miner PT Aneka Tambang, whose gold bars are the most common retail reference price in Indonesia.
-- **Market stats:** 52-week high/low, 30-day volatility, a multi-metal table and a quick converter (g, oz or kg to USD and IDR, and IDR back to grams).
-- Previews of the latest analysis articles.
+- **Ticker strip** with live spot prices:
+  - gold (XAU), silver (XAG), platinum (XPT) and palladium (XPD);
+  - USD/IDR and gold in rupiah per gram;
+  - the visitor's own currency when it is neither, e.g. USD/MYR and XAU/MYR.
+- **Hero price panel** in the display currency and weight, with the 24h change, the range seen today and a 30-day sparkline. It shares to WhatsApp as a text message or an image card.
+- **Currency and weight picker** in the navbar, applied site-wide.
+  - **Currencies:** IDR, USD, MYR, SGD, HKD, JPY, KRW, CNY, THB, PHP, INR, SAR, AED, EUR, GBP and AUD.
+  - **Weights:** gram, troy ounce, kilogram, tola, tael (Hong Kong) or mayam (Aceh, ≈3.33 g).
+  - **Default:** follows the visitor's time zone, else the site language.
+- **Interactive price chart** (lightweight-charts): line, area or candles over 1H, 24H, 7D, 30D, 90D, 1Y and ALL (daily history back to 2013).
+- **AI Insight:** a daily market sentiment with three or four bullets and their sources.
+- **Price alerts** above or below a target, in any currency and weight (up to 10).
+  - Checked on every page while the site is open, including once a minute in a background tab.
+  - Shown as a toast, and as a system notification if allowed.
+- **Antam prices:**
+  - the 1 g and buyback prices, the spread and the premium over spot;
+  - every bar size the source quotes, and Galeri24 and UBS when quoted;
+  - a chart of Antam, buyback and spot.
 
-### Analysis (`/analisis`, `/analisis/:slug`)
+  Antam is the state-owned miner PT Aneka Tambang, whose gold bars are Indonesia's most common retail reference price.
+- **Market stats:** 52-week high/low, 30-day volatility, a metals table and a quick converter.
 
-- Bilingual (ID/EN) market analysis articles, currently 10, with a sticky category filter, live search and a featured story.
-- Article reader with a reading-progress bar, a table of contents with scroll-spy, callouts that show live prices, share buttons (X, copy link, WhatsApp) and related articles.
-- Newsletter sign-up form (see [Known limitations](#known-limitations)).
+### Metal pages (`/logam/perak`, `/en/metals/silver`, …)
 
-### Calculator (`/kalkulator`)
+Silver, platinum and palladium, each with:
+- the live price in the display units, with its change since this browser's first price of the day;
+- a chart of the prices recorded in this browser;
+- gold ratios and a converter.
 
-- Simulates a **lump-sum** purchase or **monthly DCA** (dollar-cost averaging) in IDR or USD over 1 to 30 years, with an assumed growth of 0 to 20 % per year and a dealer buy spread. The buy price defaults to the live gold price per gram.
-- Shows final value, total invested, profit, grams accumulated, effective buy price, a year-by-year table and a projection chart.
-- **Scenario Lab** compares 5 % (conservative), 8 % (moderate) and 12 % (aggressive) growth side by side.
-- Short educational cards. The math is described in [Calculator model](#calculator-model).
+### Analysis (`/analisis`, `/en/analysis`)
 
-### Portfolio (`/portofolio`)
+- **Articles:** bilingual market analysis with a category filter, live search and a featured story.
+- **Reader:** reading progress, a table of contents, live-price callouts, sources, share buttons and related articles.
+- **Newsletter:** sign-up through an email provider when one is configured (see [Getting started](#getting-started)).
 
-- Log gold purchases (grams, buy price per gram in Rp, date, optional note) and see total grams, amount invested, current value and profit/loss.
-- Holdings are valued at the live theoretical spot price (XAU/USD converted to Rp/gram), so the figures don't reflect dealer buyback prices.
-- Data stays in your browser.
+### Calculators (`/kalkulator`, `/en/calculator`)
 
-### About (`/tentang`)
+- **Investment:** a lump-sum or monthly DCA purchase over 1 to 30 years.
+  - Inputs: assumed growth and dealer spread, in the local currency or USD.
+  - Output: a year-by-year table and projection chart, plus a Scenario Lab comparing 5/8/12 % growth.
+- **Zakat** (`/zakat`): nisab 85 g of pure gold and 2.5 % after a lunar year. It covers stored or worn jewelry and shows progress toward the nisab.
+- **Jewelry** (`/perhiasan`, `/jewelry`): the gold value of jewelry by karat or purity, with an estimated resale price.
+- **Target** (`/target`): how much to save each month to own a set amount of gold (dowry, umrah, education, …).
+- **Price basis:** every calculator can use the live spot price, Antam's selling or buyback price, or a typed price.
 
-- Data sources, how prices are calculated, FAQ, disclaimer and contact details.
+### Portfolio (`/portofolio`, `/en/portfolio`)
+
+- **Holdings:** type (Antam, UBS, Galeri24, Lotus Archi, digital, jewelry, other), weight, purity for jewelry, and buy price in any currency.
+- **Totals:** grams, invested, current value and profit/loss in the display currency.
+- **Valuation:** at spot, or at the buyback price (rupiah bars; Galeri24 and UBS at their own quote when available).
+- **Backup:** export JSON and CSV (Excel-friendly in Indonesian), import with merge, and a hand-off to the zakat calculator.
+- **Privacy:** data stays in the browser.
 
 ### Across the app
 
-- **Bilingual UI** (Indonesian and English). It defaults to Indonesian unless the browser language starts with `en`, and remembers your choice.
-- **Dark theme by default**, with a light theme toggle.
-- **Data status** badges (`LIVE`, `CACHE`, `OFFLINE`) and an offline banner. When the APIs are unreachable the app falls back to the last data saved in localStorage.
-- Responsive layout, with a bottom navigation bar on small screens.
+- **Two languages, two sets of URLs.**
+  - Indonesian at the root and English under `/en`; the language toggle moves to the same page in the other language.
+  - A visitor whose browser prefers the other language gets an offer, never a redirect.
+- **Every page is prerendered** with its own title, description, canonical, hreflang, link preview and structured data, so it is indexable and previews well on WhatsApp.
+- **Installable (PWA):** works offline with the last saved prices.
+- **Theme:** dark by default, with a light theme.
+- **Data status:** `LIVE`, `CACHE` and `OFFLINE` badges.
 
 ## Tech stack
 
 | Area | Choice |
 | --- | --- |
 | Framework | React 19, TypeScript ~5.9 (strict), Vite 7 |
-| Routing | react-router 7, declarative `<BrowserRouter basename>` + `<Routes>` |
-| Styling | Tailwind CSS 3.4 with CSS-variable design tokens (`src/index.css`); dark by default, light via `data-theme` on `<html>` |
-| Charts | lightweight-charts for the price chart; hand-drawn SVG for the calculator charts |
-| Motion | framer-motion; GSAP + ScrollTrigger and Lenis (smooth scroll) on the Article and About pages |
-| UI | The app's own primitives in `src/components/ui-atoms/`, lucide-react icons, sonner toasts. `src/components/ui/` is a shadcn/ui scaffold of which only Slider and Accordion are used |
-| Fonts | Space Grotesk (display), JetBrains Mono (numbers), Inter (body), loaded from Google Fonts |
-| Tooling | ESLint 9 (flat config, typescript-eslint, react-hooks, react-refresh) and strict `tsc -b` |
-| Hosting | GitHub Pages via GitHub Actions, on the custom domain emaskuy.com |
+| Routing | react-router 7 (`<BrowserRouter>`); routes for both languages come from `src/lib/routes.ts` |
+| Styling | Tailwind CSS 3.4 with CSS-variable design tokens (`src/index.css`) |
+| Charts | lightweight-charts for the price chart; hand-drawn SVG elsewhere |
+| Motion | framer-motion; GSAP + ScrollTrigger and Lenis on the Article and About pages |
+| UI | The app's own primitives in `src/components/ui-atoms/`, Radix Dialog/Accordion/Slider in `src/components/ui/`, lucide-react icons, sonner toasts |
+| Fonts | Space Grotesk, JetBrains Mono and Inter, self-hosted with @fontsource-variable |
+| PWA | vite-plugin-pwa (Workbox) |
+| SEO | Build-time prerender of every page in both languages (`vite/seo-prerender.ts`, `src/seo/prerender.ts`), sitemap and RSS |
+| Tests | Vitest |
+| Hosting | GitHub Pages via GitHub Actions, on emaskuy.com |
 
 ## Getting started
 
-**Prerequisites:** Node.js 20.19+ or 22.12+ (required by Vite 7) and npm. CI runs on Node 20.
+**Prerequisites:** Node.js 22 (as in CI; Vite 7 needs 20.19+ or 22.12+) and npm.
 
 ```bash
 git clone https://github.com/taufiksoleh/emaskuy.git
 cd emaskuy
-npm ci          # or: npm install
-npm run dev     # http://localhost:3000 (Vite uses the next free port if 3000 is taken)
+npm ci
+npm run dev     # http://localhost:3000
 ```
 
-No `.env` file or API key is needed: every data source is a public API called straight from the browser.
+No API key is needed: every data source is a public API called from the browser. Two optional features read environment variables (see `.env.example`; in production they come from repository variables):
+- **Newsletter:** `VITE_NEWSLETTER_ACTION`, `VITE_NEWSLETTER_EMAIL_FIELD` and `VITE_NEWSLETTER_EXTRA` post the form to Buttondown, Kit or MailerLite. Without them the form is hidden.
+- **Analytics:** `VITE_CF_BEACON_TOKEN` adds cookieless Cloudflare Web Analytics.
 
 | Script | What it does |
 | --- | --- |
-| `npm run dev` | Starts the Vite dev server on port 3000 with hot reload |
-| `npm run build` | Type-checks (`tsc -b`) and builds the production bundle into `dist/` |
+| `npm run dev` | Dev server on port 3000 (makes the WebP image copies first) |
+| `npm run build` | Type-checks (`tsc -b`), bundles, and prerenders every page into `dist/` |
 | `npm run preview` | Serves the production build locally |
-| `npm run lint` | Runs ESLint on the repo |
+| `npm test` | Unit tests (Vitest) |
+| `npm run lint` | ESLint |
+| `npm run validate:content` | Checks the daily content files (see [docs/content-pipeline.md](docs/content-pipeline.md)) |
+| `node scripts/verify-dist.mjs` | Checks the built site: one title per page, canonical/hreflang/og tags, JSON-LD, sitemap, feeds |
 
-The `@` import alias points to `src/` (for example `import { cn } from '@/lib/utils'`).
+The `@` import alias points to `src/`.
 
 ## Data sources and how it works
 
@@ -97,16 +128,19 @@ The `@` import alias points to `src/` (for example `import { cn } from '@/lib/ut
 
 | Source | Endpoint | Used for |
 | --- | --- | --- |
-| gold-api.com | `https://api.gold-api.com/price/{symbol}` for `XAU`, `XAG`, `XPT`, `XPD` | Spot prices in USD per troy ounce |
-| Frankfurter | `https://api.frankfurter.dev/v1/latest?base=USD&symbols=IDR` | USD to IDR rate (European Central Bank reference data, published daily) |
-| NBP | `https://api.nbp.pl/api/cenyzlota/...` | Daily gold fixing in PLN per gram from the National Bank of Poland, back to 2013-01-02; the basis of the 7D to ALL chart history |
+| gold-api.com | `https://api.gold-api.com/price/{XAU,XAG,XPT,XPD}` | Live spot prices in USD per troy ounce |
+| Frankfurter | `https://api.frankfurter.dev/v1/…?base=USD` | ECB reference rates for 13 currencies over the last ten days (one request), and daily series per currency for the charts |
+| NBP | `https://api.nbp.pl/api/cenyzlota/…` | Daily gold fixings in PLN per gram from the National Bank of Poland, back to 2013 |
 
-All requests are plain `fetch` calls from the browser (9 s timeout, no retries, no keys). One shared poller, `useGoldPrice` in `src/hooks/useGoldPrice.ts`, refreshes the four metals and the USD/IDR rate every 30 seconds, and components read from it instead of fetching on their own. NBP history is fetched separately, per chart range.
+All requests are plain `fetch` calls from the browser (9 s timeout, no keys).
+- **Live prices:** one shared poller, `useGoldPrice`, refreshes the metals every 30 seconds and the rates every 30 minutes. Components read from it.
+- **Paused polling:** it stops in a hidden tab unless a price alert is armed; then it checks once a minute.
+- **History:** loaded per chart range and cached.
 
 ```text
-gold-api.com  (4 metals) ─┐  every 30 s
-Frankfurter   (USD/IDR)  ─┴─▶ useGoldPrice ─▶ ticker, hero, alerts, Antam panel, calculator, portfolio
-NBP           (daily)     ──▶ useHistory ─▶ chart history, stats
+gold-api.com (4 metals) ─┐ every 30 s
+Frankfurter  (rates)    ─┴─▶ useGoldPrice ─▶ ticker, hero, alerts, calculators, portfolio, metal pages
+NBP + Frankfurter (daily) ──▶ useHistory / useDisplayHistory ─▶ charts, stats
 src/content/*.json        ──▶ AI Insight, Antam prices   (written daily by the content agent)
 src/data/articles.ts      ──▶ articles
 ```
@@ -114,28 +148,32 @@ src/data/articles.ts      ──▶ articles
 ### Conversion
 
 ```text
-Rp/gram = USD/oz ÷ 31.1034768 × USD/IDR      # 1 troy ounce = 31.1034768 g
+price per weight = USD/oz ÷ 31.1034768 × grams per unit × units of currency per USD
 ```
+
+SAR and AED use their official dollar pegs (3.75 and 3.6725); the other currencies use ECB reference rates.
+
+### How some numbers are derived
+
+- **Price history.** Each NBP fixing (PLN per gram) is converted with the same day's ECB rate. Every point is a real price in its own day's money. Other currencies use their own daily series.
+- **24h change.**
+  - gold-api.com's free tier has no previous close, so gold's change is measured against the previous NBP close, valued at that day's rate in the display currency.
+  - Silver, platinum and palladium show the change since this browser first saw a price (kept up to 26 hours).
+- **1H and 24H chart.** Only prices this browser actually recorded. A fresh browser shows "collecting" until there are two points; candles exist only for these ranges.
 
 ### Status and fallback
 
-Every fetch reports `live`, `cached` or `offline` (`src/lib/api.ts`). If a request fails, the last successful response is read back from localStorage and shown as `CACHE`; with no cache the value is zero and shown as `OFFLINE`. There are no mock or placeholder prices.
+Every fetch reports `live`, `cached` or `offline`. A failed request falls back to the last good response in localStorage (`CACHE`); with nothing cached the value shows `OFFLINE`. There are no placeholder prices.
 
 ### What is live and what is static
 
 | Data | Kind | Notes |
 | --- | --- | --- |
-| Metal spot prices, USD/IDR, Rp/gram | Live | Refreshed every 30 s |
-| Price history (7D to ALL) | Live, derived | NBP daily fixings rescaled to the live XAU/USD price (see below) |
-| AI Insight (`src/content/ai-insight.json`) | Static file | Written every day by an AI content agent that runs outside this repo, through a pull request checked in CI ([docs/content-pipeline.md](docs/content-pipeline.md)); no model is called at runtime |
-| Antam prices (`src/content/antam.json`) | Static file | Updated by the same agent: bar prices by size, buyback per gram, optional Galeri24 and UBS quotes, and a daily history |
+| Metal prices and exchange rates | Live | Every 30 s (rates every 30 min) |
+| Price history | Live, derived | NBP fixings at the same day's rate |
+| AI Insight (`src/content/ai-insight.json`) | Static file | Written daily by an AI content agent outside this repo, through a pull request checked in CI ([docs/content-pipeline.md](docs/content-pipeline.md)); no model runs on the site |
+| Antam prices (`src/content/antam.json`) | Static file | Same agent: bar prices by size, buyback, optional Galeri24/UBS quotes and a daily history |
 | Articles (`src/data/articles.ts`) | Static | Bilingual; added by the agent or through commits |
-
-### How some numbers are derived
-
-- **24 h change.** gold-api.com's free tier omits the previous close, so when no change is reported the gold change is derived from the last two NBP fixings. The other metals show the change since this browser first saw a price (a session baseline kept for up to 26 hours).
-- **Price history.** NBP publishes PLN per gram. The series is multiplied by a single constant so that its last point equals the live XAU/USD price (`normalizeNbp` in `src/lib/api.ts`). The shape of the curve is faithful, but absolute historical levels are approximate because they embed USD/PLN movements.
-- **1H and 24H chart.** Built from the price ticks this browser has collected in localStorage (at least 10 points for 1H, 16 for 24H). On a first visit, or when ticks are sparse, a deterministic pseudo-random path from the last NBP close to the live price is drawn instead (`src/components/home/ChartPanel.tsx`). Candlesticks are bucketed from the line series for every range, so they are not exchange OHLC data.
 
 ## Calculator model
 
@@ -148,92 +186,92 @@ grams    += contribution ÷ (price(m) × (1 + spread))      grams bought that mo
 value(m)  = grams × price(m)                              portfolio value at month m
 ```
 
-The initial amount is invested at month 0 in both modes; DCA additionally invests the monthly amount every month through the end. Assumptions: growth is constant and deterministic, the spread is charged on purchase only, the final value is marked at spot (no sell-side spread or buyback discount), and inflation and taxes are ignored.
+The initial amount is invested at month 0 in both modes; DCA also invests the monthly amount every month. Growth is constant, the spread is charged on purchase only, the final value is marked at the chosen price basis, and inflation and taxes are ignored. The zakat, jewelry and target formulas are in `src/lib/{zakat,jewelry,target}.ts`.
 
 ## Browser storage and privacy
 
-There is no backend. Everything the app remembers lives in your browser's localStorage:
+There is no backend and no account. The app keeps these in localStorage:
 
 | Key | Contents |
 | --- | --- |
-| `emaskuy.lang` | UI language (`id` or `en`) |
-| `emaskuy.unit` | Price display unit (`usd-oz` or `idr-gr`) |
+| `emaskuy.display.v1` | Display currency and weight |
+| `emaskuy.lang` | Language choice (the page language comes from the URL) |
 | `emaskuy.theme` | `dark` or `light` |
-| `emaskuy.portfolio` | Portfolio holdings |
-| `emaskuy.alerts` | Price alerts (up to 10) |
-| `emaskuy.newsletter` | The email typed into the newsletter form (never sent anywhere) |
-| `emaskuy.ticks.xau` | Gold price ticks from the last 24 h; feeds the 1H/24H chart |
-| `emaskuy.sessionbase` | Baseline prices used for the 24 h change of the non-gold metals |
-| `emaskuy.cache.*` | Last successful API responses, used as the offline fallback |
+| `emaskuy.portfolio.v2` | Portfolio holdings |
+| `emaskuy.portfolio.valuation` | `spot` or `buyback` |
+| `emaskuy.alerts.v2` | Price alerts |
+| `emaskuy.ticks.{xau,xag,xpt,xpd}` | Prices recorded in the last 24 h (charts) |
+| `emaskuy.sessionbase` | First prices seen, for the non-gold metals' change |
+| `emaskuy.cache.*` | Last good API responses and history, for offline use |
+| `emaskuy.storage.v` | Storage migration version |
 
-The only third-party requests are the three APIs above and Google Fonts. The code contains no analytics or trackers.
+Older keys (`emaskuy.unit`, `emaskuy.alerts`, `emaskuy.portfolio`) are migrated on first load and left in place.
+
+**Outside requests.** Apart from the three APIs above, the browser only contacts:
+- the newsletter provider, when someone submits the form;
+- Cloudflare Web Analytics, if configured (cookieless).
+
+The site uses no trackers or cookies.
 
 ## Project structure
 
 ```text
 .
-├── .github/workflows/
-│   ├── deploy-pages.yml     # build and deploy to GitHub Pages on push to main
-│   └── pr-check.yml         # lint (non-blocking), content validation, tests, typecheck/build on pull requests
-├── docs/content-pipeline.md # contract for the daily content agent
-├── scripts/                 # build helpers and the content validator (validate-content.mjs)
-├── public/                  # copied as-is into dist/: CNAME, 404.html, logos, OG cover, hero and article images
+├── .github/workflows/        # deploy-pages.yml (main → GitHub Pages), pr-check.yml (every PR)
+├── docs/content-pipeline.md  # contract for the daily content agent
+├── scripts/                  # images.mjs (WebP/OG copies), verify-dist.mjs, validate-content.mjs, content-schema.mjs, gen-icons.mjs
+├── vite/seo-prerender.ts     # build step that writes the prerendered pages
+├── public/                   # copied into dist/: CNAME, 404.html, icons, images, sw-notify.js
 ├── src/
-│   ├── main.tsx             # entry point: BrowserRouter with basename = Vite BASE_URL
-│   ├── App.tsx              # i18n + theme providers, Layout, route table, toaster
-│   ├── index.css            # design tokens (CSS variables), global styles
-│   ├── pages/               # Home, Analysis, Article, Calculator, Portfolio, About
-│   ├── components/
-│   │   ├── home/            # dashboard sections: ticker, hero, chart, AI insight, alerts, Antam, stats
-│   │   ├── analysis/        # newsletter form and live-price widgets used by the analysis pages
-│   │   ├── calculator/      # inputs, results, projection and scenario charts, Scenario Lab
-│   │   ├── about/           # data sources, methodology, FAQ, disclaimer
-│   │   ├── ui-atoms/        # the app's own primitives (Panel, StatCard, Badge, Sparkline, ...)
-│   │   ├── ui/              # shadcn/ui scaffold (only Slider and Accordion are used)
-│   │   └── Layout.tsx, Navbar.tsx, Footer.tsx
-│   ├── hooks/               # useGoldPrice (shared poller), useHistory, usePriceAlerts, useTheme
-│   ├── lib/                 # api (fetch + cache), gold (units, formatters), calc, portfolio, alerts, i18n
-│   ├── content/             # antam.json, ai-insight.json: written daily by the content agent
-│   └── data/                # articles
-├── index.html               # entry HTML: fonts, theme bootstrap, SPA redirect restore
-├── vite.config.ts           # base '/', dev server on port 3000, '@' alias for src/
-└── tailwind.config.js, eslint.config.js, tsconfig*.json, components.json
+│   ├── main.tsx              # entry: router, storage migration, alert watcher
+│   ├── App.tsx               # providers, layout, routes for both languages
+│   ├── pages/                # Home, Analysis, Article, Calculator + calculator/*, Portfolio, Metal, About, NotFound
+│   ├── components/           # home/, analysis/, calculator/, portfolio/, share/, about/, ui-atoms/, ui/, Navbar, Footer, DisplayPicker
+│   ├── hooks/                # useGoldPrice (poller), useHistory, useDisplay, usePriceAlerts, usePortfolio, …
+│   ├── lib/                  # api, money, history, routes, seo, i18n, calc, zakat, portfolio, alerts, antam, …
+│   ├── seo/prerender.ts      # prerendered HTML, sitemap, RSS
+│   ├── content/              # antam.json, ai-insight.json (daily)
+│   └── data/                 # articles
+├── index.html
+└── vite.config.ts, tailwind.config.js, eslint.config.js, vitest.config.ts, tsconfig*.json
 ```
 
 ## Deployment
 
-Pushes to `main` deploy automatically to GitHub Pages through `.github/workflows/deploy-pages.yml`. The workflow can also be run manually (`workflow_dispatch`).
+Pushes to `main` deploy to GitHub Pages through `.github/workflows/deploy-pages.yml` (also runnable by hand).
 
 ```text
-push to main ─▶ npm ci ─▶ npm run build ─▶ upload dist/ ─▶ GitHub Pages ─▶ https://emaskuy.com
+push to main ─▶ npm ci ─▶ validate:content ─▶ npm test ─▶ npm run build ─▶ verify-dist ─▶ GitHub Pages
 ```
 
-- **One-time setup:** in the repository settings, set Pages → Build and deployment → Source to **GitHub Actions**.
-- **Custom domain:** `public/CNAME` contains `emaskuy.com` and is copied into `dist/` on every build.
-- **SPA routing:** GitHub Pages has no server-side rewrites, so unknown paths are served `public/404.html`, which redirects `/analisis/some-article` to `/?/analisis/some-article`. An inline script in `index.html` restores the real URL with `history.replaceState` before React mounts ([spa-github-pages](https://github.com/rafgraph/spa-github-pages)). `pathSegmentsToKeep` is `0` in `public/404.html` because the custom domain serves the app from the root.
-- **Base path:** `vite.config.ts` sets `base: '/'`. The router `basename` (`src/main.tsx`) and the `withBase()` helper (`src/lib/utils.ts`) both read Vite's `BASE_URL`, so links and `public/` asset paths keep working if the app is ever served from a sub-path. To host it at `https://taufiksoleh.github.io/emaskuy/`, set `base: '/emaskuy/'`, set `pathSegmentsToKeep = 1` in `public/404.html`, and drop `public/CNAME`.
+- **One-time setup:** Settings → Pages → Source: **GitHub Actions**.
+- **Custom domain:** `public/CNAME` (`emaskuy.com`) is copied into every build.
+- **Routing:**
+  - Every page is a prerendered file: `/kalkulator` is served from `kalkulator.html` and `/en/calculator` from `en/calculator.html`, both with HTTP 200.
+  - Only unknown URLs get `public/404.html`, which hands them to the app to show its "not found" page.
+  - A folder must not get its own `index.html`, or GitHub Pages would redirect `/kalkulator` to `/kalkulator/`; `verify-dist` checks this.
+- **PWA:** the service worker updates itself on the next navigation after a deploy.
+- **Base path:** `base: '/'` in `vite.config.ts`; the router basename and `withBase()` read Vite's `BASE_URL`.
 
 ## Development workflow
 
-1. Create a branch and open a pull request against `main`.
-2. The **PR Check** workflow (`.github/workflows/pr-check.yml`) runs `npm ci`, `npm run lint`, `npm run validate:content`, `npm test` and `npm run build`. Lint results are reported but don't block the PR (there is pre-existing lint debt); everything else must pass. The build runs a strict `tsc -b` (unused locals and parameters are errors) followed by the Vite bundle.
-3. Merging to `main` deploys to production (see [Deployment](#deployment)).
-
-Unit tests use Vitest (`npm test`) and live next to the code as `*.test.ts` (`*.test.mjs` for the scripts).
+1. Create a branch and open a pull request.
+2. **PR Check** runs `npm ci`, `npm run lint`, `npm run validate:content`, `npm test`, `npm run build` and `node scripts/verify-dist.mjs`. Lint is reported but doesn't block (there is pre-existing lint debt); everything else must pass. It also runs for PRs stacked on another PR's branch.
+3. Merging to `main` deploys.
 
 Conventions:
 
-- Import from `src/` with the `@/` alias.
-- UI copy is bilingual. Register strings with `registerStrings({ key: { id: '...', en: '...' } })` and read them with `t('key')` from `useI18n()` (`src/lib/i18n.tsx`).
-- Live prices come from the shared `useGoldPrice()` poller; components read from it rather than fetching on their own.
-- `src/content/antam.json` and `src/content/ai-insight.json` are rewritten daily by the content agent. Their format is a contract ([docs/content-pipeline.md](docs/content-pipeline.md), `scripts/content-schema.mjs`); change it only together with the agent's prompt, or the next daily PR will fail validation.
+- **Imports:** from `src/` with the `@/` alias.
+- **Copy:** bilingual. Register strings with `registerStrings({ key: { id, en } })` and read them with `t('key')` from `useI18n()`.
+- **Links:** built with `pathFor()`, `articlePath()` or `metalPath()` from `src/lib/routes.ts`, so they stay in the current language.
+- **Prices:** come from `useGoldPrice()`; show them with `useDisplay()` (the visitor's currency and weight).
+- **Content files:** `src/content/*.json` follow a contract ([docs/content-pipeline.md](docs/content-pipeline.md), `scripts/content-schema.mjs`). Change it only together with the content agent's prompt.
 
 ## Known limitations
 
-- The newsletter form only saves the email to localStorage; it isn't connected to an email service yet.
-- Price alerts are toast-only, and they are only evaluated while the Dashboard is open in a browser tab (the hook is mounted by `AlertsPanel`).
-- On a first visit, or with sparse ticks, the 1H and 24H charts are synthesized rather than real intraday data (see [How some numbers are derived](#how-some-numbers-are-derived)).
-- Deep links such as `/analisis/some-article` are first answered with HTTP 404 by GitHub Pages and then recovered client-side (the spa-github-pages technique), so crawlers may see a 404.
+- **Alerts** only run while an EmasKuy tab is open; there is no push server. On iPhone and iPad, notifications need the app installed to the Home Screen (iOS 16.4+).
+- **Charts:** the 1H and 24H charts, and the metal pages' charts, only show prices recorded in this browser. The free price API has no intraday or long history for these.
+- **Rates:** exchange rates are ECB reference rates, published once per business day. TWD isn't covered.
 
 ## Disclaimer
 

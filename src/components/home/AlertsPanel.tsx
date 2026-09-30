@@ -22,7 +22,7 @@ import { CURRENCY, formatMoney, unitLabel } from '@/lib/money';
 import { fill } from '@/lib/utils';
 import { useDisplay } from '@/hooks/useDisplay';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
-import { usePriceAlerts } from '@/hooks/usePriceAlerts';
+import { requestAlertNotifications, usePriceAlerts } from '@/hooks/usePriceAlerts';
 import { MoneyInput } from '../ui-atoms/MoneyInput';
 import { Panel } from '../ui-atoms/Panel';
 import { SegToggle } from '../ui-atoms/SegToggle';
@@ -45,8 +45,12 @@ registerStrings({
   'alerts.status.waiting': { id: 'menunggu', en: 'waiting' },
   'alerts.maxReached': { id: 'Maks. 10 alert', en: 'Max 10 alerts' },
   'alerts.footer': {
-    id: 'Alert disimpan di browser ini dan diperiksa terhadap harga live setiap 30 detik selama halaman ini terbuka dan terlihat.',
-    en: 'Alerts are stored in this browser and checked against the live price every 30 seconds while this page is open and visible.',
+    id: 'Alert disimpan di browser ini dan diperiksa selama EmasKuy terbuka, di halaman mana pun, tiap 30 detik (tiap menit bila tab di latar belakang). Izinkan notifikasi untuk diberi tahu saat tab tidak terlihat; di iPhone/iPad, pasang EmasKuy ke Layar Utama dulu (iOS 16.4+). Alert tidak berjalan bila semua tab EmasKuy ditutup.',
+    en: 'Alerts are stored in this browser and checked while EmasKuy is open, on any page, every 30 seconds (every minute in a background tab). Allow notifications to hear about them when the tab is hidden; on iPhone/iPad, add EmasKuy to the Home Screen first (iOS 16.4+). Alerts do not run once every EmasKuy tab is closed.',
+  },
+  'alerts.notifyBlocked': {
+    id: 'Notifikasi diblokir di browser ini; alert hanya muncul di halaman.',
+    en: 'Notifications are blocked in this browser; alerts only show on the page.',
   },
 });
 
@@ -70,6 +74,7 @@ export function AlertsPanel() {
 
   const onAdd = () => {
     if (!canAdd) return;
+    requestAlertNotifications();
     const alert: PriceAlert = {
       id: `a-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
       metal: 'XAU',
@@ -216,6 +221,9 @@ export function AlertsPanel() {
 
           <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
             {t('alerts.footer')}
+            {typeof Notification !== 'undefined' && Notification.permission === 'denied' && (
+              <span className="mt-1 block text-down">{t('alerts.notifyBlocked')}</span>
+            )}
           </p>
         </Panel>
       </motion.div>
