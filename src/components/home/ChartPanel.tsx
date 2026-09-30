@@ -32,7 +32,8 @@ import { useGoldPrice } from '@/hooks/useGoldPrice';
 import { useHistory } from '@/hooks/useHistory';
 import { unitValue } from '@/lib/history';
 import { toCandles, mergeTick, type Candle, type Pt } from '@/lib/chartData';
-import { TROY_OZ_GRAMS, formatIdr, formatTimeLocal, formatUsd, type Unit } from '@/lib/gold';
+import { TROY_OZ_GRAMS, formatIdr, formatUsd, type Unit } from '@/lib/gold';
+import { formatClockZone } from '@/lib/time';
 import { cn, fill } from '@/lib/utils';
 import { Badge } from '../ui-atoms/Badge';
 import { SegToggle } from '../ui-atoms/SegToggle';
@@ -506,7 +507,7 @@ export function ChartPanel() {
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-bg1/90 px-6 text-center">
           <p className="max-w-md text-sm leading-relaxed text-t2">
             {fill(t('home.chart.collecting'), { n: windowTicks.length })}
-            {firstTick && <> ({fill(t('home.chart.collectingSince'), { time: formatTimeLocal(firstTick.t).slice(0, 5) })})</>}
+            {firstTick && <> ({fill(t('home.chart.collectingSince'), { time: formatClockZone(firstTick.t, lang) })})</>}
           </p>
           <button
             onClick={() => setTf('30D')}

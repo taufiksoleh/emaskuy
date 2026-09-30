@@ -2,7 +2,7 @@
  * StatCard — label + Data-LG value + delta chip + optional sparkline
  * (design.md §9). Value counts up from 0 on first paint (900ms easeOutExpo).
  */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 import { DeltaChip } from './DeltaChip';
 
@@ -21,6 +21,8 @@ export interface StatCardProps {
   className?: string;
   /** Skip the initial count-up (e.g. prefers-reduced-motion handled internally) */
   disableCountUp?: boolean;
+  /** Value text color, e.g. var(--up) for a gain */
+  valueColor?: string;
 }
 
 function easeOutExpo(x: number): number {
@@ -67,19 +69,27 @@ export function StatCard({
   sparkline,
   className,
   disableCountUp,
+  valueColor,
 }: StatCardProps) {
   const shown = useCountUp(value, 900, disableCountUp);
+  // Size the value from its final length so long rupiah amounts shrink to
+  // the card width (cqi) instead of wrapping mid-number; short values keep
+  // the full size. Mono digits are ~0.62em wide.
+  const fit = { '--fit': `calc(100cqi / ${Math.max(4, format(value).length) * 0.62})` } as CSSProperties;
   return (
     <div
       className={cn(
-        'rounded-[10px] border border-hairline bg-bg1 p-4 transition-[border-color,background-color] duration-150 hover:border-goldline hover:bg-bg2 md:p-5',
+        'rounded-[10px] border border-hairline bg-bg1 p-4 transition-[border-color,background-color] duration-150 [container-type:inline-size] hover:border-goldline hover:bg-bg2 md:p-5',
         className,
       )}
     >
       <div className="label-micro">{label}</div>
       <div className="mt-2 flex items-end justify-between gap-3">
         <div className="min-w-0">
-          <div className="break-all font-mono text-[20px] font-semibold leading-[1.1] tabular text-t1 sm:text-[24px] md:text-[28px]">
+          <div
+            className="break-all font-mono text-[length:min(20px,var(--fit))] font-semibold leading-[1.1] tabular text-t1 sm:text-[length:min(24px,var(--fit))] md:text-[length:min(28px,var(--fit))]"
+            style={{ ...fit, color: valueColor }}
+          >
             {format(shown)}
           </div>
           <div className="mt-1.5 flex flex-wrap items-center gap-2">

@@ -103,21 +103,6 @@ function YearTable({ result, currency }: { result: CalcResult; currency: CalcCur
   );
 }
 
-function ProfitCard({ label, value, format }: { label: string; value: number; format: (v: number) => string }) {
-  const shown = useCountUp(value, 900);
-  return (
-    <div className="rounded-[10px] border border-hairline bg-bg1 p-4 transition-[border-color,background-color] duration-150 hover:border-goldline hover:bg-bg2 md:p-5">
-      <div className="label-micro">{label}</div>
-      <div
-        className="mt-2 break-all font-mono text-[20px] font-semibold leading-[1.1] tabular sm:text-[24px] md:text-[28px]"
-        style={{ color: value >= 0 ? 'var(--up)' : 'var(--down)' }}
-      >
-        {format(shown)}
-      </div>
-    </div>
-  );
-}
-
 export function ResultsPanel({ result, currency, years, summaryText, onReset }: ResultsPanelProps) {
   const { lang, t } = useI18n();
   const hero = useCountUp(result.finalValue, 400);
@@ -145,7 +130,12 @@ export function ResultsPanel({ result, currency, years, summaryText, onReset }: 
         {/* Stat trio */}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <StatCard label={t('calc.totalInvested')} value={result.totalInvested} format={money} />
-          <ProfitCard label={t('calc.estProfit')} value={result.profit} format={money} />
+          <StatCard
+            label={t('calc.estProfit')}
+            value={result.profit}
+            format={money}
+            valueColor={result.profit >= 0 ? 'var(--up)' : 'var(--down)'}
+          />
           <StatCard
             label={t('calc.goldEq')}
             value={result.grams}

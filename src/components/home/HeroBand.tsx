@@ -8,10 +8,10 @@ import { useI18n } from '@/lib/i18n';
 import { useGoldPrice, useXauChange } from '@/hooks/useGoldPrice';
 import { useHistory } from '@/hooks/useHistory';
 import { pointAtOrBefore, sliceSince, unitValue } from '@/lib/history';
+import { formatClockZone } from '@/lib/time';
 import {
   convertPrice,
   formatPct,
-  formatTimeLocal,
   formatUnitPrice,
   formatUsd,
   formatIdr,
@@ -186,7 +186,7 @@ export function HeroBand() {
               {lastUpdated > 0 && (
                 <>
                   {' '}
-                  · {t('home.hero.updated')} {formatTimeLocal(lastUpdated)}
+                  · {t('home.hero.updated')} {formatClockZone(lastUpdated, lang, { seconds: true })}
                 </>
               )}
             </span>

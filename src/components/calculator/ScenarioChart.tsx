@@ -7,7 +7,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { fmtMoneyCompact, type CalcCurrency } from '@/lib/calc';
 
-const PAD = { top: 10, right: 10, bottom: 20, left: 48 };
+// left fits axis labels like "Rp187,5 jt" (10px mono)
+const PAD = { top: 10, right: 10, bottom: 20, left: 72 };
 
 export interface ScenarioSeries {
   id: string;

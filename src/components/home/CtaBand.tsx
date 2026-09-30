@@ -3,7 +3,7 @@
  */
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { Calculator, BookOpen } from 'lucide-react';
+import { Calculator, BookOpen, Gem, HandCoins, Target } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -62,6 +62,24 @@ export function CtaBand() {
               <Calculator className="h-4 w-4" />
               {t('home.cta.openCalc')}
             </Link>
+            <div className="grid grid-cols-3 gap-2">
+              {(
+                [
+                  { to: '/kalkulator/zakat', key: 'calc.tab.zakat', Icon: HandCoins },
+                  { to: '/kalkulator/perhiasan', key: 'calc.tab.jewelry', Icon: Gem },
+                  { to: '/kalkulator/target', key: 'calc.tab.target', Icon: Target },
+                ] as const
+              ).map(({ to, key, Icon }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="flex flex-col items-center gap-1 rounded-lg border border-hairline px-2 py-2.5 text-center font-display text-xs font-medium text-t2 transition-colors hover:border-goldline hover:text-gold"
+                >
+                  <Icon className="h-4 w-4" aria-hidden />
+                  {t(key)}
+                </Link>
+              ))}
+            </div>
             <Link
               to="/tentang"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-hairline px-5 py-3 font-display text-sm font-medium text-t1 transition-colors duration-150 hover:border-goldline hover:text-gold active:scale-[0.97]"

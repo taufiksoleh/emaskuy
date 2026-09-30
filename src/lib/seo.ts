@@ -51,6 +51,36 @@ export const ROUTE_META = {
       en: "Simulate lump-sum or recurring (DCA) gold investing at today's live gold price, with a year-by-year projection.",
     },
   },
+  calcZakat: {
+    title: {
+      id: `Kalkulator Zakat Emas ${new Date().getFullYear()}: Nisab 85 Gram`,
+      en: `Gold Zakat Calculator ${new Date().getFullYear()}: 85-Gram Nisab`,
+    },
+    description: {
+      id: 'Hitung zakat emas dan perhiasan dengan harga emas hari ini: nisab 85 gram emas murni, zakat 2,5% setelah haul.',
+      en: "Calculate zakat on gold and jewelry at today's gold price: an 85-gram nisab of pure gold and 2.5% after a lunar year.",
+    },
+  },
+  calcJewelry: {
+    title: {
+      id: 'Kalkulator Harga Emas Perhiasan per Gram (Karat & Kadar)',
+      en: 'Gold Jewelry Value Calculator by Karat & Purity',
+    },
+    description: {
+      id: 'Hitung nilai emas perhiasan dari berat dan kadar (24K, 22K, 18K, 17K, emas muda) dengan harga emas hari ini, plus perkiraan harga jual kembali.',
+      en: "Work out the gold value of jewelry from its weight and karat at today's gold price, plus an estimated resale price.",
+    },
+  },
+  calcTarget: {
+    title: {
+      id: 'Kalkulator Target Tabungan Emas: Mahar, Umrah, Pendidikan',
+      en: 'Gold Savings Target Calculator',
+    },
+    description: {
+      id: 'Berapa yang perlu ditabung tiap bulan untuk punya sekian gram emas? Hitung rencana tabungan emas untuk mahar, umrah, atau pendidikan.',
+      en: 'How much to save each month to own a set amount of gold? Plan gold savings for a dowry, umrah or education.',
+    },
+  },
   portfolio: {
     title: {
       id: 'Portofolio Emas: Catat Pembelian & Untung Rugi',

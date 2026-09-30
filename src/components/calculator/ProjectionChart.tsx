@@ -14,7 +14,8 @@ const GOLD = 'var(--gold)';
 const UP = 'var(--up)';
 const DOWN = 'var(--down)';
 const INFO = 'var(--info)';
-const PAD = { top: 12, right: 10, bottom: 22, left: 52 };
+// left fits axis labels like "Rp187,5 jt" (10px mono)
+const PAD = { top: 12, right: 10, bottom: 22, left: 72 };
 
 function easeInOutCubic(x: number): number {
   return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
