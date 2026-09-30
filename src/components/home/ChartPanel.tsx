@@ -206,7 +206,7 @@ export function ChartPanel() {
       autoSize: true,
       layout: {
         background: { type: ColorType.Solid, color: 'transparent' },
-        fontFamily: '"JetBrains Mono", monospace',
+        fontFamily: '"JetBrains Mono Variable", "JetBrains Mono", monospace',
         fontSize: 11,
       },
       grid: { vertLines: { visible: false } },
@@ -559,9 +559,9 @@ export function ChartPanel() {
     <>
       <header className="flex flex-wrap items-center justify-between gap-3 px-4 pt-4 md:px-6 md:pt-5">
         <div className="flex items-center gap-3">
-          <h3 className="font-display text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-t1">
+          <h2 className="font-display text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-t1">
             {t('home.chart.title')}
-          </h3>
+          </h2>
           {!showSkeleton && seriesStatus === 'cached' && <Badge variant="cached" />}
           {!showSkeleton && seriesStatus === 'offline' && <Badge variant="offline" />}
         </div>

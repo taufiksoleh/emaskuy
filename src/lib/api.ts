@@ -144,6 +144,20 @@ export async function fetchMetal(symbol: MetalSymbol): Promise<MetalQuote> {
   }
 }
 
+/** Last good quotes from localStorage, for an instant first paint. */
+export function cachedMetals(): MetalQuote[] {
+  const symbols: MetalSymbol[] = ['XAU', 'XAG', 'XPT', 'XPD'];
+  return symbols.flatMap((s) => {
+    const q = cacheGet<MetalQuote>(`metal.${s}`)?.value;
+    return q && q.price > 0 ? [{ ...q, apiChange: q.apiChange ?? false, status: 'cached' as const }] : [];
+  });
+}
+
+export function cachedUsdIdr(): FxRate | null {
+  const fx = cacheGet<FxRate>('fx.usdidr')?.value;
+  return fx && fx.rate > 0 ? { ...fx, status: 'cached' } : null;
+}
+
 export async function fetchAllMetals(): Promise<MetalQuote[]> {
   const symbols: MetalSymbol[] = ['XAU', 'XAG', 'XPT', 'XPD'];
   return Promise.all(symbols.map((s) => fetchMetal(s)));

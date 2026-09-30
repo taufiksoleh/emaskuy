@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { formatDate } from '@/lib/gold';
 import { useI18n } from '@/lib/i18n';
 import type { Article } from '@/data/articles';
+import { Img } from './Img';
 
 export interface ArticleCardProps {
   article: Article;
@@ -33,10 +34,12 @@ export function ArticleCard({ article, variant = 'featured', className }: Articl
         variant === 'featured' ? 'aspect-video w-full' : 'h-full w-40 shrink-0',
       )}
     >
-      <img
+      <Img
         src={article.image}
+        sizes={variant === 'featured' ? '(min-width: 1024px) 33vw, 100vw' : '160px'}
         alt={title}
         loading="lazy"
+        decoding="async"
         className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
       />
       <span className="label-micro absolute left-3 top-3 rounded-md bg-bg0/80 px-2 py-1 text-gold backdrop-blur-sm">

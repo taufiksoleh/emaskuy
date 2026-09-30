@@ -7,9 +7,8 @@
 import { formatDateOnly, formatIdr, formatPct, formatUsd } from './gold';
 import type { Lang } from './i18n';
 import { registerStrings } from './i18n';
+import { SITE_URL } from './seo';
 import { formatClockZone } from './time';
-
-export const SITE_URL = 'https://emaskuy.com';
 
 registerStrings({
   'share.daily.title': { id: 'Harga Emas Hari Ini', en: 'Gold Price Today' },

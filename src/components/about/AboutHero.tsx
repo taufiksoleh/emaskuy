@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { withBase } from '@/lib/utils';
+import { WebpSource } from '../ui-atoms/Img';
 
 export function AboutHero() {
   const { t } = useI18n();
@@ -16,19 +17,23 @@ export function AboutHero() {
   return (
     <section className="on-dark relative flex h-[70vh] min-h-[420px] items-center justify-center overflow-hidden">
       {/* Backdrop */}
-      <motion.img
-        src={withBase('/about-hero.png')}
-        alt=""
-        aria-hidden
-        initial={false}
-        animate={reduce ? { scale: 1 } : { scale: [1, 1.08] }}
-        transition={
-          reduce
-            ? undefined
-            : { duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
-        }
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <picture className="contents">
+        <WebpSource src={withBase('/about-hero.png')} sizes="100vw" />
+        <motion.img
+          src={withBase('/about-hero.png')}
+          alt=""
+          aria-hidden
+          fetchPriority="high"
+          initial={false}
+          animate={reduce ? { scale: 1 } : { scale: [1, 1.08] }}
+          transition={
+            reduce
+              ? undefined
+              : { duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
+          }
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       {/* Overlay gradient --bg-0 40% → 90% bottom */}
       <div
         className="absolute inset-0"

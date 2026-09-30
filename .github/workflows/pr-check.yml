@@ -1,8 +1,8 @@
 name: PR Check
 
 on:
+  # Every PR, including ones stacked on another PR's branch.
   pull_request:
-    branches: [main]
 
 permissions:
   contents: read
@@ -36,5 +36,8 @@ jobs:
       - name: Unit tests
         run: npm test
 
-      - name: Build (typecheck + bundle)
+      - name: Build (typecheck + bundle + prerender)
         run: npm run build
+
+      - name: Verify built site
+        run: node scripts/verify-dist.mjs

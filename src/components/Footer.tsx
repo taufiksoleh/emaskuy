@@ -5,10 +5,17 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { useGoldPrice } from '@/hooks/useGoldPrice';
+import { useInstallPrompt } from '@/hooks/useInstallPrompt';
+import { Download } from 'lucide-react';
 import { withBase } from '@/lib/utils';
 
 registerStrings({
   'footer.calculators': { id: 'Kalkulator', en: 'Calculators' },
+  'footer.install': { id: 'Pasang aplikasi EmasKuy', en: 'Install the EmasKuy app' },
+  'footer.installIos': {
+    id: 'Pasang di iPhone: ketuk Bagikan lalu "Tambah ke Layar Utama".',
+    en: 'On iPhone: tap Share, then "Add to Home Screen".',
+  },
 });
 
 const linkCls = 'text-sm text-t2 transition-colors hover:text-gold';
@@ -16,6 +23,7 @@ const linkCls = 'text-sm text-t2 transition-colors hover:text-gold';
 export function Footer() {
   const { t } = useI18n();
   const { status } = useGoldPrice();
+  const { canPrompt, iosHint, install } = useInstallPrompt();
 
   return (
     <motion.footer
@@ -33,6 +41,17 @@ export function Footer() {
           </div>
           <p className="mt-3 max-w-xs text-sm leading-[1.5] text-t2">{t('footer.tagline')}</p>
           <p className="mt-3 font-mono text-[13px] tabular text-t3">{t('footer.sources')}</p>
+          {canPrompt && (
+            <button
+              type="button"
+              onClick={() => void install()}
+              className="mt-4 flex cursor-pointer items-center gap-2 rounded-lg border border-goldline bg-gold/10 px-3 py-2 font-display text-sm font-semibold text-gold transition-colors hover:bg-gold/15"
+            >
+              <Download className="h-4 w-4" aria-hidden />
+              {t('footer.install')}
+            </button>
+          )}
+          {!canPrompt && iosHint && <p className="mt-4 max-w-xs text-xs leading-relaxed text-t3">{t('footer.installIos')}</p>}
         </div>
         <div>
           <div className="label-micro">{t('footer.navigate')}</div>

@@ -49,6 +49,8 @@ const ThemeContext = createContext<ThemeValue | null>(null);
 
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
+  // Browser/PWA chrome color follows the page background.
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#fafaf7' : '#0a0b0e');
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -99,11 +101,11 @@ export interface ChartPalette {
 export function chartPalette(theme: Theme): ChartPalette {
   if (theme === 'light') {
     return {
-      gold: '#9A6A08',
+      gold: '#875C06',
       goldDim: '#8A6D2F',
       up: '#15803D',
       down: '#DC2626',
-      axisText: '#6B7383',
+      axisText: '#5F6776',
       gridLine: 'rgba(74, 82, 97, 0.18)',
       areaTop: 'rgba(154, 106, 8, 0.18)',
       areaBottom: 'rgba(154, 106, 8, 0)',
@@ -114,7 +116,7 @@ export function chartPalette(theme: Theme): ChartPalette {
     goldDim: '#8A6D2F',
     up: '#22C55E',
     down: '#EF4444',
-    axisText: '#5B6474',
+    axisText: '#808A9B',
     gridLine: 'rgba(36, 41, 56, 0.6)',
     areaTop: 'rgba(245, 185, 62, 0.22)',
     areaBottom: 'rgba(245, 185, 62, 0)',

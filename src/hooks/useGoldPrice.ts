@@ -12,6 +12,8 @@
  */
 import { useSyncExternalStore } from 'react';
 import {
+  cachedMetals,
+  cachedUsdIdr,
   fetchAllMetals,
   fetchUsdIdr,
   type DataStatus,
@@ -75,14 +77,18 @@ function currentPrevClose(): HistoryPoint | null {
   return prevCloseBefore(historyStore.get('1y').points, isoDateUtc(Date.now()));
 }
 
+/** Returning visitors see the last known price at once, marked as cached. */
+function bootState(): Pick<GoldPriceState, 'metals' | 'gold' | 'usdIdr' | 'fx' | 'prevClose' | 'status' | 'loading'> {
+  const prevClose = currentPrevClose();
+  const metals = applyXauChange(cachedMetals(), prevClose);
+  const gold = metals.find((m) => m.symbol === 'XAU') ?? null;
+  const fx = cachedUsdIdr();
+  const ready = gold !== null && fx !== null;
+  return { metals, gold, usdIdr: fx?.rate ?? 0, fx, prevClose, status: ready ? 'cached' : 'offline', loading: !ready };
+}
+
 let state: GoldPriceState = {
-  metals: [],
-  gold: null,
-  usdIdr: 0,
-  fx: null,
-  prevClose: currentPrevClose(),
-  status: 'offline',
-  loading: true,
+  ...bootState(),
   refetching: false,
   lastUpdated: 0,
   ticks: loadTicks(),

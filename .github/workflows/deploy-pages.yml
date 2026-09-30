@@ -40,6 +40,11 @@ jobs:
           VITE_NEWSLETTER_ACTION: ${{ vars.NEWSLETTER_ACTION }}
           VITE_NEWSLETTER_EMAIL_FIELD: ${{ vars.NEWSLETTER_EMAIL_FIELD }}
           VITE_NEWSLETTER_EXTRA: ${{ vars.NEWSLETTER_EXTRA }}
+          # Optional cookieless analytics; unset adds no script.
+          VITE_CF_BEACON_TOKEN: ${{ vars.CF_BEACON_TOKEN }}
+
+      - name: Verify built site
+        run: node scripts/verify-dist.mjs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

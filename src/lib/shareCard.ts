@@ -50,9 +50,9 @@ const LOGO_PATH =
   'M0 0 L16.0 0 L16.0 80.0 L0 80.0 Z M0 0 L64.0 0 L64.0 16.0 L0 16.0 Z M0 64.0 L64.0 64.0 L64.0 80.0 L0 80.0 Z M1.863 51.153 L54.499 45.432 L52.773 29.525 L0.137 35.247 Z M73.523 35.358 L54.994 50.207 L52.278 24.751 Z';
 
 const FONTS = {
-  display: '"Space Grotesk", "Inter", system-ui, sans-serif',
-  body: '"Inter", system-ui, sans-serif',
-  mono: '"JetBrains Mono", ui-monospace, monospace',
+  display: '"Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif',
+  body: '"Inter Variable", "Inter", system-ui, sans-serif',
+  mono: '"JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace',
 };
 
 /** Largest size (step 2) at which `measure(size)` fits `maxWidth`. */

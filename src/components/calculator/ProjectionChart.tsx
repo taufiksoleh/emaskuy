@@ -248,13 +248,13 @@ export function ProjectionChart({
         {yTicks.map((tk, i) => (
           <g key={i}>
             <line x1={PAD.left} x2={width - PAD.right} y1={tk.y} y2={tk.y} stroke="var(--line)" strokeWidth={1} strokeDasharray="2 4" />
-            <text x={PAD.left - 8} y={tk.y + 3} textAnchor="end" fontSize={10} fill="var(--text-3)" fontFamily="JetBrains Mono, monospace">
+            <text x={PAD.left - 8} y={tk.y + 3} textAnchor="end" fontSize={10} fill="var(--text-3)" fontFamily="JetBrains Mono Variable, JetBrains Mono, monospace">
               {tk.label}
             </text>
           </g>
         ))}
         {xTicks.map((tk, i) => (
-          <text key={i} x={tk.x} y={height - 6} textAnchor="middle" fontSize={10} fill="var(--text-3)" fontFamily="JetBrains Mono, monospace">
+          <text key={i} x={tk.x} y={height - 6} textAnchor="middle" fontSize={10} fill="var(--text-3)" fontFamily="JetBrains Mono Variable, JetBrains Mono, monospace">
             {tk.label}
           </text>
         ))}

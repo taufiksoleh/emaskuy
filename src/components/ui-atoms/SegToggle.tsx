@@ -32,7 +32,7 @@ export function SegToggle<T extends string = string>({
   const id = useId();
   return (
     <div
-      role="tablist"
+      role="group"
       aria-label={ariaLabel}
       className={cn(
         'inline-flex items-center gap-0.5 rounded-lg bg-bg3 p-0.5',
@@ -44,8 +44,8 @@ export function SegToggle<T extends string = string>({
         return (
           <button
             key={opt.value}
-            role="tab"
-            aria-selected={active}
+            type="button"
+            aria-pressed={active}
             onClick={() => onChange(opt.value)}
             className={cn(
               'relative cursor-pointer rounded-md font-mono font-medium transition-colors duration-150',

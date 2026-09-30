@@ -21,24 +21,10 @@ import {
 } from 'react';
 import type { Unit } from './gold';
 import { LANG_KEY, UNIT_KEY, detectLang, detectUnit, readPref, writePref } from './preferences';
+import { registerStrings, translate, type Lang } from './strings';
 
-export type Lang = 'id' | 'en';
-
-export interface StringEntry {
-  id: string;
-  en: string;
-}
-
-type Dict = Record<string, StringEntry>;
-
-const registry: Dict = {};
-
-/** Register translation keys (idempotent per key). Call at module scope. */
-export function registerStrings(entries: Dict): void {
-  for (const k of Object.keys(entries)) {
-    if (!(k in registry)) registry[k] = entries[k];
-  }
-}
+export { registerStrings } from './strings';
+export type { Lang, StringEntry } from './strings';
 
 registerStrings({
   'nav.dashboard': { id: 'Dasbor', en: 'Dashboard' },
@@ -47,6 +33,7 @@ registerStrings({
   'nav.portfolio': { id: 'Portofolio', en: 'Portfolio' },
   'nav.about': { id: 'Tentang', en: 'About' },
   'nav.main': { id: 'Navigasi utama', en: 'Main navigation' },
+  'nav.skip': { id: 'Langsung ke konten', en: 'Skip to content' },
   // Calculator names: also used by the footer and home CTA.
   'calc.tab.investment': { id: 'Investasi', en: 'Investment' },
   'calc.tab.zakat': { id: 'Zakat Emas', en: 'Gold Zakat' },
@@ -118,10 +105,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     writePref(UNIT_KEY, u);
   }, []);
 
-  const t = useCallback(
-    (key: string): string => registry[key]?.[lang] ?? key,
-    [lang],
-  );
+  const t = useCallback((key: string): string => translate(key, lang), [lang]);
 
   const value = useMemo(
     () => ({ lang, setLang, t, unit, setUnit }),
