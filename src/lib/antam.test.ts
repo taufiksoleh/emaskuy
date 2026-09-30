@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   antamData,
   antamOneGram,
@@ -10,6 +10,8 @@ import {
   type AntamData,
 } from './antam';
 import { normalizeInsight } from './aiInsight';
+
+afterEach(() => vi.unstubAllGlobals());
 
 const data: AntamData = {
   schemaVersion: 1,
@@ -95,6 +97,53 @@ describe('committed content', () => {
     const d = antamData();
     expect(antamOneGram(d)).toBeGreaterThan(0);
     expect(d.history[d.history.length - 1].date).toBe(d.priceDate);
+  });
+});
+
+describe('runtime refresh', () => {
+  // Each case needs its own module instance: the singleton only refetches
+  // once per lifetime (see antam.ts), which in a real app is per page load.
+  async function freshModule() {
+    vi.resetModules();
+    return import('./antam');
+  }
+
+  it('adopts a freshly fetched file with a newer priceDate', async () => {
+    const { subscribeAntam, getAntam } = await freshModule();
+    const before = getAntam().priceDate;
+    const fresh = { ...getAntam(), priceDate: '2099-01-01', updatedAt: '2099-01-01T09:00:00+07:00' };
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => fresh })));
+
+    const unsubscribe = subscribeAntam(() => {});
+    await new Promise((r) => setTimeout(r, 0));
+
+    expect(getAntam().priceDate).not.toBe(before);
+    expect(getAntam().priceDate).toBe('2099-01-01');
+    unsubscribe();
+  });
+
+  it('keeps the bundled data when the fetch fails', async () => {
+    const { subscribeAntam, getAntam } = await freshModule();
+    const before = getAntam();
+    vi.stubGlobal('fetch', vi.fn(async () => Promise.reject(new Error('offline'))));
+
+    const unsubscribe = subscribeAntam(() => {});
+    await new Promise((r) => setTimeout(r, 0));
+
+    expect(getAntam()).toEqual(before);
+    unsubscribe();
+  });
+
+  it('ignores a malformed response', async () => {
+    const { subscribeAntam, getAntam } = await freshModule();
+    const before = getAntam();
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ oops: true }) })));
+
+    const unsubscribe = subscribeAntam(() => {});
+    await new Promise((r) => setTimeout(r, 0));
+
+    expect(getAntam()).toEqual(before);
+    unsubscribe();
   });
 });
 

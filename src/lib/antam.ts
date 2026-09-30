@@ -4,10 +4,19 @@
  * src/content/antam.json is written daily by the content agent and checked
  * in CI (scripts/validate-content.mjs). `sell` is the price of a whole bar;
  * buyback is quoted per gram. Only sizes the source actually quoted appear.
+ *
+ * The build ships this file's content inline via the `raw` import below, so
+ * the app always has a usable value with zero network calls. On top of
+ * that, `useAntam()` also refetches the same file (served unhashed at
+ * /content/antam.json — see vite/copy-content.ts) once per session: a
+ * visitor whose cached app shell predates today's content PR still sees
+ * today's price, without needing a full redeploy to reach their tab.
  */
+import { useSyncExternalStore } from 'react';
 import raw from '@/content/antam.json';
 import { pointAtOrBefore, type HistoryPoint } from './history';
 import { todayInWib } from './time';
+import { withBase } from './utils';
 
 export interface AntamSize {
   grams: number;
@@ -34,15 +43,67 @@ export interface AntamData {
 }
 
 // Typed at build time: `tsc` fails if the JSON drifts from AntamData.
-const DATA: AntamData = raw;
+const BUNDLED: AntamData = raw;
 
-/** Seam for a future runtime refresh; today the data ships with the build. */
-export function useAntam(): AntamData {
-  return DATA;
+function isAntamData(v: unknown): v is AntamData {
+  const o = v as Partial<AntamData> | null;
+  return !!o && typeof o.priceDate === 'string' && !!o.antam && Array.isArray(o.antam.sizes) && Array.isArray(o.history);
 }
 
+let data: AntamData = BUNDLED;
+let started = false;
+const listeners = new Set<() => void>();
+
+function emit() {
+  for (const l of listeners) l();
+}
+
+async function refresh(): Promise<void> {
+  try {
+    const res = await fetch(withBase('/content/antam.json'), { cache: 'no-store' });
+    if (!res.ok) return;
+    const json = await res.json();
+    if (isAntamData(json) && json.priceDate !== data.priceDate) {
+      data = json;
+      emit();
+    }
+  } catch {
+    /* offline or blocked: keep whatever shipped with the build */
+  }
+}
+
+function ensureStarted() {
+  if (started) return;
+  started = true;
+  void refresh();
+}
+
+function subscribe(cb: () => void): () => void {
+  listeners.add(cb);
+  ensureStarted();
+  return () => {
+    listeners.delete(cb);
+  };
+}
+
+function getSnapshot(): AntamData {
+  return data;
+}
+
+/** For tests; not meant for app code (use `useAntam()` there). */
+export { subscribe as subscribeAntam, getSnapshot as getAntam };
+
+/** Antam data, refetched once per session in case a newer deploy landed
+ * after this tab's app shell was cached (see the module docstring). */
+export function useAntam(): AntamData {
+  return useSyncExternalStore(subscribe, getSnapshot);
+}
+
+/** Synchronous accessor for non-React callers (e.g. the build-time SEO
+ * prerenderer): the bundled value, unless some earlier `useAntam()` call
+ * in this session already refreshed it. Never triggers a fetch itself. */
 export function antamData(): AntamData {
-  return DATA;
+  return data;
 }
 
 /** Price of a 1-gram bar (falls back to the latest history entry). */

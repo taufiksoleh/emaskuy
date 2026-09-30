@@ -2,6 +2,7 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig, loadEnv, type Plugin } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
+import { copyContentJson } from "./vite/copy-content"
 import { seoPrerender } from "./vite/seo-prerender"
 
 const shortcutIcon = [{ src: "/icons/pwa-192.png", sizes: "192x192", type: "image/png" }]
@@ -34,6 +35,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     cloudflareAnalytics(loadEnv(mode, process.cwd(), "VITE_").VITE_CF_BEACON_TOKEN),
+    copyContentJson(),
     seoPrerender(),
     VitePWA({
       // New builds (daily content) take over on the next navigation.
