@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-rebound-triple-data',
+    slug: 'gold-mixed-data-4100-test',
     category: 'market',
     featured: true,
+    title: {
+      id: 'PCE Lunak, Emas Tetap Loyo: Data AS Campur Aduk dan Ujian $4.100 Jelang NFP',
+      en: 'Soft PCE, Sluggish Gold: Mixed US Data and the $4,100 Test Ahead of Payrolls',
+    },
+    excerpt: {
+      id: 'Inflasi PCE inti Agustus lebih jinak dari perkiraan, tapi PDB Q2 direvisi naik ke 2,2% dan ADP mencetak 90 ribu. Emas sempat melonjak ke $4.213 lalu memudar ke $4.150-an. Antam ikut turun Rp14.000 ke Rp2.581.000. Inilah yang membuat kabar baik belum cukup bagi emas.',
+      en: 'August core PCE came in softer than expected, but Q2 GDP was revised up to 2.2% and ADP printed 90K. Gold spiked to $4,213, then faded to the $4,150s. Antam fell Rp14,000 to Rp2,581,000. Here is why good news is not yet enough for gold.',
+    },
+    sections: [
+      {
+        heading: { id: 'Hari Data yang Saling Bertabrakan', en: 'A Day of Colliding Data' },
+        paragraphs: [
+          {
+            id: 'Rabu, 30 September, pasar menerima tiga rilis besar yang menunjuk ke arah berbeda. PCE inti Agustus, ukuran inflasi favorit The Fed, hanya naik 0,2% secara bulanan dan 3,0% tahunan, di bawah konsensus 0,3% dan 3,3%. PCE utama naik 3,4% tahunan, juga di bawah perkiraan 3,7%. Dari sisi inflasi, ini kabar yang ditunggu pemegang emas.',
+            en: 'On Wednesday, September 30, markets received three major releases pointing in different directions. August core PCE, the Fed’s preferred inflation gauge, rose just 0.2% month-on-month and 3.0% year-on-year, below consensus of 0.3% and 3.3%. Headline PCE rose 3.4% year-on-year, also below the 3.7% forecast. On inflation alone, this was the news gold holders were waiting for.',
+          },
+          {
+            id: 'Namun sisi pertumbuhan justru kuat. Estimasi ketiga PDB Q2 direvisi naik ke 2,2% dari 1,5%, dan ADP mencatat sektor swasta menambah 90 ribu pekerjaan di September, di atas perkiraan 70 ribu dan jauh dari 36 ribu bulan sebelumnya. Emas spot sempat melesat ke $4.213 saat PCE keluar, lalu memudar sepanjang sore. Pagi ini, Kamis 1 Oktober, harga berada di sekitar $4.152 menurut Bloomberg Technoz.',
+            en: 'The growth side, however, was strong. The third Q2 GDP estimate was revised up to 2.2% from 1.5%, and ADP reported that the private sector added 90,000 jobs in September, above the 70,000 forecast and far above the prior month’s 36,000. Spot gold briefly jumped to $4,213 when PCE hit, then faded through the afternoon. This Thursday morning, October 1, it was near $4,152 according to Bloomberg Technoz.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Kabar Baik Belum Cukup', en: 'Why Good News Is Not Enough Yet' },
+        paragraphs: [
+          {
+            id: 'PCE yang lunak memang menurunkan peluang kenaikan suku bunga Fed di Oktober ke sekitar 38% dari 51%. Tapi pasar tidak hanya membaca inflasi. Ekonomi yang tumbuh 2,2% dan pasar kerja yang kembali menggeliat memberi The Fed alasan untuk tetap waspada. Pengamat yang dikutip Kitco menyebutnya pesan campur aduk: pertumbuhan solid, tapi inflasi masih di atas 3%.',
+            en: 'The soft PCE did cut the odds of an October Fed hike to about 38% from 51%. But markets read more than inflation. An economy growing 2.2% and a labor market picking up again give the Fed reason to stay vigilant. Commentators quoted by Kitco called it a mixed message: solid growth, but inflation still above 3%.',
+          },
+          {
+            id: 'Beban terbesar emas adalah yield. Obligasi AS 10 tahun berada di 5,22%, tertinggi sejak Juli 2007. Artinya setiap $1.000 di obligasi menghasilkan $52,20 per tahun, sementara emas tidak memberi bunga sama sekali. Ditambah harga minyak yang tetap tinggi karena negosiasi AS-Iran belum menemui titik terang, inflasi berbasis energi terus menahan harapan pelonggaran.',
+            en: 'Gold’s biggest burden is yields. The US 10-year Treasury sits at 5.22%, the highest since July 2007. That means every $1,000 in bonds earns $52.20 a year, while gold pays no interest at all. Add oil prices that stay elevated because US-Iran talks have made little progress, and energy-driven inflation keeps holding back hopes of easing.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Ujian $4.100 dan Garis Merah $4.000', en: 'The $4,100 Test and the $4,000 Red Line' },
+        paragraphs: [
+          {
+            id: 'Konteks besarnya tidak boleh dilupakan. Emas mencetak rekor di kisaran $5.590 sampai $5.608 pada Januari 2026, dan kini sekitar 26% di bawahnya. Dalam sebulan terakhir harga turun lebih dari 5%, meski masih sekitar 8% lebih tinggi dibanding setahun lalu. Ini koreksi dalam di dalam tren naik jangka panjang, bukan sekadar goyangan harian.',
+            en: 'The bigger context must not be forgotten. Gold set a record in the $5,590 to $5,608 range in January 2026 and now sits about 26% below it. Over the past month the price has fallen more than 5%, though it is still about 8% higher than a year ago. This is a deep correction inside a long-term uptrend, not just a daily wobble.',
+          },
+          {
+            id: 'Level yang diawasi pasar jelas. Support pertama di $4.100, lalu $4.000 yang dekat dengan titik terendah 25 Juni di $4.009. Penembusan bertahan di bawah $4.000 akan membentuk lower low dan menandai koreksi 2026 berubah menjadi fase bearish yang lebih dalam. Di atas, $4.300 menjadi resistance. Penentunya datang cepat: ISM Manufaktur dan klaim pengangguran hari ini, lalu Non-Farm Payrolls hari Jumat.',
+            en: 'The levels markets are watching are clear. First support is $4,100, then $4,000, close to the June 25 low of $4,009. A sustained break below $4,000 would form a lower low and signal that the 2026 correction is turning into a deeper bearish phase. Above, $4,300 is resistance. The deciders come quickly: ISM Manufacturing and jobless claims today, then non-farm payrolls on Friday.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Brand Lain Lebih Murah', en: 'Antam Slips, Other Brands Are Cheaper' },
+        paragraphs: [
+          {
+            id: 'Di dalam negeri, Antam membuka Oktober dengan koreksi. Harga 1 gram turun Rp14.000 ke Rp2.581.000, hampir menghapus kenaikan Rp15.000 kemarin. Buyback ikut turun Rp14.000 ke Rp2.391.000 per gram, sehingga spread tetap Rp190.000 atau sekitar 7,4% dari harga jual. Membeli lalu langsung menjual kembali masih berarti rugi lebih dari 7% sebelum biaya lain.',
+            en: 'At home, Antam opened October with a correction. The 1-gram price fell Rp14,000 to Rp2,581,000, nearly erasing yesterday’s Rp15,000 gain. Buyback also fell Rp14,000 to Rp2,391,000 per gram, so the spread held at Rp190,000, about 7.4% of the selling price. Buying and selling straight back still means losing more than 7% before other costs.',
+          },
+          {
+            id: 'Perbandingan brand memberi pilihan. Galeri24 1 gram dijual Rp2.527.000 dengan buyback Rp2.374.000, atau Rp54.000 lebih murah dari Antam dengan spread sekitar 6,1%. UBS dijual Rp2.552.000 dengan buyback Rp2.348.000, spread sekitar 8,0%. Untuk tabungan jangka panjang, selisih harga beli dan spread layak dibandingkan sebelum memilih brand.',
+            en: 'The brand comparison offers choices. Galeri24’s 1-gram bar sells for Rp2,527,000 with a Rp2,374,000 buyback, Rp54,000 cheaper than Antam with a spread of about 6.1%. UBS sells for Rp2,552,000 with a Rp2,348,000 buyback, a spread of about 8.0%. For long-term saving, the purchase price and spread are worth comparing before choosing a brand.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Tunggu Data, Tetap Disiplin', en: 'Playbook: Await the Data, Stay Disciplined' },
+        paragraphs: [
+          {
+            id: 'Fondasi struktural emas belum berubah. Bank sentral membeli rekor 289 ton di Q2 2026, dan kepemilikan ETF emas bertambah 50 ton sepanjang September meski harga turun. Permintaan inilah yang menjadi bantal ketika yield dan dolar menekan dari atas.',
+            en: 'Gold’s structural foundation has not changed. Central banks bought a record 289 tonnes in Q2 2026, and gold ETF holdings grew by 50 tonnes through September even as prices fell. This demand is the cushion when yields and the dollar press from above.',
+          },
+          {
+            id: 'Bagi investor rupiah, minggu ini bukan waktu untuk menebak arah lewat satu transaksi besar. DCA dengan nominal tetap tetap paling masuk akal: jika NFP lemah dan emas memantul, Anda sudah punya posisi; jika NFP kuat dan $4.100 jebol, pembelian berikutnya lebih murah. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, this week is not the time to bet on direction with one large purchase. Fixed-amount DCA still makes the most sense: if payrolls disappoint and gold bounces, you already hold a position; if payrolls are strong and $4,100 breaks, your next purchase is cheaper. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Inflasi yang melunak tidak cukup selama yield bertahan di level tertinggi sejak 2007: emas butuh data yang dingin di semua lini, bukan hanya satu.',
+      en: 'Softer inflation is not enough while yields hold at their highest since 2007: gold needs cool data across the board, not just one print.',
+    },
+    callout: 'rates',
+    image: withBase('/article-mixed-data.png'),
+    publishedAt: Date.parse('2026-10-01T03:30:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold price rockets to session highs as US economy rises 2.2% in Q2, PCE inflation rises 0.2% in August', url: 'https://www.kitco.com/news/article/2026-09-30/gold-price-rockets-session-highs-us-economy-rises-22-q2-pce-inflation-rises' },
+      { title: 'IndexBox: ADP private employers add 90,000 jobs in September, beating expectations', url: 'https://www.indexbox.io/blog/adp-private-employers-add-90000-jobs-in-september-beating-expectations/' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Investing.com: Gold’s $4,100 test could decide whether the 2026 bull market holds', url: 'https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549' },
+      { title: 'Gold Stock Canada: Post-market summary for precious metals, September 30, 2026', url: 'https://goldstockcanada.com/news/post-market-summary-for-precious-metals-september-30-2026-3313' },
+      { title: 'Bloomberg Technoz: Harga emas Antam awali Oktober dengan koreksi', url: 'https://www.bloombergtechnoz.com/detail-news/123244/harga-emas-antam-awali-oktober-dengan-koreksi' },
+      { title: 'Suara.com: Harga emas Antam merosot jadi Rp2.581.000/gram', url: 'https://www.suara.com/bisnis/2026/10/01/095801/kesempatan-beli-harga-emas-antam-merosot-jadi-rp2581000gram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-rebound-triple-data',
+    category: 'market',
     title: {
       id: 'Emas Rebound 1,6% ke $4.180: Titik Balik atau Jebakan? Triple Data AS Hari Ini Penentunya',
       en: 'Gold Rebounds 1.6% to $4,180: Turning Point or Trap? Today\u2019s US Data Triple-Header Decides',
