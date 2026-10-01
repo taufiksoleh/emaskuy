@@ -4,7 +4,8 @@
  * hero parallax (0.15 rate), per-block fade-up reveals, H1 word stagger.
  * Sticky side rail (≥1280px): live price mini-card + TOC scroll-spy
  * (IntersectionObserver, click → Lenis scrollTo). Pull-quote, live data
- * callout, share row (X / copy-link toast / WhatsApp), related articles.
+ * callout, share row (X / copy-link toast / WhatsApp / image card), related
+ * articles. The header and the share row both open the image share dialog.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router';
@@ -15,7 +16,7 @@ import { toast } from 'sonner';
 import { ArrowLeft, Check, Link2, Twitter, MessageCircle } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { copyText } from '@/lib/clipboard';
-import { waLink } from '@/lib/share';
+import { buildArticleText, waLink } from '@/lib/share';
 import { absoluteUrl, articleHead, routeHead } from '@/lib/seo';
 import { articlePath, pathFor } from '@/lib/routes';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
@@ -26,6 +27,7 @@ import { Img } from '@/components/ui-atoms/Img';
 import { SourceChips } from '@/components/ui-atoms/SourceChips';
 import { MiniLivePrice } from '@/components/analysis/MiniLivePrice';
 import { LiveCallout } from '@/components/analysis/LiveCallout';
+import { ShareDialog, type ShareSnapshot } from '@/components/share/ShareDialog';
 import { cn } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -40,6 +42,9 @@ registerStrings({
   'art.copyFailed': { id: 'Gagal menyalin tautan', en: 'Could not copy the link' },
   'art.copy': { id: 'Salin tautan', en: 'Copy link' },
   'art.notFound': { id: 'Artikel tidak ditemukan', en: 'Article not found' },
+  'art.shareDialog': { id: 'Bagikan artikel', en: 'Share this article' },
+  'art.readMore': { id: 'Baca analisis lengkapnya', en: 'Read the full analysis' },
+  'art.readMin': { id: 'mnt baca', en: 'min read' },
 });
 
 export default function Article() {
@@ -188,13 +193,28 @@ export default function Article() {
     );
   }
 
-  const meta = `${formatDate(article.publishedAt, lang)} · ${article.readMinutes} ${
-    lang === 'id' ? 'mnt baca' : 'min read'
-  } · ${article.author[lang]}`;
+  const meta = `${formatDate(article.publishedAt, lang)} · ${article.readMinutes} ${t('art.readMin')} · ${article.author[lang]}`;
 
   // Share the canonical address, not whatever query string brought us here.
   const url = absoluteUrl(articlePath(article.slug, lang));
   const shareText = article.title[lang];
+  // Image card + WhatsApp caption, built when the share dialog opens.
+  const buildShare = (): ShareSnapshot => ({
+    card: {
+      kind: 'article',
+      model: {
+        category: t(`article.cat.${article.category}`),
+        title: article.title[lang],
+        excerpt: article.excerpt[lang],
+        meta: `${formatDate(article.publishedAt, lang)} · ${article.readMinutes} ${t('art.readMin')}`,
+        image: article.image,
+        footer: t('art.readMore'),
+      },
+    },
+    text: buildArticleText({ title: article.title[lang], excerpt: article.excerpt[lang], url }),
+  });
+  const shareFilename = `emaskuy-${article.slug}`;
+
   const copyLink = async () => {
     if (!(await copyText(url))) {
       toast.error(t('art.copyFailed'));
@@ -328,7 +348,15 @@ export default function Article() {
                 </span>
               ))}
             </h1>
-            <div className="mt-4 font-mono text-[13px] tabular text-t3">{meta}</div>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="font-mono text-[13px] tabular text-t3">{meta}</span>
+              <ShareDialog
+                build={buildShare}
+                filename={shareFilename}
+                title={t('art.shareDialog')}
+                className="ml-auto"
+              />
+            </div>
             </article>
 
             {/* Full-bleed hero with parallax + bottom gradient */}
@@ -389,6 +417,12 @@ export default function Article() {
                     >
                       <MessageCircle className="h-4 w-4" />
                     </a>
+                    <ShareDialog
+                      build={buildShare}
+                      filename={shareFilename}
+                      title={t('art.shareDialog')}
+                      trigger="icon"
+                    />
                   </div>
                 </div>
               </div>

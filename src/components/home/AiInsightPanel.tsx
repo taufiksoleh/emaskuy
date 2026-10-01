@@ -3,7 +3,8 @@
  * Membaca dari `src/content/ai-insight.json` (ditulis agen konten, divalidasi
  * di CI). Tampil di beranda setelah ChartPanel. Kuy, maskot koin emas
  * bersayap, melayang di pojok atas panel dan "mengucapkan" isinya lewat
- * bubble dialog.
+ * bubble dialog. Tombol Bagikan membuat kartu gambar (chat, feed, story)
+ * dan pesan WhatsApp dari insight yang sama.
  */
 import { Reveal } from '../ui-atoms/Reveal';
 import { registerStrings, useI18n } from '@/lib/i18n';
@@ -11,6 +12,9 @@ import { ageInDays, formatDate } from '@/lib/gold';
 import { formatClockZone } from '@/lib/time';
 import { cn, fill } from '@/lib/utils';
 import { useAiInsight, type InsightSentiment } from '@/lib/aiInsight';
+import { buildInsightText, formatShareDate } from '@/lib/share';
+import type { CardTone } from '@/lib/shareCard';
+import { ShareDialog, type ShareSnapshot } from '../share/ShareDialog';
 import { Panel } from '../ui-atoms/Panel';
 import { SpeechBubble } from '../ui-atoms/SpeechBubble';
 import { SourceChips } from '../ui-atoms/SourceChips';
@@ -33,7 +37,13 @@ registerStrings({
   'ai.mascot.name': { id: 'Kuy', en: 'Kuy' },
   'ai.mascot.tagline': { id: '{name}, asisten emas kamu', en: '{name}, your gold sidekick' },
   'ai.mascot.says': { id: 'Kata {name}', en: '{name} says' },
+  'share.insight.title': { id: 'AI Insight Emas', en: 'Gold AI Insight' },
+  'share.insight.dialog': { id: 'Bagikan AI Insight', en: 'Share the AI insight' },
+  'share.insight.more': { id: 'Baca lengkapnya di emaskuy.com', en: 'Read it all at emaskuy.com' },
+  'share.insight.note': { id: 'Dihasilkan AI · Bukan saran investasi', en: 'AI-generated · Not investment advice' },
 });
+
+const SENTIMENT_TONE: Record<InsightSentiment, CardTone> = { bullish: 'up', bearish: 'down', neutral: 'gold' };
 
 const SENTIMENT_STYLE: Record<InsightSentiment, string> = {
   bullish: 'border-up/40 bg-up/10 text-up',
@@ -46,6 +56,29 @@ export function AiInsightPanel() {
   const insight = useAiInsight();
   const age = ageInDays(insight.generatedAt);
   const name = t('ai.mascot.name');
+
+  // Snapshot for sharing, taken when the share dialog opens.
+  const buildShare = (): ShareSnapshot => {
+    const title = t('share.insight.title');
+    const dateLine = formatShareDate(insight.generatedAt, lang, 'Asia/Jakarta');
+    const sentiment = `${t('ai.sentimentLabel')}: ${t(`ai.sentiment.${insight.sentiment}`)}`;
+    const bullets = insight.bullets.map((b) => (lang === 'id' ? b.id : b.en));
+    const note = t('share.insight.note');
+    return {
+      card: {
+        kind: 'insight',
+        model: {
+          title,
+          dateLine,
+          sentiment: { label: sentiment, tone: SENTIMENT_TONE[insight.sentiment] },
+          bullets,
+          more: t('share.insight.more'),
+          footer: note,
+        },
+      },
+      text: buildInsightText({ title, dateLine, sentiment, bullets, lang, note }, t),
+    };
+  };
 
   return (
     <section className="mx-auto max-w-[1440px] px-4 py-4 md:px-6">
@@ -101,10 +134,18 @@ export function AiInsightPanel() {
               </div>
             )}
           </SpeechBubble>
-          <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
-            {formatDate(insight.generatedAt, lang)},{' '}
-            {formatClockZone(insight.generatedAt, lang, { tz: 'Asia/Jakarta' })} · {t('ai.disclaimer')}
-          </p>
+          <div className="mt-4 flex items-center gap-3 border-t border-hairline pt-3">
+            <p className="min-w-0 flex-1 text-[11px] leading-relaxed text-t3">
+              {formatDate(insight.generatedAt, lang)},{' '}
+              {formatClockZone(insight.generatedAt, lang, { tz: 'Asia/Jakarta' })} · {t('ai.disclaimer')}
+            </p>
+            <ShareDialog
+              build={buildShare}
+              filename="ai-insight-emaskuy"
+              title={t('share.insight.dialog')}
+              className="shrink-0"
+            />
+          </div>
         </Panel>
       </Reveal>
     </section>
