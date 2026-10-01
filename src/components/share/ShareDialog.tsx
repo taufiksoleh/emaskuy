@@ -1,7 +1,9 @@
 /**
  * ShareDialog — share a price, the AI insight or an article as a WhatsApp
  * message or as an image card: square for chats, 4:5 for the Instagram
- * feed, 9:16 for WhatsApp status and stories. The cards are drawn when the
+ * feed, 9:16 for WhatsApp status and stories, and 9:16 for TikTok. The
+ * Instagram feed and TikTok get a plain caption with hashtags, since they
+ * show WhatsApp's formatting marks literally. The cards are drawn when the
  * dialog opens, so the share button can call navigator.share straight from
  * the click (Safari rejects it after async work).
  */
@@ -10,6 +12,7 @@ import { Copy, Download, Image as ImageIcon, Loader2, Share2, X } from 'lucide-r
 import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { copyText } from '@/lib/clipboard';
+import { toSocialCaption } from '@/lib/share';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import {
   CARD_FORMATS,
@@ -27,13 +30,32 @@ registerStrings({
   'share.open': { id: 'Bagikan', en: 'Share' },
   'share.title': { id: 'Bagikan harga emas', en: 'Share the gold price' },
   'share.desc': {
-    id: 'Kirim sebagai pesan WhatsApp, atau bagikan gambarnya ke chat, feed Instagram, status, dan story.',
-    en: 'Send it as a WhatsApp message, or share the image to chats, the Instagram feed, status and stories.',
+    id: 'Kirim sebagai pesan WhatsApp, atau bagikan gambarnya ke chat, status, feed dan story Instagram, atau TikTok.',
+    en: 'Send it as a WhatsApp message, or share the image to chats, status, the Instagram feed and stories, or TikTok.',
   },
   'share.format': { id: 'Format gambar', en: 'Image format' },
-  'share.square': { id: 'Chat 1:1', en: 'Chat 1:1' },
-  'share.portrait': { id: 'Feed 4:5', en: 'Feed 4:5' },
-  'share.story': { id: 'Story 9:16', en: 'Story 9:16' },
+  'share.square': { id: 'Chat', en: 'Chat' },
+  'share.portrait': { id: 'Feed IG', en: 'IG feed' },
+  'share.story': { id: 'Story', en: 'Story' },
+  'share.tiktok': { id: 'TikTok', en: 'TikTok' },
+  'share.hint.square': { id: '1:1 · untuk chat WhatsApp', en: '1:1 · for WhatsApp chats' },
+  'share.hint.portrait': {
+    id: '4:5 · untuk feed Instagram, caption dengan hashtag',
+    en: '4:5 · for the Instagram feed, caption with hashtags',
+  },
+  'share.hint.story': {
+    id: '9:16 · untuk status WhatsApp dan story Instagram',
+    en: '9:16 · for WhatsApp status and Instagram stories',
+  },
+  'share.hint.tiktok': {
+    id: '9:16 · isi dijauhkan dari tombol dan caption TikTok, caption dengan hashtag',
+    en: '9:16 · content kept clear of TikTok’s buttons and caption, caption with hashtags',
+  },
+  'share.hashtags': {
+    id: '#hargaemas #emasantam #investasiemas #emaskuy',
+    en: '#goldprice #gold #investing #emaskuy',
+  },
+  'share.copyCaption': { id: 'Salin caption', en: 'Copy caption' },
   'share.imageButton': { id: 'Bagikan gambar', en: 'Share as image' },
   'share.image': { id: 'Bagikan gambar', en: 'Share image' },
   'share.download': { id: 'Unduh gambar', en: 'Download image' },
@@ -58,7 +80,11 @@ const PREVIEW_BOX: Record<CardFormat, string> = {
   square: 'aspect-square max-w-[320px]',
   portrait: 'aspect-[4/5] max-w-[280px]',
   story: 'aspect-[9/16] max-w-[220px]',
+  tiktok: 'aspect-[9/16] max-w-[220px]',
 };
+
+/** Formats posted where WhatsApp formatting shows literally. */
+const SOCIAL: ReadonlySet<CardFormat> = new Set(['portrait', 'tiktok']);
 
 export function ShareDialog({
   build,
@@ -115,15 +141,18 @@ export function ShareDialog({
     setSnap(next ? build() : null);
   };
 
+  const social = SOCIAL.has(format);
+  const caption = snap ? (social ? toSocialCaption(snap.text, t('share.hashtags')) : snap.text) : '';
+
   const shareImage = async () => {
     if (!cards || !snap) return;
-    const outcome = await shareOrDownload(cards[format].blob, `${filename}-${format}.png`, snap.text);
+    const outcome = await shareOrDownload(cards[format].blob, `${filename}-${format}.png`, caption);
     if (outcome === 'downloaded') toast.success(t('share.downloaded'));
   };
 
   const copy = async () => {
     if (!snap) return;
-    if (await copyText(snap.text)) toast.success(t('share.copied'));
+    if (await copyText(caption)) toast.success(t('share.copied'));
     else toast.error(t('share.copyFailed'));
   };
 
@@ -189,6 +218,7 @@ export function ShareDialog({
             onChange={setFormat}
             options={CARD_FORMATS.map((f) => ({ value: f, label: t(`share.${f}`) }))}
           />
+          <p className="-mt-2 text-center text-xs text-t3">{t(`share.hint.${format}`)}</p>
 
           <div
             className={cn(
@@ -212,7 +242,7 @@ export function ShareDialog({
             </button>
             <button type="button" onClick={copy} disabled={!snap} className={action}>
               <Copy className="h-4 w-4" aria-hidden />
-              {t('share.copy')}
+              {social ? t('share.copyCaption') : t('share.copy')}
             </button>
           </div>
         </DialogContent>

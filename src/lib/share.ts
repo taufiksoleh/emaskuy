@@ -115,3 +115,14 @@ export function buildInsightText(
 export function buildArticleText(inp: { title: string; excerpt: string; url: string }): string {
   return [`*${inp.title}*`, '', inp.excerpt, '', inp.url].join('\n');
 }
+
+/**
+ * A caption for Instagram and TikTok, which show WhatsApp's *bold* and
+ * _italic_ markers literally: the same message without them, plus hashtags.
+ */
+export function toSocialCaption(text: string, hashtags: string): string {
+  const plain = text
+    .replace(/\*([^*\n]+)\*/g, '$1')
+    .replace(/(^|\s)_([^_\n]+)_(?=\s|$)/gm, '$1$2');
+  return hashtags ? `${plain}\n\n${hashtags}` : plain;
+}

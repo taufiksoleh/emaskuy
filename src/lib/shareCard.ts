@@ -1,22 +1,47 @@
 /**
- * EmasKuy — share card images (Canvas 2D) for WhatsApp and Instagram.
+ * EmasKuy — share card images (Canvas 2D) for WhatsApp, Instagram and TikTok.
  *
  * Three kinds of card: today's price, the AI insight, and an article.
- * Each comes in three formats: square 1080×1080 for chats, portrait
- * 1080×1350 for the Instagram feed, and 1080×1920 for WhatsApp status and
- * stories. Always drawn in the dark brand palette so shared cards look the
- * same whichever theme the sender uses.
+ * Each comes in four formats: square 1080×1080 for chats, portrait
+ * 1080×1350 for the Instagram feed, 1080×1920 for WhatsApp status and
+ * stories, and 1080×1920 for TikTok with its content kept clear of the
+ * app's buttons and caption. Always drawn in the dark brand palette so
+ * shared cards look the same whichever theme the sender uses.
  */
 
-export type CardFormat = 'square' | 'portrait' | 'story';
+export type CardFormat = 'square' | 'portrait' | 'story' | 'tiktok';
 
 /** In the order the share dialog offers them. */
-export const CARD_FORMATS: CardFormat[] = ['square', 'portrait', 'story'];
+export const CARD_FORMATS: CardFormat[] = ['square', 'portrait', 'story', 'tiktok'];
 
 export const CARD_SIZE: Record<CardFormat, [number, number]> = {
   square: [1080, 1080],
   portrait: [1080, 1350],
   story: [1080, 1920],
+  tiktok: [1080, 1920],
+};
+
+/** Distance from each canvas edge to the card's content. */
+export interface CardArea {
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+}
+
+/** Outer padding of every card. */
+const PAD = 96;
+
+/**
+ * Content margins per format. TikTok lays its tabs over the top, its like,
+ * comment and share buttons down the right, and the caption and music over
+ * the bottom, so the content stays inside the area those leave free.
+ */
+export const CARD_AREA: Record<CardFormat, CardArea> = {
+  square: { left: PAD, right: PAD, top: PAD, bottom: PAD },
+  portrait: { left: PAD, right: PAD, top: PAD, bottom: PAD },
+  story: { left: PAD, right: PAD, top: PAD, bottom: PAD },
+  tiktok: { left: PAD, right: 176, top: 200, bottom: 480 },
 };
 
 /** Today's price card. */
@@ -101,8 +126,6 @@ const FONTS = {
   mono: '"JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace',
 };
 
-/** Outer padding of every card. */
-const PAD = 96;
 /** Frame inset and corner radius. */
 const FRAME = 40;
 /** Space the footer (rule, site name, note) takes above the bottom padding. */
@@ -278,9 +301,9 @@ function drawFrame(ctx: CanvasRenderingContext2D, w: number, h: number) {
   ctx.stroke();
 }
 
-function drawBrand(ctx: CanvasRenderingContext2D) {
+function drawBrand(ctx: CanvasRenderingContext2D, a: CardArea) {
   ctx.save();
-  ctx.translate(PAD, PAD);
+  ctx.translate(a.left, a.top);
   ctx.scale(0.8, 0.8);
   ctx.fillStyle = P.gold;
   ctx.fill(new Path2D(LOGO_PATH));
@@ -288,21 +311,21 @@ function drawBrand(ctx: CanvasRenderingContext2D) {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = P.text1;
   ctx.font = `700 44px ${FONTS.display}`;
-  ctx.fillText('EmasKuy', PAD + 86, PAD + 34);
+  ctx.fillText('EmasKuy', a.left + 86, a.top + 34);
   ctx.textBaseline = 'alphabetic';
 }
 
-function drawFooter(ctx: CanvasRenderingContext2D, w: number, h: number, note: string) {
-  const maxWidth = w - PAD * 2;
+function drawFooter(ctx: CanvasRenderingContext2D, w: number, h: number, a: CardArea, note: string) {
+  const maxWidth = w - a.left - a.right;
   ctx.fillStyle = P.line;
-  ctx.fillRect(PAD, h - PAD - FOOTER_H, maxWidth, 2);
+  ctx.fillRect(a.left, h - a.bottom - FOOTER_H, maxWidth, 2);
   ctx.fillStyle = P.gold;
   ctx.font = `600 34px ${FONTS.body}`;
-  ctx.fillText('emaskuy.com', PAD, h - PAD);
+  ctx.fillText('emaskuy.com', a.left, h - a.bottom);
   ctx.fillStyle = P.text3;
   ctx.font = `500 26px ${FONTS.body}`;
   ctx.textAlign = 'right';
-  ctx.fillText(note, w - PAD, h - PAD, maxWidth - 260);
+  ctx.fillText(note, w - a.right, h - a.bottom, maxWidth - 260);
   ctx.textAlign = 'left';
 }
 
@@ -367,25 +390,26 @@ function drawSpark(ctx: CanvasRenderingContext2D, values: number[], x: number, y
 /* Price                                                              */
 /* ------------------------------------------------------------------ */
 
-const PRICE_TOP: Record<CardFormat, number> = { square: 330, portrait: 420, story: 480 };
+const PRICE_TOP: Record<CardFormat, number> = { square: 330, portrait: 420, story: 480, tiktok: 470 };
 
 function drawPriceCard(ctx: CanvasRenderingContext2D, model: ShareCardModel, format: CardFormat, w: number, h: number) {
+  const a = CARD_AREA[format];
   drawBackground(ctx, w, h);
   drawFrame(ctx, w, h);
-  drawBrand(ctx);
+  drawBrand(ctx, a);
 
   // Title and date
   let y = PRICE_TOP[format];
   ctx.fillStyle = P.gold;
   ctx.font = `600 34px ${FONTS.body}`;
-  ctx.fillText(model.title.toUpperCase(), PAD, y);
+  ctx.fillText(model.title.toUpperCase(), a.left, y);
   y += 58;
   ctx.fillStyle = P.text3;
   ctx.font = `500 32px ${FONTS.mono}`;
-  ctx.fillText(model.dateLine, PAD, y);
+  ctx.fillText(model.dateLine, a.left, y);
 
   // Price, sized to fit the width
-  const maxWidth = w - PAD * 2;
+  const maxWidth = w - a.left - a.right;
   const size = fitFontSize(
     (s) => {
       ctx.font = `700 ${s}px ${FONTS.mono}`;
@@ -402,16 +426,16 @@ function drawPriceCard(ctx: CanvasRenderingContext2D, model: ShareCardModel, for
   priceFill.addColorStop(0.55, P.gold);
   priceFill.addColorStop(1, P.goldDeep);
   ctx.fillStyle = priceFill;
-  ctx.fillText(model.price, PAD, y);
+  ctx.fillText(model.price, a.left, y);
   y += 64;
   ctx.fillStyle = P.text2;
   ctx.font = `500 36px ${FONTS.body}`;
-  ctx.fillText(model.unit, PAD, y);
+  ctx.fillText(model.unit, a.left, y);
 
   // Change pill
   if (model.change) {
     y += 48;
-    drawPill(ctx, model.change.text, PAD, y, model.change.up ? 'up' : 'down', {
+    drawPill(ctx, model.change.text, a.left, y, model.change.up ? 'up' : 'down', {
       font: `600 34px ${FONTS.mono}`,
       height: 68,
     });
@@ -424,44 +448,49 @@ function drawPriceCard(ctx: CanvasRenderingContext2D, model: ShareCardModel, for
   for (const line of model.lines) {
     y += 56;
     ctx.fillStyle = P.text1;
-    ctx.fillText(line, PAD, y, maxWidth);
+    ctx.fillText(line, a.left, y, maxWidth);
   }
 
-  // Story: 30-day sparkline
-  if (format === 'story' && model.spark.length > 1) {
-    const top = Math.max(y + 150, 1180);
-    ctx.fillStyle = P.text3;
-    ctx.font = `500 30px ${FONTS.body}`;
-    ctx.fillText(model.sparkLabel, PAD, top - 36);
-    drawSpark(ctx, model.spark, PAD, top, maxWidth, 380);
+  // Tall formats: 30-day sparkline, in whatever height is left (TikTok)
+  if ((format === 'story' || format === 'tiktok') && model.spark.length > 1) {
+    const top = format === 'story' ? Math.max(y + 150, 1180) : y + 130;
+    const height = format === 'story' ? 380 : Math.min(320, h - a.bottom - FOOTER_H - 60 - top);
+    if (height >= 140) {
+      ctx.fillStyle = P.text3;
+      ctx.font = `500 30px ${FONTS.body}`;
+      ctx.fillText(model.sparkLabel, a.left, top - 36);
+      drawSpark(ctx, model.spark, a.left, top, maxWidth, height);
+    }
   }
 
-  drawFooter(ctx, w, h, model.footer);
+  drawFooter(ctx, w, h, a, model.footer);
 }
 
 /* ------------------------------------------------------------------ */
 /* AI insight                                                         */
 /* ------------------------------------------------------------------ */
 
-const INSIGHT_TOP: Record<CardFormat, number> = { square: 250, portrait: 290, story: 400 };
+const INSIGHT_TOP: Record<CardFormat, number> = { square: 250, portrait: 290, story: 400, tiktok: 400 };
 const INSIGHT_TEXT: Record<CardFormat, { max: number; min: number }> = {
   square: { max: 34, min: 30 },
   portrait: { max: 38, min: 30 },
   story: { max: 46, min: 32 },
+  tiktok: { max: 40, min: 30 },
 };
 
 function drawInsightCard(ctx: CanvasRenderingContext2D, model: InsightCardModel, format: CardFormat, w: number, h: number) {
+  const a = CARD_AREA[format];
   drawBackground(ctx, w, h);
   drawFrame(ctx, w, h);
-  drawBrand(ctx);
-  const maxWidth = w - PAD * 2;
+  drawBrand(ctx, a);
+  const maxWidth = w - a.left - a.right;
 
   // Title and sentiment on one row, date under them
   let y = INSIGHT_TOP[format];
   ctx.fillStyle = P.gold;
   ctx.font = `600 34px ${FONTS.body}`;
-  ctx.fillText(model.title.toUpperCase(), PAD, y);
-  drawPill(ctx, model.sentiment.label, w - PAD, y - 44, model.sentiment.tone, {
+  ctx.fillText(model.title.toUpperCase(), a.left, y);
+  drawPill(ctx, model.sentiment.label, w - a.right, y - 44, model.sentiment.tone, {
     font: `600 30px ${FONTS.body}`,
     height: 60,
     align: 'right',
@@ -469,17 +498,17 @@ function drawInsightCard(ctx: CanvasRenderingContext2D, model: InsightCardModel,
   y += 56;
   ctx.fillStyle = P.text3;
   ctx.font = `500 30px ${FONTS.mono}`;
-  ctx.fillText(model.dateLine, PAD, y);
+  ctx.fillText(model.dateLine, a.left, y);
   y += 40;
   ctx.fillStyle = P.line;
-  ctx.fillRect(PAD, y, maxWidth, 2);
+  ctx.fillRect(a.left, y, maxWidth, 2);
   y += 40;
 
   // Bullets, as large as the space allows
   const indent = 40;
   const textWidth = maxWidth - indent;
   const lineHeight = 1.42;
-  const bottom = h - PAD - FOOTER_H - 48;
+  const bottom = h - a.bottom - FOOTER_H - 48;
   const moreH = 64;
   const font = (s: number) => `500 ${s}px ${FONTS.body}`;
   const spacing = { lineHeight, gap: 0.75 };
@@ -494,12 +523,12 @@ function drawInsightCard(ctx: CanvasRenderingContext2D, model: InsightCardModel,
     if (i > 0) y += fit.size * spacing.gap;
     ctx.fillStyle = P.gold;
     ctx.beginPath();
-    ctx.arc(PAD + 9, y + lineH / 2 - 1, 7, 0, Math.PI * 2);
+    ctx.arc(a.left + 9, y + lineH / 2 - 1, 7, 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = P.text1;
     ctx.textBaseline = 'middle';
     for (const line of lines) {
-      ctx.fillText(line, PAD + indent, y + lineH / 2);
+      ctx.fillText(line, a.left + indent, y + lineH / 2);
       y += lineH;
     }
     ctx.textBaseline = 'alphabetic';
@@ -508,10 +537,10 @@ function drawInsightCard(ctx: CanvasRenderingContext2D, model: InsightCardModel,
   if (fit.clipped) {
     ctx.fillStyle = P.gold;
     ctx.font = `600 30px ${FONTS.body}`;
-    ctx.fillText(model.more, PAD + indent, y + 52, textWidth);
+    ctx.fillText(model.more, a.left + indent, y + 52, textWidth);
   }
 
-  drawFooter(ctx, w, h, model.footer);
+  drawFooter(ctx, w, h, a, model.footer);
 }
 
 /* ------------------------------------------------------------------ */
@@ -525,6 +554,7 @@ const ARTICLE_LAYOUT: Record<
   square: { image: 440, title: { max: 64, min: 46, lines: 3 }, excerpt: 30 },
   portrait: { image: 580, title: { max: 68, min: 48, lines: 4 }, excerpt: 32 },
   story: { image: 860, title: { max: 76, min: 52, lines: 5 }, excerpt: 36 },
+  tiktok: { image: 760, title: { max: 66, min: 48, lines: 4 }, excerpt: 32 },
 };
 
 /** Draw `img` to cover the box, cropping the overflow evenly. */
@@ -544,8 +574,9 @@ function drawArticleCard(
   h: number,
 ) {
   const layout = ARTICLE_LAYOUT[format];
+  const a = CARD_AREA[format];
   drawBackground(ctx, w, h);
-  const maxWidth = w - PAD * 2;
+  const maxWidth = w - a.left - a.right;
 
   // Cover image inside the frame's top, fading into the background
   const boxW = w - FRAME * 2;
@@ -578,17 +609,17 @@ function drawArticleCard(
     }
   }
   drawFrame(ctx, w, h);
-  drawBrand(ctx);
+  drawBrand(ctx, a);
 
   // Category and meta
   let y = imgBottom + 40;
   ctx.fillStyle = P.gold;
   ctx.font = `600 30px ${FONTS.body}`;
-  ctx.fillText(model.category.toUpperCase(), PAD, y);
+  ctx.fillText(model.category.toUpperCase(), a.left, y);
   ctx.fillStyle = P.text3;
   ctx.font = `500 26px ${FONTS.mono}`;
   ctx.textAlign = 'right';
-  ctx.fillText(model.meta, w - PAD, y, maxWidth / 2);
+  ctx.fillText(model.meta, w - a.right, y, maxWidth / 2);
   ctx.textAlign = 'left';
 
   // Title: the largest size that fits its line budget
@@ -607,13 +638,13 @@ function drawArticleCard(
   ctx.fillStyle = P.text1;
   for (const line of lines) {
     y += titleLineH;
-    ctx.fillText(line, PAD, y);
+    ctx.fillText(line, a.left, y);
   }
 
   // Excerpt in whatever room is left
   const excerptSize = layout.excerpt;
   const excerptLineH = excerptSize * 1.45;
-  const bottom = h - PAD - FOOTER_H - 40;
+  const bottom = h - a.bottom - FOOTER_H - 40;
   y += 30;
   const room = Math.floor((bottom - y) / excerptLineH);
   const excerptFont = (s: number) => `500 ${s}px ${FONTS.body}`;
@@ -623,10 +654,10 @@ function drawArticleCard(
   ctx.fillStyle = P.text2;
   for (const line of excerpt) {
     y += excerptLineH;
-    ctx.fillText(line, PAD, y);
+    ctx.fillText(line, a.left, y);
   }
 
-  drawFooter(ctx, w, h, model.footer);
+  drawFooter(ctx, w, h, a, model.footer);
 }
 
 /* ------------------------------------------------------------------ */

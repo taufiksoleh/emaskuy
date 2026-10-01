@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CARD_FORMATS, CARD_SIZE, clampLines, fitFontSize, fitParagraphs, wrapLines } from './shareCard';
+import { CARD_AREA, CARD_FORMATS, CARD_SIZE, clampLines, fitFontSize, fitParagraphs, wrapLines } from './shareCard';
 
 describe('fitFontSize', () => {
   // Monospace digits are ~0.6em wide.
@@ -90,10 +90,22 @@ describe('fitParagraphs', () => {
 });
 
 describe('card sizes', () => {
-  it('match WhatsApp chat, Instagram feed and status/story formats', () => {
-    expect(CARD_FORMATS).toEqual(['square', 'portrait', 'story']);
+  it('match WhatsApp chat, Instagram feed, status/story and TikTok formats', () => {
+    expect(CARD_FORMATS).toEqual(['square', 'portrait', 'story', 'tiktok']);
     expect(CARD_SIZE.square).toEqual([1080, 1080]);
     expect(CARD_SIZE.portrait).toEqual([1080, 1350]);
     expect(CARD_SIZE.story).toEqual([1080, 1920]);
+    expect(CARD_SIZE.tiktok).toEqual([1080, 1920]);
+  });
+
+  it('keep TikTok content clear of the app overlays and leave room to write', () => {
+    const a = CARD_AREA.tiktok;
+    // Top tabs, right-hand buttons, bottom caption and music.
+    expect(a.top).toBeGreaterThanOrEqual(160);
+    expect(a.right).toBeGreaterThanOrEqual(150);
+    expect(a.bottom).toBeGreaterThanOrEqual(420);
+    const [w, h] = CARD_SIZE.tiktok;
+    expect(w - a.left - a.right).toBeGreaterThanOrEqual(800);
+    expect(h - a.top - a.bottom).toBeGreaterThanOrEqual(1200);
   });
 });

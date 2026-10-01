@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildArticleText, buildDailyPriceText, buildInsightText, buildResultText, formatShareDate, waLink } from './share';
+import { buildArticleText, buildDailyPriceText, buildInsightText, buildResultText, formatShareDate, toSocialCaption, waLink } from './share';
 
 const t = (key: string) => key;
 // 30 Sep 2026 02:15 UTC = 09:15 WIB
@@ -107,5 +107,18 @@ describe('buildArticleText', () => {
     expect(buildArticleText({ title: 'Judul', excerpt: 'Ringkasan.', url: 'https://emaskuy.com/analisis/x' })).toBe(
       '*Judul*\n\nRingkasan.\n\nhttps://emaskuy.com/analisis/x',
     );
+  });
+});
+
+describe('toSocialCaption', () => {
+  it('drops WhatsApp bold and italic markers and adds hashtags', () => {
+    const text = '*Harga Emas*\n• Spot: *Rp2.241.394*/gram\n\nhttps://emaskuy.com/\n_Bukan saran investasi_';
+    expect(toSocialCaption(text, '#hargaemas #emaskuy')).toBe(
+      'Harga Emas\n• Spot: Rp2.241.394/gram\n\nhttps://emaskuy.com/\nBukan saran investasi\n\n#hargaemas #emaskuy',
+    );
+  });
+
+  it('leaves underscores inside words and links alone', () => {
+    expect(toSocialCaption('a_b https://x.com/a_b_c', '')).toBe('a_b https://x.com/a_b_c');
   });
 });
