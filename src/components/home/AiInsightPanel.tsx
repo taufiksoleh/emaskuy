@@ -6,12 +6,14 @@
  * bubble dialog.
  */
 import { Reveal } from '../ui-atoms/Reveal';
-import { ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { Globe } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { ageInDays, formatDate } from '@/lib/gold';
 import { formatClockZone } from '@/lib/time';
 import { cn, fill } from '@/lib/utils';
 import { useAiInsight, type InsightSentiment } from '@/lib/aiInsight';
+import { sourceSite } from '@/lib/sourceSite';
 import { Panel } from '../ui-atoms/Panel';
 import { SpeechBubble } from '../ui-atoms/SpeechBubble';
 import { InsightMascot } from './InsightMascot';
@@ -26,6 +28,7 @@ registerStrings({
   'ai.sentiment.neutral': { id: 'Netral', en: 'Neutral' },
   'ai.sentimentLabel': { id: 'Sentimen', en: 'Sentiment' },
   'ai.sources': { id: 'Sumber', en: 'Sources' },
+  'ai.sourceOpens': { id: '{title} (buka di tab baru)', en: '{title} (opens in a new tab)' },
   'ai.disclaimer': {
     id: 'Dihasilkan AI dari berita pasar pada tanggal di atas · Bukan saran investasi',
     en: 'AI-generated from market news on the date above · Not investment advice',
@@ -95,23 +98,32 @@ export function AiInsightPanel() {
               ))}
             </ul>
             {insight.sources.length > 0 && (
-              <p className="mt-4 text-[11px] leading-relaxed text-t3">
-                {t('ai.sources')}:{' '}
-                {insight.sources.map((s, i) => (
-                  <span key={s.url}>
-                    {i > 0 && ' · '}
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 underline decoration-dotted hover:text-gold"
-                    >
-                      {s.title}
-                      <ExternalLink className="h-3 w-3" aria-hidden />
-                    </a>
-                  </span>
-                ))}
-              </p>
+              <div className="mt-4 border-t border-hairline pt-3">
+                <p className="label-micro">{t('ai.sources')}</p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {insight.sources.map((s) => {
+                    const site = sourceSite(s.url);
+                    const name = site?.name ?? s.title;
+                    // Titles usually lead with the outlet ("Kitco: …"); don't say it twice.
+                    const label = s.title.toLowerCase().startsWith(name.toLowerCase()) ? s.title : `${name}: ${s.title}`;
+                    return (
+                      <li key={s.url}>
+                        <a
+                          href={s.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={s.title}
+                          aria-label={fill(t('ai.sourceOpens'), { title: label })}
+                          className="inline-flex max-w-[16rem] items-center gap-1.5 rounded-full border border-hairline bg-bg3 py-1 pl-1.5 pr-2.5 text-xs text-t2 transition-colors hover:border-goldline hover:text-gold focus-visible:border-goldline focus-visible:text-gold"
+                        >
+                          <SiteIcon src={site?.icon} />
+                          <span className="truncate">{name}</span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             )}
           </SpeechBubble>
           <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
@@ -121,5 +133,24 @@ export function AiInsightPanel() {
         </Panel>
       </Reveal>
     </section>
+  );
+}
+
+/** Site favicon, or a globe when there is none or it fails to load. */
+function SiteIcon({ src }: { src?: string }) {
+  const [failed, setFailed] = useState(false);
+  if (!src || failed) return <Globe className="h-4 w-4 shrink-0 text-t3" aria-hidden />;
+  return (
+    <img
+      src={src}
+      alt=""
+      width={16}
+      height={16}
+      loading="lazy"
+      decoding="async"
+      referrerPolicy="no-referrer"
+      onError={() => setFailed(true)}
+      className="h-4 w-4 shrink-0 rounded-sm"
+    />
   );
 }
