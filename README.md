@@ -20,13 +20,13 @@ EmasKuy (*emas* is Indonesian for gold) is a real-time gold analysis terminal. I
   - gold (XAU), silver (XAG), platinum (XPT) and palladium (XPD);
   - USD/IDR and gold in rupiah per gram;
   - the visitor's own currency when it is neither, e.g. USD/MYR and XAU/MYR.
-- **Hero price panel** in the display currency and weight, with the 24h change, the range seen today and a 30-day sparkline. It shares to WhatsApp as a text message or an image card.
+- **Hero price panel** in the display currency and weight, with the 24h change, the range seen today and a 30-day sparkline. It shares to WhatsApp as a text message or an image card: square for chats, 4:5 for the Instagram feed, 9:16 for status and stories, or 9:16 for TikTok with the content kept clear of TikTok's buttons and caption. The Instagram feed and TikTok formats come with a plain caption and hashtags.
 - **Currency and weight picker** in the navbar, applied site-wide.
   - **Currencies:** IDR, USD, MYR, SGD, HKD, JPY, KRW, CNY, THB, PHP, INR, SAR, AED, EUR, GBP and AUD.
   - **Weights:** gram, troy ounce, kilogram, tola, tael (Hong Kong) or mayam (Aceh, ≈3.33 g).
   - **Default:** follows the visitor's time zone, else the site language.
 - **Interactive price chart** (lightweight-charts): line, area or candles over 1H, 24H, 7D, 30D, 90D, 1Y and ALL (daily history back to 2013).
-- **AI Insight:** a daily market sentiment with three or four bullets and their sources.
+- **AI Insight:** a daily market sentiment with three or four bullets and their sources. It shares as a WhatsApp message or an image card in the same four formats.
 - **Price alerts** above or below a target, in any currency and weight (up to 10).
   - Checked on every page while the site is open, including once a minute in a background tab.
   - Shown as a toast, and as a system notification if allowed.
@@ -48,7 +48,7 @@ Silver, platinum and palladium, each with:
 ### Analysis (`/analisis`, `/en/analysis`)
 
 - **Articles:** bilingual market analysis with a category filter, live search and a featured story.
-- **Reader:** reading progress, a table of contents, live-price callouts, sources, share buttons and related articles.
+- **Reader:** reading progress, a table of contents, live-price callouts, sources, share buttons and related articles. Each article also shares as an image card with its cover, title and excerpt, in the same four formats.
 - **Newsletter:** sign-up through an email provider when one is configured (see [Getting started](#getting-started)).
 
 ### Calculators (`/kalkulator`, `/en/calculator`)

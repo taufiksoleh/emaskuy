@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildDailyPriceText, buildResultText, formatShareDate, waLink } from './share';
+import { buildArticleText, buildDailyPriceText, buildInsightText, buildResultText, formatShareDate, toSocialCaption, waLink } from './share';
 
 const t = (key: string) => key;
 // 30 Sep 2026 02:15 UTC = 09:15 WIB
@@ -63,5 +63,62 @@ describe('sharing helpers', () => {
     const link = waLink('*Harga* & Rp2.410.729\nbaris 2');
     expect(link.startsWith('https://wa.me/?text=')).toBe(true);
     expect(decodeURIComponent(link.slice('https://wa.me/?text='.length))).toBe('*Harga* & Rp2.410.729\nbaris 2');
+  });
+});
+
+describe('buildInsightText', () => {
+  it('lists the bullets between the header and the link', () => {
+    const text = buildInsightText(
+      {
+        title: 'AI Insight Emas',
+        dateLine: 'Kam, 1 Okt 2026 · 10.30 WIB',
+        sentiment: 'Sentimen: Netral',
+        bullets: ['Emas memudar.', 'Antam turun.'],
+        lang: 'id',
+        note: 'Bukan saran investasi',
+      },
+      t,
+    );
+    expect(text.split('\n')).toEqual([
+      '*AI Insight Emas*',
+      'Kam, 1 Okt 2026 · 10.30 WIB',
+      '_Sentimen: Netral_',
+      '',
+      '• Emas memudar.',
+      '',
+      '• Antam turun.',
+      '',
+      'share.daily.live: https://emaskuy.com/',
+      '_Bukan saran investasi_',
+    ]);
+  });
+
+  it('links the English home page in English', () => {
+    const text = buildInsightText(
+      { title: 'Gold AI Insight', dateLine: 'd', sentiment: 's', bullets: ['x'], lang: 'en', note: 'n' },
+      t,
+    );
+    expect(text).toContain('https://emaskuy.com/en');
+  });
+});
+
+describe('buildArticleText', () => {
+  it('puts the title in bold above the excerpt and link', () => {
+    expect(buildArticleText({ title: 'Judul', excerpt: 'Ringkasan.', url: 'https://emaskuy.com/analisis/x' })).toBe(
+      '*Judul*\n\nRingkasan.\n\nhttps://emaskuy.com/analisis/x',
+    );
+  });
+});
+
+describe('toSocialCaption', () => {
+  it('drops WhatsApp bold and italic markers and adds hashtags', () => {
+    const text = '*Harga Emas*\n• Spot: *Rp2.241.394*/gram\n\nhttps://emaskuy.com/\n_Bukan saran investasi_';
+    expect(toSocialCaption(text, '#hargaemas #emaskuy')).toBe(
+      'Harga Emas\n• Spot: Rp2.241.394/gram\n\nhttps://emaskuy.com/\nBukan saran investasi\n\n#hargaemas #emaskuy',
+    );
+  });
+
+  it('leaves underscores inside words and links alone', () => {
+    expect(toSocialCaption('a_b https://x.com/a_b_c', '')).toBe('a_b https://x.com/a_b_c');
   });
 });

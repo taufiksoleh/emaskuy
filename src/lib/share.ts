@@ -90,3 +90,39 @@ export function buildResultText(
     `_${t('share.disclaimer')}_`,
   ].join('\n');
 }
+
+/**
+ * The AI insight as a WhatsApp message: title, date and sentiment, one
+ * bullet per paragraph, then a link to the home page.
+ */
+export function buildInsightText(
+  inp: { title: string; dateLine: string; sentiment: string; bullets: string[]; lang: Lang; note: string },
+  t: Translate,
+): string {
+  return [
+    `*${inp.title}*`,
+    inp.dateLine,
+    `_${inp.sentiment}_`,
+    '',
+    ...inp.bullets.flatMap((b, i) => (i === 0 ? [`• ${b}`] : ['', `• ${b}`])),
+    '',
+    `${t('share.daily.live')}: ${SITE_URL}${pathFor('home', inp.lang)}`,
+    `_${inp.note}_`,
+  ].join('\n');
+}
+
+/** An article as a WhatsApp message: bold title, excerpt, link. */
+export function buildArticleText(inp: { title: string; excerpt: string; url: string }): string {
+  return [`*${inp.title}*`, '', inp.excerpt, '', inp.url].join('\n');
+}
+
+/**
+ * A caption for Instagram and TikTok, which show WhatsApp's *bold* and
+ * _italic_ markers literally: the same message without them, plus hashtags.
+ */
+export function toSocialCaption(text: string, hashtags: string): string {
+  const plain = text
+    .replace(/\*([^*\n]+)\*/g, '$1')
+    .replace(/(^|\s)_([^_\n]+)_(?=\s|$)/gm, '$1$2');
+  return hashtags ? `${plain}\n\n${hashtags}` : plain;
+}

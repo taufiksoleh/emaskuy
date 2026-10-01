@@ -140,7 +140,7 @@ export function HeroBand() {
       sparkLabel: t('share.last30'),
       footer: t('share.disclaimer'),
     };
-    return { model, text };
+    return { card: { kind: 'price' as const, model }, text };
   };
   const formatAbs = (v: number) => d.format(v);
 
