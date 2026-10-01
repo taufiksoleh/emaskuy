@@ -290,6 +290,53 @@
   .chart-dot-pulse {
     animation: chart-dot-pulse 2s ease-out infinite;
   }
+
+  /* AI Insight mascot (InsightMascot.tsx): hovers, flaps its wings, twinkles.
+     transform-box: fill-box lets each SVG part rotate/scale around itself. */
+  @keyframes mascot-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes mascot-flap-l {
+    from { transform: rotate(-14deg); }
+    to { transform: rotate(10deg); }
+  }
+  @keyframes mascot-flap-r {
+    from { transform: rotate(14deg); }
+    to { transform: rotate(-10deg); }
+  }
+  @keyframes mascot-shadow {
+    0%, 100% { transform: scaleX(1); opacity: 0.22; }
+    50% { transform: scaleX(0.75); opacity: 0.12; }
+  }
+  @keyframes mascot-twinkle {
+    0%, 100% { opacity: 0.25; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+  .mascot-float {
+    animation: mascot-float 3.2s ease-in-out infinite;
+    will-change: transform;
+  }
+  .mascot-wing-l {
+    transform-box: fill-box;
+    transform-origin: 100% 55%;
+    animation: mascot-flap-l 0.9s ease-in-out infinite alternate;
+  }
+  .mascot-wing-r {
+    transform-box: fill-box;
+    transform-origin: 0% 55%;
+    animation: mascot-flap-r 0.9s ease-in-out infinite alternate;
+  }
+  .mascot-shadow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: mascot-shadow 3.2s ease-in-out infinite;
+  }
+  .mascot-sparkle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: mascot-twinkle 2.4s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
@@ -304,7 +351,12 @@
   .chart-dot-pulse,
   .glow-drift,
   .skeleton-shimmer,
-  .fade-in-down {
+  .fade-in-down,
+  .mascot-float,
+  .mascot-wing-l,
+  .mascot-wing-r,
+  .mascot-shadow,
+  .mascot-sparkle {
     animation: none !important;
   }
   .slide-indicator {
