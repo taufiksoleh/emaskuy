@@ -23,6 +23,7 @@ import { getArticle, relatedArticles } from '@/data/articles';
 import { formatDate } from '@/lib/gold';
 import { ArticleCard } from '@/components/ui-atoms/ArticleCard';
 import { Img } from '@/components/ui-atoms/Img';
+import { SourceChips } from '@/components/ui-atoms/SourceChips';
 import { MiniLivePrice } from '@/components/analysis/MiniLivePrice';
 import { LiveCallout } from '@/components/analysis/LiveCallout';
 import { cn } from '@/lib/utils';
@@ -247,15 +248,7 @@ export default function Article() {
         <h2 id="art-sources" className="label-micro">
           {t('art.sources')}
         </h2>
-        <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-t2">
-          {article.sources.map((s) => (
-            <li key={s.url}>
-              <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted hover:text-gold">
-                {s.title}
-              </a>
-            </li>
-          ))}
-        </ol>
+        <SourceChips sources={article.sources} className="mt-3" />
       </section>,
     );
   }
