@@ -67,7 +67,7 @@ fs.writeFileSync(p,JSON.stringify(f,null,2)+'\n');"
   2. Rates, yields, dollar and oil, and the bigger picture (distance from the record, monthly move).
   3. Key support and resistance levels and the next data releases.
   4. Antam, buyback, spread, other brands, plus a structural note (central banks, ETFs).
-- `sources`: up to 10 `{ title, url }` with full `https://` URLs. Every number in a bullet must come from one of them.
+- `sources`: up to 10 `{ title, url }` with full `https://` URLs. Every number in a bullet must come from one of them. They render as source chips; follow [Sources and chips](#sources-and-chips).
 - Describe what happened and what traders watch. No investment advice.
 - Don't claim a direction you can't source (e.g. "Galeri24 naik") when the previous file shows the same price.
 
@@ -91,9 +91,23 @@ Insert a new object at the top of `ARTICLES` and follow the `Article` interface 
 - `callout`: `rally`, `rates`, `dca`, `reserves`, `compare` or `ratio` (the live widget mid-article). Use `rates` for Fed/yields, `compare` for brand or asset comparisons, `dca` for strategy.
 - `image: withBase('/article-<name>.png')`. Always wrap it in `withBase`.
 - `publishedAt: Date.parse('YYYY-MM-DDTHH:MM:00Z')`, in UTC and not in the future.
-- `readMinutes`, `author: TEAM`, and `sources`: every page the article's numbers come from.
+- `readMinutes`, `author: TEAM`, and `sources`: every page the article's numbers come from. They render as source chips at the end of the article; follow [Sources and chips](#sources-and-chips).
 
 Insert with a small Python or Node script that also strips the old `featured: true`, then check with `grep -n "featured: true\|slug:" src/data/articles.ts | head`.
+
+## Sources and chips
+
+The site shows each source as a chip with the site's favicon and short name, such as Kitco or Bloomberg Technoz. Clicking a chip opens the source in a new tab. The full `title` appears only as the tooltip and the screen-reader label. The AI insight and the articles share one component, `src/components/ui-atoms/SourceChips.tsx`. The name and icon come from the URL through `src/lib/sourceSite.ts`.
+
+The content files keep the same `{ title, url }` format, so nothing extra is written. To make the chips read well:
+
+- **`url` is the exact page you read**, such as the article, not the outlet's home page. The chip name and icon come from its host.
+- **`title` reads `Outlet: headline`**, for example `Kitco: Gold price rockets to session highs …`. The chip drops the duplicate outlet from the label, so this stays short for screen readers.
+- **Prefer one source per outlet.** Two chips with the same name look like a mistake. Keep a second page from the same outlet only when it carries different facts.
+- **Order sources by importance:** the main market story first, Antam and brand prices last. Five to eight chips read best. The schema allows up to 10 for the insight.
+- **Unknown outlets show their bare domain,** such as `example.co.id`, with the site's favicon or a globe. That is fine. Better names live in the `SITE_NAMES` map in `src/lib/sourceSite.ts`, but that is code. **Never edit it on a `content/*` branch,** because CI fails on code changes there. Mention the outlet in your report so it can be added in a separate PR.
+
+To see which outlets already have names, read `SITE_NAMES` in `src/lib/sourceSite.ts`. Subdomains, such as `money.kompas.com`, use their parent's name.
 
 ## 5. Render the cover image (no text)
 
@@ -140,6 +154,8 @@ npm run build
 find dist -path "*<slug>*"   # expect dist/analisis/<slug>.html and dist/en/analysis/<slug>.html
 ```
 
+Optional check of the chips: run `npx vite`, open the article and the home page, and confirm each source shows a sensible name and opens the right URL. Headless Chromium in a sandbox may fail to load favicons because of the proxy certificate. Launch it with `--ignore-certificate-errors`, or accept the globe fallback there.
+
 - Stage by path only: `git add src/content/antam.json src/content/ai-insight.json src/data/articles.ts public/article-<name>.png`. Never `git add -A`.
 - On a `content/*` branch, changing any other file fails CI, so this skill folder must never be edited on a content branch.
 - Commit message style: `Konten D Mon YYYY: artikel "<short title>" + insight + Antam Rp<1g price>` with a short bullet body.
@@ -152,5 +168,6 @@ Tell the user, briefly:
 - The Antam 1 g price, buyback and change, plus Galeri24 and UBS, in a small table.
 - Where the prices came from, and any source conflicts (e.g. outlets still showing yesterday's price).
 - The insight sentiment and its main points.
+- The outlets cited. Flag any that show as a bare domain, so a name can be added to `SITE_NAMES` in a separate PR.
 - The article title and slug, and that it is now featured.
 - The cover image (send it with SendUserFile), and that validation, tests and build passed.
