@@ -1,23 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T10:00:00+07:00",
+  "generatedAt": "2026-10-01T10:30:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas rebound 1,6% ke $4.180,54 (futures +0,8% ke $4.212,01) setelah crash ~4% — harga minyak yang turun meredakan tekanan dari yield Treasury yang masih di atas 5%.",
-      "en": "Gold rebounded 1.6% to $4,180.54 (futures +0.8% to $4,212.01) after a ~4% crash — falling oil prices eased pressure from Treasury yields still above 5%."
+      "id": "Data AS kemarin campur aduk: PCE inti Agustus hanya +0,2% m/m (3,0% y/y, konsensus 3,3%), tapi PDB Q2 direvisi naik ke 2,2% dan ADP September +90 ribu (konsensus 70 ribu). Emas sempat melonjak ke $4.213 lalu memudar ke kisaran $4.150–4.165.",
+      "en": "Yesterday's US data was mixed: August core PCE rose only 0.2% m/m (3.0% y/y vs 3.3% consensus), but Q2 GDP was revised up to 2.2% and September ADP added 90K (70K expected). Gold spiked to $4,213, then faded into the $4,150–4,165 range."
     },
     {
-      "id": "Tapi tren jangka pendek masih bearish: harga di bawah EMA50 dan RSI intraday sudah overbought — rebound rawan kehilangan momentum. Support $4.157 lalu $4.100; resistance $4.313, dan baru close di atas $4.400 yang membatalkan pandangan turun.",
-      "en": "But the short-term trend remains bearish: price sits below the EMA50 and intraday RSI is already overbought — the rebound risks losing momentum. Support at $4,157 then $4,100; resistance at $4,313, and only a close above $4,400 negates the bearish view."
+      "id": "Peluang kenaikan suku bunga Fed Oktober turun ke ~38% dari 51%, tapi yield 10 tahun AS di 5,22% (tertinggi sejak Juli 2007) dan minyak yang tinggi tetap menekan. Emas turun lebih dari 5% dalam sebulan dan masih ~26% di bawah rekor Januari.",
+      "en": "Odds of an October Fed hike fell to about 38% from 51%, but the US 10-year yield at 5.22% (highest since July 2007) and elevated oil keep the pressure on. Gold is down more than 5% over the past month and still sits about 26% below its January record."
     },
     {
-      "id": "Penentu hari ini: triple data AS — ADP September (sebelumnya 38K, terlemah sejak Januari), estimasi ketiga PDB Q2 (1,5%), dan PCE Agustus (3,7%, core 3,3%). Data panas membuka jalan ke $4.100/$4.000; data dingin membuka pantulan ke $4.313/$4.400.",
-      "en": "Today's deciders: a US data triple-header — September ADP (previously 38K, weakest since January), third Q2 GDP estimate (1.5%), and August PCE (3.7%, core 3.3%). Hot data opens the path to $4,100/$4,000; cool data opens a bounce to $4,313/$4,400."
+      "id": "Level kunci: support $4.100 lalu $4.000 (low 25 Juni $4.009); resistance $4.300. Penentu berikutnya: ISM Manufaktur dan klaim pengangguran hari ini, lalu Non-Farm Payrolls Jumat. Tembus di bawah $4.000 menandai lower low yang mengancam tren besar.",
+      "en": "Key levels: support at $4,100 then $4,000 (June 25 low $4,009); resistance at $4,300. Next deciders: ISM Manufacturing and jobless claims today, then Friday's non-farm payrolls. A break below $4,000 would mark a lower low that threatens the larger trend."
     },
     {
-      "id": "Antam ikut rebound: naik Rp15.000 ke Rp2.595.000/gram, buyback naik Rp30.000 ke Rp2.405.000 (spread mengecil ke Rp190.000). Bantal struktural tetap ada — bank sentral rekor 289 ton di Q2; untuk investor IDR, koreksi ini tetap window DCA, bukan momen all-in.",
-      "en": "Antam rebounded too: up Rp15,000 to Rp2,595,000/gram, buyback up Rp30,000 to Rp2,405,000 (spread narrowed to Rp190,000). The structural cushion remains — central banks bought a record 289t in Q2; for IDR investors, this correction is still a DCA window, not an all-in moment."
+      "id": "Antam turun Rp14.000 ke Rp2.581.000/gram, buyback Rp2.391.000 (spread Rp190.000). Galeri24 dijual Rp2.527.000 dan UBS Rp2.552.000. Bantal struktural: bank sentral beli rekor 289 ton di Q2 dan ETF emas bertambah 50 ton sepanjang September.",
+      "en": "Antam fell Rp14,000 to Rp2,581,000/gram with buyback at Rp2,391,000 (Rp190,000 spread). Galeri24 sells at Rp2,527,000 and UBS at Rp2,552,000. Structural cushion: central banks bought a record 289t in Q2 and gold ETFs added 50t through September."
     }
+  ],
+  "sources": [
+    { "title": "Kitco: Gold price rockets to session highs as US economy rises 2.2% in Q2, PCE inflation rises", "url": "https://www.kitco.com/news/article/2026-09-30/gold-price-rockets-session-highs-us-economy-rises-22-q2-pce-inflation-rises" },
+    { "title": "IndexBox: ADP private employers add 90,000 jobs in September", "url": "https://www.indexbox.io/blog/adp-private-employers-add-90000-jobs-in-september-beating-expectations/" },
+    { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
+    { "title": "Investing.com: Gold's $4,100 test could decide whether the 2026 bull market holds", "url": "https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549" },
+    { "title": "Bloomberg Technoz: Harga emas Antam awali Oktober dengan koreksi", "url": "https://www.bloombergtechnoz.com/detail-news/123244/harga-emas-antam-awali-oktober-dengan-koreksi" },
+    { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" },
+    { "title": "Gold Stock Canada: Post-market summary for precious metals, September 30, 2026", "url": "https://goldstockcanada.com/news/post-market-summary-for-precious-metals-september-30-2026-3313" }
   ]
 }
