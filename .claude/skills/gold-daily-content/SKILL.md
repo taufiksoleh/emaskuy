@@ -39,7 +39,7 @@ Rules from the doc, which CI enforces:
 - Only today's prices from a source you opened. If you can't confirm today's price, leave the file unchanged.
 - Never compute a size. List only sizes the source lists. `sell` is the price of one whole bar; buyback is per gram.
 - `others`: include a brand only with today's sell **and** buyback; otherwise delete it.
-- `source` is the page you actually read the table from, e.g. `{ "name": "Logam Mulia (dikutip Suara.com)", "url": "…" }`.
+- `source` is the page you actually read the table from, e.g. `{ "name": "Logam Mulia (dikutip Suara.com)", "url": "…" }`. It shows as a source chip under the Antam panel, with the site name and favicon taken from `url`, so `url` must be the exact page you read. `name` is the tooltip, so keep it in the form `Logam Mulia (dikutip <Outlet>)`.
 - `note.id` / `note.en`: 10–300 chars, the 1 g change in rupiah, the buyback, the spread.
 
 Update it with a script rather than by hand:
@@ -97,7 +97,7 @@ Insert with a small Python or Node script that also strips the old `featured: tr
 
 ## Sources and chips
 
-The site shows each source as a chip with the site's favicon and short name, such as Kitco or Bloomberg Technoz. Clicking a chip opens the source in a new tab. The full `title` appears only as the tooltip and the screen-reader label. The AI insight and the articles share one component, `src/components/ui-atoms/SourceChips.tsx`. The name and icon come from the URL through `src/lib/sourceSite.ts`.
+The site shows each source as a chip with the site's favicon and short name, such as Kitco or Bloomberg Technoz. Clicking a chip opens the source in a new tab. The full `title` appears only as the tooltip and the screen-reader label. The AI insight, the articles and the Antam panel share one component, `src/components/ui-atoms/SourceChips.tsx`. The name and icon come from the URL through `src/lib/sourceSite.ts`.
 
 The content files keep the same `{ title, url }` format, so nothing extra is written. To make the chips read well:
 
