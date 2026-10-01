@@ -7,7 +7,7 @@
  */
 import { useState, type CSSProperties } from 'react';
 import { Reveal } from '../ui-atoms/Reveal';
-import { ExternalLink, Scale } from 'lucide-react';
+import { Scale } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { formatDate, formatDateOnly, formatIdr, formatNumber, formatPct, xauUsdToIdrGram } from '@/lib/gold';
 import { antamOneGram, antamRows, brandRows, historyWithSpot, staleness, useAntam, type BrandRow } from '@/lib/antam';
@@ -18,6 +18,7 @@ import { convertMoney, formatMoney } from '@/lib/money';
 import { cn, fill } from '@/lib/utils';
 import { MultiLineChart } from '../ui-atoms/MultiLineChart';
 import { Panel } from '../ui-atoms/Panel';
+import { SourceChips } from '../ui-atoms/SourceChips';
 
 registerStrings({
   'antam.title': { id: 'Harga Emas Antam', en: 'Antam Gold Prices' },
@@ -262,14 +263,13 @@ export function AntamPanel() {
             ))}
           </ul>
 
-          <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
-            {antam.note[lang]} · {t('antam.source')}:{' '}
-            <a href={antam.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline decoration-dotted hover:text-gold">
-              {antam.source.name}
-              <ExternalLink className="h-3 w-3" aria-hidden />
-            </a>{' '}
-            · {t('antam.disclaimer')}
-          </p>
+          <div className="mt-4 border-t border-hairline pt-3">
+            <p className="text-[11px] leading-relaxed text-t3">
+              {antam.note[lang]} · {t('antam.disclaimer')}
+            </p>
+            <p className="label-micro mt-3">{t('antam.source')}</p>
+            <SourceChips sources={[{ title: antam.source.name, url: antam.source.url }]} className="mt-2" />
+          </div>
         </Panel>
       </Reveal>
     </section>
