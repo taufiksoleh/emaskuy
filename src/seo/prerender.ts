@@ -309,7 +309,11 @@ function articleLd(a: Article, h: HeadData): object[] {
 const rfc822 = (ms: number) => new Date(ms).toUTCString();
 const xml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-/** Every page in both languages, each listing its alternates (x-default: English). */
+/**
+ * Every page in both languages, each listing its alternates (x-default: English).
+ * public/sitemap.xsl turns it into a readable table when opened in a browser;
+ * search engines ignore the stylesheet.
+ */
 function sitemap(articles: Article[]): string {
   const newest = articles[0] ? isoDateUtc(articles[0].publishedAt) : undefined;
   const lastmod: Partial<Record<PageKey, string>> = { home: antam.priceDate, analysis: newest };
@@ -328,6 +332,7 @@ function sitemap(articles: Article[]): string {
   );
   return (
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
     urls.join('\n') +
     '\n</urlset>\n'

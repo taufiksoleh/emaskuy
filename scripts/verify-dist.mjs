@@ -77,6 +77,10 @@ for (const file of pages) {
 const sitemap = readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
 const locs = sitemap.match(/<loc>/g)?.length ?? 0;
 if (locs !== pages.length) fail('sitemap.xml', `${locs} URLs for ${pages.length} pages`);
+// The browser view of the sitemap needs its stylesheet, served from the same origin.
+const xsl = sitemap.match(/<\?xml-stylesheet[^>]*href="\/([^"]+)"/)?.[1];
+if (!xsl) fail('sitemap.xml', 'no xml-stylesheet line');
+else if (!existsSync(path.join(DIST, xsl))) fail('sitemap.xml', `stylesheet ${xsl} missing`);
 for (const f of ['robots.txt', 'rss.xml', 'en/rss.xml', 'sw.js', 'manifest.webmanifest', 'CNAME', '404.html']) {
   if (!existsSync(path.join(DIST, f))) fail(f, 'missing');
 }
