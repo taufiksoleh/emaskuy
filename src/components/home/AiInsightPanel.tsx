@@ -6,7 +6,6 @@
  * bubble dialog.
  */
 import { Reveal } from '../ui-atoms/Reveal';
-import { ExternalLink } from 'lucide-react';
 import { registerStrings, useI18n } from '@/lib/i18n';
 import { ageInDays, formatDate } from '@/lib/gold';
 import { formatClockZone } from '@/lib/time';
@@ -14,6 +13,7 @@ import { cn, fill } from '@/lib/utils';
 import { useAiInsight, type InsightSentiment } from '@/lib/aiInsight';
 import { Panel } from '../ui-atoms/Panel';
 import { SpeechBubble } from '../ui-atoms/SpeechBubble';
+import { SourceChips } from '../ui-atoms/SourceChips';
 import { InsightMascot } from './InsightMascot';
 
 registerStrings({
@@ -95,23 +95,10 @@ export function AiInsightPanel() {
               ))}
             </ul>
             {insight.sources.length > 0 && (
-              <p className="mt-4 text-[11px] leading-relaxed text-t3">
-                {t('ai.sources')}:{' '}
-                {insight.sources.map((s, i) => (
-                  <span key={s.url}>
-                    {i > 0 && ' · '}
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 underline decoration-dotted hover:text-gold"
-                    >
-                      {s.title}
-                      <ExternalLink className="h-3 w-3" aria-hidden />
-                    </a>
-                  </span>
-                ))}
-              </p>
+              <div className="mt-4 border-t border-hairline pt-3">
+                <p className="label-micro">{t('ai.sources')}</p>
+                <SourceChips sources={insight.sources} className="mt-2" />
+              </div>
             )}
           </SpeechBubble>
           <p className="mt-4 border-t border-hairline pt-3 text-[11px] leading-relaxed text-t3">
@@ -123,3 +110,4 @@ export function AiInsightPanel() {
     </section>
   );
 }
+
