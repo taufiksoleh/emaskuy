@@ -55,9 +55,108 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-mixed-data-4100-test',
+    slug: 'gold-input-prices-payrolls-4200-ceiling',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Harga Input Melonjak, Emas Tertahan di Bawah $4.200: Semua Mata ke NFP Malam Ini',
+      en: 'Input Prices Jump, Gold Stalls Below $4,200: All Eyes on Tonight’s Payrolls',
+    },
+    excerpt: {
+      id: 'Klaim pengangguran AS turun ke 197 ribu dan indeks harga input ISM melonjak ke 77,9. Emas naik tipis ke sekitar $4.186 tapi belum mampu menembus $4.200. Antam justru turun Rp5.000 ke Rp2.576.000. Inilah peta level dan skenario jelang Non-Farm Payrolls.',
+      en: 'US jobless claims fell to 197K and the ISM prices-paid index jumped to 77.9. Gold edged up to about $4,186 but has yet to break $4,200. Antam instead fell Rp5,000 to Rp2,576,000. Here is the map of levels and scenarios ahead of non-farm payrolls.',
+    },
+    sections: [
+      {
+        heading: { id: 'Kamis yang Tenang di Permukaan', en: 'A Quiet Thursday on the Surface' },
+        paragraphs: [
+          {
+            id: 'Setelah gejolak PCE hari Rabu, emas spot menutup Kamis, 1 Oktober, hanya naik 0,10% di $4.159. Di balik angka yang datar itu, harga sempat naik ke $4.181 pagi hari, lalu turun ke titik terendah $4.139 setelah rilis ISM, sebelum kembali ke kisaran awal. Pagi ini, Jumat 2 Oktober, Trading Economics mencatat emas di sekitar $4.186, naik 0,19%.',
+            en: 'After Wednesday’s PCE swings, spot gold closed Thursday, October 1, up just 0.10% at $4,159. Behind that flat figure, the price climbed to $4,181 in the morning, then dropped to a $4,139 low after the ISM release before returning to where it started. This Friday, October 2, Trading Economics shows gold near $4,186, up 0.19%.',
+          },
+          {
+            id: 'Dua data menjelaskan tarik-ulur itu. Klaim pengangguran awal turun ke 197 ribu, di bawah perkiraan 201 ribu, tanda PHK masih rendah. ISM Manufaktur September turun tipis ke 54,5 dari 54,6, di bawah konsensus 55. Tapi angka yang paling diperhatikan adalah indeks harga input, yang melonjak ke 77,9 dari 71,1.',
+            en: 'Two releases explain the tug-of-war. Initial jobless claims fell to 197,000, below the 201,000 forecast, a sign layoffs remain low. September ISM Manufacturing slipped to 54.5 from 54.6, below the 55 consensus. But the number that drew the most attention was the prices-paid index, which jumped to 77.9 from 71.1.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Harga Input Penting bagi Emas', en: 'Why Input Prices Matter for Gold' },
+        paragraphs: [
+          {
+            id: 'Indeks harga input mengukur biaya yang dibayar pabrik untuk bahan baku. Lonjakan hampir 7 poin dalam sebulan berarti tekanan biaya belum reda, dan biaya itu cepat atau lambat bisa diteruskan ke konsumen. Ini melemahkan kabar baik dari PCE inti kemarin, karena pasar kembali bertanya apakah inflasi benar-benar sudah turun.',
+            en: 'The prices-paid index measures what factories pay for inputs. A jump of nearly 7 points in a month means cost pressure has not eased, and those costs can sooner or later be passed on to consumers. That undercuts the good news from Wednesday’s core PCE, because markets are again asking whether inflation is really falling.',
+          },
+          {
+            id: 'Peluang kenaikan suku bunga Fed di Oktober kini sekitar 37%, jauh di bawah kisaran 70% awal pekan. Namun yield obligasi AS 10 tahun bertahan di kisaran 5,30%, indeks dolar sempat ditutup di 101,45, tertinggi sejak akhir Juli, dan minyak Brent bergerak di sekitar $100 per barel karena ketegangan AS-Iran. Selama tiga beban ini bertahan, ruang naik emas tetap sempit.',
+            en: 'Odds of an October Fed hike are now about 37%, far below the roughly 70% seen early in the week. Yet the US 10-year Treasury yield holds around 5.30%, the dollar index closed at 101.45, its highest since late July, and Brent crude trades around $100 a barrel on US-Iran tensions. As long as these three weights stay in place, gold’s upside remains narrow.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Peta Level Jelang NFP', en: 'The Level Map Ahead of Payrolls' },
+        paragraphs: [
+          {
+            id: 'Gambaran besarnya: emas turun 6,4% dalam sebulan dan menuju pelemahan mingguan kedua beruntun, meski masih naik 7,7% dibanding setahun lalu dan sekitar 25% di bawah rekor Januari di kisaran $5.590 sampai $5.608. September sendiri ditutup dengan penurunan 6,7%, walau kuartal ketiga secara keseluruhan masih naik 3,7%.',
+            en: 'The big picture: gold is down 6.4% over the month and heading for a second straight weekly loss, though it is still up 7.7% from a year ago and about 25% below its January record in the $5,590 to $5,608 range. September alone ended with a 6.7% drop, although the third quarter as a whole still rose 3.7%.',
+          },
+          {
+            id: 'Level teknis dari Kitco: resistance di $4.190 sampai $4.211, support di $4.160 lalu $4.112. Di bawahnya, $4.100 dan $4.000 tetap menjadi garis pertahanan utama. Penentunya adalah Non-Farm Payrolls September malam ini pukul 19.30 WIB, dengan konsensus sekitar 90 ribu. Angka jauh di atas itu berisiko mendorong yield dan dolar; angka lemah bisa membuka jalan menembus $4.200.',
+            en: 'Technical levels from Kitco: resistance at $4,190 to $4,211, support at $4,160 then $4,112. Below that, $4,100 and $4,000 remain the main lines of defense. The decider is September non-farm payrolls tonight at 19:30 WIB, with consensus near 90,000. A print well above that risks lifting yields and the dollar; a weak one could open the way through $4,200.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun Saat Emas Dunia Naik', en: 'Antam Falls While World Gold Rises' },
+        paragraphs: [
+          {
+            id: 'Di dalam negeri, arah harga berlawanan dengan pasar global. Antam 1 gram turun Rp5.000 ke Rp2.576.000, koreksi hari kedua beruntun, dan buyback ikut turun Rp5.000 ke Rp2.386.000 per gram. Spread tetap Rp190.000 atau sekitar 7,4% dari harga jual. Bloomberg Technoz mencatat penurunan ini terjadi justru saat emas dunia menguat, karena harga Antam disesuaikan harian dan tidak selalu mengikuti spot secara langsung.',
+            en: 'At home, prices moved against the global market. Antam’s 1-gram bar fell Rp5,000 to Rp2,576,000, a second straight daily drop, and buyback also fell Rp5,000 to Rp2,386,000 per gram. The spread held at Rp190,000, about 7.4% of the selling price. Bloomberg Technoz noted the drop came even as world gold strengthened, because Antam prices are adjusted daily and do not always track spot directly.',
+          },
+          {
+            id: 'Brand lain turun lebih dalam. Galeri24 1 gram turun Rp16.000 ke Rp2.511.000 dengan buyback Rp2.370.000, kini Rp65.000 lebih murah dari Antam dengan spread sekitar 5,6%. UBS turun Rp17.000 ke Rp2.535.000 dengan buyback Rp2.344.000, spread sekitar 7,5%. Untuk tabungan jangka panjang, spread yang lebih kecil berarti titik impas yang lebih cepat tercapai.',
+            en: 'Other brands fell further. Galeri24’s 1-gram bar dropped Rp16,000 to Rp2,511,000 with a Rp2,370,000 buyback, now Rp65,000 cheaper than Antam with a spread of about 5.6%. UBS fell Rp17,000 to Rp2,535,000 with a Rp2,344,000 buyback, a spread of about 7.5%. For long-term saving, a smaller spread means reaching break-even sooner.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Biarkan Data yang Bicara', en: 'Playbook: Let the Data Speak' },
+        paragraphs: [
+          {
+            id: 'Fondasi permintaan struktural belum goyah. Bank sentral membeli 289 ton emas di Q2 2026, dan kepemilikan ETF emas bertambah 50 ton sepanjang September meski harga turun. Permintaan inilah yang menahan koreksi agar tidak berubah menjadi aksi jual panik saat yield dan dolar menekan.',
+            en: 'The structural demand base has not wavered. Central banks bought 289 tonnes of gold in Q2 2026, and gold ETF holdings grew by 50 tonnes through September even as prices fell. This demand is what keeps the correction from turning into panic selling while yields and the dollar press down.',
+          },
+          {
+            id: 'Bagi investor rupiah, NFP malam ini bisa menggerakkan emas beberapa puluh dolar dalam hitungan menit, dan harga Antam baru menyesuaikan besok pagi. Menebak satu angka bukan strategi. DCA dengan nominal tetap, ditambah memilih brand dengan spread terkecil, membuat hasil Anda tidak bergantung pada satu malam. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, tonight’s payrolls can move gold by tens of dollars in minutes, and Antam prices only adjust the next morning. Guessing one number is not a strategy. Fixed-amount DCA, plus choosing the brand with the smallest spread, keeps your results from hinging on a single night. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pabrik membayar lebih mahal, pasar kerja tetap kuat: selama dua hal ini bertahan, $4.200 akan tetap menjadi atap bagi emas.',
+      en: 'Factories paying more, a labor market still strong: as long as both hold, $4,200 will stay a ceiling for gold.',
+    },
+    callout: 'compare',
+    image: withBase('/article-gold-input-prices-payrolls.png'),
+    publishedAt: Date.parse('2026-10-02T08:05:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold holds firm despite elevated yields as Fed bets soften - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-01/gold-holds-firm-despite-elevated-yields-fed-bets-soften-kitco-pm-report' },
+      { title: 'Kitco: Gold price at $4,158/oz after ISM Manufacturing PMI dips to 54.5, prices shoot higher', url: 'https://www.kitco.com/news/article/2026-10-01/gold-price-4158oz-after-ism-manufacturing-pmi-dips-545-prices-shoot-higher' },
+      { title: 'Kitco: Gold, silver rise as jobless claims temper PCE-driven Fed repricing - Kitco AM Report', url: 'https://www.kitco.com/news/article/2026-10-01/gold-silver-rise-jobless-claims-temper-pce-driven-fed-repricing-kitco-am' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Rio Times: Gold price slips to US$4,156 as yields erase PCE lift', url: 'https://www.riotimesonline.com/gold-silver-precious-metals-thursday-october-1-2026/' },
+      { title: 'Investing.com: Gold’s $4,100 test could decide whether the 2026 bull market holds', url: 'https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549' },
+      { title: 'Bloomberg Technoz: Harga emas Antam malah turun saat emas dunia naik', url: 'https://www.bloombergtechnoz.com/detail-news/123415/harga-emas-antam-malah-turun-saat-emas-dunia-naik' },
+      { title: 'Suara.com: Harga emas Antam anjlok lagi dibanderol Rp2.386.000/gram', url: 'https://www.suara.com/bisnis/2026/10/02/102143/buruan-beli-harga-emas-antam-anjlok-lagi-dibanderol-rp2386000gram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-mixed-data-4100-test',
+    category: 'market',
     title: {
       id: 'PCE Lunak, Emas Tetap Loyo: Data AS Campur Aduk dan Ujian $4.100 Jelang NFP',
       en: 'Soft PCE, Sluggish Gold: Mixed US Data and the $4,100 Test Ahead of Payrolls',
