@@ -1,32 +1,34 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T10:30:00+07:00",
+  "generatedAt": "2026-10-02T15:05:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Data AS kemarin campur aduk: PCE inti Agustus hanya +0,2% m/m (3,0% y/y, konsensus 3,3%), tapi PDB Q2 direvisi naik ke 2,2% dan ADP September +90 ribu (konsensus 70 ribu). Emas sempat melonjak ke $4.213 lalu memudar ke kisaran $4.150–4.165.",
-      "en": "Yesterday's US data was mixed: August core PCE rose only 0.2% m/m (3.0% y/y vs 3.3% consensus), but Q2 GDP was revised up to 2.2% and September ADP added 90K (70K expected). Gold spiked to $4,213, then faded into the $4,150–4,165 range."
+      "id": "Emas spot ditutup naik tipis 0,10% di $4.159 pada Kamis, lalu menguat ke sekitar $4.186 hari ini. Klaim pengangguran AS turun ke 197 ribu (konsensus 201 ribu), sementara ISM Manufaktur melemah ke 54,5 tapi indeks harga input melonjak ke 77,9 dari 71,1, menjaga kekhawatiran inflasi.",
+      "en": "Spot gold closed Thursday up a slim 0.10% at $4,159, then firmed to about $4,186 today. US jobless claims fell to 197K (201K expected), while ISM Manufacturing eased to 54.5 but its prices-paid index jumped to 77.9 from 71.1, keeping inflation worries alive."
     },
     {
-      "id": "Peluang kenaikan suku bunga Fed Oktober turun ke ~38% dari 51%, tapi yield 10 tahun AS di 5,22% (tertinggi sejak Juli 2007) dan minyak yang tinggi tetap menekan. Emas turun lebih dari 5% dalam sebulan dan masih ~26% di bawah rekor Januari.",
-      "en": "Odds of an October Fed hike fell to about 38% from 51%, but the US 10-year yield at 5.22% (highest since July 2007) and elevated oil keep the pressure on. Gold is down more than 5% over the past month and still sits about 26% below its January record."
+      "id": "Peluang kenaikan suku bunga Fed Oktober sekitar 37%, tapi yield 10 tahun AS bertahan di kisaran 5,30%, indeks dolar di level tertinggi sejak akhir Juli, dan Brent dekat $100. Emas turun 6,4% dalam sebulan, menuju pelemahan mingguan kedua, dan masih sekitar 25% di bawah rekor Januari.",
+      "en": "Odds of an October Fed hike sit near 37%, but the US 10-year yield holds around 5.30%, the dollar index is at its highest since late July, and Brent is near $100. Gold is down 6.4% over the month, heading for a second weekly loss, and still about 25% below its January record."
     },
     {
-      "id": "Level kunci: support $4.100 lalu $4.000 (low 25 Juni $4.009); resistance $4.300. Penentu berikutnya: ISM Manufaktur dan klaim pengangguran hari ini, lalu Non-Farm Payrolls Jumat. Tembus di bawah $4.000 menandai lower low yang mengancam tren besar.",
-      "en": "Key levels: support at $4,100 then $4,000 (June 25 low $4,009); resistance at $4,300. Next deciders: ISM Manufacturing and jobless claims today, then Friday's non-farm payrolls. A break below $4,000 would mark a lower low that threatens the larger trend."
+      "id": "Level kunci: resistance $4.190–4.211, support $4.160 lalu $4.112, dengan $4.100 dan $4.000 sebagai garis pertahanan besar. Penentu utama: Non-Farm Payrolls September malam ini pukul 19.30 WIB, konsensus sekitar 90 ribu. Data kuat berisiko mendorong yield dan dolar naik.",
+      "en": "Key levels: resistance at $4,190–4,211, support at $4,160 then $4,112, with $4,100 and $4,000 as the major lines of defense. The main decider: September non-farm payrolls tonight at 19:30 WIB, with consensus near 90K. A strong print risks lifting yields and the dollar."
     },
     {
-      "id": "Antam turun Rp14.000 ke Rp2.581.000/gram, buyback Rp2.391.000 (spread Rp190.000). Galeri24 dijual Rp2.527.000 dan UBS Rp2.552.000. Bantal struktural: bank sentral beli rekor 289 ton di Q2 dan ETF emas bertambah 50 ton sepanjang September.",
-      "en": "Antam fell Rp14,000 to Rp2,581,000/gram with buyback at Rp2,391,000 (Rp190,000 spread). Galeri24 sells at Rp2,527,000 and UBS at Rp2,552,000. Structural cushion: central banks bought a record 289t in Q2 and gold ETFs added 50t through September."
+      "id": "Antam turun Rp5.000 ke Rp2.576.000/gram meski emas dunia naik, buyback Rp2.386.000 (spread Rp190.000). Galeri24 turun ke Rp2.511.000 dan UBS ke Rp2.535.000. Bantal struktural: bank sentral beli 289 ton di Q2 dan ETF emas bertambah 50 ton sepanjang September.",
+      "en": "Antam fell Rp5,000 to Rp2,576,000/gram even as world gold rose, with buyback at Rp2,386,000 (Rp190,000 spread). Galeri24 fell to Rp2,511,000 and UBS to Rp2,535,000. Structural cushion: central banks bought 289t in Q2 and gold ETFs added 50t through September."
     }
   ],
   "sources": [
-    { "title": "Kitco: Gold price rockets to session highs as US economy rises 2.2% in Q2, PCE inflation rises", "url": "https://www.kitco.com/news/article/2026-09-30/gold-price-rockets-session-highs-us-economy-rises-22-q2-pce-inflation-rises" },
-    { "title": "IndexBox: ADP private employers add 90,000 jobs in September", "url": "https://www.indexbox.io/blog/adp-private-employers-add-90000-jobs-in-september-beating-expectations/" },
+    { "title": "Kitco: Gold holds firm despite elevated yields as Fed bets soften - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-01/gold-holds-firm-despite-elevated-yields-fed-bets-soften-kitco-pm-report" },
+    { "title": "Kitco: Gold price at $4,158/oz after ISM Manufacturing PMI dips to 54.5, prices shoot higher", "url": "https://www.kitco.com/news/article/2026-10-01/gold-price-4158oz-after-ism-manufacturing-pmi-dips-545-prices-shoot-higher" },
+    { "title": "Kitco: Gold, silver rise as jobless claims temper PCE-driven Fed repricing - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-01/gold-silver-rise-jobless-claims-temper-pce-driven-fed-repricing-kitco-am" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
+    { "title": "Rio Times: Gold price slips to US$4,156 as yields erase PCE lift", "url": "https://www.riotimesonline.com/gold-silver-precious-metals-thursday-october-1-2026/" },
     { "title": "Investing.com: Gold's $4,100 test could decide whether the 2026 bull market holds", "url": "https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549" },
-    { "title": "Bloomberg Technoz: Harga emas Antam awali Oktober dengan koreksi", "url": "https://www.bloombergtechnoz.com/detail-news/123244/harga-emas-antam-awali-oktober-dengan-koreksi" },
-    { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" },
-    { "title": "Gold Stock Canada: Post-market summary for precious metals, September 30, 2026", "url": "https://goldstockcanada.com/news/post-market-summary-for-precious-metals-september-30-2026-3313" }
+    { "title": "Bloomberg Technoz: Harga emas Antam malah turun saat emas dunia naik", "url": "https://www.bloombergtechnoz.com/detail-news/123415/harga-emas-antam-malah-turun-saat-emas-dunia-naik" },
+    { "title": "Suara.com: Harga emas Antam anjlok lagi dibanderol Rp2.386.000/gram", "url": "https://www.suara.com/bisnis/2026/10/02/102143/buruan-beli-harga-emas-antam-anjlok-lagi-dibanderol-rp2386000gram" },
+    { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
