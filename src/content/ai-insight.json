@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T15:05:00+07:00",
-  "sentiment": "neutral",
+  "generatedAt": "2026-10-03T09:55:00+07:00",
+  "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas spot ditutup naik tipis 0,10% di $4.159 pada Kamis, lalu menguat ke sekitar $4.186 hari ini. Klaim pengangguran AS turun ke 197 ribu (konsensus 201 ribu), sementara ISM Manufaktur melemah ke 54,5 tapi indeks harga input melonjak ke 77,9 dari 71,1, menjaga kekhawatiran inflasi.",
-      "en": "Spot gold closed Thursday up a slim 0.10% at $4,159, then firmed to about $4,186 today. US jobless claims fell to 197K (201K expected), while ISM Manufacturing eased to 54.5 but its prices-paid index jumped to 77.9 from 71.1, keeping inflation worries alive."
+      "id": "NFP September hanya bertambah 29 ribu (konsensus sekitar 90 ribu), pengangguran naik ke 4,2% dan upah per jam cuma naik 0,1%. Emas sempat melonjak ke sekitar $4.223, tapi lonjakan itu habis: emas spot ditutup turun sekitar 0,9% di $4.140–4.142 pada Jumat.",
+      "en": "September payrolls added just 29K jobs (consensus near 90K), unemployment rose to 4.2% and hourly pay rose only 0.1%. Gold briefly spiked to about $4,223, but the jump faded: spot gold closed Friday down about 0.9% at $4,140–4,142."
     },
     {
-      "id": "Peluang kenaikan suku bunga Fed Oktober sekitar 37%, tapi yield 10 tahun AS bertahan di kisaran 5,30%, indeks dolar di level tertinggi sejak akhir Juli, dan Brent dekat $100. Emas turun 6,4% dalam sebulan, menuju pelemahan mingguan kedua, dan masih sekitar 25% di bawah rekor Januari.",
-      "en": "Odds of an October Fed hike sit near 37%, but the US 10-year yield holds around 5.30%, the dollar index is at its highest since late July, and Brent is near $100. Gold is down 6.4% over the month, heading for a second weekly loss, and still about 25% below its January record."
+      "id": "Peluang kenaikan suku bunga Fed Oktober turun ke sekitar 22% dari sekitar 70% awal pekan, tapi risiko kenaikan Desember masih ada. Yield 10 tahun kembali ke kisaran 5,25% setelah yield 10 dan 30 tahun mencapai level tertinggi sejak 2002, dan Brent di $101. Emas turun 7,5% sebulan dan mencatat pelemahan mingguan kedua.",
+      "en": "Odds of an October Fed hike fell to about 22% from roughly 70% early in the week, but December hike risk remains. The 10-year yield is back near 5.25% after 10- and 30-year yields hit their highest since 2002, and Brent is at $101. Gold is down 7.5% over the month and posted a second weekly loss."
     },
     {
-      "id": "Level kunci: resistance $4.190–4.211, support $4.160 lalu $4.112, dengan $4.100 dan $4.000 sebagai garis pertahanan besar. Penentu utama: Non-Farm Payrolls September malam ini pukul 19.30 WIB, konsensus sekitar 90 ribu. Data kuat berisiko mendorong yield dan dolar naik.",
-      "en": "Key levels: resistance at $4,190–4,211, support at $4,160 then $4,112, with $4,100 and $4,000 as the major lines of defense. The main decider: September non-farm payrolls tonight at 19:30 WIB, with consensus near 90K. A strong print risks lifting yields and the dollar."
+      "id": "Level kunci dari Kitco: resistance $4.204–4.231, support $4.150 lalu $4.111, dengan $4.100 sebagai garis pertahanan utama dan low Juni di $4.009. Emas kini sekitar 26% di bawah rekor Januari $5.608. Data berikutnya: ISM Jasa hari Senin dan CPI AS pada 14 Oktober.",
+      "en": "Key levels from Kitco: resistance at $4,204–4,231, support at $4,150 then $4,111, with $4,100 the main line of defense and the June low at $4,009. Gold now sits about 26% below its January record of $5,608. Next data: ISM Services on Monday and US CPI on October 14."
     },
     {
-      "id": "Antam turun Rp5.000 ke Rp2.576.000/gram meski emas dunia naik, buyback Rp2.386.000 (spread Rp190.000). Galeri24 turun ke Rp2.511.000 dan UBS ke Rp2.535.000. Bantal struktural: bank sentral beli 289 ton di Q2 dan ETF emas bertambah 50 ton sepanjang September.",
-      "en": "Antam fell Rp5,000 to Rp2,576,000/gram even as world gold rose, with buyback at Rp2,386,000 (Rp190,000 spread). Galeri24 fell to Rp2,511,000 and UBS to Rp2,535,000. Structural cushion: central banks bought 289t in Q2 and gold ETFs added 50t through September."
+      "id": "Antam turun Rp2.000 ke Rp2.574.000/gram, buyback turun Rp6.000 ke Rp2.380.000, sehingga spread melebar ke Rp194.000 (7,5%). Galeri24 Rp2.511.000 (buyback Rp2.370.000) dan UBS Rp2.535.000 (buyback Rp2.344.000). Bantal struktural: bank sentral beli 289 ton di Q2 dan ETF emas bertambah 50 ton sepanjang September.",
+      "en": "Antam fell Rp2,000 to Rp2,574,000/gram and buyback fell Rp6,000 to Rp2,380,000, widening the spread to Rp194,000 (7.5%). Galeri24 is at Rp2,511,000 (buyback Rp2,370,000) and UBS at Rp2,535,000 (buyback Rp2,344,000). Structural cushion: central banks bought 289t in Q2 and gold ETFs added 50t through September."
     }
   ],
   "sources": [
-    { "title": "Kitco: Gold holds firm despite elevated yields as Fed bets soften - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-01/gold-holds-firm-despite-elevated-yields-fed-bets-soften-kitco-pm-report" },
-    { "title": "Kitco: Gold price at $4,158/oz after ISM Manufacturing PMI dips to 54.5, prices shoot higher", "url": "https://www.kitco.com/news/article/2026-10-01/gold-price-4158oz-after-ism-manufacturing-pmi-dips-545-prices-shoot-higher" },
-    { "title": "Kitco: Gold, silver rise as jobless claims temper PCE-driven Fed repricing - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-01/gold-silver-rise-jobless-claims-temper-pce-driven-fed-repricing-kitco-am" },
+    { "title": "Kitco: Metals give back jobs-report bounce as oil, yields stay elevated - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-02/metals-give-back-jobs-report-bounce-oil-yields-stay-elevated-kitco-pm" },
+    { "title": "Kitco: Gold prices see solid bid as U.S. economy created 29k jobs in September", "url": "https://www.kitco.com/news/article/2026-10-02/gold-prices-see-sold-bid-us-economy-created-29k-jobs-september" },
+    { "title": "Kitco: Gold, silver rise as weak payrolls cut Fed-hike odds - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-02/gold-silver-rise-weak-payrolls-cut-fed-hike-odds-kitco-am-report" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Rio Times: Gold price slips to US$4,156 as yields erase PCE lift", "url": "https://www.riotimesonline.com/gold-silver-precious-metals-thursday-october-1-2026/" },
-    { "title": "Investing.com: Gold's $4,100 test could decide whether the 2026 bull market holds", "url": "https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549" },
-    { "title": "Bloomberg Technoz: Harga emas Antam malah turun saat emas dunia naik", "url": "https://www.bloombergtechnoz.com/detail-news/123415/harga-emas-antam-malah-turun-saat-emas-dunia-naik" },
-    { "title": "Suara.com: Harga emas Antam anjlok lagi dibanderol Rp2.386.000/gram", "url": "https://www.suara.com/bisnis/2026/10/02/102143/buruan-beli-harga-emas-antam-anjlok-lagi-dibanderol-rp2386000gram" },
+    { "title": "MyJoyOnline: Gold slips before US payrolls data, set for second weekly loss", "url": "https://www.myjoyonline.com/gold-slips-before-us-payrolls-data-set-for-second-weekly-loss/" },
+    { "title": "Investing.com: Gold’s $4,100 test could decide whether the 2026 bull market holds", "url": "https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549" },
+    { "title": "CNBC Indonesia: Harga emas Antam Logam Mulia hari ini turun jadi segini", "url": "https://www.cnbcindonesia.com/research/20261003090620-128-773026/harga-emas-antam-logam-mulia-hari-ini-turun-jadi-segini" },
+    { "title": "Periskop: Harga emas Antam hari ini turun Rp2.000 jadi Rp2,574 juta per gram", "url": "https://periskop.id/investasi/20261003/harga-emas-antam-turun-rp2-574-juta-per-gram" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
