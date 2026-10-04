@@ -55,9 +55,108 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-weak-payrolls-bounce-fades',
+    slug: 'gold-week-ahead-ism-fomc-minutes-4100',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Pekan Penentuan Emas: ISM Jasa, Risalah FOMC, dan Ujian $4.100',
+      en: 'A Deciding Week for Gold: ISM Services, FOMC Minutes and the $4,100 Test',
+    },
+    excerpt: {
+      id: 'Emas menutup pekan di $4.140, turun 3,09%, dan survei Kitco menunjukkan analis Wall Street condong bearish. Pekan ini ISM Jasa, risalah FOMC dan dua lelang obligasi bisa menentukan apakah $4.100 bertahan. Antam tertahan di Rp2.574.000 selama akhir pekan.',
+      en: 'Gold ended the week at $4,140, down 3.09%, and Kitco’s survey shows Wall Street analysts leaning bearish. This week ISM Services, the FOMC minutes and two bond auctions could decide whether $4,100 holds. Antam stays at Rp2,574,000 over the weekend.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pekan Lalu dalam Angka', en: 'Last Week in Numbers' },
+        paragraphs: [
+          {
+            id: 'Emas spot dibuka pekan lalu di $4.277,90 dan sempat menyentuh $4.280,56, tetapi ditutup Jumat di $4.140,52. Itu penurunan 3,09% dalam sepekan dan pelemahan mingguan kedua beruntun. Low pekan di $4.110,95 hanya sekitar $11 di atas $4.100, level yang banyak analis sebut sebagai garis pertahanan utama.',
+            en: 'Spot gold opened last week at $4,277.90 and briefly touched $4,280.56, but closed Friday at $4,140.52. That is a 3.09% weekly drop and a second straight weekly loss. The weekly low of $4,110.95 sat only about $11 above $4,100, the level many analysts call the main line of defense.',
+          },
+          {
+            id: 'Data tenaga kerja yang lemah, hanya 29 ribu lapangan kerja di September, sempat memangkas peluang kenaikan suku bunga Fed Oktober ke sekitar 20%. Namun Trading Economics mencatat peluang kenaikan Desember masih di atas 80%. Itulah sebabnya lonjakan Jumat tidak bertahan: pasar melihat jeda, bukan akhir dari siklus pengetatan.',
+            en: 'Weak jobs data, just 29,000 jobs in September, briefly cut the odds of an October Fed hike to about 20%. But Trading Economics notes that December hike odds remain above 80%. That is why Friday’s spike did not last: markets see a pause, not the end of the tightening cycle.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Sentimen Berbalik ke Arah Hati-hati', en: 'Sentiment Turns Cautious' },
+        paragraphs: [
+          {
+            id: 'Survei mingguan Kitco menunjukkan perubahan suasana. Dari 13 analis Wall Street, 6 memperkirakan emas turun pekan ini, hanya 3 yang memperkirakan naik, dan 4 netral. Di Main Street, 85 dari 182 responden masih bullish (47%) dan 60 bearish (33%), tapi untuk pertama kali sejak akhir Juli mayoritas bullish itu hilang.',
+            en: 'Kitco’s weekly survey shows a shift in mood. Of 13 Wall Street analysts, 6 expect gold to fall this week, only 3 expect a rise and 4 are neutral. On Main Street, 85 of 182 respondents are still bullish (47%) and 60 bearish (33%), but for the first time since late July that bullish majority is gone.',
+          },
+          {
+            id: 'Pandangan analis pun terbelah. Marc Chandler dari Bannockburn melihat peluang naik ke $4.280–4.300 dan mencari kesempatan beli di Oktober sebelum musim kuat November–Januari. Sebaliknya, Alex Kuptsikevich dari FxPro membuka peluang uji $4.000. Rentang skenario selebar ini wajar ketika pasar menunggu data.',
+            en: 'Analysts are split too. Marc Chandler of Bannockburn sees room for a move to $4,280–4,300 and is looking for a buying opportunity in October before the strong November–January season. On the other side, Alex Kuptsikevich of FxPro sees a possible test of $4,000. A scenario range this wide is normal when markets are waiting for data.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Agenda Pekan Ini dan Peta Level', en: 'This Week’s Agenda and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Senin, ISM Jasa September diperkirakan 55,1 dari 55,4; komponen harga dan tenaga kerja akan lebih diperhatikan daripada angka utamanya. Rabu ada risalah rapat FOMC 15–16 September dan lelang obligasi 10 tahun, Kamis klaim pengangguran (perkiraan 200 ribu) dan lelang 30 tahun, lalu Jumat sentimen konsumen Michigan. CPI AS baru keluar 14 Oktober.',
+            en: 'On Monday, September ISM Services is forecast at 55.1 from 55.4; the prices and employment components will matter more than the headline. Wednesday brings the minutes of the September 15–16 FOMC meeting and a 10-year bond auction, Thursday jobless claims (forecast 200,000) and a 30-year auction, then Friday Michigan consumer sentiment. US CPI comes on October 14.',
+          },
+          {
+            id: 'Lelang obligasi penting karena yield 10 tahun sudah di level tertinggi sejak 2002, dan indeks dolar di 101,93 menuju kenaikan mingguan ketiga, naik 3,06% dalam sebulan. Permintaan lelang yang lemah bisa mendorong yield lebih tinggi lagi. Di grafik, $4.100 adalah support utama dengan low Juni $4.009 di bawahnya, sementara $4.200 lalu $4.280–4.300 menjadi resistance.',
+            en: 'The auctions matter because the 10-year yield is already at its highest since 2002, and the dollar index at 101.93 is headed for a third weekly gain, up 3.06% over the month. Weak auction demand could push yields higher still. On the chart, $4,100 is the main support with the June low of $4,009 below it, while $4,200 and then $4,280–4,300 act as resistance.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Diam di Akhir Pekan, Brand Lain Bergerak', en: 'Antam Holds Over the Weekend, Other Brands Move' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia tidak memperbarui harga pada Sabtu–Minggu, jadi acuan Antam tetap Rp2.574.000 per gram dengan buyback Rp2.380.000. Spreadnya Rp194.000, sekitar 7,5% dari harga jual. Sepanjang pekan lalu, Antam turun Rp23.000 dari Rp2.597.000 pada Senin, atau sekitar 0,9%, jauh lebih kecil dari penurunan 3,09% emas dunia dalam dolar.',
+            en: 'Logam Mulia does not update prices on Saturday and Sunday, so the Antam reference stays at Rp2,574,000 per gram with a Rp2,380,000 buyback. The spread is Rp194,000, about 7.5% of the selling price. Over last week, Antam fell Rp23,000 from Rp2,597,000 on Monday, about 0.9%, far less than global gold’s 3.09% drop in dollar terms.',
+          },
+          {
+            id: 'Galeri24 justru bergerak hari ini: 1 gram turun Rp5.000 ke Rp2.506.000 dengan buyback Rp2.364.000, sehingga Rp68.000 lebih murah dari Antam dengan spread Rp142.000 atau sekitar 5,7%. UBS turun Rp5.000 ke Rp2.530.000 dengan buyback Rp2.338.000, spread Rp192.000 atau sekitar 7,6%. Di Pegadaian, Antam 1 gram dijual Rp2.613.000.',
+            en: 'Galeri24 did move today: its 1-gram bar fell Rp5,000 to Rp2,506,000 with a Rp2,364,000 buyback, making it Rp68,000 cheaper than Antam with a spread of Rp142,000, about 5.7%. UBS fell Rp5,000 to Rp2,530,000 with a Rp2,338,000 buyback, a spread of Rp192,000, about 7.6%. At Pegadaian, a 1-gram Antam bar sells for Rp2,613,000.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Tiga Skenario untuk Pekan Ini', en: 'Playbook: Three Scenarios for the Week' },
+        paragraphs: [
+          {
+            id: 'Skenario pertama, data jasa dan risalah FOMC bernada keras serta yield naik: $4.100 diuji dan $4.009 menjadi acuan berikutnya. Skenario kedua, data melunak dan lelang berjalan lancar: emas berpeluang kembali ke $4.200. Skenario ketiga, data campuran: emas bergerak menyamping menunggu CPI. Fondasi permintaan tetap ada, dengan pembelian bank sentral 289 ton di Q2 2026.',
+            en: 'Scenario one, hawkish services data and FOMC minutes with rising yields: $4,100 gets tested and $4,009 becomes the next reference. Scenario two, softer data and smooth auctions: gold has room to return to $4,200. Scenario three, mixed data: gold drifts sideways ahead of CPI. The demand base remains, with central banks buying 289 tonnes in Q2 2026.',
+          },
+          {
+            id: 'Bagi investor rupiah, harga Antam yang tertahan di akhir pekan memberi waktu untuk menyusun rencana, bukan menebak arah. DCA dengan nominal tetap dan memilih brand dengan spread kecil tetap menjadi cara paling sederhana menghadapi pekan yang penuh data. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, Antam’s weekend pause gives time to build a plan rather than guess direction. Fixed-amount DCA and choosing a brand with a small spread remain the simplest way through a data-heavy week. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pasar sudah memperhitungkan jeda di Oktober; pekan ini menguji apakah kenaikan Desember juga masih layak diperhitungkan.',
+      en: 'Markets have priced a pause in October; this week tests whether a December hike still deserves to be priced too.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-week-ahead-ism-fomc-minutes-4100.png'),
+    publishedAt: Date.parse('2026-10-04T02:55:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Wall Street on the brink of bearish majority after gold’s post-payrolls slide, Main Street abandons bullish bias', url: 'https://www.kitco.com/news/article/2026-10-02/wall-street-brink-bearish-majority-after-golds-post-payrolls-slide-main' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Trading Economics: US Dollar Index', url: 'https://tradingeconomics.com/united-states/currency' },
+      { title: 'Kitco: Metals give back jobs-report bounce as oil, yields stay elevated - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-02/metals-give-back-jobs-report-bounce-oil-yields-stay-elevated-kitco-pm' },
+      { title: 'investingLive: Week ahead: ISM services, Fed minutes and Canadian jobs lead the economic calendar', url: 'https://investinglive.com/news/week-ahead-ism-services-fed-minutes-and-canadian-jobs-lead-the-economic-calendar-be-aware/' },
+      { title: 'Investing.com: Gold’s $4,100 test could decide whether the 2026 bull market holds', url: 'https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549' },
+      { title: 'Kliksumut: Harga emas hari ini 4 Oktober 2026, cek harga Antam, UBS dan Galeri 24', url: 'https://kliksumut.com/harga-emas-hari-ini-4-oktober-2026-antam-turun-cek-harga-antam-ubs-dan-galeri-24/' },
+      { title: 'Liputan6: Harga emas Antam sepekan turun Rp23.000', url: 'https://www.liputan6.com/bisnis/read/8305479/harga-emas-antam-sepekan-turun-rp-23000' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-weak-payrolls-bounce-fades',
+    category: 'market',
     title: {
       id: 'NFP Cuma 29 Ribu, Tapi Emas Malah Ditutup Turun: Mengapa Lonjakan Itu Cepat Padam',
       en: 'Payrolls Add Just 29K, Yet Gold Closes Lower: Why the Spike Faded So Fast',
