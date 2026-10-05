@@ -1,33 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T09:55:00+07:00",
-  "sentiment": "bearish",
+  "generatedAt": "2026-10-05T10:05:00+07:00",
+  "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot menutup pekan di $4.140,52, turun 3,09% sepekan setelah dibuka di $4.277,90; low pekan $4.110,95 hanya sekitar $11 di atas level $4.100. Survei Kitco: 6 dari 13 analis Wall Street bearish dan hanya 3 bullish, sementara Main Street tak lagi mayoritas bullish (47% bullish, 33% bearish).",
-      "en": "Spot gold ended the week at $4,140.52, down 3.09% after opening at $4,277.90; the weekly low of $4,110.95 sat only about $11 above $4,100. Kitco survey: 6 of 13 Wall Street analysts are bearish and only 3 bullish, while Main Street no longer has a bullish majority (47% bullish, 33% bearish)."
+      "id": "Emas spot membuka pekan dengan rebound tipis: naik 0,36% ke $4.154,8 pukul 07:54 WIB. Pendorongnya masih data tenaga kerja Jumat: hanya 29 ribu lapangan kerja di September (perkiraan 90 ribu), pengangguran naik ke 4,2%, dan upah tahunan melambat ke 3,0%, terlemah sejak Mei 2021.",
+      "en": "Spot gold opened the week with a slight rebound: up 0.36% to $4,154.8 at 07:54 WIB. The driver is still Friday’s jobs data: just 29,000 jobs in September (forecast 90,000), unemployment up to 4.2%, and annual wage growth slowing to 3.0%, the weakest since May 2021."
     },
     {
-      "id": "Indeks dolar di 101,93 menuju kenaikan mingguan ketiga (naik 0,9% sepekan, 3,06% sebulan), dan yield 10 tahun di level tertinggi sejak 2002. Peluang kenaikan Fed Oktober sekitar 20%, tapi untuk Desember masih di atas 80%. Emas turun 7,45% sebulan dan sekitar 26% di bawah rekor Januari $5.608.",
-      "en": "The dollar index at 101.93 is headed for a third weekly gain (up 0.9% on the week, 3.06% on the month), and the 10-year yield is at its highest since 2002. October Fed hike odds are about 20%, but December odds remain above 80%. Gold is down 7.45% on the month and about 26% below its January record of $5,608."
+      "id": "Kenaikan tertahan karena dolar dan yield tetap kuat. Indeks dolar naik 0,37% ke 102,31, dekat level tertinggi sejak April 2025, dan yield 10 tahun di atas 5,25%, tertinggi sejak 2002. Pasar memperkirakan peluang Fed menahan suku bunga Oktober sekitar 80%, tapi peluang kenaikan Desember masih sekitar 69%. Emas turun 5,85% sebulan dan sekitar 26% di bawah rekor Januari $5.608.",
+      "en": "Gains are capped because the dollar and yields stay strong. The dollar index rose 0.37% to 102.31, near its highest since April 2025, and the 10-year yield is above 5.25%, the highest since 2002. Markets see about an 80% chance the Fed holds in October, but December hike odds are still about 69%. Gold is down 5.85% on the month and about 26% below its January record of $5,608."
     },
     {
-      "id": "Agenda pekan ini: ISM Jasa Senin (perkiraan 55,1 dari 55,4), risalah FOMC Rabu, klaim pengangguran Kamis (perkiraan 200 ribu), lalu sentimen konsumen Michigan Jumat; lelang obligasi 10 dan 30 tahun juga bisa menggerakkan yield. CPI AS menyusul 14 Oktober. Level yang dipantau: $4.100 di bawah dan $4.200–4.300 di atas.",
-      "en": "This week’s agenda: ISM Services on Monday (forecast 55.1 from 55.4), FOMC minutes on Wednesday, jobless claims on Thursday (forecast 200K), then Michigan consumer sentiment on Friday; the 10- and 30-year bond auctions could also move yields. US CPI follows on October 14. Levels in focus: $4,100 below and $4,200–4,300 above."
+      "id": "Level yang dipantau: $4.100 lalu $4.000 di bawah, $4.200 di atas. Malam ini ISM Jasa September (perkiraan 55,1 dari 55,4), lalu risalah FOMC Rabu dan klaim pengangguran Kamis; CPI AS keluar 14 Oktober. Minyak WTI turun 0,59% ke $89,85 setelah OPEC+ menahan produksi November.",
+      "en": "Levels in focus: $4,100 then $4,000 below, $4,200 above. Tonight brings September ISM Services (forecast 55.1 from 55.4), then the FOMC minutes on Wednesday and jobless claims on Thursday; US CPI is due October 14. WTI crude fell 0.59% to $89.85 after OPEC+ held November output steady."
     },
     {
-      "id": "Logam Mulia tidak memperbarui harga di akhir pekan, jadi Antam tetap Rp2.574.000/gram dengan buyback Rp2.380.000 (spread 7,5%); sepekan turun Rp23.000. Galeri24 turun Rp5.000 ke Rp2.506.000 (buyback Rp2.364.000) dan UBS ke Rp2.530.000 (buyback Rp2.338.000). Bank sentral membeli 289 ton di Q2.",
-      "en": "Logam Mulia does not update prices over the weekend, so Antam stays at Rp2,574,000/gram with a Rp2,380,000 buyback (7.5% spread); it fell Rp23,000 over the week. Galeri24 fell Rp5,000 to Rp2,506,000 (buyback Rp2,364,000) and UBS to Rp2,530,000 (buyback Rp2,338,000). Central banks bought 289t in Q2."
+      "id": "Antam 1 gram naik Rp6.000 ke Rp2.580.000, kenaikan pertama setelah tiga hari turun, dengan buyback Rp2.386.000 (spread Rp194.000, sekitar 7,5%). Galeri24 tetap Rp2.506.000 (buyback Rp2.364.000), Rp74.000 lebih murah dari Antam, dan UBS tetap Rp2.530.000 (buyback Rp2.338.000).",
+      "en": "Antam’s 1-gram bar rose Rp6,000 to Rp2,580,000, the first gain after three days of declines, with a Rp2,386,000 buyback (Rp194,000 spread, about 7.5%). Galeri24 is unchanged at Rp2,506,000 (buyback Rp2,364,000), Rp74,000 cheaper than Antam, and UBS is unchanged at Rp2,530,000 (buyback Rp2,338,000)."
     }
   ],
   "sources": [
-    { "title": "Kitco: Wall Street on the brink of bearish majority after gold’s post-payrolls slide, Main Street abandons bullish bias", "url": "https://www.kitco.com/news/article/2026-10-02/wall-street-brink-bearish-majority-after-golds-post-payrolls-slide-main" },
+    { "title": "Bloomberg Technoz: Harga emas Antam awali pekan dengan kenaikan", "url": "https://www.bloombergtechnoz.com/detail-news/123600/harga-emas-antam-awali-pekan-dengan-kenaikan" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
     { "title": "Trading Economics: US Dollar Index", "url": "https://tradingeconomics.com/united-states/currency" },
+    { "title": "FX Leaders: Gold price forecast: XAU/USD $4K support holds as higher yields offset weak U.S. jobs data", "url": "https://fxleaders.com/news/2026/10/04/gold-price-forecast-xau-usd-4k-support-holds-as-higher-yields-offset-weak-u-s-jobs-data" },
     { "title": "investingLive: Week ahead: ISM services, Fed minutes and Canadian jobs lead the economic calendar", "url": "https://investinglive.com/news/week-ahead-ism-services-fed-minutes-and-canadian-jobs-lead-the-economic-calendar-be-aware/" },
-    { "title": "Investing.com: Gold’s $4,100 test could decide whether the 2026 bull market holds", "url": "https://www.investing.com/analysis/golds-4100-test-could-decide-whether-the-2026-bull-market-holds-200688549" },
-    { "title": "Kliksumut: Harga emas hari ini 4 Oktober 2026, cek harga Antam, UBS dan Galeri 24", "url": "https://kliksumut.com/harga-emas-hari-ini-4-oktober-2026-antam-turun-cek-harga-antam-ubs-dan-galeri-24/" },
-    { "title": "Liputan6: Harga emas Antam sepekan turun Rp23.000", "url": "https://www.liputan6.com/bisnis/read/8305479/harga-emas-antam-sepekan-turun-rp-23000" },
+    { "title": "Mitrade: OPEC+ agrees to keep oil output policy unchanged for November", "url": "https://mitrade.com/au/insights/news/live-news/article-2-2135936-20261005" },
+    { "title": "Periskop: Harga emas Antam hari ini naik Rp6.000 jadi Rp2,580 juta per gram", "url": "https://periskop.id/investasi/20261005/harga-emas-antam-naik-rp2-580-juta-per-gram" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }

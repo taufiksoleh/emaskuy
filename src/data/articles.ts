@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-week-ahead-ism-fomc-minutes-4100',
+    slug: 'gold-rebound-strong-dollar-ism-services',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Rebound Tipis di Awal Pekan, Dolar 102 dan Yield 5,25% Masih Jadi Rem',
+      en: 'Gold Edges Higher to Start the Week, but a 102 Dollar and 5.25% Yields Still Act as Brakes',
+    },
+    excerpt: {
+      id: 'Emas spot naik 0,36% ke $4.154,8 pagi ini berkat sisa efek data tenaga kerja yang lemah, tapi indeks dolar di 102,31 dan yield 10 tahun di atas 5,25% membatasi kenaikan. Antam naik Rp6.000 ke Rp2.580.000, kenaikan pertama setelah tiga hari turun.',
+      en: 'Spot gold rose 0.36% to $4,154.8 this morning on the lingering effect of weak jobs data, but a dollar index at 102.31 and a 10-year yield above 5.25% are capping gains. Antam rose Rp6,000 to Rp2,580,000, its first gain after three days of declines.',
+    },
+    sections: [
+      {
+        heading: { id: 'Awal Pekan yang Hijau, Tapi Tipis', en: 'A Green Start to the Week, but a Thin One' },
+        paragraphs: [
+          {
+            id: 'Emas spot dibuka menguat pada Senin pagi. Pukul 07:54 WIB, harganya naik 0,36% ke $4.154,8 per troy ons, setelah Jumat ditutup sekitar $4.136 dengan penurunan 1,13% dalam sehari. Kenaikan ini kecil dibandingkan pelemahan lebih dari 3% sepanjang pekan lalu.',
+            en: 'Spot gold opened higher on Monday morning. At 07:54 WIB it was up 0.36% at $4,154.8 per troy ounce, after closing Friday around $4,136 with a 1.13% one-day drop. That gain is small next to last week’s drop of more than 3%.',
+          },
+          {
+            id: 'Pendorongnya masih data tenaga kerja AS. Ekonomi hanya menambah 29 ribu lapangan kerja di September, jauh di bawah perkiraan 90 ribu. Pengangguran naik ke 4,2% dan pertumbuhan upah tahunan melambat ke 3,0%, terlemah sejak Mei 2021. Data seperti ini biasanya mendukung emas karena mengurangi alasan Fed untuk menaikkan suku bunga.',
+            en: 'The driver is still US jobs data. The economy added just 29,000 jobs in September, well below the 90,000 forecast. Unemployment rose to 4.2% and annual wage growth slowed to 3.0%, the weakest since May 2021. Data like this usually supports gold because it weakens the case for the Fed to raise rates.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Kenapa Rebound-nya Tidak Lebih Besar', en: 'Why the Rebound Isn’t Bigger' },
+        paragraphs: [
+          {
+            id: 'Pasar kini memperkirakan peluang sekitar 80% Fed menahan suku bunga pada Oktober. Masalahnya, peluang kenaikan pada Desember masih sekitar 69%. Artinya, pasar melihat jeda sesaat, bukan akhir siklus pengetatan, dan itu membatasi minat beli emas.',
+            en: 'Markets now see about an 80% chance that the Fed holds rates in October. The problem is that the odds of a December hike are still about 69%. In other words, markets see a short pause, not the end of the tightening cycle, and that limits appetite for gold.',
+          },
+          {
+            id: 'Dolar dan yield juga belum mundur. Indeks dolar naik 0,37% ke 102,31 pagi ini, dekat level tertinggi sejak April 2025 dan naik 3,16% dalam sebulan, sebagian karena euro tertekan masalah fiskal dan politik di Prancis. Yield obligasi AS 10 tahun bertahan di atas 5,25%, tertinggi sejak 2002. Selama aset berbunga memberi imbal hasil setinggi ini, emas yang tidak berbunga sulit naik jauh.',
+            en: 'The dollar and yields have not backed off either. The dollar index rose 0.37% to 102.31 this morning, near its highest since April 2025 and up 3.16% over the month, partly because the euro is weighed down by fiscal and political trouble in France. The US 10-year yield holds above 5.25%, the highest since 2002. While interest-bearing assets pay this much, non-yielding gold struggles to climb far.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Peta Level', en: 'The Big Picture and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Emas sudah turun 5,85% dalam sebulan dan sekitar 26% di bawah rekor Januari $5.608. Di grafik, $4.100 adalah support terdekat, lalu $4.000 yang menurut FX Leaders terus menarik pembeli dan menjadi penentu struktur bullish jangka panjang. Di atas, $4.200 menjadi resistance pertama.',
+            en: 'Gold is down 5.85% over the month and about 26% below its January record of $5,608. On the chart, $4,100 is the nearest support, then $4,000, which FX Leaders says keeps drawing buyers and decides the longer-term bullish structure. Above, $4,200 is the first resistance.',
+          },
+          {
+            id: 'Malam ini ISM Jasa September keluar dengan perkiraan 55,1 dari 55,4. Rabu ada risalah FOMC, Kamis klaim pengangguran (perkiraan 200 ribu), dan CPI AS menyusul 14 Oktober. Dari sisi energi, minyak WTI turun 0,59% ke $89,85 setelah OPEC+ memutuskan tidak mengubah produksi November, sedikit meredakan tekanan inflasi dari minyak.',
+            en: 'Tonight brings September ISM Services, forecast at 55.1 from 55.4. Wednesday has the FOMC minutes, Thursday jobless claims (forecast 200,000), and US CPI follows on October 14. On energy, WTI crude fell 0.59% to $89.85 after OPEC+ decided to leave November output unchanged, easing inflation pressure from oil a little.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik, Galeri24 dan UBS Diam', en: 'Antam Rises, Galeri24 and UBS Hold' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia menaikkan harga Antam 1 gram Rp6.000 atau 0,23% ke Rp2.580.000, kenaikan pertama setelah tiga hari turun. Buyback ikut naik Rp6.000 ke Rp2.386.000 per gram, jadi spread tetap Rp194.000 atau sekitar 7,5% dari harga jual. Batangan 10 gram kini Rp25.295.000 dan 100 gram Rp252.212.000.',
+            en: 'Logam Mulia raised the 1-gram Antam price by Rp6,000, or 0.23%, to Rp2,580,000, the first gain after three days of declines. Buyback also rose Rp6,000 to Rp2,386,000 per gram, so the spread stays at Rp194,000, about 7.5% of the selling price. The 10-gram bar is now Rp25,295,000 and the 100-gram bar Rp252,212,000.',
+          },
+          {
+            id: 'Galeri24 tidak berubah di Rp2.506.000 dengan buyback Rp2.364.000. Selisihnya dengan Antam melebar ke Rp74.000, dan spread Galeri24 hanya Rp142.000 atau sekitar 5,7%. UBS juga tetap di Rp2.530.000 dengan buyback Rp2.338.000, spread Rp192.000 atau sekitar 7,6%. Bagi pembeli yang mementingkan biaya keluar-masuk, Galeri24 masih paling efisien hari ini.',
+            en: 'Galeri24 is unchanged at Rp2,506,000 with a Rp2,364,000 buyback. Its gap to Antam widens to Rp74,000, and Galeri24’s spread is only Rp142,000, about 5.7%. UBS also holds at Rp2,530,000 with a Rp2,338,000 buyback, a spread of Rp192,000, about 7.6%. For buyers who care about round-trip cost, Galeri24 is still the most efficient today.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Membaca Pekan Ini', en: 'Playbook: Reading This Week' },
+        paragraphs: [
+          {
+            id: 'Skenario pertama, ISM Jasa dan risalah FOMC bernada keras: yield naik lagi dan $4.100 diuji, dengan $4.000 sebagai acuan berikutnya. Skenario kedua, data jasa melunak dan dolar mundur dari 102: emas berpeluang menembus $4.200. Skenario ketiga, data campuran: emas bergerak menyamping menunggu CPI 14 Oktober.',
+            en: 'Scenario one, hawkish ISM Services and FOMC minutes: yields rise again and $4,100 gets tested, with $4,000 as the next reference. Scenario two, softer services data and a dollar backing off from 102: gold has room to break $4,200. Scenario three, mixed data: gold drifts sideways ahead of the October 14 CPI.',
+          },
+          {
+            id: 'Bagi investor rupiah, kenaikan Rp6.000 hari ini terlalu kecil untuk dijadikan sinyal. DCA dengan nominal tetap dan memilih brand dengan spread kecil tetap cara paling sederhana menghadapi pekan yang penuh data. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, today’s Rp6,000 gain is too small to treat as a signal. Fixed-amount DCA and choosing a brand with a small spread remain the simplest way through a data-heavy week. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Data tenaga kerja memberi emas alasan untuk naik; dolar dan yield memberi alasan untuk tidak naik jauh.',
+      en: 'The jobs data gives gold a reason to rise; the dollar and yields give it a reason not to rise far.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-rebound-strong-dollar-ism-services.png'),
+    publishedAt: Date.parse('2026-10-05T03:05:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Bloomberg Technoz: Harga emas Antam awali pekan dengan kenaikan', url: 'https://www.bloombergtechnoz.com/detail-news/123600/harga-emas-antam-awali-pekan-dengan-kenaikan' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Trading Economics: US Dollar Index', url: 'https://tradingeconomics.com/united-states/currency' },
+      { title: 'FX Leaders: Gold price forecast: XAU/USD $4K support holds as higher yields offset weak U.S. jobs data', url: 'https://fxleaders.com/news/2026/10/04/gold-price-forecast-xau-usd-4k-support-holds-as-higher-yields-offset-weak-u-s-jobs-data' },
+      { title: 'investingLive: Week ahead: ISM services, Fed minutes and Canadian jobs lead the economic calendar', url: 'https://investinglive.com/news/week-ahead-ism-services-fed-minutes-and-canadian-jobs-lead-the-economic-calendar-be-aware/' },
+      { title: 'Mitrade: OPEC+ agrees to keep oil output policy unchanged for November', url: 'https://mitrade.com/au/insights/news/live-news/article-2-2135936-20261005' },
+      { title: 'Periskop: Harga emas Antam hari ini naik Rp6.000 jadi Rp2,580 juta per gram', url: 'https://periskop.id/investasi/20261005/harga-emas-antam-naik-rp2-580-juta-per-gram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-week-ahead-ism-fomc-minutes-4100',
+    category: 'market',
     title: {
       id: 'Pekan Penentuan Emas: ISM Jasa, Risalah FOMC, dan Ujian $4.100',
       en: 'A Deciding Week for Gold: ISM Services, FOMC Minutes and the $4,100 Test',
