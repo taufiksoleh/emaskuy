@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-ism-prices-yields-4100-support',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Indeks Harga ISM di 74: Yield 5,31% Menahan Emas di Bawah $4.150',
+      en: 'ISM Prices at 74: A 5.31% Yield Keeps Gold Below $4,150',
+    },
+    excerpt: {
+      id: 'Aktivitas jasa AS melambat ke 54,9, tetapi biaya naik paling cepat sejak 2022. Yield 10 tahun bertahan di 5,31% dan emas tertahan di sekitar $4.135 menjelang risalah FOMC. Antam turun Rp10.000 ke Rp2.570.000.',
+      en: 'US services activity slowed to 54.9, but costs rose at the fastest pace since 2022. The 10-year yield held at 5.31% and gold stalled near $4,135 ahead of the FOMC minutes. Antam fell Rp10,000 to Rp2,570,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Data Jasa: Melambat, tapi Biaya Memanas', en: 'Services Data: Slower, but Costs Heat Up' },
+        paragraphs: [
+          {
+            id: 'ISM Jasa September turun ke 54,9 dari 55,4, sedikit di bawah perkiraan 55,0. Pesanan baru turun 1,1 poin ke 59,8, sementara indeks tenaga kerja naik ke 50,1, kembali ke zona ekspansi untuk pertama kali dalam tiga bulan. Sekilas, ini data yang biasanya ramah bagi emas.',
+            en: 'September ISM Services fell to 54.9 from 55.4, slightly below the 55.0 forecast. New orders fell 1.1 points to 59.8, while the employment index rose to 50.1, back in expansion for the first time in three months. At first glance, that is data that usually suits gold.',
+          },
+          {
+            id: 'Masalahnya ada di indeks harga, yang naik ke 74,0, tertinggi sejak Juli 2022 dan keenam kalinya dalam tujuh bulan di atas 70. Responden menyebut tarif dan biaya bahan bakar. Emas sempat di $4.141,73 setelah rilis, lalu Kitco mencatat spot di $4.137,70 (turun 0,05%) menjelang penutupan.',
+            en: 'The problem is the prices index, which rose to 74.0, the highest since July 2022 and the sixth reading above 70 in seven months. Respondents cited tariffs and fuel costs. Gold was at $4,141.73 after the release, then Kitco had spot at $4,137.70 (down 0.05%) late in the session.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Emas Tidak Bisa Naik', en: 'Why Gold Can’t Rally' },
+        paragraphs: [
+          {
+            id: 'Biaya yang memanas menjaga yield tetap tinggi. Yield obligasi AS 10 tahun bertahan sekitar 5,31%, tertinggi sejak April 2002. Karena emas tidak memberi bunga, yield setinggi ini menaikkan biaya peluang untuk memegangnya. Indeks dolar juga naik ke 102,18, dekat level terkuat sejak April 2025, terbantu ketidakpastian politik dan fiskal di Eropa.',
+            en: 'Hotter costs keep yields high. The US 10-year yield held near 5.31%, the highest since April 2002. Because gold pays no interest, yields this high raise the opportunity cost of holding it. The dollar index also rose to 102.18, near its strongest since April 2025, helped by political and fiscal uncertainty in Europe.',
+          },
+          {
+            id: 'Ada penahan dari sisi lain. Setelah data tenaga kerja yang lemah, pasar memperkirakan sekitar 78% peluang Fed menahan suku bunga bulan ini, dan Kitco mencatat peluang kenaikan Oktober tinggal 22–24%. Minyak juga turun: Brent melemah 1,9% ke $100,32 dan WTI 1,8% ke $89,43. Hasilnya, emas bergerak datar, bukan jatuh.',
+            en: 'There is support from the other side. After weak jobs data, markets price about a 78% chance the Fed holds rates this month, and Kitco notes October hike odds are down to 22–24%. Oil also fell: Brent slipped 1.9% to $100.32 and WTI 1.8% to $89.43. The result is gold moving sideways, not falling.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Peta Level', en: 'The Big Picture and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Selasa pagi emas di $4.134,47, turun 0,13%. Dalam sebulan emas sudah turun 6,14% dan berada sekitar $1.474 atau 26% di bawah rekor $5.608 pada Januari. Kitco menandai support di $4.101,35 dan resistance di $4.164,44 lalu $4.203,61. Selama yield bertahan di atas 5,3%, rentang ini cenderung sulit ditembus ke atas.',
+            en: 'On Tuesday morning gold was at $4,134.47, down 0.13%. Over the month it has fallen 6.14% and sits about $1,474, or 26%, below the $5,608 record set in January. Kitco marks support at $4,101.35 and resistance at $4,164.44, then $4,203.61. While yields stay above 5.3%, the top of that range is hard to break.',
+          },
+          {
+            id: 'Ujian berikutnya adalah risalah rapat FOMC September yang terbit Rabu. Lalu klaim pengangguran Kamis, sentimen konsumen Jumat, dan CPI AS 14 Oktober. Risalah yang menekankan inflasi bisa menekan emas ke $4.100; nada yang lebih sabar bisa membuka jalan ke $4.164–4.204.',
+            en: 'The next test is Wednesday’s release of the September FOMC minutes. Then come jobless claims on Thursday, consumer sentiment on Friday and US CPI on October 14. Minutes that stress inflation could push gold to $4,100; a more patient tone could open the way to $4,164–4,204.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam dan Brand Lain Hari Ini', en: 'Antam and Other Brands Today' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram turun Rp10.000 ke Rp2.570.000 setelah sempat naik ke Rp2.580.000 kemarin. Buyback ikut turun Rp10.000 ke Rp2.376.000, jadi spreadnya tetap Rp194.000, sekitar 7,5% dari harga jual. Antam kini sekitar 19% di bawah rekornya Rp3.168.000 pada 29 Januari, koreksi yang lebih ringan daripada 26% emas dunia dalam dolar.',
+            en: 'Antam’s 1-gram bar fell Rp10,000 to Rp2,570,000 after rising to Rp2,580,000 yesterday. Buyback also fell Rp10,000 to Rp2,376,000, so the spread holds at Rp194,000, about 7.5% of the selling price. Antam is now about 19% below its Rp3,168,000 record of January 29, a milder drop than global gold’s 26% in dollar terms.',
+          },
+          {
+            id: 'Galeri24 1 gram di Rp2.513.000 dengan buyback Rp2.369.000: Rp57.000 lebih murah dari Antam dengan spread Rp144.000, sekitar 5,7%. UBS di Rp2.536.000 dengan buyback Rp2.343.000, Rp34.000 lebih murah dari Antam tetapi dengan spread Rp193.000, sekitar 7,6%. Untuk pembelian rutin, spread yang kecil berarti titik impas yang lebih cepat.',
+            en: 'Galeri24’s 1-gram bar is at Rp2,513,000 with a Rp2,369,000 buyback: Rp57,000 cheaper than Antam with a Rp144,000 spread, about 5.7%. UBS is at Rp2,536,000 with a Rp2,343,000 buyback, Rp34,000 cheaper than Antam but with a Rp193,000 spread, about 7.6%. For regular buying, a smaller spread means reaching breakeven sooner.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Menunggu Risalah FOMC', en: 'Playbook: Waiting for the FOMC Minutes' },
+        paragraphs: [
+          {
+            id: 'Skenario pertama, risalah bernada keras dan yield naik lagi: $4.101 diuji dan Antam bisa ikut turun. Skenario kedua, risalah lebih sabar dan dolar melemah: emas berpeluang ke $4.164 lalu $4.204. Skenario ketiga, pasar menunggu CPI 14 Oktober dan emas bergerak menyamping di sekitar $4.100–4.165.',
+            en: 'Scenario one, hawkish minutes and higher yields: $4,101 gets tested and Antam could follow lower. Scenario two, patient minutes and a weaker dollar: gold has room toward $4,164, then $4,204. Scenario three, markets wait for October 14 CPI and gold drifts sideways around $4,100–4,165.',
+          },
+          {
+            id: 'Bagi investor rupiah, pelemahan Antam yang lebih ringan dari emas dunia menunjukkan peran kurs sebagai bantalan. DCA dengan nominal tetap dan memperhatikan spread tetap lebih masuk akal daripada menebak hasil risalah. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, Antam’s milder decline than global gold shows the exchange rate acting as a cushion. Fixed-amount DCA with an eye on the spread still makes more sense than guessing the minutes. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Aktivitas melambat, tetapi biaya naik paling cepat sejak 2022; selama yield bertahan di 5,31%, emas sulit naik.',
+      en: 'Activity is slowing, but costs are rising at the fastest pace since 2022; while yields hold at 5.31%, gold struggles to rally.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-ism-prices-yields-4100-support.png'),
+    publishedAt: Date.parse('2026-10-06T03:00:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold holds near $4,138 as ISM prices keep yields elevated - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-05/gold-holds-near-4138-ism-prices-keep-yields-elevated-kitco-pm-report' },
+      { title: 'Kitco: Gold dips to $4,141/oz after ISM Services PMI falls to 54.9 in September', url: 'https://www.kitco.com/news/article/2026-10-05/gold-dips-4141oz-after-ism-services-pmi-falls-549-september' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Trading Economics: US Dollar Index', url: 'https://tradingeconomics.com/united-states/currency' },
+      { title: 'investingLive: Week ahead: ISM services, Fed minutes and Canadian jobs lead the economic calendar', url: 'https://investinglive.com/news/week-ahead-ism-services-fed-minutes-and-canadian-jobs-lead-the-economic-calendar-be-aware/' },
+      { title: 'Liputan6: Harga emas Antam 6 Oktober 2026 turun Rp10.000, cek rinciannya', url: 'https://www.liputan6.com/bisnis/read/8306794/harga-emas-antam-6-oktober-2026-turun-rp-10000-cek-rinciannya' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-week-ahead-ism-fomc-minutes-4100',
     category: 'market',
-    featured: true,
     title: {
       id: 'Pekan Penentuan Emas: ISM Jasa, Risalah FOMC, dan Ujian $4.100',
       en: 'A Deciding Week for Gold: ISM Services, FOMC Minutes and the $4,100 Test',
