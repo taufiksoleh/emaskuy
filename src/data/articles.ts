@@ -55,9 +55,109 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-fomc-minutes-hawkish-4100-test',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Risalah FOMC Hawkish: Emas Diuji di $4.100, Antam Turun ke Rp2.565.000',
+      en: 'Hawkish FOMC Minutes: Gold Tested at $4,100, Antam Falls to Rp2,565,000',
+    },
+    excerpt: {
+      id: 'Risalah Fed menunjukkan sebagian besar pejabat memperkirakan satu kenaikan suku bunga lagi tahun ini. Emas turun 1,34% ke $4.108,8, terendah sebulan, sebelum pulih ke sekitar $4.137. Antam turun Rp15.000 dan spreadnya melebar.',
+      en: 'The Fed minutes showed most officials expect one more rate hike this year. Gold fell 1.34% to $4,108.8, a one-month low, before recovering to about $4,137. Antam fell Rp15,000 and its spread widened.',
+    },
+    sections: [
+      {
+        heading: { id: 'Rabu: Emas Tembus di Bawah $4.100', en: 'Wednesday: Gold Breaks Below $4,100' },
+        paragraphs: [
+          {
+            id: 'Tekanan sudah terasa sebelum risalah terbit. Emas turun ke $4.138,10 pada pagi waktu AS, lalu sempat menembus di bawah $4.100, level terendah sejak 5 Agustus, dengan penurunan intraday lebih dari 2%. Emas ditutup turun 1,34% ke $4.108,8, terendah dalam sekitar sebulan.',
+            en: 'The pressure was there before the minutes came out. Gold slid to $4,138.10 in the US morning, then briefly broke below $4,100, its lowest since August 5, with an intraday drop of more than 2%. It closed down 1.34% at $4,108.8, its lowest in about a month.',
+          },
+          {
+            id: 'Risalah rapat 15–16 September kemudian mengonfirmasi nada keras. Seluruh pejabat mendukung kenaikan suku bunga September ke 3,75–4,00%, dan sebagian besar memperkirakan satu kenaikan lagi sebelum akhir tahun. Kamis pagi emas pulih 0,63% ke sekitar $4.137, tetapi masih dekat level terendah sejak awal Agustus.',
+            en: 'The minutes of the September 15–16 meeting then confirmed the hawkish tone. Every official backed the September hike to 3.75–4.00%, and most expect one more hike before year-end. On Thursday morning gold recovered 0.63% to about $4,137, but it is still close to its lowest since early August.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yield 2002, Dolar Kuat, Minyak $100', en: '2002-Level Yields, a Strong Dollar, $100 Oil' },
+        paragraphs: [
+          {
+            id: 'Tiga tekanan datang bersamaan. Yield 10 tahun sempat ke 5,32%, level yang terakhir terlihat pada 2002, dan yield 30 tahun sekitar 5,70%. Indeks dolar di sekitar 102,2, dekat level terkuat sejak awal 2025. Brent kembali di atas $100 dan Kamis naik ke sekitar $102 karena ketegangan AS-Iran.',
+            en: 'Three pressures arrived at once. The 10-year yield touched 5.32%, a level last seen in 2002, and the 30-year yield was around 5.70%. The dollar index is near 102.2, close to its strongest since early 2025. Brent is back above $100 and rose to about $102 on Thursday on US-Iran tensions.',
+          },
+          {
+            id: 'Bagi emas yang tidak memberi bunga, kombinasi ini berat. Yield tinggi menaikkan biaya memegang emas, dolar kuat membuat emas lebih mahal bagi pembeli di luar AS, dan minyak mahal menjaga kekhawatiran inflasi yang membuat Fed tetap keras. Pasar memperkirakan Fed menahan suku bunga pada 28 Oktober, tetapi peluang kenaikan Desember sekitar 78%.',
+            en: 'For gold, which pays no interest, the combination is heavy. High yields raise the cost of holding gold, a strong dollar makes it pricier for buyers outside the US, and expensive oil keeps alive the inflation worries that keep the Fed hawkish. Markets expect the Fed to hold on October 28, but put the odds of a December hike at about 78%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Peta Level', en: 'The Big Picture and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Dalam sebulan emas sudah turun hampir 6% dan berada sekitar $1.470 atau 26% di bawah rekor $5.608 pada Januari. $4.100 kini menjadi garis pertahanan utama. Jika tembus dengan meyakinkan, zona $4.000–4.020 menjadi sasaran berikutnya. Di atas, resistance ada di $4.180–4.190.',
+            en: 'Over the month gold has fallen almost 6% and sits about $1,470, or 26%, below the $5,608 record set in January. $4,100 is now the main line of defense. A convincing break would put the $4,000–4,020 zone next in line. Above, resistance sits at $4,180–4,190.',
+          },
+          {
+            id: 'Data berikutnya: klaim pengangguran AS pada Kamis malam WIB dan sentimen konsumen pada Jumat. Data tenaga kerja yang lemah sempat menurunkan peluang kenaikan suku bunga. Data yang lebih kuat bisa memperkuat skenario kenaikan Desember dan menekan emas lagi.',
+            en: 'Next up: US jobless claims on Thursday evening WIB and consumer sentiment on Friday. Weak labor data had lowered the odds of a hike. Stronger data could firm up the December hike scenario and pressure gold again.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam dan Brand Lain Hari Ini', en: 'Antam and Other Brands Today' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram turun Rp15.000 ke Rp2.565.000, menghapus kenaikan Rp10.000 kemarin. Buyback turun lebih dalam, Rp25.000 ke Rp2.366.000, sehingga spread melebar dari Rp189.000 ke Rp199.000, sekitar 7,8% dari harga jual. Artinya, pembeli hari ini perlu kenaikan harga lebih besar untuk impas.',
+            en: 'Antam’s 1-gram bar fell Rp15,000 to Rp2,565,000, erasing yesterday’s Rp10,000 gain. Buyback fell further, by Rp25,000 to Rp2,366,000, so the spread widened from Rp189,000 to Rp199,000, about 7.8% of the selling price. That means today’s buyers need a bigger price rise to break even.',
+          },
+          {
+            id: 'Galeri24 justru naik tipis ke Rp2.516.000 dengan buyback Rp2.368.000: Rp49.000 lebih murah dari Antam dengan spread Rp148.000, sekitar 5,9%. Buyback Galeri24 kini bahkan Rp2.000 di atas buyback Antam. UBS di Rp2.539.000 dengan buyback Rp2.343.000, Rp26.000 lebih murah dari Antam dengan spread Rp196.000, sekitar 7,7%.',
+            en: 'Galeri24 actually edged up to Rp2,516,000 with a Rp2,368,000 buyback: Rp49,000 cheaper than Antam with a Rp148,000 spread, about 5.9%. Galeri24’s buyback is now even Rp2,000 above Antam’s. UBS is at Rp2,539,000 with a Rp2,343,000 buyback, Rp26,000 cheaper than Antam with a Rp196,000 spread, about 7.7%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Pembeli Saat Turun Masih Ada', en: 'Playbook: Dip Buyers Are Still There' },
+        paragraphs: [
+          {
+            id: 'Di balik tekanan Fed, permintaan struktural belum hilang. Kepemilikan ETF SPDR Gold naik ke 1.056,27 ton per 5 Oktober dari 1.042,36 ton di akhir Agustus. Bank sentral membeli 39 ton pada Agustus, dan bank sentral China menambah 20,2 ton, pembelian bersih 22 bulan berturut-turut. Skenario dekat: data kuat menguji $4.100 lalu $4.000–4.020; data lemah membuka jalan ke $4.180–4.190.',
+            en: 'Behind the Fed pressure, structural demand has not gone away. SPDR Gold ETF holdings rose to 1,056.27 tonnes on October 5 from 1,042.36 tonnes at end-August. Central banks bought 39 tonnes in August, and the People’s Bank of China added 20.2 tonnes, its 22nd straight month of net buying. Near-term scenarios: strong data tests $4,100, then $4,000–4,020; weak data opens the way to $4,180–4,190.',
+          },
+          {
+            id: 'Bagi investor rupiah, harga yang turun terasa menarik, tetapi spread Antam yang melebar mengurangi keuntungannya. DCA dengan nominal tetap membantu meratakan harga beli tanpa menebak dasar pasar, dan membandingkan brand tetap layak dilakukan. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, lower prices look tempting, but Antam’s wider spread eats into the benefit. Fixed-amount DCA helps average the purchase price without guessing the bottom, and comparing brands is still worth doing. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Risalah Fed tidak membawa kejutan baru, tetapi mengonfirmasi apa yang paling ditakuti emas: satu kenaikan suku bunga lagi tahun ini.',
+      en: 'The Fed minutes brought no new surprise, but they confirmed what gold fears most: one more rate hike this year.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-fomc-minutes-hawkish-4100-test.png'),
+    publishedAt: Date.parse('2026-10-08T03:00:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Bloomberg Technoz: Harga Emas Antam Hari Ini Turun Rp15.000, Buyback Lebih Dalam', url: 'https://www.bloombergtechnoz.com/detail-news/123972/harga-emas-antam-hari-ini-turun-rp15-000-buyback-lebih-dalam' },
+      { title: 'BigGo Finance: Spot Gold Breaks Below $4,100 as High Treasury Yields and Strong Dollar Weigh', url: 'https://finance.biggo.com/news/c819a459-c0ad-4642-ac8a-93d30fbc1685' },
+      { title: 'Yahoo Finance: Gold price today, Wednesday, October 7, 2026', url: 'https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-wednesday-october-7-2026-gold-prices-losing-ground-ahead-of-fed-minutes-105600743.html' },
+      { title: 'Trading Economics: US 10-year Treasury yield', url: 'https://tradingeconomics.com/united-states/government-bond-yield' },
+      { title: 'Trading Economics: US Dollar Index', url: 'https://tradingeconomics.com/united-states/currency' },
+      { title: 'Trading Economics: Brent crude oil', url: 'https://tradingeconomics.com/commodity/brent-crude-oil' },
+      { title: 'Kitco: Metals rise as oil steadies, yields pull back from 24-year highs - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-06/metals-rise-oil-steadies-yields-pull-back-24-year-highs-kitco-pm-report' },
+      { title: 'ANTARA: Harga emas Antam turun Rp15.000 ke angka Rp2,565 juta/gr pada Kamis (8/10/2026)', url: 'https://megapolitan.antaranews.com/berita/553601/harga-emas-antam-turun-rp15000-ke-angka-rp2565-juta-gr-pada-kamis-8-10-2026-hari-ini' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-yields-ease-oil-rebound-fomc-minutes',
     category: 'market',
-    featured: true,
     title: {
       id: 'Yield Mundur, Minyak Naik Lagi: Emas Bolak-balik di $4.150 Jelang Risalah FOMC',
       en: 'Yields Ease, Oil Rebounds: Gold Whipsaws Around $4,150 Ahead of the FOMC Minutes',
