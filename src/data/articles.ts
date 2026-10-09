@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-bond-auction-rebound-antam-diverges',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Lelang Obligasi Redam Yield: Emas Pulih ke $4.150, Antam Naik Saat Brand Lain Turun',
+      en: 'Bond Auction Calms Yields: Gold Recovers to $4,150, Antam Rises as Other Brands Fall',
+    },
+    excerpt: {
+      id: 'Lelang obligasi 30 tahun yang diserap baik menurunkan yield dari puncak 24 tahun, dan emas memantul dari dekat $4.100 ke sekitar $4.150. Antam naik Rp7.000 ke Rp2.572.000, sementara Galeri24 dan UBS justru turun.',
+      en: 'A well-received 30-year bond auction pulled yields off 24-year highs, and gold bounced from near $4,100 to about $4,150. Antam rose Rp7,000 to Rp2,572,000, while Galeri24 and UBS actually fell.',
+    },
+    sections: [
+      {
+        heading: { id: 'Kamis: Emas Memantul dari Dekat $4.100', en: 'Thursday: Gold Bounces From Near $4,100' },
+        paragraphs: [
+          {
+            id: 'Setelah sempat menyentuh terendah dua bulan di dekat $4.100 pada Rabu, emas naik sekitar 0,55% ke kisaran $4.132 pada akhir perdagangan AS Kamis. Jumat pagi emas stabil di sekitar $4.150 dan berada di jalur untuk menutup pekan dengan perubahan kecil. Perak bergerak berlawanan, turun 1,03% ke sekitar $59,05.',
+            en: 'After briefly touching a two-month low near $4,100 on Wednesday, gold rose about 0.55% to around $4,132 in late US trading on Thursday. On Friday morning gold steadied near $4,150 and was on track to end the week little changed. Silver moved the other way, falling 1.03% to about $59.05.',
+          },
+          {
+            id: 'Pemicu utamanya adalah lelang obligasi 30 tahun senilai $22 miliar yang diserap baik pada imbal hasil 5,618% dengan bid-to-cover 2,54. Permintaan yang kuat untuk obligasi jangka panjang meredakan kekhawatiran bahwa pasar mulai menolak utang AS, dan yield pun mundur dari puncaknya.',
+            en: 'The main trigger was a $22 billion 30-year bond auction that was well received at a 5.618% yield with a 2.54 bid-to-cover. Strong demand for long-dated bonds eased fears that the market was starting to shun US debt, and yields backed off their highs.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Pantulan Ini Belum Cukup', en: 'Why the Bounce Is Not Enough Yet' },
+        paragraphs: [
+          {
+            id: 'Yield 10 tahun sempat ke 5,35% pada Kamis, tertinggi dalam 24 tahun, sebelum turun ke sekitar 5,23%. Indeks dolar melemah tipis ke sekitar 102. Namun data tenaga kerja tetap kuat: klaim pengangguran turun ke 197.000, minggu keempat berturut-turut di bawah 200.000, dengan klaim lanjutan 1,716 juta.',
+            en: 'The 10-year yield touched 5.35% on Thursday, its highest in 24 years, before easing to about 5.23%. The dollar index slipped slightly to around 102. But labor data stayed firm: jobless claims fell to 197,000, the fourth straight week below 200,000, with continuing claims at 1.716 million.',
+          },
+          {
+            id: 'Gubernur Fed Christopher Waller menyebut kenaikan suku bunga tambahan kemungkinan diperlukan untuk membawa inflasi ke 2%, meski ada fleksibilitas soal kecepatannya. Pasar melihat peluang sekitar 82% Fed menahan suku bunga bulan ini, tetapi peluang kenaikan Desember sekitar 81%. Minyak juga belum membantu: Brent melonjak 4,1% ke $104,28 pada Kamis karena serangan terhadap tanker di Selat Hormuz, lalu turun ke sekitar $103,5 setelah Trump menyebut ada pembicaraan produktif dengan Iran.',
+            en: 'Fed Governor Christopher Waller said additional rate hikes are likely needed to bring inflation back to 2%, though there is flexibility on the pace. Markets see about an 82% chance the Fed holds this month, but about 81% odds of a December hike. Oil is not helping either: Brent jumped 4.1% to $104.28 on Thursday on attacks on tankers in the Strait of Hormuz, then fell to about $103.5 after Trump cited productive talks with Iran.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Peta Level', en: 'The Big Picture and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Emas masih turun sekitar 3,3% dalam sebulan, dan di $4.150 berada sekitar $1.458 atau 26% di bawah rekor $5.608 pada Januari. Support terdekat ada di $4.103, lalu $4.067 dan $4.032. Di atas, resistance ada di $4.142 dan $4.163, dengan sasaran berikutnya $4.184 dan $4.226.',
+            en: 'Gold is still down about 3.3% over the month, and at $4,150 it sits about $1,458, or 26%, below the $5,608 record set in January. Nearest support is $4,103, then $4,067 and $4,032. Above, resistance sits at $4,142 and $4,163, with the next targets at $4,184 and $4,226.',
+          },
+          {
+            id: 'Pekan depan menjadi ujian besar. Sentimen konsumen awal Oktober rilis Jumat pukul 21.00 WIB, CPI September pada Rabu pukul 19.30 WIB, dan PPI pada Kamis. CPI yang panas bisa memperkuat skenario kenaikan Desember dan menekan emas kembali ke $4.100; CPI yang lebih dingin bisa membuka jalan ke $4.184.',
+            en: 'Next week is a big test. Preliminary October consumer sentiment is due Friday at 21:00 WIB, September CPI on Wednesday at 19:30 WIB, and PPI on Thursday. A hot CPI could firm up the December hike scenario and push gold back toward $4,100; a cooler CPI could open the way to $4,184.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik, Galeri24 dan UBS Turun', en: 'Antam Up, Galeri24 and UBS Down' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram naik Rp7.000 ke Rp2.572.000, dan buyback naik lebih besar, Rp10.000 ke Rp2.376.000. Spread pun menyempit dari Rp199.000 ke Rp196.000, sekitar 7,6% dari harga jual. Kenaikan ini mengikuti penguatan emas dunia pada Kamis.',
+            en: 'Antam’s 1-gram bar rose Rp7,000 to Rp2,572,000, and buyback rose more, by Rp10,000 to Rp2,376,000. The spread narrowed from Rp199,000 to Rp196,000, about 7.6% of the selling price. The rise follows Thursday’s gain in world gold prices.',
+          },
+          {
+            id: 'Brand lain bergerak berlawanan. Galeri24 turun Rp11.000 ke Rp2.505.000 dengan buyback Rp2.358.000: Rp67.000 lebih murah dari Antam dengan spread Rp147.000, sekitar 5,9%. UBS turun Rp10.000 ke Rp2.529.000 dengan buyback Rp2.333.000, Rp43.000 lebih murah dari Antam dengan spread Rp196.000, sekitar 7,7%. Selisih harga jual Antam terhadap Galeri24 melebar dari Rp49.000 kemarin.',
+            en: 'Other brands moved the other way. Galeri24 fell Rp11,000 to Rp2,505,000 with a Rp2,358,000 buyback: Rp67,000 cheaper than Antam with a Rp147,000 spread, about 5.9%. UBS fell Rp10,000 to Rp2,529,000 with a Rp2,333,000 buyback, Rp43,000 cheaper than Antam with a Rp196,000 spread, about 7.7%. Antam’s price gap over Galeri24 widened from Rp49,000 yesterday.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Tunggu CPI, Jangan Kejar Pantulan', en: 'Playbook: Wait for CPI, Don’t Chase the Bounce' },
+        paragraphs: [
+          {
+            id: 'Pantulan Kamis lahir dari lelang obligasi, bukan dari perubahan arah Fed. Selama yield bertahan di atas 5% dan Fed membuka pintu kenaikan Desember, emas cenderung bergerak dalam rentang $4.100–4.180 menunggu CPI. Skenario dekat: data panas menguji $4.103 lalu $4.067; data dingin membawa emas ke $4.163–4.184.',
+            en: 'Thursday’s bounce came from a bond auction, not from a change in the Fed’s direction. As long as yields hold above 5% and the Fed keeps a December hike on the table, gold tends to trade in a $4,100–4,180 range ahead of CPI. Near-term scenarios: hot data tests $4,103, then $4,067; cool data takes gold to $4,163–4,184.',
+          },
+          {
+            id: 'Bagi investor rupiah, hari ini menunjukkan pentingnya membandingkan brand: harga Antam naik sementara Galeri24 dan UBS turun, sehingga selisihnya melebar. DCA dengan nominal tetap membantu meratakan harga beli tanpa menebak arah data. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, today shows why comparing brands matters: Antam rose while Galeri24 and UBS fell, so the gap widened. Fixed-amount DCA helps average the purchase price without guessing the data. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pantulan emas lahir dari lelang obligasi, bukan dari Fed yang melunak. Ujian sebenarnya adalah CPI pekan depan.',
+      en: 'Gold’s bounce came from a bond auction, not a softer Fed. The real test is next week’s CPI.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-bond-auction-rebound-antam-diverges.png'),
+    publishedAt: Date.parse('2026-10-09T03:00:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold rises, silver falls as strong bond auction tempers yield pressure - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-08/gold-rises-silver-falls-strong-bond-auction-tempers-yield-pressure-kitco-pm' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Trading Economics: US 10-year Treasury yield', url: 'https://tradingeconomics.com/united-states/government-bond-yield' },
+      { title: 'Trading Economics: US Dollar Index', url: 'https://tradingeconomics.com/united-states/currency' },
+      { title: 'Trading Economics: Brent crude oil', url: 'https://tradingeconomics.com/commodity/brent-crude-oil' },
+      { title: 'Bloomberg Technoz: Penyebab Harga Emas Antam Hari Ini Naik, Buyback Ikut Terungkit', url: 'https://www.bloombergtechnoz.com/detail-news/124081/penyebab-harga-emas-antam-hari-ini-naik-buyback-ikut-terungkit' },
+      { title: 'Riau Aktual: Harga Emas Antam Hari Ini Naik Rp7 Ribu, Buyback Naik Rp10 Ribu', url: 'https://riauaktual.com/amp/detail/122976/harga-emas-antam-hari-ini-naik-rp7-ribu-buyback-naik-rp10-ribu' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-fomc-minutes-hawkish-4100-test',
     category: 'macro',
-    featured: true,
     title: {
       id: 'Risalah FOMC Hawkish: Emas Diuji di $4.100, Antam Turun ke Rp2.565.000',
       en: 'Hawkish FOMC Minutes: Gold Tested at $4,100, Antam Falls to Rp2,565,000',
