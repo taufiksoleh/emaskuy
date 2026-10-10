@@ -1,35 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T10:10:00+07:00",
-  "sentiment": "bearish",
+  "generatedAt": "2026-10-10T09:55:00+07:00",
+  "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas turun 1,34% ke $4.108,8 pada Rabu, terendah dalam sekitar sebulan, setelah sempat menembus di bawah $4.100. Risalah FOMC September menunjukkan seluruh pejabat mendukung kenaikan suku bunga September dan sebagian besar memperkirakan satu kenaikan lagi sebelum akhir tahun. Kamis pagi emas pulih 0,63% ke sekitar $4.137.",
-      "en": "Gold fell 1.34% to $4,108.8 on Wednesday, its lowest in about a month, after briefly breaking below $4,100. The September FOMC minutes showed every official backed the September rate hike and most expect one more hike before year-end. On Thursday morning gold recovered 0.63% to about $4,137."
+      "id": "Emas naik 1,5% ke $4.194,36 pada Jumat, kenaikan hari kedua berturut-turut, dan menuju kenaikan mingguan sekitar 1,3% setelah menyentuh level terendah dua bulan pada Rabu. Sentimen konsumen Michigan turun ke 46,3, di bawah perkiraan 47,6, sementara ekspektasi inflasi setahun naik ke 4,7%. Trump menyebut pembicaraan dengan Iran produktif dan tidak ada serangan sebelum pemilu 3 November.",
+      "en": "Gold rose 1.5% to $4,194.36 on Friday, its second straight daily gain, and headed for a weekly gain of about 1.3% after touching a two-month low on Wednesday. Michigan consumer sentiment fell to 46.3, below the 47.6 forecast, while one-year inflation expectations rose to 4.7%. Trump called talks with Iran productive and said there would be no attack before the November 3 election."
     },
     {
-      "id": "Yield 10 tahun sempat ke 5,32%, level yang terakhir terlihat pada 2002, lalu bertahan di sekitar 5,31%. Indeks dolar di sekitar 102,2, dekat level terkuat sejak awal 2025, dan Brent naik ke sekitar $102. Pasar memperkirakan Fed menahan suku bunga Oktober, tetapi peluang kenaikan Desember sekitar 78%. Emas turun hampir 6% sebulan dan sekitar 26% di bawah rekor Januari $5.608.",
-      "en": "The 10-year yield touched 5.32%, a level last seen in 2002, then held near 5.31%. The dollar index is around 102.2, near its strongest since early 2025, and Brent rose to about $102. Markets expect the Fed to hold in October, but put the odds of a December hike at about 78%. Gold is down almost 6% on the month and about 26% below its January record of $5,608."
+      "id": "Brent turun dari atas $104 ke sekitar $102,6 dan yield 10 tahun mundur ke sekitar 5,25% dari puncak dua dekade. Namun Fed belum melunak: CME FedWatch memberi peluang 19% kenaikan suku bunga Oktober dan 84% setidaknya satu kenaikan hingga Desember. Emas masih turun 2,86% sebulan dan sekitar 25% di bawah rekor Januari $5.608.",
+      "en": "Brent fell from above $104 to about $102.6 and the 10-year yield eased to about 5.25% from a two-decade high. But the Fed has not softened: CME FedWatch puts the odds of an October hike at 19% and of at least one hike by December at 84%. Gold is still down 2.86% on the month and about 25% below its January record of $5,608."
     },
     {
-      "id": "$4.100 kini menjadi garis pertahanan utama, dengan zona $4.000–4.020 di bawahnya. Di atas, resistance ada di $4.180–4.190. Kamis malam WIB ada data klaim pengangguran AS, lalu sentimen konsumen pada Jumat. Rapat Fed berikutnya pada 28 Oktober.",
-      "en": "$4,100 is now the main line of defense, with the $4,000–4,020 zone below it. Above, resistance sits at $4,180–4,190. US jobless claims are due Thursday evening WIB, then consumer sentiment on Friday. The next Fed meeting is on October 28."
+      "id": "Resistance berikutnya di $4.225, lalu $4.271 dan $4.311. Support di $4.184, $4.142 dan $4.103, dengan $4.000 sebagai lantai psikologis yang menurut StoneX mulai terbentuk. Pemicu utama pekan depan adalah data inflasi CPI dan PPI AS bulan September.",
+      "en": "The next resistance is $4,225, then $4,271 and $4,311. Support sits at $4,184, $4,142 and $4,103, with $4,000 as the psychological floor that StoneX says has been building. The main catalysts next week are the US September CPI and PPI inflation data."
     },
     {
-      "id": "Antam turun Rp15.000 ke Rp2.565.000/gram dan buyback turun Rp25.000 ke Rp2.366.000, sehingga spread melebar ke Rp199.000 (sekitar 7,8%). Galeri24 Rp2.516.000 (buyback Rp2.368.000) dan UBS Rp2.539.000 (buyback Rp2.343.000). Kepemilikan ETF SPDR Gold naik ke 1.056,27 ton per 5 Oktober dari 1.042,36 ton akhir Agustus, tanda pembelian saat harga turun.",
-      "en": "Antam fell Rp15,000 to Rp2,565,000/gram and buyback fell Rp25,000 to Rp2,366,000, widening the spread to Rp199,000 (about 7.8%). Galeri24 is at Rp2,516,000 (buyback Rp2,368,000) and UBS at Rp2,539,000 (buyback Rp2,343,000). SPDR Gold ETF holdings rose to 1,056.27 tonnes on October 5 from 1,042.36 tonnes at end-August, a sign of dip-buying."
+      "id": "Antam naik Rp20.000 ke Rp2.592.000/gram dan buyback naik Rp25.000 ke Rp2.401.000, sehingga spread menyempit ke Rp191.000 (sekitar 7,4%). Galeri24 Rp2.516.000 (buyback Rp2.371.000) dan UBS Rp2.539.000 (buyback Rp2.345.000). Bank sentral China membeli 21 ton emas pada September, terbesar dalam tiga tahun, bulan ke-23 berturut-turut.",
+      "en": "Antam rose Rp20,000 to Rp2,592,000/gram and buyback rose Rp25,000 to Rp2,401,000, narrowing the spread to Rp191,000 (about 7.4%). Galeri24 is at Rp2,516,000 (buyback Rp2,371,000) and UBS at Rp2,539,000 (buyback Rp2,345,000). China’s central bank bought 21 tonnes of gold in September, its largest in three years and its 23rd straight month."
     }
   ],
   "sources": [
-    { "title": "Bloomberg Technoz: Harga Emas Antam Hari Ini Turun Rp15.000, Buyback Lebih Dalam", "url": "https://www.bloombergtechnoz.com/detail-news/123972/harga-emas-antam-hari-ini-turun-rp15-000-buyback-lebih-dalam" },
+    { "title": "Kitco: Gold hits one-week high, heads for weekly gain on bargain-hunting", "url": "https://www.kitco.com/news/off-the-wire/2026-10-09/gold-hits-one-week-high-heads-weekly-gain-bargain-hunting" },
+    { "title": "Kitco: Gold price trades near high after preliminary Consumer Sentiment falls to 46.3, inflation expectations rise", "url": "https://www.kitco.com/news/article/2026-10-09/gold-price-trades-near-high-after-preliminary-consumer-sentiment-falls-463" },
+    { "title": "Kitco: Gold, silver rebound as dollar, yields and oil ease - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-09/gold-silver-rebound-dollar-yields-and-oil-ease-kitco-am-report" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Trading Economics: US 10-year Treasury yield", "url": "https://tradingeconomics.com/united-states/government-bond-yield" },
-    { "title": "Trading Economics: US Dollar Index", "url": "https://tradingeconomics.com/united-states/currency" },
-    { "title": "Trading Economics: Brent crude oil", "url": "https://tradingeconomics.com/commodity/brent-crude-oil" },
-    { "title": "Kitco: Metals rise as oil steadies, yields pull back from 24-year highs - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-06/metals-rise-oil-steadies-yields-pull-back-24-year-highs-kitco-pm-report" },
-    { "title": "BigGo Finance: Spot Gold Breaks Below $4,100 as High Treasury Yields and Strong Dollar Weigh", "url": "https://finance.biggo.com/news/c819a459-c0ad-4642-ac8a-93d30fbc1685" },
-    { "title": "Yahoo Finance: Gold price today, Wednesday, October 7, 2026", "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-wednesday-october-7-2026-gold-prices-losing-ground-ahead-of-fed-minutes-105600743.html" },
-    { "title": "ANTARA: Harga emas Antam turun Rp15.000 ke angka Rp2,565 juta/gr pada Kamis (8/10/2026)", "url": "https://megapolitan.antaranews.com/berita/553601/harga-emas-antam-turun-rp15000-ke-angka-rp2565-juta-gr-pada-kamis-8-10-2026-hari-ini" },
+    { "title": "Yahoo Finance: Gold price today, Friday, October 9, 2026", "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-friday-october-9-2026-gold-prices-see-modest-gains-after-productive-discussions-with-iran-105955527.html" },
+    { "title": "Kitco: China’s central bank buys 21 tonnes of gold in September, largest monthly purchase in 3 years", "url": "https://www.kitco.com/news/article/2026-10-07/chinas-central-bank-buys-21-tonnes-gold-september-largest-monthly-purchase" },
+    { "title": "ANTARA: Harga emas Antam naik Rp20.000 jadi Rp2,592 juta/gr di Sabtu ini", "url": "https://antaranews.com/berita/5779596/harga-emas-antam-naik-rp20000-jadi-rp2592-juta-gr-di-sabtu-ini" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
