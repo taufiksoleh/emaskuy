@@ -55,9 +55,108 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-rebounds-weak-sentiment-cpi-ahead',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Emas Bangkit ke $4.194 Usai Sentimen Konsumen Lesu, Antam Naik ke Rp2.592.000',
+      en: 'Gold Rebounds to $4,194 After Weak Consumer Sentiment, Antam Rises to Rp2,592,000',
+    },
+    excerpt: {
+      id: 'Emas naik 1,5% pada Jumat dan menuju kenaikan mingguan sekitar 1,3%, dibantu sentimen konsumen AS yang lemah dan minyak yang mereda. Peluang kenaikan suku bunga Desember masih 84%, jadi data CPI pekan depan menjadi penentu. Antam naik Rp20.000 dan spreadnya menyempit.',
+      en: 'Gold rose 1.5% on Friday and headed for a weekly gain of about 1.3%, helped by weak US consumer sentiment and easing oil. The odds of a December rate hike are still 84%, so next week’s CPI data is the decider. Antam rose Rp20,000 and its spread narrowed.',
+    },
+    sections: [
+      {
+        heading: { id: 'Jumat: Emas Pulih dari Terendah Dua Bulan', en: 'Friday: Gold Recovers From a Two-Month Low' },
+        paragraphs: [
+          {
+            id: 'Dua hari setelah menyentuh level terendah dua bulan, emas bangkit. Spot naik 1,5% ke $4.194,36 pada sore waktu AS, kenaikan hari kedua berturut-turut, dan menuju kenaikan mingguan sekitar 1,3%. Kontrak berjangka Desember ditutup naik 1,4% di $4.216,3. Perak ikut naik 2,4% ke $60,77.',
+            en: 'Two days after touching a two-month low, gold bounced. Spot rose 1.5% to $4,194.36 in the US afternoon, its second straight daily gain, and headed for a weekly gain of about 1.3%. December futures settled up 1.4% at $4,216.3. Silver rose 2.4% to $60.77.',
+          },
+          {
+            id: 'Data sentimen konsumen Universitas Michigan menambah dorongan. Angka awal Oktober turun ke 46,3, di bawah perkiraan 47,6 dan angka September 48,1. Ekspektasi inflasi setahun naik ke 4,7% dari 4,6%, dan ekspektasi jangka panjang ke 3,5% dari 3,4%, keduanya tertinggi sejak Mei.',
+            en: 'The University of Michigan consumer sentiment data added a push. The preliminary October reading fell to 46.3, below the 47.6 forecast and September’s 48.1. One-year inflation expectations rose to 4.7% from 4.6%, and long-run expectations to 3.5% from 3.4%, both the highest since May.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak Mereda, Tetapi Fed Belum Melunak', en: 'Oil Eases, but the Fed Has Not Softened' },
+        paragraphs: [
+          {
+            id: 'Pemicu kedua datang dari geopolitik. Trump menyebut pembicaraan dengan Iran produktif dan mengatakan tidak ada serangan sebelum pemilu sela 3 November. Brent turun dari atas $104 ke sekitar $102,6, WTI di sekitar $90,4, dan yield 10 tahun mundur ke sekitar 5,25% dari puncak dua dekade yang dicapai Rabu.',
+            en: 'The second trigger was geopolitics. Trump called talks with Iran productive and said there would be no attack before the November 3 midterms. Brent fell from above $104 to about $102.6, WTI was near $90.4, and the 10-year yield eased to about 5.25% from the two-decade high reached on Wednesday.',
+          },
+          {
+            id: 'Namun ini belum mengubah arah Fed. CME FedWatch memberi peluang 19% kenaikan suku bunga Oktober dan 84% setidaknya satu kenaikan hingga Desember. Presiden Fed St. Louis Alberto Musalem mengatakan suku bunga perlu dinaikkan sekali lagi untuk membawa inflasi ke 2%. Ekspektasi inflasi yang naik justru mendukung pandangan itu.',
+            en: 'But this has not changed the Fed’s course. CME FedWatch puts the odds of an October hike at 19% and of at least one hike by December at 84%. St. Louis Fed President Alberto Musalem said rates need one more hike to bring inflation to 2%. Rising inflation expectations actually support that view.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Peta Level', en: 'The Big Picture and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Meski pulih, emas masih turun 2,86% dalam sebulan dan berada sekitar $1.414 atau 25% di bawah rekor $5.608 pada Januari. Kitco menandai resistance di $4.225, lalu $4.271 dan $4.311. Support ada di $4.184, $4.142 dan $4.103. StoneX melihat lantai mulai terbentuk di sekitar $4.000.',
+            en: 'Despite the rebound, gold is still down 2.86% on the month and sits about $1,414, or 25%, below the $5,608 record set in January. Kitco marks resistance at $4,225, then $4,271 and $4,311. Support sits at $4,184, $4,142 and $4,103. StoneX sees a floor building around $4,000.',
+          },
+          {
+            id: 'Pekan depan, data CPI dan PPI AS bulan September menjadi pemicu utama. Inflasi yang panas bisa menguatkan taruhan kenaikan Desember dan menekan emas kembali ke zona $4.100. Inflasi yang lebih jinak bisa membuka jalan untuk menguji $4.225 dan seterusnya. StoneX sendiri menilai tanpa kejutan besar, emas sulit menembus naik dengan meyakinkan.',
+            en: 'Next week, the US September CPI and PPI data are the main catalysts. Hot inflation could firm up December hike bets and push gold back toward the $4,100 zone. Tamer inflation could open the way to test $4,225 and beyond. StoneX itself thinks that without a major shock, gold will struggle to break convincingly higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam dan Brand Lain Hari Ini', en: 'Antam and Other Brands Today' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram naik Rp20.000 ke Rp2.592.000 pada Sabtu, setelah naik Rp7.000 pada Jumat. Dalam dua hari, harganya naik Rp27.000 dari Rp2.565.000. Buyback naik lebih cepat, Rp25.000 ke Rp2.401.000, sehingga spread menyempit dari Rp196.000 ke Rp191.000, sekitar 7,4% dari harga jual.',
+            en: 'Antam’s 1-gram bar rose Rp20,000 to Rp2,592,000 on Saturday, after a Rp7,000 rise on Friday. Over two days it is up Rp27,000 from Rp2,565,000. Buyback rose faster, by Rp25,000 to Rp2,401,000, so the spread narrowed from Rp196,000 to Rp191,000, about 7.4% of the selling price.',
+          },
+          {
+            id: 'Galeri24 di Rp2.516.000 dengan buyback Rp2.371.000: Rp76.000 lebih murah dari Antam dengan spread Rp145.000, sekitar 5,8%. UBS di Rp2.539.000 dengan buyback Rp2.345.000, Rp53.000 lebih murah dari Antam dengan spread Rp194.000, sekitar 7,6%. Karena buyback Antam naik, kini buyback Galeri24 Rp30.000 di bawah Antam.',
+            en: 'Galeri24 is at Rp2,516,000 with a Rp2,371,000 buyback: Rp76,000 cheaper than Antam with a Rp145,000 spread, about 5.8%. UBS is at Rp2,539,000 with a Rp2,345,000 buyback, Rp53,000 cheaper than Antam with a Rp194,000 spread, about 7.6%. Because Antam’s buyback rose, Galeri24’s buyback is now Rp30,000 below Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Lantai $4.000 dan Pembeli Bank Sentral', en: 'Playbook: The $4,000 Floor and Central Bank Buyers' },
+        paragraphs: [
+          {
+            id: 'Permintaan struktural tetap menjadi penopang. Bank sentral China membeli 21 ton emas pada September, pembelian bulanan terbesar dalam tiga tahun, sehingga cadangannya mencapai 2.196 ton, bulan ke-23 berturut-turut. Skenario dekat: CPI panas menguji $4.142 lalu $4.103; CPI jinak membuka $4.225 lalu $4.271.',
+            en: 'Structural demand remains a support. China’s central bank bought 21 tonnes of gold in September, its largest monthly purchase in three years, lifting its reserves to 2,196 tonnes in its 23rd straight month of buying. Near-term scenarios: hot CPI tests $4,142, then $4,103; tame CPI opens $4,225, then $4,271.',
+          },
+          {
+            id: 'Bagi investor rupiah, rebound ini belum mengubah gambaran: harga masih jauh di bawah rekor dan arah jangka pendek bergantung pada data inflasi. DCA dengan nominal tetap membantu meratakan harga beli tanpa menebak arah, dan membandingkan harga serta spread antarbrand tetap layak dilakukan. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, this rebound has not changed the picture: prices are still far below the record and the short-term direction hinges on inflation data. Fixed-amount DCA helps average the purchase price without guessing the direction, and comparing prices and spreads across brands is still worth doing. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas mendapat napas dari minyak yang mereda dan konsumen yang lesu, tetapi arah berikutnya ditentukan oleh data inflasi pekan depan.',
+      en: 'Gold got breathing room from easing oil and gloomy consumers, but its next move will be decided by next week’s inflation data.',
+    },
+    callout: 'rally',
+    image: withBase('/article-gold-rebounds-weak-sentiment-cpi-ahead.png'),
+    publishedAt: Date.parse('2026-10-10T02:55:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold hits one-week high, heads for weekly gain on bargain-hunting', url: 'https://www.kitco.com/news/off-the-wire/2026-10-09/gold-hits-one-week-high-heads-weekly-gain-bargain-hunting' },
+      { title: 'Kitco: Gold price trades near high after preliminary Consumer Sentiment falls to 46.3, inflation expectations rise', url: 'https://www.kitco.com/news/article/2026-10-09/gold-price-trades-near-high-after-preliminary-consumer-sentiment-falls-463' },
+      { title: 'Kitco: Gold, silver rebound as dollar, yields and oil ease - Kitco AM Report', url: 'https://www.kitco.com/news/article/2026-10-09/gold-silver-rebound-dollar-yields-and-oil-ease-kitco-am-report' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Yahoo Finance: Gold price today, Friday, October 9, 2026', url: 'https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-friday-october-9-2026-gold-prices-see-modest-gains-after-productive-discussions-with-iran-105955527.html' },
+      { title: 'Kitco: China’s central bank buys 21 tonnes of gold in September, largest monthly purchase in 3 years', url: 'https://www.kitco.com/news/article/2026-10-07/chinas-central-bank-buys-21-tonnes-gold-september-largest-monthly-purchase' },
+      { title: 'ANTARA: Harga emas Antam naik Rp20.000 jadi Rp2,592 juta/gr di Sabtu ini', url: 'https://antaranews.com/berita/5779596/harga-emas-antam-naik-rp20000-jadi-rp2592-juta-gr-di-sabtu-ini' },
+      { title: 'Industry.co.id: Harga Emas Hari Ini 10 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap', url: 'https://www.industry.co.id/read/157210/harga-emas-hari-ini-10-oktober-2026-antam-ubs-dan-galeri-24-lengkap' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-fomc-minutes-hawkish-4100-test',
     category: 'macro',
-    featured: true,
     title: {
       id: 'Risalah FOMC Hawkish: Emas Diuji di $4.100, Antam Turun ke Rp2.565.000',
       en: 'Hawkish FOMC Minutes: Gold Tested at $4,100, Antam Falls to Rp2,565,000',
