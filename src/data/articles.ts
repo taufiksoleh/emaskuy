@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-holds-4160-dollar-high-cpi-test',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Emas Tertahan di $4.161 Jelang CPI, Dolar di Puncak 18 Bulan; Antam Stagnan Rp2.574.000',
+      en: 'Gold Stalls at $4,161 Ahead of CPI as the Dollar Sits at an 18-Month High; Antam Flat at Rp2,574,000',
+    },
+    excerpt: {
+      id: 'Emas spot turun 0,3% pada Selasa karena dolar bertahan dekat level tertinggi sejak April 2025, meski yield mundur. Malam ini CPI September AS menjadi ujian: inflasi tahunan diperkirakan naik ke sekitar 3,7%. Antam stagnan di Rp2.574.000 setelah turun Rp20.000 sehari sebelumnya.',
+      en: 'Spot gold fell 0.3% on Tuesday as the dollar held near its highest level since April 2025, even as yields eased. Tonight the US September CPI is the test: annual inflation is expected to rise to about 3.7%. Antam is flat at Rp2,574,000 after a Rp20,000 drop the day before.',
+    },
+    sections: [
+      {
+        heading: { id: 'Selasa: Naik di Pagi, Turun di Sore', en: 'Tuesday: Up in the Morning, Down by the Close' },
+        paragraphs: [
+          {
+            id: 'Emas sempat menguat di awal sesi AS. Laporan pagi Kitco mencatat spot di sekitar $4.186,90, naik 0,39%, karena dolar, yield dan minyak sama-sama mundur. Namun kenaikan itu tidak bertahan. Spot ditutup turun 0,3% di $4.161,20, sementara kontrak berjangka Desember naik tipis 0,2% ke $4.184,30.',
+            en: 'Gold firmed early in the US session. Kitco’s morning report put spot near $4,186.90, up 0.39%, as the dollar, yields and oil all retreated. But the gain did not hold. Spot settled down 0.3% at $4,161.20, while December futures edged up 0.2% to $4,184.30.',
+          },
+          {
+            id: 'Penekannya adalah dolar. Indeks dolar sempat menyentuh level tertinggi sejak April 2025 sebelum mundur ke sekitar 102,4. Dolar yang kuat membuat emas lebih mahal bagi pembeli di luar AS, dan pelaku pasar enggan mengambil posisi besar sebelum data inflasi keluar.',
+            en: 'The drag was the dollar. The dollar index touched its highest level since April 2025 before easing to about 102.4. A strong dollar makes gold dearer for buyers outside the US, and traders were reluctant to take big positions before the inflation data.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yield Mundur, Tetapi Taruhan Kenaikan Belum Hilang', en: 'Yields Ease, but Hike Bets Have Not Gone Away' },
+        paragraphs: [
+          {
+            id: 'Yield Treasury 10 tahun turun 3,9 basis poin ke 5,209%, melanjutkan mundurnya dari puncak pekan lalu. Data tenaga kerja September juga lemah: hanya 29.000 pekerjaan baru, pengangguran 4,2%, dan data Juli serta Agustus direvisi turun total 60.000. Biasanya, kombinasi ini mendukung emas.',
+            en: 'The 10-year Treasury yield fell 3.9 basis points to 5.209%, extending its retreat from last week’s peak. September jobs data was also weak: just 29,000 new jobs, 4.2% unemployment, and July and August revised down by a combined 60,000. Normally that mix supports gold.',
+          },
+          {
+            id: 'Masalahnya, Fed belum melunak. Pasar memberi peluang sekitar 19% kenaikan suku bunga Oktober dan sekitar 85% setidaknya satu kenaikan hingga Desember. Presiden Fed New York John Williams memperkirakan satu kenaikan lagi tahun ini, meski tidak melihat perlunya kenaikan pada 2027. Brent bertahan di atas $104 setelah serangan Houthi ke bandara Arab Saudi, menjaga kekhawatiran inflasi.',
+            en: 'The problem is that the Fed has not softened. Markets price about a 19% chance of an October hike and about 85% of at least one hike by December. New York Fed President John Williams expects one more hike this year, though he sees no need for further hikes in 2027. Brent held above $104 after Houthi attacks on a Saudi airport, keeping inflation worries alive.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'CPI Malam Ini dan Peta Level', en: 'Tonight’s CPI and the Level Map' },
+        paragraphs: [
+          {
+            id: 'CPI September AS dirilis Rabu pukul 08.30 waktu New York, atau 19.30 WIB. Inflasi tahunan diperkirakan naik ke sekitar 3,7% karena harga energi, sementara inflasi inti diperkirakan melambat. Inti yang jinak bisa menurunkan peluang kenaikan Desember dan memberi ruang bagi emas. Inti yang panas bisa membangkitkan lagi taruhan kenaikan dan menekan emas. Kamis menyusul data PPI dan penjualan ritel.',
+            en: 'The US September CPI comes out on Wednesday at 08:30 New York time, or 19:30 WIB. Annual inflation is expected to rise to about 3.7% on energy prices, while core inflation is expected to slow. A tame core reading could lower December hike odds and give gold room. A hot core reading could revive hike bets and pressure gold. PPI and retail sales follow on Thursday.',
+          },
+          {
+            id: 'Kitco menandai resistance di $4.207, lalu zona $4.217–$4.227, kemudian $4.273 dan $4.316. Support ada di $4.181 dan $4.155, lalu $4.110 dan $4.067, dekat titik terendah pekan lalu di sekitar $4.066. Emas masih turun sekitar 3% dalam sebulan dan sekitar $1.447 atau 26% di bawah rekor $5.608 pada Januari.',
+            en: 'Kitco marks resistance at $4,207, then the $4,217–$4,227 zone, then $4,273 and $4,316. Support sits at $4,181 and $4,155, then $4,110 and $4,067, near last week’s low of about $4,066. Gold is still down about 3% on the month and about $1,447, or 26%, below the $5,608 record set in January.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam dan Brand Lain Hari Ini', en: 'Antam and Other Brands Today' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram stagnan di Rp2.574.000 pada Rabu (pantauan 08.48 WIB), sama dengan Selasa yang turun Rp20.000. Dibanding Sabtu di Rp2.592.000, harganya turun Rp18.000. Buyback tetap Rp2.383.000, juga Rp18.000 di bawah Sabtu, sehingga spread bertahan di Rp191.000, sekitar 7,4% dari harga jual.',
+            en: 'Antam’s 1-gram bar is flat at Rp2,574,000 on Wednesday (checked at 08:48 WIB), the same as Tuesday, when it fell Rp20,000. Compared with Saturday’s Rp2,592,000, it is down Rp18,000. Buyback holds at Rp2,383,000, also Rp18,000 below Saturday, so the spread stays at Rp191,000, about 7.4% of the selling price.',
+          },
+          {
+            id: 'Galeri24 di Rp2.521.000 dengan buyback Rp2.374.000: Rp53.000 lebih murah dari Antam dengan spread Rp147.000, sekitar 5,8%. UBS di Rp2.546.000 dengan buyback Rp2.348.000: Rp28.000 lebih murah dari Antam dengan spread Rp198.000, sekitar 7,8%. Buyback Galeri24 kini hanya Rp9.000 di bawah Antam, sehingga Galeri24 tetap yang paling efisien untuk beli lalu jual kembali.',
+            en: 'Galeri24 is at Rp2,521,000 with a Rp2,374,000 buyback: Rp53,000 cheaper than Antam with a Rp147,000 spread, about 5.8%. UBS is at Rp2,546,000 with a Rp2,348,000 buyback: Rp28,000 cheaper than Antam with a Rp198,000 spread, about 7.8%. Galeri24’s buyback is now only Rp9,000 below Antam’s, so Galeri24 remains the most efficient for a buy-then-sell round trip.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Biarkan Data yang Bicara', en: 'Playbook: Let the Data Speak' },
+        paragraphs: [
+          {
+            id: 'Di balik gejolak harian, permintaan struktural tetap kuat. ETF emas global mencatat arus masuk rekor $31 miliar pada kuartal III dengan kepemilikan bertambah 211 ton, dan bank sentral China memperpanjang pembelian emasnya menjadi 23 bulan berturut-turut. Skenario dekat: CPI inti panas menguji $4.155 lalu $4.110; CPI inti jinak membuka $4.207 lalu zona $4.217–$4.227.',
+            en: 'Behind the daily swings, structural demand stays strong. Global gold ETFs posted record Q3 inflows of $31 billion, with holdings up 211 tonnes, and China’s central bank extended its gold buying to 23 straight months. Near-term scenarios: a hot core CPI tests $4,155, then $4,110; a tame core CPI opens $4,207, then the $4,217–$4,227 zone.',
+          },
+          {
+            id: 'Bagi investor rupiah, harga Antam yang stagnan memberi jeda sebelum data besar. Tidak perlu menebak hasil CPI: DCA dengan nominal tetap meratakan harga beli di kedua skenario, dan selisih spread antarbrand yang mencapai Rp51.000 layak diperhitungkan jika Anda berencana menjual kembali. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, the flat Antam price is a pause before big data. There is no need to guess the CPI outcome: fixed-amount DCA averages the purchase price in either scenario, and the gap in spreads across brands, up to Rp51,000, is worth factoring in if you plan to sell back. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Yield mundur dan data kerja lemah, tetapi dolar yang kuat dan taruhan kenaikan Fed menahan emas. Malam ini CPI yang memutuskan.',
+      en: 'Yields eased and jobs data was weak, but a strong dollar and Fed hike bets held gold back. Tonight, CPI decides.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-holds-4160-dollar-high-cpi-test.png'),
+    publishedAt: Date.parse('2026-10-14T03:30:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Investing.com: Gold prices mixed amid weaker dollar and subdued oil, focus now on U.S. CPI data', url: 'https://www.investing.com/news/commodities-news/gold-slips-near-4160-as-middle-east-tensions-fuel-ratehike-concerns-4945298' },
+      { title: 'Kitco: Gold firms as dollar, yields and oil retreat before CPI - Kitco AM Report', url: 'https://www.kitco.com/news/article/2026-10-13/gold-firms-dollar-yields-and-oil-retreat-cpi-kitco-am-report' },
+      { title: 'FX Leaders: Gold Price Forecast: XAU/USD Eyes $4,216 Breakout Ahead of CPI', url: 'https://www.fxleaders.com/news/2026/10/13/gold-price-forecast-4216-breakout-cpi-fed-outlook/' },
+      { title: 'Golden State Mint: On the Spot with GSM, precious metals market report for 10/13/2026', url: 'https://www.goldenstatemint.com/blog/on-the-spot-with-gsm-precious-metals-market-report-for-10-13-2026/' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'ANTARA Sumbar: Harga emas Antam pada Rabu ini stabil di angka Rp2,574 juta/gr', url: 'https://sumbar.antaranews.com/berita/782801/harga-emas-antam-pada-rabu-ini-stabil-di-angka-rp2574-jutagr' },
+      { title: 'Bloomberg Technoz: Harga Emas Antam Hari Ini Tak Ada Perubahan, Sama dengan Kemarin', url: 'https://www.bloombergtechnoz.com/detail-news/124519/harga-emas-antam-hari-ini-tak-ada-perubahan-sama-dengan-kemarin' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-rebounds-weak-sentiment-cpi-ahead',
     category: 'market',
-    featured: true,
     title: {
       id: 'Emas Bangkit ke $4.194 Usai Sentimen Konsumen Lesu, Antam Naik ke Rp2.592.000',
       en: 'Gold Rebounds to $4,194 After Weak Consumer Sentiment, Antam Rises to Rp2,592,000',
