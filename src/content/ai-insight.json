@@ -1,33 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T10:30:00+07:00",
+  "generatedAt": "2026-10-15T10:05:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot turun 0,3% ke $4.161,20 pada Selasa setelah sempat naik ke sekitar $4.187 di awal sesi AS, sementara kontrak berjangka Desember naik 0,2% ke $4.184,30. Dolar bertahan dekat level tertinggi sejak April 2025, sehingga emas tertahan menjelang rilis CPI September AS pada Rabu malam pukul 19.30 WIB. Konsensus memperkirakan inflasi tahunan naik ke sekitar 3,7%, sedangkan inflasi inti diperkirakan melambat.",
-      "en": "Spot gold fell 0.3% to $4,161.20 on Tuesday after briefly rising to about $4,187 early in the US session, while December futures rose 0.2% to $4,184.30. The dollar held near its highest level since April 2025, keeping gold in check ahead of the US September CPI release on Wednesday at 19:30 WIB. Consensus sees annual inflation rising to about 3.7%, while core inflation is expected to slow."
+      "id": "CPI September AS naik 0,6% sebulan dan 3,7% setahun, di atas konsensus 3,6% dan naik dari 3,4% pada Agustus; inflasi inti 2,6% (perkiraan 2,5%). Bensin melonjak 9,1% dan menyumbang lebih dari separuh kenaikan bulanan. Emas spot jatuh 2% ke $4.075,10 pada siang hari AS dan perak anjlok sekitar 6%, lalu emas pulih ke sekitar $4.152 pada Kamis pagi waktu Asia.",
+      "en": "US September CPI rose 0.6% on the month and 3.7% on the year, above the 3.6% consensus and up from 3.4% in August; core inflation was 2.6% (2.5% expected). Gasoline jumped 9.1% and drove more than half of the monthly gain. Spot gold fell 2% to $4,075.10 by midday in the US and silver dropped about 6%, before gold recovered to about $4,152 on Thursday morning in Asia."
     },
     {
-      "id": "Yield 10 tahun turun 3,9 bp ke 5,209% dan indeks dolar mundur ke sekitar 102,4, tetapi Brent bertahan di atas $104 akibat serangan Houthi ke Arab Saudi. Data kerja September hanya +29.000, tetapi pasar masih memberi peluang sekitar 85% kenaikan suku bunga hingga Desember, dan John Williams (Fed New York) memperkirakan satu kenaikan lagi tahun ini. Emas turun sekitar 3% sebulan dan sekitar 26% di bawah rekor Januari $5.608.",
-      "en": "The 10-year yield fell 3.9 bp to 5.209% and the dollar index eased to about 102.4, but Brent held above $104 on Houthi attacks on Saudi Arabia. September payrolls rose just 29,000, yet markets still price about an 85% chance of a rate hike by December, and New York Fed President John Williams expects one more hike this year. Gold is down about 3% on the month and about 26% below its January record of $5,608."
+      "id": "Peluang kenaikan suku bunga Fed pada 28 Oktober di CME FedWatch melonjak ke sekitar 50% dari sekitar 24% sehari sebelumnya. Indeks dolar naik 0,7% ke 102,86 dan yield 10 tahun menyentuh kisaran 5,18%–5,33%. Pemulihan Kamis terjadi karena reli minyak lima hari terhenti serta dolar dan yield mundur. Emas masih turun sekitar 2,6% sebulan dan sekitar 26% di bawah rekor Januari $5.608.",
+      "en": "CME FedWatch odds of a Fed hike on October 28 jumped to about 50% from about 24% the day before. The dollar index rose 0.7% to 102.86 and the 10-year yield traded in a 5.18%–5.33% range. Thursday’s recovery came as oil’s five-day rally stalled and the dollar and yields eased. Gold is still down about 2.6% on the month and about 26% below its January record of $5,608."
     },
     {
-      "id": "Kitco menandai resistance di $4.207, lalu zona $4.217–$4.227, $4.273 dan $4.316. Support di $4.181 dan $4.155, lalu $4.110 dan $4.067, dekat titik terendah pekan lalu sekitar $4.066. Setelah CPI, data PPI dan penjualan ritel AS dirilis Kamis.",
-      "en": "Kitco marks resistance at $4,207, then the $4,217–$4,227 zone, $4,273 and $4,316. Support sits at $4,181 and $4,155, then $4,110 and $4,067, near last week’s low of about $4,066. After CPI, the US PPI and retail sales data are due on Thursday."
+      "id": "Kitco menandai resistance di $4.114, lalu zona $4.134,62–$4.141,97, $4.167,62 dan $4.217,40. Support di $4.072,70 dan $4.066,54; jika tembus, target berikutnya $4.004,68. Kamis malam pasar menunggu PPI September, penjualan ritel dan klaim pengangguran mingguan AS, lalu harga impor dan produksi industri pada Jumat.",
+      "en": "Kitco marks resistance at $4,114, then the $4,134.62–$4,141.97 zone, $4,167.62 and $4,217.40. Support sits at $4,072.70 and $4,066.54; a break would target $4,004.68. On Thursday evening the market awaits US September PPI, retail sales and weekly jobless claims, then import prices and industrial production on Friday."
     },
     {
-      "id": "Antam stagnan di Rp2.574.000/gram dengan buyback Rp2.383.000, spread Rp191.000 (sekitar 7,4%), setelah turun Rp20.000 pada Selasa. Galeri24 Rp2.521.000 (buyback Rp2.374.000) dan UBS Rp2.546.000 (buyback Rp2.348.000). Permintaan struktural tetap kuat: ETF emas global mencatat arus masuk rekor $31 miliar pada kuartal III, dan bank sentral China membeli emas 23 bulan berturut-turut.",
-      "en": "Antam is unchanged at Rp2,574,000/gram with a Rp2,383,000 buyback, a Rp191,000 spread (about 7.4%), after a Rp20,000 drop on Tuesday. Galeri24 is at Rp2,521,000 (buyback Rp2,374,000) and UBS at Rp2,546,000 (buyback Rp2,348,000). Structural demand stays strong: global gold ETFs posted record Q3 inflows of $31 billion, and China’s central bank has bought gold for 23 straight months."
+      "id": "Antam turun Rp13.000 ke Rp2.561.000/gram dengan buyback Rp2.370.000, spread Rp191.000 (sekitar 7,5%). Galeri24 Rp2.516.000 (buyback Rp2.370.000), Rp45.000 lebih murah dari Antam, dan UBS Rp2.539.000 (buyback Rp2.344.000). Beige Book Fed mencatat kenaikan harga yang makin cepat di empat distrik, tanda tekanan inflasi yang menjadi fokus pasar emas.",
+      "en": "Antam fell Rp13,000 to Rp2,561,000/gram with a Rp2,370,000 buyback, a Rp191,000 spread (about 7.5%). Galeri24 is at Rp2,516,000 (buyback Rp2,370,000), Rp45,000 cheaper than Antam, and UBS at Rp2,539,000 (buyback Rp2,344,000). The Fed’s Beige Book noted accelerating price increases in four districts, a sign of the inflation pressure the gold market is focused on."
     }
   ],
   "sources": [
-    { "title": "Investing.com: Gold prices mixed amid weaker dollar and subdued oil, focus now on U.S. CPI data", "url": "https://www.investing.com/news/commodities-news/gold-slips-near-4160-as-middle-east-tensions-fuel-ratehike-concerns-4945298" },
-    { "title": "Kitco: Gold firms as dollar, yields and oil retreat before CPI - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-13/gold-firms-dollar-yields-and-oil-retreat-cpi-kitco-am-report" },
-    { "title": "FX Leaders: Gold Price Forecast: XAU/USD Eyes $4,216 Breakout Ahead of CPI", "url": "https://www.fxleaders.com/news/2026/10/13/gold-price-forecast-4216-breakout-cpi-fed-outlook/" },
+    { "title": "Kitco: Gold price drops to session lows as U.S. CPI heats up in September", "url": "https://www.kitco.com/news/article/2026-10-14/gold-price-drops-session-lows-us-cpi-heats-september" },
+    { "title": "Kitco: Gold falls below $4,100, silver plunges 6% as hot CPI boosts Fed-hike bets - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-14/gold-falls-below-4100-silver-plunges-6-hot-cpi-boosts-fed-hike-bets-kitco" },
+    { "title": "Rio Times: US CPI September 2026: Inflation Hits 3.7%, Gold Falls", "url": "https://www.riotimesonline.com/us-cpi-september-2026-inflation-gold-silver/" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Golden State Mint: On the Spot with GSM, precious metals market report for 10/13/2026", "url": "https://www.goldenstatemint.com/blog/on-the-spot-with-gsm-precious-metals-market-report-for-10-13-2026/" },
-    { "title": "ANTARA Sumbar: Harga emas Antam pada Rabu ini stabil di angka Rp2,574 juta/gr", "url": "https://sumbar.antaranews.com/berita/782801/harga-emas-antam-pada-rabu-ini-stabil-di-angka-rp2574-jutagr" },
-    { "title": "Bloomberg Technoz: Harga Emas Antam Hari Ini Tak Ada Perubahan, Sama dengan Kemarin", "url": "https://www.bloombergtechnoz.com/detail-news/124519/harga-emas-antam-hari-ini-tak-ada-perubahan-sama-dengan-kemarin" },
+    { "title": "ANTARA Megapolitan: Harga emas Antam pada Kamis (15/10/2026) hari ini turun Rp13.000 jadi Rp2,561 juta/gr", "url": "https://megapolitan.antaranews.com/berita/554885/harga-emas-antam-pada-kamis-15-10-2026-hari-ini-turun-rp13000-jadi-rp2561-juta-gr" },
+    { "title": "Ngopibareng: Harga Emas Kamis 15 Oktober 2026: Antam, UBS, dan Galeri24 Turun, Cek Tabel 1 Gram", "url": "https://www.ngopibareng.id/read/harga-emas-kamis-15-oktober-2026-antam-ubs-dan-galeri24-turun-cek-tabel-1-gram" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
