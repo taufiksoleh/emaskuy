@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-rebounds-4171-hot-ppi-safe-haven',
+    slug: 'gold-flat-4168-warsh-neutral-oil-110',
     category: 'macro',
     featured: true,
+    title: {
+      id: 'Emas Datar di $4.168 Usai Warsh Netral, Brent Dekati $110; Antam Naik ke Rp2.572.000',
+      en: 'Gold Flat at $4,168 After a Neutral Warsh as Brent Nears $110; Antam Rises to Rp2,572,000',
+    },
+    excerpt: {
+      id: 'Emas sempat mendekati $4.200 setelah Ketua Fed Kevin Warsh menolak memberi sinyal kebijakan, tetapi ditutup nyaris datar di sekitar $4.167,90 karena yield pulih dan minyak melonjak. Antam naik Rp7.000 ke Rp2.572.000, kenaikan hari kedua.',
+      en: 'Gold neared $4,200 after Fed Chair Kevin Warsh declined to signal policy, but settled nearly flat around $4,167.90 as yields recovered and oil jumped. Antam rose Rp7,000 to Rp2,572,000, a second daily gain.',
+    },
+    sections: [
+      {
+        heading: { id: 'Jumat: Mendekati $4.200, Lalu Kembali', en: 'Friday: Near $4,200, Then Back' },
+        paragraphs: [
+          {
+            id: 'Di sesi Asia, emas spot naik ke sekitar $4.178,50 dari sekitar $4.148 pada Kamis sore, dengan puncak harian sekitar $4.186. Pemicunya Ketua Fed Kevin Warsh. Dalam diskusi bersama Direktur Pelaksana IMF Kristalina Georgieva di Bangkok, ia berkata, "Saya tidak percaya pada pre-judging rapat," dan tidak memberi petunjuk soal suku bunga.',
+            en: 'In the Asian session, spot gold rose to about $4,178.50 from about $4,148 on Thursday afternoon, with a daily high near $4,186. The trigger was Fed Chair Kevin Warsh. In a fireside chat with IMF Managing Director Kristalina Georgieva in Bangkok, he said, "I don’t believe in pre-judging meetings," and gave no hint on rates.',
+          },
+          {
+            id: 'Kenaikan itu tidak bertahan. Pada akhir sesi AS, Kitco mencatat spot di sekitar $4.167,90, turun $1,90 atau 0,05%. Perak turun 0,78% ke sekitar $56,85. Emas gagal menembus zona $4.185–$4.201, yang menjadi target berikutnya bagi pembeli.',
+            en: 'The gain did not hold. By the end of the US session, Kitco put spot near $4,167.90, down $1.90, or 0.05%. Silver fell 0.78% to about $56.85. Gold failed to break the $4,185–$4,201 zone, which is buyers’ next target.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Peluang Jeda Naik, Tetapi Minyak Menahan', en: 'Pause Odds Rise, but Oil Holds Gold Back' },
+        paragraphs: [
+          {
+            id: 'Sikap netral Warsh menurunkan taruhan kenaikan Oktober. Peluang Fed menahan suku bunga pada rapat 27–28 Oktober naik ke sekitar 83% dari sekitar 72% pada Kamis. Namun pasar masih melihat peluang tinggi kenaikan pada Desember, dan suku bunga saat ini berada di 3,75–4,00%.',
+            en: 'Warsh’s neutral stance lowered October hike bets. The odds of a Fed hold at the October 27–28 meeting rose to about 83% from about 72% on Thursday. But markets still see a high chance of a December hike, and the policy rate currently sits at 3.75–4.00%.',
+          },
+          {
+            id: 'Penahannya adalah minyak dan yield. Brent ditutup di $109,86 dan WTI naik ke sekitar $101,41, di atas $100 untuk pertama kali sejak September, setelah Iran memberi sinyal serangan lanjutan menyusul blokade AS atas pelabuhannya. Yield Treasury 10 tahun pulih ke sekitar 5,12% dari terendah beberapa pekan pada Kamis. Harga impor September naik 1,1% sebulan dan 8,1% setahun, terbesar sejak Juli 2022, sementara produksi industri naik 0,7%, di atas perkiraan.',
+            en: 'The drag was oil and yields. Brent settled at $109.86 and WTI rose to about $101.41, above $100 for the first time since September, after Iran signaled further strikes following a US blockade of its ports. The 10-year Treasury yield recovered to about 5.12% from Thursday’s multi-week low. September import prices rose 1.1% on the month and 8.1% on the year, the largest since July 2022, while industrial production rose 0.7%, above expectations.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Peta Level', en: 'The Big Picture and the Level Map' },
+        paragraphs: [
+          {
+            id: 'Pekan ini emas sempat jatuh ke sekitar $4.073 setelah CPI panas, lalu bangkit lebih dari $90. Meski begitu, emas masih turun sekitar 4% dalam sebulan dan berada sekitar $1.440 atau 26% di bawah rekor $5.608 pada Januari. Nasdaq turun 2,1% pada Jumat dan 4,5% sepekan, tetapi aksi jual saham kali ini tidak lagi mengangkat emas.',
+            en: 'This week gold fell to about $4,073 after the hot CPI, then bounced more than $90. Even so, gold is still down about 4% on the month and sits about $1,440, or 26%, below the $5,608 record set in January. The Nasdaq fell 2.1% on Friday and 4.5% on the week, but this time the stock selloff did not lift gold.',
+          },
+          {
+            id: 'Kitco menandai resistance di $4.176, lalu zona $4.185–$4.201, dengan target $4.218 dan $4.240 jika tembus. Support ada di $4.148, $4.132 dan $4.111. Pekan depan: housing starts September (Selasa), klaim pengangguran mingguan (Kamis) dan sentimen konsumen final Oktober (Jumat), lalu keputusan Fed 27–28 Oktober dan PCE September pada 29 Oktober.',
+            en: 'Kitco marks resistance at $4,176, then the $4,185–$4,201 zone, with targets of $4,218 and $4,240 on a break. Support sits at $4,148, $4,132 and $4,111. Next week: September housing starts (Tuesday), weekly jobless claims (Thursday) and final October consumer sentiment (Friday), then the Fed decision on October 27–28 and September PCE on October 29.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam dan Brand Lain Hari Ini', en: 'Antam and Other Brands Today' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram naik Rp7.000 ke Rp2.572.000, kenaikan hari kedua setelah naik Rp4.000 pada Jumat. Buyback naik Rp12.000 ke Rp2.387.000, sehingga spread menyempit ke Rp185.000, sekitar 7,2% dari harga jual. Dibanding Rabu di Rp2.574.000, harga jual kini hanya Rp2.000 lebih rendah.',
+            en: 'Antam’s 1-gram bar rose Rp7,000 to Rp2,572,000, a second daily gain after a Rp4,000 rise on Friday. Buyback rose Rp12,000 to Rp2,387,000, narrowing the spread to Rp185,000, about 7.2% of the selling price. Compared with Wednesday’s Rp2,574,000, the selling price is now just Rp2,000 lower.',
+          },
+          {
+            id: 'Galeri24 naik Rp8.000 ke Rp2.517.000 dengan buyback Rp2.369.000: Rp55.000 lebih murah dari Antam dengan spread Rp148.000, sekitar 5,9%. UBS naik Rp8.000 ke Rp2.541.000 dengan buyback Rp2.343.000: Rp31.000 lebih murah dari Antam dengan spread Rp198.000, sekitar 7,8%. Buyback Galeri24 hanya Rp18.000 di bawah Antam, sehingga Galeri24 tetap yang paling efisien untuk beli lalu jual kembali.',
+            en: 'Galeri24 rose Rp8,000 to Rp2,517,000 with a Rp2,369,000 buyback: Rp55,000 cheaper than Antam with a Rp148,000 spread, about 5.9%. UBS rose Rp8,000 to Rp2,541,000 with a Rp2,343,000 buyback: Rp31,000 cheaper than Antam with a Rp198,000 spread, about 7.8%. Galeri24’s buyback is only Rp18,000 below Antam’s, so Galeri24 remains the most efficient for a buy-then-sell round trip.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Menunggu Arah dari Fed dan Minyak', en: 'Playbook: Waiting for Direction from the Fed and Oil' },
+        paragraphs: [
+          {
+            id: 'Emas kini terjepit dua kekuatan. Peluang jeda Fed di Oktober mendukung, tetapi minyak di dekat $110 menjaga inflasi dan yield tetap tinggi, sehingga kenaikan Desember masih terbuka. Skenario dekat: bertahan di atas $4.201 membuka $4.218 lalu $4.240; gagal di $4.148 bisa menguji $4.132 lalu $4.111.',
+            en: 'Gold is now squeezed between two forces. Fed pause odds for October are supportive, but oil near $110 keeps inflation and yields high, so a December hike remains on the table. Near-term scenarios: holding above $4,201 opens $4,218, then $4,240; losing $4,148 could test $4,132, then $4,111.',
+          },
+          {
+            id: 'Bagi investor rupiah, Antam yang bergerak beberapa ribu rupiah sehari memberi ruang untuk tetap disiplin. DCA dengan nominal tetap meratakan harga beli di kedua skenario, dan selisih spread antarbrand hingga Rp50.000 layak diperhitungkan jika Anda berencana menjual kembali. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, an Antam price that moves a few thousand rupiah a day leaves room to stay disciplined. Fixed-amount DCA averages the purchase price in either scenario, and the gap in spreads across brands, up to Rp50,000, is worth factoring in if you plan to sell back. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Warsh membuka ruang jeda di Oktober, tetapi minyak di dekat $110 membuat emas belum bisa menembus $4.200.',
+      en: 'Warsh left room for an October pause, but oil near $110 kept gold from breaking $4,200.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-flat-4168-warsh-neutral-oil-110.png'),
+    publishedAt: Date.parse('2026-10-17T02:55:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold, silver diverge as Fed-pause expectations collide with rising crude prices - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-16/gold-silver-diverge-fed-pause-expectations-collide-rising-crude-prices' },
+      { title: 'FinanceFeeds: Gold Price $4,178: Warsh Won’t Pre-Judge, $4,200 in Sight', url: 'https://financefeeds.com/gold-price-4178-warsh-bangkok-fed-hike-odds-bull-4330-bear-4000/' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Periskop.id: Harga Emas Antam Hari Ini Naik Rp7.000 Jadi Rp2,572 Juta per Gram', url: 'https://periskop.id/investasi/20261017/harga-emas-antam-naik-rp2-572-juta-per-gram-2' },
+      { title: 'kumparan: Harga Emas Antam Naik Rp 7.000 ke Rp 2,57 Juta/Gram, Galeri24 Jadi Rp 2,51 Juta', url: 'https://kumparan.com/kumparanbisnis/harga-emas-antam-naik-rp-7-000-ke-rp-2-57-juta-gram-galeri24-jadi-rp-2-51-juta-28OJSQtT79S' },
+      { title: 'Ngopibareng: Harga Emas Sabtu 17 Oktober 2026: Antam, Galeri24 dan UBS Kompak Naik', url: 'https://www.ngopibareng.id/read/harga-emas-sabtu-17-oktober-2026-antam-galeri24-dan-ubs-kompak-naik-cek-tabel-terbaru' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-rebounds-4171-hot-ppi-safe-haven',
+    category: 'macro',
     title: {
       id: 'Emas Bangkit ke $4.171 Meski CPI dan PPI Panas; Antam Naik Tipis ke Rp2.565.000',
       en: 'Gold Rebounds to $4,171 Despite Hot CPI and PPI; Antam Edges Up to Rp2,565,000',
