@@ -55,9 +55,117 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-weekly-survey-neutral-4165',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Emas Turun 0,58% Sepekan ke $4.165; Survei Kitco: Wall Street Netral, Main Street Condong Bearish',
+      en: 'Gold Slips 0.58% on the Week to $4,165; Kitco Survey: Wall Street Neutral, Main Street Leans Bearish',
+    },
+    excerpt: {
+      id: 'Emas mengakhiri pekan volatil di sekitar $4.165 setelah jatuh ke $4.073 karena CPI panas lalu gagal menembus $4.200. Separuh analis Wall Street kini netral, sementara Main Street sedikit condong bearish. Galeri24 dan UBS naik pada Minggu, Antam bertahan di Rp2.572.000.',
+      en: 'Gold ended a volatile week near $4,165 after falling to $4,073 on hot CPI and then failing to break $4,200. Half of Wall Street analysts are now neutral, while Main Street leans slightly bearish. Galeri24 and UBS rose on Sunday, while Antam held at Rp2,572,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pekan Ini: Dari $4.217 ke $4.073, Lalu Kembali', en: 'This Week: From $4,217 to $4,073, Then Back' },
+        paragraphs: [
+          {
+            id: 'Emas spot membuka pekan di $4.193,59 pada Minggu malam dan naik ke puncak mingguan $4.216,91 pada Senin. Lalu CPI September naik 3,7% yoy, di atas perkiraan, disusul PPI yang juga lebih panas. Emas jatuh ke terendah mingguan $4.073,35 pada Rabu siang.',
+            en: 'Spot gold opened the week at $4,193.59 on Sunday evening and rose to a weekly high of $4,216.91 on Monday. Then September CPI rose 3.7% y/y, above expectations, followed by a hotter-than-expected PPI. Gold fell to a weekly low of $4,073.35 at midday Wednesday.',
+          },
+          {
+            id: 'Pemulihannya cepat, tetapi tidak cukup. Menurut Kitco, emas terakhir diperdagangkan di sekitar $4.165,42, turun 0,58% sepekan dan 0,13% pada Jumat. Trading Economics mencatat $4.166,39, turun 0,11% sehari. Di kedua kasus, $4.200 kembali menjadi atap.',
+            en: 'The recovery was quick, but not enough. According to Kitco, gold last traded near $4,165.42, down 0.58% on the week and 0.13% on Friday. Trading Economics put it at $4,166.39, down 0.11% on the day. Either way, $4,200 again acted as a ceiling.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Survei Kitco: Analis Terbelah, Ritel Ragu', en: 'Kitco Survey: Analysts Split, Retail Doubtful' },
+        paragraphs: [
+          {
+            id: 'Dari 12 analis Wall Street, 6 (50%) memperkirakan emas bergerak datar pekan depan, 4 (33%) memperkirakan naik dan 2 (17%) turun. Di Main Street, dari 139 responden, 63 (45%) bearish, 60 (43%) bullish dan 16 (12%) memperkirakan konsolidasi. Selisih tiga suara itu menunjukkan ritel nyaris terbelah dua.',
+            en: 'Of 12 Wall Street analysts, 6 (50%) expect gold to trade sideways next week, 4 (33%) expect it to rise and 2 (17%) expect a fall. On Main Street, of 139 respondents, 63 (45%) are bearish, 60 (43%) bullish and 16 (12%) expect consolidation. The three-vote gap shows retail is split almost evenly.',
+          },
+          {
+            id: 'Pandangannya beragam. Stanley dari Forex.com melihat kenaikan selama $4.000 bertahan, dan Kuptsikevich dari FxPro melihat peluang ke $4.400–$4.500 sebelum pemilu sela. Sebaliknya, Razaqzada dari StoneX Bullion sedikit bearish sampai resistance tembus, dan Massabni dari XS.com bearish karena konflik Timur Tengah belum ada jalan keluarnya.',
+            en: 'Views vary. Stanley of Forex.com sees upside as long as $4,000 holds, and Kuptsikevich of FxPro sees room toward $4,400–$4,500 before the midterms. On the other side, Razaqzada of StoneX Bullion is modestly bearish until resistance breaks, and Massabni of XS.com is bearish because the Middle East conflict has no resolution in sight.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yield, Dolar dan Fed', en: 'Yields, the Dollar and the Fed' },
+        paragraphs: [
+          {
+            id: 'Yield Treasury 10 tahun sempat ke 5,299%, tepat di bawah puncak sebelumnya di sekitar 5,32%, lalu turun tajam pada Kamis. Dolar menguat di awal pekan, tetapi melemah pada Kamis dan Jumat, pelemahan pertama dalam lima pekan. Bagi emas, keduanya membantu meredam tekanan setelah CPI.',
+            en: 'The 10-year Treasury yield peaked at 5.299%, just below its prior high of about 5.32%, then fell sharply on Thursday. The dollar strengthened early in the week but weakened on Thursday and Friday, the first time it weakened in five weeks. For gold, both helped ease the pressure after CPI.',
+          },
+          {
+            id: 'Namun ekspektasi pengetatan belum hilang. Ketua Fed Kevin Warsh tidak memberi sinyal kenaikan Oktober, tetapi kurva suku bunga masih memperhitungkan kenaikan sekitar 70 bps, dan Trading Economics mencatat peluang kenaikan Desember sekitar 92%. Pavilonis menilai emas diuntungkan jika yield 10 tahun turun di bawah 5%, tetapi bisa jatuh ke setidaknya $3.500 jika yield naik ke 8%.',
+            en: 'Tightening expectations have not gone away, though. Fed Chair Kevin Warsh did not signal an October hike, but the rate curve still prices about 70 bps of hikes, and Trading Economics puts the odds of a December hike at about 92%. Pavilonis says gold would benefit if the 10-year yield falls below 5%, but could drop to at least $3,500 if yields rise to 8%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Agenda Pekan Depan', en: 'The Big Picture and Next Week’s Agenda' },
+        paragraphs: [
+          {
+            id: 'Emas turun sekitar 4% dalam sebulan dan berada sekitar 25,7% di bawah rekor $5.608,35 pada Januari. Level yang disebut analis: support $4.154 dan resistance $4.179, lalu support yang lebih dalam di dekat $4.100. Di atas, puncak mingguan $4.216,91 menjadi ujian berikutnya; di bawah, terendah $4.073,35.',
+            en: 'Gold is down about 4% on the month and sits about 25.7% below the $5,608.35 record set in January. Levels analysts cite: support at $4,154 and resistance at $4,179, then deeper support near $4,100. Above, the weekly high of $4,216.91 is the next test; below, the $4,073.35 low.',
+          },
+          {
+            id: 'Kalender pekan depan relatif sepi: housing starts, izin bangunan dan pending home sales September (Selasa), klaim pengangguran mingguan (Kamis), lalu PMI flash S&P Global dan sentimen konsumen final Oktober dari University of Michigan (Jumat). Sesudahnya, fokus beralih ke rapat Fed 27–28 Oktober.',
+            en: 'Next week’s calendar is light: September housing starts, building permits and pending home sales (Tuesday), weekly jobless claims (Thursday), then the S&P Global flash PMIs and the University of Michigan’s final October consumer sentiment (Friday). After that, focus shifts to the October 27–28 Fed meeting.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam dan Brand Lain Hari Minggu', en: 'Antam and Other Brands on Sunday' },
+        paragraphs: [
+          {
+            id: 'Harga Antam terakhir yang terkonfirmasi tetap Rp2.572.000 per gram dengan buyback Rp2.387.000, sehingga spread Rp185.000 atau sekitar 7,2%. Belum ada pembaruan Logam Mulia yang terkonfirmasi untuk Minggu, jadi angka ini masih harga Sabtu.',
+            en: 'Antam’s latest confirmed price stays at Rp2,572,000 per gram with a Rp2,387,000 buyback, a Rp185,000 spread, or about 7.2%. There is no confirmed Logam Mulia update for Sunday yet, so this is still Saturday’s price.',
+          },
+          {
+            id: 'Galeri24 naik Rp6.000 ke Rp2.523.000 dengan buyback Rp2.375.000: Rp49.000 lebih murah dari Antam dengan spread Rp148.000, sekitar 5,9%. UBS naik Rp7.000 ke Rp2.548.000 dengan buyback Rp2.349.000: Rp24.000 lebih murah dari Antam dengan spread Rp199.000, sekitar 7,8%. Buyback Galeri24 kini hanya Rp12.000 di bawah Antam.',
+            en: 'Galeri24 rose Rp6,000 to Rp2,523,000 with a Rp2,375,000 buyback: Rp49,000 cheaper than Antam with a Rp148,000 spread, about 5.9%. UBS rose Rp7,000 to Rp2,548,000 with a Rp2,349,000 buyback: Rp24,000 cheaper than Antam with a Rp199,000 spread, about 7.8%. Galeri24’s buyback is now only Rp12,000 below Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Pekan Sepi, Arah Belum Jelas', en: 'Playbook: A Quiet Week, No Clear Direction' },
+        paragraphs: [
+          {
+            id: 'Survei yang terbelah cocok dengan grafiknya: emas terjebak antara $4.073 dan $4.217. Skenario dekat: menembus $4.179 lalu $4.217 membuka jalan kembali ke atas $4.200; gagal di $4.154 bisa menguji $4.100 lalu $4.073. Secara struktural, Trading Economics mencatat cadangan emas China naik ke 2.346,43 ton per Juni 2026 dari 2.313,46 ton.',
+            en: 'The split survey matches the chart: gold is trapped between $4,073 and $4,217. Near-term scenarios: breaking $4,179, then $4,217, opens the way back above $4,200; losing $4,154 could test $4,100, then $4,073. Structurally, Trading Economics shows China’s gold reserves rising to 2,346.43 tonnes as of June 2026 from 2,313.46 tonnes.',
+          },
+          {
+            id: 'Bagi investor rupiah, pekan dengan data sepi bukan alasan untuk menebak arah. DCA dengan nominal tetap meratakan harga beli di kedua skenario, dan perbedaan spread antarbrand, dari sekitar 5,9% hingga 7,8%, layak diperhitungkan jika Anda berencana menjual kembali. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, a quiet data week is no reason to guess the direction. Fixed-amount DCA averages the purchase price in either scenario, and the difference in spreads across brands, from about 5.9% to 7.8%, is worth factoring in if you plan to sell back. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Separuh analis Wall Street netral, dan Main Street terbelah hanya tiga suara: emas menunggu katalis berikutnya.',
+      en: 'Half of Wall Street analysts are neutral, and Main Street is split by just three votes: gold is waiting for its next catalyst.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-weekly-survey-neutral-4165.png'),
+    publishedAt: Date.parse('2026-10-18T02:55:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Wall Street undecided on gold’s near-term trajectory, Main Street flirts with bearish bias after gold hits $4,200/oz ceiling', url: 'https://www.kitco.com/news/article/2026-10-16/wall-street-undecided-golds-near-term-trajectory-main-street-flirts-bearish' },
+      { title: 'Kitco: Gold, silver diverge as Fed-pause expectations collide with rising crude prices - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-16/gold-silver-diverge-fed-pause-expectations-collide-rising-crude-prices' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Industry.co.id: Harga Emas Hari Ini 18 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap', url: 'https://www.industry.co.id/read/157568/harga-emas-hari-ini-18-oktober-2026-antam-ubs-dan-galeri-24-lengkap' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-flat-4168-warsh-neutral-oil-110',
     category: 'macro',
-    featured: true,
     title: {
       id: 'Emas Datar di $4.168 Usai Warsh Netral, Brent Dekati $110; Antam Naik ke Rp2.572.000',
       en: 'Gold Flat at $4,168 After a Neutral Warsh as Brent Nears $110; Antam Rises to Rp2,572,000',
@@ -774,8 +882,8 @@ export const ARTICLES: Article[] = [
             en: 'Kitco’s weekly survey shows a shift in mood. Of 13 Wall Street analysts, 6 expect gold to fall this week, only 3 expect a rise and 4 are neutral. On Main Street, 85 of 182 respondents are still bullish (47%) and 60 bearish (33%), but for the first time since late July that bullish majority is gone.',
           },
           {
-            id: 'Pandangan analis pun terbelah. Marc Chandler dari Bannockburn melihat peluang naik ke $4.280–4.300 dan mencari kesempatan beli di Oktober sebelum musim kuat November–Januari. Sebaliknya, Alex Kuptsikevich dari FxPro membuka peluang uji $4.000. Rentang skenario selebar ini wajar ketika pasar menunggu data.',
-            en: 'Analysts are split too. Marc Chandler of Bannockburn sees room for a move to $4,280–4,300 and is looking for a buying opportunity in October before the strong November–January season. On the other side, Alex Kuptsikevich of FxPro sees a possible test of $4,000. A scenario range this wide is normal when markets are waiting for data.',
+            id: 'Pandangan analis pun terbelah. Marc Chandler dari Bannockburn melihat peluang naik ke $4.280–4.300 dan mencari kesempatan beli di Oktober sebelum musim kuat November–Januari. Sebaliknya, Kuptsikevich dari FxPro membuka peluang uji $4.000. Rentang skenario selebar ini wajar ketika pasar menunggu data.',
+            en: 'Analysts are split too. Marc Chandler of Bannockburn sees room for a move to $4,280–4,300 and is looking for a buying opportunity in October before the strong November–January season. On the other side, Kuptsikevich of FxPro sees a possible test of $4,000. A scenario range this wide is normal when markets are waiting for data.',
           },
         ],
       },
