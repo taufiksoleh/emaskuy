@@ -1,32 +1,29 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T10:10:00+07:00",
+  "generatedAt": "2026-10-18T09:55:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot nyaris datar di sekitar $4.167,90 pada akhir Jumat (−0,05%), gagal bertahan setelah sempat mendekati $4.200 di sesi Asia. Ketua Fed Kevin Warsh di Bangkok menolak memberi sinyal kebijakan (\"tidak mau pre-judge rapat\"), sementara produksi industri September naik 0,7%, di atas perkiraan, dan harga impor naik 8,1% yoy, terbesar sejak Juli 2022.",
-      "en": "Spot gold was nearly flat near $4,167.90 late Friday (−0.05%), failing to hold after nearing $4,200 in the Asian session. Fed Chair Kevin Warsh declined to signal policy in Bangkok (\"I don’t believe in pre-judging meetings\"), while September industrial production rose 0.7%, above expectations, and import prices rose 8.1% y/y, the largest since July 2022."
+      "id": "Emas spot menutup pekan di sekitar $4.165, turun sekitar 0,58% sepekan. Emas dibuka pekan ini di $4.193,59, sempat ke $4.216,91 pada Senin, lalu jatuh ke $4.073,35 pada Rabu setelah CPI September naik 3,7% yoy, di atas perkiraan, dan PPI juga lebih panas. Pemulihan berikutnya tertahan di bawah $4.200.",
+      "en": "Spot gold ended the week near $4,165, down about 0.58% on the week. It opened the week at $4,193.59, reached $4,216.91 on Monday, then fell to $4,073.35 on Wednesday after September CPI rose 3.7% y/y, above expectations, and PPI also ran hot. The rebound that followed stalled below $4,200."
     },
     {
-      "id": "Peluang Fed menahan suku bunga pada 27–28 Oktober naik ke sekitar 83% dari 72% pada Kamis, tetapi pasar masih melihat peluang tinggi kenaikan pada Desember. Yield 10 tahun pulih ke sekitar 5,12%, Brent ditutup $109,86 dan WTI di atas $100 untuk pertama kali sejak September. Emas turun sekitar 4% sebulan dan sekitar 26% di bawah rekor Januari $5.608.",
-      "en": "Odds of a Fed hold at the October 27–28 meeting rose to about 83% from 72% on Thursday, but markets still see a high chance of a December hike. The 10-year yield recovered to about 5.12%, Brent settled at $109.86 and WTI topped $100 for the first time since September. Gold is down about 4% on the month and about 26% below its January record of $5,608."
+      "id": "Survei mingguan Kitco: dari 12 analis Wall Street, 6 (50%) netral, 4 (33%) bullish dan 2 (17%) bearish. Dari 139 responden Main Street, 63 (45%) bearish, 60 (43%) bullish dan 16 (12%) netral. Yield 10 tahun sempat ke 5,299% sebelum turun tajam pada Kamis, dolar melemah untuk pertama kali dalam lima pekan, dan kurva masih memperhitungkan kenaikan suku bunga sekitar 70 bps.",
+      "en": "Kitco’s weekly survey: of 12 Wall Street analysts, 6 (50%) are neutral, 4 (33%) bullish and 2 (17%) bearish. Of 139 Main Street respondents, 63 (45%) are bearish, 60 (43%) bullish and 16 (12%) neutral. The 10-year yield peaked at 5.299% before falling sharply on Thursday, the dollar weakened for the first time in five weeks, and the curve still prices about 70 bps of rate hikes."
     },
     {
-      "id": "Kitco menandai resistance di $4.176 dan zona $4.185–$4.201, lalu $4.218 dan $4.240. Support di $4.148, $4.132 dan $4.111; terendah pekan ini sekitar $4.073 setelah CPI. Pekan depan: housing starts (Selasa), klaim pengangguran (Kamis), sentimen konsumen final (Jumat), lalu FOMC 27–28 Oktober dan PCE September pada 29 Oktober.",
-      "en": "Kitco marks resistance at $4,176 and a $4,185–$4,201 zone, then $4,218 and $4,240. Support sits at $4,148, $4,132 and $4,111; this week’s low was about $4,073 after CPI. Next week: housing starts (Tuesday), jobless claims (Thursday), final consumer sentiment (Friday), then the October 27–28 FOMC and September PCE on October 29."
+      "id": "Level yang disebut analis: support $4.154 dan resistance $4.179 (Aslam), support dekat $4.100 (Razaqzada). Emas turun sekitar 4% sebulan dan sekitar 25,7% di bawah rekor Januari $5.608,35. Pekan depan relatif sepi: housing starts dan pending home sales (Selasa), klaim pengangguran (Kamis), PMI flash S&P Global dan sentimen konsumen final (Jumat).",
+      "en": "Levels analysts cite: support at $4,154 and resistance at $4,179 (Aslam), support near $4,100 (Razaqzada). Gold is down about 4% on the month and about 25.7% below its January record of $5,608.35. Next week is light: housing starts and pending home sales (Tuesday), jobless claims (Thursday), S&P Global flash PMIs and final consumer sentiment (Friday)."
     },
     {
-      "id": "Antam naik Rp7.000 ke Rp2.572.000/gram, kenaikan hari kedua; buyback naik Rp12.000 ke Rp2.387.000, spread Rp185.000 (sekitar 7,2%). Galeri24 naik Rp8.000 ke Rp2.517.000 (buyback Rp2.369.000, spread sekitar 5,9%) dan UBS naik Rp8.000 ke Rp2.541.000 (buyback Rp2.343.000, spread sekitar 7,8%).",
-      "en": "Antam rose Rp7,000 to Rp2,572,000/gram, a second daily gain; buyback rose Rp12,000 to Rp2,387,000, a Rp185,000 spread (about 7.2%). Galeri24 rose Rp8,000 to Rp2,517,000 (buyback Rp2,369,000, spread about 5.9%) and UBS rose Rp8,000 to Rp2,541,000 (buyback Rp2,343,000, spread about 7.8%)."
+      "id": "Harga Antam terakhir yang terkonfirmasi tetap Rp2.572.000/gram dengan buyback Rp2.387.000 (spread sekitar 7,2%); belum ada pembaruan Minggu. Galeri24 naik Rp6.000 ke Rp2.523.000 (buyback Rp2.375.000, spread sekitar 5,9%) dan UBS naik Rp7.000 ke Rp2.548.000 (buyback Rp2.349.000, spread sekitar 7,8%).",
+      "en": "Antam’s latest confirmed price stays at Rp2,572,000/gram with a Rp2,387,000 buyback (spread about 7.2%); there is no Sunday update yet. Galeri24 rose Rp6,000 to Rp2,523,000 (buyback Rp2,375,000, spread about 5.9%) and UBS rose Rp7,000 to Rp2,548,000 (buyback Rp2,349,000, spread about 7.8%)."
     }
   ],
   "sources": [
-    { "title": "Kitco: Gold, silver diverge as Fed-pause expectations collide with rising crude prices - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-16/gold-silver-diverge-fed-pause-expectations-collide-rising-crude-prices" },
-    { "title": "FinanceFeeds: Gold Price $4,178: Warsh Won’t Pre-Judge, $4,200 in Sight", "url": "https://financefeeds.com/gold-price-4178-warsh-bangkok-fed-hike-odds-bull-4330-bear-4000/" },
+    { "title": "Kitco: Wall Street undecided on gold’s near-term trajectory, Main Street flirts with bearish bias after gold hits $4,200/oz ceiling", "url": "https://www.kitco.com/news/article/2026-10-16/wall-street-undecided-golds-near-term-trajectory-main-street-flirts-bearish" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Periskop.id: Harga Emas Antam Hari Ini Naik Rp7.000 Jadi Rp2,572 Juta per Gram", "url": "https://periskop.id/investasi/20261017/harga-emas-antam-naik-rp2-572-juta-per-gram-2" },
-    { "title": "kumparan: Harga Emas Antam Naik Rp 7.000 ke Rp 2,57 Juta/Gram, Galeri24 Jadi Rp 2,51 Juta", "url": "https://kumparan.com/kumparanbisnis/harga-emas-antam-naik-rp-7-000-ke-rp-2-57-juta-gram-galeri24-jadi-rp-2-51-juta-28OJSQtT79S" },
-    { "title": "Ngopibareng: Harga Emas Sabtu 17 Oktober 2026: Antam, Galeri24 dan UBS Kompak Naik", "url": "https://www.ngopibareng.id/read/harga-emas-sabtu-17-oktober-2026-antam-galeri24-dan-ubs-kompak-naik-cek-tabel-terbaru" },
+    { "title": "Industry.co.id: Harga Emas Hari Ini 18 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap", "url": "https://www.industry.co.id/read/157568/harga-emas-hari-ini-18-oktober-2026-antam-ubs-dan-galeri-24-lengkap" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
