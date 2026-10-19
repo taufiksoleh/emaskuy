@@ -55,9 +55,105 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-weekly-survey-neutral-4165',
+    slug: 'gold-opens-week-4175-fed-pause-oil-100',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Buka Pekan Naik Tipis ke $4.175; Peluang Jeda Fed 84%, Minyak Tetap di Atas $100',
+      en: 'Gold Opens the Week Slightly Higher at $4,175; Fed Pause Odds at 84%, Oil Stays Above $100',
+    },
+    excerpt: {
+      id: 'Emas naik 0,20% ke sekitar $4.175 pada Senin pagi setelah ditutup di $4.164 pada Jumat. Peluang Fed menahan suku bunga naik ke sekitar 84%, tetapi Brent di $109,86 menjaga kekhawatiran inflasi. Antam naik Rp2.000 ke Rp2.574.000, kenaikan hari ketiga.',
+      en: 'Gold rose 0.20% to about $4,175 on Monday morning after closing at $4,164 on Friday. The odds of a Fed hold rose to about 84%, but Brent at $109.86 keeps inflation worries alive. Antam rose Rp2,000 to Rp2,574,000, a third daily gain.',
+    },
+    sections: [
+      {
+        heading: { id: 'Senin Pagi: Naik Tipis dari $4.164', en: 'Monday Morning: A Small Gain from $4,164' },
+        paragraphs: [
+          {
+            id: 'Emas spot dibuka menguat pada awal pekan. Trading Economics mencatat sekitar $4.174,77, naik $8,38 atau 0,20% sehari, dan analisis Mitrade menyebut emas di sekitar $4.183 pada Senin pagi. Kenaikan ini melanjutkan pantulan dari zona support $4.064–$4.074 yang tersentuh pekan lalu.',
+            en: 'Spot gold opened the week firmer. Trading Economics put it at about $4,174.77, up $8.38, or 0.20%, on the day, and Mitrade’s analysis had gold near $4,183 on Monday morning. The gain extends the rebound from the $4,064–$4,074 support zone touched last week.',
+          },
+          {
+            id: 'Jumat lalu ceritanya berbeda. Emas spot sempat ke $4.199,50 lalu ditutup di $4.164,10 di New York, turun $5,70 atau 0,14%, saat aksi jual saham teknologi meluas: Nasdaq turun 2,1% hari itu dan 4,5% sepekan, terburuk sejak Juni. Kontrak emas Desember ditutup di $4.181,10, naik 0,26%.',
+            en: 'Last Friday was a different story. Spot gold reached $4,199.50, then closed at $4,164.10 in New York, down $5.70, or 0.14%, as a tech selloff deepened: the Nasdaq fell 2.1% on the day and 4.5% on the week, its worst week since June. December gold futures settled at $4,181.10, up 0.26%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed Diperkirakan Jeda, tetapi Minyak Menahan', en: 'The Fed Is Expected to Pause, but Oil Holds Gold Back' },
+        paragraphs: [
+          {
+            id: 'Ketua Fed Kevin Warsh tidak memberi sinyal kenaikan suku bunga Oktober. Peluang Fed menahan suku bunga pada rapat 27–28 Oktober naik ke sekitar 83% dari 72% menurut Mitrade, dan sekitar 84% menurut Trading Economics. Yield Treasury 10 tahun ditutup di 5,097%, Treasury mencatat pekan terbaik sejak pertengahan Februari, dan dolar menuju penurunan mingguan pertama dalam lima pekan.',
+            en: 'Fed Chair Kevin Warsh gave no signal of an October rate hike. The odds of a Fed hold at the October 27–28 meeting rose to about 83% from 72% according to Mitrade, and about 84% according to Trading Economics. The 10-year Treasury yield closed at 5.097%, Treasuries had their best week since mid-February, and the dollar was headed for its first weekly decline in five weeks.',
+          },
+          {
+            id: 'Penahannya tetap minyak. Brent ditutup di $109,86 dan WTI Desember naik 2,61% ke $99,02, sementara kontrak terdekat WTI menembus $100 untuk pertama kali sejak September, karena serangan terhadap kapal di sekitar Selat Hormuz meningkat. Harga impor AS September naik 8,1% setahun, terbesar sejak Juli 2022. Minyak mahal memperkuat alasan Fed tetap ketat, dan pasar masih condong ke pengetatan lanjutan pada Desember.',
+            en: 'Oil is still the brake. Brent settled at $109.86 and December WTI rose 2.61% to $99.02, while front-month WTI broke above $100 for the first time since September as attacks on shipping around the Strait of Hormuz intensified. US import prices rose 8.1% y/y in September, the most since July 2022. Expensive oil strengthens the case for a restrictive Fed, and markets still lean toward further tightening in December.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Teknikal', en: 'The Big Picture and Technical Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun sekitar 3,9% sebulan dan sekitar 4,2% setahun. Di sekitar $4.175, emas berada sekitar 25,6% di bawah rekor Januari $5.608,35. Pekan lalu rentangnya lebar, dari terendah $4.073,35 pada Rabu hingga mendekati $4.200 pada Jumat.',
+            en: 'Trading Economics shows gold down about 3.9% on the month and about 4.2% on the year. Near $4,175, gold sits about 25.6% below its January record of $5,608.35. Last week’s range was wide, from a $4,073.35 low on Wednesday to near $4,200 on Friday.',
+          },
+          {
+            id: 'Level dari Mitrade: resistance pertama $4.185–$4.195, lalu $4.215–$4.227 dan $4.276–$4.289. Support pertama $4.141–$4.150, lalu $4.104–$4.113 dan $4.064–$4.074. Agenda pekan ini: housing starts (Selasa), klaim pengangguran (Kamis), PMI flash Oktober (Jumat), lalu rapat Fed 27–28 Oktober.',
+            en: 'Mitrade’s levels: first resistance at $4,185–$4,195, then $4,215–$4,227 and $4,276–$4,289. First support at $4,141–$4,150, then $4,104–$4,113 and $4,064–$4,074. This week’s agenda: housing starts (Tuesday), jobless claims (Thursday), October flash PMIs (Friday), then the October 27–28 Fed meeting.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik Hari Ketiga, Galeri24 dan UBS Tetap', en: 'Antam Rises a Third Day, Galeri24 and UBS Hold' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram naik Rp2.000 ke Rp2.574.000, kenaikan hari ketiga beruntun, dengan buyback naik Rp2.000 ke Rp2.389.000 per gram. Spread-nya tetap Rp185.000, sekitar 7,2%. Batangan 10 gram kini Rp25.235.000 dan 100 gram Rp251.612.000.',
+            en: 'Antam’s 1-gram price rose Rp2,000 to Rp2,574,000, a third straight daily gain, with buyback up Rp2,000 to Rp2,389,000 per gram. The spread stays at Rp185,000, about 7.2%. The 10-gram bar now costs Rp25,235,000 and the 100-gram bar Rp251,612,000.',
+          },
+          {
+            id: 'Galeri24 tetap di Rp2.523.000 dengan buyback Rp2.375.000: Rp51.000 lebih murah dari Antam dengan spread Rp148.000, sekitar 5,9%. UBS tetap di Rp2.548.000 dengan buyback Rp2.349.000: Rp26.000 lebih murah dari Antam dengan spread Rp199.000, sekitar 7,8%. Buyback Antam kini Rp14.000 di atas Galeri24 dan Rp40.000 di atas UBS.',
+            en: 'Galeri24 held at Rp2,523,000 with a Rp2,375,000 buyback: Rp51,000 cheaper than Antam with a Rp148,000 spread, about 5.9%. UBS held at Rp2,548,000 with a Rp2,349,000 buyback: Rp26,000 cheaper than Antam with a Rp199,000 spread, about 7.8%. Antam’s buyback is now Rp14,000 above Galeri24’s and Rp40,000 above UBS’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Menunggu Fed di Bawah $4.200', en: 'Playbook: Waiting for the Fed Below $4,200' },
+        paragraphs: [
+          {
+            id: 'Skenario dekat: menembus $4.195 lalu $4.227 membuka jalan kembali ke atas $4.200; gagal di $4.141 bisa menguji $4.104 lalu $4.064. Penggeraknya jelas: harga minyak dan arah yield menjelang rapat Fed. Peluang jeda yang tinggi membantu, tetapi minyak di atas $100 membuat pengetatan Desember tetap terbuka.',
+            en: 'Near-term scenarios: breaking $4,195, then $4,227, opens the way back above $4,200; losing $4,141 could test $4,104, then $4,064. The drivers are clear: oil prices and the direction of yields ahead of the Fed meeting. High pause odds help, but oil above $100 keeps a December tightening on the table.',
+          },
+          {
+            id: 'Bagi investor rupiah, kenaikan Rp2.000 sehari tidak mengubah gambaran besar. DCA dengan nominal tetap meratakan harga beli di kedua skenario, dan spread yang berbeda, dari sekitar 5,9% hingga 7,8%, layak diperhitungkan jika Anda berencana menjual kembali. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, a Rp2,000 daily gain does not change the big picture. Fixed-amount DCA averages the purchase price in either scenario, and the different spreads, from about 5.9% to 7.8%, are worth factoring in if you plan to sell back. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pasar yakin Fed akan jeda Oktober, tetapi minyak di atas $100 membuat emas tetap tertahan di bawah $4.200.',
+      en: 'Markets are confident the Fed will pause in October, but oil above $100 keeps gold capped below $4,200.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-opens-week-4175-fed-pause-oil-100.png'),
+    publishedAt: Date.parse('2026-10-19T03:10:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Guardian Gold: Overnight Summary - Precious Metals Prices 19/10/2026', url: 'https://guardian-gold.com.au/market-updates/overnight-summary-precious-metals-prices-19-10-2026/' },
+      { title: 'Mitrade: Gold price analysis today - Fed pause odds and crude rally', url: 'https://www.mitrade.com/insights/commodity-analysis/gold/gold-fed-pause-odds-crude-rally' },
+      { title: 'Kitco: Wall Street undecided on gold’s near-term trajectory, Main Street flirts with bearish bias after gold hits $4,200/oz ceiling', url: 'https://www.kitco.com/news/article/2026-10-16/wall-street-undecided-golds-near-term-trajectory-main-street-flirts-bearish' },
+      { title: 'Suara.com: Harga Emas Antam Naik Tipis Jadi Rp2.574.000/Gram', url: 'https://www.suara.com/bisnis/2026/10/19/094121/harga-emas-antam-naik-tipis-jadi-rp2574000gram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-weekly-survey-neutral-4165',
+    category: 'market',
     title: {
       id: 'Emas Turun 0,58% Sepekan ke $4.165; Survei Kitco: Wall Street Netral, Main Street Condong Bearish',
       en: 'Gold Slips 0.58% on the Week to $4,165; Kitco Survey: Wall Street Neutral, Main Street Leans Bearish',
