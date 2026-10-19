@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-18T09:55:00+07:00",
+  "generatedAt": "2026-10-19T10:10:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot menutup pekan di sekitar $4.165, turun sekitar 0,58% sepekan. Emas dibuka pekan ini di $4.193,59, sempat ke $4.216,91 pada Senin, lalu jatuh ke $4.073,35 pada Rabu setelah CPI September naik 3,7% yoy, di atas perkiraan, dan PPI juga lebih panas. Pemulihan berikutnya tertahan di bawah $4.200.",
-      "en": "Spot gold ended the week near $4,165, down about 0.58% on the week. It opened the week at $4,193.59, reached $4,216.91 on Monday, then fell to $4,073.35 on Wednesday after September CPI rose 3.7% y/y, above expectations, and PPI also ran hot. The rebound that followed stalled below $4,200."
+      "id": "Emas spot membuka pekan dengan naik tipis ke sekitar $4.175, naik 0,20% sehari menurut Trading Economics, setelah sempat ke sekitar $4.183 pada Senin pagi. Jumat lalu emas ditutup di $4.164,10 di New York, turun 0,14%, setelah gagal bertahan di dekat puncak sesi $4.199,50 saat aksi jual saham teknologi meluas.",
+      "en": "Spot gold opened the week slightly higher near $4,175, up 0.20% on the day according to Trading Economics, after touching about $4,183 on Monday morning. Last Friday gold closed at $4,164.10 in New York, down 0.14%, after failing to hold near its $4,199.50 session high as a tech selloff deepened."
     },
     {
-      "id": "Survei mingguan Kitco: dari 12 analis Wall Street, 6 (50%) netral, 4 (33%) bullish dan 2 (17%) bearish. Dari 139 responden Main Street, 63 (45%) bearish, 60 (43%) bullish dan 16 (12%) netral. Yield 10 tahun sempat ke 5,299% sebelum turun tajam pada Kamis, dolar melemah untuk pertama kali dalam lima pekan, dan kurva masih memperhitungkan kenaikan suku bunga sekitar 70 bps.",
-      "en": "Kitco’s weekly survey: of 12 Wall Street analysts, 6 (50%) are neutral, 4 (33%) bullish and 2 (17%) bearish. Of 139 Main Street respondents, 63 (45%) are bearish, 60 (43%) bullish and 16 (12%) neutral. The 10-year yield peaked at 5.299% before falling sharply on Thursday, the dollar weakened for the first time in five weeks, and the curve still prices about 70 bps of rate hikes."
+      "id": "Peluang Fed menahan suku bunga pada rapat 27–28 Oktober sekitar 83–84%, naik dari 72%, setelah Ketua Fed Kevin Warsh tidak memberi sinyal kenaikan. Yield 10 tahun ditutup di 5,097% dan dolar melemah sepekan untuk pertama kali dalam lima pekan, tetapi Brent di $109,86 dan WTI di atas $100 menjaga kekhawatiran inflasi. Emas turun sekitar 3,9% sebulan.",
+      "en": "The odds of a Fed hold at the October 27–28 meeting are about 83–84%, up from 72%, after Fed Chair Kevin Warsh gave no hike signal. The 10-year yield closed at 5.097% and the dollar fell on the week for the first time in five weeks, but Brent at $109.86 and WTI above $100 keep inflation worries alive. Gold is down about 3.9% on the month."
     },
     {
-      "id": "Level yang disebut analis: support $4.154 dan resistance $4.179 (Aslam), support dekat $4.100 (Razaqzada). Emas turun sekitar 4% sebulan dan sekitar 25,7% di bawah rekor Januari $5.608,35. Pekan depan relatif sepi: housing starts dan pending home sales (Selasa), klaim pengangguran (Kamis), PMI flash S&P Global dan sentimen konsumen final (Jumat).",
-      "en": "Levels analysts cite: support at $4,154 and resistance at $4,179 (Aslam), support near $4,100 (Razaqzada). Gold is down about 4% on the month and about 25.7% below its January record of $5,608.35. Next week is light: housing starts and pending home sales (Tuesday), jobless claims (Thursday), S&P Global flash PMIs and final consumer sentiment (Friday)."
+      "id": "Level teknikal: resistance $4.185–$4.195 lalu $4.215–$4.227, support $4.141–$4.150, $4.104–$4.113 dan $4.064–$4.074. Agenda pekan ini: housing starts (Selasa), klaim pengangguran (Kamis), PMI flash Oktober (Jumat), lalu rapat Fed 27–28 Oktober.",
+      "en": "Technical levels: resistance at $4,185–$4,195, then $4,215–$4,227; support at $4,141–$4,150, $4,104–$4,113 and $4,064–$4,074. This week’s agenda: housing starts (Tuesday), jobless claims (Thursday), October flash PMIs (Friday), then the October 27–28 Fed meeting."
     },
     {
-      "id": "Harga Antam terakhir yang terkonfirmasi tetap Rp2.572.000/gram dengan buyback Rp2.387.000 (spread sekitar 7,2%); belum ada pembaruan Minggu. Galeri24 naik Rp6.000 ke Rp2.523.000 (buyback Rp2.375.000, spread sekitar 5,9%) dan UBS naik Rp7.000 ke Rp2.548.000 (buyback Rp2.349.000, spread sekitar 7,8%).",
-      "en": "Antam’s latest confirmed price stays at Rp2,572,000/gram with a Rp2,387,000 buyback (spread about 7.2%); there is no Sunday update yet. Galeri24 rose Rp6,000 to Rp2,523,000 (buyback Rp2,375,000, spread about 5.9%) and UBS rose Rp7,000 to Rp2,548,000 (buyback Rp2,349,000, spread about 7.8%)."
+      "id": "Antam naik Rp2.000 ke Rp2.574.000/gram, kenaikan hari ketiga, dengan buyback naik Rp2.000 ke Rp2.389.000 (spread sekitar 7,2%). Galeri24 tetap Rp2.523.000 (buyback Rp2.375.000, spread sekitar 5,9%) dan UBS tetap Rp2.548.000 (buyback Rp2.349.000, spread sekitar 7,8%).",
+      "en": "Antam rose Rp2,000 to Rp2,574,000/gram, a third daily gain, with buyback up Rp2,000 to Rp2,389,000 (spread about 7.2%). Galeri24 held at Rp2,523,000 (buyback Rp2,375,000, spread about 5.9%) and UBS held at Rp2,548,000 (buyback Rp2,349,000, spread about 7.8%)."
     }
   ],
   "sources": [
-    { "title": "Kitco: Wall Street undecided on gold’s near-term trajectory, Main Street flirts with bearish bias after gold hits $4,200/oz ceiling", "url": "https://www.kitco.com/news/article/2026-10-16/wall-street-undecided-golds-near-term-trajectory-main-street-flirts-bearish" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Industry.co.id: Harga Emas Hari Ini 18 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap", "url": "https://www.industry.co.id/read/157568/harga-emas-hari-ini-18-oktober-2026-antam-ubs-dan-galeri-24-lengkap" },
+    { "title": "Guardian Gold: Overnight Summary - Precious Metals Prices 19/10/2026", "url": "https://guardian-gold.com.au/market-updates/overnight-summary-precious-metals-prices-19-10-2026/" },
+    { "title": "Mitrade: Gold price analysis today - Fed pause odds and crude rally", "url": "https://www.mitrade.com/insights/commodity-analysis/gold/gold-fed-pause-odds-crude-rally" },
+    { "title": "Suara.com: Harga Emas Antam Naik Tipis Jadi Rp2.574.000/Gram", "url": "https://www.suara.com/bisnis/2026/10/19/094121/harga-emas-antam-naik-tipis-jadi-rp2574000gram" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
