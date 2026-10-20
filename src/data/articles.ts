@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-opens-week-4175-fed-pause-oil-100',
+    slug: 'gold-third-decline-4139-yields-december-hike',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Turun Hari Ketiga ke $4.139; Yield 5,14% dan Peluang Kenaikan Desember 94%',
+      en: 'Gold Falls a Third Day to $4,139; 5.14% Yields and 94% December Hike Odds',
+    },
+    excerpt: {
+      id: 'Emas ditutup Senin turun 0,63% ke sekitar $4.137,80 dan bertahan di sekitar $4.139 pada Selasa pagi, menembus support $4.142. Dolar menguat, yield 10 tahun naik ke sekitar 5,14%, dan pasar memperkirakan peluang kenaikan Fed Desember sekitar 94%. Antam turun Rp10.000 ke Rp2.564.000.',
+      en: 'Gold closed Monday down 0.63% near $4,137.80 and held near $4,139 on Tuesday morning, breaking $4,142 support. The dollar firmed, the 10-year yield rose to about 5.14%, and markets price about a 94% chance of a December Fed hike. Antam fell Rp10,000 to Rp2,564,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Senin: Kenaikan Pagi Hilang, Ditutup Turun 0,63%', en: 'Monday: Morning Gains Fade, a 0.63% Loss at the Close' },
+        paragraphs: [
+          {
+            id: 'Emas sempat bertahan pada Senin pagi waktu AS. Kitco mencatat emas spot di sekitar $4.159,70, turun hanya $4,40 atau 0,11%, saat harga minyak dan yield Treasury melandai. Namun laporan sore Kitco yang dikutip Rio Times menunjukkan emas ditutup di sekitar $4.137,80, turun 0,63%, tertekan dolar yang lebih kuat dan yield yang naik.',
+            en: 'Gold held up on Monday morning in the US. Kitco had spot gold near $4,159.70, down just $4.40, or 0.11%, as oil prices and Treasury yields eased. But Kitco’s evening report, cited by the Rio Times, showed gold closing near $4,137.80, down 0.63%, pressured by a firmer dollar and rising yields.',
+          },
+          {
+            id: 'Selasa pagi tekanannya berlanjut tipis. Trading Economics mencatat emas di sekitar $4.139,17, turun 0,04%, dan menyebutnya penurunan hari ketiga beruntun dengan harga bergerak ke arah $4.100. ETF emas GLD turun 0,61% dan saham tambang GDX turun 1,41% pada Senin, sementara perak justru naik 0,12% ke sekitar $56,93.',
+            en: 'On Tuesday morning the pressure continued, if only slightly. Trading Economics had gold near $4,139.17, down 0.04%, and called it a third straight daily decline, with prices moving toward $4,100. The GLD gold ETF fell 0.61% and the GDX miners ETF 1.41% on Monday, while silver bucked the move, rising 0.12% to about $56.93.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed Jeda Oktober, tetapi Desember Makin Pasti', en: 'A Fed Pause in October, but December Looks Ever More Certain' },
+        paragraphs: [
+          {
+            id: 'Fed diperkirakan menahan suku bunga pada rapat 27–28 Oktober: Kitco mencatat peluang kenaikan Oktober hanya sekitar 15%. Masalahnya ada di rapat berikutnya. Peluang kenaikan 25 bp pada Desember sekitar 89% menurut Kitco pada Senin pagi, dan Trading Economics kini mencatat sekitar 94%. Inflasi masih panas: CPI September naik 3,7% setahun dan PPI 6,3%.',
+            en: 'The Fed is expected to hold at its October 27–28 meeting: Kitco puts the odds of an October hike at only about 15%. The problem is the next meeting. The odds of a 25 bp hike in December were about 89% according to Kitco on Monday morning, and Trading Economics now puts them at about 94%. Inflation is still hot: September CPI rose 3.7% y/y and PPI 6.3%.',
+          },
+          {
+            id: 'Yield Treasury 10 tahun berbalik naik ke sekitar 5,14% dari sekitar 5,08% pada Senin pagi, yang saat itu dekat level terendah empat pekan. Indeks dolar di sekitar 101,9. Minyak tetap mahal: Kitco mencatat Brent sekitar $107,55 dan WTI $97,19 pada Senin pagi, dan Trading Economics menyebut harga minyak yang lebih tinggi menambah kekhawatiran inflasi.',
+            en: 'The 10-year Treasury yield turned higher to about 5.14% from about 5.08% on Monday morning, when it had been near a four-week low. The dollar index is near 101.9. Oil remains expensive: Kitco had Brent near $107.55 and WTI at $97.19 on Monday morning, and Trading Economics says higher oil prices are adding to inflation worries.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Teknikal', en: 'The Big Picture and Technical Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun sekitar 4,7% sebulan tetapi masih naik sekitar 0,4% setahun. Di sekitar $4.139, emas berada sekitar 26,2% di bawah rekor Januari $5.608,35. Selama sepekan terakhir emas tertahan di rentang $4.100–$4.200, dan kini kembali ke paruh bawahnya.',
+            en: 'Trading Economics shows gold down about 4.7% on the month but still up about 0.4% on the year. Near $4,139, gold sits about 26.2% below its January record of $5,608.35. Over the past week gold has been stuck in a $4,100–$4,200 range, and it is now back in the lower half.',
+          },
+          {
+            id: 'Level dari Kitco: emas sudah di bawah support $4.150,72 dan $4.142,03, sehingga target turun berikutnya $4.118,63 lalu $4.066,71. Resistance pertama $4.170,55, lalu $4.193,95 dan zona $4.193,95–$4.202,64. Agenda pekan ini: housing starts (Selasa), klaim pengangguran (Kamis), survei aktivitas bisnis awal dan sentimen konsumen final Oktober (Jumat).',
+            en: 'Kitco’s levels: gold is already below the $4,150.72 and $4,142.03 supports, so the next downside targets are $4,118.63, then $4,066.71. First resistance is $4,170.55, then $4,193.95 and the $4,193.95–$4,202.64 zone. This week’s agenda: housing starts (Tuesday), jobless claims (Thursday), preliminary business activity surveys and final October consumer sentiment (Friday).',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun Rp10.000, Galeri24 dan UBS Naik Tipis', en: 'Antam Falls Rp10,000, Galeri24 and UBS Edge Up' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp10.000 ke Rp2.564.000, memutus kenaikan tiga hari beruntun, dengan buyback turun Rp10.000 ke Rp2.379.000 per gram. Spread-nya tetap Rp185.000, sekitar 7,2%. Batangan 10 gram kini Rp25.135.000 dan 100 gram Rp250.612.000.',
+            en: 'Antam’s 1-gram price fell Rp10,000 to Rp2,564,000, ending a three-day winning streak, with buyback down Rp10,000 to Rp2,379,000 per gram. The spread stays at Rp185,000, about 7.2%. The 10-gram bar now costs Rp25,135,000 and the 100-gram bar Rp250,612,000.',
+          },
+          {
+            id: 'Galeri24 justru naik Rp3.000 ke Rp2.526.000 dengan buyback naik Rp5.000 ke Rp2.380.000: Rp38.000 lebih murah dari Antam dengan spread Rp146.000, sekitar 5,8%. UBS naik Rp3.000 ke Rp2.551.000 dengan buyback Rp2.354.000: Rp13.000 lebih murah dari Antam dengan spread Rp197.000, sekitar 7,7%. Buyback Galeri24 kini Rp1.000 di atas Antam.',
+            en: 'Galeri24 instead rose Rp3,000 to Rp2,526,000, with buyback up Rp5,000 to Rp2,380,000: Rp38,000 cheaper than Antam with a Rp146,000 spread, about 5.8%. UBS rose Rp3,000 to Rp2,551,000 with a Rp2,354,000 buyback: Rp13,000 cheaper than Antam with a Rp197,000 spread, about 7.7%. Galeri24’s buyback is now Rp1,000 above Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Menguji $4.100 Jelang Fed', en: 'Playbook: Testing $4,100 Ahead of the Fed' },
+        paragraphs: [
+          {
+            id: 'Skenario dekat: kembali di atas $4.150,72 lalu $4.170,55 membuka jalan ke $4.193,95; gagal bertahan bisa menguji $4.118,63 lalu $4.066,71. Penggeraknya tetap yield, dolar dan minyak. Di sisi struktural, Kitco mencatat kepemilikan ETF emas yang dilacak Bloomberg mencapai puncak tahun ini 101,3 juta ons pada 8 Oktober dan bertahan di atas 101 juta ons sejak itu.',
+            en: 'Near-term scenarios: regaining $4,150.72, then $4,170.55, opens the way to $4,193.95; failing to hold could test $4,118.63, then $4,066.71. Yields, the dollar and oil remain the drivers. Structurally, Kitco notes that Bloomberg-tracked gold ETF holdings hit a 2026 peak of 101.3 million ounces on October 8 and have stayed above 101 million ounces since.',
+          },
+          {
+            id: 'Bagi investor rupiah, penurunan Rp10.000 sehari tidak mengubah gambaran besar. DCA dengan nominal tetap meratakan harga beli di kedua skenario, dan perbedaan spread, dari sekitar 5,8% hingga 7,7%, layak diperhitungkan jika Anda berencana menjual kembali. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, a Rp10,000 daily drop does not change the big picture. Fixed-amount DCA averages the purchase price in either scenario, and the different spreads, from about 5.8% to 7.7%, are worth factoring in if you plan to sell back. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pasar sudah menerima jeda Fed Oktober; yang kini menekan emas adalah peluang kenaikan Desember yang mendekati pasti.',
+      en: 'Markets have accepted an October Fed pause; what now weighs on gold is a December hike that looks close to certain.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-third-decline-4139-yields-december-hike.png'),
+    publishedAt: Date.parse('2026-10-20T03:10:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Kitco: Gold slips, silver gains as oil retreats and Fed-pause expectations hold - Kitco AM Report', url: 'https://www.kitco.com/news/article/2026-10-19/gold-slips-silver-gains-oil-retreats-and-fed-pause-expectations-hold-kitco' },
+      { title: 'Rio Times: Gold Fund Slips 0.61% as Silver Fund Edges Up', url: 'https://riotimesonline.com/gold-silver-precious-metals-monday-october-19-2026' },
+      { title: 'Kitco: Gold and silver prices pressured by hot inflation, but gold ETF holdings buck trend to hit 2026 highs', url: 'https://www.kitco.com/news/article/2026-10-19/gold-and-silver-prices-pressured-hot-inflation-gold-etf-holdings-buck-trend' },
+      { title: 'Kontan: Harga Emas Antam Hari Ini 20 Oktober 2026 Turun Rp10.000', url: 'https://finansial.kontan.co.id/news/harga-emas-antam-hari-ini-20-oktober-2026-turun-rp10000-jadi-segini-per-gram' },
+      { title: 'Riau Realita: Harga Emas Antam Turun Rp10 Ribu Jadi Rp2.564.000 per Gram', url: 'https://riaurealita.com/detail/34953/harga-emas-antam-turun-rp10-ribu-jadi-rp2564000-per-gram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-opens-week-4175-fed-pause-oil-100',
+    category: 'market',
     title: {
       id: 'Emas Buka Pekan Naik Tipis ke $4.175; Peluang Jeda Fed 84%, Minyak Tetap di Atas $100',
       en: 'Gold Opens the Week Slightly Higher at $4,175; Fed Pause Odds at 84%, Oil Stays Above $100',
