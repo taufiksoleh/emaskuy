@@ -55,9 +55,105 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-third-decline-4139-yields-december-hike',
+    slug: 'gold-fourth-decline-4119-oil-111-cibc-cut',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Turun Hari Keempat ke $4.119; Brent $111 dan CIBC Pangkas Proyeksi',
+      en: 'Gold Falls a Fourth Day to $4,119; Brent at $111 and CIBC Cuts Its Forecast',
+    },
+    excerpt: {
+      id: 'Emas turun 0,48% ke sekitar $4.120 pada Selasa meski data perumahan AS lemah, dan bertahan di sekitar $4.119 pada Rabu pagi, penurunan sesi keempat. Brent naik ke sekitar $111,30, tertinggi sejak Mei, dan CIBC memangkas proyeksi kuartal IV ke $4.500. Antam turun Rp10.000 ke Rp2.554.000.',
+      en: 'Gold fell 0.48% to about $4,120 on Tuesday despite weak US housing data and held near $4,119 on Wednesday morning, a fourth losing session. Brent rose to about $111.30, its highest since May, and CIBC cut its Q4 forecast to $4,500. Antam fell Rp10,000 to Rp2,554,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Data Perumahan Lemah, Emas Tetap Turun', en: 'Weak Housing Data, Gold Still Falls' },
+        paragraphs: [
+          {
+            id: 'Data perumahan AS pada Selasa jelas lemah. Kitco mencatat housing starts September turun 5,2% ke laju tahunan 1,221 juta, 7,4% di bawah setahun lalu, dan izin bangunan turun tipis ke 1,400 juta. Sehari sebelumnya indeks pasar perumahan NAHB jatuh ke 29, terendah sejak Juni 2012.',
+            en: 'US housing data on Tuesday were clearly weak. Kitco reported that September housing starts fell 5.2% to a 1.221 million annual rate, 7.4% below a year earlier, and building permits slipped to 1.400 million. A day earlier the NAHB housing market index dropped to 29, the lowest since June 2012.',
+          },
+          {
+            id: 'Data lemah biasanya membantu emas, tetapi kali ini tidak cukup. Emas spot turun 0,48% ke sekitar $4.120,10 menurut Kitco, dan Rabu pagi Trading Economics mencatat emas di sekitar $4.118,90, turun 0,14%, penurunan sesi keempat beruntun. Perak justru menguat: futures ditutup $58,14, naik 1,59%, dan rasio emas-perak turun hampir 2% ke 71,11.',
+            en: 'Weak data usually help gold, but not enough this time. Spot gold fell 0.48% to about $4,120.10 according to Kitco, and on Wednesday morning Trading Economics had gold near $4,118.90, down 0.14%, a fourth straight losing session. Silver instead firmed: futures closed at $58.14, up 1.59%, and the gold-silver ratio fell nearly 2% to 71.11.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak $111 Menjaga Kekhawatiran Inflasi', en: 'Oil at $111 Keeps Inflation Worries Alive' },
+        paragraphs: [
+          {
+            id: 'Penekannya ada di minyak. Kitco mencatat Brent di sekitar $111,30, tertinggi sejak Mei, dan WTI sekitar $100,64. Trading Economics menyebut minyak naik setelah seorang diplomat meredam laporan kesepakatan cepat untuk mengakhiri konflik AS-Iran, sementara serangan terhadap tanker di Selat Hormuz menambah kekhawatiran pasokan.',
+            en: 'The pressure comes from oil. Kitco had Brent near $111.30, its highest since May, and WTI near $100.64. Trading Economics says oil rose after a diplomat played down reports of an imminent deal to end the US-Iran conflict, while attacks on tankers in the Strait of Hormuz add to supply worries.',
+          },
+          {
+            id: 'Minyak mahal menjaga inflasi tetap panas: CPI September naik 3,7% setahun dan PPI 6,3%. Pasar memperkirakan Fed menahan suku bunga pada 27–28 Oktober dengan peluang sekitar 83%, tetapi peluang suku bunga lebih tinggi pada 9 Desember sekitar 93,6%. Yield 10 tahun di sekitar 5,13% dan indeks dolar sekitar 101,77.',
+            en: 'Expensive oil keeps inflation hot: September CPI rose 3.7% y/y and PPI 6.3%. Markets expect the Fed to hold on October 27–28 with about 83% odds, but put the chance of higher rates by December 9 at about 93.6%. The 10-year yield is near 5.13% and the dollar index near 101.77.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Teknikal', en: 'The Big Picture and Technical Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun sekitar 5,6% sebulan tetapi masih naik sekitar 0,45% setahun. Di sekitar $4.119, emas berada sekitar 26,6% di bawah rekor Januari $5.608,35. CIBC memangkas proyeksi rata-rata kuartal IV ke $4.500 dari $6.500 dan proyeksi 2027 ke $5.200, tetapi masih melihat pemulihan ke level itu tahun depan.',
+            en: 'Trading Economics shows gold down about 5.6% on the month but still up about 0.45% on the year. Near $4,119, gold sits about 26.6% below its January record of $5,608.35. CIBC cut its Q4 average forecast to $4,500 from $6,500 and its 2027 forecast to $5,200, but still sees a recovery to that level next year.',
+          },
+          {
+            id: 'Level dari Kitco: resistance $4.141,97 dan $4.145,47, lalu $4.199,08 dan $4.217,40; support $4.073,55 dan $4.066,54, lalu $3.942,10. Agenda: pending home sales, klaim pengangguran (Kamis), PMI manufaktur dan jasa awal Oktober serta sentimen konsumen final University of Michigan (Jumat).',
+            en: 'Kitco’s levels: resistance at $4,141.97 and $4,145.47, then $4,199.08 and $4,217.40; support at $4,073.55 and $4,066.54, then $3,942.10. Agenda: pending home sales, jobless claims (Thursday), preliminary October manufacturing and services PMIs and final University of Michigan consumer sentiment (Friday).',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam, Galeri24 dan UBS Kompak Turun', en: 'Antam, Galeri24 and UBS All Fall' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp10.000 ke Rp2.554.000, penurunan hari kedua, dengan buyback turun Rp10.000 ke Rp2.369.000 per gram. Spread-nya tetap Rp185.000, sekitar 7,2%. Batangan 10 gram kini Rp25.035.000 dan 100 gram Rp249.612.000.',
+            en: 'Antam’s 1-gram price fell Rp10,000 to Rp2,554,000, a second daily decline, with buyback down Rp10,000 to Rp2,369,000 per gram. The spread stays at Rp185,000, about 7.2%. The 10-gram bar now costs Rp25,035,000 and the 100-gram bar Rp249,612,000.',
+          },
+          {
+            id: 'Galeri24 turun Rp16.000 ke Rp2.510.000 dengan buyback turun Rp17.000 ke Rp2.363.000: Rp44.000 lebih murah dari Antam dengan spread Rp147.000, sekitar 5,9%. UBS turun Rp17.000 ke Rp2.534.000 dengan buyback Rp2.338.000: Rp20.000 lebih murah dari Antam dengan spread Rp196.000, sekitar 7,7%. Buyback Antam kini kembali Rp6.000 di atas Galeri24.',
+            en: 'Galeri24 fell Rp16,000 to Rp2,510,000, with buyback down Rp17,000 to Rp2,363,000: Rp44,000 cheaper than Antam with a Rp147,000 spread, about 5.9%. UBS fell Rp17,000 to Rp2,534,000 with a Rp2,338,000 buyback: Rp20,000 cheaper than Antam with a Rp196,000 spread, about 7.7%. Antam’s buyback is back Rp6,000 above Galeri24’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: $4.073 Jadi Garis Berikutnya', en: 'Playbook: $4,073 Is the Next Line' },
+        paragraphs: [
+          {
+            id: 'Skenario dekat: kembali di atas $4.141,97 dan $4.145,47 membuka jalan ke $4.199,08; gagal bertahan bisa menguji $4.073,55 lalu $4.066,54. Penggeraknya tetap minyak, yield dan dolar. Di sisi struktural, CIBC mencatat bank sentral membeli 345 ton emas pada semester I 2026, dengan 289 ton di kuartal II, dan menilai emas tetap aset cadangan strategis.',
+            en: 'Near-term scenarios: regaining $4,141.97 and $4,145.47 opens the way to $4,199.08; failing to hold could test $4,073.55, then $4,066.54. Oil, yields and the dollar remain the drivers. Structurally, CIBC notes that central banks bought 345 tonnes of gold in the first half of 2026, 289 tonnes of it in Q2, and sees gold as a strategic reserve asset.',
+          },
+          {
+            id: 'Bagi investor rupiah, Antam sudah turun Rp20.000 dalam dua hari. DCA dengan nominal tetap meratakan harga beli di kedua skenario, dan perbedaan spread, dari sekitar 5,9% hingga 7,7%, layak diperhitungkan jika Anda berencana menjual kembali. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, Antam has fallen Rp20,000 in two days. Fixed-amount DCA averages the purchase price in either scenario, and the different spreads, from about 5.9% to 7.7%, are worth factoring in if you plan to sell back. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Data perumahan yang lemah tidak cukup menolong emas selama minyak di atas $110 menjaga inflasi dan peluang kenaikan Fed Desember tetap tinggi.',
+      en: 'Weak housing data cannot rescue gold while oil above $110 keeps inflation, and the odds of a December Fed hike, high.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-fourth-decline-4119-oil-111-cibc-cut.png'),
+    publishedAt: Date.parse('2026-10-21T03:10:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold weaker, silver mixed as weak housing data offsets rising oil prices - Kitco AM Report', url: 'https://www.kitco.com/news/article/2026-10-20/gold-weaker-silver-mixed-weak-housing-data-offsets-rising-oil-prices-kitco' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Kitco: Gold falls for a third straight session as silver extends gains and the gold-silver ratio slips', url: 'https://www.kitco.com/opinion/2026-10-20/gold-falls-third-straight-session-silver-extends-gains-and-gold-silver-ratio' },
+      { title: 'Kitco: CIBC slashes gold price forecasts but sees recovery to $5,200 in 2027 as central bank demand offsets Fed headwinds', url: 'https://www.kitco.com/news/article/2026-10-20/cibc-slashes-gold-price-forecasts-sees-recovery-5200-2027-central-bank' },
+      { title: 'Kontan: Harga Emas Antam Hari Ini (21/10) Turun ke Rp 2.554.000 per Gram, Buyback Merosot', url: 'https://momsmoney.kontan.co.id/news/harga-emas-antam-hari-ini-2110-turun-ke-rp-2554000-per-gram-buyback-merosot' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-third-decline-4139-yields-december-hike',
+    category: 'market',
     title: {
       id: 'Emas Turun Hari Ketiga ke $4.139; Yield 5,14% dan Peluang Kenaikan Desember 94%',
       en: 'Gold Falls a Third Day to $4,139; 5.14% Yields and 94% December Hike Odds',
