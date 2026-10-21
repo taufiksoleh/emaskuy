@@ -1,32 +1,31 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T10:10:00+07:00",
+  "generatedAt": "2026-10-21T10:10:00+07:00",
   "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas spot ditutup Senin di sekitar $4.137,80, turun 0,63%, setelah sempat di $4.159,70 pada pagi hari waktu AS. Selasa pagi emas di sekitar $4.139, turun tipis 0,04% dan menuju penurunan hari ketiga beruntun menurut Trading Economics, tertekan dolar yang lebih kuat dan yield yang naik.",
-      "en": "Spot gold closed Monday near $4,137.80, down 0.63%, after trading at $4,159.70 in the US morning. On Tuesday morning gold was near $4,139, down 0.04% and headed for a third straight daily decline according to Trading Economics, weighed down by a firmer dollar and rising yields."
+      "id": "Emas spot turun 0,48% ke sekitar $4.120,10 pada Selasa menurut Kitco, meski data perumahan AS lemah: housing starts September turun 5,2% ke 1,221 juta. Rabu pagi emas di sekitar $4.118,90, turun 0,14%, penurunan sesi keempat beruntun menurut Trading Economics. Perak justru naik: futures ditutup $58,14, naik 1,59%.",
+      "en": "Spot gold fell 0.48% to about $4,120.10 on Tuesday according to Kitco, despite weak US housing data: September housing starts fell 5.2% to 1.221 million. On Wednesday morning gold was near $4,118.90, down 0.14%, a fourth straight losing session according to Trading Economics. Silver went the other way: futures closed at $58.14, up 1.59%."
     },
     {
-      "id": "Yield Treasury 10 tahun naik ke sekitar 5,14% dari sekitar 5,08% pada Senin pagi. Fed diperkirakan menahan suku bunga pada rapat 27–28 Oktober, tetapi pasar memperkirakan peluang kenaikan Desember sekitar 94%, naik dari sekitar 89%. Brent masih di sekitar $107–$110. Emas turun sekitar 4,7% sebulan dan sekitar 26% di bawah rekor $5.608,35.",
-      "en": "The 10-year Treasury yield rose to about 5.14% from about 5.08% on Monday morning. The Fed is expected to hold at its October 27–28 meeting, but markets price about a 94% chance of a December hike, up from about 89%. Brent remains around $107–$110. Gold is down about 4.7% on the month and about 26% below its $5,608.35 record."
+      "id": "Brent naik ke sekitar $111,30, tertinggi sejak Mei, dan WTI sekitar $100,64, menambah kekhawatiran inflasi. Yield 10 tahun di sekitar 5,13% dan indeks dolar sekitar 101,77. Pasar memperkirakan peluang Fed menahan suku bunga pada 27–28 Oktober sekitar 83%, tetapi peluang suku bunga lebih tinggi pada 9 Desember sekitar 93,6%. Emas turun sekitar 5,6% sebulan dan sekitar 26,6% di bawah rekor $5.608,35.",
+      "en": "Brent rose to about $111.30, its highest since May, and WTI to about $100.64, adding to inflation worries. The 10-year yield is near 5.13% and the dollar index near 101.77. Markets price about an 83% chance of a Fed hold on October 27–28, but about a 93.6% chance of higher rates by December 9. Gold is down about 5.6% on the month and about 26.6% below its $5,608.35 record."
     },
     {
-      "id": "Emas sudah di bawah support Kitco $4.150,72 dan $4.142,03; target turun berikutnya $4.118,63 lalu $4.066,71. Resistance di $4.170,55 dan $4.193,95. Agenda: housing starts (Selasa), klaim pengangguran (Kamis), survei aktivitas bisnis awal dan sentimen konsumen final (Jumat), lalu rapat Fed 27–28 Oktober.",
-      "en": "Gold is already below Kitco’s $4,150.72 and $4,142.03 supports; the next downside targets are $4,118.63, then $4,066.71. Resistance is at $4,170.55 and $4,193.95. Agenda: housing starts (Tuesday), jobless claims (Thursday), preliminary business activity surveys and final consumer sentiment (Friday), then the October 27–28 Fed meeting."
+      "id": "Level dari Kitco: resistance $4.141,97 dan $4.145,47, lalu $4.199,08; support $4.073,55 dan $4.066,54, lalu $3.942,10. Agenda: pending home sales, klaim pengangguran (Kamis), PMI awal Oktober dan sentimen konsumen final (Jumat), lalu rapat Fed 27–28 Oktober.",
+      "en": "Kitco’s levels: resistance at $4,141.97 and $4,145.47, then $4,199.08; support at $4,073.55 and $4,066.54, then $3,942.10. Agenda: pending home sales, jobless claims (Thursday), preliminary October PMIs and final consumer sentiment (Friday), then the October 27–28 Fed meeting."
     },
     {
-      "id": "Antam turun Rp10.000 ke Rp2.564.000/gram dengan buyback Rp2.379.000 (spread sekitar 7,2%). Galeri24 naik ke Rp2.526.000 (buyback Rp2.380.000, spread sekitar 5,8%) dan UBS ke Rp2.551.000 (buyback Rp2.354.000, spread sekitar 7,7%). Secara struktural, kepemilikan ETF emas bertahan di atas 101 juta ons, dekat puncak tahun ini.",
-      "en": "Antam fell Rp10,000 to Rp2,564,000/gram with a Rp2,379,000 buyback (spread about 7.2%). Galeri24 rose to Rp2,526,000 (buyback Rp2,380,000, spread about 5.8%) and UBS to Rp2,551,000 (buyback Rp2,354,000, spread about 7.7%). Structurally, gold ETF holdings stay above 101 million ounces, near this year’s peak."
+      "id": "Antam turun Rp10.000 ke Rp2.554.000/gram dengan buyback Rp2.369.000 (spread sekitar 7,2%). Galeri24 turun ke Rp2.510.000 (buyback Rp2.363.000, spread sekitar 5,9%) dan UBS ke Rp2.534.000 (buyback Rp2.338.000, spread sekitar 7,7%). CIBC memangkas proyeksi rata-rata emas kuartal IV ke $4.500 dari $6.500, tetapi melihat pemulihan ke $5.200 pada 2027 berkat pembelian bank sentral 345 ton di semester I.",
+      "en": "Antam fell Rp10,000 to Rp2,554,000/gram with a Rp2,369,000 buyback (spread about 7.2%). Galeri24 fell to Rp2,510,000 (buyback Rp2,363,000, spread about 5.9%) and UBS to Rp2,534,000 (buyback Rp2,338,000, spread about 7.7%). CIBC cut its Q4 average gold forecast to $4,500 from $6,500 but sees a recovery to $5,200 in 2027, backed by 345 tonnes of central-bank buying in the first half."
     }
   ],
   "sources": [
+    { "title": "Kitco: Gold weaker, silver mixed as weak housing data offsets rising oil prices - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-20/gold-weaker-silver-mixed-weak-housing-data-offsets-rising-oil-prices-kitco" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Rio Times: Gold Fund Slips 0.61% as Silver Fund Edges Up", "url": "https://riotimesonline.com/gold-silver-precious-metals-monday-october-19-2026" },
-    { "title": "Kitco: Gold slips, silver gains as oil retreats and Fed-pause expectations hold - Kitco AM Report", "url": "https://www.kitco.com/news/article/2026-10-19/gold-slips-silver-gains-oil-retreats-and-fed-pause-expectations-hold-kitco" },
-    { "title": "Kitco: Gold and silver prices pressured by hot inflation, but gold ETF holdings buck trend to hit 2026 highs", "url": "https://www.kitco.com/news/article/2026-10-19/gold-and-silver-prices-pressured-hot-inflation-gold-etf-holdings-buck-trend" },
-    { "title": "Kontan: Harga Emas Antam Hari Ini 20 Oktober 2026 Turun Rp10.000", "url": "https://finansial.kontan.co.id/news/harga-emas-antam-hari-ini-20-oktober-2026-turun-rp10000-jadi-segini-per-gram" },
-    { "title": "Riau Realita: Harga Emas Antam Turun Rp10 Ribu Jadi Rp2.564.000 per Gram", "url": "https://riaurealita.com/detail/34953/harga-emas-antam-turun-rp10-ribu-jadi-rp2564000-per-gram" },
+    { "title": "Kitco: Gold falls for a third straight session as silver extends gains and the gold-silver ratio slips", "url": "https://www.kitco.com/opinion/2026-10-20/gold-falls-third-straight-session-silver-extends-gains-and-gold-silver-ratio" },
+    { "title": "Kitco: CIBC slashes gold price forecasts but sees recovery to $5,200 in 2027 as central bank demand offsets Fed headwinds", "url": "https://www.kitco.com/news/article/2026-10-20/cibc-slashes-gold-price-forecasts-sees-recovery-5200-2027-central-bank" },
+    { "title": "Kontan: Harga Emas Antam Hari Ini (21/10) Turun ke Rp 2.554.000 per Gram, Buyback Merosot", "url": "https://momsmoney.kontan.co.id/news/harga-emas-antam-hari-ini-2110-turun-ke-rp-2554000-per-gram-buyback-merosot" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
