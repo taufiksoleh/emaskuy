@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-rebound-erased-4118-oil-december-hike',
+    slug: 'gold-plunges-4021-lowest-since-august-hormuz',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Anjlok 2,88% ke $4.021, Terendah Sejak Agustus; Antam Rp2.540.000',
+      en: 'Gold Plunges 2.88% to $4,021, the Lowest Since August; Antam at Rp2,540,000',
+    },
+    excerpt: {
+      id: 'Emas jatuh $119,10 ke sekitar $4.021,20 pada Kamis karena ketegangan di Selat Hormuz mendorong Brent di atas $113 dan saham AI dijual. Penurunan ini menghapus seluruh kenaikan sejak musim panas. Antam turun Rp10.000 ke Rp2.540.000, sementara buyback anjlok Rp30.000.',
+      en: 'Gold fell $119.10 to about $4,021.20 on Thursday as Strait of Hormuz tension pushed Brent above $113 and AI stocks were sold. The drop erased all of the gains since the summer. Antam fell Rp10,000 to Rp2,540,000, while buyback dropped Rp30,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Penurunan Terdalam dalam Berbulan-bulan', en: 'The Deepest Drop in Months' },
+        paragraphs: [
+          {
+            id: 'Emas mengalami hari yang berat pada Kamis. Kitco mencatat emas di sekitar $4.021,20 pada sore hari, turun $119,10 atau 2,88%, dan perak anjlok 5,90% ke sekitar $54,44. Vibiznews mencatat emas spot ditutup di $4.024,44, terendah sejak Agustus, dan futures Desember turun sekitar 2,16% ke $4.060.',
+            en: 'Gold had a heavy day on Thursday. Kitco had gold near $4,021.20 in the afternoon, down $119.10 or 2.88%, and silver down 5.90% at about $54.44. Vibiznews says spot gold closed at $4,024.44, the lowest since August, and December futures fell about 2.16% to $4,060.',
+          },
+          {
+            id: 'Harga menembus $4.100 dan support $4.073 yang bertahan sejak awal Oktober, menurut Vibiznews. Kitco mengutip analis Jesse Colombo yang menyebut pergerakan ini "sangat aneh": emas menghapus seluruh kenaikan sejak musim panas dan kini menguji area $4.000–$3.900, tempat harga memantul pada musim panas lalu.',
+            en: 'Prices broke $4,100 and the $4,073 support that had held since early October, according to Vibiznews. Kitco quotes analyst Jesse Colombo calling the move "very bizarre": gold erased all of its gains since the summer and is now testing the $4,000–$3,900 area where it bounced last summer.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak, Saham AI, dan Yield yang Tak Menolong', en: 'Oil, AI Stocks, and Yields That Did Not Help' },
+        paragraphs: [
+          {
+            id: 'Kitco mengaitkan penurunan dengan ketegangan baru di Selat Hormuz antara AS dan Iran, yang mendorong Brent di atas $113 per barel dan WTI mendekati $100. Minyak mahal menghidupkan lagi kekhawatiran inflasi: CPI September 3,7% dan PPI 6,3% secara tahunan. Pasar memperkirakan peluang kenaikan suku bunga Fed pada Desember sekitar 89–94%.',
+            en: 'Kitco links the drop to renewed US–Iran tension in the Strait of Hormuz, which pushed Brent above $113 a barrel and WTI toward $100. Expensive oil revived inflation worries: September CPI was 3.7% and PPI 6.3% year on year. Markets put the odds of a December Fed rate hike at about 89–94%.',
+          },
+          {
+            id: 'Saham teknologi juga dijual: Nasdaq turun 2,60% dan S&P 500 turun 1,21%, penurunan harian terbesar sejak Juli. Biasanya yield yang turun membantu emas, tetapi kali ini tidak. Kitco membaca ini sebagai tekanan likuidasi, ketika investor menjual logam mulia untuk menutup kerugian di tempat lain. Colombo juga menduga ada intervensi yen.',
+            en: 'Tech stocks were sold too: the Nasdaq fell 2.60% and the S&P 500 1.21%, its largest daily drop since July. Falling yields usually help gold, but not this time. Kitco reads this as liquidation pressure, with investors selling precious metals to cover losses elsewhere. Colombo also suspects yen intervention.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Teknikal', en: 'The Big Picture and Technical Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun sekitar 5,9% sebulan. Di $4.021,20, emas berada sekitar 28% di bawah rekor Januari $5.608,35. Data tenaga kerja tetap kuat: Kitco mencatat klaim pengangguran turun ke 194.000, di bawah perkiraan 200.000, yang ikut menjaga ekspektasi Fed tetap ketat.',
+            en: 'Trading Economics shows gold down about 5.9% on the month. At $4,021.20, gold sits about 28% below its January record of $5,608.35. Labor data stay firm: Kitco reports jobless claims fell to 194,000, below the 200,000 forecast, which also keeps Fed expectations tight.',
+          },
+          {
+            id: 'Level dari Kitco: resistance $4.068 dan $4.079, lalu $4.124,25 dan $4.142; support $4.038, lalu area $4.000. Vibiznews melihat support spot $3.983–$3.942 dan resistance $4.103–$4.182. Agenda: PMI awal Oktober dan sentimen konsumen final University of Michigan (Jumat), rapat Fed 27–28 Oktober, lalu PCE September pada 29 Oktober.',
+            en: 'Kitco’s levels: resistance at $4,068 and $4,079, then $4,124.25 and $4,142; support at $4,038, then the $4,000 area. Vibiznews sees spot support at $3,983–$3,942 and resistance at $4,103–$4,182. Agenda: preliminary October PMIs and final University of Michigan consumer sentiment (Friday), the October 27–28 Fed meeting, then September PCE on October 29.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Buyback Anjlok Lebih Dalam', en: 'Antam Falls, Buyback Drops Further' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp10.000 ke Rp2.540.000, penurunan hari keempat, menurut detikFinance. Buyback turun lebih dalam, Rp30.000 ke Rp2.335.000 per gram, sehingga spread melebar dari Rp185.000 ke Rp205.000, sekitar 8,1%. Batangan 10 gram kini Rp24.895.000 dan 100 gram Rp248.212.000.',
+            en: 'Antam’s 1-gram price fell Rp10,000 to Rp2,540,000, a fourth daily decline, according to detikFinance. Buyback fell further, by Rp30,000 to Rp2,335,000 per gram, widening the spread from Rp185,000 to Rp205,000, about 8.1%. The 10-gram bar now costs Rp24,895,000 and the 100-gram bar Rp248,212,000.',
+          },
+          {
+            id: 'Galeri24 turun Rp5.000 ke Rp2.499.000 dengan buyback Rp2.354.000: Rp41.000 lebih murah dari Antam dengan spread Rp145.000, sekitar 5,8%. UBS turun Rp4.000 ke Rp2.524.000 dengan buyback Rp2.328.000: Rp16.000 lebih murah dari Antam dengan spread Rp196.000, sekitar 7,8%. Buyback Galeri24 kini Rp19.000 di atas Antam.',
+            en: 'Galeri24 fell Rp5,000 to Rp2,499,000 with a Rp2,354,000 buyback: Rp41,000 cheaper than Antam with a Rp145,000 spread, about 5.8%. UBS fell Rp4,000 to Rp2,524,000 with a Rp2,328,000 buyback: Rp16,000 cheaper than Antam with a Rp196,000 spread, about 7.8%. Galeri24’s buyback is now Rp19,000 above Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: $4.000 Jadi Ujian', en: 'Playbook: $4,000 Is the Test' },
+        paragraphs: [
+          {
+            id: 'Skenario dekat: bertahan di atas $4.038 dan $4.000 lalu kembali ke atas $4.079 bisa membuka $4.124,25; tembus di bawah $4.000 membuka $3.983–$3.942. Vibiznews mencatat rebound teknikal mungkin terjadi jika minyak terkoreksi, tetapi tekanan bisa berlanjut jika minyak naik dan yield tetap tinggi menjelang rapat Fed.',
+            en: 'Near-term scenarios: holding above $4,038 and $4,000 and then regaining $4,079 could open $4,124.25; a break below $4,000 opens $3,983–$3,942. Vibiznews notes that a technical rebound is possible if oil corrects, but pressure could continue if oil rises and yields stay high ahead of the Fed meeting.',
+          },
+          {
+            id: 'Bagi investor rupiah, Antam sudah turun Rp34.000 dalam empat hari, dari Rp2.574.000 pada 19 Oktober, dan buyback turun Rp54.000 dari Rp2.389.000. Spread yang melebar membuat harga jual kembali makin jauh dari harga beli. DCA dengan nominal tetap meratakan harga beli di kedua skenario. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, Antam has fallen Rp34,000 in four days, from Rp2,574,000 on October 19, and buyback has fallen Rp54,000 from Rp2,389,000. The wider spread pushes the sell-back price further from the purchase price. Fixed-amount DCA averages the purchase price in either scenario. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Saat yield turun tetapi emas tetap anjlok, pasar sedang menjual apa saja untuk menutup kerugian di tempat lain.',
+      en: 'When yields fall and gold still slumps, the market is selling whatever it can to cover losses elsewhere.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-plunges-4021-lowest-since-august-hormuz.png'),
+    publishedAt: Date.parse('2026-10-23T03:10:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Precious metals tumble despite falling yields as Hormuz tensions intensify - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-22/precious-metals-tumble-despite-falling-yields-hormuz-tensions-intensify' },
+      { title: 'Kitco: ‘Very bizarre action’ as gold retraces entire summer rally to test $4,000/oz', url: 'https://www.kitco.com/news/article/2026-10-22/very-bizarre-action-gold-retraces-entire-summer-rally-test-4000oz-ai' },
+      { title: 'Kitco: Gold prices struggling as U.S. weekly jobless claims fall to three-month low', url: 'https://www.kitco.com/news/article/2026-10-22/gold-prices-struggling-us-weekly-jobless-claims-fall-three-month-low' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Vibiznews: Harga Beli Emas Antam Hari ini Jumat 23 Oktober 2026 Turun Rp10.000; Harga Buyback Merosot Rp30.000', url: 'https://vibiznews.com/index.php/2026/10/23/harga-beli-emas-antam-hari-ini-jumat-23-oktober-2026-turun-rp10-000-harga-buyback-merosot-rp30-000/' },
+      { title: 'detikFinance: Harga Emas Antam Ambles Rp 10.000, Buyback Anjlok Rp 30.000!', url: 'https://finance.detik.com/berita-ekonomi-bisnis/d-8720100/harga-emas-antam-ambles-rp-10-000-buyback-anjlok-rp-30-000' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-rebound-erased-4118-oil-december-hike',
+    category: 'market',
     title: {
       id: 'Rebound Emas ke $4.141 Terhapus, Kembali ke $4.118; Antam Rp2.550.000',
       en: 'Gold’s Rebound to $4,141 Is Erased, Back to $4,118; Antam at Rp2,550,000',

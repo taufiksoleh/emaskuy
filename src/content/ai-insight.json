@@ -1,30 +1,31 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T09:52:00+07:00",
+  "generatedAt": "2026-10-23T10:10:00+07:00",
   "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas sempat rebound pada Rabu setelah empat sesi turun: Kitco mencatat emas di sekitar $4.141,01, naik 0,66%, setelah sempat jatuh ke $4.116, terendah sejak 15 Oktober, menurut Vibiznews. Kamis pagi kenaikan itu terhapus: Trading Economics mencatat emas turun 0,55% ke $4.118,53 karena ketegangan baru di Timur Tengah mendorong minyak naik.",
-      "en": "Gold rebounded on Wednesday after four losing sessions: Kitco had gold near $4,141.01, up 0.66%, after a dip to $4,116, the lowest since October 15, according to Vibiznews. By Thursday morning the gain was gone: Trading Economics shows gold down 0.55% at $4,118.53 as renewed Middle East tensions pushed oil higher."
+      "id": "Emas anjlok pada Kamis: Kitco mencatat emas di sekitar $4.021,20 pada sore hari, turun $119,10 atau 2,88%, dan perak turun 5,90% ke sekitar $54,44. Vibiznews mencatat emas spot ditutup di $4.024,44, terendah sejak Agustus, setelah menembus $4.100 dan support $4.073. Kitco menyebut penurunan ini menghapus seluruh kenaikan sejak musim panas.",
+      "en": "Gold slumped on Thursday: Kitco had gold near $4,021.20 in the afternoon, down $119.10 or 2.88%, and silver down 5.90% at about $54.44. Vibiznews says spot gold closed at $4,024.44, the lowest since August, after breaking $4,100 and the $4,073 support. Kitco says the drop erased all of the gains since the summer."
     },
     {
-      "id": "Brent ditutup di sekitar $108,82 dan WTI $97,15 pada Rabu, lalu naik lagi Kamis. Yield 10 tahun di sekitar 5,09% dan indeks dolar sekitar 101,64. Pasar memperkirakan peluang kenaikan suku bunga Fed pada Desember sekitar 89–94%, dan sekitar 17% untuk rapat 27–28 Oktober. Emas turun sekitar 4% sebulan dan sekitar 26,6% di bawah rekor $5.608,35.",
-      "en": "Brent closed near $108.82 and WTI at $97.15 on Wednesday, then rose again on Thursday. The 10-year yield is near 5.09% and the dollar index near 101.64. Markets put the odds of a December Fed hike at about 89–94%, and about 17% for the October 27–28 meeting. Gold is down about 4% on the month and about 26.6% below its $5,608.35 record."
+      "id": "Pemicunya ketegangan baru di Selat Hormuz yang mendorong Brent di atas $113 dan WTI mendekati $100, serta aksi jual saham AI: Nasdaq turun 2,60% dan S&P 500 turun 1,21%. Yield Treasury justru turun, tetapi tidak menahan emas, tanda tekanan likuidasi. Peluang kenaikan Fed Desember sekitar 89–94%. Emas sekitar 28% di bawah rekor $5.608,35 dan turun sekitar 5,9% sebulan.",
+      "en": "The triggers were renewed Strait of Hormuz tension, which pushed Brent above $113 and WTI toward $100, and a selloff in AI stocks: the Nasdaq fell 2.60% and the S&P 500 1.21%. Treasury yields actually fell but did not hold gold up, a sign of liquidation. The odds of a December Fed hike are about 89–94%. Gold is about 28% below its $5,608.35 record and down about 5.9% on the month."
     },
     {
-      "id": "Level dari Kitco: resistance $4.142,52 dan $4.162, lalu $4.180 dan $4.217; support $4.127,10 dan $4.098,63, lalu $4.066 dan $3.942. Data Rabu masih lemah: pending home sales September turun 7,3%. Agenda: klaim pengangguran (Kamis), PMI awal Oktober dan sentimen konsumen final (Jumat), lalu rapat Fed 27–28 Oktober.",
-      "en": "Kitco’s levels: resistance at $4,142.52 and $4,162, then $4,180 and $4,217; support at $4,127.10 and $4,098.63, then $4,066 and $3,942. Wednesday’s data were weak again: September pending home sales fell 7.3%. Agenda: jobless claims (Thursday), preliminary October PMIs and final consumer sentiment (Friday), then the October 27–28 Fed meeting."
+      "id": "Level dari Kitco: resistance $4.068 dan $4.079, lalu $4.124,25; support $4.038 lalu area $4.000. Vibiznews melihat support spot $3.983–$3.942 dan resistance $4.103–$4.182. Klaim pengangguran turun ke 194.000, di bawah perkiraan 200.000. Agenda: PMI awal Oktober dan sentimen konsumen final (Jumat), rapat Fed 27–28 Oktober, lalu PCE September pada 29 Oktober.",
+      "en": "Kitco’s levels: resistance at $4,068 and $4,079, then $4,124.25; support at $4,038, then the $4,000 area. Vibiznews sees spot support at $3,983–$3,942 and resistance at $4,103–$4,182. Jobless claims fell to 194,000, below the 200,000 forecast. Agenda: preliminary October PMIs and final consumer sentiment (Friday), the October 27–28 Fed meeting, then September PCE on October 29."
     },
     {
-      "id": "Antam turun Rp4.000 ke Rp2.550.000/gram dengan buyback Rp2.365.000 (spread sekitar 7,3%), penurunan hari ketiga. Galeri24 turun ke Rp2.504.000 (buyback Rp2.358.000, spread sekitar 5,8%) dan UBS ke Rp2.528.000 (buyback Rp2.332.000, spread sekitar 7,8%). Vibiznews mencatat permintaan fisik tetap kuat, termasuk penjualan perak dan platinum yang mencetak rekor.",
-      "en": "Antam fell Rp4,000 to Rp2,550,000/gram with a Rp2,365,000 buyback (spread about 7.3%), a third daily decline. Galeri24 fell to Rp2,504,000 (buyback Rp2,358,000, spread about 5.8%) and UBS to Rp2,528,000 (buyback Rp2,332,000, spread about 7.8%). Vibiznews notes that physical demand stays strong, including record silver and platinum sales."
+      "id": "Antam turun Rp10.000 ke Rp2.540.000/gram, penurunan hari keempat, sementara buyback anjlok Rp30.000 ke Rp2.335.000, sehingga spread melebar ke sekitar 8,1%. Galeri24 turun ke Rp2.499.000 (buyback Rp2.354.000, spread sekitar 5,8%) dan UBS ke Rp2.524.000 (buyback Rp2.328.000, spread sekitar 7,8%). Buyback Galeri24 kini Rp19.000 di atas Antam.",
+      "en": "Antam fell Rp10,000 to Rp2,540,000/gram, a fourth daily decline, while buyback dropped Rp30,000 to Rp2,335,000, widening the spread to about 8.1%. Galeri24 fell to Rp2,499,000 (buyback Rp2,354,000, spread about 5.8%) and UBS to Rp2,524,000 (buyback Rp2,328,000, spread about 7.8%). Galeri24’s buyback is now Rp19,000 above Antam’s."
     }
   ],
   "sources": [
-    { "title": "Kitco: Gold gains as Treasury yields stabilize, Nasdaq surges despite Fed tightening concerns - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-21/gold-gains-treasury-yields-stabilize-nasdaq-surges-despite-fed-tightening" },
+    { "title": "Kitco: Precious metals tumble despite falling yields as Hormuz tensions intensify - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-22/precious-metals-tumble-despite-falling-yields-hormuz-tensions-intensify" },
+    { "title": "Kitco: Gold prices struggling as U.S. weekly jobless claims fall to three-month low", "url": "https://www.kitco.com/news/article/2026-10-22/gold-prices-struggling-us-weekly-jobless-claims-fall-three-month-low" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Vibiznews: Harga Beli dan Buyback Emas Antam Hari ini Kamis 22 Oktober 2026, Kompak Turun Rp4.000", "url": "https://vibiznews.com/index.php/2026/10/22/harga-beli-dan-buyback-emas-antam-hari-ini-kamis-22-oktober-2026-kompak-turun-rp4-000/" },
-    { "title": "Periskop: Harga Emas Antam Hari Ini Turun Rp4.000 Jadi Rp2,550 Juta per Gram", "url": "https://periskop.id/investasi/20261022/harga-emas-antam-turun-rp2-550-juta-per-gram" },
+    { "title": "Vibiznews: Harga Beli Emas Antam Hari ini Jumat 23 Oktober 2026 Turun Rp10.000; Harga Buyback Merosot Rp30.000", "url": "https://vibiznews.com/index.php/2026/10/23/harga-beli-emas-antam-hari-ini-jumat-23-oktober-2026-turun-rp10-000-harga-buyback-merosot-rp30-000/" },
+    { "title": "detikFinance: Harga Emas Antam Ambles Rp 10.000, Buyback Anjlok Rp 30.000!", "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8720100/harga-emas-antam-ambles-rp-10-000-buyback-anjlok-rp-30-000" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
