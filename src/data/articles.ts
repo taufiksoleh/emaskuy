@@ -55,9 +55,105 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-plunges-4021-lowest-since-august-hormuz',
+    slug: 'gold-breaks-4000-weekly-loss-brent-117',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Jebol $4.000, Turun 3,87% Sepekan; Brent Tembus $117',
+      en: 'Gold Breaks $4,000 and Loses 3.87% on the Week as Brent Tops $117',
+    },
+    excerpt: {
+      id: 'Emas turun 0,70% ke sekitar $3.995,81 pada Jumat dan ditutup sepekan turun 3,87%, karena Brent naik di atas $117 dan ekspektasi inflasi AS naik. Harga resmi Antam belum diperbarui karena situs Logam Mulia sedang pemeliharaan, sementara Galeri24 dan UBS turun lebih dari Rp20.000.',
+      en: 'Gold fell 0.70% to about $3,995.81 on Friday and finished the week down 3.87% as Brent rose above $117 and US inflation expectations climbed. Antam’s official price has not been updated because the Logam Mulia site is under maintenance, while Galeri24 and UBS fell more than Rp20,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Batas $4.000 Akhirnya Tembus', en: 'The $4,000 Line Finally Gives Way' },
+        paragraphs: [
+          {
+            id: 'Sehari setelah anjlok 2,88%, emas melanjutkan penurunan pada Jumat. Kitco mencatat emas di sekitar $3.995,81, turun 0,70%, dan perak turun 1,26% ke sekitar $53,90. Trading Economics mencatat emas di $3.993,96, turun $30,86, di bawah $4.000 untuk pertama kalinya sejak pertengahan Juli.',
+            en: 'A day after its 2.88% slump, gold kept falling on Friday. Kitco had gold near $3,995.81, down 0.70%, and silver down 1.26% at about $53.90. Trading Economics shows gold at $3,993.96, down $30.86, below $4,000 for the first time since mid-July.',
+          },
+          {
+            id: 'Secara mingguan, kerugiannya besar. Tabel penutupan New York dari PMI mencatat emas di $4.000,14 pada Jumat, dari $4.161,10 sepekan sebelumnya: turun $160,96 atau 3,87%. Perak turun 5,42% ke $54,05 dan platinum turun 4,48% ke $1.557,25 dalam periode yang sama.',
+            en: 'On the week, the loss was large. PMI’s New York closing table has gold at $4,000.14 on Friday, from $4,161.10 a week earlier: down $160.96, or 3.87%. Silver fell 5.42% to $54.05 and platinum 4.48% to $1,557.25 over the same period.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak dan Ekspektasi Inflasi', en: 'Oil and Inflation Expectations' },
+        paragraphs: [
+          {
+            id: 'Minyak tetap menjadi pemicu utama. Kitco mencatat Brent naik di atas $117 per barel, tertinggi dalam lebih dari empat tahun, dan WTI di atas $103 karena ketegangan di Selat Hormuz. Minyak mahal menjaga kekhawatiran inflasi tetap hidup, sehingga pasar memperkirakan suku bunga tinggi lebih lama.',
+            en: 'Oil remained the main trigger. Kitco reports Brent rose above $117 a barrel, its highest in more than four years, and WTI above $103 on Strait of Hormuz tension. Expensive oil keeps inflation worries alive, so markets expect rates to stay higher for longer.',
+          },
+          {
+            id: 'Data AS menambah tekanan. PMI komposit awal Oktober turun ke 57,6 dari 58,4, tetapi manufaktur naik ke 56,0, di atas perkiraan 55,5. Ekspektasi inflasi setahun University of Michigan naik ke 4,7% dan jangka panjang ke 3,5%, keduanya tertinggi sejak Mei. Yield Treasury 10 tahun di sekitar 5,0%, dan CME FedWatch memberi peluang kenaikan Fed sekitar 80% untuk Desember.',
+            en: 'US data added pressure. The preliminary October composite PMI fell to 57.6 from 58.4, but manufacturing rose to 56.0, above the 55.5 forecast. University of Michigan year-ahead inflation expectations rose to 4.7% and longer-term ones to 3.5%, both the highest since May. The 10-year Treasury yield is near 5.0%, and CME FedWatch puts the odds of a December Fed hike at about 80%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Teknikal', en: 'The Big Picture and Technical Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun 6,57% sebulan. Di $3.995,81, emas berada sekitar 28,8% di bawah rekor Januari $5.608,35. Indeks dolar di sekitar 101,75, relatif stabil, sehingga tekanan pada emas lebih banyak datang dari ekspektasi suku bunga daripada dari dolar.',
+            en: 'Trading Economics shows gold down 6.57% on the month. At $3,995.81, gold sits about 28.8% below its January record of $5,608.35. The dollar index is near 101.75 and fairly steady, so the pressure on gold comes more from rate expectations than from the dollar.',
+          },
+          {
+            id: 'Level dari Kitco: resistance $4.075; support $3.963, lalu $3.946, dengan target turun lebih dalam $3.890. PMI melihat support pekan depan di $4.008 dan $3.942. Agenda: rapat Fed 27–28 Oktober dengan keputusan pada Rabu 28 Oktober, lalu data inflasi PCE September pada Kamis 29 Oktober.',
+            en: 'Kitco’s levels: resistance at $4,075; support at $3,963, then $3,946, with a deeper downside target of $3,890. PMI sees next week’s support at $4,008 and $3,942. Agenda: the October 27–28 Fed meeting with the decision on Wednesday, October 28, then September PCE inflation data on Thursday, October 29.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Menunggu Update, Galeri24 dan UBS Turun', en: 'Antam Awaits an Update as Galeri24 and UBS Fall' },
+        paragraphs: [
+          {
+            id: 'Harga resmi Antam terakhir Rp2.540.000 per gram dengan buyback Rp2.335.000, per 23 Oktober, sehingga spread Rp205.000 atau sekitar 8,1%. Investor.id melaporkan harga stabil pada Sabtu, tetapi Surabaya Inside mencatat situs Logam Mulia sedang pemeliharaan dan update resmi belum keluar. Karena itu panel Antam EmasKuy tetap memakai harga 23 Oktober.',
+            en: 'Antam’s last official price is Rp2,540,000 per gram with a Rp2,335,000 buyback, as of October 23, a spread of Rp205,000 or about 8.1%. Investor.id reports the price unchanged on Saturday, but Surabaya Inside notes the Logam Mulia site is under maintenance and the official update is not out. EmasKuy’s Antam panel therefore keeps the October 23 prices.',
+          },
+          {
+            id: 'Galeri24 turun Rp21.000 ke Rp2.478.000 dengan buyback Rp2.335.000: Rp62.000 lebih murah dari harga Antam terakhir, dengan spread Rp143.000 atau sekitar 5,8%. UBS turun Rp23.000 ke Rp2.501.000 dengan buyback Rp2.310.000: Rp39.000 lebih murah dari Antam, dengan spread Rp191.000 atau sekitar 7,6%. Buyback Galeri24 kini sama dengan buyback Antam terakhir.',
+            en: 'Galeri24 fell Rp21,000 to Rp2,478,000 with a Rp2,335,000 buyback: Rp62,000 cheaper than Antam’s last price, with a Rp143,000 spread, about 5.8%. UBS fell Rp23,000 to Rp2,501,000 with a Rp2,310,000 buyback: Rp39,000 cheaper than Antam, with a Rp191,000 spread, about 7.6%. Galeri24’s buyback now equals Antam’s last buyback.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Pekan Fed dan PCE', en: 'Playbook: Fed Week and PCE' },
+        paragraphs: [
+          {
+            id: 'Skenario dekat: kembali ke atas $4.008 dan $4.075 bisa meredakan tekanan; tembus di bawah $3.963 dan $3.946 membuka $3.890. Minyak tetap variabel kunci. Kitco mencatat inflasi yang lebih lunak bisa mengurangi ekspektasi kenaikan Desember, sementara minyak yang terus naik bisa memperkuatnya.',
+            en: 'Near-term scenarios: regaining $4,008 and $4,075 could ease the pressure; a break below $3,963 and $3,946 opens $3,890. Oil remains the key variable. Kitco notes that softer inflation could reduce expectations of a December hike, while oil that keeps rising could strengthen them.',
+          },
+          {
+            id: 'Bagi investor rupiah, harga Antam sudah turun Rp34.000 sejak 19 Oktober, dan spread sekitar 8,1% berarti harga perlu naik cukup jauh sebelum posisi baru impas. DCA dengan nominal tetap meratakan harga beli di kedua skenario. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan dengan profil risiko dan horizon Anda.',
+            en: 'For rupiah investors, Antam has fallen Rp34,000 since October 19, and a spread of about 8.1% means prices must rise a fair way before a new position breaks even. Fixed-amount DCA averages the purchase price in either scenario. This article is educational analysis, not personalized financial advice. Tailor it to your own risk profile and horizon.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Selama minyak terus naik, pasar membaca setiap data sebagai alasan suku bunga tinggi lebih lama.',
+      en: 'As long as oil keeps rising, the market reads every data point as a reason for higher rates for longer.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-breaks-4000-weekly-loss-brent-117.png'),
+    publishedAt: Date.parse('2026-10-24T02:50:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold, silver extend weekly losses as Hormuz tensions push crude above $116 - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-10-23/gold-silver-extend-weekly-losses-hormuz-tensions-push-crude-above-116-kitco' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'PMI: The Precious Metals Week in Review – October 23rd, 2026', url: 'https://blog.pmi.ky/2026/10/23/the-precious-metals-week-in-review-october-23srd-2026/' },
+      { title: 'Investor.id: Harga Emas Antam (ANTM) Hari Ini, Sabtu 24 Oktober 2026: Tak Goyah', url: 'https://investor.id/market/459272/harga-emas-antam-antm-hari-ini-sabtu-24-oktober-2026-tak-goyah' },
+      { title: 'Surabaya Inside: Harga Emas Hari Ini, 24 Oktober 2026: Update Resmi Belum Keluar', url: 'https://www.surabayainside.com/38980/harga-emas-hari-ini-24-oktober-2026-update-resmi-belum-keluar-ini-harga-terakhir-antam-rp-2540000-per-gram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-plunges-4021-lowest-since-august-hormuz',
+    category: 'market',
     title: {
       id: 'Emas Anjlok 2,88% ke $4.021, Terendah Sejak Agustus; Antam Rp2.540.000',
       en: 'Gold Plunges 2.88% to $4,021, the Lowest Since August; Antam at Rp2,540,000',
