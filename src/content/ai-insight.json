@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T09:50:00+07:00",
+  "generatedAt": "2026-10-25T09:50:00+07:00",
   "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas menembus $4.000 pada Jumat: Kitco mencatat emas di sekitar $3.995,81, turun 0,70%, dan perak turun 1,26% ke sekitar $53,90. Penutupan New York di $4.000,14 berarti emas turun $160,96 atau 3,87% dalam sepekan. Brent naik di atas $117, tertinggi lebih dari empat tahun, karena ketegangan di Selat Hormuz.",
-      "en": "Gold broke $4,000 on Friday: Kitco had gold near $3,995.81, down 0.70%, and silver down 1.26% at about $53.90. The New York close of $4,000.14 leaves gold down $160.96, or 3.87%, on the week. Brent rose above $117, its highest in more than four years, on Strait of Hormuz tension."
+      "id": "Emas menutup pekan di bawah $4.000: Trading Economics mencatat $3.993,96, turun 0,77% pada Jumat, hampir 4% sepekan dan 6,57% sebulan, level terendah sejak pertengahan Juli. Low intraday sekitar $3.975. Perak di sekitar $53,90, pertama kali di bawah $54 pada 2026. Pasar tutup akhir pekan, jadi harga ini menjadi titik awal pekan rapat Fed.",
+      "en": "Gold ended the week below $4,000: Trading Economics shows $3,993.96, down 0.77% on Friday, almost 4% on the week and 6.57% on the month, its lowest since mid-July. The intraday low was about $3,975. Silver is near $53.90, below $54 for the first time in 2026. Markets are shut for the weekend, so this is the starting point for Fed week."
     },
     {
-      "id": "Data AS menambah tekanan: PMI komposit awal Oktober 57,6 (dari 58,4) dengan manufaktur naik ke 56,0, dan ekspektasi inflasi setahun University of Michigan naik ke 4,7%. Yield Treasury 10 tahun di sekitar 5,0% dan indeks dolar sekitar 101,75. CME FedWatch memberi peluang kenaikan Fed sekitar 10% untuk Oktober dan sekitar 80% untuk Desember. Emas turun 6,57% sebulan dan sekitar 28,8% di bawah rekor $5.608,35.",
-      "en": "US data added pressure: the preliminary October composite PMI was 57.6 (from 58.4) with manufacturing up to 56.0, and University of Michigan year-ahead inflation expectations rose to 4.7%. The 10-year Treasury yield is near 5.0% and the dollar index about 101.75. CME FedWatch puts the odds of a Fed hike at about 10% for October and about 80% for December. Gold is down 6.57% on the month and about 28.8% below its $5,608.35 record."
+      "id": "Tekanannya datang dari minyak dan suku bunga: Brent ditutup $116,72 (naik 3,14%), yield Treasury 10 tahun di sekitar 5,0% dan indeks dolar sekitar 101,8. CME FedWatch memberi peluang tahan suku bunga sekitar 90% untuk Rabu 28 Oktober (kisaran 3,75–4,00%), tetapi peluang kenaikan hingga Desember sekitar 80%. Emas sekitar 28,8% di bawah rekor $5.608,35 dari Januari.",
+      "en": "The pressure comes from oil and rates: Brent settled at $116.72 (up 3.14%), the 10-year Treasury yield is near 5.0% and the dollar index about 101.8. CME FedWatch puts the odds of a hold on Wednesday, October 28 (3.75–4.00% range) at about 90%, but the odds of a hike by December at about 80%. Gold is about 28.8% below its $5,608.35 January record."
     },
     {
-      "id": "Level dari Kitco: resistance $4.075; support $3.963, lalu $3.946, dengan target turun lebih dalam $3.890. Agenda pekan depan: rapat Fed 27–28 Oktober dengan keputusan Rabu 28 Oktober, lalu data inflasi PCE September pada Kamis 29 Oktober.",
-      "en": "Kitco’s levels: resistance at $4,075; support at $3,963, then $3,946, with a deeper downside target of $3,890. Next week’s agenda: the October 27–28 Fed meeting with the decision on Wednesday, October 28, then September PCE inflation data on Thursday, October 29."
+      "id": "Agenda pekan ini: keputusan Fed dan konferensi pers Ketua Kevin Warsh Rabu 28 Oktober pukul 14.00 waktu AS, lalu PCE September dan PDB kuartal III pada Kamis 29 Oktober. Level dari Kitco: resistance $4.075; support $3.963 dan $3.946, dengan target turun $3.890. Skenario lunak (PCE dingin) membuka $4.150; skenario keras (sinyal kenaikan Desember) mengarah ke $3.890.",
+      "en": "This week’s agenda: the Fed decision and Chair Kevin Warsh’s press conference on Wednesday, October 28 at 2 pm US time, then September PCE and third-quarter GDP on Thursday, October 29. Kitco’s levels: resistance at $4,075; support at $3,963 and $3,946, with a downside target of $3,890. A soft scenario (cool PCE) opens $4,150; a hawkish one (a December hike signal) points to $3,890."
     },
     {
-      "id": "Harga resmi Antam terakhir Rp2.540.000/gram dengan buyback Rp2.335.000 (23 Oktober). Beberapa media melaporkan harga stabil pada Sabtu, tetapi situs Logam Mulia sedang pemeliharaan, sehingga panel Antam belum diperbarui. Galeri24 turun Rp21.000 ke Rp2.478.000 (buyback Rp2.335.000, spread sekitar 5,8%) dan UBS turun Rp23.000 ke Rp2.501.000 (buyback Rp2.310.000, spread sekitar 7,6%).",
-      "en": "Antam’s last official price is Rp2,540,000/gram with a Rp2,335,000 buyback (October 23). Several outlets report it unchanged on Saturday, but the Logam Mulia site is under maintenance, so the Antam panel has not been updated. Galeri24 fell Rp21,000 to Rp2,478,000 (buyback Rp2,335,000, spread about 5.8%) and UBS fell Rp23,000 to Rp2,501,000 (buyback Rp2,310,000, spread about 7.6%)."
+      "id": "Harga resmi Antam tidak diperbarui pada Minggu; data terakhir Rp2.540.000/gram dengan buyback Rp2.335.000 (spread sekitar 8,1%), pembaruan berikutnya Senin 08.30 WIB. Galeri24 turun Rp11.000 ke Rp2.467.000 (buyback Rp2.326.000, spread sekitar 5,7%) dan UBS turun Rp10.000 ke Rp2.491.000 (buyback Rp2.301.000, spread sekitar 7,6%). Bank sentral membeli 289 ton pada kuartal II, naik 62% secara tahunan.",
+      "en": "Antam’s official price was not updated on Sunday; the latest is Rp2,540,000/gram with a Rp2,335,000 buyback (spread about 8.1%), with the next update Monday at 08:30 WIB. Galeri24 fell Rp11,000 to Rp2,467,000 (buyback Rp2,326,000, spread about 5.7%) and UBS fell Rp10,000 to Rp2,491,000 (buyback Rp2,301,000, spread about 7.6%). Central banks bought 289 tonnes in the second quarter, up 62% year on year."
     }
   ],
   "sources": [
-    { "title": "Kitco: Gold, silver extend weekly losses as Hormuz tensions push crude above $116 - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-10-23/gold-silver-extend-weekly-losses-hormuz-tensions-push-crude-above-116-kitco" },
+    { "title": "FinanceFeeds: Gold Price Today: $3,996 Into the Fed, Bull $4,150, Bear $3,890", "url": "https://financefeeds.com/gold-price-today-3996-saturday-week-ahead-fed-28-october-silver-year-low-bull-4150-bear-3890/" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "PMI: The Precious Metals Week in Review – October 23rd, 2026", "url": "https://blog.pmi.ky/2026/10/23/the-precious-metals-week-in-review-october-23srd-2026/" },
-    { "title": "Investor.id: Harga Emas Antam (ANTM) Hari Ini, Sabtu 24 Oktober 2026: Tak Goyah", "url": "https://investor.id/market/459272/harga-emas-antam-antm-hari-ini-sabtu-24-oktober-2026-tak-goyah" },
-    { "title": "Surabaya Inside: Harga Emas Hari Ini, 24 Oktober 2026: Update Resmi Belum Keluar", "url": "https://www.surabayainside.com/38980/harga-emas-hari-ini-24-oktober-2026-update-resmi-belum-keluar-ini-harga-terakhir-antam-rp-2540000-per-gram" },
+    { "title": "Crux Investor: Central banks bought 289 tonnes of gold while Western ETFs sold 61 tonnes", "url": "https://www.cruxinvestor.com/posts/central-banks-bought-289-tonnes-of-gold-while-western-etfs-sold-61-tonnes-supporting-long-term-gold-demand" },
+    { "title": "Surabaya Inside: Harga Emas Hari Ini, 25 Oktober 2026: Antam Bertahan di Rp 2,54 Juta per Gram", "url": "https://www.surabayainside.com/39096/harga-emas-hari-ini-25-oktober-2026-antam-bertahan-di-rp-254-juta-per-gram" },
+    { "title": "Industry.co.id: Harga Emas Hari Ini 25 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap", "url": "https://www.industry.co.id/read/157924/harga-emas-hari-ini-25-oktober-2026-antam-ubs-dan-galeri-24-lengkap" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
