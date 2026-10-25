@@ -55,9 +55,118 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-below-4000-fed-pce-week-ahead',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Emas di $3.994 Jelang Pekan Fed: Rabu Keputusan, Kamis PCE',
+      en: 'Gold at $3,994 Into Fed Week: Decision Wednesday, PCE Thursday',
+    },
+    excerpt: {
+      id: 'Emas menutup pekan di $3.993,96, hampir 4% lebih rendah dalam sepekan, dengan Brent di $116,72 dan yield 10 tahun di sekitar 5%. Pekan ini pasar menunggu keputusan Fed pada 28 Oktober dan data PCE pada 29 Oktober. Harga Antam tidak berubah pada Minggu, sementara Galeri24 dan UBS turun sekitar Rp10.000.',
+      en: 'Gold ended the week at $3,993.96, almost 4% lower on the week, with Brent at $116.72 and the 10-year yield near 5%. This week the market waits for the Fed decision on October 28 and PCE data on October 29. Antam’s price did not change on Sunday, while Galeri24 and UBS fell about Rp10,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Titik Awal: Di Bawah $4.000', en: 'The Starting Point: Below $4,000' },
+        paragraphs: [
+          {
+            id: 'Pasar emas tutup pada akhir pekan, jadi harga Jumat menjadi titik awal pekan depan. Trading Economics mencatat emas di $3.993,96, turun 0,77% pada hari itu, hampir 4% sepekan dan 6,57% sebulan. Itu level terendah sejak pertengahan Juli, dengan low intraday sekitar $3.975.',
+            en: 'The gold market is closed for the weekend, so Friday’s price is the starting point for the week ahead. Trading Economics shows gold at $3,993.96, down 0.77% on the day, almost 4% on the week and 6.57% on the month. That is the lowest since mid-July, with an intraday low of about $3,975.',
+          },
+          {
+            id: 'Perak lebih lemah lagi. Di sekitar $53,90, perak turun di bawah $54 untuk pertama kalinya pada 2026 dan berada sekitar 55% di bawah puncak Januari di dekat $121. Penurunan Kamis saja sekitar 2,8% untuk emas, atau sekitar $120.',
+            en: 'Silver is weaker still. At about $53.90, it fell below $54 for the first time in 2026 and sits about 55% below its January peak near $121. Thursday’s drop alone was about 2.8% for gold, or roughly $120.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak, Yield dan Dolar Masih Menekan', en: 'Oil, Yields and the Dollar Still Weigh' },
+        paragraphs: [
+          {
+            id: 'Brent ditutup di $116,72 pada Jumat, naik 3,14% dan penutupan tertinggi sejak 29 April. Minyak yang mahal membuat pasar khawatir inflasi AS bertahan tinggi, sehingga suku bunga juga tinggi lebih lama. Yield Treasury 10 tahun berada di sekitar 5,0% dan 2 tahun di sekitar 4,77%.',
+            en: 'Brent settled at $116.72 on Friday, up 3.14% and its highest settlement since April 29. Expensive oil makes the market worry that US inflation stays high, and so do rates. The 10-year Treasury yield is near 5.0% and the 2-year near 4.77%.',
+          },
+          {
+            id: 'Indeks dolar di sekitar 101,8. Bagi emas, yang tidak memberi bunga, yield 5% dan dolar kuat adalah kombinasi berat: memegang obligasi AS jadi lebih menarik, dan emas lebih mahal bagi pembeli di luar AS.',
+            en: 'The dollar index is about 101.8. For gold, which pays no interest, a 5% yield and a strong dollar are a heavy mix: holding US bonds becomes more attractive, and gold costs more for buyers outside the US.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Dua Hari yang Menentukan', en: 'Two Days That Decide It' },
+        paragraphs: [
+          {
+            id: 'Rabu 28 Oktober pukul 14.00 waktu AS, Fed mengumumkan keputusan dengan kisaran saat ini 3,75–4,00%, diikuti konferensi pers Ketua Kevin Warsh. CME FedWatch memberi peluang tahan sekitar 90% dan kenaikan sekitar 10%. Yang lebih penting adalah Desember: Trading Economics mencatat peluang kenaikan hingga Desember sekitar 80%.',
+            en: 'On Wednesday, October 28 at 2 pm US time, the Fed announces its decision with the range at 3.75–4.00%, followed by Chair Kevin Warsh’s press conference. CME FedWatch puts a hold at about 90% and a hike at about 10%. December matters more: Trading Economics puts the odds of a hike by December at about 80%.',
+          },
+          {
+            id: 'Kamis 29 Oktober pukul 08.30 waktu AS, PCE September dan PDB kuartal III rilis bersamaan. Data PMI awal Oktober sudah kuat: manufaktur 56,0 (perkiraan 55,6) dan komposit 57,6. Jika PCE juga panas, pasar bisa makin yakin pada kenaikan Desember.',
+            en: 'On Thursday, October 29 at 8:30 am US time, September PCE and third-quarter GDP come out together. The preliminary October PMIs were already firm: manufacturing at 56.0 (55.6 expected) and the composite at 57.6. If PCE is also hot, the market could grow more confident in a December hike.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level dan Skenario', en: 'Levels and Scenarios' },
+        paragraphs: [
+          {
+            id: 'Kitco mencatat resistance di $4.075 serta support di $3.963 dan $3.946, dengan target turun $3.890. Skenario dasar adalah emas bergerak di kisaran $3.946–$4.075 menjelang data. Skenario lunak, yaitu PCE dingin dan peluang kenaikan Desember turun, membuka jalan ke $4.150. Skenario keras, yaitu Fed memberi sinyal kenaikan Desember, PCE panas dan minyak di atas $115, mengarah ke $3.890.',
+            en: 'Kitco has resistance at $4,075 and support at $3,963 and $3,946, with a downside target of $3,890. The base case is gold churning in a $3,946–$4,075 range into the data. A soft scenario, with cool PCE and lower December hike odds, opens the way to $4,150. A hawkish one, with the Fed signaling a December hike, hot PCE and oil above $115, points to $3,890.',
+          },
+          {
+            id: 'Gambaran besarnya: emas sekitar 28,8% di bawah rekor $5.608,35 dari Januari. Namun produsen masih untung besar. Newmont melaporkan biaya all-in sustaining $1.454/oz pada kuartal III, jauh di bawah harga saat ini.',
+            en: 'The bigger picture: gold is about 28.8% below its $5,608.35 January record. Producers still earn a lot, though. Newmont reported all-in sustaining costs of $1,454/oz in the third quarter, far below the current price.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam, Galeri24 dan UBS', en: 'Antam, Galeri24 and UBS' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia tidak memperbarui harga pada Minggu. Data terakhir Antam 1 gram Rp2.540.000 dengan buyback Rp2.335.000, sehingga spread Rp205.000 atau sekitar 8,1%. Pembaruan berikutnya dijadwalkan Senin 26 Oktober pukul 08.30 WIB, jadi itulah saat pertama penurunan emas global di bawah $4.000 bisa terlihat di harga Antam.',
+            en: 'Logam Mulia did not update its prices on Sunday. Antam’s latest 1-gram price is Rp2,540,000 with a Rp2,335,000 buyback, a spread of Rp205,000, or about 8.1%. The next update is due Monday, October 26 at 08:30 WIB, the first chance for gold’s drop below $4,000 to show up in Antam’s price.',
+          },
+          {
+            id: 'Galeri24 turun Rp11.000 ke Rp2.467.000 dengan buyback Rp2.326.000 (spread Rp141.000, sekitar 5,7%). UBS turun Rp10.000 ke Rp2.491.000 dengan buyback Rp2.301.000 (spread Rp190.000, sekitar 7,6%). Galeri24 kini Rp73.000 lebih murah dari Antam per gram, dan UBS Rp49.000 lebih murah.',
+            en: 'Galeri24 fell Rp11,000 to Rp2,467,000 with a Rp2,326,000 buyback (a Rp141,000 spread, about 5.7%). UBS fell Rp10,000 to Rp2,491,000 with a Rp2,301,000 buyback (a Rp190,000 spread, about 7.6%). Galeri24 is now Rp73,000 a gram cheaper than Antam, and UBS Rp49,000 cheaper.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Cara Menyikapi Pekan Ini', en: 'How to Approach This Week' },
+        paragraphs: [
+          {
+            id: 'Permintaan struktural belum hilang: bank sentral membeli 289 ton emas pada kuartal II 2026, naik 62% secara tahunan, meski ETF Amerika Utara mencatat arus keluar 61 ton pada semester I. Pekan dengan dua data besar biasanya bergejolak, dan harga Antam baru bereaksi sehari setelahnya.',
+            en: 'Structural demand has not gone away: central banks bought 289 tonnes of gold in the second quarter of 2026, up 62% year on year, even as North American ETFs saw 61 tonnes of outflows in the first half. A week with two major releases is usually volatile, and Antam’s price reacts only a day later.',
+          },
+          {
+            id: 'Bagi penabung rutin, membeli bertahap (DCA) mengurangi risiko masuk di hari yang salah, dan selisih spread antarmerek layak dibandingkan sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For regular savers, buying in steps (DCA) reduces the risk of entering on the wrong day, and the spread gap between brands is worth comparing before buying. This article is educational analysis, not personal financial advice. Match decisions to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pasar sudah memperkirakan Fed menahan suku bunga pada Rabu. Yang dinilai emas adalah sinyal untuk Desember dan angka PCE pada Kamis.',
+      en: 'The market already expects the Fed to hold on Wednesday. What gold is pricing is the signal for December and Thursday’s PCE number.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-fed-pce-week-ahead.png'),
+    publishedAt: Date.parse('2026-10-25T02:50:00Z'),
+    readMinutes: 6,
+    author: TEAM,
+    sources: [
+      { title: 'FinanceFeeds: Gold Price Today: $3,996 Into the Fed, Bull $4,150, Bear $3,890', url: 'https://financefeeds.com/gold-price-today-3996-saturday-week-ahead-fed-28-october-silver-year-low-bull-4150-bear-3890/' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Crux Investor: Central banks bought 289 tonnes of gold while Western ETFs sold 61 tonnes', url: 'https://www.cruxinvestor.com/posts/central-banks-bought-289-tonnes-of-gold-while-western-etfs-sold-61-tonnes-supporting-long-term-gold-demand' },
+      { title: 'Surabaya Inside: Harga Emas Hari Ini, 25 Oktober 2026: Antam Bertahan di Rp 2,54 Juta per Gram', url: 'https://www.surabayainside.com/39096/harga-emas-hari-ini-25-oktober-2026-antam-bertahan-di-rp-254-juta-per-gram' },
+      { title: 'Industry.co.id: Harga Emas Hari Ini 25 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap', url: 'https://www.industry.co.id/read/157924/harga-emas-hari-ini-25-oktober-2026-antam-ubs-dan-galeri-24-lengkap' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-breaks-4000-weekly-loss-brent-117',
     category: 'market',
-    featured: true,
     title: {
       id: 'Emas Jebol $4.000, Turun 3,87% Sepekan; Brent Tembus $117',
       en: 'Gold Breaks $4,000 and Loses 3.87% on the Week as Brent Tops $117',
