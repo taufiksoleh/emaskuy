@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-25T09:50:00+07:00",
+  "generatedAt": "2026-10-26T10:20:00+07:00",
   "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas menutup pekan di bawah $4.000: Trading Economics mencatat $3.993,96, turun 0,77% pada Jumat, hampir 4% sepekan dan 6,57% sebulan, level terendah sejak pertengahan Juli. Low intraday sekitar $3.975. Perak di sekitar $53,90, pertama kali di bawah $54 pada 2026. Pasar tutup akhir pekan, jadi harga ini menjadi titik awal pekan rapat Fed.",
-      "en": "Gold ended the week below $4,000: Trading Economics shows $3,993.96, down 0.77% on Friday, almost 4% on the week and 6.57% on the month, its lowest since mid-July. The intraday low was about $3,975. Silver is near $53.90, below $54 for the first time in 2026. Markets are shut for the weekend, so this is the starting point for Fed week."
+      "id": "Emas membuka pekan Fed tanpa pemulihan: Reuters mencatat spot $3.986,16 di awal sesi Asia Senin, dan Trading Economics menunjukkan sekitar $3.993,79, masih di dekat level terendah lebih dari tiga bulan. Dalam sebulan emas turun 2,95%, dan kini sekitar 28,8% di bawah rekor $5.608,35 pada Januari 2026.",
+      "en": "Gold opened Fed week without a rebound: Reuters had spot at $3,986.16 early in Monday’s Asian session, and Trading Economics shows about $3,993.79, still near its lowest in more than three months. Gold is down 2.95% on the month and now about 28.8% below its $5,608.35 record from January 2026."
     },
     {
-      "id": "Tekanannya datang dari minyak dan suku bunga: Brent ditutup $116,72 (naik 3,14%), yield Treasury 10 tahun di sekitar 5,0% dan indeks dolar sekitar 101,8. CME FedWatch memberi peluang tahan suku bunga sekitar 90% untuk Rabu 28 Oktober (kisaran 3,75–4,00%), tetapi peluang kenaikan hingga Desember sekitar 80%. Emas sekitar 28,8% di bawah rekor $5.608,35 dari Januari.",
-      "en": "The pressure comes from oil and rates: Brent settled at $116.72 (up 3.14%), the 10-year Treasury yield is near 5.0% and the dollar index about 101.8. CME FedWatch puts the odds of a hold on Wednesday, October 28 (3.75–4.00% range) at about 90%, but the odds of a hike by December at about 80%. Gold is about 28.8% below its $5,608.35 January record."
+      "id": "Minyak sedikit mereda: Brent turun 1,87% ke $114,54 dan WTI turun 2,13% ke $101,07. Yield Treasury 10 tahun di 4,967% dan indeks dolar di 101,60. Pasar memperkirakan Fed menahan suku bunga di 3,75–4,00% (peluang sekitar 90%), tetapi peluang kenaikan Desember sekitar 80%. Lima bank sentral besar memutuskan pekan ini, dan Bank of Canada serta RBNZ diperkirakan bisa menaikkan suku bunga.",
+      "en": "Oil eased a little: Brent fell 1.87% to $114.54 and WTI fell 2.13% to $101.07. The 10-year Treasury yield is at 4.967% and the dollar index at 101.60. Markets expect the Fed to hold at 3.75–4.00% (about 90% odds), but put the odds of a December hike at about 80%. Five major central banks decide this week, with the Bank of Canada and the RBNZ priced for a possible hike."
     },
     {
-      "id": "Agenda pekan ini: keputusan Fed dan konferensi pers Ketua Kevin Warsh Rabu 28 Oktober pukul 14.00 waktu AS, lalu PCE September dan PDB kuartal III pada Kamis 29 Oktober. Level dari Kitco: resistance $4.075; support $3.963 dan $3.946, dengan target turun $3.890. Skenario lunak (PCE dingin) membuka $4.150; skenario keras (sinyal kenaikan Desember) mengarah ke $3.890.",
-      "en": "This week’s agenda: the Fed decision and Chair Kevin Warsh’s press conference on Wednesday, October 28 at 2 pm US time, then September PCE and third-quarter GDP on Thursday, October 29. Kitco’s levels: resistance at $4,075; support at $3,963 and $3,946, with a downside target of $3,890. A soft scenario (cool PCE) opens $4,150; a hawkish one (a December hike signal) points to $3,890."
+      "id": "Agenda: keputusan Fed Rabu 28 Oktober pukul 14.00 waktu AS (Kamis 01.00 WIB), lalu PCE September dan PDB kuartal III pada Kamis 29 Oktober pukul 08.30 waktu AS (19.30 WIB). Level yang dipantau: resistance $4.021–4.039 dan $4.075; support $3.963 dan $3.946, dengan target turun $3.890. PCE dingin membuka $4.150, sinyal kenaikan Desember mengarah ke $3.890.",
+      "en": "Agenda: the Fed decision on Wednesday, October 28 at 2 pm US time (01:00 WIB Thursday), then September PCE and third-quarter GDP on Thursday, October 29 at 8:30 am US time (19:30 WIB). Levels watched: resistance at $4,021–4,039 and $4,075; support at $3,963 and $3,946, with a downside target of $3,890. A cool PCE opens $4,150; a December hike signal points to $3,890."
     },
     {
-      "id": "Harga resmi Antam tidak diperbarui pada Minggu; data terakhir Rp2.540.000/gram dengan buyback Rp2.335.000 (spread sekitar 8,1%), pembaruan berikutnya Senin 08.30 WIB. Galeri24 turun Rp11.000 ke Rp2.467.000 (buyback Rp2.326.000, spread sekitar 5,7%) dan UBS turun Rp10.000 ke Rp2.491.000 (buyback Rp2.301.000, spread sekitar 7,6%). Bank sentral membeli 289 ton pada kuartal II, naik 62% secara tahunan.",
-      "en": "Antam’s official price was not updated on Sunday; the latest is Rp2,540,000/gram with a Rp2,335,000 buyback (spread about 8.1%), with the next update Monday at 08:30 WIB. Galeri24 fell Rp11,000 to Rp2,467,000 (buyback Rp2,326,000, spread about 5.7%) and UBS fell Rp10,000 to Rp2,491,000 (buyback Rp2,301,000, spread about 7.6%). Central banks bought 289 tonnes in the second quarter, up 62% year on year."
+      "id": "Harga Antam 1 gram tidak berubah dari Jumat di Rp2.540.000, tetapi turun Rp34.000 dalam sepekan. Buyback tetap Rp2.335.000 (spread Rp205.000, sekitar 8,1%). Galeri24 di Rp2.467.000 (buyback Rp2.326.000, spread sekitar 5,7%) dan UBS di Rp2.491.000 (buyback Rp2.301.000, spread sekitar 7,6%), keduanya tidak berubah dari akhir pekan.",
+      "en": "Antam’s 1-gram price is unchanged from Friday at Rp2,540,000, but down Rp34,000 on the week. Buyback stays at Rp2,335,000 (a Rp205,000 spread, about 8.1%). Galeri24 is at Rp2,467,000 (buyback Rp2,326,000, spread about 5.7%) and UBS at Rp2,491,000 (buyback Rp2,301,000, spread about 7.6%), both unchanged from the weekend."
     }
   ],
   "sources": [
-    { "title": "FinanceFeeds: Gold Price Today: $3,996 Into the Fed, Bull $4,150, Bear $3,890", "url": "https://financefeeds.com/gold-price-today-3996-saturday-week-ahead-fed-28-october-silver-year-low-bull-4150-bear-3890/" },
+    { "title": "Investing.com (Reuters): Currency markets subdued ahead of pivotal central bank week", "url": "https://www.investing.com/news/economy-news/currency-markets-subdued-ahead-of-pivotal-central-bank-week-4971353" },
     { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Crux Investor: Central banks bought 289 tonnes of gold while Western ETFs sold 61 tonnes", "url": "https://www.cruxinvestor.com/posts/central-banks-bought-289-tonnes-of-gold-while-western-etfs-sold-61-tonnes-supporting-long-term-gold-demand" },
-    { "title": "Surabaya Inside: Harga Emas Hari Ini, 25 Oktober 2026: Antam Bertahan di Rp 2,54 Juta per Gram", "url": "https://www.surabayainside.com/39096/harga-emas-hari-ini-25-oktober-2026-antam-bertahan-di-rp-254-juta-per-gram" },
-    { "title": "Industry.co.id: Harga Emas Hari Ini 25 Oktober 2026: Antam, UBS, dan Galeri 24 Lengkap", "url": "https://www.industry.co.id/read/157924/harga-emas-hari-ini-25-oktober-2026-antam-ubs-dan-galeri-24-lengkap" },
+    { "title": "FinanceFeeds: Gold Price Today: $3,996 Into the Fed, Bull $4,150, Bear $3,890", "url": "https://financefeeds.com/gold-price-today-3996-saturday-week-ahead-fed-28-october-silver-year-low-bull-4150-bear-3890/" },
+    { "title": "CNBC Indonesia: Harga Emas Antam Logam Mulia Hari Ini Tak Bergerak", "url": "https://www.cnbcindonesia.com/research/20261026090029-128-779344/harga-emas-antam-logam-mulia-hari-ini-tak-bergerak-buback-berapa" },
+    { "title": "ANTARA: Harga emas Antam Senin stabil Rp2,540 juta/gr", "url": "https://kalsel.antaranews.com/berita/541059/harga-emas-antam-senin-stabil-rp2540-juta-gr" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
