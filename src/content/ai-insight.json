@@ -1,31 +1,53 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T10:20:00+07:00",
-  "sentiment": "bearish",
+  "generatedAt": "2026-10-27T09:50:00+07:00",
+  "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas membuka pekan Fed tanpa pemulihan: Reuters mencatat spot $3.986,16 di awal sesi Asia Senin, dan Trading Economics menunjukkan sekitar $3.993,79, masih di dekat level terendah lebih dari tiga bulan. Dalam sebulan emas turun 2,95%, dan kini sekitar 28,8% di bawah rekor $5.608,35 pada Januari 2026.",
-      "en": "Gold opened Fed week without a rebound: Reuters had spot at $3,986.16 early in Monday’s Asian session, and Trading Economics shows about $3,993.79, still near its lowest in more than three months. Gold is down 2.95% on the month and now about 28.8% below its $5,608.35 record from January 2026."
+      "id": "Emas kembali di atas $4.000 setelah turun ke $3.975 pada Jumat, level terendah sejak 20 Juli. Kitco mencatat spot sekitar $4.014,49 (naik 0,50%) Senin karena minyak turun, dan Trading Economics menunjukkan sekitar $4.010 pada Selasa (turun 0,16%). Dalam sebulan emas masih turun 2,54%, sekitar 28,5% di bawah rekor $5.608,35 pada Januari 2026.",
+      "en": "Gold is back above $4,000 after falling to $3,975 on Friday, its lowest since July 20. Kitco had spot near $4,014.49 (up 0.50%) on Monday as oil fell, and Trading Economics shows about $4,010 on Tuesday (down 0.16%). Gold is still down 2.54% on the month, about 28.5% below its $5,608.35 record from January 2026."
     },
     {
-      "id": "Minyak sedikit mereda: Brent turun 1,87% ke $114,54 dan WTI turun 2,13% ke $101,07. Yield Treasury 10 tahun di 4,967% dan indeks dolar di 101,60. Pasar memperkirakan Fed menahan suku bunga di 3,75–4,00% (peluang sekitar 90%), tetapi peluang kenaikan Desember sekitar 80%. Lima bank sentral besar memutuskan pekan ini, dan Bank of Canada serta RBNZ diperkirakan bisa menaikkan suku bunga.",
-      "en": "Oil eased a little: Brent fell 1.87% to $114.54 and WTI fell 2.13% to $101.07. The 10-year Treasury yield is at 4.967% and the dollar index at 101.60. Markets expect the Fed to hold at 3.75–4.00% (about 90% odds), but put the odds of a December hike at about 80%. Five major central banks decide this week, with the Bank of Canada and the RBNZ priced for a possible hike."
+      "id": "Brent ditutup turun 0,8% di $115,81 dan WTI sekitar $102. Yield Treasury 10 tahun di bawah 4,98%, turun dari puncak 5,31%. Pasar memperkirakan Fed menahan suku bunga di 3,75–4,00% (peluang sekitar 90%), tetapi CME FedWatch menempatkan peluang kenaikan Desember sekitar 82%. Nowcast Cleveland Fed: PCE inti 3,1% dan PCE umum 3,6% secara tahunan.",
+      "en": "Brent settled down 0.8% at $115.81 and WTI was near $102. The 10-year Treasury yield is below 4.98%, down from a 5.31% peak. Markets expect the Fed to hold at 3.75–4.00% (about 90% odds), but CME FedWatch puts the odds of a December hike at about 82%. The Cleveland Fed nowcast has core PCE at 3.1% and headline PCE at 3.6% year on year."
     },
     {
-      "id": "Agenda: keputusan Fed Rabu 28 Oktober pukul 14.00 waktu AS (Kamis 01.00 WIB), lalu PCE September dan PDB kuartal III pada Kamis 29 Oktober pukul 08.30 waktu AS (19.30 WIB). Level yang dipantau: resistance $4.021–4.039 dan $4.075; support $3.963 dan $3.946, dengan target turun $3.890. PCE dingin membuka $4.150, sinyal kenaikan Desember mengarah ke $3.890.",
-      "en": "Agenda: the Fed decision on Wednesday, October 28 at 2 pm US time (01:00 WIB Thursday), then September PCE and third-quarter GDP on Thursday, October 29 at 8:30 am US time (19:30 WIB). Levels watched: resistance at $4,021–4,039 and $4,075; support at $3,963 and $3,946, with a downside target of $3,890. A cool PCE opens $4,150; a December hike signal points to $3,890."
+      "id": "Agenda: durable goods September malam ini 19.30 WIB dan keyakinan konsumen Oktober 21.00 WIB, lalu keputusan Fed Kamis 01.00 WIB dengan konferensi pers Ketua Fed Kevin Warsh, serta PDB kuartal III dan PCE September Kamis 19.30 WIB. Resistance $4.032 dan $4.075 (target $4.160–4.180); support $3.963 dan $3.946 (target $3.890 lalu $3.800).",
+      "en": "Agenda: September durable goods tonight at 19:30 WIB and October consumer confidence at 21:00 WIB, then the Fed decision at 01:00 WIB Thursday with a press conference by Fed Chair Kevin Warsh, and Q3 GDP and September PCE on Thursday at 19:30 WIB. Resistance at $4,032 and $4,075 (targets $4,160–4,180); support at $3,963 and $3,946 (targets $3,890, then $3,800)."
     },
     {
-      "id": "Harga Antam 1 gram tidak berubah dari Jumat di Rp2.540.000, tetapi turun Rp34.000 dalam sepekan. Buyback tetap Rp2.335.000 (spread Rp205.000, sekitar 8,1%). Galeri24 di Rp2.467.000 (buyback Rp2.326.000, spread sekitar 5,7%) dan UBS di Rp2.491.000 (buyback Rp2.301.000, spread sekitar 7,6%), keduanya tidak berubah dari akhir pekan.",
-      "en": "Antam’s 1-gram price is unchanged from Friday at Rp2,540,000, but down Rp34,000 on the week. Buyback stays at Rp2,335,000 (a Rp205,000 spread, about 8.1%). Galeri24 is at Rp2,467,000 (buyback Rp2,326,000, spread about 5.7%) and UBS at Rp2,491,000 (buyback Rp2,301,000, spread about 7.6%), both unchanged from the weekend."
+      "id": "Harga Antam 1 gram naik Rp10.000 ke Rp2.550.000, kenaikan pertama setelah sepekan melemah. Buyback naik Rp10.000 ke Rp2.345.000 (spread Rp205.000, sekitar 8,0%). Galeri24 tetap Rp2.467.000 (buyback Rp2.326.000, spread sekitar 5,7%) dan UBS tetap Rp2.491.000 (buyback Rp2.301.000, spread sekitar 7,6%), jadi selisih Antam dengan Galeri24 melebar ke Rp83.000.",
+      "en": "Antam’s 1-gram price rose Rp10,000 to Rp2,550,000, its first rise after a week of declines. Buyback rose Rp10,000 to Rp2,345,000 (a Rp205,000 spread, about 8.0%). Galeri24 stays at Rp2,467,000 (buyback Rp2,326,000, spread about 5.7%) and UBS at Rp2,491,000 (buyback Rp2,301,000, spread about 7.6%), so Antam’s gap over Galeri24 widens to Rp83,000."
     }
   ],
   "sources": [
-    { "title": "Investing.com (Reuters): Currency markets subdued ahead of pivotal central bank week", "url": "https://www.investing.com/news/economy-news/currency-markets-subdued-ahead-of-pivotal-central-bank-week-4971353" },
-    { "title": "Trading Economics: Gold price", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "FinanceFeeds: Gold Price Today: $3,996 Into the Fed, Bull $4,150, Bear $3,890", "url": "https://financefeeds.com/gold-price-today-3996-saturday-week-ahead-fed-28-october-silver-year-low-bull-4150-bear-3890/" },
-    { "title": "CNBC Indonesia: Harga Emas Antam Logam Mulia Hari Ini Tak Bergerak", "url": "https://www.cnbcindonesia.com/research/20261026090029-128-779344/harga-emas-antam-logam-mulia-hari-ini-tak-bergerak-buback-berapa" },
-    { "title": "ANTARA: Harga emas Antam Senin stabil Rp2,540 juta/gr", "url": "https://kalsel.antaranews.com/berita/541059/harga-emas-antam-senin-stabil-rp2540-juta-gr" },
-    { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
+    {
+      "title": "Kitco: Gold holds above $4,000 as Hormuz diplomacy cools crude ahead of Fed decision",
+      "url": "https://www.kitco.com/news/article/2026-10-26/gold-holds-above-4000-hormuz-diplomacy-cools-crude-ahead-fed-decision-kitco"
+    },
+    {
+      "title": "Kitco: Gold rebounds above $4,000 as lower oil prices ease Fed tightening concerns",
+      "url": "https://www.kitco.com/news/article/2026-10-26/gold-rebounds-above-4000-lower-oil-prices-ease-fed-tightening-concerns"
+    },
+    {
+      "title": "Trading Economics: Gold price",
+      "url": "https://tradingeconomics.com/commodity/gold"
+    },
+    {
+      "title": "FinanceFeeds: Gold Price Today: $4,010 Into Fed Week, Bull $4,075, Bear $3,890",
+      "url": "https://financefeeds.com/gold-price-today-4010-monday-fed-week-28-october-pce-29-october-bull-4075-bear-3890"
+    },
+    {
+      "title": "Suara.com: Tahan Beli Dulu, Harga Emas Antam Mulai Naik Jadi Rp2,55 Juta/Gram",
+      "url": "https://www.suara.com/bisnis/2026/10/27/093606/tahan-beli-dulu-harga-emas-antam-mulai-naik-jadi-rp255-jutagram"
+    },
+    {
+      "title": "Sumeks: Harga Emas Antam Naik Rp10.000 per Gram pada Selasa 27 Oktober 2026",
+      "url": "https://sumeks.disway.id/headline/read/799731/harga-emas-antam-naik-rp10000-per-gram-pada-selasa-27-oktober-2026"
+    },
+    {
+      "title": "Galeri 24: Harga emas hari ini",
+      "url": "https://galeri24.co.id/harga-emas/"
+    }
   ]
 }

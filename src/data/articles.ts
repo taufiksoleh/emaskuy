@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-near-4000-fed-week-opens-antam-flat',
+    slug: 'gold-reclaims-4000-before-fed-antam-up-10000',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Rebut Lagi $4.000 Jelang Fed, Antam Naik Rp10.000 ke Rp2.550.000',
+      en: 'Gold Reclaims $4,000 Ahead of the Fed, Antam Up Rp10,000 to Rp2,550,000',
+    },
+    excerpt: {
+      id: 'Emas kembali di atas $4.000 setelah menyentuh $3.975 Jumat lalu, dibantu minyak yang turun. Pasar memperkirakan Fed menahan suku bunga Rabu, tetapi peluang kenaikan Desember sekitar 82%. Harga Antam 1 gram naik Rp10.000 ke Rp2.550.000, kenaikan pertama setelah sepekan melemah.',
+      en: 'Gold is back above $4,000 after touching $3,975 last Friday, helped by lower oil. Markets expect the Fed to hold on Wednesday, but put the odds of a December hike at about 82%. Antam’s 1-gram price rose Rp10,000 to Rp2,550,000, its first rise after a week of declines.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pemulihan Kecil di Atas $4.000', en: 'A Small Recovery Above $4,000' },
+        paragraphs: [
+          {
+            id: 'Jumat lalu emas turun ke $3.975, level terendah sejak 20 Juli. Senin, Kitco mencatat spot naik 0,50% ke sekitar $4.014,49, dan emas ditutup kembali di atas $4.000 di sesi AS. Pemicunya bukan data baru, melainkan minyak yang mereda karena diplomasi di Selat Hormuz.',
+            en: 'Last Friday gold fell to $3,975, its lowest since July 20. On Monday, Kitco had spot up 0.50% to about $4,014.49, and gold closed back above $4,000 in the US session. The trigger was not new data but cooler oil prices on diplomacy around the Strait of Hormuz.',
+          },
+          {
+            id: 'Selasa pagi, Trading Economics menunjukkan emas sekitar $4.010, turun tipis 0,16%. Jadi pemulihan ini masih kecil: dalam sebulan emas tetap turun 2,54%. Pasar menunggu Fed sebelum mengambil posisi besar.',
+            en: 'On Tuesday morning, Trading Economics shows gold at about $4,010, down a slight 0.16%. So the recovery is still small: gold remains down 2.54% on the month. The market is waiting for the Fed before taking big positions.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak Turun, tetapi Ancaman Kenaikan Bunga Tetap', en: 'Oil Eases, but the Rate-Hike Threat Remains' },
+        paragraphs: [
+          {
+            id: 'Brent ditutup turun 0,8% di $115,81 dan WTI sekitar $102. Minyak yang lebih murah mengurangi kekhawatiran inflasi, dan yield Treasury 10 tahun bertahan di bawah 4,98%, turun dari puncak 5,31%. Bagi emas yang tidak memberi bunga, yield yang turun sedikit mengurangi tekanan.',
+            en: 'Brent settled down 0.8% at $115.81 and WTI was near $102. Cheaper oil eases inflation worries, and the 10-year Treasury yield is holding below 4.98%, down from a 5.31% peak. For gold, which pays no interest, slightly lower yields ease the pressure.',
+          },
+          {
+            id: 'Namun arah kebijakan belum berubah. Pasar memperkirakan Fed menahan suku bunga di 3,75–4,00% pekan ini (peluang sekitar 90%), tetapi CME FedWatch menempatkan peluang kenaikan Desember sekitar 82%. Nowcast Cleveland Fed menunjukkan PCE inti 3,1% dan PCE umum 3,6% secara tahunan, masih jauh di atas target 2%.',
+            en: 'But the policy path has not changed. Markets expect the Fed to hold at 3.75–4.00% this week (about 90% odds), but CME FedWatch puts the odds of a December hike at about 82%. The Cleveland Fed nowcast shows core PCE at 3.1% and headline PCE at 3.6% year on year, still far above the 2% target.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level yang Dipantau', en: 'The Big Picture and Levels to Watch' },
+        paragraphs: [
+          {
+            id: 'Di sekitar $4.010, emas masih sekitar 28,5% di bawah rekor $5.608,35 pada Januari 2026. Resistance terdekat di $4.032, lalu $4.075; tembus ke atas membuka target $4.160–4.180. Support di $3.963 dan $3.946, dengan target turun $3.890 lalu $3.800.',
+            en: 'At about $4,010, gold is still about 28.5% below its $5,608.35 record from January 2026. The nearest resistance is $4,032, then $4,075; a break higher opens targets of $4,160–4,180. Support is at $3,963 and $3,946, with downside targets of $3,890, then $3,800.',
+          },
+          {
+            id: 'Agendanya padat: durable goods September malam ini pukul 19.30 WIB dan keyakinan konsumen Oktober pukul 21.00 WIB. Keputusan Fed keluar Kamis pukul 01.00 WIB, disusul konferensi pers Ketua Fed Kevin Warsh. Kamis pukul 19.30 WIB ada PDB kuartal III dan PCE September. Nada Warsh soal Desember kemungkinan lebih penting daripada keputusan menahan itu sendiri.',
+            en: 'The agenda is busy: September durable goods tonight at 19:30 WIB and October consumer confidence at 21:00 WIB. The Fed decision is out at 01:00 WIB Thursday, followed by Fed Chair Kevin Warsh’s press conference. Q3 GDP and September PCE follow on Thursday at 19:30 WIB. Warsh’s tone on December likely matters more than the hold itself.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik, Galeri24 dan UBS Tetap', en: 'Antam Up, Galeri24 and UBS Steady' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram naik Rp10.000 ke Rp2.550.000, kenaikan pertama setelah sepekan melemah dari Rp2.574.000 pada 19 Oktober. Buyback juga naik Rp10.000 ke Rp2.345.000 per gram, sehingga spread tetap Rp205.000, sekitar 8,0%. Batangan 10 gram kini Rp25.050.000.',
+            en: 'Antam’s 1-gram price rose Rp10,000 to Rp2,550,000, its first rise after a week of declines from Rp2,574,000 on October 19. Buyback also rose Rp10,000 to Rp2,345,000 per gram, so the spread stays at Rp205,000, about 8.0%. The 10-gram bar is now Rp25,050,000.',
+          },
+          {
+            id: 'Galeri24 tidak berubah di Rp2.467.000 (buyback Rp2.326.000, spread sekitar 5,7%), dan UBS tetap Rp2.491.000 (buyback Rp2.301.000, spread sekitar 7,6%). Karena hanya Antam yang naik, selisihnya dengan Galeri24 melebar ke Rp83.000 per gram, dan dengan UBS ke Rp59.000.',
+            en: 'Galeri24 is unchanged at Rp2,467,000 (buyback Rp2,326,000, spread about 5.7%), and UBS stays at Rp2,491,000 (buyback Rp2,301,000, spread about 7.6%). Since only Antam rose, its gap over Galeri24 widens to Rp83,000 per gram, and over UBS to Rp59,000.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook Pekan Fed', en: 'Fed-Week Playbook' },
+        paragraphs: [
+          {
+            id: 'Dua skenario utama: jika Warsh terdengar sabar dan PCE Kamis lebih dingin dari nowcast, emas punya ruang menguji $4.075 lalu $4.160. Jika Fed memberi sinyal kenaikan Desember dan PCE panas, support $3.946 dan $3.890 kembali jadi fokus. Dengan spread Antam sekitar 8%, pergerakan harian beberapa puluh dolar jarang cukup untuk menutup biaya jual-beli jangka pendek.',
+            en: 'Two main scenarios: if Warsh sounds patient and Thursday’s PCE is cooler than the nowcast, gold has room to test $4,075, then $4,160. If the Fed signals a December hike and PCE runs hot, support at $3,946 and $3,890 is back in focus. With Antam’s spread at about 8%, daily moves of a few tens of dollars rarely cover the cost of a short-term round trip.',
+          },
+          {
+            id: 'Bagi penabung rutin, pekan yang bergejolak seperti ini adalah alasan untuk menyebar pembelian (DCA) alih-alih menebak satu hari terbaik, dan membandingkan spread antarmerek sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For regular savers, a volatile week like this is a reason to spread purchases out (DCA) instead of guessing the single best day, and to compare spreads across brands before buying. This article is educational analysis, not personal financial advice; match your decisions to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Fed hampir pasti menahan suku bunga; yang menggerakkan emas adalah nada Warsh soal Desember.',
+      en: 'The Fed is all but certain to hold; what moves gold is Warsh’s tone on December.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-reclaims-4000-before-fed.png'),
+    publishedAt: Date.parse('2026-10-27T02:50:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold holds above $4,000 as Hormuz diplomacy cools crude ahead of Fed decision', url: 'https://www.kitco.com/news/article/2026-10-26/gold-holds-above-4000-hormuz-diplomacy-cools-crude-ahead-fed-decision-kitco' },
+      { title: 'Kitco: Gold rebounds above $4,000 as lower oil prices ease Fed tightening concerns', url: 'https://www.kitco.com/news/article/2026-10-26/gold-rebounds-above-4000-lower-oil-prices-ease-fed-tightening-concerns' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'FinanceFeeds: Gold Price Today: $4,010 Into Fed Week, Bull $4,075, Bear $3,890', url: 'https://financefeeds.com/gold-price-today-4010-monday-fed-week-28-october-pce-29-october-bull-4075-bear-3890' },
+      { title: 'Suara.com: Tahan Beli Dulu, Harga Emas Antam Mulai Naik Jadi Rp2,55 Juta/Gram', url: 'https://www.suara.com/bisnis/2026/10/27/093606/tahan-beli-dulu-harga-emas-antam-mulai-naik-jadi-rp255-jutagram' },
+      { title: 'Sumeks: Harga Emas Antam Naik Rp10.000 per Gram pada Selasa 27 Oktober 2026', url: 'https://sumeks.disway.id/headline/read/799731/harga-emas-antam-naik-rp10000-per-gram-pada-selasa-27-oktober-2026' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-near-4000-fed-week-opens-antam-flat',
+    category: 'market',
     title: {
       id: 'Emas Bertahan di Dekat $4.000 Saat Pekan Fed Dibuka, Antam Tetap Rp2.540.000',
       en: 'Gold Holds Near $4,000 as Fed Week Opens, Antam Steady at Rp2,540,000',
