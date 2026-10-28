@@ -55,9 +55,117 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-reclaims-4000-before-fed-antam-up-10000',
+    slug: 'gold-swings-60-to-4050-before-fed-antam-up-20000',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Berayun $60 ke $4.050 Jelang Fed, Antam Naik Rp20.000 ke Rp2.570.000',
+      en: 'Gold Swings $60 to $4,050 Ahead of the Fed, Antam Up Rp20,000 to Rp2,570,000',
+    },
+    excerpt: {
+      id: 'Emas sempat turun di bawah $4.000 lalu ditutup di $4.058 seiring reli Wall Street, meski data AS kuat. Fed diperkirakan menahan suku bunga dini hari nanti, tetapi peluang kenaikan sebelum akhir tahun sekitar 73%. Harga Antam 1 gram naik Rp20.000 ke Rp2.570.000, kenaikan kedua berturut-turut.',
+      en: 'Gold dipped below $4,000, then closed at $4,058 as Wall Street rallied, despite strong US data. The Fed is expected to hold early Thursday WIB, but the odds of a hike by year-end are about 73%. Antam’s 1-gram price rose Rp20,000 to Rp2,570,000, its second straight rise.',
+    },
+    sections: [
+      {
+        heading: { id: 'Dari $3.994 ke $4.058 dalam Sehari', en: 'From $3,994 to $4,058 in One Day' },
+        paragraphs: [
+          {
+            id: 'Selasa pagi waktu AS, Kitco mencatat spot emas turun 0,54% ke sekitar $3.994,60 karena ketidakpastian di Selat Hormuz menahan minyak di level tinggi: Brent sekitar $116,24 dan WTI sekitar $102,07. Perak juga turun 2,03% ke sekitar $52,75.',
+            en: 'On Tuesday morning US time, Kitco had spot gold down 0.54% to about $3,994.60 as uncertainty around the Strait of Hormuz kept oil high: Brent near $116.24 and WTI near $102.07. Silver also fell 2.03% to about $52.75.',
+          },
+          {
+            id: 'Sore harinya arah berbalik. Emas ditutup di $4.058,20, naik $42 (1,05%), seiring reli Wall Street: S&P 500 naik 0,60% dan Nasdaq 1,18%. Rabu pagi, Trading Economics menunjukkan emas sekitar $4.050, turun tipis 0,24% setelah dua sesi naik.',
+            en: 'By the afternoon the direction reversed. Gold closed at $4,058.20, up $42 (1.05%), as Wall Street rallied: the S&P 500 rose 0.60% and the Nasdaq 1.18%. On Wednesday morning, Trading Economics shows gold near $4,050, down a slight 0.24% after two sessions of gains.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Data Kuat, Tapi Emas Tetap Naik', en: 'Strong Data, Yet Gold Still Rose' },
+        paragraphs: [
+          {
+            id: 'Data AS Selasa tidak ramah bagi emas. Pesanan barang tahan lama September naik 1,8%, dan keyakinan konsumen Oktober melonjak ke 91,7 dari 84,2. Data seperti ini biasanya memperkuat alasan Fed untuk tetap ketat, apalagi inflasi konsumen September masih 3,7% secara tahunan.',
+            en: 'Tuesday’s US data was not friendly to gold. September durable goods orders rose 1.8%, and October consumer confidence jumped to 91.7 from 84.2. Data like this usually strengthens the case for the Fed to stay tight, especially with September consumer inflation still at 3.7% year on year.',
+          },
+          {
+            id: 'Faktor penahannya juga masih ada: yield Treasury 10 tahun sekitar 4,99% dan indeks dolar sekitar 102,23. Fed funds futures memberi peluang sekitar 90,6% Fed menahan suku bunga di 3,75–4,00%, tetapi peluang kenaikan lagi sebelum akhir tahun sekitar 73%. Jadi kenaikan emas kemarin lebih karena selera risiko dan minyak yang turun dari puncak paginya, bukan karena prospek suku bunga membaik.',
+            en: 'The headwinds are still there: the 10-year Treasury yield is about 4.99% and the dollar index about 102.23. Fed funds futures give about 90.6% odds that the Fed holds at 3.75–4.00%, but about 73% odds of another hike by year-end. So yesterday’s gain in gold came more from risk appetite and oil easing from its morning high than from a better rate outlook.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Penting', en: 'The Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Meski naik dua hari, emas masih turun 3,14% dalam sebulan dan sekitar 27,8% di bawah rekor $5.608,35 pada Januari 2026. Kitco mencatat resistance di $4.079 dan $4.100, dengan target $4.160–4.180 jika tembus. Support ada di $4.039 dan $4.015, lalu $3.975 dan $3.959.',
+            en: 'Despite two days of gains, gold is still down 3.14% on the month and about 27.8% below its $5,608.35 record from January 2026. Kitco puts resistance at $4,079 and $4,100, with targets of $4,160–4,180 on a break. Support is at $4,039 and $4,015, then $3,975 and $3,959.',
+          },
+          {
+            id: 'Penentunya datang dalam 36 jam. Keputusan Fed keluar Kamis 01.00 WIB, disusul konferensi pers Ketua Fed Kevin Warsh pukul 01.30 WIB. Lalu Kamis 19.30 WIB ada PDB kuartal III, PCE September dan klaim pengangguran. Nada Warsh soal Desember kemungkinan lebih penting daripada keputusan itu sendiri.',
+            en: 'The deciding moments come within 36 hours. The Fed decision is out at 01:00 WIB Thursday, followed by Fed Chair Kevin Warsh’s press conference at 01:30 WIB. Then on Thursday at 19:30 WIB come Q3 GDP, September PCE and jobless claims. Warsh’s tone on December probably matters more than the decision itself.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik Dua Hari, Galeri24 Makin Murah Relatif', en: 'Antam Up Two Days, Galeri24 Relatively Cheaper' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram naik Rp20.000 ke Rp2.570.000, kenaikan kedua berturut-turut setelah Rp10.000 kemarin. Buyback juga naik Rp20.000 ke Rp2.365.000 per gram, sehingga spread tetap Rp205.000 atau sekitar 8,0%. Artinya, pembeli hari ini perlu kenaikan harga sekitar 8% sebelum impas jika menjual kembali ke Antam.',
+            en: 'Antam’s 1-gram price rose Rp20,000 to Rp2,570,000, its second straight rise after Rp10,000 yesterday. Buyback also rose Rp20,000 to Rp2,365,000 per gram, so the spread stays at Rp205,000, or about 8.0%. That means a buyer today needs a price rise of about 8% to break even when selling back to Antam.',
+          },
+          {
+            id: 'Galeri24 naik Rp11.000 ke Rp2.478.000 (buyback Rp2.336.000, spread sekitar 5,7%), dan UBS naik Rp10.000 ke Rp2.501.000 (buyback Rp2.311.000, spread sekitar 7,6%). Karena Antam naik lebih banyak, selisihnya dengan Galeri24 melebar dari Rp83.000 ke Rp92.000, dan dengan UBS menjadi Rp69.000.',
+            en: 'Galeri24 rose Rp11,000 to Rp2,478,000 (buyback Rp2,336,000, spread about 5.7%), and UBS rose Rp10,000 to Rp2,501,000 (buyback Rp2,311,000, spread about 7.6%). Because Antam rose more, its gap over Galeri24 widened from Rp83,000 to Rp92,000, and over UBS it is now Rp69,000.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook Menjelang Fed', en: 'A Playbook Ahead of the Fed' },
+        paragraphs: [
+          {
+            id: 'Ayunan $60 dalam sehari menunjukkan pasar sangat sensitif menjelang Fed. Jika Warsh terdengar ketat soal Desember, support $4.015 dan $3.975 bisa diuji lagi. Jika nadanya lebih lunak, area $4.079–4.100 menjadi ujian berikutnya. Menebak arah sebelum keputusan berarti bertaruh pada satu konferensi pers.',
+            en: 'A $60 swing in one day shows how sensitive the market is ahead of the Fed. If Warsh sounds hawkish on December, support at $4,015 and $3,975 could be tested again. If his tone is softer, the $4,079–4,100 area becomes the next test. Guessing the direction before the decision means betting on one press conference.',
+          },
+          {
+            id: 'Bagi investor DCA, rutinitas tetap lebih penting daripada momen: membeli dengan jumlah tetap secara berkala meratakan harga di tengah ayunan seperti ini. Perhatikan juga spread: dengan selisih Rp92.000 ke Galeri24, membandingkan merek sebelum membeli bisa berarti lebih dari pilihan waktu. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For DCA investors, routine still matters more than timing: buying a fixed amount at regular intervals averages out the price through swings like this. Watch the spread too: with a Rp92,000 gap to Galeri24, comparing brands before buying can matter more than timing. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas naik meski data AS kuat. Yang menentukan berikutnya adalah nada Kevin Warsh soal Desember, bukan keputusan Fed dini hari nanti.',
+      en: 'Gold rose despite strong US data. What decides the next move is Kevin Warsh’s tone on December, not the Fed decision itself.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-swings-60-before-fed.png'),
+    publishedAt: Date.parse('2026-10-28T03:05:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      {
+        title: 'Kitco: Gold climbs above $4,050 as Wall Street rallies ahead of Fed decision',
+        url: 'https://www.kitco.com/news/article/2026-10-27/gold-climbs-above-4050-wall-street-rallies-ahead-fed-decision-kitco-pm',
+      },
+      {
+        title: 'Kitco: Precious metals weaken as Hormuz uncertainty keeps oil elevated ahead of Fed decision',
+        url: 'https://www.kitco.com/news/article/2026-10-27/precious-metals-weaken-hormuz-uncertainty-keeps-oil-elevated-ahead-fed',
+      },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      {
+        title: 'iNews: Harga Emas Antam Naik 2 Hari Berturut-turut, Buyback Ikut Melejit',
+        url: 'https://www.inews.id/news/nasional/harga-emas-antam-naik-2-hari-berturut-turut-buyback-ikut-melejit',
+      },
+      {
+        title: 'Kontan: Harga Emas Antam Hari Ini (28/10) Naik, Selisih Harga dan Buyback Tetap Rp 205.000',
+        url: 'https://momsmoney.kontan.co.id/news/harga-emas-antam-hari-ini-2810-naik-selisih-harga-dan-buyback-tetap-rp-205000',
+      },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-reclaims-4000-before-fed-antam-up-10000',
+    category: 'market',
     title: {
       id: 'Emas Rebut Lagi $4.000 Jelang Fed, Antam Naik Rp10.000 ke Rp2.550.000',
       en: 'Gold Reclaims $4,000 Ahead of the Fed, Antam Up Rp10,000 to Rp2,550,000',
