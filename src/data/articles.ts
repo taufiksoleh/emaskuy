@@ -55,9 +55,127 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-slips-below-4000-hot-gdp-pce-antam-down-13000',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Emas Tergelincir ke Bawah $4.000 Usai PDB dan PCE Panas, Antam Turun Rp13.000',
+      en: 'Gold Slips Below $4,000 After Hot GDP and PCE, Antam Down Rp13,000',
+    },
+    excerpt: {
+      id: 'PDB AS kuartal III tumbuh 3,4% dan PCE September naik ke 3,6% tahunan, menjaga taruhan kenaikan Fed Desember. Emas turun 1% ke $4.025 lalu sekitar $3.998 Jumat pagi. Harga Antam 1 gram turun Rp13.000 ke Rp2.546.000, sementara Galeri24 dan UBS tidak berubah.',
+      en: 'US Q3 GDP grew 3.4% and September PCE rose to 3.6% annually, keeping December Fed hike bets alive. Gold fell 1% to $4,025, then to about $3,998 on Friday morning. Antam’s 1-gram price fell Rp13,000 to Rp2,546,000, while Galeri24 and UBS were unchanged.',
+    },
+    sections: [
+      {
+        heading: { id: 'Data AS Lebih Panas dari Perkiraan', en: 'US Data Runs Hotter Than Expected' },
+        paragraphs: [
+          {
+            id: 'Perkiraan awal PDB AS kuartal III menunjukkan pertumbuhan 3,4% secara tahunan, di atas perkiraan sekitar 3,2% dan jauh dari 2,2% pada kuartal II. Belanja konsumen tumbuh 3,8%. Di saat yang sama, indeks PCE September naik 0,5% secara bulanan, kenaikan terbesar dalam enam bulan, sehingga inflasi tahunan naik dari 3,4% ke 3,6%.',
+            en: 'The advance estimate of US Q3 GDP showed 3.4% annualized growth, above the roughly 3.2% expected and well up from 2.2% in Q2. Consumer spending grew 3.8%. At the same time, the September PCE index rose 0.5% on the month, its biggest gain in six months, lifting annual inflation from 3.4% to 3.6%.',
+          },
+          {
+            id: 'PCE inti naik 0,3% bulanan, sesuai perkiraan, tetapi laju tahunannya naik dari 3,0% ke 3,1%. Emas bereaksi turun: Kitco mencatat spot melemah $42 atau 1,03% ke sekitar $4.024,60 di akhir sesi AS, dan perak jatuh 3,10% ke sekitar $52,18. Jumat pagi, Trading Economics menunjukkan emas sekitar $3.998, turun lagi 0,59%.',
+            en: 'Core PCE rose 0.3% on the month, as expected, but its annual pace rose from 3.0% to 3.1%. Gold reacted lower: Kitco had spot down $42, or 1.03%, to about $4,024.60 late in the US session, and silver fell 3.10% to about $52.18. On Friday morning, Trading Economics shows gold near $3,998, down another 0.59%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Data Kuat Menekan Emas', en: 'Why Strong Data Weighs on Gold' },
+        paragraphs: [
+          {
+            id: 'Ekonomi yang tumbuh cepat dengan inflasi yang naik memberi Fed alasan untuk menaikkan suku bunga, bukan menurunkannya. Sehari setelah Fed menahan bunga di 3,75–4,00% dengan dua dissent yang meminta kenaikan, data ini memperkuat skenario itu. Trading Economics mencatat pasar memberi peluang sekitar 75% kenaikan pada Desember menurut CME FedWatch.',
+            en: 'An economy growing fast with rising inflation gives the Fed a reason to raise rates, not cut them. A day after the Fed held at 3.75–4.00% with two dissents calling for a hike, this data strengthens that scenario. Trading Economics notes markets price about 75% odds of a December hike, according to CME FedWatch.',
+          },
+          {
+            id: 'Yield Treasury 10 tahun bertahan dekat 5,0% dan indeks dolar sekitar 101,73. Minyak tetap mahal, Brent sekitar $114,88 dan WTI sekitar $102, karena perundingan AS–Iran belum menemukan titik temu. Di Eropa, ECB menahan suku bunga di 2,50% dan membuka kemungkinan pengetatan bila tekanan inflasi berlanjut. Bagi emas yang tidak memberi bunga, kombinasi ini berat.',
+            en: 'The 10-year Treasury yield holds near 5.0% and the dollar index is about 101.73. Oil stays expensive, with Brent near $114.88 and WTI near $102, as US–Iran talks have yet to find common ground. In Europe, the ECB held its rate at 2.50% and left the door open to tightening if inflation pressure persists. For gold, which pays no interest, this mix is heavy.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Penting', en: 'The Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun sekitar 4,3% dalam sebulan dan sekitar 28,7% di bawah rekor $5.608,35 pada Januari 2026. Kitco menempatkan resistance di $4.084 lalu $4.146, dengan support di $4.024 lalu $3.986. Analis yang dikutip Vibiznews melihat support spot di zona $4.000–3.975 dan resistance di $4.045–4.070.',
+            en: 'Trading Economics shows gold down about 4.3% on the month and about 28.7% below its $5,608.35 record from January 2026. Kitco puts resistance at $4,084, then $4,146, with support at $4,024, then $3,986. Analysts quoted by Vibiznews see spot support in the $4,000–3,975 zone and resistance at $4,045–4,070.',
+          },
+          {
+            id: 'Bertahan di bawah $4.000 menjadi sinyal bahwa penjual masih memegang kendali, dengan ujian berikutnya di $3.986–3.975. Kembali di atas $4.045–4.070 dibutuhkan untuk meredakan tekanan. Agenda terdekat adalah keputusan Bank of Japan pada Jumat ini, lalu rapat Fed 8–9 Desember yang kini menjadi fokus utama pasar.',
+            en: 'Holding below $4,000 would signal that sellers remain in control, with the next test at $3,986–3,975. A move back above $4,045–4,070 is needed to ease the pressure. The nearest event is the Bank of Japan decision this Friday, followed by the Fed’s December 8–9 meeting, now the market’s main focus.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Galeri24 dan UBS Diam', en: 'Antam Down, Galeri24 and UBS Unchanged' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp13.000 ke Rp2.546.000, penurunan hari kedua berturut-turut. Buyback juga turun Rp13.000 ke Rp2.341.000 per gram, sehingga spread tetap Rp205.000 atau sekitar 8,1%. Artinya, pembeli hari ini perlu kenaikan harga sekitar 8% sebelum impas jika menjual kembali ke Antam.',
+            en: 'Antam’s 1-gram price fell Rp13,000 to Rp2,546,000, its second straight decline. Buyback also fell Rp13,000 to Rp2,341,000 per gram, so the spread stays at Rp205,000, or about 8.1%. That means a buyer today needs a price rise of about 8% to break even when selling back to Antam.',
+          },
+          {
+            id: 'Galeri24 tidak berubah di Rp2.499.000 (buyback Rp2.355.000, spread sekitar 5,8%), begitu pula UBS di Rp2.524.000 (buyback Rp2.329.000, spread sekitar 7,7%). Karena Antam turun sendirian, selisihnya dengan Galeri24 menyempit dari Rp60.000 ke Rp47.000, dan dengan UBS dari Rp35.000 ke Rp22.000. Buyback Galeri24 kini Rp14.000 di atas Antam.',
+            en: 'Galeri24 is unchanged at Rp2,499,000 (buyback Rp2,355,000, spread about 5.8%), as is UBS at Rp2,524,000 (buyback Rp2,329,000, spread about 7.7%). Because only Antam fell, its gap over Galeri24 narrowed from Rp60,000 to Rp47,000, and over UBS from Rp35,000 to Rp22,000. Galeri24’s buyback is now Rp14,000 above Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook Saat Emas di Bawah $4.000', en: 'A Playbook With Gold Below $4,000' },
+        paragraphs: [
+          {
+            id: 'Tekanan saat ini datang dari suku bunga dan yield, bukan dari hilangnya permintaan struktural. Selama pasar menimbang kenaikan Desember, emas cenderung sensitif terhadap setiap data inflasi dan tenaga kerja AS. Data yang mendingin bisa memicu pantulan ke $4.045–4.084, sedangkan data yang terus panas bisa menguji $3.986–3.975.',
+            en: 'The current pressure comes from rates and yields, not from a loss of structural demand. While markets weigh a December hike, gold tends to be sensitive to every US inflation and jobs report. Cooling data could spark a bounce toward $4,045–4,084, while persistently hot data could test $3,986–3,975.',
+          },
+          {
+            id: 'Bagi investor DCA, membeli dengan jumlah tetap secara berkala tetap lebih masuk akal daripada menebak dasar harga, dan membandingkan merek penting karena spread berbeda dari sekitar 5,8% hingga 8,1%. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For DCA investors, buying a fixed amount at regular intervals still makes more sense than guessing the bottom, and comparing brands matters because spreads range from about 5.8% to 8.1%. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'PDB 3,4% dan PCE 3,6% memberi Fed alasan untuk naik, dan emas pun tergelincir ke bawah $4.000.',
+      en: 'GDP at 3.4% and PCE at 3.6% give the Fed a reason to hike, and gold slipped below $4,000.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-below-4000-hot-gdp-pce.png'),
+    publishedAt: Date.parse('2026-10-30T03:05:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      {
+        title: 'Kitco: Gold, silver fall as strong U.S. GDP, inflation support Fed tightening bets',
+        url: 'https://www.kitco.com/news/article/2026-10-29/gold-silver-fall-strong-us-gdp-inflation-support-fed-tightening-bets-kitco',
+      },
+      {
+        title: 'Kitco: Spot gold at $4,025/oz as U.S. GDP growth rises 3.4% in Q3, core PCE rises 2.5%',
+        url: 'https://www.kitco.com/news/article/2026-10-29/spot-gold-4025oz-us-gdp-growth-rises-34-q3-core-pce-rises-25',
+      },
+      {
+        title: 'Kitco: Gold falls toward $4,000 as core PCE rises, U.S. growth accelerates',
+        url: 'https://www.kitco.com/news/article/2026-10-29/gold-falls-toward-4000-core-pce-rises-us-growth-accelerates-kitco-am-report',
+      },
+      {
+        title: 'Trading Economics: Gold price',
+        url: 'https://tradingeconomics.com/commodity/gold',
+      },
+      {
+        title: 'Vibiznews: Harga Beli dan Buyback Emas Antam Hari ini Jumat 30 Oktober 2026, Kompak Turun Rp13.000',
+        url: 'https://vibiznews.com/index.php/2026/10/30/harga-beli-dan-buyback-emas-antam-hari-ini-jumat-30-oktober-2026-kompak-turun-rp13-000/',
+      },
+      {
+        title: 'Medcom.id: Tren Penurunan Berlanjut, Harga Emas Antam Hari Ini Parkir di Rp2.546.000/Gram',
+        url: 'https://www.medcom.id/ekonomi/keuangan/9K5yoalK-tren-penurunan-berlanjut-harga-emas-antam-hari-ini-parkir-di-rp2-546-000-gram',
+      },
+      {
+        title: 'Galeri 24: Harga emas hari ini',
+        url: 'https://galeri24.co.id/harga-emas/',
+      },
+    ],
+  },
+  {
     slug: 'fed-holds-10-2-hawkish-dissents-gold-4050-antam-down-11000',
     category: 'macro',
-    featured: true,
     title: {
       id: 'Fed Tahan Bunga dengan Dua Dissent, Emas di $4.050 dan Antam Turun Rp11.000',
       en: 'Fed Holds With Two Hawkish Dissents, Gold Near $4,050 and Antam Down Rp11,000',

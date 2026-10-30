@@ -1,57 +1,49 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T10:05:00+07:00",
-  "sentiment": "neutral",
+  "generatedAt": "2026-10-30T10:05:00+07:00",
+  "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Fed menahan suku bunga di 3,75–4,00% dengan voting 10-2; Lisa Cook dan Beth Hammack memilih kenaikan 25 bp. Kitco mencatat spot emas sempat turun 0,60% ke $4.035,48 setelah keputusan, lalu stabil sekitar $4.056,80 di akhir sesi AS. Kamis pagi, Trading Economics menunjukkan emas sekitar $4.048 (turun sekitar 0,5%), turun 2,65% dalam sebulan dan sekitar 27,8% di bawah rekor $5.608,35.",
-      "en": "The Fed held rates at 3.75–4.00% in a 10-2 vote; Lisa Cook and Beth Hammack voted for a 25 bp hike. Kitco had spot gold dipping 0.60% to $4,035.48 after the decision, then steadying near $4,056.80 late in the US session. On Thursday morning, Trading Economics shows gold near $4,048 (down about 0.5%), down 2.65% on the month and about 27.8% below its $5,608.35 record."
+      "id": "Data AS yang kuat menekan emas. PDB kuartal III tumbuh 3,4% (perkiraan sekitar 3,2%, kuartal II 2,2%), PCE September naik 0,5% bulanan dan 3,6% tahunan, sementara PCE inti 3,1% tahunan. Kitco mencatat spot emas turun $42 (1,03%) ke sekitar $4.024,60 pada Kamis; Jumat pagi Trading Economics menunjukkan emas sekitar $3.998, turun 0,59%.",
+      "en": "Strong US data weighed on gold. Q3 GDP grew 3.4% (about 3.2% expected, 2.2% in Q2), September PCE rose 0.5% on the month and 3.6% on the year, and core PCE ran at 3.1% annually. Kitco had spot gold down $42 (1.03%) to about $4,024.60 on Thursday; on Friday morning Trading Economics shows gold near $3,998, down 0.59%."
     },
     {
-      "id": "Ketua Fed Kevin Warsh tidak mau berkomitmen soal Desember: ia menolak forward guidance di luar krisis, tetapi menegaskan kesiapan bertindak. Futures memberi peluang sekitar 83% kenaikan 25 bp pada rapat 8–9 Desember. Yield Treasury 10 tahun dekat 5,0%, 2 tahun di atas 4,76%, indeks dolar sekitar 102,13, Brent sekitar $115 dan WTI sekitar $102.",
-      "en": "Fed Chair Kevin Warsh would not commit on December: he rejected forward guidance outside a crisis but stressed the Fed’s readiness to act. Futures give about 83% odds of a 25 bp hike at the December 8–9 meeting. The 10-year Treasury yield is near 5.0%, the 2-year above 4.76%, the dollar index about 102.13, Brent about $115 and WTI about $102."
+      "id": "Data ini menjaga taruhan kenaikan Fed Desember: Trading Economics mencatat peluang sekitar 75% menurut CME FedWatch. Yield Treasury 10 tahun dekat 5,0%, indeks dolar sekitar 101,73, Brent sekitar $114,88 dan WTI sekitar $102. ECB menahan suku bunga di 2,50%. Emas turun sekitar 4,3% dalam sebulan dan sekitar 28,7% di bawah rekor $5.608,35.",
+      "en": "The data keeps December Fed hike bets alive: Trading Economics cites about 75% odds per CME FedWatch. The 10-year Treasury yield is near 5.0%, the dollar index about 101.73, Brent about $114.88 and WTI about $102. The ECB held its rate at 2.50%. Gold is down about 4.3% on the month and about 28.7% below its $5,608.35 record."
     },
     {
-      "id": "Agenda berikutnya: PDB kuartal III, PCE September dan klaim pengangguran AS Kamis 19.30 WIB. Kitco mencatat resistance $4.059, $4.079–4.103 dan rata-rata 20 hari dekat $4.124, serta support $4.039, $4.015, $3.975 dan $3.942–3.936; tembus di bawah $4.015 menjadi pemicu bagi penjual. Sucden Financial melihat risiko turun ke sekitar $3.900 sebelum rapat Desember.",
-      "en": "Next up: US Q3 GDP, September PCE and jobless claims on Thursday at 19:30 WIB. Kitco puts resistance at $4,059, $4,079–4,103 and the 20-day average near $4,124, with support at $4,039, $4,015, $3,975 and $3,942–3,936; a break below $4,015 is the sellers’ trigger. Sucden Financial sees a risk of a drop to about $3,900 before the December meeting."
+      "id": "Kitco mencatat resistance di $4.084 lalu $4.146, serta support $4.024 lalu $3.986. Analis yang dikutip Vibiznews melihat support spot di $4.000–3.975 dan resistance di $4.045–4.070. Bertahan di bawah $4.000 membuka ujian ke $3.986–3.975. Agenda dekat: keputusan Bank of Japan Jumat ini dan rapat Fed 8–9 Desember.",
+      "en": "Kitco puts resistance at $4,084, then $4,146, with support at $4,024, then $3,986. Analysts quoted by Vibiznews see spot support at $4,000–3,975 and resistance at $4,045–4,070. Holding below $4,000 opens a test of $3,986–3,975. Near-term events: the Bank of Japan decision this Friday and the Fed meeting on December 8–9."
     },
     {
-      "id": "Harga Antam 1 gram turun Rp11.000 ke Rp2.559.000 setelah dua hari naik; buyback turun Rp11.000 ke Rp2.354.000 (spread Rp205.000, sekitar 8,0%). Galeri24 justru naik ke Rp2.499.000 (buyback Rp2.355.000, spread sekitar 5,8%) dan UBS ke Rp2.524.000 (buyback Rp2.329.000, spread sekitar 7,7%). Secara struktural, Sucden mencatat PBoC membeli 23 ton pada September dan ETF emas mencetak rekor 101,55 juta ons.",
-      "en": "Antam’s 1-gram price fell Rp11,000 to Rp2,559,000 after two days of gains; buyback fell Rp11,000 to Rp2,354,000 (a Rp205,000 spread, about 8.0%). Galeri24 instead rose to Rp2,499,000 (buyback Rp2,355,000, spread about 5.8%) and UBS to Rp2,524,000 (buyback Rp2,329,000, spread about 7.7%). Structurally, Sucden notes the PBoC bought 23 tonnes in September and gold ETFs hit a record 101.55 million oz."
+      "id": "Harga Antam 1 gram turun Rp13.000 ke Rp2.546.000, penurunan hari kedua; buyback turun Rp13.000 ke Rp2.341.000 (spread Rp205.000, sekitar 8,1%). Galeri24 tidak berubah di Rp2.499.000 (buyback Rp2.355.000, spread sekitar 5,8%), begitu pula UBS di Rp2.524.000 (buyback Rp2.329.000, spread sekitar 7,7%). Selisih Antam dengan Galeri24 menyempit ke Rp47.000.",
+      "en": "Antam’s 1-gram price fell Rp13,000 to Rp2,546,000, a second daily decline; buyback fell Rp13,000 to Rp2,341,000 (a Rp205,000 spread, about 8.1%). Galeri24 is unchanged at Rp2,499,000 (buyback Rp2,355,000, spread about 5.8%), as is UBS at Rp2,524,000 (buyback Rp2,329,000, spread about 7.7%). Antam’s gap over Galeri24 narrowed to Rp47,000."
     }
   ],
   "sources": [
     {
-      "title": "Kitco: Gold steadies, silver falls as Fed holds rates, two officials favor hike",
-      "url": "https://www.kitco.com/news/article/2026-10-28/gold-steadies-silver-falls-fed-holds-rates-two-officials-favor-hike-kitco"
+      "title": "Kitco: Gold, silver fall as strong U.S. GDP, inflation support Fed tightening bets",
+      "url": "https://www.kitco.com/news/article/2026-10-29/gold-silver-fall-strong-us-gdp-inflation-support-fed-tightening-bets-kitco"
     },
     {
-      "title": "Kitco: Gold price drops to $4,035/oz as Fed votes 10-2 in favor of rate hold",
-      "url": "https://www.kitco.com/news/article/2026-10-28/gold-price-drops-4035oz-fed-votes-10-2-favor-rate-hold"
+      "title": "Kitco: Spot gold at $4,025/oz as U.S. GDP growth rises 3.4% in Q3, core PCE rises 2.5%",
+      "url": "https://www.kitco.com/news/article/2026-10-29/spot-gold-4025oz-us-gdp-growth-rises-34-q3-core-pce-rises-25"
     },
     {
-      "title": "Fat Tail: Warsh Press Conference: December, Dissents and the VIX",
-      "url": "https://fattail.ai/warsh-press-conference-october-2026/"
+      "title": "Kitco: Gold falls toward $4,000 as core PCE rises, U.S. growth accelerates",
+      "url": "https://www.kitco.com/news/article/2026-10-29/gold-falls-toward-4000-core-pce-rises-us-growth-accelerates-kitco-am-report"
     },
     {
       "title": "Trading Economics: Gold price",
       "url": "https://tradingeconomics.com/commodity/gold"
     },
     {
-      "title": "Kitco: Gold prices could fall to $3,900, silver to $50 as Fed tightening pressures precious metals",
-      "url": "https://www.kitco.com/news/article/2026-10-28/gold-prices-could-fall-3900-silver-50-fed-tightening-pressures-precious"
+      "title": "Vibiznews: Harga Beli dan Buyback Emas Antam Hari ini Jumat 30 Oktober 2026, Kompak Turun Rp13.000",
+      "url": "https://vibiznews.com/index.php/2026/10/30/harga-beli-dan-buyback-emas-antam-hari-ini-jumat-30-oktober-2026-kompak-turun-rp13-000/"
     },
     {
-      "title": "investingLive: Recap: Fed holds at 3.75%-4% in 10-2 vote as Cook dissents for a hike, December move in focus",
-      "url": "https://investinglive.com/central-banks/recap-fed-holds-at-3-75-4-in-10-2-vote-as-cook-dissents-for-a-hike-december-move-in-focus/"
-    },
-    {
-      "title": "iNews: Harga Emas Antam Hari Ini Turun Rp11.000, per Gram Dijual Segini",
-      "url": "https://www.inews.id/news/nasional/harga-emas-antam-hari-ini-turun-rp11000-per-gram-dijual-segini"
-    },
-    {
-      "title": "Investor.id: Harga Emas Antam (ANTM) Hari Ini, Kamis 29 Oktober 2026: Terjungkal",
-      "url": "https://investor.id/market/459847/harga-emas-antam-antm-hari-ini-kamis-29-oktober-2026-terjungkal"
+      "title": "Medcom.id: Tren Penurunan Berlanjut, Harga Emas Antam Hari Ini Parkir di Rp2.546.000/Gram",
+      "url": "https://www.medcom.id/ekonomi/keuangan/9K5yoalK-tren-penurunan-berlanjut-harga-emas-antam-hari-ini-parkir-di-rp2-546-000-gram"
     },
     {
       "title": "Galeri 24: Harga emas hari ini",
