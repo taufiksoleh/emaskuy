@@ -55,9 +55,127 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-slips-below-4000-hot-gdp-pce-antam-down-13000',
+    slug: 'gold-plunges-below-3900-year-low-antam-buyback-down-65000',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Ambruk ke Bawah $3.900, Terendah dalam Setahun; Buyback Antam Anjlok Rp65.000',
+      en: 'Gold Plunges Below $3,900 to a One-Year Low; Antam Buyback Drops Rp65,000',
+    },
+    excerpt: {
+      id: 'Emas turun 3,62% dalam sehari ke $3.875 dan menyentuh level terlemah dalam lebih dari setahun, tertekan taruhan kenaikan Fed dan minyak yang naik akibat insiden di Selat Hormuz. Harga Antam 1 gram turun Rp20.000 ke Rp2.526.000, tetapi buyback anjlok Rp65.000 sehingga spread melebar ke sekitar 9,9%.',
+      en: 'Gold fell 3.62% in a day to $3,875 and touched its weakest level in more than a year, pressured by Fed hike bets and oil lifted by an incident in the Strait of Hormuz. Antam’s 1-gram price fell Rp20,000 to Rp2,526,000, but buyback dropped Rp65,000, widening the spread to about 9.9%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Jumat yang Berat untuk Logam Mulia', en: 'A Heavy Friday for Precious Metals' },
+        paragraphs: [
+          {
+            id: 'Emas tertekan tajam di akhir pekan. Kitco mencatat spot di $3.875,05 pada Jumat malam, turun 3,62% dalam sehari dan 3,74% dalam sepekan. Harga sempat menyentuh $3.870,25, level terlemah dalam lebih dari setahun, padahal pekan ini dibuka di $3.994,95 dan sempat mencapai $4.082,50 menjelang keputusan Fed.',
+            en: 'Gold sold off hard into the weekend. Kitco had spot at $3,875.05 on Friday evening, down 3.62% on the day and 3.74% on the week. Price touched $3,870.25, its weakest level in more than a year, after the week opened at $3,994.95 and reached $4,082.50 ahead of the Fed decision.',
+          },
+          {
+            id: 'Tekanan merata di semua logam. USAGold mencatat perak anjlok 5,90% ke $49,09, kembali di bawah $50, dan platinum turun 4,22% ke $1.425,20. Rasio emas-perak naik dari 76,8 ke 79,4. USAGold menilai penjualan ini lebih mirip pelepasan posisi untuk mencari likuiditas daripada perubahan pandangan jangka panjang.',
+            en: 'The pressure hit every metal. USAGold says silver dropped 5.90% to $49.09, back below $50, and platinum fell 4.22% to $1,425.20. The gold-silver ratio rose from 76.8 to 79.4. USAGold reads the selling as deleveraging for liquidity rather than a change in long-term views.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed, Minyak, dan Selat Hormuz', en: 'The Fed, Oil and the Strait of Hormuz' },
+        paragraphs: [
+          {
+            id: 'Latar belakangnya sudah terbentuk sepanjang pekan. Fed menahan bunga di 3,75–4,00% dengan dua dissent yang meminta kenaikan, lalu PDB kuartal III tumbuh 3,4% dan PCE tahunan naik ke 3,6%. Trading Economics mencatat pasar memberi peluang sekitar 75% kenaikan pada Desember menurut CME FedWatch. Kenaikan bunga membuat emas, yang tidak memberi imbal hasil, kurang menarik.',
+            en: 'The backdrop built up all week. The Fed held at 3.75–4.00% with two dissents calling for a hike, then Q3 GDP grew 3.4% and annual PCE rose to 3.6%. Trading Economics notes markets price about 75% odds of a December hike, according to CME FedWatch. Higher rates make gold, which pays no yield, less attractive.',
+          },
+          {
+            id: 'Minyak menambah tekanan. Yahoo Finance melaporkan sebuah tanker di Selat Hormuz terkena bahan peledak menurut UKMTO, dan Trading Economics mencatat Brent naik ke sekitar $113,43 serta WTI ke $104,12. Minyak mahal memperkuat argumen bahwa bunga akan tinggi lebih lama. Yield obligasi AS berada di sekitar 4,93% dan indeks dolar di 101,96.',
+            en: 'Oil added to the pressure. Yahoo Finance reports that a tanker in the Strait of Hormuz was hit by explosives, according to UKMTO, and Trading Economics shows Brent up to about $113.43 and WTI to $104.12. Expensive oil strengthens the case for rates staying high for longer. The US bond yield is about 4.93% and the dollar index 101.96.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level yang Dipantau Pekan Depan', en: 'Levels to Watch Next Week' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun 7,23% dalam sebulan, dan pada $3.875 harganya sekitar 30,9% di bawah rekor $5.608,35 pada Januari 2026. Analis yang dikutip Kitco menilai zona support $3.900–4.000 sudah jebol. Marc Chandler melihat peluang turun ke $3.750–3.850, sementara Jesse Colombo menyebut support berikutnya di sekitar $3.500. USAGold juga mencatat harga sudah menembus low Juli di sekitar $3.941.',
+            en: 'Trading Economics shows gold down 7.23% on the month, and at $3,875 it sits about 30.9% below its $5,608.35 record from January 2026. Analysts quoted by Kitco see the $3,900–4,000 support zone as broken. Marc Chandler sees room to fall to $3,750–3,850, while Jesse Colombo puts the next support around $3,500. USAGold also notes price has broken the July low near $3,941.',
+          },
+          {
+            id: 'Sentimen terbelah. Dalam survei Kitco, 63% analis Wall Street memperkirakan emas turun pekan depan, sementara 53% investor ritel masih memperkirakan naik. Agenda padat: ISM manufaktur Senin, pemilu sela AS dan JOLTS Selasa, ADP dan ISM jasa Rabu, keputusan Bank of England Kamis, lalu data payroll Oktober Jumat. Data tenaga kerja yang melemah bisa meredakan taruhan kenaikan Fed.',
+            en: 'Sentiment is split. In Kitco’s survey, 63% of Wall Street analysts expect lower gold next week, while 53% of retail investors still expect gains. The calendar is full: ISM manufacturing Monday, the US midterms and JOLTS Tuesday, ADP and ISM services Wednesday, the Bank of England decision Thursday, then October payrolls Friday. Weaker jobs data could cool Fed hike bets.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Buyback Antam Turun Lebih Dalam', en: 'Antam’s Buyback Falls Further' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp20.000 ke Rp2.526.000, penurunan hari ketiga berturut-turut. Yang lebih mencolok, buyback anjlok Rp65.000 ke Rp2.276.000 per gram. Spread pun melebar dari Rp205.000 ke Rp250.000, atau sekitar 9,9%. Artinya, pembeli hari ini perlu kenaikan harga hampir 10% sebelum impas jika menjual kembali ke Antam.',
+            en: 'Antam’s 1-gram price fell Rp20,000 to Rp2,526,000, its third straight decline. More striking, buyback dropped Rp65,000 to Rp2,276,000 per gram. The spread widened from Rp205,000 to Rp250,000, or about 9.9%. That means a buyer today needs a price rise of almost 10% to break even when selling back to Antam.',
+          },
+          {
+            id: 'Galeri24 turun Rp21.000 ke Rp2.478.000 (buyback Rp2.337.000, spread sekitar 5,7%), dan UBS turun Rp23.000 ke Rp2.501.000 (buyback Rp2.312.000, spread sekitar 7,6%). Selisih harga jual Antam dengan Galeri24 kini Rp48.000. Di sisi jual kembali, buyback Galeri24 Rp61.000 dan UBS Rp36.000 di atas Antam, selisih yang penting bagi yang berencana menjual.',
+            en: 'Galeri24 fell Rp21,000 to Rp2,478,000 (buyback Rp2,337,000, spread about 5.7%), and UBS fell Rp23,000 to Rp2,501,000 (buyback Rp2,312,000, spread about 7.6%). Antam’s selling price is now Rp48,000 above Galeri24’s. On the sell-back side, Galeri24’s buyback is Rp61,000 and UBS’s Rp36,000 above Antam’s, a gap that matters for anyone planning to sell.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook Saat Emas di Titik Terendah Setahun', en: 'A Playbook at a One-Year Low' },
+        paragraphs: [
+          {
+            id: 'Tekanan saat ini datang dari suku bunga, minyak, dan pelepasan posisi, bukan dari satu kabar buruk tentang emas sendiri. Jika payroll Oktober dan data ISM melemah, emas bisa memantul ke zona $3.900–4.000 yang kini menjadi resistance. Jika data tetap kuat dan minyak terus naik, ujian ke $3.750–3.850 menjadi skenario yang dipantau analis.',
+            en: 'The current pressure comes from rates, oil and deleveraging, not from bad news about gold itself. If October payrolls and the ISM data weaken, gold could bounce back toward the $3,900–4,000 zone, which is now resistance. If the data stays strong and oil keeps rising, a test of $3,750–3,850 is the scenario analysts are watching.',
+          },
+          {
+            id: 'Bagi investor DCA, membeli dengan jumlah tetap secara berkala tetap lebih masuk akal daripada menebak dasar harga, apalagi saat volatilitas tinggi. Spread Antam yang kini sekitar 9,9% juga mengingatkan bahwa emas batangan cocok untuk horizon panjang, dan membandingkan merek layak dilakukan. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For DCA investors, buying a fixed amount at regular intervals still makes more sense than guessing the bottom, especially when volatility is high. Antam’s spread, now about 9.9%, is also a reminder that gold bars suit long horizons, and comparing brands is worth the effort. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas turun 3,62% dalam sehari ke level terlemah setahun, dan buyback Antam turun tiga kali lebih dalam dari harga jualnya.',
+      en: 'Gold fell 3.62% in a day to a one-year low, and Antam’s buyback fell more than three times as far as its selling price.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-below-3900-year-low.png'),
+    publishedAt: Date.parse('2026-10-31T03:30:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      {
+        title: 'Kitco: Wall Street abandons ship after gold sinks below $3,900/oz, Main Street maintains bullish majority bias as midterms, payrolls loom',
+        url: 'https://www.kitco.com/news/article/2026-10-30/wall-street-abandons-ship-after-gold-sinks-below-3900oz-main-street',
+      },
+      {
+        title: 'USAGold: Gold Tumbles 3% To $3,897 As Fed Hike Bets Deepen; Silver Sinks Below $50',
+        url: 'https://www.usagold.com/daily-precious-metals-market-report-october-30-2026/',
+      },
+      {
+        title: 'Trading Economics: Gold price',
+        url: 'https://tradingeconomics.com/commodity/gold',
+      },
+      {
+        title: 'Yahoo Finance: Gold price today, Friday, October 30, 2026: Gold slips below $4,000 as Mid-East concerns mount',
+        url: 'https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-friday-october-30-2026-gold-slips-below-4000-as-mid-east-concerns-mount-111451238.html',
+      },
+      {
+        title: 'ANTARA: Harga emas Antam lanjutkan tren penurunan menjadi Rp2,526 juta/gr',
+        url: 'https://www.antaranews.com/berita/5823123/harga-emas-antam-lanjutkan-tren-penurunan-menjadi-rp2526-juta-gr',
+      },
+      {
+        title: 'tvOne News: Harga Emas Antam Hari Ini 31 Oktober 2026 Lagi-Lagi Menurun, Kini Jadi Rp2.526.000 per Gram',
+        url: 'https://www.tvonenews.com/ekonomi/475873-harga-emas-antam-hari-ini-31-oktober-2026-lagi-lagi-menurun-kini-jadi-rp2526000-per-gram',
+      },
+      {
+        title: 'Galeri 24: Harga emas hari ini',
+        url: 'https://galeri24.co.id/harga-emas/',
+      },
+    ],
+  },
+  {
+    slug: 'gold-slips-below-4000-hot-gdp-pce-antam-down-13000',
+    category: 'market',
     title: {
       id: 'Emas Tergelincir ke Bawah $4.000 Usai PDB dan PCE Panas, Antam Turun Rp13.000',
       en: 'Gold Slips Below $4,000 After Hot GDP and PCE, Antam Down Rp13,000',
