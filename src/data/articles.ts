@@ -55,9 +55,119 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-plunges-below-3900-year-low-antam-buyback-down-65000',
+    slug: 'gold-ends-october-down-7-percent-midterms-payrolls-week',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Tutup Oktober Turun 7,2% di $3.875; Pekan Pemilu Sela dan Payroll Menanti',
+      en: 'Gold Ends October Down 7.2% at $3,875; Midterms and Payrolls Week Ahead',
+    },
+    excerpt: {
+      id: 'Emas mengakhiri Oktober di level terlemah setahun, turun 3,7% dalam sepekan dan sekitar 7,2% dalam sebulan. Pekan ini pasar menghadapi ISM, pemilu sela AS dan data payroll. Antam masih Rp2.526.000 pada Minggu, sementara Galeri24 dan UBS sudah turun sekitar Rp35.000.',
+      en: 'Gold ended October at a one-year low, down 3.7% on the week and about 7.2% on the month. This week the market faces ISM, the US midterms and payrolls. Antam is still at Rp2,526,000 on Sunday, while Galeri24 and UBS have already fallen about Rp35,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Oktober Ditutup dengan Luka', en: 'October Closes Bruised' },
+        paragraphs: [
+          {
+            id: 'Emas menutup bulan dengan tekanan berat. Financefeeds mencatat spot ditutup Jumat di $3.875,19, sementara kontrak Desember COMEX selesai di $3.898,90, turun 3,3% dalam sehari. Dalam sepekan emas turun 3,7%, dan sepanjang Oktober sekitar 7,2%, penurunan bulanan kedua berturut-turut.',
+            en: 'Gold closed the month under heavy pressure. Financefeeds has spot closing Friday at $3,875.19, while December COMEX futures settled at $3,898.90, down 3.3% on the day. Gold fell 3.7% on the week and about 7.2% in October, a second straight monthly decline.',
+          },
+          {
+            id: 'Kitco mencatat pekan ini dibuka di $3.994,95, sempat naik ke $4.082,50 pada Rabu, lalu jatuh ke $3.870,25 pada Jumat. Pasar logam tutup di akhir pekan, sehingga harga Jumat menjadi titik awal ketika sesi Asia dibuka Senin, 2 November.',
+            en: 'Kitco says the week opened at $3,994.95, rose to $4,082.50 on Wednesday, then fell to $3,870.25 on Friday. Metals markets are shut over the weekend, so Friday’s price is the starting point when the Asian session opens on Monday, November 2.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Bunga Masih Menjadi Beban', en: 'Why Rates Still Weigh' },
+        paragraphs: [
+          {
+            id: 'Fed menahan bunga di 3,75%–4,00% pada 28 Oktober, tetapi dua pejabat meminta kenaikan segera. Data PCE September menunjukkan inflasi 3,6% yoy dan PDB kuartal III tumbuh 3,4% tahunan. Kombinasi ini membuat pasar memperhitungkan kenaikan lagi: Polymarket memberi peluang 70% untuk kenaikan sebelum akhir tahun.',
+            en: 'The Fed held rates at 3.75%–4.00% on October 28, but two officials called for an immediate hike. September PCE showed inflation at 3.6% y/y and Q3 GDP grew 3.4% annualised. Together they have the market pricing another hike: Polymarket puts the odds of a hike before year-end at 70%.',
+          },
+          {
+            id: 'Yield Treasury 10 tahun berada di 4,93%, tinggi bagi aset tanpa imbal hasil seperti emas. Pasar saham juga goyah: S&P 500 turun 1,82% dan Nasdaq 2,86% pada Jumat. Trading Economics menyebut kemungkinan penjualan paksa dan margin call, ditambah permintaan fisik yang lesu di Asia, sebagai faktor tambahan.',
+            en: 'The 10-year Treasury yield is at 4.93%, high for a non-yielding asset like gold. Stocks wobbled too: the S&P 500 fell 1.82% and the Nasdaq 2.86% on Friday. Trading Economics cites possible forced selling and margin calls, plus subdued physical demand in Asia, as added factors.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level dan Agenda Pekan Ini', en: 'Levels and This Week’s Calendar' },
+        paragraphs: [
+          {
+            id: 'Financefeeds memetakan tiga skenario. Skenario dasar $3.840–3.950 jika penjualan mereda. Skenario turun ke $3.800, sekitar 1,9% di bawah penutupan, jika data kerja kuat dan aksi jual paksa berlanjut. Skenario naik ke $4.000, sekitar 3,2% di atas, jika saham stabil dan data kerja mendinginkan taruhan kenaikan bunga.',
+            en: 'Financefeeds maps three scenarios. The base case is $3,840–3,950 if selling slows. The bear case is $3,800, about 1.9% below the close, if jobs data is strong and forced selling persists. The bull case is $4,000, about 3.2% above, if stocks stabilise and jobs data cools hike bets.',
+          },
+          {
+            id: 'Survei Kitco menunjukkan 10 dari 16 analis Wall Street (63%) memperkirakan emas turun, sementara 53% responden ritel masih memperkirakan naik. Marc Chandler menyebut rentang $3.750–3.850. Agenda: ISM manufaktur Senin, pemilu sela dan JOLTS Selasa, ADP dan ISM jasa Rabu, Bank of England Kamis, payroll Oktober Jumat. Emas kini sekitar 30,9% di bawah rekor $5.608,35.',
+            en: 'Kitco’s survey shows 10 of 16 Wall Street analysts (63%) expecting lower gold, while 53% of retail respondents still expect gains. Marc Chandler cites a $3,750–3,850 range. Calendar: ISM manufacturing Monday, the midterms and JOLTS Tuesday, ADP and ISM services Wednesday, the Bank of England Thursday, October payrolls Friday. Gold is now about 30.9% below its $5,608.35 record.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Tertahan, Galeri24 dan UBS Sudah Turun', en: 'Antam Holds, Galeri24 and UBS Already Lower' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram masih Rp2.526.000 dengan buyback Rp2.276.000, karena Logam Mulia belum memperbarui harga pada Minggu. Menurut rekap Liputan6, sepanjang pekan lalu Antam bergerak dari Rp2.540.000 pada Senin ke puncak Rp2.570.000 pada Rabu, lalu turun ke Rp2.526.000 pada Sabtu. Buyback turun Rp59.000 dalam sepekan, dari Rp2.335.000.',
+            en: 'Antam’s 1-gram price is still Rp2,526,000 with a Rp2,276,000 buyback, as Logam Mulia has not updated prices on Sunday. Per Liputan6’s recap, Antam moved last week from Rp2,540,000 on Monday to a Rp2,570,000 peak on Wednesday, then fell to Rp2,526,000 on Saturday. Buyback fell Rp59,000 over the week, from Rp2,335,000.',
+          },
+          {
+            id: 'Galeri24 dan UBS sudah memperbarui harga hari Minggu. Galeri24 turun Rp35.000 ke Rp2.443.000 (buyback Rp2.299.000, spread sekitar 5,9%), dan UBS turun Rp34.000 ke Rp2.467.000 (buyback Rp2.274.000, spread sekitar 7,8%). Spread Antam sekitar 9,9%, dan selisih harga jualnya Rp83.000 di atas Galeri24 dan Rp59.000 di atas UBS.',
+            en: 'Galeri24 and UBS have already updated their Sunday prices. Galeri24 fell Rp35,000 to Rp2,443,000 (buyback Rp2,299,000, spread about 5.9%), and UBS fell Rp34,000 to Rp2,467,000 (buyback Rp2,274,000, spread about 7.8%). Antam’s spread is about 9.9%, and its selling price is Rp83,000 above Galeri24’s and Rp59,000 above UBS’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Cara Menyikapi Pekan Data', en: 'How to Approach a Data-Heavy Week' },
+        paragraphs: [
+          {
+            id: 'Di balik tekanan jangka pendek, permintaan struktural belum hilang: Financefeeds mencatat ETF emas global menerima arus masuk sekitar $10 miliar pada September dan memegang rekor 4.256 ton. Namun pekan ini harga akan lebih ditentukan data kerja AS dan ekspektasi bunga daripada faktor jangka panjang.',
+            en: 'Behind the short-term pressure, structural demand hasn’t vanished: Financefeeds notes global gold ETFs took in about $10 billion in September and hold a record 4,256 tonnes. But this week price is likely to be driven more by US jobs data and rate expectations than by long-term factors.',
+          },
+          {
+            id: 'Bagi investor DCA, pekan dengan banyak data adalah alasan untuk tetap pada jadwal, bukan menebak hasil payroll. Spread lebar Antam juga mengingatkan bahwa emas batangan cocok untuk horizon panjang, dan membandingkan merek layak dilakukan. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For DCA investors, a data-heavy week is a reason to stick to the schedule, not to guess the payroll print. Antam’s wide spread is also a reminder that gold bars suit long horizons, and comparing brands is worth the effort. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas kehilangan sekitar 7,2% di Oktober; pekan ini payroll dan pemilu sela akan menentukan apakah $3.800 diuji.',
+      en: 'Gold lost about 7.2% in October; this week payrolls and the midterms will decide whether $3,800 gets tested.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-october-close-week-ahead.png'),
+    publishedAt: Date.parse('2026-11-01T03:30:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      {
+        title: 'Financefeeds: Gold Price Today: $3,875 After a 7% October Drop',
+        url: 'https://financefeeds.com/gold-price-today-3875-saturday-week-ahead-after-second-monthly-decline-midterms-jobs-report-bull-4000-bear-3800/',
+      },
+      {
+        title: 'Kitco: Wall Street abandons ship after gold sinks below $3,900/oz, Main Street maintains bullish majority bias as midterms, payrolls loom',
+        url: 'https://www.kitco.com/news/article/2026-10-30/wall-street-abandons-ship-after-gold-sinks-below-3900oz-main-street',
+      },
+      {
+        title: 'Trading Economics: Gold price',
+        url: 'https://tradingeconomics.com/commodity/gold',
+      },
+      {
+        title: 'Liputan6: Harga Emas Antam Sepekan: Sempat Naik, Lalu Anjlok ke Rp 2,52 Juta',
+        url: 'https://www.liputan6.com/bisnis/read/8325878/harga-emas-antam-sepekan-sempat-naik-lalu-anjlok-ke-rp-252-juta',
+      },
+      {
+        title: 'Galeri 24: Harga emas hari ini',
+        url: 'https://galeri24.co.id/harga-emas/',
+      },
+    ],
+  },
+  {
+    slug: 'gold-plunges-below-3900-year-low-antam-buyback-down-65000',
+    category: 'market',
     title: {
       id: 'Emas Ambruk ke Bawah $3.900, Terendah dalam Setahun; Buyback Antam Anjlok Rp65.000',
       en: 'Gold Plunges Below $3,900 to a One-Year Low; Antam Buyback Drops Rp65,000',
