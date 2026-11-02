@@ -55,9 +55,123 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-ends-october-down-7-percent-midterms-payrolls-week',
+    slug: 'gold-rebounds-toward-3900-oil-eases-payrolls-week',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Memantul ke $3.900 saat Minyak Turun; Taruhan Kenaikan Bunga Masih Menahan',
+      en: 'Gold Bounces to $3,900 as Oil Eases; Rate-Hike Bets Still Cap Gains',
+    },
+    excerpt: {
+      id: 'Emas naik 0,6% ke $3.900 di sesi Asia Senin setelah Oktober terburuk sejak 2008, dibantu minyak yang turun. Namun pasar masih memperhitungkan peluang sekitar 75% kenaikan bunga Fed pada Desember. Antam naik Rp5.000 ke Rp2.531.000, memutus tiga hari penurunan.',
+      en: 'Gold rose 0.6% to $3,900 in Monday’s Asian session after its worst October since 2008, helped by lower oil. But markets still price about a 75% chance of a December Fed hike. Antam rose Rp5,000 to Rp2,531,000, ending a three-day decline.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pantulan di Awal Pekan', en: 'A Bounce to Start the Week' },
+        paragraphs: [
+          {
+            id: 'Emas dibuka pekan ini dengan pantulan. Investing.com mencatat spot naik 0,6% ke $3.900,05 per ons pada sesi Asia, setelah sempat naik hingga 0,7%. Futures emas AS naik 0,2% ke $3.908,30, dan perak naik 1,4% ke $49,83.',
+            en: 'Gold opened the week with a bounce. Investing.com has spot up 0.6% to $3,900.05 an ounce in the Asian session, after gaining as much as 0.7%. US gold futures rose 0.2% to $3,908.30, and silver rose 1.4% to $49.83.',
+          },
+          {
+            id: 'Pantulan ini datang setelah penurunan tajam. Pada Jumat emas jatuh 3,7% ke level terendah setahun, dan Oktober menjadi penurunan bulanan terdalam sejak 2008. Investing.com menyebut harga minyak yang turun dua sesi berturut-turut meredakan sebagian kekhawatiran inflasi, sementara pembeli yang menunggu harga murah kembali masuk.',
+            en: 'The bounce follows a steep drop. On Friday gold fell 3.7% to a one-year low, and October was its steepest monthly decline since 2008. Investing.com says oil falling for a second session eased some inflation worries, while bargain hunters came back in.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Pantulan Ini Belum Cukup', en: 'Why the Bounce Isn’t Enough Yet' },
+        paragraphs: [
+          {
+            id: 'Masalah utama emas belum berubah: ekspektasi bunga. Trading Economics menyebut pasar masih memperhitungkan peluang sekitar 75% kenaikan bunga Fed pada Desember, setelah Fed menahan bunga di 3,75%–4,00% pada 28 Oktober dengan dua pejabat meminta kenaikan. Yield obligasi AS masih sekitar 4,94%, tinggi bagi aset tanpa imbal hasil seperti emas.',
+            en: 'Gold’s main problem hasn’t changed: rate expectations. Trading Economics says markets still price about a 75% chance of a December Fed hike, after the Fed held at 3.75%–4.00% on October 28 with two officials calling for a hike. US yields are still around 4.94%, high for a non-yielding asset like gold.',
+          },
+          {
+            id: 'Minyak memang turun, tetapi masih mahal: Brent sekitar $110 dan WTI sekitar $101 per barel. Indeks dolar berada di sekitar 101,9–102. Risiko lain datang dari saham teknologi, karena aksi jual di sana bisa memaksa investor menjual emas untuk menutup kerugian, dan dari ancaman Trump untuk kembali menyerang Iran setelah pemilu sela.',
+            en: 'Oil is lower but still expensive: Brent is around $110 and WTI around $101 a barrel. The dollar index is around 101.9–102. Other risks come from tech stocks, since a selloff there can force investors to sell gold to cover losses, and from Trump’s threats to resume strikes on Iran after the midterms.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level dan Agenda Pekan Ini', en: 'Levels and This Week’s Calendar' },
+        paragraphs: [
+          {
+            id: 'Emas kini sekitar 30,5% di bawah rekor $5.608,35 dari Januari dan, menurut Trading Economics, turun sekitar 5,7% dalam sebulan terakhir. Resistance pertama $4.000, sekitar 2,6% di atas harga saat ini. Support terdekat adalah low pekan lalu di $3.870,25, sekitar 0,8% di bawah, lalu $3.750, sekitar 3,8% di bawah.',
+            en: 'Gold is now about 30.5% below its $5,608.35 January record and, per Trading Economics, down about 5.7% over the past month. First resistance is $4,000, about 2.6% above the current price. Nearest support is last week’s $3,870.25 low, about 0.8% below, then $3,750, about 3.8% below.',
+          },
+          {
+            id: 'Skenario dasar Financefeeds adalah rentang $3.800–3.950, dan survei Kitco menunjukkan 10 dari 16 analis Wall Street (63%) memperkirakan emas turun. Agenda: ISM manufaktur Senin, pemilu sela AS dan JOLTS Selasa, ADP dan ISM jasa Rabu, Bank of England Kamis, dan payroll Oktober Jumat. Data kerja yang kuat bisa menguatkan taruhan kenaikan bunga.',
+            en: 'Financefeeds’ base case is a $3,800–3,950 range, and Kitco’s survey shows 10 of 16 Wall Street analysts (63%) expecting lower gold. Calendar: ISM manufacturing Monday, the US midterms and JOLTS Tuesday, ADP and ISM services Wednesday, the Bank of England Thursday and October payrolls Friday. Strong jobs data could firm up hike bets.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik Tipis, Galeri24 dan UBS Tetap', en: 'Antam Edges Up, Galeri24 and UBS Unchanged' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram naik Rp5.000 ke Rp2.531.000, memutus penurunan tiga hari yang total mencapai Rp44.000. Buyback naik lebih banyak, Rp10.000 ke Rp2.286.000 per gram, sehingga spread menyempit dari Rp250.000 ke Rp245.000, atau sekitar 9,7% dari harga jual. Bar 10 gram kini Rp24.805.000.',
+            en: 'Antam’s 1-gram price rose Rp5,000 to Rp2,531,000, ending a three-day decline that totalled Rp44,000. Buyback rose more, Rp10,000 to Rp2,286,000 per gram, so the spread narrowed from Rp250,000 to Rp245,000, about 9.7% of the selling price. The 10-gram bar is now Rp24,805,000.',
+          },
+          {
+            id: 'Galeri24 dan UBS tidak berubah dari Minggu. Galeri24 Rp2.443.000 (buyback Rp2.299.000, spread sekitar 5,9%) dan UBS Rp2.467.000 (buyback Rp2.274.000, spread sekitar 7,8%). Harga jual Antam kini Rp88.000 di atas Galeri24 dan Rp64.000 di atas UBS, sementara buyback Galeri24 masih Rp13.000 di atas Antam.',
+            en: 'Galeri24 and UBS are unchanged from Sunday. Galeri24 is at Rp2,443,000 (buyback Rp2,299,000, spread about 5.9%) and UBS at Rp2,467,000 (buyback Rp2,274,000, spread about 7.8%). Antam’s selling price is now Rp88,000 above Galeri24’s and Rp64,000 above UBS’s, while Galeri24’s buyback is still Rp13,000 above Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Cara Membaca Pantulan', en: 'How to Read the Bounce' },
+        paragraphs: [
+          {
+            id: 'Satu hari naik setelah penurunan bulanan terdalam sejak 2008 belum menandakan tren berbalik. Selama pasar memperhitungkan kenaikan bunga dan yield bertahan dekat 4,9%, pantulan bisa cepat hilang jika data kerja Jumat kuat. Sebaliknya, data yang lebih lemah dan minyak yang terus turun bisa membuka jalan ke $4.000.',
+            en: 'One up day after the steepest monthly drop since 2008 doesn’t mark a reversal. As long as markets price a hike and yields hold near 4.9%, the bounce can fade quickly if Friday’s jobs data is strong. Conversely, softer data and oil that keeps falling could open the way to $4,000.',
+          },
+          {
+            id: 'Bagi investor DCA, pekan seperti ini adalah alasan untuk tetap pada jadwal, bukan mengejar pantulan atau menebak payroll. Membandingkan merek juga penting: spread Antam sekitar 9,7% berarti emas batangan paling cocok untuk horizon panjang. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For DCA investors, a week like this is a reason to stick to the schedule, not to chase the bounce or guess payrolls. Comparing brands matters too: Antam’s spread of about 9.7% means gold bars suit long horizons best. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas memantul ke $3.900, tetapi selama peluang kenaikan bunga Desember sekitar 75%, $4.000 masih menjadi ujian berat.',
+      en: 'Gold bounced to $3,900, but with December hike odds around 75%, $4,000 remains a tough test.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-rebound-3900.png'),
+    publishedAt: Date.parse('2026-11-02T03:00:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      {
+        title: 'Investing.com: Gold rebounds toward $3,900 as dip buyers emerge, Iran risks persist',
+        url: 'https://www.investing.com/news/commodities-news/gold-rebounds-toward-3900-as-dip-buyers-emerge-iran-risks-persist-4989797',
+      },
+      {
+        title: 'Trading Economics: Gold price',
+        url: 'https://tradingeconomics.com/commodity/gold',
+      },
+      {
+        title: 'Financefeeds: Gold Price Today $3,875: 63% of Wall Street Says Lower',
+        url: 'https://financefeeds.com/gold-price-today-3875-sunday-week-ahead-midterms-3-november-jobs-6-november-bull-4000-bear-3750',
+      },
+      {
+        title: 'CNBC Indonesia: Mimpi Buruk Usai! Harga Emas Antam Logam Mulia Hari Ini Naik Rp5.000',
+        url: 'https://www.cnbcindonesia.com/research/20261102091537-128-781403/mimpi-buruk-usai-harga-emas-antam-logam-mulia-hari-ini-naik-rp5000',
+      },
+      {
+        title: 'Medcom.id: Harga Emas Antam Hari Ini Naik ke Rp 2.531.000/Gram, Cek Daftarnya',
+        url: 'https://www.medcom.id/ekonomi/bisnis/4KZQpBEk-harga-emas-antam-hari-ini-naik-ke-rp-2-531-000-gram-cek-daftarnya',
+      },
+      {
+        title: 'Galeri 24: Harga emas hari ini',
+        url: 'https://galeri24.co.id/harga-emas/',
+      },
+    ],
+  },
+  {
+    slug: 'gold-ends-october-down-7-percent-midterms-payrolls-week',
+    category: 'market',
     title: {
       id: 'Emas Tutup Oktober Turun 7,2% di $3.875; Pekan Pemilu Sela dan Payroll Menanti',
       en: 'Gold Ends October Down 7.2% at $3,875; Midterms and Payrolls Week Ahead',
