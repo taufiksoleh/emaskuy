@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-rebounds-toward-3900-oil-eases-payrolls-week',
+    slug: 'gold-holds-3950-midterms-hot-ism',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Bertahan di $3.950 Jelang Pemilu Sela AS; ISM yang Panas Menahan Laju ke $4.000',
+      en: 'Gold Holds $3,950 Ahead of US Midterms as a Hot ISM Caps the Run at $4,000',
+    },
+    excerpt: {
+      id: 'Emas naik sekitar 2% ke $3.955 pada Senin, pulih dari level terendah setahun, tetapi tertahan di bawah $4.000 setelah ISM manufaktur naik ke 55,5. Pasar masih memperhitungkan peluang sekitar 75% kenaikan bunga Fed pada Desember. Antam naik Rp10.000 ke Rp2.541.000 dan buyback naik Rp25.000.',
+      en: 'Gold rose about 2% to $3,955 on Monday, recovering from a one-year low, but stalled below $4,000 after the ISM manufacturing index rose to 55.5. Markets still price about a 75% chance of a December Fed hike. Antam rose Rp10,000 to Rp2,541,000 and buyback rose Rp25,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pantulan yang Tertahan di Bawah $4.000', en: 'A Bounce That Stalled Below $4,000' },
+        paragraphs: [
+          {
+            id: 'Emas melanjutkan pantulan dari level terendah setahun. BullionVault mencatat emas naik hampir $75 dari penutupan Jumat dan menyentuh $3.948 saat siang di London. Kitco mencatat spot di $3.955,60, naik 2% dalam sehari, setelah sempat menguji resistance tepat di bawah $4.000.',
+            en: 'Gold extended its bounce from a one-year low. BullionVault says gold gained almost $75 from Friday’s close to touch $3,948 by lunchtime in London. Kitco has spot at $3,955.60, up 2% on the day, after it tested resistance just below $4,000.',
+          },
+          {
+            id: 'Laju itu terhenti oleh data ISM manufaktur Oktober. Indeksnya naik ke 55,5 dari 54,5, padahal konsensus memperkirakan angka tidak berubah. Produksi naik ke 59,0 dari 56,7 dan pesanan baru ke 55,3. Kitco mencatat aksi jual kembali muncul setelah rilis tersebut. Pada Selasa pagi, Trading Economics mencatat emas datar di sekitar $3.949.',
+            en: 'The run was stopped by October’s ISM manufacturing data. The index rose to 55.5 from 54.5, while consensus expected no change. Production rose to 59.0 from 56.7 and new orders to 55.3. Kitco says renewed selling followed the release. On Tuesday morning Trading Economics has gold flat at around $3,949.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak Membantu, Bunga Masih Menahan', en: 'Oil Helps, Rates Still Hold It Back' },
+        paragraphs: [
+          {
+            id: 'Pendorong utama pantulan adalah minyak. Trading Economics menyebut harga minyak turun karena tanda kemajuan diplomasi AS–Iran, sehingga sebagian kekhawatiran inflasi mereda. Brent kini sekitar $104,6 dan WTI sekitar $96,6.',
+            en: 'The main driver of the bounce was oil. Trading Economics says oil fell on signs of US–Iran diplomatic progress, easing some inflation worries. Brent is now near $104.6 and WTI near $96.6.',
+          },
+          {
+            id: 'Namun data ekonomi yang kuat memberi The Fed ruang untuk tetap fokus menekan inflasi. Pasar masih memperhitungkan peluang sekitar 75% kenaikan bunga pada Desember. Yield obligasi 10 tahun AS sekitar 4,91% dan indeks dolar sekitar 101,8. Selama imbal hasil obligasi setinggi ini, emas yang tidak memberi imbal hasil sulit naik jauh.',
+            en: 'But strong economic data gives the Fed room to stay focused on inflation. Markets still price about a 75% chance of a December hike. The US 10-year yield is around 4.91% and the dollar index around 101.8. With bond yields this high, a metal that pays no yield struggles to climb far.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Pemilu Sela dan Level yang Dipantau', en: 'The Midterms and the Levels in Focus' },
+        paragraphs: [
+          {
+            id: 'AS menggelar pemilu sela hari ini. BullionVault mencatat jajak pendapat mengunggulkan Demokrat di DPR, sementara Senat terlalu ketat untuk ditebak; hasil mulai keluar Selasa malam waktu AS. Emas turun 11,0% dalam 40 sesi menjelang pemungutan suara, penurunan pra-pemilu sela terdalam dari lima pemilu yang dibandingkan. Dalam empat pemilu sela sebelumnya, emas selalu naik dalam 40 sesi setelahnya, dari 0,5% (2014) hingga 11,9% (2022).',
+            en: 'The US holds its midterm elections today. BullionVault says polls favour the Democrats in the House while the Senate is too close to call, with results due from late Tuesday US time. Gold fell 11.0% in the 40 sessions before the vote, the steepest pre-midterm loss of the five elections compared. In each of the four previous midterms, gold rose over the 40 sessions after the vote, from 0.5% (2014) to 11.9% (2022).',
+          },
+          {
+            id: 'Pola historis itu bukan jaminan. Emas masih sekitar 29,6% di bawah rekor $5.608,35 dari Januari dan turun sekitar 4,6% dalam sebulan. Resistance terdekat $4.000, sekitar 1,3% di atas harga kini, dan support di area penutupan Jumat, sekitar $75 lebih rendah. Setelah pemilu, pasar menunggu ADP dan ISM jasa pada Rabu, lalu payroll Oktober pada Jumat.',
+            en: 'That historical pattern is no guarantee. Gold is still about 29.6% below its $5,608.35 January record and down about 4.6% over the month. The nearest resistance is $4,000, about 1.3% above the current price, with support around Friday’s close, about $75 lower. After the vote, markets await ADP and ISM services on Wednesday, then October payrolls on Friday.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik Dua Hari, Spread Menyempit', en: 'Antam Up Two Days, Spread Narrows' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram naik Rp10.000 ke Rp2.541.000, kenaikan hari kedua. Buyback naik lebih besar, Rp25.000 ke Rp2.311.000 per gram. Spread menyempit dari Rp245.000 menjadi Rp230.000, atau sekitar 9,1% dari harga jual. Pecahan 0,5 gram kini Rp1.320.500 dan 10 gram Rp24.905.000.',
+            en: 'Antam’s 1-gram price rose Rp10,000 to Rp2,541,000, a second daily gain. Buyback rose more, by Rp25,000 to Rp2,311,000 per gram. The spread narrowed from Rp245,000 to Rp230,000, or about 9.1% of the selling price. The 0.5-gram bar is now Rp1,320,500 and the 10-gram bar Rp24,905,000.',
+          },
+          {
+            id: 'Merek lain juga naik. Galeri24 naik Rp8.000 ke Rp2.451.000 dengan buyback Rp2.307.000 (spread sekitar 5,9%), dan UBS naik Rp8.000 ke Rp2.475.000 dengan buyback Rp2.281.000 (spread sekitar 7,8%). Antam kini Rp90.000 lebih mahal dari Galeri24 dan Rp66.000 lebih mahal dari UBS. Buyback Galeri24 bahkan hampir setara buyback Antam, selisihnya hanya Rp4.000.',
+            en: 'Other brands rose too. Galeri24 rose Rp8,000 to Rp2,451,000 with buyback at Rp2,307,000 (spread about 5.9%), and UBS rose Rp8,000 to Rp2,475,000 with buyback at Rp2,281,000 (spread about 7.8%). Antam is now Rp90,000 dearer than Galeri24 and Rp66,000 dearer than UBS. Galeri24’s buyback is almost level with Antam’s, just Rp4,000 apart.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Hari Volatil, Strategi Tetap', en: 'Playbook: A Volatile Day, a Steady Plan' },
+        paragraphs: [
+          {
+            id: 'Hasil pemilu sela, ADP, ISM jasa dan payroll bisa menggerakkan emas puluhan dolar dalam beberapa hari. Skenario naik: data melemah dan minyak terus turun, sehingga taruhan kenaikan bunga surut dan $4.000 kembali diuji. Skenario turun: payroll kuat menegaskan kenaikan bunga Desember dan emas kembali ke low pekan lalu.',
+            en: 'The midterm results, ADP, ISM services and payrolls could move gold by tens of dollars within days. Upside scenario: data softens and oil keeps falling, so rate-hike bets fade and $4,000 is tested again. Downside scenario: strong payrolls confirm a December hike and gold revisits last week’s low.',
+          },
+          {
+            id: 'Bagi investor rupiah, cara paling sederhana menghadapi pekan seperti ini adalah membeli bertahap (DCA) dengan jumlah tetap, bukan menebak arah hasil pemilu. Perhatikan spread: dengan spread Antam sekitar 9,1%, emas perlu naik cukup jauh sebelum posisi baru impas. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For rupiah investors, the simplest way through a week like this is to buy in fixed amounts over time (DCA) rather than bet on the election outcome. Watch the spread: with Antam’s spread at about 9.1%, gold has to rise a fair way before a new position breaks even. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Minyak yang turun memberi emas ruang bernapas, tetapi selama pasar memperhitungkan kenaikan bunga Desember, $4.000 tetap jadi tembok.',
+      en: 'Falling oil gives gold room to breathe, but while markets price a December hike, $4,000 remains a wall.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-midterms-3950.png'),
+    publishedAt: Date.parse('2026-11-03T03:00:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold’s recovery hits a wall as US manufacturing heats up', url: 'https://www.kitco.com/news/article/2026-11-02/golds-recover-hits-wall-us-manufacturing-heats' },
+      { title: 'BullionVault: Gold rallies nearly $75 after 11% pre-midterms plunge; silver rebounds', url: 'https://www.bullionvault.com/gold-news/gold-price-news/gold-price-us-midterms-110220261' },
+      { title: 'Trading Economics: Gold price', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'IndexBox: Gold pulls back from session highs as strong ISM manufacturing data weighs on prices', url: 'https://www.indexbox.io/blog/gold-retreats-from-session-highs-as-strong-manufacturing-data-weighs-on-prices/' },
+      { title: 'Medcom.id: Tren positif berlanjut, emas Antam naik ke Rp2.541.000 per gram', url: 'https://www.medcom.id/ekonomi/keuangan/8KyxWrXk-tren-positif-berlanjut-emas-antam-naik-ke-rp2-541-000-per-gram' },
+      { title: 'Ngopibareng.id: Harga emas Selasa 3 November 2026, Antam naik Rp10.000, UBS dan Galeri24 ikut menguat', url: 'https://www.ngopibareng.id/read/harga-emas-selasa-3-november-2026-antam-naik-rp10-000-ubs-dan-galeri24-ikut-menguat' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-rebounds-toward-3900-oil-eases-payrolls-week',
+    category: 'market',
     title: {
       id: 'Emas Memantul ke $3.900 saat Minyak Turun; Taruhan Kenaikan Bunga Masih Menahan',
       en: 'Gold Bounces to $3,900 as Oil Eases; Rate-Hike Bets Still Cap Gains',

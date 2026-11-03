@@ -1,76 +1,76 @@
 {
   "schemaVersion": 1,
-  "priceDate": "2026-11-02",
-  "updatedAt": "2026-11-02T10:00:00+07:00",
+  "priceDate": "2026-11-03",
+  "updatedAt": "2026-11-03T10:05:00+07:00",
   "source": {
     "name": "Logam Mulia (dikutip Medcom.id)",
-    "url": "https://www.medcom.id/ekonomi/bisnis/4KZQpBEk-harga-emas-antam-hari-ini-naik-ke-rp-2-531-000-gram-cek-daftarnya"
+    "url": "https://www.medcom.id/ekonomi/keuangan/8KyxWrXk-tren-positif-berlanjut-emas-antam-naik-ke-rp2-541-000-per-gram"
   },
   "note": {
-    "id": "Harga Antam 1 gram naik Rp5.000 dari kemarin ke Rp2.531.000, memutus tiga hari penurunan. Buyback naik Rp10.000 ke Rp2.286.000/gram, sehingga spread menyempit ke Rp245.000 (sekitar 9,7%).",
-    "en": "Antam’s 1-gram price rose Rp5,000 from yesterday to Rp2,531,000, ending a three-day decline. Buyback rose Rp10,000 to Rp2,286,000/gram, narrowing the spread to Rp245,000 (about 9.7%)."
+    "id": "Harga Antam 1 gram naik Rp10.000 dari kemarin ke Rp2.541.000, kenaikan hari kedua. Buyback naik Rp25.000 ke Rp2.311.000/gram, sehingga spread menyempit ke Rp230.000 (sekitar 9,1%).",
+    "en": "Antam’s 1-gram price rose Rp10,000 from yesterday to Rp2,541,000, a second daily gain. Buyback rose Rp25,000 to Rp2,311,000/gram, narrowing the spread to Rp230,000 (about 9.1%)."
   },
   "antam": {
-    "buybackPerGram": 2286000,
+    "buybackPerGram": 2311000,
     "sizes": [
       {
         "grams": 0.5,
-        "sell": 1315500
+        "sell": 1320500
       },
       {
         "grams": 1,
-        "sell": 2531000
+        "sell": 2541000
       },
       {
         "grams": 2,
-        "sell": 5002000
+        "sell": 5022000
       },
       {
         "grams": 3,
-        "sell": 7478000
+        "sell": 7508000
       },
       {
         "grams": 5,
-        "sell": 12430000
+        "sell": 12480000
       },
       {
         "grams": 10,
-        "sell": 24805000
+        "sell": 24905000
       },
       {
         "grams": 25,
-        "sell": 61887000
+        "sell": 62137000
       },
       {
         "grams": 50,
-        "sell": 123695000
+        "sell": 124195000
       },
       {
         "grams": 100,
-        "sell": 247312000
+        "sell": 248312000
       },
       {
         "grams": 250,
-        "sell": 618015000
+        "sell": 620515000
       },
       {
         "grams": 500,
-        "sell": 1235820000
+        "sell": 1240820000
       },
       {
         "grams": 1000,
-        "sell": 2471600000
+        "sell": 2481600000
       }
     ]
   },
   "others": {
     "galeri24": {
-      "sellPerGram": 2443000,
-      "buybackPerGram": 2299000
+      "sellPerGram": 2451000,
+      "buybackPerGram": 2307000
     },
     "ubs": {
-      "sellPerGram": 2467000,
-      "buybackPerGram": 2274000
+      "sellPerGram": 2475000,
+      "buybackPerGram": 2281000
     }
   },
   "history": [
@@ -233,6 +233,11 @@
       "date": "2026-11-02",
       "sell1g": 2531000,
       "buyback": 2286000
+    },
+    {
+      "date": "2026-11-03",
+      "sell1g": 2541000,
+      "buyback": 2311000
     }
   ]
 }
