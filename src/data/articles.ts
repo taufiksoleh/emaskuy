@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-holds-3950-midterms-hot-ism',
+    slug: 'gold-steadies-3930-midterms-dollar-five-week-low',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Stabil di $3.930 saat Hasil Pemilu Sela Menekan Dolar; Peluang Kenaikan Bunga Naik ke 78%',
+      en: 'Gold Steadies Near $3,930 as Midterm Results Weigh on the Dollar; Hike Odds Rise to 78%',
+    },
+    excerpt: {
+      id: 'Emas turun sekitar 0,5% pada Selasa lalu stabil di sekitar $3.938 pada Rabu pagi. Hasil awal pemilu sela yang menguntungkan Demokrat mendorong dolar ke level terendah lima pekan, tetapi peluang kenaikan bunga Fed Desember naik ke 78%. Antam turun Rp4.000 ke Rp2.537.000.',
+      en: 'Gold fell about 0.5% on Tuesday, then steadied near $3,938 on Wednesday morning. Early midterm results favouring the Democrats pushed the dollar to a five-week low, but the odds of a December Fed hike rose to 78%. Antam fell Rp4,000 to Rp2,537,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Konsolidasi Setelah Pantulan 2%', en: 'Consolidation After a 2% Bounce' },
+        paragraphs: [
+          {
+            id: 'Emas naik lebih dari 2% ke $3.954,41 pada Senin, pulih dari level terendah setahun, lalu turun sekitar 0,5% pada Selasa. Business Recorder mencatat spot di $3.926,52 pada Selasa siang waktu Asia, dan Liputan6 mencatat penutupan Selasa di sekitar $3.927.',
+            en: 'Gold rose more than 2% to $3,954.41 on Monday, recovering from a one-year low, then fell about 0.5% on Tuesday. Business Recorder has spot at $3,926.52 around midday Tuesday in Asia, and Liputan6 puts Tuesday’s close near $3,927.',
+          },
+          {
+            id: 'Analis KCM Trade, Tim Waterer, menyebut emas masih dalam fase konsolidasi setelah tekanan tajam pekan lalu, dan masih dijual sebagai aset likuid untuk menutup kerugian serta margin call di pasar lain. Pada Rabu pagi, Trading Economics mencatat emas stabil di sekitar $3.938, naik tipis 0,2%.',
+            en: 'KCM Trade analyst Tim Waterer says gold is still consolidating after last week’s sharp drop and is still being sold as a liquid asset to cover losses and margin calls elsewhere. On Wednesday morning Trading Economics has gold steady near $3,938, up a slight 0.2%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Dolar Melemah, tetapi Bunga Masih Jadi Penghalang', en: 'The Dollar Slips, but Rates Still Stand in the Way' },
+        paragraphs: [
+          {
+            id: 'Hasil awal pemilu sela menunjukkan Demokrat unggul di sejumlah kursi kunci. Trading Economics mencatat indeks dolar turun sekitar 0,6% ke 101,3, terendah lima pekan, karena pasar menimbang kemungkinan Demokrat menguasai DPR dan Senat. Kebuntuan politik bisa berarti belanja pemerintah lebih kecil. Brent juga turun ke sekitar $102,6, terendah empat pekan, sehingga kekhawatiran inflasi sedikit mereda.',
+            en: 'Early midterm results show Democrats gaining in several key races. Trading Economics has the dollar index down about 0.6% at 101.3, a five-week low, as markets weigh a possible Democratic takeover of the House and Senate. Political gridlock could mean less government spending. Brent also fell to around $102.6, a four-week low, easing inflation worries slightly.',
+          },
+          {
+            id: 'Dolar yang lemah dan minyak yang turun biasanya membantu emas. Masalahnya, pasar justru menaikkan taruhan kenaikan bunga: peluang Fed menaikkan bunga pada Desember kini sekitar 78%, dari sekitar 75% sehari sebelumnya. Yield 10 tahun AS masih sekitar 4,90%. Selama imbal hasil obligasi setinggi ini, emas yang tidak memberi bunga sulit naik jauh.',
+            en: 'A weaker dollar and falling oil usually help gold. The problem is that markets raised their rate-hike bets instead: the odds of a December Fed hike are now about 78%, up from about 75% a day earlier. The US 10-year yield is still around 4.90%. With bond yields this high, a metal that pays no interest struggles to climb far.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'The Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Emas turun hampir 7% sepanjang Oktober dan jatuh di bawah $4.000 di akhir bulan. Investing.com mencatat emas sudah turun sekitar 25% sejak konflik AS–Iran dimulai akhir Februari. Harga kini sekitar 29,8% di bawah rekor $5.608,35 dan turun sekitar 4,9% dalam sebulan.',
+            en: 'Gold fell almost 7% in October and broke below $4,000 at the end of the month. Investing.com notes gold is down about 25% since the US–Iran conflict began in late February. The price is now about 29.8% below its $5,608.35 record and down about 4.9% over the month.',
+          },
+          {
+            id: 'FX Leaders mencatat resistance di $3.951 lalu $4.000, sekitar 1,6% di atas harga kini, dengan EMA 50 di $4.023. Support berada di $3.869 dan $3.828. Pekan ini padat: ADP dan ISM jasa hari ini, klaim pengangguran mingguan Kamis, lalu payroll Oktober Jumat dengan perkiraan 68.000 pekerjaan setelah 29.000 pada September.',
+            en: 'FX Leaders puts resistance at $3,951 then $4,000, about 1.6% above the current price, with the 50 EMA at $4,023. Support sits at $3,869 and $3,828. The week is busy: ADP and ISM services today, weekly jobless claims on Thursday, then October payrolls on Friday, forecast at 68,000 jobs after 29,000 in September.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun Tipis, Spread Tetap', en: 'Antam Dips, Spread Unchanged' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp4.000 ke Rp2.537.000, setelah dua hari naik. Buyback juga turun Rp4.000 ke Rp2.307.000 per gram, sehingga spread tetap Rp230.000, sekitar 9,1% dari harga jual. Pecahan 0,5 gram kini Rp1.318.500, 10 gram Rp24.920.000 dan 100 gram Rp248.060.000.',
+            en: 'Antam’s 1-gram price fell Rp4,000 to Rp2,537,000 after two days of gains. Buyback also fell Rp4,000 to Rp2,307,000 per gram, so the spread holds at Rp230,000, about 9.1% of the selling price. The 0.5-gram bar is now Rp1,318,500, the 10-gram bar Rp24,920,000 and the 100-gram bar Rp248,060,000.',
+          },
+          {
+            id: 'Di situs Galeri 24, Galeri24 tercatat Rp2.467.000 dengan buyback Rp2.322.000 (spread sekitar 5,9%), dan UBS Rp2.496.000 dengan buyback Rp2.297.000 (spread sekitar 8,0%). Antam kini Rp70.000 lebih mahal dari Galeri24 dan Rp41.000 lebih mahal dari UBS. Buyback Galeri24 bahkan Rp15.000 di atas buyback Antam.',
+            en: 'On the Galeri 24 site, Galeri24 is listed at Rp2,467,000 with buyback at Rp2,322,000 (spread about 5.9%), and UBS at Rp2,496,000 with buyback at Rp2,297,000 (spread about 8.0%). Antam is now Rp70,000 dearer than Galeri24 and Rp41,000 dearer than UBS. Galeri24’s buyback is even Rp15,000 above Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Biarkan Data yang Bicara', en: 'Playbook: Let the Data Speak' },
+        paragraphs: [
+          {
+            id: 'Skenario naik: dolar terus melemah setelah pemilu dan data tenaga kerja mendingin, sehingga taruhan kenaikan bunga surut dan emas kembali menguji $3.951 lalu $4.000. Skenario turun: ADP, ISM jasa atau payroll yang kuat menegaskan kenaikan bunga Desember dan emas kembali ke support $3.869 atau $3.828.',
+            en: 'Upside scenario: the dollar keeps weakening after the vote and labour data cools, so rate-hike bets fade and gold retests $3,951 and then $4,000. Downside scenario: strong ADP, ISM services or payrolls confirm a December hike and gold falls back to support at $3,869 or $3,828.',
+          },
+          {
+            id: 'Bagi investor rupiah, membeli bertahap (DCA) dengan jumlah tetap tetap lebih masuk akal daripada menebak hasil pemilu atau angka payroll. Bandingkan juga merek: selisih harga jual dan buyback antarmerek bisa mencapai puluhan ribu rupiah per gram. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For rupiah investors, buying in fixed amounts over time (DCA) still makes more sense than betting on the election result or the payroll number. Compare brands too: the gap in selling and buyback prices between brands can reach tens of thousands of rupiah per gram. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Dolar boleh melemah karena pemilu, tetapi selama pasar memperhitungkan kenaikan bunga Desember, emas tetap terkunci di bawah $4.000.',
+      en: 'The dollar may slip on the election, but while markets price a December hike, gold stays locked below $4,000.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-midterms-dollar-3930.png'),
+    publishedAt: Date.parse('2026-11-04T02:55:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Trading Economics: Gold steady as US midterms, Iran talks in focus', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Trading Economics: Dollar falls on strong Democratic showing', url: 'https://tradingeconomics.com/united-states/currency' },
+      { title: 'Business Recorder: Gold eases ahead of US midterm elections', url: 'https://www.brecorder.com/news/40447185/gold-eases-ahead-of-us-midterm-elections' },
+      { title: 'Investing.com: Gold holds near $3,930 as Iran talks, U.S. midterms shape outlook', url: 'https://ng.investing.com/news/commodities-news/gold-holds-near-3930-as-iran-talks-us-midterms-shape-outlook-2780004' },
+      { title: 'FX Leaders: Gold price forecast, XAU/USD tests $3,920 on midterm election day, NFP Friday', url: 'https://www.fxleaders.com/news/2026/11/03/gold-price-forecast-xau-usd-tests-3920-on-midterm-election-day-after-2-oil-driven-rebound-nfp-friday/' },
+      { title: 'Liputan6.com: Harga emas Antam 4 November 2026 turun, cek daftar lengkapnya', url: 'https://www.liputan6.com/bisnis/read/8327978/harga-emas-antam-4-november-2026-turun-cek-daftar-lengkapnya' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-holds-3950-midterms-hot-ism',
+    category: 'market',
     title: {
       id: 'Emas Bertahan di $3.950 Jelang Pemilu Sela AS; ISM yang Panas Menahan Laju ke $4.000',
       en: 'Gold Holds $3,950 Ahead of US Midterms as a Hot ISM Caps the Run at $4,000',
