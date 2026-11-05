@@ -55,9 +55,122 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-steadies-3930-midterms-dollar-five-week-low',
+    slug: 'gold-rallies-4130-democratic-sweep-oil-slide',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Melonjak ke $4.130 Setelah Demokrat Menyapu Pemilu Sela; Minyak dan Dolar Merosot',
+      en: 'Gold Jumps to $4,130 After a Democratic Midterm Sweep as Oil and the Dollar Slide',
+    },
+    excerpt: {
+      id: 'Emas naik sekitar 2,6% pada Rabu, kenaikan harian terbesar sejak pertengahan Agustus, lalu menembus $4.130 pada Kamis pagi. Kemenangan Demokrat menekan dolar dan yield, sementara Brent jatuh di bawah $100. Antam naik Rp20.000 ke Rp2.557.000 dan spread menyempit ke 7,8%.',
+      en: 'Gold rose about 2.6% on Wednesday, its biggest daily gain since mid-August, then pushed past $4,130 on Thursday morning. The Democratic win weighed on the dollar and yields while Brent fell below $100. Antam rose Rp20,000 to Rp2,557,000 and the spread narrowed to 7.8%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Dua Hari, Naik Hampir $200', en: 'Two Days, Almost $200 Higher' },
+        paragraphs: [
+          {
+            id: 'Demokrat memenangi DPR dan Senat AS dalam pemilu sela. Kitco mencatat mereka merebut sedikitnya tujuh kursi Senat dan 18 kursi DPR. Emas langsung bereaksi: Trading Economics mencatat kenaikan sekitar 2,6% ke $4.035 pada Rabu, kenaikan harian terbesar sejak pertengahan Agustus.',
+            en: 'Democrats won both the US House and Senate in the midterms. Kitco says they took at least seven Senate seats and 18 House seats. Gold reacted at once: Trading Economics has it up about 2.6% to $4,035 on Wednesday, its biggest daily gain since mid-August.',
+          },
+          {
+            id: 'Reli berlanjut pada Kamis. Investing.com mencatat spot di $4.132,36, naik 1,8%, pada pukul 08.52 WIB, dan perak naik 2,1% ke $53,34. Dari sekitar $3.938 pada Rabu pagi, emas sudah naik sekitar 4,9% dalam sehari semalam.',
+            en: 'The rally carried on into Thursday. Investing.com has spot at $4,132.36, up 1.8%, at 08:52 WIB, with silver up 2.1% at $53.34. From around $3,938 on Wednesday morning, gold has gained about 4.9% in a single day.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Dolar, Yield dan Minyak Kompak Turun', en: 'The Dollar, Yields and Oil All Fall' },
+        paragraphs: [
+          {
+            id: 'FX Leaders mencatat indeks dolar turun sekitar 0,6% ke 101,27 pada Rabu, dan Investing.com mencatat dolar di sekitar 101,3 pada Kamis pagi. Yield obligasi AS turun di semua tenor; yield 10 tahun di sekitar 4,85%. ANZ menilai komposisi politik baru bisa membatasi rencana pajak dan belanja Trump, sehingga mendukung obligasi.',
+            en: 'FX Leaders has the dollar index down about 0.6% at 101.27 on Wednesday, and Investing.com has it near 101.3 on Thursday morning. US Treasury yields fell across maturities, with the 10-year near 4.85%. ANZ says the new political balance could limit Trump’s tax and spending plans, which supports bonds.',
+          },
+          {
+            id: 'Minyak ikut jatuh. Trump meredam kemungkinan serangan baru ke Iran, dan Brent turun di bawah $100 untuk pertama kali sejak awal Oktober, kini sekitar $94. Trading Economics mencatat minyak yang lebih murah bisa meredakan tekanan inflasi dan kekhawatiran kenaikan bunga jangka pendek.',
+            en: 'Oil fell too. Trump played down the chance of new strikes on Iran, and Brent dropped below $100 for the first time since early October, now around $94. Trading Economics notes cheaper oil could ease inflation pressure and near-term rate-hike worries.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yang Belum Berubah: Taruhan Kenaikan Bunga', en: 'What Has Not Changed: Rate-Hike Bets' },
+        paragraphs: [
+          {
+            id: 'Data tenaga kerja masih kuat. Kitco mencatat ADP menghitung 86.000 pekerjaan swasta pada Oktober, di atas perkiraan 67.000, dan CME FedWatch masih menunjukkan peluang 79% kenaikan bunga Fed pada Desember. ANZ juga mengingatkan bahwa pinjaman pemerintah selama ini menjadi penopang penting emas, sehingga belanja yang lebih terbatas bisa melemahkan salah satu pilar itu.',
+            en: 'Labour data is still firm. Kitco reports ADP counted 86,000 private jobs in October, above the 67,000 forecast, and CME FedWatch still shows a 79% chance of a December Fed hike. ANZ also warns that government borrowing has been a major support for gold, so tighter spending could weaken one of those pillars.',
+          },
+          {
+            id: 'Gambaran besarnya: di $4.132, emas masih sekitar 26,3% di bawah rekor $5.608,35 dan turun sekitar 0,7% dalam sebulan. Investing.com mencatat emas masih lebih dari 20% di bawah level sebelum perang AS–Iran pecah akhir Februari.',
+            en: 'The big picture: at $4,132, gold is still about 26.3% below its $5,608.35 record and down about 0.7% over the month. Investing.com notes gold is still more than 20% below where it stood before the US–Iran war broke out in late February.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level yang Dipantau dan Payroll Jumat', en: 'Levels to Watch and Friday’s Payrolls' },
+        paragraphs: [
+          {
+            id: 'Emas sudah menembus resistance yang disebut Kitco di $4.068 dan level FX Leaders di $4.046 dan $4.082. Area $4.046–$4.082 kini menjadi support pertama, lalu $3.992 dan $3.975. Penutupan di bawah $3.975 akan membuka kembali $3.871.',
+            en: 'Gold has broken the resistance Kitco cited at $4,068 and FX Leaders’ levels at $4,046 and $4,082. The $4,046–$4,082 zone is now the first support, followed by $3,992 and $3,975. A close below $3,975 would reopen $3,871.',
+          },
+          {
+            id: 'Hari ini rilis klaim pengangguran mingguan, lalu payroll Oktober pada Jumat dengan perkiraan 68.000 pekerjaan setelah 29.000 pada September. Payroll yang lemah bisa memangkas taruhan kenaikan bunga dan menjaga reli; payroll yang kuat bisa memicu aksi ambil untung kembali ke area $4.000.',
+            en: 'Weekly jobless claims are due today, then October payrolls on Friday, forecast at 68,000 jobs after 29,000 in September. Weak payrolls could trim hike bets and keep the rally going; strong payrolls could trigger profit-taking back towards $4,000.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik, Spread Menyempit', en: 'Antam Rises and the Spread Narrows' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram naik Rp20.000 dari harga pagi kemarin ke Rp2.557.000 (Rp3.000 di atas revisi sore kemarin di Rp2.554.000). Buyback naik lebih cepat, Rp50.000 ke Rp2.357.000, sehingga spread menyempit dari Rp230.000 ke Rp200.000, atau sekitar 7,8%. Kenaikan Antam sekitar 0,8% masih jauh di bawah kenaikan emas dunia sekitar 4,9%.',
+            en: 'Antam’s 1-gram price rose Rp20,000 from yesterday morning to Rp2,557,000 (Rp3,000 above yesterday’s afternoon revision of Rp2,554,000). Buyback rose faster, by Rp50,000 to Rp2,357,000, narrowing the spread from Rp230,000 to Rp200,000, or about 7.8%. Antam’s gain of about 0.8% still trails global gold’s rise of about 4.9%.',
+          },
+          {
+            id: 'Di Galeri 24, Galeri24 naik Rp12.000 ke Rp2.479.000 (buyback Rp2.333.000, spread sekitar 5,9%) dan UBS naik Rp39.000 ke Rp2.535.000 (buyback Rp2.308.000, spread sekitar 9,0%). Harga jual Antam kini Rp78.000 di atas Galeri24 dan Rp22.000 di atas UBS, tetapi buyback Antam tertinggi di antara ketiganya.',
+            en: 'At Galeri 24, Galeri24 rose Rp12,000 to Rp2,479,000 (buyback Rp2,333,000, spread about 5.9%) and UBS rose Rp39,000 to Rp2,535,000 (buyback Rp2,308,000, spread about 9.0%). Antam’s selling price is now Rp78,000 above Galeri24’s and Rp22,000 above UBS’s, but Antam’s buyback is the highest of the three.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Strategi: Jangan Kejar Lonjakan Sehari', en: 'Playbook: Don’t Chase a One-Day Spike' },
+        paragraphs: [
+          {
+            id: 'Permintaan struktural tetap menjadi penopang. FX Leaders mencatat bank sentral membeli 321 ton emas pada kuartal III, naik 42% dari tahun lalu, dan kepemilikan ETF mencapai rekor 4.256 ton. Namun lonjakan hampir 5% dalam sehari juga rawan koreksi bila payroll Jumat kuat.',
+            en: 'Structural demand remains a support. FX Leaders notes central banks bought 321 tonnes of gold in Q3, up 42% from a year earlier, and ETF holdings reached a record 4,256 tonnes. But a near-5% jump in a day is also vulnerable to a pullback if Friday’s payrolls are strong.',
+          },
+          {
+            id: 'Bagi investor rupiah, membeli bertahap (DCA) dengan jumlah tetap lebih masuk akal daripada mengejar lonjakan sehari. Spread Antam yang menyempit ke 7,8% sedikit mengurangi biaya masuk, tetapi tetap bandingkan merek sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For rupiah investors, buying in fixed amounts over time (DCA) makes more sense than chasing a one-day spike. Antam’s spread narrowing to 7.8% trims the cost of entry a little, but compare brands before buying. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Pemilu menekan dolar dan minyak sekaligus, tetapi selama peluang kenaikan bunga Desember di 79%, payroll Jumat tetap jadi penentu.',
+      en: 'The vote knocked the dollar and oil at the same time, but with December hike odds at 79%, Friday’s payrolls still decide the next move.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-democratic-sweep-4130.png'),
+    publishedAt: Date.parse('2026-11-05T03:20:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Investing.com: Gold extends rally above $4,100 as dollar, Treasury yields fall after U.S. vote', url: 'https://www.investing.com/news/commodities-news/gold-extends-rally-above-4100-as-dollar-treasury-yields-fall-after-us-vote-5002012' },
+      { title: 'Trading Economics: Gold extends gain on US-Iran optimism', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Kitco: Gold and silver surge as Democratic midterm sweep drives dollar, yields lower', url: 'https://www.kitco.com/news/article/2026-11-04/gold-and-silver-surge-democratic-midterm-sweep-drives-dollar-yields-lower' },
+      { title: 'Kitco: Gold prices holding $4,000 as ADP says US economy created 86k jobs in October', url: 'https://www.kitco.com/news/article/2026-11-04/gold-prices-holding-4000-adp-says-us-economy-created-86k-jobs-october' },
+      { title: 'FX Leaders: Gold fundamentals, midterm shock, softer dollar and record ETF holdings lift XAU/USD back above $4,000', url: 'https://www.fxleaders.com/news/2026/11/04/gold-fundamentals-midterm-shock-softer-dollar-and-record-etf-holdings-lift-xau-usd-back-above-4000/' },
+      { title: 'FX Leaders: Gold price forecast, XAU/USD tests $3,920 on midterm election day, NFP Friday', url: 'https://www.fxleaders.com/news/2026/11/03/gold-price-forecast-xau-usd-tests-3920-on-midterm-election-day-after-2-oil-driven-rebound-nfp-friday/' },
+      { title: 'Investor.id: Harga emas Antam (ANTM) hari ini, Kamis 5 November 2026, menguat', url: 'https://investor.id/market/460784/harga-emas-antam-antm-hari-ini-kamis-5-november-2026-menguat/2' },
+      { title: 'Bloomberg Technoz: Harga emas Antam hari ini naik, buyback nanjak', url: 'https://www.bloombergtechnoz.com/detail-news/126819/harga-emas-antam-hari-ini-naik-buyback-nanjak' },
+      { title: 'Kumparan: Harga emas 5 November 2026, Antam melesat Rp20 ribu, Galeri24 naik 12 ribu', url: 'https://kumparan.com/kumparanbisnis/harga-emas-5-november-2026-antam-melesat-rp-20-ribu-galeri24-naik-12-ribu-28VpOZrlqTw' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-steadies-3930-midterms-dollar-five-week-low',
+    category: 'market',
     title: {
       id: 'Emas Stabil di $3.930 saat Hasil Pemilu Sela Menekan Dolar; Peluang Kenaikan Bunga Naik ke 78%',
       en: 'Gold Steadies Near $3,930 as Midterm Results Weigh on the Dollar; Hike Odds Rise to 78%',
