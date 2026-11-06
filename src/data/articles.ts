@@ -55,9 +55,120 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-rallies-4130-democratic-sweep-oil-slide',
+    slug: 'gold-holds-4070-wall-street-rout-payrolls',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Bertahan di $4.070 saat Wall Street Anjlok; Payroll Oktober Jadi Penentu',
+      en: 'Gold Holds Near $4,070 as Wall Street Tumbles; October Payrolls Hold the Key',
+    },
+    excerpt: {
+      id: 'Emas sempat menyentuh $4.148, tertinggi sejak 20 Oktober, lalu memangkas kenaikan saat S&P 500 jatuh 4,36%. Yield turun dan peluang kenaikan bunga Desember mereda ke sekitar 66–69%, tetapi minyak kembali naik. Antam naik Rp8.000 ke Rp2.565.000 dan spread menyempit ke 7,6%.',
+      en: 'Gold touched $4,148, its highest since 20 October, then pared gains as the S&P 500 fell 4.36%. Yields dropped and December hike odds eased to about 66–69%, but oil climbed again. Antam rose Rp8,000 to Rp2,565,000 and the spread narrowed to 7.6%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Naik ke $4.148, lalu Tertahan', en: 'Up to $4,148, Then Held Back' },
+        paragraphs: [
+          {
+            id: 'Reli pascapemilu berlanjut pada Kamis. Kitco mencatat emas sempat naik ke $4.148, tertinggi sejak 20 Oktober, dan diperdagangkan di sekitar $4.120 pada pagi hari waktu AS, naik sekitar 1,5%. Data biaya tenaga kerja yang lebih lunak dan yield yang turun menjadi penopang.',
+            en: 'The post-election rally carried on into Thursday. Kitco has gold rising as high as $4,148, its highest since 20 October, and trading near $4,120 in the US morning, up about 1.5%. Softer labour-cost data and falling yields provided support.',
+          },
+          {
+            id: 'Menjelang penutupan, kenaikan menyusut ke sekitar $4.087 (naik 0,64%) saat pasar saham jatuh. Pada Jumat pagi, Trading Economics mencatat emas di $4.068, turun 0,48%, atau sekitar $80 di bawah puncak Kamis. Meski begitu, emas masih menuju kenaikan mingguan sekitar 5%.',
+            en: 'By the close the gain had shrunk to around $4,087 (up 0.64%) as stocks fell. On Friday morning Trading Economics has gold at $4,068, down 0.48%, or about $80 below Thursday’s peak. Even so, gold is still heading for a weekly gain of about 5%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Wall Street Jatuh, Obligasi Diburu', en: 'Wall Street Falls and Bonds Are in Demand' },
+        paragraphs: [
+          {
+            id: 'S&P 500 turun 4,36% ke 7.353,73, penurunan harian terdalam sejak April 2025, dan Nasdaq turun sekitar 5,5%. Indeks semikonduktor Philadelphia anjlok sekitar 12% karena kekhawatiran belanja AI dan kemungkinan regulasi lebih ketat setelah Demokrat menguasai Kongres. Saat terjadi aksi jual besar, sebagian investor menjual emas untuk menutup kerugian, sehingga kenaikan emas ikut terpangkas.',
+            en: 'The S&P 500 fell 4.36% to 7,353.73, its steepest daily drop since April 2025, and the Nasdaq lost about 5.5%. The Philadelphia semiconductor index sank about 12% on worries about AI spending and possible tighter regulation now that Democrats control Congress. In a broad sell-off some investors sell gold to cover losses, which trimmed gold’s gains.',
+          },
+          {
+            id: 'Di sisi lain, investor memburu obligasi. Yield 10 tahun AS turun ke sekitar 4,82%, terendah sejak awal September, dan peluang kenaikan bunga Fed Desember turun ke sekitar 66–69% dari sekitar 83% pada Rabu. Yield dan taruhan kenaikan bunga yang lebih rendah biasanya mendukung emas, yang tidak memberi bunga.',
+            en: 'On the other side, investors piled into bonds. The US 10-year yield fell to about 4.82%, its lowest since early September, and the odds of a December Fed hike dropped to about 66–69% from about 83% on Wednesday. Lower yields and fewer hike bets usually support gold, which pays no interest.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Minyak Naik Lagi, Data Tenaga Kerja Campuran', en: 'Oil Rises Again and Labour Data Is Mixed' },
+        paragraphs: [
+          {
+            id: 'Setelah jatuh lebih dari 8% pada Rabu, minyak kembali naik. Serangan baru terhadap kapal di sekitar Selat Hormuz mendorong Brent naik 3,9% ke $98,29 dan WTI naik 2,7% ke $90,52. Bank of England juga menaikkan bunga 0,25 poin ke 4% karena inflasi Inggris 3,5%. Ini mengingatkan bahwa risiko inflasi dan bunga tinggi belum hilang.',
+            en: 'After falling more than 8% on Wednesday, oil rose again. Renewed attacks on shipping near the Strait of Hormuz pushed Brent up 3.9% to $98.29 and WTI up 2.7% to $90.52. The Bank of England also raised rates by 0.25 points to 4% with UK inflation at 3.5%. It is a reminder that inflation and high-rate risks have not gone away.',
+          },
+          {
+            id: 'Data tenaga kerja AS memberi sinyal campuran. Klaim pengangguran turun 6.000 ke 189.000, di bawah perkiraan 196.000, tanda pasar kerja masih kuat. Namun produktivitas naik 3,6% pada kuartal III dan biaya tenaga kerja per unit turun 0,7%, sehingga tekanan upah terhadap inflasi terlihat mereda.',
+            en: 'US labour data sent mixed signals. Jobless claims fell 6,000 to 189,000, below the 196,000 forecast, a sign the job market is still firm. But productivity rose 3.6% in Q3 and unit labour costs fell 0.7%, so wage pressure on inflation looks to be easing.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level yang Dipantau dan Payroll Malam Ini', en: 'Levels to Watch and Tonight’s Payrolls' },
+        paragraphs: [
+          {
+            id: 'Kitco menyebut resistance di $4.146, lalu $4.212 bila emas bertahan di atasnya. Support pertama di $4.075, dan emas kini sedikit di bawahnya; support berikutnya $3.989. Di $4.068, emas masih sekitar 27,5% di bawah rekor $5.608,35.',
+            en: 'Kitco puts resistance at $4,146, then $4,212 if gold holds above it. First support is $4,075, and gold is now just below it; the next support is $3,989. At $4,068, gold is still about 27.5% below its $5,608.35 record.',
+          },
+          {
+            id: 'Payroll Oktober rilis malam ini waktu Indonesia, dengan perkiraan sekitar 50.000–65.000 pekerjaan dan tingkat pengangguran 4,2%. Payroll yang lemah bisa memangkas taruhan kenaikan bunga dan membawa emas kembali menguji $4.146; payroll yang kuat bisa mendorong emas ke arah $3.989.',
+            en: 'October payrolls are due tonight Indonesian time, forecast at about 50,000–65,000 jobs with 4.2% unemployment. Weak payrolls could trim hike bets and send gold back to test $4,146; strong payrolls could push gold towards $3,989.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik Tipis, Galeri24 Mengejar', en: 'Antam Edges Up as Galeri24 Catches Up' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram naik Rp8.000 ke Rp2.565.000 dan buyback naik Rp13.000 ke Rp2.370.000, sehingga spread menyempit dari Rp200.000 ke Rp195.000, atau sekitar 7,6%. Sejak Senin (Rp2.531.000), Antam naik Rp34.000 atau sekitar 1,3%, jauh di bawah kenaikan emas dunia sekitar 5% pekan ini.',
+            en: 'Antam’s 1-gram price rose Rp8,000 to Rp2,565,000 and buyback rose Rp13,000 to Rp2,370,000, narrowing the spread from Rp200,000 to Rp195,000, or about 7.6%. Since Monday (Rp2,531,000) Antam is up Rp34,000, or about 1.3%, well short of global gold’s gain of about 5% this week.',
+          },
+          {
+            id: 'Di Galeri 24, Galeri24 naik Rp39.000 ke Rp2.518.000 (buyback Rp2.370.000, spread sekitar 5,9%) dan UBS naik Rp30.000 ke Rp2.565.000 (buyback Rp2.344.000, spread sekitar 8,6%). Harga jual Antam kini sama dengan UBS dan Rp47.000 di atas Galeri24, sementara buyback Galeri24 menyamai Antam.',
+            en: 'At Galeri 24, Galeri24 rose Rp39,000 to Rp2,518,000 (buyback Rp2,370,000, spread about 5.9%) and UBS rose Rp30,000 to Rp2,565,000 (buyback Rp2,344,000, spread about 8.6%). Antam’s selling price now matches UBS and sits Rp47,000 above Galeri24, while Galeri24’s buyback matches Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Strategi: Tunggu Data, Jangan Tebak Arah', en: 'Playbook: Wait for the Data, Don’t Guess the Direction' },
+        paragraphs: [
+          {
+            id: 'Permintaan struktural tetap menjadi penopang. FX Leaders mencatat bank sentral membeli 321 ton emas pada kuartal III dan kepemilikan ETF mencapai rekor 4.256 ton. Namun gejolak pasar saham menunjukkan emas bisa ikut terjual dalam aksi jual besar, setidaknya untuk sementara.',
+            en: 'Structural demand remains a support. FX Leaders notes central banks bought 321 tonnes of gold in Q3 and ETF holdings reached a record 4,256 tonnes. But the stock-market turmoil shows gold can be sold in a broad sell-off too, at least for a while.',
+          },
+          {
+            id: 'Bagi investor rupiah, membeli bertahap (DCA) dengan jumlah tetap lebih masuk akal daripada menebak hasil payroll. Bandingkan merek: Galeri24 kini paling murah dengan spread tersempit di antara ketiganya. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For rupiah investors, buying in fixed amounts over time (DCA) makes more sense than guessing the payrolls result. Compare brands: Galeri24 is now the cheapest, with the narrowest spread of the three. This article is educational analysis, not personal financial advice; match any decision to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Obligasi dan taruhan bunga yang lebih rendah menopang emas, tetapi aksi jual saham dan minyak yang naik lagi menahan reli.',
+      en: 'Bonds and lower rate bets are propping gold up, but the stock sell-off and rebounding oil are holding the rally back.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-wall-street-rout-payrolls.png'),
+    publishedAt: Date.parse('2026-11-06T02:50:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco (via HeadTopics): Gold holds gains, silver slips as Wall Street plunges, Fed hike bets ease', url: 'https://ca.headtopics.com/news/gold-holds-gains-silver-slips-as-wall-street-plunges-fed-89595199' },
+      { title: 'Kitco: Gold climbs above $4,100 as falling yields, softer labor costs support bullion', url: 'https://www.kitco.com/news/article/2026-11-05/gold-climbs-above-4100-falling-yields-softer-labor-costs-support-bullion' },
+      { title: 'Trading Economics: Gold heads for strong weekly gain', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Kitco: Gold market holding solid gains even as BoE raises interest rates', url: 'https://www.kitco.com/news/article/2026-11-05/gold-market-holding-solid-gains-even-boe-raises-interest-rates-due-rising' },
+      { title: 'IndexBox: Gold holds above $4,100 as labor market strength weighs on prices', url: 'https://www.indexbox.io/blog/gold-holds-above-4100-as-labor-market-strength-weighs-on-prices/' },
+      { title: 'FX Leaders: Gold fundamentals, midterm shock, softer dollar and record ETF holdings lift XAU/USD back above $4,000', url: 'https://www.fxleaders.com/news/2026/11/04/gold-fundamentals-midterm-shock-softer-dollar-and-record-etf-holdings-lift-xau-usd-back-above-4000/' },
+      { title: 'Kumparan: Harga emas Antam naik Rp8 ribu jadi Rp2,56 juta per gram, Galeri24 Rp2,51 juta', url: 'https://kumparan.com/kumparanbisnis/harga-emas-antam-naik-rp-8-ribu-jadi-rp-2-56-juta-per-gram-galeri24-rp-2-51-juta-28WDybM7kWt' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-rallies-4130-democratic-sweep-oil-slide',
+    category: 'market',
     title: {
       id: 'Emas Melonjak ke $4.130 Setelah Demokrat Menyapu Pemilu Sela; Minyak dan Dolar Merosot',
       en: 'Gold Jumps to $4,130 After a Democratic Midterm Sweep as Oil and the Dollar Slide',
