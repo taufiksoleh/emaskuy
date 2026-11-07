@@ -1,33 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T09:50:00+07:00",
+  "generatedAt": "2026-11-07T10:05:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas sempat naik ke $4.148 pada Kamis, tertinggi sejak 20 Oktober, lalu memangkas kenaikan saat Wall Street anjlok: S&P 500 turun 4,36%, penurunan harian terdalam sejak April 2025, dan Nasdaq turun sekitar 5,5% karena aksi jual saham teknologi dan AI. Trading Economics mencatat emas di $4.068 pada Jumat pagi, turun 0,48%, tetapi masih menuju kenaikan mingguan sekitar 5%.",
-      "en": "Gold rose as high as $4,148 on Thursday, its highest since 20 October, then pared gains as Wall Street sank: the S&P 500 fell 4.36%, its steepest daily drop since April 2025, and the Nasdaq lost about 5.5% in a tech and AI sell-off. Trading Economics has gold at $4,068 on Friday morning, down 0.48%, but still heading for a weekly gain of about 5%."
+      "id": "Data tenaga kerja AS jauh lebih kuat dari perkiraan: payroll Oktober bertambah 165.000, hampir tiga kali perkiraan 65.000, pengangguran turun ke 4,1% dan upah per jam naik 0,4%. Revisi dua bulan sebelumnya menambah 84.000. Emas spot turun 0,6% ke $4.065 pada penutupan Jumat, tetapi tetap naik 4,9% dalam sepekan.",
+      "en": "US jobs data came in far stronger than expected: October payrolls rose 165,000, nearly three times the 65,000 forecast, unemployment fell to 4.1% and hourly earnings rose 0.4%. Revisions to the prior two months added 84,000. Spot gold fell 0.6% to $4,065 at Friday’s close but still gained 4.9% on the week."
     },
     {
-      "id": "Investor memburu obligasi: yield 10 tahun AS turun ke sekitar 4,82%, terendah sejak awal September, dan peluang kenaikan bunga Fed Desember turun ke sekitar 66–69% dari sekitar 80%. Biaya tenaga kerja per unit turun 0,7% pada kuartal III. Namun Brent naik 3,9% ke $98,29 setelah serangan baru di sekitar Selat Hormuz, dan Bank of England menaikkan bunga ke 4%. Emas masih sekitar 27,5% di bawah rekor $5.608,35.",
-      "en": "Investors piled into bonds: the US 10-year yield fell to about 4.82%, its lowest since early September, and the odds of a December Fed hike dropped to about 66–69% from about 80%. Unit labour costs fell 0.7% in Q3. But Brent rose 3.9% to $98.29 after renewed attacks near the Strait of Hormuz, and the Bank of England raised rates to 4%. Gold is still about 27.5% below its $5,608.35 record."
+      "id": "Peluang kenaikan bunga Fed 25 bp pada 9 Desember naik ke hampir 79% dari sekitar 73%. Yield 2 tahun naik sekitar 6 bp ke 4,53%, yield 10 tahun di sekitar 4,86%, dan indeks dolar naik 0,74% ke 102,18. Brent di sekitar $97,75. Emas masih sekitar 27,5% di bawah rekor $5.608,35 dan turun 0,99% dalam sebulan.",
+      "en": "Odds of a 25 bp Fed hike on 9 December rose to nearly 79% from about 73%. The 2-year yield rose about 6 bp to 4.53%, the 10-year sits near 4.86%, and the dollar index rose 0.74% to 102.18. Brent is near $97.75. Gold is still about 27.5% below its $5,608.35 record and down 0.99% over the month."
     },
     {
-      "id": "Kitco menyebut resistance di $4.146 lalu $4.212, dan support di $4.075 lalu $3.989; emas kini sedikit di bawah $4.075. Klaim pengangguran turun ke 189.000, di bawah perkiraan 196.000. Malam ini rilis payroll Oktober dengan perkiraan sekitar 50.000–65.000 pekerjaan dan pengangguran 4,2%; angka lemah bisa memangkas taruhan kenaikan bunga lagi.",
-      "en": "Kitco puts resistance at $4,146 then $4,212, and support at $4,075 then $3,989; gold is now just below $4,075. Jobless claims fell to 189,000, below the 196,000 forecast. October payrolls are due tonight, forecast at about 50,000–65,000 jobs with 4.2% unemployment; a weak number could trim hike bets further."
+      "id": "Kitco menyebut resistance di $4.051 lalu $4.089, support di $4.022, dan target bearish di $3.992. Pekan depan, pasar menunggu CPI Oktober pada Selasa 10 November dan PPI pada Jumat 13 November; inflasi yang panas bisa mengukuhkan taruhan kenaikan bunga Desember.",
+      "en": "Kitco puts resistance at $4,051 then $4,089, support at $4,022, and a bearish target at $3,992. Next week markets await October CPI on Tuesday 10 November and PPI on Friday 13 November; hot inflation could cement December hike bets."
     },
     {
-      "id": "Antam 1 gram naik Rp8.000 ke Rp2.565.000 dan buyback naik Rp13.000 ke Rp2.370.000, sehingga spread menyempit ke Rp195.000 (sekitar 7,6%). Galeri24 naik Rp39.000 ke Rp2.518.000 (buyback Rp2.370.000) dan UBS naik Rp30.000 ke Rp2.565.000 (buyback Rp2.344.000). Secara struktural, FX Leaders mencatat bank sentral membeli 321 ton pada kuartal III dan kepemilikan ETF mencapai rekor 4.256 ton.",
-      "en": "Antam’s 1-gram price rose Rp8,000 to Rp2,565,000 and buyback rose Rp13,000 to Rp2,370,000, narrowing the spread to Rp195,000 (about 7.6%). Galeri24 rose Rp39,000 to Rp2,518,000 (buyback Rp2,370,000) and UBS rose Rp30,000 to Rp2,565,000 (buyback Rp2,344,000). Structurally, FX Leaders notes central banks bought 321 tonnes in Q3 and ETF holdings hit a record 4,256 tonnes."
+      "id": "Antam 1 gram turun Rp20.000 ke Rp2.545.000 dan buyback turun Rp20.000 ke Rp2.350.000, sehingga spread tetap Rp195.000 (sekitar 7,7%). Galeri24 turun Rp11.000 ke Rp2.507.000 (buyback Rp2.360.000) dan UBS turun Rp25.000 ke Rp2.540.000 (buyback Rp2.334.000). Secara struktural, bank sentral membeli 321 ton pada kuartal III dan kepemilikan ETF mencapai rekor 4.256 ton.",
+      "en": "Antam’s 1-gram price fell Rp20,000 to Rp2,545,000 and buyback fell Rp20,000 to Rp2,350,000, leaving the spread at Rp195,000 (about 7.7%). Galeri24 fell Rp11,000 to Rp2,507,000 (buyback Rp2,360,000) and UBS fell Rp25,000 to Rp2,540,000 (buyback Rp2,334,000). Structurally, central banks bought 321 tonnes in Q3 and ETF holdings hit a record 4,256 tonnes."
     }
   ],
   "sources": [
-    { "title": "Kitco (via HeadTopics): Gold holds gains, silver slips as Wall Street plunges, Fed hike bets ease", "url": "https://ca.headtopics.com/news/gold-holds-gains-silver-slips-as-wall-street-plunges-fed-89595199" },
-    { "title": "Kitco: Gold climbs above $4,100 as falling yields, softer labor costs support bullion", "url": "https://www.kitco.com/news/article/2026-11-05/gold-climbs-above-4100-falling-yields-softer-labor-costs-support-bullion" },
-    { "title": "Trading Economics: Gold heads for strong weekly gain", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "IndexBox: Gold holds above $4,100 as labor market strength weighs on prices", "url": "https://www.indexbox.io/blog/gold-holds-above-4100-as-labor-market-strength-weighs-on-prices/" },
+    { "title": "Kitco: Gold falls as U.S. payrolls surge by 165,000, strengthening December Fed hike case", "url": "https://www.kitco.com/news/article/2026-11-06/gold-falls-us-payrolls-surge-165000-strengthening-december-fed-hike-case" },
+    { "title": "Investing.com: Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets", "url": "https://www.investing.com/news/commodities-news/gold-heads-for-best-week-since-august-as-us-political-shift-lifts-bonds-5006271" },
+    { "title": "Trading Economics: Gold retreats on strong US jobs data", "url": "https://tradingeconomics.com/commodity/gold" },
     { "title": "FX Leaders: Gold fundamentals, midterm shock, softer dollar and record ETF holdings lift XAU/USD back above $4,000", "url": "https://www.fxleaders.com/news/2026/11/04/gold-fundamentals-midterm-shock-softer-dollar-and-record-etf-holdings-lift-xau-usd-back-above-4000/" },
-    { "title": "Kumparan: Harga emas Antam naik Rp8 ribu jadi Rp2,56 juta per gram, Galeri24 Rp2,51 juta", "url": "https://kumparan.com/kumparanbisnis/harga-emas-antam-naik-rp-8-ribu-jadi-rp-2-56-juta-per-gram-galeri24-rp-2-51-juta-28WDybM7kWt" },
-    { "title": "Liputan6: Harga emas Antam 6 November 2026 naik Rp8 ribu", "url": "https://www.liputan6.com/bisnis/read/8329661/harga-emas-antam-6-november-2026-naik-rp-8-ribu-cek-daftarnya-di-sini" },
+    { "title": "tvOnenews: Harga emas Antam hari ini 7 November 2026 turun jadi Rp2.545.000 per gram", "url": "https://www.tvonenews.com/ekonomi/477066-saatnya-beli-untuk-investasi-harga-emas-antam-hari-ini-7-november-2026-turun-jadi-rp2545000-per-gram" },
+    { "title": "CNBC Indonesia: Harga emas Antam hari ini turun jadi Rp2.545.000", "url": "https://www.cnbcindonesia.com/research/20261107091337-128-783149/pengumuman-harga-emas-antam-hari-ini-turun-jadi-rp2545000" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }

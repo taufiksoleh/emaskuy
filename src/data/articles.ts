@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-slips-4065-hot-payrolls-fed-hike',
+    category: 'macro',
+    featured: true,
+    title: {
+      id: 'Emas Turun ke $4.065 Usai Payroll Panas; Peluang Kenaikan Bunga Desember Naik ke 79%',
+      en: 'Gold Slips to $4,065 After Hot Payrolls; December Hike Odds Climb to 79%',
+    },
+    excerpt: {
+      id: 'Payroll Oktober melonjak 165.000, hampir tiga kali perkiraan, dan pengangguran turun ke 4,1%. Dolar dan yield naik, emas turun 0,6% ke $4.065 tetapi tetap naik 4,9% sepekan. Antam turun Rp20.000 ke Rp2.545.000 dengan spread tetap 7,7%.',
+      en: 'October payrolls jumped 165,000, nearly three times the forecast, and unemployment fell to 4.1%. The dollar and yields rose and gold fell 0.6% to $4,065, yet still gained 4.9% on the week. Antam fell Rp20,000 to Rp2,545,000 with the spread steady at 7.7%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Payroll Jauh di Atas Perkiraan', en: 'Payrolls Far Above Forecast' },
+        paragraphs: [
+          {
+            id: 'Laporan tenaga kerja Oktober mengejutkan pasar. Ekonomi AS menambah 165.000 pekerjaan, padahal konsensus hanya sekitar 65.000. Pengangguran turun ke 4,1% dari 4,2%, dan revisi Agustus serta September menambah 84.000 pekerjaan. Upah per jam naik 0,4% sebulan, di atas perkiraan 0,3%, atau 3,1% setahun.',
+            en: 'The October jobs report caught markets off guard. The US economy added 165,000 jobs against a consensus of about 65,000. Unemployment fell to 4.1% from 4.2%, and revisions to August and September added 84,000 jobs. Hourly earnings rose 0.4% on the month, above the 0.3% forecast, or 3.1% on the year.',
+          },
+          {
+            id: 'Emas langsung tertekan. Kitco mencatat emas spot di sekitar $4.051 tak lama setelah rilis, turun $34,10. Pada penutupan Jumat, Investing.com mencatat emas spot di $4.065, turun 0,6%, sedangkan perak berjangka turun 0,78% ke sekitar $51,97.',
+            en: 'Gold came under pressure straight away. Kitco has spot gold near $4,051 shortly after the release, down $34.10. At Friday’s close, Investing.com has spot gold at $4,065, down 0.6%, while silver futures fell 0.78% to about $51.97.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed Kembali Jadi Penekan', en: 'The Fed Weighs Again' },
+        paragraphs: [
+          {
+            id: 'Data yang kuat menghidupkan lagi taruhan kenaikan bunga. Menurut CME FedWatch yang dikutip Investing.com, peluang kenaikan 25 bp pada rapat 9 Desember naik ke hampir 79% dari sekitar 73% sebelum rilis. Yield 2 tahun naik sekitar 6 bp ke 4,53% dan yield 10 tahun berada di sekitar 4,86%.',
+            en: 'The strong data revived hike bets. According to CME FedWatch, cited by Investing.com, the odds of a 25 bp hike at the 9 December meeting rose to nearly 79% from about 73% before the release. The 2-year yield rose about 6 bp to 4.53% and the 10-year sits near 4.86%.',
+          },
+          {
+            id: 'Dolar ikut menguat: indeks dolar naik 0,74% ke 102,18. Emas tidak memberi bunga, jadi yield dan dolar yang lebih tinggi membuatnya kurang menarik dalam jangka pendek. Satu-satunya penolong adalah minyak: Brent sedikit turun ke sekitar $97,75 dan WTI ke sekitar $90,34, sehingga tekanan inflasi dari energi sedikit mereda.',
+            en: 'The dollar firmed too: the dollar index rose 0.74% to 102.18. Gold pays no interest, so higher yields and a stronger dollar make it less attractive in the short run. The one help came from oil: Brent eased to about $97.75 and WTI to about $90.34, slightly easing energy-driven inflation pressure.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Tetap Naik 4,9% Sepekan', en: 'Still Up 4.9% on the Week' },
+        paragraphs: [
+          {
+            id: 'Penurunan Jumat tidak menghapus kenaikan pekan ini. Emas spot tetap naik 4,9% sepekan, ditopang permintaan safe haven setelah Demokrat menyapu pemilu sela dan aksi jual di Wall Street. Namun dalam sebulan emas masih turun 0,99% dan berada sekitar 27,5% di bawah rekor $5.608,35 dari Januari.',
+            en: 'Friday’s drop did not erase the week’s gain. Spot gold still rose 4.9% on the week, supported by safe-haven demand after the Democrats swept the midterms and the Wall Street sell-off. Over the month, though, gold is still down 0.99% and about 27.5% below January’s $5,608.35 record.',
+          },
+          {
+            id: 'Kitco menyebut resistance di $4.051 lalu $4.089, support di $4.022, dan target bearish di $3.992. Ujian berikutnya adalah CPI Oktober pada Selasa 10 November, lalu PPI pada Jumat 13 November. Inflasi yang panas bisa mengunci kenaikan bunga Desember; inflasi yang lunak bisa membuka ruang pantulan.',
+            en: 'Kitco puts resistance at $4,051 then $4,089, support at $4,022, and a bearish target at $3,992. The next test is October CPI on Tuesday 10 November, then PPI on Friday 13 November. Hot inflation could lock in a December hike; soft inflation could leave room for a bounce.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam, Galeri24 dan UBS Kompak Turun', en: 'Antam, Galeri24 and UBS All Lower' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram turun Rp20.000 ke Rp2.545.000 pada Sabtu. Buyback juga turun Rp20.000 ke Rp2.350.000, sehingga spread tetap Rp195.000 atau sekitar 7,7%. Artinya, buyback perlu naik sekitar 8,3% (Rp195.000 dari Rp2.350.000) agar pembeli hari ini kembali ke modal.',
+            en: 'Antam’s 1-gram price fell Rp20,000 to Rp2,545,000 on Saturday. Buyback also fell Rp20,000 to Rp2,350,000, leaving the spread at Rp195,000, or about 7.7%. That means buyback needs to rise about 8.3% (Rp195,000 on Rp2,350,000) for today’s buyers to break even.',
+          },
+          {
+            id: 'Galeri24 turun Rp11.000 ke Rp2.507.000 dengan buyback Rp2.360.000 (spread sekitar 5,9%), dan UBS turun Rp25.000 ke Rp2.540.000 dengan buyback Rp2.334.000 (spread sekitar 8,1%). Galeri24 kini Rp38.000 (sekitar 1,5%) lebih murah dari Antam, dan buyback-nya Rp10.000 lebih tinggi.',
+            en: 'Galeri24 fell Rp11,000 to Rp2,507,000 with buyback at Rp2,360,000 (a spread of about 5.9%), and UBS fell Rp25,000 to Rp2,540,000 with buyback at Rp2,334,000 (about 8.1%). Galeri24 is now Rp38,000 (about 1.5%) cheaper than Antam, and its buyback is Rp10,000 higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Data Kuat, Fondasi Tetap Kokoh', en: 'Playbook: Strong Data, Solid Foundations' },
+        paragraphs: [
+          {
+            id: 'Dalam jangka pendek, emas bergerak mengikuti ekspektasi Fed, dan payroll panas jelas negatif. Namun fondasi strukturalnya tetap kuat: bank sentral membeli 321 ton pada kuartal III dan kepemilikan ETF mencapai rekor 4.256 ton. Bagi investor rupiah, koreksi setelah data seperti ini bisa menjadi kesempatan mencicil, bukan sinyal untuk masuk sekaligus.',
+            en: 'In the short run gold trades on Fed expectations, and hot payrolls are clearly negative. But the structural base stays strong: central banks bought 321 tonnes in Q3 and ETF holdings hit a record 4,256 tonnes. For rupiah investors, a dip after data like this can be a chance to buy in instalments, not a signal to go all in.',
+          },
+          {
+            id: 'Skenarionya: jika CPI panas dan emas menembus $4.022, area $3.992 menjadi sasaran berikutnya; jika CPI lunak, emas bisa menguji lagi $4.089. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'The scenarios: if CPI runs hot and gold breaks $4,022, the $3,992 area is the next target; if CPI is soft, gold could retest $4,089. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Payroll 165.000 menghidupkan lagi taruhan kenaikan bunga, tetapi emas tetap menutup pekan dengan kenaikan 4,9%.',
+      en: 'A 165,000 payroll print revived hike bets, yet gold still closed the week up 4.9%.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-hot-payrolls-fed-hike.png'),
+    publishedAt: Date.parse('2026-11-07T03:10:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold falls as U.S. payrolls surge by 165,000, strengthening December Fed hike case', url: 'https://www.kitco.com/news/article/2026-11-06/gold-falls-us-payrolls-surge-165000-strengthening-december-fed-hike-case' },
+      { title: 'Investing.com: Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets', url: 'https://www.investing.com/news/commodities-news/gold-heads-for-best-week-since-august-as-us-political-shift-lifts-bonds-5006271' },
+      { title: 'Trading Economics: Gold retreats on strong US jobs data', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'FX Leaders: Gold fundamentals, midterm shock, softer dollar and record ETF holdings lift XAU/USD back above $4,000', url: 'https://www.fxleaders.com/news/2026/11/04/gold-fundamentals-midterm-shock-softer-dollar-and-record-etf-holdings-lift-xau-usd-back-above-4000/' },
+      { title: 'tvOnenews: Harga emas Antam hari ini 7 November 2026 turun jadi Rp2.545.000 per gram', url: 'https://www.tvonenews.com/ekonomi/477066-saatnya-beli-untuk-investasi-harga-emas-antam-hari-ini-7-november-2026-turun-jadi-rp2545000-per-gram' },
+      { title: 'CNBC Indonesia: Harga emas Antam hari ini turun jadi Rp2.545.000', url: 'https://www.cnbcindonesia.com/research/20261107091337-128-783149/pengumuman-harga-emas-antam-hari-ini-turun-jadi-rp2545000' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-holds-4070-wall-street-rout-payrolls',
     category: 'market',
-    featured: true,
     title: {
       id: 'Emas Bertahan di $4.070 saat Wall Street Anjlok; Payroll Oktober Jadi Penentu',
       en: 'Gold Holds Near $4,070 as Wall Street Tumbles; October Payrolls Hold the Key',
