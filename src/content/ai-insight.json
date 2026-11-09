@@ -1,45 +1,49 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T10:05:00+07:00",
+  "generatedAt": "2026-11-09T10:10:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot menutup pekan di sekitar $4.069,63, turun 0,43% pada Jumat setelah payroll Oktober melonjak 165.000, hampir tiga kali perkiraan 65.000. Meski begitu, emas dibuka pekan ini di $3.875,21 dan sempat menyentuh $4.147,02 pada Kamis, sehingga masih sekitar $194 di atas pembukaan pekan.",
-      "en": "Spot gold ended the week near $4,069.63, down 0.43% on Friday after October payrolls jumped 165,000, nearly three times the 65,000 forecast. Even so, gold opened the week at $3,875.21 and touched $4,147.02 on Thursday, leaving it about $194 above the week’s open."
+      "id": "Emas spot membuka pekan dengan naik sekitar 1,3% (+$52,71) ke sekitar $4.123 di perdagangan Asia, memulihkan penurunan Jumat setelah payroll panas. Harga minyak melemah setelah Trump menyebut serangan baru ke Iran sangat kecil kemungkinannya selama perundingan berlangsung, sehingga tekanan inflasi dari energi sedikit mereda.",
+      "en": "Spot gold opened the week up about 1.3% (+$52.71) to around $4,123 in Asian trade, recovering Friday’s post-payrolls drop. Oil eased after Trump said fresh strikes on Iran were highly unlikely while talks continue, taking some of the energy-driven inflation pressure off."
     },
     {
-      "id": "Survei mingguan Kitco terbelah: dari 13 analis Wall Street, 31% memperkirakan emas naik, 38% turun dan 31% mendatar. Investor ritel lebih optimistis: 68% dari 212 suara memperkirakan kenaikan. Yield 2 tahun naik sekitar 6 bp ke 4,53% setelah payroll, dan emas masih sekitar 27,4% di bawah rekor $5.608,35 dari Januari.",
-      "en": "Kitco’s weekly survey is split: of 13 Wall Street analysts, 31% expect gold to rise, 38% expect a fall and 31% see it flat. Retail investors are more upbeat: 68% of 212 votes expect gains. The 2-year yield rose about 6 bp to 4.53% after payrolls, and gold is still about 27.4% below January’s $5,608.35 record."
+      "id": "Kenaikan ini tetap dibatasi ekspektasi Fed: pasar memperkirakan peluang sekitar 80–81% kenaikan bunga 25 bp pada Desember, naik dari sekitar 70% sebelum laporan payroll. Yield 10 tahun di sekitar 4,885% dan indeks dolar sekitar 102,16. Emas masih sekitar 26,5% di bawah rekor $5.608,35 dari Januari dan sekitar 1,2% lebih rendah dalam sebulan.",
+      "en": "The gain is still capped by Fed expectations: markets see about an 80–81% chance of a 25 bp hike in December, up from about 70% before the payrolls report. The 10-year yield is near 4.885% and the dollar index near 102.16. Gold is still about 26.5% below January’s $5,608.35 record and about 1.2% lower on the month."
     },
     {
-      "id": "CPI Oktober rilis Selasa 10 November. Karena penutupan pemerintah 2025, BLS tidak akan menerbitkan inflasi tahunan untuk headline dan inti, hanya perubahan bulanan. Nowcast Cleveland Fed memperkirakan headline 0,24% dan inti 0,21% sebulan, sementara RBC memperkirakan keduanya 0,3%. PPI menyusul Jumat 13 November. Kitco mencatat support $4.022 lalu $3.992 dan resistance $4.089.",
-      "en": "October CPI is out on Tuesday 10 November. Because of the 2025 government shutdown, BLS will not publish annual headline and core inflation, only monthly changes. The Cleveland Fed nowcast sees headline at 0.24% and core at 0.21% on the month, while RBC expects 0.3% for both. PPI follows on Friday 13 November. Kitco has support at $4,022 then $3,992 and resistance at $4,089."
+      "id": "Emas kini di atas resistance $4.089 yang dicatat Kitco; zona berikutnya $4.150–$4.170, dekat puncak pekan lalu di $4.147,02. Support awal di $4.032 lalu $4.016, dengan $4.000 sebagai pivot penting. Ujian utama adalah CPI Oktober pada Selasa 10 November, yang hanya memuat perubahan bulanan: nowcast Cleveland Fed 0,24% (inti 0,21%), RBC 0,3% untuk keduanya.",
+      "en": "Gold is now above the $4,089 resistance Kitco flagged; the next zone is $4,150–$4,170, near last week’s $4,147.02 peak. Initial support is $4,032 then $4,016, with $4,000 as the key pivot. The main test is October CPI on Tuesday 10 November, which carries only monthly changes: the Cleveland Fed nowcast sees 0.24% (core 0.21%), RBC 0.3% for both."
     },
     {
-      "id": "Logam Mulia tidak memperbarui harga pada Minggu, sehingga Antam 1 gram tetap Rp2.545.000 dan buyback Rp2.350.000 (spread Rp195.000, sekitar 7,7%). Galeri24 tetap Rp2.507.000 (buyback Rp2.360.000) dan UBS Rp2.540.000 (buyback Rp2.334.000). Galeri24 masih Rp38.000 lebih murah dari Antam dengan spread sekitar 5,9%.",
-      "en": "Logam Mulia did not update prices on Sunday, so Antam’s 1-gram price stays at Rp2,545,000 with buyback at Rp2,350,000 (a Rp195,000 spread, about 7.7%). Galeri24 is unchanged at Rp2,507,000 (buyback Rp2,360,000) and UBS at Rp2,540,000 (buyback Rp2,334,000). Galeri24 remains Rp38,000 cheaper than Antam, with a spread of about 5.9%."
+      "id": "Antam 1 gram bertahan di Rp2.545.000 pada Senin dengan buyback Rp2.350.000 (spread Rp195.000, sekitar 7,7%), belum mencerminkan lonjakan spot pagi ini. Galeri24 tetap Rp2.507.000 (buyback Rp2.360.000, spread sekitar 5,9%) dan UBS Rp2.540.000 (buyback Rp2.334.000, sekitar 8,1%). Galeri24 masih Rp38.000 lebih murah dari Antam.",
+      "en": "Antam’s 1-gram price held at Rp2,545,000 on Monday with buyback at Rp2,350,000 (a Rp195,000 spread, about 7.7%), not yet reflecting this morning’s jump in spot. Galeri24 is unchanged at Rp2,507,000 (buyback Rp2,360,000, a spread of about 5.9%) and UBS at Rp2,540,000 (buyback Rp2,334,000, about 8.1%). Galeri24 is still Rp38,000 cheaper than Antam."
     }
   ],
   "sources": [
+    {
+      "title": "Trading Economics: Gold price, news and forecast",
+      "url": "https://tradingeconomics.com/commodity/gold"
+    },
+    {
+      "title": "InvestingLive: Gold ticks higher on softer oil, but Fed’s 80% December hike odds cap gain",
+      "url": "https://investinglive.com/commodities/gold-ticks-higher-on-softer-oil-but-fed-s-80-december-hike-odds-cap-gain/"
+    },
     {
       "title": "Kitco: Wall Street split on gold following Dems’ midterm rout, Main Street bulls emboldened after post-election price rally",
       "url": "https://www.kitco.com/news/article/2026-11-06/wall-street-split-gold-following-dems-midterm-rout-main-street-bulls"
     },
     {
-      "title": "Kitco: Gold falls as U.S. payrolls surge by 165,000, strengthening December Fed hike case",
-      "url": "https://www.kitco.com/news/article/2026-11-06/gold-falls-us-payrolls-surge-165000-strengthening-december-fed-hike-case"
+      "title": "Kitco: Gold price holds critical $4,000 support, but strong U.S. jobs data and inflation risks threaten recovery",
+      "url": "https://www.kitco.com/news/article/2026-11-06/gold-price-holds-critical-4000-support-strong-us-jobs-data-and-inflation"
     },
     {
       "title": "Stocktitan: Next CPI report on November 10 will have no yearly inflation rate for overall prices",
       "url": "https://www.stocktitan.net/articles/october-2026-cpi-preview-no-yearly-rate"
     },
     {
-      "title": "Trading Economics: Gold retreats on strong US jobs data",
-      "url": "https://tradingeconomics.com/commodity/gold"
-    },
-    {
-      "title": "Beritasatu: Harga emas Antam hari ini setelah turun Rp20.000 per gram",
-      "url": "https://www.beritasatu.com/ekonomi/3039488/harga-emas-antam-hari-ini-setelah-turun-rp-20000-per-gram"
+      "title": "ANTARA Banten: Info harga emas Antam, bertahan di Rp2.545.000 per gram",
+      "url": "https://banten.antaranews.com/berita/396011/info-harga-emas-antam-bertahan-di-rp2545000-per-gram"
     },
     {
       "title": "Galeri 24: Harga emas hari ini",
