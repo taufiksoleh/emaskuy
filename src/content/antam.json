@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "priceDate": "2026-11-07",
-  "updatedAt": "2026-11-07T10:05:00+07:00",
+  "priceDate": "2026-11-09",
+  "updatedAt": "2026-11-09T10:05:00+07:00",
   "source": {
-    "name": "Logam Mulia (dikutip tvOnenews)",
-    "url": "https://www.tvonenews.com/ekonomi/477066-saatnya-beli-untuk-investasi-harga-emas-antam-hari-ini-7-november-2026-turun-jadi-rp2545000-per-gram"
+    "name": "Logam Mulia (dikutip ANTARA Banten)",
+    "url": "https://banten.antaranews.com/berita/396011/info-harga-emas-antam-bertahan-di-rp2545000-per-gram"
   },
   "note": {
-    "id": "Harga Antam 1 gram turun Rp20.000 ke Rp2.545.000. Buyback juga turun Rp20.000 ke Rp2.350.000/gram, sehingga spread tetap Rp195.000 (sekitar 7,7%).",
-    "en": "Antam’s 1-gram price fell Rp20,000 to Rp2,545,000. Buyback also fell Rp20,000 to Rp2,350,000/gram, leaving the spread at Rp195,000 (about 7.7%)."
+    "id": "Harga Antam 1 gram bertahan di Rp2.545.000 pada Senin, sama seperti Sabtu. Buyback tetap Rp2.350.000/gram, sehingga spread Rp195.000 (sekitar 7,7%).",
+    "en": "Antam’s 1-gram price held at Rp2,545,000 on Monday, the same as Saturday. Buyback stays at Rp2,350,000/gram, leaving a Rp195,000 spread (about 7.7%)."
   },
   "antam": {
     "buybackPerGram": 2350000,
@@ -252,6 +252,11 @@
     },
     {
       "date": "2026-11-07",
+      "sell1g": 2545000,
+      "buyback": 2350000
+    },
+    {
+      "date": "2026-11-09",
       "sell1g": 2545000,
       "buyback": 2350000
     }
