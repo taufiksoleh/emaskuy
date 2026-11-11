@@ -1,33 +1,37 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T10:25:00+07:00",
-  "sentiment": "neutral",
+  "generatedAt": "2026-11-11T10:10:00+07:00",
+  "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas spot naik 1,7% dan ditutup di $4.141,14 pada Senin, level tertinggi sejak 21 Oktober, karena dolar melemah dan Brent anjlok 5,1% ke $92,61 setelah Trump menyebut serangan baru ke Iran sangat kecil kemungkinannya. Pagi ini emas melunak ke sekitar $4.111 (turun sekitar 0,7%) menurut Trading Economics, menjelang rilis CPI Oktober malam ini.",
-      "en": "Spot gold rose 1.7% to settle at $4,141.14 on Monday, its highest since 21 October, as the dollar weakened and Brent slumped 5.1% to $92.61 after Trump said fresh strikes on Iran were highly unlikely. This morning gold eased to around $4,111 (down about 0.7%) according to Trading Economics, ahead of tonight’s October CPI release."
+      "id": "CPI Oktober lebih panas dari perkiraan: headline naik 0,4% (perkiraan 0,3%) dan inti 0,3% (perkiraan 0,2%). Emas spot turun 2,7% ke $4.028,39 pada Selasa sore waktu AS menurut Reuters, dan emas berjangka Desember ditutup turun 2,0% di $4.030,20 setelah sempat dibuka di $4.149. Pagi ini emas stabil di sekitar $4.042, naik tipis 0,24% menurut Trading Economics.",
+      "en": "October CPI ran hotter than expected: headline rose 0.4% (forecast 0.3%) and core 0.3% (forecast 0.2%). Spot gold fell 2.7% to $4,028.39 on Tuesday afternoon US time according to Reuters, and December gold futures settled 2.0% lower at $4,030.20 after opening at $4,149. This morning gold is steady near $4,042, up a slim 0.24% according to Trading Economics."
     },
     {
-      "id": "Ekspektasi Fed tetap menjadi rem: CME FedWatch kini menunjukkan peluang sekitar 84% kenaikan bunga Desember, naik dari sekitar 74% sepekan lalu. Yield 10 tahun di sekitar 4,88% dan indeks dolar turun ke 101,68 dari 102,30. Emas masih sekitar 26,7% di bawah rekor $5.608,35 dari Januari dan sekitar 1,4% lebih rendah dalam sebulan.",
-      "en": "Fed expectations remain the brake: CME FedWatch now shows about an 84% chance of a December hike, up from about 74% a week ago. The 10-year yield is near 4.88% and the dollar index fell to 101.68 from 102.30. Gold is still about 26.7% below January’s $5,608.35 record and about 1.4% lower on the month."
+      "id": "Kenaikan bunga Fed Desember kini hampir pasti: Trading Economics mencatat peluangnya sekitar 91% dari 84%, dan peluang kenaikan 50 bps naik ke 10% dari 0% menurut CME FedWatch, setelah Gubernur Waller menyebut langkah setengah poin layak dipertimbangkan. Yield 10 tahun naik 10 bps ke 4,98% (sempat di atas 5%) dan indeks dolar naik 0,58% ke 102,25. Emas sekitar 27,9% di bawah rekor $5.608,35 dan turun 3,1% dalam sebulan.",
+      "en": "A December Fed hike now looks almost certain: Trading Economics puts the odds near 91% from 84%, and the chance of a 50 bp hike rose to 10% from 0% on CME FedWatch, after Governor Waller said a half-point move should be considered. The 10-year yield rose 10 bp to 4.98% (briefly above 5%) and the dollar index rose 0.58% to 102.25. Gold is about 27.9% below its $5,608.35 record and down 3.1% on the month."
     },
     {
-      "id": "CPI Oktober terbit pukul 20.30 WIB dan hanya memuat perubahan bulanan; nowcast Cleveland Fed 0,24% (inti 0,21%), RBC 0,3% untuk keduanya, setelah September 0,6% (inti 0,3%). Resistance di $4.150, yang bila ditembus bisa membuka jalan ke sekitar $4.400; support kunci di $4.000. PPI menyusul Jumat 13 November.",
-      "en": "October CPI is out at 8:30 p.m. WIB and carries only monthly changes; the Cleveland Fed nowcast sees 0.24% (core 0.21%), RBC 0.3% for both, after September’s 0.6% (core 0.3%). Resistance sits at $4,150, and a break could open the way toward about $4,400; key support is $4,000. PPI follows on Friday 13 November."
+      "id": "Level $4.000 kembali jadi support kritis, sebagaimana disebut Standard Chartered, sementara $4.150 yang gagal ditembus Senin kini menjadi resistance. Brent turun 1,17% ke $91,49 dan sempat di bawah $90 untuk pertama kali sejak Agustus, sedikit meredam tekanan inflasi energi. Berikutnya pasar menunggu PPI Jumat 13 November dan keputusan Fed 9 Desember.",
+      "en": "The $4,000 level is again the critical support, as Standard Chartered notes, while $4,150, which Monday failed to break, is now resistance. Brent fell 1.17% to $91.49 and briefly dipped below $90 for the first time since August, slightly easing energy-inflation pressure. Next, markets await PPI on Friday 13 November and the Fed decision on 9 December."
     },
     {
-      "id": "Antam 1 gram naik Rp15.000 ke Rp2.560.000 dengan buyback naik Rp25.000 ke Rp2.375.000, sehingga spread menyempit ke Rp185.000 (sekitar 7,2%) dari 7,7%. Galeri24 naik ke Rp2.518.000 (buyback Rp2.370.000, spread sekitar 5,9%) dan UBS ke Rp2.572.000 (buyback Rp2.344.000, sekitar 8,9%). Galeri24 kini Rp42.000 lebih murah dari Antam.",
-      "en": "Antam’s 1-gram price rose Rp15,000 to Rp2,560,000 with buyback up Rp25,000 to Rp2,375,000, narrowing the spread to Rp185,000 (about 7.2%) from 7.7%. Galeri24 rose to Rp2,518,000 (buyback Rp2,370,000, a spread of about 5.9%) and UBS to Rp2,572,000 (buyback Rp2,344,000, about 8.9%). Galeri24 is now Rp42,000 cheaper than Antam."
+      "id": "Antam 1 gram turun Rp30.000 ke Rp2.530.000 dengan buyback turun Rp37.000 ke Rp2.338.000, sehingga spread melebar ke Rp192.000 (sekitar 7,6%) dari 7,2%. Situs Galeri24 masih mencantumkan Galeri24 di Rp2.518.000 (buyback Rp2.370.000, spread sekitar 5,9%), hanya Rp12.000 lebih murah dari Antam, sedangkan UBS turun ke Rp2.542.000 (buyback Rp2.344.000, spread sekitar 7,8%).",
+      "en": "Antam’s 1-gram price fell Rp30,000 to Rp2,530,000 with buyback down Rp37,000 to Rp2,338,000, widening the spread to Rp192,000 (about 7.6%) from 7.2%. The Galeri24 site still lists Galeri24 at Rp2,518,000 (buyback Rp2,370,000, a spread of about 5.9%), only Rp12,000 cheaper than Antam, while UBS fell to Rp2,542,000 (buyback Rp2,344,000, a spread of about 7.8%)."
     }
   ],
   "sources": [
     {
-      "title": "Investing.com: Gold rises almost 2% amid sliding dollar, slumping oil prices a day ahead of CPI",
-      "url": "https://www.investing.com/news/commodities-news/gold-rebounds-above-4100-as-traders-await-us-inflation-data-after-jobs-beat-5010397"
+      "title": "MarketScreener (Reuters): Gold falls nearly 3% as CPI tops forecasts, lifting dollar and yields",
+      "url": "https://www.marketscreener.com/news/gold-drops-1-on-hawkish-fed-comments-ahead-of-us-inflation-data-ce785edada8ff02c"
     },
     {
-      "title": "CNBC Indonesia: Harga emas terbang ke rekor tertinggi 2 minggu, tembus US$4.100",
-      "url": "https://www.cnbcindonesia.com/research/20261110062748-128-783718/harga-emas-terbang-ke-rekor-tertinggi-2-minggu-tembus-us--4100"
+      "title": "Kitco: Gold prices down 2% on the day as US CPI rises more than expected",
+      "url": "https://www.kitco.com/news/article/2026-11-10/gold-prices-down-2-day-us-cpi-rises-more-expected"
+    },
+    {
+      "title": "Guardian Gold: Overnight summary, precious metals prices 11/11/2026",
+      "url": "https://guardian-gold.com.au/market-updates/overnight-summary-precious-metals-prices-11-11-2026/"
     },
     {
       "title": "Trading Economics: Gold price, news and forecast",
@@ -38,8 +42,12 @@
       "url": "https://financefeeds.com/gold-price-today-4112-monday-before-cpi-10-november-bull-4150-bear-4000/"
     },
     {
-      "title": "Liputan6: Harga emas Antam hari ini melesat Rp15 ribu",
-      "url": "https://www.liputan6.com/bisnis/read/8332018/harga-emas-antam-hari-ini-melesat-rp-15-ribu-cek-rincian-di-sini"
+      "title": "Kumparan: Harga emas Antam turun jadi Rp2.530.000/gram, Galeri24 di Rp2.518.000/gram",
+      "url": "https://kumparan.com/kumparanbisnis/harga-emas-antam-turun-jadi-rp-2-530-000-gram-galeri24-di-rp-2-518-000-gram-28YCQHhOWiS"
+    },
+    {
+      "title": "CNBC Indonesia: Ambruk! Harga emas Antam Logam Mulia hari ini jatuh Rp30.000",
+      "url": "https://www.cnbcindonesia.com/research/20261111092310-128-784127/ambruk-harga-emas-antam-logam-mulia-hari-ini-jatuh-rp-30000"
     },
     {
       "title": "Galeri 24: Harga emas hari ini",
