@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-cpi-day-4140-hike-odds-84',
+    slug: 'gold-hot-cpi-drops-4030-fed-hike-priced',
     category: 'macro',
     featured: true,
+    title: {
+      id: 'CPI Panas Seret Emas ke $4.030; Kenaikan Bunga Fed Desember Nyaris Pasti',
+      en: 'Hot CPI Drags Gold to $4,030; a December Fed Hike Is Now Nearly Certain',
+    },
+    excerpt: {
+      id: 'CPI Oktober naik 0,4% dan inti 0,3%, keduanya di atas perkiraan. Emas spot turun 2,7% ke $4.028, yield 10 tahun sempat menembus 5% dan peluang kenaikan bunga Fed Desember naik ke sekitar 91%. Antam turun Rp30.000 ke Rp2.530.000.',
+      en: 'October CPI rose 0.4% with core at 0.3%, both above forecasts. Spot gold fell 2.7% to $4,028, the 10-year yield briefly topped 5% and the odds of a December Fed hike rose to about 91%. Antam fell Rp30,000 to Rp2,530,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'CPI di Atas Perkiraan', en: 'CPI Beats Forecasts' },
+        paragraphs: [
+          {
+            id: 'Indeks harga konsumen AS naik 0,4% pada Oktober, di atas perkiraan 0,3%, dan CPI inti naik 0,3% dibanding perkiraan 0,2%. Angka headline memang melambat dari 0,6% pada September, tetapi inti bertahan di 0,3% dan energi masih naik 0,7%. Perubahan tahunan tidak dipublikasikan karena data Oktober 2025 tidak terkumpul.',
+            en: 'US consumer prices rose 0.4% in October, above the 0.3% forecast, and core CPI rose 0.3% against 0.2% expected. Headline did slow from September’s 0.6%, but core held at 0.3% and energy still rose 0.7%. Annual changes were not published because October 2025 data were not collected.',
+          },
+          {
+            id: 'Emas langsung tertekan. Reuters mencatat emas spot turun 2,7% ke $4.028,39 per ons pada Selasa sore waktu AS, sekitar $113 di bawah penutupan Senin di $4.141,14. Emas berjangka Desember ditutup turun 2,0% di $4.030,20 setelah dibuka di $4.149, dan perak anjlok 3,95% ke $51,30.',
+            en: 'Gold came under immediate pressure. Reuters reported spot gold down 2.7% at $4,028.39 an ounce on Tuesday afternoon US time, about $113 below Monday’s $4,141.14 close. December gold futures settled 2.0% lower at $4,030.20 after opening at $4,149, and silver slumped 3.95% to $51.30.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed, Yield dan Dolar', en: 'The Fed, Yields and the Dollar' },
+        paragraphs: [
+          {
+            id: 'Data ini memperkuat taruhan kenaikan bunga. Trading Economics mencatat peluang kenaikan bunga Desember sekitar 91%, naik dari 84% sehari sebelumnya, dan menurut CME FedWatch peluang kenaikan 50 bps naik ke 10% dari 0%. Gubernur Fed Christopher Waller sebelumnya menyebut langkah setengah poin layak dipertimbangkan pada rapat Desember.',
+            en: 'The data strengthened hike bets. Trading Economics puts the odds of a December hike near 91%, up from 84% a day earlier, and on CME FedWatch the chance of a 50 bp hike rose to 10% from 0%. Fed Governor Christopher Waller had said a half-point move should be considered at the December meeting.',
+          },
+          {
+            id: 'Yield 10 tahun AS naik 10 bps ke 4,98% dan sempat di atas 5%, sementara indeks dolar naik 0,58% ke 102,25. Yield yang lebih tinggi menaikkan biaya peluang memegang emas, dan dolar yang lebih kuat membuat emas lebih mahal bagi pembeli di luar AS. Brent justru turun 1,17% ke $91,49, tetapi kali ini minyak murah tidak cukup menolong emas.',
+            en: 'The US 10-year yield rose 10 bp to 4.98% and briefly traded above 5%, while the dollar index rose 0.58% to 102.25. Higher yields raise the opportunity cost of holding gold, and a stronger dollar makes gold dearer for buyers outside the US. Brent actually fell 1.17% to $91.49, but this time cheaper oil was not enough to help gold.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Pagi ini emas stabil di sekitar $4.042, naik tipis 0,24% menurut Trading Economics. Namun emas kini turun sekitar 3,1% dalam sebulan dan berada sekitar 27,9% di bawah rekor $5.608,35 dari Januari. Lonjakan Senin ke $4.141 ternyata hanya bertahan satu hari.',
+            en: 'This morning gold is steady near $4,042, up a slim 0.24% according to Trading Economics. But gold is now down about 3.1% on the month and about 27.9% below January’s $5,608.35 record. Monday’s jump to $4,141 lasted only a day.',
+          },
+          {
+            id: 'Standard Chartered menyebut emas masih diperdagangkan di atas level kritis $4.000, dan itu support utama yang diawasi. Di atas, $4.150 yang gagal ditembus Senin kini menjadi resistance. Data berikutnya adalah PPI pada Jumat 13 November, lalu keputusan Fed pada 9 Desember.',
+            en: 'Standard Chartered says gold still trades above the critical $4,000 mark, and that is the main support traders watch. Above, $4,150, which Monday failed to break, is now resistance. The next data point is PPI on Friday 13 November, then the Fed decision on 9 December.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Spread Melebar', en: 'Antam Falls, Spread Widens' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia menurunkan Antam 1 gram Rp30.000 (sekitar 1,2%) ke Rp2.530.000 pada Rabu. Buyback turun lebih dalam, Rp37.000 ke Rp2.338.000, sehingga spread melebar dari Rp185.000 ke Rp192.000, atau dari sekitar 7,2% ke 7,6%. Batangan 10 gram kini Rp24.795.000 dan 100 gram Rp247.212.000.',
+            en: 'Logam Mulia cut Antam’s 1-gram price by Rp30,000 (about 1.2%) to Rp2,530,000 on Wednesday. Buyback fell further, by Rp37,000 to Rp2,338,000, so the spread widened from Rp185,000 to Rp192,000, or from about 7.2% to 7.6%. The 10-gram bar is now Rp24,795,000 and the 100-gram bar Rp247,212,000.',
+          },
+          {
+            id: 'Situs Galeri24 masih mencantumkan Galeri24 di Rp2.518.000 dengan buyback Rp2.370.000 (spread Rp148.000, sekitar 5,9%), sehingga selisihnya dengan Antam menyempit ke Rp12.000. UBS turun Rp30.000 ke Rp2.542.000 dengan buyback tetap Rp2.344.000 (spread Rp198.000, sekitar 7,8%). Buyback Galeri24 kini Rp32.000 di atas Antam.',
+            en: 'The Galeri24 site still lists Galeri24 at Rp2,518,000 with buyback at Rp2,370,000 (a Rp148,000 spread, about 5.9%), so its gap to Antam narrowed to Rp12,000. UBS fell Rp30,000 to Rp2,542,000 with buyback unchanged at Rp2,344,000 (a Rp198,000 spread, about 7.8%). Galeri24’s buyback is now Rp32,000 above Antam’s.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: $4.000 Jadi Ujian', en: 'Playbook: $4,000 Is the Test' },
+        paragraphs: [
+          {
+            id: 'Skenarionya kini lebih jelas. Bila PPI Jumat juga panas dan peluang kenaikan 50 bps terus naik, emas bisa menguji $4.000 lagi. Bila PPI lebih lunak, emas punya ruang untuk pulih ke arah $4.150. Harga Antam biasanya menyesuaikan pada pembaruan pagi berikutnya.',
+            en: 'The scenarios are clearer now. If Friday’s PPI is also hot and the odds of a 50 bp hike keep rising, gold could test $4,000 again. If PPI is softer, gold has room to recover toward $4,150. Antam’s price usually adjusts at the next morning’s update.',
+          },
+          {
+            id: 'Bagi investor rupiah, membeli dalam jumlah tetap secara berkala tetap lebih masuk akal daripada menebak keputusan Fed, apalagi spread sekitar 6–8% di semua merek berarti harga perlu naik cukup jauh sebelum posisi baru impas. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'For rupiah investors, buying fixed amounts on a schedule still makes more sense than guessing the Fed’s decision, especially since spreads of about 6–8% across brands mean prices must rise a fair way before a new position breaks even. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'CPI inti 0,3% menghapus lonjakan Senin dalam sehari; kini $4.000 dan PPI Jumat menjadi ujian berikutnya.',
+      en: 'A 0.3% core CPI erased Monday’s jump in a day; now $4,000 and Friday’s PPI are the next test.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-hot-cpi-4030.png'),
+    publishedAt: Date.parse('2026-11-11T03:15:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'MarketScreener (Reuters): Gold falls nearly 3% as CPI tops forecasts, lifting dollar and yields', url: 'https://www.marketscreener.com/news/gold-drops-1-on-hawkish-fed-comments-ahead-of-us-inflation-data-ce785edada8ff02c' },
+      { title: 'Kitco: Gold prices down 2% on the day as US CPI rises more than expected', url: 'https://www.kitco.com/news/article/2026-11-10/gold-prices-down-2-day-us-cpi-rises-more-expected' },
+      { title: 'Guardian Gold: Overnight summary, precious metals prices 11/11/2026', url: 'https://guardian-gold.com.au/market-updates/overnight-summary-precious-metals-prices-11-11-2026/' },
+      { title: 'Trading Economics: Gold price, news and forecast', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'FinanceFeeds: Gold price today $4,112 Monday as Tuesday’s CPI sets the December hike odds', url: 'https://financefeeds.com/gold-price-today-4112-monday-before-cpi-10-november-bull-4150-bear-4000/' },
+      { title: 'Kumparan: Harga emas Antam turun jadi Rp2.530.000/gram, Galeri24 di Rp2.518.000/gram', url: 'https://kumparan.com/kumparanbisnis/harga-emas-antam-turun-jadi-rp-2-530-000-gram-galeri24-di-rp-2-518-000-gram-28YCQHhOWiS' },
+      { title: 'CNBC Indonesia: Ambruk! Harga emas Antam Logam Mulia hari ini jatuh Rp30.000', url: 'https://www.cnbcindonesia.com/research/20261111092310-128-784127/ambruk-harga-emas-antam-logam-mulia-hari-ini-jatuh-rp-30000' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-cpi-day-4140-hike-odds-84',
+    category: 'macro',
     title: {
       id: 'Emas Sentuh $4.141 Jelang CPI, tapi Peluang Kenaikan Bunga Fed Naik ke 84%',
       en: 'Gold Touches $4,141 Ahead of CPI, but Fed Hike Odds Climb to 84%',
