@@ -55,9 +55,105 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-hot-cpi-drops-4030-fed-hike-priced',
+    slug: 'gold-breaks-below-4000-fed-hawks',
     category: 'macro',
     featured: true,
+    title: {
+      id: 'Emas Tembus ke Bawah $4.000 Saat Pejabat Fed Makin Hawkish',
+      en: 'Gold Breaks Below $4,000 as Fed Officials Turn More Hawkish',
+    },
+    excerpt: {
+      id: 'Emas spot turun 1,2% ke $3.983 pada Rabu setelah Waller membuka peluang kenaikan 50 bps dan Logan melihat dua kenaikan lagi. Pagi ini emas bertahan di sekitar $3.982, dan zona $3.942–$4.000 kini jadi ujian. Antam turun Rp12.000 ke Rp2.518.000 dengan spread melebar ke sekitar 8%.',
+      en: 'Spot gold fell 1.2% to $3,983 on Wednesday after Waller opened the door to a 50 bp hike and Logan saw two more hikes. This morning gold holds near $3,982, and the $3,942–$4,000 zone is now the test. Antam fell Rp12,000 to Rp2,518,000 with its spread widening to about 8%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Rebound Pagi yang Gagal Bertahan', en: 'A Morning Rebound That Didn’t Last' },
+        paragraphs: [
+          {
+            id: 'Emas sempat mencoba bangkit setelah anjlok akibat CPI panas. Pada sesi London Rabu, emas spot naik 0,6% ke $4.055 dan mencapai tertinggi harian $4.066,77. Namun di sesi New York harga berbalik dan turun 1,2% ke $3.983,55, sementara emas berjangka Desember turun sekitar 1% ke $3.991,50.',
+            en: 'Gold tried to recover after the hot-CPI slump. In London trade on Wednesday, spot gold rose 0.6% to $4,055 and hit a daily high of $4,066.77. But in New York the price reversed and fell 1.2% to $3,983.55, while December futures fell about 1% to $3,991.50.',
+          },
+          {
+            id: 'Kitco mencatat ini pertama kalinya emas jatuh di bawah level kritis $4.000 setelah bertahan di sekitar level itu selama kurang lebih dua pekan. Pagi ini emas bertahan di sekitar $3.982, turun tipis 0,14% menurut Trading Economics. Sementara itu paladium melonjak 5,2% ke $1.078,56, tertinggi sejak 22 Oktober.',
+            en: 'Kitco notes this is the first time gold has fallen below the critical $4,000 level after holding support near it for about two weeks. This morning gold holds near $3,982, down a slim 0.14% according to Trading Economics. Palladium, meanwhile, jumped 5.2% to $1,078.56, its highest since 22 October.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Paduan Suara Hawkish dari Fed', en: 'A Hawkish Chorus From the Fed' },
+        paragraphs: [
+          {
+            id: 'Pemicunya adalah komentar pejabat Fed setelah CPI inti Oktober naik 0,3%. Gubernur Christopher Waller menyebut kenaikan setengah poin layak dipertimbangkan pada Desember bila CPI inti sekitar 0,3% atau lebih. Presiden Fed Dallas Lorie Logan melihat perlunya dua kenaikan 25 bps lagi, Presiden Fed Chicago Austan Goolsbee menyebut laporan CPI "nyaris mengkhawatirkan", dan Gubernur Michelle Bowman mengatakan tekanan inflasi bertahan lebih lama dari harapannya.',
+            en: 'The trigger was Fed officials’ comments after October core CPI rose 0.3%. Governor Christopher Waller said a half-point hike should be considered in December if core CPI was around 0.3% or higher. Dallas Fed President Lorie Logan saw a need for two more 25 bp hikes, Chicago Fed President Austan Goolsbee called the CPI report "borderline disturbing", and Governor Michelle Bowman said inflation pressures had persisted longer than she had hoped.',
+          },
+          {
+            id: 'Pasar kini memperkirakan peluang kenaikan bunga Desember sekitar 91% dan total tambahan pengetatan hampir 75 bps, sementara CME FedWatch memberi peluang 13,2% untuk kenaikan 50 bps. Indeks dolar naik 0,15% ke sekitar 103,0 dan yield 10 tahun di sekitar 4,99%. Meredanya permintaan aset aman seiring kemajuan diplomasi AS–Iran ikut menekan emas.',
+            en: 'Markets now put the odds of a December hike near 91% and price nearly 75 bp of further tightening in total, while CME FedWatch gives a 13.2% chance of a 50 bp hike. The dollar index rose 0.15% to about 103.0 and the 10-year yield sits near 4.99%. Fading safe-haven demand as US–Iran diplomacy gains momentum also weighed on gold.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level yang Diawasi', en: 'The Levels to Watch' },
+        paragraphs: [
+          {
+            id: 'Emas kini turun sekitar 4,3% dalam sebulan dan sekitar 29% di bawah rekor $5.608,35 dari Januari. Fawad Razaqzada dari FOREX.com menyebut zona $3.942–$4.000 sebagai support kritis. Bila zona itu jebol secara meyakinkan, target berikutnya ada di sekitar $3.870, lalu $3.738. Di atas, resistance berada di $4.106–$4.140.',
+            en: 'Gold is now down about 4.3% on the month and about 29% below January’s $5,608.35 record. FOREX.com’s Fawad Razaqzada sees $3,942–$4,000 as the critical support zone. A decisive break would put the next targets near $3,870, then $3,738. Above, resistance sits at $4,106–$4,140.',
+          },
+          {
+            id: 'Bart Melek dari TD Securities memperkirakan uji ulang support di dekat $3.900 karena bunga yang lebih tinggi dan dolar yang lebih kuat, dan menilai harga bisa bertahan di bagian bawah kisaran $3.900–$4.200. Malam ini pasar menunggu klaim pengangguran mingguan, lalu PPI pada Jumat 13 November dan keputusan Fed pada 9 Desember.',
+            en: 'TD Securities’ Bart Melek expects a retest of support near $3,900 on higher rates and a stronger dollar, and sees prices staying near the bottom of a $3,900–$4,200 range. Tonight markets await weekly jobless claims, then PPI on Friday 13 November and the Fed decision on 9 December.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Spread Tembus 8%', en: 'Antam Falls, Spread Reaches 8%' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia menurunkan Antam 1 gram Rp12.000 (sekitar 0,5%) ke Rp2.518.000 pada Kamis. Buyback turun lebih dalam, Rp22.000 ke Rp2.316.000, sehingga spread melebar dari Rp192.000 ke Rp202.000, atau dari sekitar 7,6% ke 8,0%. Batangan 10 gram kini Rp24.675.000 dan 100 gram Rp246.012.000.',
+            en: 'Logam Mulia cut Antam’s 1-gram price by Rp12,000 (about 0.5%) to Rp2,518,000 on Thursday. Buyback fell further, by Rp22,000 to Rp2,316,000, so the spread widened from Rp192,000 to Rp202,000, or from about 7.6% to 8.0%. The 10-gram bar is now Rp24,675,000 and the 100-gram bar Rp246,012,000.',
+          },
+          {
+            id: 'Galeri24 turun Rp22.000 ke Rp2.496.000 dengan buyback Rp2.349.000 (spread Rp147.000, sekitar 5,9%), sehingga kini Rp22.000 lebih murah dari Antam dan buyback-nya Rp33.000 lebih tinggi. UBS juga turun Rp22.000 ke Rp2.520.000 dengan buyback Rp2.324.000 (spread Rp196.000, sekitar 7,8%), hanya Rp2.000 di atas Antam.',
+            en: 'Galeri24 fell Rp22,000 to Rp2,496,000 with buyback at Rp2,349,000 (a Rp147,000 spread, about 5.9%), so it is now Rp22,000 cheaper than Antam with a buyback Rp33,000 higher. UBS also fell Rp22,000 to Rp2,520,000 with buyback at Rp2,324,000 (a Rp196,000 spread, about 7.8%), just Rp2,000 above Antam.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Sabar di Bawah $4.000', en: 'Playbook: Patience Below $4,000' },
+        paragraphs: [
+          {
+            id: 'Permintaan struktural belum hilang. TD mencatat bank sentral telah membeli 675 ton emas sepanjang tahun ini, naik 6% dari periode yang sama 2025, dan World Gold Council melaporkan pembelian sektor resmi 321 ton pada kuartal III, naik 42% secara tahunan. Namun TD menilai pembelian itu mungkin belum cukup mengimbangi melemahnya permintaan investasi dalam jangka pendek.',
+            en: 'Structural demand has not gone away. TD notes central banks have bought 675 tonnes of gold so far this year, up 6% from the same period of 2025, and the World Gold Council reported official-sector purchases of 321 tonnes in Q3, up 42% year on year. But TD thinks that buying may not offset weaker investment demand in the short term.',
+          },
+          {
+            id: 'Dengan spread Antam sekitar 8%, harga perlu naik sekitar 8,7% agar buyback menyamai harga beli hari ini, jadi membeli bertahap dalam jumlah tetap lebih masuk akal daripada mengejar titik terendah. Bila PPI Jumat panas, uji $3.900 menjadi skenario yang diawasi; bila lebih lunak, emas punya ruang kembali ke atas $4.000. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'With Antam’s spread near 8%, prices need to rise about 8.7% for the buyback to match today’s purchase price, so buying fixed amounts in stages makes more sense than chasing the bottom. If Friday’s PPI is hot, a test of $3,900 is the scenario to watch; if it is softer, gold has room to climb back above $4,000. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Rebound ke $4.066 hanya bertahan beberapa jam; komentar Waller dan Logan mendorong emas ke bawah $4.000 untuk pertama kalinya dalam dua pekan.',
+      en: 'The rebound to $4,066 lasted only hours; Waller’s and Logan’s comments pushed gold below $4,000 for the first time in two weeks.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-below-4000-fed-hawks.png'),
+    publishedAt: Date.parse('2026-11-12T03:30:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold prices fall below $4,000 as analysts warn of further losses toward $3,900', url: 'https://www.kitco.com/news/article/2026-11-11/gold-prices-fall-below-4000-analysts-warn-further-losses-toward-3900' },
+      { title: 'Guardian Gold: Overnight summary, precious metals prices 12/11/2026', url: 'https://guardian-gold.com.au/market-updates/overnight-summary-precious-metals-prices-12-11-2026/' },
+      { title: 'Investing.com: Gold clings below $4,000 as inflation fears fuel bets on bigger Fed hikes', url: 'https://www.investing.com/news/commodities-news/gold-clings-below-4000-as-inflation-fears-fuel-bets-on-bigger-fed-hikes-5020139' },
+      { title: 'Trading Economics: Gold price, news and forecast', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Kumparan: Harga emas Antam turun jadi Rp2.518.000/gram, Galeri24 di Rp2.496.000/gram', url: 'https://kumparan.com/kumparanbisnis/harga-emas-antam-turun-jadi-rp-2-518-000-gram-galeri24-di-rp-2-496-000-gram-28Yaumq1ZDP' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-hot-cpi-drops-4030-fed-hike-priced',
+    category: 'macro',
     title: {
       id: 'CPI Panas Seret Emas ke $4.030; Kenaikan Bunga Fed Desember Nyaris Pasti',
       en: 'Hot CPI Drags Gold to $4,030; a December Fed Hike Is Now Nearly Certain',
