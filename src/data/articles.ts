@@ -55,9 +55,105 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-breaks-below-4000-fed-hawks',
+    slug: 'gold-one-year-low-3852-ppi-test',
     category: 'macro',
     featured: true,
+    title: {
+      id: 'Emas Sentuh Terendah Setahun di $3.852 Jelang Ujian PPI',
+      en: 'Gold Hits a One-Year Low at $3,852 Ahead of the PPI Test',
+    },
+    excerpt: {
+      id: 'Emas spot anjlok 2,8% dan ditutup di $3.876, penutupan terendah dalam lebih dari setahun, saat dolar mencapai tertinggi 19 bulan dan yield 10 tahun di sekitar 5,10%. Pagi ini emas memantul ke sekitar $3.910. Antam turun Rp9.000 ke Rp2.509.000 dan spread melebar ke sekitar 8,9%.',
+      en: 'Spot gold slumped 2.8% to close at $3,876, its lowest close in more than a year, as the dollar hit a 19-month high and the 10-year yield sat near 5.10%. This morning gold bounced to about $3,910. Antam fell Rp9,000 to Rp2,509,000 and its spread widened to about 8.9%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Hari Terburuk Sejak Tembus $4.000', en: 'The Worst Day Since the $4,000 Break' },
+        paragraphs: [
+          {
+            id: 'Tekanan jual berlanjut pada Kamis. Emas spot turun 2,8% dan ditutup di $3.876, penutupan terendah dalam lebih dari setahun, setelah sempat menyentuh $3.852 di dalam sesi. Ini hari ketiga berturut-turut emas berada di bawah $4.000.',
+            en: 'The selling continued on Thursday. Spot gold fell 2.8% to close at $3,876, its lowest close in more than a year, after touching $3,852 intraday. It was the third straight day with gold below $4,000.',
+          },
+          {
+            id: 'Data klaim pengangguran mingguan tidak memberi pertolongan. Klaim awal naik ke 200.000, di atas perkiraan 195.000, sementara klaim lanjutan turun ke 1,697 juta. Kitco mencatat emas justru menyentuh titik terendah sesi setelah rilis itu. Pagi ini emas memantul ke sekitar $3.910, naik 0,87% menurut Trading Economics, tetapi tetap menuju kerugian mingguan yang tajam.',
+            en: 'The weekly jobless data offered no help. Initial claims rose to 200,000, above the 195,000 forecast, while continuing claims fell to 1.697 million. Kitco notes gold hit its session lows after the release. This morning gold bounced to about $3,910, up 0.87% according to Trading Economics, but it is still headed for a sharp weekly loss.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Dolar dan Yield Masih Memegang Kendali', en: 'The Dollar and Yields Still in Charge' },
+        paragraphs: [
+          {
+            id: 'Indeks dolar naik ke 103,21, tertinggi dalam 19 bulan, dan yield Treasury 10 tahun berada di sekitar 5,10%. Bagi emas yang tidak memberi bunga, kombinasi ini membuat biaya menahan emas makin mahal, terutama bagi investor di luar AS.',
+            en: 'The dollar index rose to 103.21, a 19-month high, and the 10-year Treasury yield sits near 5.10%. For non-yielding gold, that combination raises the cost of holding it, especially for investors outside the US.',
+          },
+          {
+            id: 'Trading Economics mencatat pasar memberi peluang sekitar 85% untuk kenaikan 25 bps pada Desember dan 15% untuk kenaikan 50 bps, dengan kenaikan lanjutan diperkirakan tahun depan. Harga minyak juga naik setelah Trump menyebut AS tidak lagi membutuhkan kesepakatan dengan Iran, menambah kekhawatiran inflasi.',
+            en: 'Trading Economics says markets price about an 85% chance of a 25 bp hike in December and 15% for a 50 bp hike, with further hikes expected next year. Oil also rose after Trump said the US no longer needed a deal with Iran, adding to inflation worries.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level Kunci dan Ujian PPI', en: 'Key Levels and the PPI Test' },
+        paragraphs: [
+          {
+            id: 'Emas kini turun sekitar 4,8% dalam sebulan dan sekitar 30% di bawah rekor $5.608,35 dari Januari. Support terdekat ada di titik terendah Kamis $3.852 dan level $3.850 yang disorot Goldman Sachs, meski bank itu tetap menargetkan $5.400 pada 2027. Di atas, $3.944 lalu $4.000 menjadi resistance.',
+            en: 'Gold is now down about 4.8% on the month and about 30% below January’s $5,608.35 record. The nearest support is Thursday’s $3,852 low and the $3,850 level flagged by Goldman Sachs, even as the bank keeps a $5,400 target for 2027. Above, $3,944 and then $4,000 act as resistance.',
+          },
+          {
+            id: 'Malam ini pasar menunggu PPI Oktober. Setelah CPI yang panas, PPI yang juga tinggi bisa memperkuat taruhan kenaikan 50 bps dan menekan emas ke $3.850; angka yang lebih lunak bisa memberi ruang pemantulan ke arah $3.944–$4.000. Keputusan Fed berikutnya jatuh pada 9 Desember.',
+            en: 'Tonight markets await October PPI. After the hot CPI, another high reading could strengthen bets on a 50 bp hike and push gold toward $3,850; a softer print could leave room for a bounce toward $3,944–$4,000. The next Fed decision falls on 9 December.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Spread Mendekati 9%', en: 'Antam Falls, Spread Nears 9%' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia menurunkan Antam 1 gram Rp9.000 ke Rp2.509.000 pada Jumat. Buyback turun lebih dalam, Rp31.000 ke Rp2.285.000, sehingga spread melebar dari Rp202.000 ke Rp224.000, atau dari sekitar 8,0% ke 8,9%. Batangan 10 gram kini Rp24.585.000 dan 100 gram Rp245.112.000.',
+            en: 'Logam Mulia cut Antam’s 1-gram price by Rp9,000 to Rp2,509,000 on Friday. Buyback fell further, by Rp31,000 to Rp2,285,000, so the spread widened from Rp202,000 to Rp224,000, or from about 8.0% to 8.9%. The 10-gram bar is now Rp24,585,000 and the 100-gram bar Rp245,112,000.',
+          },
+          {
+            id: 'Galeri24 turun Rp13.000 ke Rp2.483.000 dengan buyback Rp2.337.000 (spread Rp146.000, sekitar 5,9%), sehingga kini Rp26.000 lebih murah dari Antam dan buyback-nya Rp52.000 lebih tinggi. UBS turun Rp12.000 ke Rp2.508.000 dengan buyback Rp2.312.000 (spread Rp196.000, sekitar 7,8%), Rp1.000 di bawah Antam dengan buyback Rp27.000 lebih tinggi.',
+            en: 'Galeri24 fell Rp13,000 to Rp2,483,000 with buyback at Rp2,337,000 (a Rp146,000 spread, about 5.9%), so it is now Rp26,000 cheaper than Antam with a buyback Rp52,000 higher. UBS fell Rp12,000 to Rp2,508,000 with buyback at Rp2,312,000 (a Rp196,000 spread, about 7.8%), Rp1,000 below Antam with a buyback Rp27,000 higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Permintaan Struktural vs Tekanan Jangka Pendek', en: 'Playbook: Structural Demand vs Short-Term Pressure' },
+        paragraphs: [
+          {
+            id: 'Di balik penurunan, bank sentral tetap membeli. Pembelian sektor resmi mencapai 321 ton pada kuartal III, naik 42% secara tahunan, sekitar 675 ton sepanjang tahun ini, dan PBoC menambah 25,8 ton pada Oktober, bulan ke-24 berturut-turut. Kepemilikan ETF emas global juga berada di rekor 4.256 ton. Tekanan jangka pendek lebih banyak datang dari penjualan di pasar berjangka.',
+            en: 'Beneath the slide, central banks keep buying. Official-sector purchases reached 321 tonnes in Q3, up 42% year on year, about 675 tonnes so far this year, and the PBoC added 25.8 tonnes in October, its 24th straight month. Global gold ETF holdings also sit at a record 4,256 tonnes. The short-term pressure has come mostly from selling in the futures market.',
+          },
+          {
+            id: 'Dengan spread Antam sekitar 8,9%, harga perlu naik sekitar 9,8% agar buyback menyamai harga beli hari ini. Karena itu membeli bertahap dalam jumlah tetap lebih masuk akal daripada menebak dasar, dan selisih spread antarmerek layak dibandingkan sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'With Antam’s spread near 8.9%, prices need to rise about 9.8% for the buyback to match today’s purchase price. That makes buying fixed amounts in stages more sensible than guessing the bottom, and the spread gap between brands is worth comparing before buying. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Dolar di puncak 19 bulan dan yield 10 tahun di sekitar 5,10% menyeret emas ke penutupan terendah dalam lebih dari setahun.',
+      en: 'A dollar at a 19-month high and a 10-year yield near 5.10% dragged gold to its lowest close in more than a year.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-one-year-low-ppi.png'),
+    publishedAt: Date.parse('2026-11-13T02:50:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Mitrade: Gold hit a one-year low while central banks bought 321 tonnes', url: 'https://www.mitrade.com/insights/commodity-analysis/gold/gold-one-year-low-central-banks-20261113J1040' },
+      { title: 'Kitco: Gold price tests $3,900/oz after U.S. weekly jobless claims rise to 200k', url: 'https://www.kitco.com/news/article/2026-11-12/gold-price-tests-3900oz-after-us-weekly-jobless-claims-rise-200k' },
+      { title: 'Trading Economics: Gold price, news and forecast', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Akurat: Harga emas Antam hari ini 13 November 2026, semua ukuran turun, 1 gram jadi Rp2.509.000', url: 'https://www.akurat.co/keuangan/906424/harga-emas-antam-hari-ini-13-november-2026-semua-ukuran-turun-1-gram-jadi-rp2-509-000' },
+      { title: 'Antara: Harga emas Antam turun Rp9.000 menjadi Rp2,509 juta/gr', url: 'https://megapolitan.antaranews.com/berita/561887/jumat-13-11-2026-hari-ini-harga-emas-antam-turun-rp9000-menjadi-rp2509-juta-gr' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-breaks-below-4000-fed-hawks',
+    category: 'macro',
     title: {
       id: 'Emas Tembus ke Bawah $4.000 Saat Pejabat Fed Makin Hawkish',
       en: 'Gold Breaks Below $4,000 as Fed Officials Turn More Hawkish',
