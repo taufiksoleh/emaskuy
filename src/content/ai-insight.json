@@ -1,45 +1,45 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T09:54:00+07:00",
-  "sentiment": "bearish",
+  "generatedAt": "2026-11-14T09:53:00+07:00",
+  "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot anjlok 2,8% pada Kamis dan ditutup di $3.876, penutupan terendah dalam lebih dari setahun, setelah sempat menyentuh $3.852. Klaim pengangguran mingguan naik ke 200.000, di atas perkiraan 195.000, tetapi tidak cukup meredam taruhan kenaikan bunga Fed. Pagi ini emas memantul ke sekitar $3.910, naik 0,87% menurut Trading Economics, namun tetap menuju kerugian mingguan yang tajam.",
-      "en": "Spot gold slumped 2.8% on Thursday to close at $3,876, its lowest close in more than a year, after touching $3,852. Weekly jobless claims rose to 200,000, above the 195,000 forecast, but that was not enough to cool Fed hike bets. This morning gold bounced to about $3,910, up 0.87% according to Trading Economics, yet it is still headed for a sharp weekly loss."
+      "id": "Emas stabil pada Jumat setelah anjlok sehari sebelumnya. Emas spot ditutup di sekitar $3.883, naik 0,18% menurut Kitco, dengan rentang harian $3.874–$3.924. PPI Oktober naik 0,3%, di bawah perkiraan 0,4%, tetapi inflasi produsen tahunan mencapai 6,5%, tertinggi sejak November 2022, sehingga pemantulan tetap terbatas dan emas mencatat kerugian mingguan yang tajam.",
+      "en": "Gold stabilised on Friday after the previous day’s slump. Spot gold ended near $3,883, up 0.18% according to Kitco, with a daily range of $3,874–$3,924. October PPI rose 0.3%, below the 0.4% forecast, but annual producer inflation reached 6.5%, the highest since November 2022, so the bounce stayed limited and gold posted a steep weekly loss."
     },
     {
-      "id": "Indeks dolar mencapai 103,21, tertinggi 19 bulan, dan yield Treasury 10 tahun di sekitar 5,10%. Trading Economics mencatat pasar memberi peluang sekitar 85% untuk kenaikan 25 bps pada Desember dan 15% untuk 50 bps, sementara harga minyak ikut naik setelah Trump menyebut AS tidak lagi membutuhkan kesepakatan dengan Iran. Emas kini turun sekitar 4,8% dalam sebulan dan sekitar 30% di bawah rekor $5.608,35.",
-      "en": "The dollar index reached 103.21, a 19-month high, and the 10-year Treasury yield sits near 5.10%. Trading Economics says markets price about an 85% chance of a 25 bp hike in December and 15% for 50 bp, while oil rose after Trump said the US no longer needed a deal with Iran. Gold is now down about 4.8% on the month and about 30% below its $5,608.35 record."
+      "id": "Yield Treasury 10 tahun naik ke arah 5,15% dan indeks dolar bertahan di atas 103. Pasar memberi peluang 89% untuk kenaikan 25 bps pada rapat Fed 8–9 Desember dan 11% untuk 50 bps. Minyak justru turun dua pekan beruntun, dengan Brent di $95,84. Emas kini turun sekitar 5,5% dalam sebulan dan sekitar 31% di bawah rekor $5.608,35.",
+      "en": "The 10-year Treasury yield rose toward 5.15% and the dollar index held above 103. Markets price an 89% chance of a 25 bp hike at the Fed’s 8–9 December meeting and 11% for 50 bp. Oil, by contrast, fell for a second straight week, with Brent at $95.84. Gold is now down about 5.5% on the month and about 31% below its $5,608.35 record."
     },
     {
-      "id": "Level terdekat adalah titik terendah Kamis di $3.852 dan level $3.850 yang disorot Goldman Sachs. Di atas, $3.944 dan $4.000 menjadi resistance. Malam ini pasar menunggu PPI Oktober, data inflasi produsen yang bisa memperkuat atau meredam taruhan kenaikan bunga, lalu keputusan Fed pada 9 Desember.",
-      "en": "The nearest levels are Thursday’s $3,852 low and the $3,850 level flagged by Goldman Sachs. Above, $3,944 and $4,000 act as resistance. Tonight markets await October PPI, producer inflation data that could strengthen or soften hike bets, followed by the Fed decision on 9 December."
+      "id": "Support terdekat ada di titik terendah 13 bulan $3.852, lalu $3.823; RoboForex menilai penembusan di bawah $3.852 membuka jalan ke $3.777. Resistance berada di $3.903–$3.934, lalu $3.970. Pekan depan pasar menunggu penjualan ritel Oktober pada Selasa dan risalah rapat Fed pada Rabu 18 November.",
+      "en": "The nearest support is the 13-month low at $3,852, then $3,823; RoboForex says a break below $3,852 opens the way to $3,777. Resistance sits at $3,903–$3,934, then $3,970. Next week markets await October retail sales on Tuesday and the Fed minutes on Wednesday, 18 November."
     },
     {
-      "id": "Antam 1 gram turun Rp9.000 ke Rp2.509.000 dan buyback turun Rp31.000 ke Rp2.285.000, sehingga spread melebar ke Rp224.000 (sekitar 8,9%). Galeri24 turun Rp13.000 ke Rp2.483.000 (buyback Rp2.337.000, spread sekitar 5,9%) dan UBS turun Rp12.000 ke Rp2.508.000 (buyback Rp2.312.000, spread sekitar 7,8%). Secara struktural, bank sentral membeli 321 ton pada kuartal III, naik 42% secara tahunan, dan PBoC menambah 25,8 ton pada Oktober.",
-      "en": "Antam’s 1-gram price fell Rp9,000 to Rp2,509,000 and buyback fell Rp31,000 to Rp2,285,000, widening the spread to Rp224,000 (about 8.9%). Galeri24 fell Rp13,000 to Rp2,483,000 (buyback Rp2,337,000, spread about 5.9%) and UBS fell Rp12,000 to Rp2,508,000 (buyback Rp2,312,000, spread about 7.8%). Structurally, central banks bought 321 tonnes in Q3, up 42% year on year, and the PBoC added 25.8 tonnes in October."
+      "id": "Antam 1 gram naik Rp8.000 ke Rp2.517.000 dan buyback naik Rp8.000 ke Rp2.293.000, sehingga spread tetap Rp224.000 (sekitar 8,9%). Galeri24 dicatat Rp2.462.000 (buyback Rp2.317.000, spread sekitar 5,9%) dan UBS Rp2.485.000 (buyback Rp2.292.000, spread sekitar 7,8%). Secara struktural, bank sentral membeli 321 ton pada kuartal III, naik 42% secara tahunan.",
+      "en": "Antam’s 1-gram price rose Rp8,000 to Rp2,517,000 and buyback rose Rp8,000 to Rp2,293,000, keeping the spread at Rp224,000 (about 8.9%). Galeri24 lists Rp2,462,000 (buyback Rp2,317,000, spread about 5.9%) and UBS Rp2,485,000 (buyback Rp2,292,000, spread about 7.8%). Structurally, central banks bought 321 tonnes in Q3, up 42% year on year."
     }
   ],
   "sources": [
     {
-      "title": "Mitrade: Gold hit a one-year low while central banks bought 321 tonnes",
-      "url": "https://www.mitrade.com/insights/commodity-analysis/gold/gold-one-year-low-central-banks-20261113J1040"
-    },
-    {
-      "title": "Kitco: Gold price tests $3,900/oz after U.S. weekly jobless claims rise to 200k",
-      "url": "https://www.kitco.com/news/article/2026-11-12/gold-price-tests-3900oz-after-us-weekly-jobless-claims-rise-200k"
+      "title": "Kitco: Gold posts steep weekly loss as Treasury yields rise, Fed tightening bets persist",
+      "url": "https://www.kitco.com/news/article/2026-11-13/gold-posts-steep-weekly-loss-treasury-yields-rise-fed-tightening-bets"
     },
     {
       "title": "Trading Economics: Gold price, news and forecast",
       "url": "https://tradingeconomics.com/commodity/gold"
     },
     {
-      "title": "Akurat: Harga emas Antam hari ini 13 November 2026, semua ukuran turun, 1 gram jadi Rp2.509.000",
-      "url": "https://www.akurat.co/keuangan/906424/harga-emas-antam-hari-ini-13-november-2026-semua-ukuran-turun-1-gram-jadi-rp2-509-000"
+      "title": "FinanceFeeds: Gold price today $3,888 Friday on PPI day after a 13-month low",
+      "url": "https://financefeeds.com/gold-price-today-3888-friday-ppi-day-after-13-month-low-bull-3963-bear-3800/"
     },
     {
-      "title": "Antara: Harga emas Antam turun Rp9.000 menjadi Rp2,509 juta/gr",
-      "url": "https://megapolitan.antaranews.com/berita/561887/jumat-13-11-2026-hari-ini-harga-emas-antam-turun-rp9000-menjadi-rp2509-juta-gr"
+      "title": "Mitrade: Gold hit a one-year low while central banks bought 321 tonnes",
+      "url": "https://www.mitrade.com/insights/commodity-analysis/gold/gold-one-year-low-central-banks-20261113J1040"
+    },
+    {
+      "title": "Antara: Harga emas Antam pada Sabtu naik Rp8.000 menjadi Rp2,517 juta/gr",
+      "url": "https://www.antaranews.com/berita/5853411/harga-emas-antam-pada-sabtu-naik-rp8000-menjadi-rp2517-juta-gr"
     },
     {
       "title": "Galeri 24: Harga emas hari ini",
