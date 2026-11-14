@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-one-year-low-3852-ppi-test',
+    slug: 'gold-steadies-3883-ppi-weekly-loss',
     category: 'macro',
     featured: true,
+    title: {
+      id: 'Emas Stabil di $3.883 Usai PPI, tapi Tetap Rugi Mingguan',
+      en: 'Gold Steadies at $3,883 After PPI but Still Posts a Weekly Loss',
+    },
+    excerpt: {
+      id: 'PPI Oktober naik 0,3%, di bawah perkiraan 0,4%, tetapi inflasi produsen tahunan mencapai 6,5%. Emas spot naik tipis 0,18% ke sekitar $3.883 setelah menyentuh terendah 13 bulan di $3.852, sementara peluang kenaikan bunga Fed Desember bertahan di 89%. Antam naik Rp8.000 ke Rp2.517.000.',
+      en: 'October PPI rose 0.3%, below the 0.4% forecast, but annual producer inflation reached 6.5%. Spot gold edged up 0.18% to about $3,883 after touching a 13-month low at $3,852, while the odds of a December Fed hike held at 89%. Antam rose Rp8,000 to Rp2,517,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'PPI Lebih Lunak dari Perkiraan', en: 'A Softer PPI Than Expected' },
+        paragraphs: [
+          {
+            id: 'Indeks harga produsen AS naik 0,3% pada Oktober, sedikit di bawah perkiraan 0,4%, setelah September direvisi ke 1,4%. Harga barang naik 0,5% dan jasa 0,2%. Namun secara tahunan inflasi produsen mencapai 6,5%, tertinggi sejak November 2022, dan indeks tanpa pangan, energi dan jasa perdagangan naik 0,5%, sama seperti September.',
+            en: 'US producer prices rose 0.3% in October, slightly below the 0.4% forecast, after September was revised to 1.4%. Goods prices rose 0.5% and services 0.2%. On an annual basis, though, producer inflation reached 6.5%, the highest since November 2022, and the index excluding food, energy and trade services rose 0.5%, matching September.',
+          },
+          {
+            id: 'Emas bereaksi dengan pemantulan kecil. Pada hari itu emas spot bergerak antara $3.874 dan $3.924, lalu ditutup di sekitar $3.883, naik $7 atau 0,18% menurut Kitco. Pemantulan ini datang sehari setelah emas menyentuh $3.852, terendah sejak Oktober 2025, dan tidak cukup untuk menghapus kerugian mingguan yang tajam.',
+            en: 'Gold responded with a small bounce. Spot gold traded between $3,874 and $3,924 on the day, then ended near $3,883, up $7 or 0.18% according to Kitco. The bounce came a day after gold touched $3,852, its lowest since October 2025, and was not enough to erase a steep weekly loss.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Mengapa Pemantulan Belum Cukup', en: 'Why the Bounce Is Not Enough' },
+        paragraphs: [
+          {
+            id: 'Angka bulanan yang lebih lunak tidak mengubah gambaran besar. Pasar tetap memberi peluang 89% untuk kenaikan 25 bps pada rapat Fed 8–9 Desember dan 11% untuk 50 bps. Yield Treasury 10 tahun naik ke arah 5,15% dan yield 2 tahun di sekitar 4,86%, sementara indeks dolar bertahan di atas 103.',
+            en: 'The softer monthly figure did not change the bigger picture. Markets still price an 89% chance of a 25 bp hike at the Fed’s 8–9 December meeting and 11% for 50 bp. The 10-year Treasury yield rose toward 5.15% and the 2-year sits near 4.86%, while the dollar index held above 103.',
+          },
+          {
+            id: 'Pasar tenaga kerja juga masih kuat: ekonomi AS menambah 165.000 pekerjaan pada Oktober dan pengangguran turun ke 4,1%. Satu-satunya kabar yang meringankan adalah minyak, yang turun dua pekan beruntun dengan Brent di $95,84 dan WTI di $88,56. Bagi emas yang tidak memberi bunga, yield di atas 5% tetap menjadi hambatan utama.',
+            en: 'The labour market is also still firm: the US economy added 165,000 jobs in October and unemployment fell to 4.1%. The only relief came from oil, which fell for a second straight week with Brent at $95.84 and WTI at $88.56. For non-yielding gold, yields above 5% remain the main headwind.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'The Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun sekitar 5,5% dalam sebulan dan kini sekitar 31% di bawah rekor $5.608,35 dari Januari. Support terdekat adalah titik terendah $3.852, lalu $3.823. RoboForex menilai penembusan di bawah $3.852 membuka jalan ke $3.777.',
+            en: 'Trading Economics shows gold down about 5.5% on the month and now about 31% below January’s $5,608.35 record. The nearest support is the $3,852 low, then $3,823. RoboForex says a break below $3,852 opens the way to $3,777.',
+          },
+          {
+            id: 'Di atas, resistance berada di $3.903–$3.934, lalu target pemulihan $3.970. Pekan depan ada dua ujian: penjualan ritel Oktober pada Selasa dan risalah rapat Fed pada Rabu 18 November. Data ritel yang kuat atau risalah yang hawkish bisa menguji $3.852 lagi; angka yang lemah bisa memberi ruang ke arah $3.934–$3.970.',
+            en: 'Above, resistance sits at $3,903–$3,934, then a recovery target at $3,970. Next week brings two tests: October retail sales on Tuesday and the Fed minutes on Wednesday, 18 November. Strong retail data or hawkish minutes could test $3,852 again; weak numbers could leave room toward $3,934–$3,970.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik, Galeri24 dan UBS Lebih Murah', en: 'Antam Rises, Galeri24 and UBS Cheaper' },
+        paragraphs: [
+          {
+            id: 'Logam Mulia menaikkan Antam 1 gram Rp8.000 ke Rp2.517.000 pada Sabtu, dan buyback ikut naik Rp8.000 ke Rp2.293.000. Spread tetap Rp224.000, sekitar 8,9%. Batangan 10 gram kini Rp24.665.000 dan 100 gram Rp245.912.000.',
+            en: 'Logam Mulia raised Antam’s 1-gram price by Rp8,000 to Rp2,517,000 on Saturday, and buyback also rose Rp8,000 to Rp2,293,000. The spread stays at Rp224,000, about 8.9%. The 10-gram bar is now Rp24,665,000 and the 100-gram bar Rp245,912,000.',
+          },
+          {
+            id: 'Galeri24 mencatat Rp2.462.000 dengan buyback Rp2.317.000 (spread Rp145.000, sekitar 5,9%), Rp55.000 lebih murah dari Antam dengan buyback Rp24.000 lebih tinggi. UBS mencatat Rp2.485.000 dengan buyback Rp2.292.000 (spread Rp193.000, sekitar 7,8%), Rp32.000 di bawah Antam dengan buyback hampir sama.',
+            en: 'Galeri24 lists Rp2,462,000 with buyback at Rp2,317,000 (a Rp145,000 spread, about 5.9%), Rp55,000 cheaper than Antam with a buyback Rp24,000 higher. UBS lists Rp2,485,000 with buyback at Rp2,292,000 (a Rp193,000 spread, about 7.8%), Rp32,000 below Antam with almost the same buyback.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Sabar di Tengah Yield Tinggi', en: 'Playbook: Patience Amid High Yields' },
+        paragraphs: [
+          {
+            id: 'Permintaan struktural belum hilang. Bank sentral membeli 321 ton pada kuartal III, naik 42% secara tahunan, dan sekitar 675 ton sepanjang tahun ini, sementara PBoC menambah 25,8 ton pada Oktober, bulan ke-24 berturut-turut. Tekanan jangka pendek datang dari yield dan dolar, bukan dari hilangnya pembeli jangka panjang.',
+            en: 'Structural demand has not gone away. Central banks bought 321 tonnes in Q3, up 42% year on year, and about 675 tonnes so far this year, while the PBoC added 25.8 tonnes in October, its 24th straight month. The short-term pressure comes from yields and the dollar, not from long-term buyers disappearing.',
+          },
+          {
+            id: 'Dengan spread Antam sekitar 8,9%, harga perlu naik sekitar 9,8% agar buyback menyamai harga beli hari ini. Membeli bertahap dalam jumlah tetap lebih masuk akal daripada menebak dasar, dan perbedaan spread antarmerek, dari sekitar 5,9% hingga 8,9%, layak dibandingkan sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'With Antam’s spread near 8.9%, prices need to rise about 9.8% for the buyback to match today’s purchase price. Buying fixed amounts in stages makes more sense than guessing the bottom, and the spread gap between brands, from about 5.9% to 8.9%, is worth comparing before buying. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'PPI bulanan lebih lunak, tetapi selama yield 10 tahun di dekat 5,15% dan peluang kenaikan bunga 89%, pemantulan emas tetap terbatas.',
+      en: 'Monthly PPI came in softer, but with the 10-year yield near 5.15% and hike odds at 89%, gold’s bounce stays limited.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-steadies-ppi.png'),
+    publishedAt: Date.parse('2026-11-14T02:53:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold posts steep weekly loss as Treasury yields rise, Fed tightening bets persist', url: 'https://www.kitco.com/news/article/2026-11-13/gold-posts-steep-weekly-loss-treasury-yields-rise-fed-tightening-bets' },
+      { title: 'Kitco: Gold rebounds from 13-month low as PPI complicates Fed outlook', url: 'https://www.kitco.com/news/article/2026-11-13/gold-rebounds-13-month-low-ppi-complicates-fed-outlook-kitco-am-report' },
+      { title: 'Trading Economics: Gold price, news and forecast', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'FinanceFeeds: Gold price today $3,888 Friday on PPI day after a 13-month low', url: 'https://financefeeds.com/gold-price-today-3888-friday-ppi-day-after-13-month-low-bull-3963-bear-3800/' },
+      { title: 'Mitrade: Gold hit a one-year low while central banks bought 321 tonnes', url: 'https://www.mitrade.com/insights/commodity-analysis/gold/gold-one-year-low-central-banks-20261113J1040' },
+      { title: 'Antara: Harga emas Antam pada Sabtu naik Rp8.000 menjadi Rp2,517 juta/gr', url: 'https://www.antaranews.com/berita/5853411/harga-emas-antam-pada-sabtu-naik-rp8000-menjadi-rp2517-juta-gr' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-one-year-low-3852-ppi-test',
+    category: 'macro',
     title: {
       id: 'Emas Sentuh Terendah Setahun di $3.852 Jelang Ujian PPI',
       en: 'Gold Hits a One-Year Low at $3,852 Ahead of the PPI Test',
