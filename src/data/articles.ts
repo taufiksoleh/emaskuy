@@ -55,9 +55,117 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-bears-dominate-survey-fed-minutes-week',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Analis Berbalik Bearish Usai Emas Rugi 5% Sepekan',
+      en: 'Analysts Turn Bearish After Gold’s 5% Weekly Loss',
+    },
+    excerpt: {
+      id: 'Emas menutup pekan di sekitar $3.884, turun 5% dalam sepekan. Survei Kitco mencatat 62% analis Wall Street kini bearish, sementara peluang kenaikan bunga Fed Desember sekitar 90%. Pekan ini pasar menunggu penjualan ritel dan risalah Fed. Antam stagnan di Rp2.517.000.',
+      en: 'Gold ended the week near $3,884, down 5% on the week. Kitco’s survey shows 62% of Wall Street analysts now bearish, while the odds of a December Fed hike sit near 90%. This week markets await retail sales and the Fed minutes. Antam held at Rp2,517,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pekan yang Berat bagi Emas', en: 'A Rough Week for Gold' },
+        paragraphs: [
+          {
+            id: 'Emas spot menutup pekan di sekitar $3.884, turun 5% dalam sepekan menurut Kitco. Pekan dibuka dengan puncak $4.148,95 pada Senin, lalu emas menembus $4.000 pada Rabu dan menyentuh $3.852,10 pada Kamis pagi, terendah tahun ini. Dari puncak Senin ke penutupan Jumat, emas kehilangan sekitar 6,4%.',
+            en: 'Spot gold ended the week near $3,884, down 5% on the week according to Kitco. The week opened with a high of $4,148.95 on Monday, then gold broke below $4,000 on Wednesday and touched $3,852.10 on Thursday morning, the year’s low. From Monday’s high to Friday’s close, gold lost about 6.4%.',
+          },
+          {
+            id: 'Pemicunya adalah inflasi. CPI Oktober melampaui perkiraan pada Selasa, dan PPI Jumat naik 0,3% secara bulanan dan 6,5% secara tahunan. Pemantulan Jumat hanya sekitar 0,19%, terlalu kecil untuk mengubah arah pekan ini.',
+            en: 'The trigger was inflation. October CPI beat forecasts on Tuesday, and Friday’s PPI rose 0.3% on the month and 6.5% on the year. Friday’s bounce was only about 0.19%, too small to change the week’s direction.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Survei Kitco: Bearish Mendominasi', en: 'Kitco Survey: Bears Dominate' },
+        paragraphs: [
+          {
+            id: 'Dari 13 analis Wall Street yang disurvei Kitco, 10 orang atau 62% memperkirakan emas turun pekan ini, 2 orang (15%) memperkirakan naik dan 3 orang (23%) netral. Di kalangan investor ritel, dari 160 suara, 42% bullish, 38% bearish dan 21% netral, sehingga kubu bullish kini tidak lagi mayoritas.',
+            en: 'Of the 13 Wall Street analysts Kitco surveyed, 10 or 62% expect gold to fall this week, 2 (15%) expect a rise and 3 (23%) are neutral. Among retail investors, of 160 votes, 42% are bullish, 38% bearish and 21% neutral, so the bulls are no longer a majority.',
+          },
+          {
+            id: 'Alasannya hampir seragam: dolar yang menguat dan yield 10 tahun di sekitar 5%. Marc Chandler dari Bannockburn menilai dasar yang signifikan belum terbentuk, sementara CPM Group memilih sikap menunggu dengan rentang awal $3.800–$4.160 untuk 13–27 November. Sebagian kecil analis, seperti James Stanley dari Forex.com, masih melihat peluang pantulan ke atas $4.000.',
+            en: 'The reasons are nearly uniform: a stronger dollar and a 10-year yield around 5%. Marc Chandler of Bannockburn says a significant low does not appear to be in place, while CPM Group chose to stand aside with an initial range of $3,800–$4,160 for 13–27 November. A minority, such as James Stanley of Forex.com, still sees a chance of a pop back above $4,000.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yield, Dolar dan Agenda Pekan Ini', en: 'Yields, the Dollar and This Week’s Agenda' },
+        paragraphs: [
+          {
+            id: 'Yield Treasury 10 tahun berada di 5,15% dan indeks dolar di 103,41, hanya sedikit di bawah tertinggi 19 bulan 103,42. CME FedWatch memberi peluang sekitar 90% untuk kenaikan 25 bps pada 9 Desember dan sekitar 10% untuk 50 bps. Emas kini sekitar 6,5% di bawah rata-rata 50 hari di $4.154.',
+            en: 'The 10-year Treasury yield is at 5.15% and the dollar index at 103.41, just below its 19-month high of 103.42. CME FedWatch puts the odds of a 25 bp hike on 9 December at about 90% and of 50 bp at about 10%. Gold is now about 6.5% below its 50-day average at $4,154.',
+          },
+          {
+            id: 'Agenda pekan ini padat: komentar Ketua Fed Kevin Warsh pada Senin, penjualan ritel Oktober pada Selasa, risalah rapat Fed pada Rabu 18 November, lalu klaim pengangguran dan survei Philly Fed pada Kamis. Penjualan ritel yang lemah bisa menurunkan peluang kenaikan bunga yang lebih besar, sedangkan risalah yang hawkish bisa menambah tekanan.',
+            en: 'This week’s agenda is busy: comments from Fed Chair Kevin Warsh on Monday, October retail sales on Tuesday, the Fed minutes on Wednesday, 18 November, then jobless claims and the Philly Fed survey on Thursday. Weak retail sales could lower the odds of a larger hike, while hawkish minutes could add pressure.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Level Kunci untuk Dipantau', en: 'Key Levels to Watch' },
+        paragraphs: [
+          {
+            id: 'Support terdekat adalah titik terendah $3.852, sekitar 0,8% di bawah harga penutupan, lalu $3.800 dan $3.790. RoboForex memperkirakan rentang pekan ini $3.790–$3.900 dengan bias bearish, dan menilai penembusan di bawah $3.790 menandakan koreksi yang lebih dalam.',
+            en: 'The nearest support is the $3,852 low, about 0.8% below the close, then $3,800 and $3,790. RoboForex expects a $3,790–$3,900 range this week with a bearish bias, and says a break below $3,790 would signal a deeper correction.',
+          },
+          {
+            id: 'Di atas, resistance pertama ada di $3.900, lalu $4.000, sekitar 3% di atas harga sekarang. RoboForex menyebut pemulihan baru terbuka jika emas kembali di atas $4.000 dan bertahan di atas $4.150. Selama yield tetap di atas 5%, skenario itu membutuhkan data AS yang jelas lebih lemah.',
+            en: 'Above, the first resistance is $3,900, then $4,000, about 3% above the current price. RoboForex says a recovery opens only if gold climbs back above $4,000 and holds above $4,150. As long as yields stay above 5%, that scenario needs clearly weaker US data.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Stagnan, Galeri24 dan UBS Turun Tipis', en: 'Antam Flat, Galeri24 and UBS Edge Lower' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram stagnan di Rp2.517.000 pada Minggu, sama seperti Sabtu, dan buyback tetap Rp2.293.000. Spread Rp224.000, sekitar 8,9%. Batangan 2 gram dicatat Rp4.974.000 dan 3 gram Rp7.436.000. Karena pasar global tutup di akhir pekan, harga Senin akan mencerminkan arah emas di awal pekan.',
+            en: 'Antam’s 1-gram price held at Rp2,517,000 on Sunday, unchanged from Saturday, and buyback stayed at Rp2,293,000. The spread is Rp224,000, about 8.9%. The 2-gram bar is listed at Rp4,974,000 and the 3-gram bar at Rp7,436,000. With global markets closed for the weekend, Monday’s price will reflect gold’s direction at the start of the week.',
+          },
+          {
+            id: 'Galeri24 turun Rp6.000 ke Rp2.456.000 dengan buyback Rp2.312.000 (spread Rp144.000, sekitar 5,9%), Rp61.000 lebih murah dari Antam dengan buyback Rp19.000 lebih tinggi. UBS turun Rp5.000 ke Rp2.480.000 dengan buyback Rp2.286.000 (spread Rp194.000, sekitar 7,8%), Rp37.000 di bawah Antam.',
+            en: 'Galeri24 fell Rp6,000 to Rp2,456,000 with buyback at Rp2,312,000 (a Rp144,000 spread, about 5.9%), Rp61,000 cheaper than Antam with a buyback Rp19,000 higher. UBS fell Rp5,000 to Rp2,480,000 with buyback at Rp2,286,000 (a Rp194,000 spread, about 7.8%), Rp37,000 below Antam.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Rencana, Bukan Tebakan', en: 'Playbook: A Plan, Not a Guess' },
+        paragraphs: [
+          {
+            id: 'Ketika mayoritas analis bearish, godaan untuk menebak dasar atau menjual panik sama-sama besar. Dengan spread Antam sekitar 8,9%, harga perlu naik sekitar 9,8% agar buyback menyamai harga beli hari ini, jadi emas fisik tetap paling cocok untuk jangka panjang, bukan untuk perdagangan mingguan.',
+            en: 'When most analysts are bearish, the temptation to guess the bottom or to panic-sell is equally strong. With Antam’s spread near 8.9%, prices need to rise about 9.8% for the buyback to match today’s purchase price, so physical gold still suits the long term rather than weekly trading.',
+          },
+          {
+            id: 'Membeli bertahap dalam jumlah tetap mengurangi risiko salah waktu, dan selisih spread antarmerek, dari sekitar 5,9% hingga 8,9%, layak dibandingkan sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'Buying fixed amounts in stages reduces timing risk, and the spread gap between brands, from about 5.9% to 8.9%, is worth comparing before buying. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Sepuluh dari 13 analis kini bearish. Pekan ini, penjualan ritel dan risalah Fed menentukan apakah $3.852 bertahan.',
+      en: 'Ten of 13 analysts are now bearish. This week, retail sales and the Fed minutes decide whether $3,852 holds.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-bears-survey.png'),
+    publishedAt: Date.parse('2026-11-15T02:55:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Wall Street bears abound after inflation sours Fed outlook, Main Street abandons bullish bias as gold drops below $3,900/oz', url: 'https://www.kitco.com/news/article/2026-11-13/wall-street-bears-abound-after-inflation-sours-fed-outlook-main-street' },
+      { title: 'FinanceFeeds: Gold price today $3,879 Saturday, week ahead: FOMC minutes and retail sales', url: 'https://financefeeds.com/gold-price-today-3879-saturday-week-ahead-fomc-minutes-retail-sales-bull-4000-bear-3800/' },
+      { title: 'RoboForex: Gold price forecast for next week, XAUUSD levels for 16–20 November 2026', url: 'https://roboforex.com/beginners/analytics/forex-forecast/gold/xau-usd-gold-weekly-forecast-2026-11-13/' },
+      { title: 'iNews: Harga emas Antam hari ini 15 November 2026 masih stagnan', url: 'https://www.inews.id/news/nasional/harga-emas-antam-hari-ini-15-november-2026-masih-stagnan-cek-yang-termurah' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-steadies-3883-ppi-weekly-loss',
     category: 'macro',
-    featured: true,
     title: {
       id: 'Emas Stabil di $3.883 Usai PPI, tapi Tetap Rugi Mingguan',
       en: 'Gold Steadies at $3,883 After PPI but Still Posts a Weekly Loss',

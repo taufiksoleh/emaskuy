@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "priceDate": "2026-11-14",
-  "updatedAt": "2026-11-14T09:52:00+07:00",
+  "priceDate": "2026-11-15",
+  "updatedAt": "2026-11-15T09:53:00+07:00",
   "source": {
-    "name": "Logam Mulia (dikutip Antara)",
-    "url": "https://www.antaranews.com/berita/5853411/harga-emas-antam-pada-sabtu-naik-rp8000-menjadi-rp2517-juta-gr"
+    "name": "Logam Mulia (dikutip iNews)",
+    "url": "https://www.inews.id/news/nasional/harga-emas-antam-hari-ini-15-november-2026-masih-stagnan-cek-yang-termurah"
   },
   "note": {
-    "id": "Harga Antam 1 gram naik Rp8.000 ke Rp2.517.000 pada Sabtu. Buyback juga naik Rp8.000 ke Rp2.293.000/gram, sehingga spread tetap Rp224.000 (sekitar 8,9%).",
-    "en": "Antam’s 1-gram price rose Rp8,000 to Rp2,517,000 on Saturday. Buyback also rose Rp8,000 to Rp2,293,000/gram, keeping the spread at Rp224,000 (about 8.9%)."
+    "id": "Harga Antam 1 gram stagnan di Rp2.517.000 pada Minggu, sama seperti Sabtu. Buyback juga tetap Rp2.293.000/gram, sehingga spread Rp224.000 (sekitar 8,9%).",
+    "en": "Antam’s 1-gram price held at Rp2,517,000 on Sunday, unchanged from Saturday. Buyback also stayed at Rp2,293,000/gram, leaving the spread at Rp224,000 (about 8.9%)."
   },
   "antam": {
     "buybackPerGram": 2293000,
@@ -28,49 +28,17 @@
       {
         "grams": 3,
         "sell": 7436000
-      },
-      {
-        "grams": 5,
-        "sell": 12360000
-      },
-      {
-        "grams": 10,
-        "sell": 24665000
-      },
-      {
-        "grams": 25,
-        "sell": 61537000
-      },
-      {
-        "grams": 50,
-        "sell": 122995000
-      },
-      {
-        "grams": 100,
-        "sell": 245912000
-      },
-      {
-        "grams": 250,
-        "sell": 614515000
-      },
-      {
-        "grams": 500,
-        "sell": 1228820000
-      },
-      {
-        "grams": 1000,
-        "sell": 2457600000
       }
     ]
   },
   "others": {
     "galeri24": {
-      "sellPerGram": 2462000,
-      "buybackPerGram": 2317000
+      "sellPerGram": 2456000,
+      "buybackPerGram": 2312000
     },
     "ubs": {
-      "sellPerGram": 2485000,
-      "buybackPerGram": 2292000
+      "sellPerGram": 2480000,
+      "buybackPerGram": 2286000
     }
   },
   "history": [
@@ -286,6 +254,11 @@
     },
     {
       "date": "2026-11-14",
+      "sell1g": 2517000,
+      "buyback": 2293000
+    },
+    {
+      "date": "2026-11-15",
       "sell1g": 2517000,
       "buyback": 2293000
     }
