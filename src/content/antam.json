@@ -1,33 +1,33 @@
 {
   "schemaVersion": 1,
-  "priceDate": "2026-11-15",
-  "updatedAt": "2026-11-15T09:53:00+07:00",
+  "priceDate": "2026-11-16",
+  "updatedAt": "2026-11-16T09:53:00+07:00",
   "source": {
-    "name": "Logam Mulia (dikutip iNews)",
-    "url": "https://www.inews.id/news/nasional/harga-emas-antam-hari-ini-15-november-2026-masih-stagnan-cek-yang-termurah"
+    "name": "Logam Mulia (dikutip Suara.com)",
+    "url": "https://www.suara.com/bisnis/2026/11/16/093753/ditabung-dulu-harga-emas-antam-mulai-naik-jadi-rp2522000gram"
   },
   "note": {
-    "id": "Harga Antam 1 gram stagnan di Rp2.517.000 pada Minggu, sama seperti Sabtu. Buyback juga tetap Rp2.293.000/gram, sehingga spread Rp224.000 (sekitar 8,9%).",
-    "en": "Antam’s 1-gram price held at Rp2,517,000 on Sunday, unchanged from Saturday. Buyback also stayed at Rp2,293,000/gram, leaving the spread at Rp224,000 (about 8.9%)."
+    "id": "Harga Antam 1 gram naik Rp5.000 ke Rp2.522.000 pada Senin. Buyback juga naik Rp5.000 ke Rp2.298.000/gram, sehingga spread tetap Rp224.000 (sekitar 8,9%).",
+    "en": "Antam’s 1-gram price rose Rp5,000 to Rp2,522,000 on Monday. Buyback also rose Rp5,000 to Rp2,298,000/gram, keeping the spread at Rp224,000 (about 8.9%)."
   },
   "antam": {
-    "buybackPerGram": 2293000,
+    "buybackPerGram": 2298000,
     "sizes": [
       {
         "grams": 0.5,
-        "sell": 1308500
+        "sell": 1311000
       },
       {
         "grams": 1,
-        "sell": 2517000
+        "sell": 2522000
       },
       {
         "grams": 2,
-        "sell": 4974000
+        "sell": 4984000
       },
       {
         "grams": 3,
-        "sell": 7436000
+        "sell": 7451000
       }
     ]
   },
@@ -261,6 +261,11 @@
       "date": "2026-11-15",
       "sell1g": 2517000,
       "buyback": 2293000
+    },
+    {
+      "date": "2026-11-16",
+      "sell1g": 2522000,
+      "buyback": 2298000
     }
   ]
 }

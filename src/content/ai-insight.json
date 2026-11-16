@@ -1,41 +1,49 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T09:53:00+07:00",
+  "generatedAt": "2026-11-16T09:53:00+07:00",
   "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas menutup pekan di sekitar .884, turun 5% dalam sepekan menurut Kitco, dengan rentang mingguan dari .148,95 pada Senin hingga .852,10 pada Kamis, terendah tahun ini. Survei mingguan Kitco berbalik tajam: 10 dari 13 analis Wall Street (62%) bearish, hanya 2 bullish, dan porsi bullish investor ritel turun ke 42% dari 160 suara.",
-      "en": "Gold ended the week near ,884, down 5% on the week according to Kitco, with a weekly range from ,148.95 on Monday to ,852.10 on Thursday, the year’s low. Kitco’s weekly survey turned sharply: 10 of 13 Wall Street analysts (62%) are bearish and only 2 bullish, while the bullish share of retail investors fell to 42% of 160 votes."
+      "id": "Emas spot melemah 0,4% ke $3.868,88 di awal sesi Asia Senin menurut Investing.com, kembali di bawah $3.900 setelah rugi 4,5% pekan lalu. Perak turun 2,1% ke $47,74. Pejabat Fed Jeff Schmid menyebut inflasi “terlalu panas”, sementara Susan Collins menilai bunga mungkin perlu naik lebih jauh. Pasar kini menunggu pidato Ketua Fed Kevin Warsh pada Senin.",
+      "en": "Spot gold slipped 0.4% to $3,868.88 in early Asian trade on Monday according to Investing.com, back below $3,900 after last week’s 4.5% loss. Silver fell 2.1% to $47.74. Fed official Jeff Schmid said inflation is “running too hot”, while Susan Collins said rates may need to rise further. Markets now await Fed Chair Kevin Warsh’s speech on Monday."
     },
     {
-      "id": "Tekanan datang dari yield dan dolar. Yield Treasury 10 tahun berada di 5,15% dan indeks dolar di 103,41, dekat tertinggi 19 bulan. CME FedWatch memberi peluang sekitar 90% untuk kenaikan 25 bps pada 9 Desember dan sekitar 10% untuk 50 bps. Emas juga sekitar 6,5% di bawah rata-rata 50 hari di .154.",
-      "en": "The pressure comes from yields and the dollar. The 10-year Treasury yield is at 5.15% and the dollar index at 103.41, near a 19-month high. CME FedWatch puts the odds of a 25 bp hike on 9 December at about 90% and of 50 bp at about 10%. Gold is also about 6.5% below its 50-day average at ,154."
+      "id": "CME FedWatch memberi peluang 94% untuk kenaikan 25 bps pada Desember dan 6% untuk 50 bps. Indeks dolar di 103,44 dan yield Treasury 10 tahun sekitar 5,14%. Trading Economics mencatat emas turun 6,45% dalam sebulan dan sekitar 31% di bawah rekor $5.608,35 pada Januari 2026.",
+      "en": "CME FedWatch puts the odds of a 25 bp December hike at 94% and of 50 bp at 6%. The dollar index is at 103.44 and the 10-year Treasury yield near 5.14%. Trading Economics shows gold down 6.45% over the month and about 31% below its $5,608.35 record from January 2026."
     },
     {
-      "id": "Support terdekat ada di .852, lalu .800 dan .790; RoboForex memperkirakan rentang pekan ini .790–.900. Resistance berada di .900, lalu .000. Agenda pekan ini: komentar Ketua Fed Kevin Warsh pada Senin, penjualan ritel Oktober pada Selasa, risalah rapat Fed pada Rabu 18 November, dan klaim pengangguran pada Kamis.",
-      "en": "The nearest support is ,852, then ,800 and ,790; RoboForex expects a ,790–,900 range this week. Resistance sits at ,900, then ,000. This week’s agenda: comments from Fed Chair Kevin Warsh on Monday, October retail sales on Tuesday, the Fed minutes on Wednesday, 18 November, and jobless claims on Thursday."
+      "id": "Kitco mencatat support di $3.852, terendah tahun ini, lalu $3.823, dengan resistance di $3.903–$3.934. RoboForex memperkirakan rentang pekan ini $3.790–$3.900. Agenda: pidato Warsh Senin, penjualan ritel Oktober Selasa dan risalah rapat Fed Rabu 18 November.",
+      "en": "Kitco lists support at $3,852, the year’s low, then $3,823, with resistance at $3,903–$3,934. RoboForex expects a $3,790–$3,900 range this week. Agenda: Warsh’s speech on Monday, October retail sales on Tuesday and the Fed minutes on Wednesday, 18 November."
     },
     {
-      "id": "Antam 1 gram stagnan di Rp2.517.000 dengan buyback Rp2.293.000, sehingga spread tetap Rp224.000 (sekitar 8,9%). Galeri24 turun Rp6.000 ke Rp2.456.000 (buyback Rp2.312.000, spread sekitar 5,9%) dan UBS turun Rp5.000 ke Rp2.480.000 (buyback Rp2.286.000, spread sekitar 7,8%).",
-      "en": "Antam’s 1-gram price held at Rp2,517,000 with buyback at Rp2,293,000, keeping the spread at Rp224,000 (about 8.9%). Galeri24 fell Rp6,000 to Rp2,456,000 (buyback Rp2,312,000, spread about 5.9%) and UBS fell Rp5,000 to Rp2,480,000 (buyback Rp2,286,000, spread about 7.8%)."
+      "id": "Antam 1 gram naik Rp5.000 ke Rp2.522.000 dengan buyback naik Rp5.000 ke Rp2.298.000, sehingga spread tetap Rp224.000 (sekitar 8,9%). Galeri24 tetap Rp2.456.000 (buyback Rp2.312.000, spread sekitar 5,9%) dan UBS tetap Rp2.480.000 (buyback Rp2.286.000, spread sekitar 7,8%).",
+      "en": "Antam’s 1-gram price rose Rp5,000 to Rp2,522,000 with buyback up Rp5,000 to Rp2,298,000, keeping the spread at Rp224,000 (about 8.9%). Galeri24 held at Rp2,456,000 (buyback Rp2,312,000, spread about 5.9%) and UBS held at Rp2,480,000 (buyback Rp2,286,000, spread about 7.8%)."
     }
   ],
   "sources": [
     {
-      "title": "Kitco: Wall Street bears abound after inflation sours Fed outlook, Main Street abandons bullish bias as gold drops below $3,900/oz",
-      "url": "https://www.kitco.com/news/article/2026-11-13/wall-street-bears-abound-after-inflation-sours-fed-outlook-main-street"
+      "title": "Investing.com: Gold falls below $3,900 as December Fed hike bets build, Warsh in focus",
+      "url": "https://www.investing.com/news/commodities-news/gold-falls-below-3900-as-december-fed-hike-bets-build-warsh-in-focus-5028296"
     },
     {
-      "title": "FinanceFeeds: Gold price today $3,879 Saturday, week ahead: FOMC minutes and retail sales",
-      "url": "https://financefeeds.com/gold-price-today-3879-saturday-week-ahead-fomc-minutes-retail-sales-bull-4000-bear-3800/"
+      "title": "Trading Economics: Gold, price and news",
+      "url": "https://tradingeconomics.com/commodity/gold"
+    },
+    {
+      "title": "Kitco: Gold rebounds from 13-month low as PPI complicates Fed outlook, Kitco AM Report",
+      "url": "https://www.kitco.com/news/article/2026-11-13/gold-rebounds-13-month-low-ppi-complicates-fed-outlook-kitco-am-report"
     },
     {
       "title": "RoboForex: Gold price forecast for next week, XAUUSD levels for 16–20 November 2026",
       "url": "https://roboforex.com/beginners/analytics/forex-forecast/gold/xau-usd-gold-weekly-forecast-2026-11-13/"
     },
     {
-      "title": "iNews: Harga emas Antam hari ini 15 November 2026 masih stagnan",
-      "url": "https://www.inews.id/news/nasional/harga-emas-antam-hari-ini-15-november-2026-masih-stagnan-cek-yang-termurah"
+      "title": "Suara.com: Harga emas Antam mulai naik jadi Rp2.522.000/gram",
+      "url": "https://www.suara.com/bisnis/2026/11/16/093753/ditabung-dulu-harga-emas-antam-mulai-naik-jadi-rp2522000gram"
+    },
+    {
+      "title": "IDN Times: Harga emas Antam naik goceng, dibanderol Rp2,522 juta per gram",
+      "url": "https://www.idntimes.com/business/economy/harga-emas-antam-naik-goceng-dibanderol-rp2-522-juta-per-gram-00-gshdq-5m5gg5"
     },
     {
       "title": "Galeri 24: Harga emas hari ini",

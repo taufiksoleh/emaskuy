@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-bears-dominate-survey-fed-minutes-week',
+    slug: 'gold-slips-below-3900-warsh-speech',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Tergelincir ke $3.868 Jelang Pidato Warsh',
+      en: 'Gold Slips to $3,868 Ahead of Warsh’s Speech',
+    },
+    excerpt: {
+      id: 'Emas spot turun 0,4% ke $3.868,88 di awal pekan dan kembali di bawah $3.900, sementara peluang kenaikan bunga Fed Desember naik ke 94%. Pasar menunggu pidato Kevin Warsh, penjualan ritel dan risalah Fed. Antam justru naik Rp5.000 ke Rp2.522.000.',
+      en: 'Spot gold fell 0.4% to $3,868.88 at the start of the week and is back below $3,900, while the odds of a December Fed hike rose to 94%. Markets await Kevin Warsh’s speech, retail sales and the Fed minutes. Antam, by contrast, rose Rp5,000 to Rp2,522,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Emas Kembali di Bawah $3.900', en: 'Gold Slips Back Below $3,900' },
+        paragraphs: [
+          {
+            id: 'Emas spot turun 0,4% ke $3.868,88 per ons di awal sesi Asia Senin menurut Investing.com, sementara emas berjangka turun 0,3% ke $3.871,92. Pekan lalu emas sudah kehilangan 4,5% dan menyentuh level terendah dalam lebih dari setahun. Perak tertekan lebih dalam, turun 2,1% ke $47,74.',
+            en: 'Spot gold fell 0.4% to $3,868.88 an ounce in early Asian trade on Monday according to Investing.com, while gold futures fell 0.3% to $3,871.92. Last week gold had already lost 4.5% and touched its lowest level in more than a year. Silver fell harder, down 2.1% to $47.74.',
+          },
+          {
+            id: 'Pemantulan kecil Jumat setelah data PPI tidak berlanjut. Kitco mencatat PPI Oktober naik 0,3% secara bulanan dan 6,5% secara tahunan, tertinggi sejak November 2022. Bagi pasar, angka itu menguatkan pandangan bahwa Fed masih perlu menaikkan bunga.',
+            en: 'Friday’s small bounce after the PPI data did not carry over. Kitco notes that October PPI rose 0.3% on the month and 6.5% on the year, the highest since November 2022. For markets, that strengthens the view that the Fed still needs to raise rates.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed Makin Hawkish Jelang Pidato Warsh', en: 'The Fed Sounds More Hawkish Before Warsh Speaks' },
+        paragraphs: [
+          {
+            id: 'Selama akhir pekan, pejabat Fed memberi sinyal yang sama. Jeff Schmid dari Fed Kansas City menyebut inflasi “terlalu panas”, Wakil Ketua Philip Jefferson menyatakan inflasi kini menjadi panduan kebijakannya, dan Susan Collins dari Fed Boston menilai bunga mungkin perlu naik lebih jauh dari perkiraannya semula.',
+            en: 'Over the weekend, Fed officials sent the same signal. Kansas City Fed’s Jeff Schmid said inflation is “running too hot”, Vice Chair Philip Jefferson said inflation now guides his policy outlook, and Boston Fed’s Susan Collins said rates may need to rise further than she had expected.',
+          },
+          {
+            id: 'CME FedWatch kini memberi peluang 94% untuk kenaikan 25 bps pada Desember dan 6% untuk 50 bps, naik dari sekitar 89% sebelum data PPI. Indeks dolar di 103,44 dan yield Treasury 10 tahun sekitar 5,14%. Karena emas tidak memberi bunga, yield setinggi itu membuat emas kurang menarik dibanding obligasi.',
+            en: 'CME FedWatch now puts the odds of a 25 bp December hike at 94% and of 50 bp at 6%, up from about 89% before the PPI data. The dollar index is at 103.44 and the 10-year Treasury yield near 5.14%. Because gold pays no interest, yields that high make it less attractive than bonds.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'The Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun 6,45% dalam sebulan dan kini sekitar 31% di bawah rekor $5.608,35 pada Januari 2026. Ketegangan geopolitik, termasuk serangan drone Iran ke pangkalan AS di Bahrain, belum cukup untuk mengimbangi tekanan dari yield dan dolar.',
+            en: 'Trading Economics shows gold down 6.45% over the month and now about 31% below its $5,608.35 record from January 2026. Geopolitical tension, including Iranian drone attacks on US bases in Bahrain, has not been enough to offset the pressure from yields and the dollar.',
+          },
+          {
+            id: 'Kitco mencatat support di $3.852, terendah tahun ini dan hanya sekitar 0,4% di bawah harga pagi ini, lalu $3.823. Resistance berada di $3.903–$3.934, lalu $3.970. RoboForex memperkirakan rentang pekan ini $3.790–$3.900. Setelah pidato Warsh, pasar menunggu penjualan ritel Oktober pada Selasa dan risalah rapat Fed pada Rabu 18 November.',
+            en: 'Kitco lists support at $3,852, the year’s low and only about 0.4% below this morning’s price, then $3,823. Resistance sits at $3,903–$3,934, then $3,970. RoboForex expects a $3,790–$3,900 range this week. After Warsh’s speech, markets await October retail sales on Tuesday and the Fed minutes on Wednesday, 18 November.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Naik Tipis, Galeri24 dan UBS Tetap', en: 'Antam Edges Up, Galeri24 and UBS Hold' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram naik Rp5.000 ke Rp2.522.000 pada Senin, dan buyback juga naik Rp5.000 ke Rp2.298.000. Spread tetap Rp224.000, sekitar 8,9%. Batangan 0,5 gram dicatat Rp1.311.000, 2 gram Rp4.984.000 dan 3 gram Rp7.451.000. Harga Antam pagi ini belum mencerminkan pelemahan emas global di sesi Asia.',
+            en: 'Antam’s 1-gram price rose Rp5,000 to Rp2,522,000 on Monday, and buyback also rose Rp5,000 to Rp2,298,000. The spread stays at Rp224,000, about 8.9%. The 0.5-gram bar is listed at Rp1,311,000, the 2-gram bar at Rp4,984,000 and the 3-gram bar at Rp7,451,000. This morning’s Antam price does not yet reflect gold’s slide in Asian trade.',
+          },
+          {
+            id: 'Galeri24 tetap di Rp2.456.000 dengan buyback Rp2.312.000 (spread Rp144.000, sekitar 5,9%), kini Rp66.000 lebih murah dari Antam dengan buyback Rp14.000 lebih tinggi. UBS tetap di Rp2.480.000 dengan buyback Rp2.286.000 (spread Rp194.000, sekitar 7,8%), Rp42.000 di bawah Antam.',
+            en: 'Galeri24 held at Rp2,456,000 with buyback at Rp2,312,000 (a Rp144,000 spread, about 5.9%), now Rp66,000 cheaper than Antam with a buyback Rp14,000 higher. UBS held at Rp2,480,000 with buyback at Rp2,286,000 (a Rp194,000 spread, about 7.8%), Rp42,000 below Antam.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Biarkan Data yang Bicara', en: 'Playbook: Let the Data Speak' },
+        paragraphs: [
+          {
+            id: 'Pekan ini ada tiga peristiwa yang bisa menggerakkan emas: pidato Warsh, penjualan ritel dan risalah Fed. Data yang lemah bisa meredam ekspektasi kenaikan bunga dan memberi ruang pantulan ke arah $3.900–$3.934. Nada yang hawkish bisa menguji $3.852 dan $3.823. Keduanya skenario, bukan ramalan.',
+            en: 'This week has three events that could move gold: Warsh’s speech, retail sales and the Fed minutes. Weak data could cool rate-hike expectations and leave room for a bounce toward $3,900–$3,934. A hawkish tone could test $3,852 and $3,823. Both are scenarios, not forecasts.',
+          },
+          {
+            id: 'Dengan spread Antam sekitar 8,9%, harga perlu naik sekitar 9,7% agar buyback menyamai harga beli hari ini, jadi emas fisik lebih cocok untuk jangka panjang. Membeli bertahap dalam jumlah tetap membantu mengurangi risiko salah waktu. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'With Antam’s spread near 8.9%, prices need to rise about 9.7% for the buyback to match today’s purchase price, so physical gold suits the long term better. Buying fixed amounts in stages helps reduce timing risk. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Peluang kenaikan bunga Desember kini 94%. Pidato Warsh menentukan apakah $3.852 diuji lagi.',
+      en: 'The odds of a December hike are now 94%. Warsh’s speech decides whether $3,852 gets tested again.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-warsh-speech.png'),
+    publishedAt: Date.parse('2026-11-16T02:53:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Investing.com: Gold falls below $3,900 as December Fed hike bets build, Warsh in focus', url: 'https://www.investing.com/news/commodities-news/gold-falls-below-3900-as-december-fed-hike-bets-build-warsh-in-focus-5028296' },
+      { title: 'Kitco: Gold rebounds from 13-month low as PPI complicates Fed outlook, Kitco AM Report', url: 'https://www.kitco.com/news/article/2026-11-13/gold-rebounds-13-month-low-ppi-complicates-fed-outlook-kitco-am-report' },
+      { title: 'Trading Economics: Gold, price and news', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'RoboForex: Gold price forecast for next week, XAUUSD levels for 16–20 November 2026', url: 'https://roboforex.com/beginners/analytics/forex-forecast/gold/xau-usd-gold-weekly-forecast-2026-11-13/' },
+      { title: 'Suara.com: Harga emas Antam mulai naik jadi Rp2.522.000/gram', url: 'https://www.suara.com/bisnis/2026/11/16/093753/ditabung-dulu-harga-emas-antam-mulai-naik-jadi-rp2522000gram' },
+      { title: 'IDN Times: Harga emas Antam naik goceng, dibanderol Rp2,522 juta per gram', url: 'https://www.idntimes.com/business/economy/harga-emas-antam-naik-goceng-dibanderol-rp2-522-juta-per-gram-00-gshdq-5m5gg5' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-bears-dominate-survey-fed-minutes-week',
+    category: 'market',
     title: {
       id: 'Analis Berbalik Bearish Usai Emas Rugi 5% Sepekan',
       en: 'Analysts Turn Bearish After Gold’s 5% Weekly Loss',
