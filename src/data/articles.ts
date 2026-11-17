@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-slips-below-3900-warsh-speech',
+    slug: 'gold-14-month-low-warsh-silent-on-rates',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas di Titik Terendah 14 Bulan, Warsh Diam soal Bunga',
+      en: 'Gold at a 14-Month Low as Warsh Stays Silent on Rates',
+    },
+    excerpt: {
+      id: 'Emas spot sempat jatuh ke $3.830 dan ditutup di $3.862,9, terendah dalam sekitar 14 bulan. Pidato Kevin Warsh soal AI tidak memberi sinyal bunga, sementara peluang kenaikan Fed Desember di 95%. Antam turun Rp7.000 ke Rp2.515.000 dan spread melebar ke 9,4%.',
+      en: 'Spot gold fell as low as $3,830 and closed at $3,862.9, its lowest in about 14 months. Kevin Warsh’s speech on AI gave no rate signal, while the odds of a December Fed hike sit at 95%. Antam fell Rp7,000 to Rp2,515,000 and the spread widened to 9.4%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Tembus ke Bawah $3.850', en: 'A Break Below $3,850' },
+        paragraphs: [
+          {
+            id: 'Emas spot sempat turun ke $3.830 per ons pada Senin, level terendah sejak Oktober 2025 menurut Business Recorder. Pada pukul 11.42 waktu New York harganya di $3.858,40, turun 0,6%, dan emas berjangka Desember turun 0,6% ke $3.861,80.',
+            en: 'Spot gold fell as low as $3,830 an ounce on Monday, the lowest since October 2025 according to Business Recorder. At 11:42 a.m. New York time it was at $3,858.40, down 0.6%, and December gold futures fell 0.6% to $3,861.80.',
+          },
+          {
+            id: 'Bloomberg Technoz mencatat emas ditutup di $3.862,9, turun 0,49%, penutupan terendah dalam sekitar 14 bulan. Logam lain tertekan lebih dalam: perak anjlok 3,6% ke $46,98, platinum turun 3,2% ke $1.448,90 dan paladium turun 2,6% ke $974,07.',
+            en: 'Bloomberg Technoz reports gold closed at $3,862.9, down 0.49%, its lowest close in about 14 months. Other metals fell harder: silver slumped 3.6% to $46.98, platinum fell 3.2% to $1,448.90 and palladium fell 2.6% to $974.07.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Warsh Bicara AI, Bukan Bunga', en: 'Warsh Talked AI, Not Rates' },
+        paragraphs: [
+          {
+            id: 'Pasar menunggu pidato Ketua Fed Kevin Warsh, tetapi di konferensi produktivitas di San Francisco ia membahas dampak AI. Menurut CNBC, Warsh menyebut AI bisa mendorong produktivitas, bisa memangkas lapangan kerja, atau bisa saja “mengecewakan”. Economies.com mencatat ia menolak berkomentar soal data inflasi terbaru maupun kenaikan bunga Desember.',
+            en: 'Markets awaited Fed Chair Kevin Warsh’s speech, but at a productivity conference in San Francisco he talked about the impact of AI. According to CNBC, Warsh said AI could lift productivity, could cost jobs, or could simply “disappoint”. Economies.com notes he declined to comment on the latest inflation data or a December hike.',
+          },
+          {
+            id: 'Tanpa sinyal baru, ekspektasi lama tetap berlaku. CME FedWatch memberi peluang 95% untuk kenaikan 25 bps pada Desember. Pejabat Fed Jeffrey Schmid menyebut inflasi masih terlalu tinggi dan Mary Daly menyoroti inflasi jasa yang membandel. Dolar berada di dekat level terkuat sejak April 2025, sementara yield 10 tahun hanya turun tipis ke 5,131% dari 5,174% pada Jumat.',
+            en: 'With no new signal, existing expectations still apply. CME FedWatch puts the odds of a 25 bp December hike at 95%. Fed official Jeffrey Schmid said inflation remains too high and Mary Daly pointed to sticky services inflation. The dollar is near its strongest since April 2025, while the 10-year yield only eased to 5.131% from 5.174% on Friday.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun 6,7% dalam sebulan. Di sekitar $3.860, emas berada kira-kira 31% di bawah rekor $5.608,35 pada Januari 2026. Bloomberg Technoz menyebut penurunan sepanjang 2026 hampir 11%.',
+            en: 'Trading Economics shows gold down 6.7% over the month. Near $3,860, gold is about 31% below its $5,608.35 record from January 2026. Bloomberg Technoz puts the decline so far in 2026 at nearly 11%.',
+          },
+          {
+            id: 'FinanceFeeds mencatat support di sekitar $3.834 lalu $3.800, dengan resistance di $3.900 dan $4.010. Agendanya padat: penjualan ritel Oktober Selasa pukul 20.30 WIB (konsensus naik 0,6% menurut CNBC), risalah rapat Fed Kamis dini hari WIB, lalu klaim pengangguran Kamis malam. Data ritel yang kuat bisa menekan emas ke $3.800; risalah yang menunjukkan Fed terbelah bisa membuka jalan ke $4.010.',
+            en: 'FinanceFeeds lists support around $3,834 then $3,800, with resistance at $3,900 and $4,010. The calendar is busy: October retail sales on Tuesday at 8:30 a.m. ET (consensus +0.6% per CNBC), the Fed minutes on Wednesday afternoon ET, then jobless claims on Thursday. Strong retail data could push gold toward $3,800; minutes showing a divided Fed could open the way to $4,010.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun, Buyback Turun Lebih Dalam', en: 'Antam Falls, Buyback Falls Further' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun Rp7.000 ke Rp2.515.000 per pukul 08.48 WIB, menurut Bloomberg Technoz. Buyback turun lebih dalam, Rp20.000 ke Rp2.278.000 per gram. Akibatnya spread melebar dari Rp224.000 kemarin menjadi Rp237.000, atau sekitar 9,4% dari harga jual.',
+            en: 'Antam’s 1-gram price fell Rp7,000 to Rp2,515,000 as of 08:48 WIB, according to Bloomberg Technoz. Buyback fell further, down Rp20,000 to Rp2,278,000 per gram. As a result the spread widened from Rp224,000 yesterday to Rp237,000, about 9.4% of the selling price.',
+          },
+          {
+            id: 'Galeri24 tetap di Rp2.456.000 dengan buyback Rp2.312.000 (spread sekitar 5,9%), dan UBS tetap di Rp2.480.000 dengan buyback Rp2.286.000 (spread sekitar 7,8%). Galeri24 kini Rp59.000 lebih murah dari Antam per gram, dan buyback-nya justru Rp34.000 lebih tinggi.',
+            en: 'Galeri24 held at Rp2,456,000 with buyback at Rp2,312,000 (spread about 5.9%), and UBS held at Rp2,480,000 with buyback at Rp2,286,000 (spread about 7.8%). Galeri24 is now Rp59,000 cheaper per gram than Antam, and its buyback is Rp34,000 higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Cara Membaca Situasi Ini', en: 'How to Read This' },
+        paragraphs: [
+          {
+            id: 'Selama pasar yakin Fed akan menaikkan bunga Desember, emas cenderung tertekan oleh dolar dan yield yang tinggi. Pekan ini, data ritel dan risalah Fed menjadi penentu apakah support $3.800 diuji atau emas memantul ke $3.900. Bagi investor rupiah, spread Antam yang melebar ke 9,4% berarti harga emas dunia perlu naik cukup jauh sebelum pembelian hari ini balik modal.',
+            en: 'As long as markets are confident the Fed will hike in December, gold tends to be pressured by a strong dollar and high yields. This week, retail sales and the Fed minutes will decide whether $3,800 support gets tested or gold bounces toward $3,900. For rupiah investors, Antam’s spread widening to 9.4% means world gold has to rise a fair way before a purchase made today breaks even.',
+          },
+          {
+            id: 'Bagi penabung jangka panjang, pendekatan DCA dengan nominal tetap membantu meratakan harga beli saat pasar bergejolak, dan membandingkan spread antar-merek bisa menghemat biaya. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'For long-term savers, a fixed-amount DCA approach helps average out the purchase price in volatile markets, and comparing spreads across brands can save costs. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Warsh tidak menyebut bunga sama sekali, dan bagi emas, diam itu berarti ekspektasi kenaikan Desember tetap utuh.',
+      en: 'Warsh never mentioned rates, and for gold that silence means the December hike expectation stays intact.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-14-month-low.png'),
+    publishedAt: Date.parse('2026-11-17T02:55:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Business Recorder: Gold prices down as US dollar marches higher', url: 'https://www.brecorder.com/news/40449222/gold-prices-down-as-us-dollar-marches-higher' },
+      { title: 'CNBC: Treasury prices catch a small bid as stock market weakens and Warsh says AI might ‘disappoint’', url: 'https://www.cnbc.com/2026/11/16/treasury-yields-bonds-inflation.html' },
+      { title: 'Economies.com: Warsh warns of economic risks from AI adoption without offering fresh interest rate signals', url: 'https://www.economies.com/stocks/united-states-news/warsh-warns-of-economic-risks-from-ai-adoption-without-offering-fresh-interest-rate-signals-50677' },
+      { title: 'Trading Economics: Gold, price and news', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'FinanceFeeds: Gold price today $3,872 Monday, lowest since October 2025 before Warsh speech', url: 'https://financefeeds.com/gold-price-today-3872-monday-lowest-since-october-2025-warsh-speech-bull-4010-bear-3800/' },
+      { title: 'Bloomberg Technoz: Selaras dengan emas dunia, harga emas Antam hari ini turun', url: 'https://www.bloombergtechnoz.com/detail-news/127941/selaras-dengan-emas-dunia-harga-emas-antam-hari-ini-turun' },
+      { title: 'Ngopibareng.id: Harga emas Selasa 17 November 2026, Antam turun Rp7.000, UBS dan Galeri24 stabil', url: 'https://www.ngopibareng.id/read/harga-emas-selasa-17-november-2026-antam-turun-rp7-000-ubs-dan-galeri24-stabil' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-slips-below-3900-warsh-speech',
+    category: 'market',
     title: {
       id: 'Emas Tergelincir ke $3.868 Jelang Pidato Warsh',
       en: 'Gold Slips to $3,868 Ahead of Warsh’s Speech',
