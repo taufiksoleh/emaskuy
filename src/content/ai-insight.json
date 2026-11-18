@@ -1,53 +1,49 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T09:55:00+07:00",
+  "generatedAt": "2026-11-18T10:05:00+07:00",
   "sentiment": "bearish",
   "bullets": [
     {
-      "id": "Emas spot sempat jatuh ke $3.830 pada Senin, terendah sejak Oktober 2025, sebelum ditutup di $3.862,9 (turun 0,49%), terendah dalam sekitar 14 bulan menurut Bloomberg Technoz. Pidato Ketua Fed Kevin Warsh soal AI tidak memberi sinyal baru tentang bunga, jadi tekanan dari ekspektasi kenaikan bunga tetap. Perak anjlok 3,6% ke $46,98.",
-      "en": "Spot gold fell as low as $3,830 on Monday, the lowest since October 2025, before closing at $3,862.9 (down 0.49%), its lowest close in about 14 months according to Bloomberg Technoz. Fed Chair Kevin Warsh’s speech on AI gave no new signal on rates, so pressure from hike expectations stayed in place. Silver slumped 3.6% to $46.98."
+      "id": "Penjualan ritel AS Oktober naik 0,2%, sesuai konsensus, tetapi ritel di luar kendaraan naik 0,6%, di atas perkiraan 0,4%. Emas spot sempat ke $3.848,64 usai data dan ditutup Selasa di sekitar $3.853,10. Rabu pagi tekanan berlanjut: Investing.com mencatat emas spot turun 0,7% ke $3.822,03, dan Trading Economics menunjukkan harga di $3.795,89, terendah lebih dari setahun.",
+      "en": "US October retail sales rose 0.2%, in line with consensus, but sales excluding autos rose 0.6%, above the 0.4% forecast. Spot gold slipped to $3,848.64 after the data and ended Tuesday near $3,853.10. The pressure continued on Wednesday morning: Investing.com showed spot gold down 0.7% at $3,822.03, and Trading Economics shows $3,795.89, the lowest in over a year."
     },
     {
-      "id": "CME FedWatch memberi peluang 95% untuk kenaikan 25 bps pada Desember. Dolar di dekat level terkuat sejak April 2025, sementara yield Treasury 10 tahun turun tipis ke 5,131% dari puncak 5,174% Jumat. Trading Economics mencatat emas turun 6,7% dalam sebulan dan sekitar 31% di bawah rekor $5.608,35 pada Januari 2026.",
-      "en": "CME FedWatch puts the odds of a 25 bp December hike at 95%. The dollar is near its strongest since April 2025, while the 10-year Treasury yield eased to 5.131% from Friday’s 5.174% high. Trading Economics shows gold down 6.7% over the month and about 31% below its $5,608.35 record from January 2026."
+      "id": "Presiden Fed St. Louis Alberto Musalem menyebut ekonomi kemungkinan butuh beberapa kenaikan bunga lagi sebelum musim semi, dan John Williams dari Fed New York bilang masih ada pekerjaan untuk membawa inflasi ke 2%. Trading Economics mencatat peluang hampir 96% untuk kenaikan 25 bps Desember. Indeks dolar naik ke 103,65 dan yield 10 tahun di sekitar 5,10%. Emas turun 8,3% dalam sebulan dan sekitar 32% di bawah rekor $5.608,35.",
+      "en": "St. Louis Fed President Alberto Musalem said the economy will probably need several more rate hikes before spring, and the New York Fed’s John Williams said there is more work to do to bring inflation to 2%. Trading Economics shows a nearly 96% chance of a 25 bp December hike. The dollar index rose to 103.65 and the 10-year yield sits near 5.10%. Gold is down 8.3% over the month and about 32% below its $5,608.35 record."
     },
     {
-      "id": "FinanceFeeds mencatat support di sekitar $3.834 lalu $3.800, dengan resistance di $3.900 dan $4.010. Agenda: penjualan ritel Oktober Selasa pukul 20.30 WIB (konsensus naik 0,6%), risalah rapat Fed Kamis dini hari WIB, dan klaim pengangguran Kamis malam.",
-      "en": "FinanceFeeds lists support around $3,834 then $3,800, with resistance at $3,900 and $4,010. Agenda: October retail sales on Tuesday at 8:30 a.m. ET (consensus +0.6%), the Fed minutes on Wednesday afternoon ET, and jobless claims on Thursday."
+      "id": "Kitco mencatat support di $3.832 lalu $3.805, dengan resistance di $3.888 dan $3.898,61. Setelah $3.800 tertembus, ANZ melihat pembelian strategis dan ritel bisa membentuk support di sekitar $3.600. Agenda: risalah rapat Fed Oktober Kamis pukul 02.00 WIB, lalu klaim pengangguran Kamis pukul 20.30 WIB.",
+      "en": "Kitco lists support at $3,832 then $3,805, with resistance at $3,888 and $3,898.61. With $3,800 now broken, ANZ sees strategic and retail buying forming support around $3,600. Agenda: the minutes of the Fed’s October meeting on Wednesday at 2 p.m. ET, then jobless claims on Thursday at 8:30 a.m. ET."
     },
     {
-      "id": "Antam 1 gram turun Rp7.000 ke Rp2.515.000, sementara buyback turun Rp20.000 ke Rp2.278.000, sehingga spread melebar ke Rp237.000 (sekitar 9,4%). Galeri24 tetap Rp2.456.000 (buyback Rp2.312.000, spread sekitar 5,9%) dan UBS tetap Rp2.480.000 (buyback Rp2.286.000, spread sekitar 7,8%).",
-      "en": "Antam’s 1-gram price fell Rp7,000 to Rp2,515,000, while buyback fell Rp20,000 to Rp2,278,000, widening the spread to Rp237,000 (about 9.4%). Galeri24 held at Rp2,456,000 (buyback Rp2,312,000, spread about 5.9%) and UBS held at Rp2,480,000 (buyback Rp2,286,000, spread about 7.8%)."
+      "id": "Antam 1 gram turun tipis Rp1.000 ke Rp2.514.000, sementara buyback turun Rp6.000 ke Rp2.272.000, sehingga spread melebar ke Rp242.000 (sekitar 9,6%). Galeri24 turun Rp5.000 ke Rp2.451.000 (buyback Rp2.307.000, spread sekitar 5,9%) dan UBS turun Rp5.000 ke Rp2.475.000 (buyback Rp2.281.000, spread sekitar 7,8%).",
+      "en": "Antam’s 1-gram price edged down Rp1,000 to Rp2,514,000, while buyback fell Rp6,000 to Rp2,272,000, widening the spread to Rp242,000 (about 9.6%). Galeri24 fell Rp5,000 to Rp2,451,000 (buyback Rp2,307,000, spread about 5.9%) and UBS fell Rp5,000 to Rp2,475,000 (buyback Rp2,281,000, spread about 7.8%)."
     }
   ],
   "sources": [
     {
-      "title": "Business Recorder: Gold prices down as US dollar marches higher",
-      "url": "https://www.brecorder.com/news/40449222/gold-prices-down-as-us-dollar-marches-higher"
+      "title": "Kitco: Gold struggles near one-year lows, silver rebounds as stocks slide, Fed hike bets persist",
+      "url": "https://www.kitco.com/news/article/2026-11-17/gold-struggles-near-one-year-lows-silver-rebounds-stocks-slide-fed-hike"
     },
     {
-      "title": "Bloomberg Technoz: Selaras dengan emas dunia, harga emas Antam hari ini turun",
-      "url": "https://www.bloombergtechnoz.com/detail-news/127941/selaras-dengan-emas-dunia-harga-emas-antam-hari-ini-turun"
+      "title": "Kitco: Gold price drops to $3,848/oz after October retail sales rise 0.2%, core rises 0.6%",
+      "url": "https://www.kitco.com/news/article/2026-11-17/gold-price-drops-3848oz-after-october-retail-sales-rise-02-core-rises-06"
     },
     {
-      "title": "CNBC: Treasury prices catch a small bid as stock market weakens and Warsh says AI might ‘disappoint’",
-      "url": "https://www.cnbc.com/2026/11/16/treasury-yields-bonds-inflation.html"
-    },
-    {
-      "title": "Economies.com: Warsh warns of economic risks from AI adoption without offering fresh interest rate signals",
-      "url": "https://www.economies.com/stocks/united-states-news/warsh-warns-of-economic-risks-from-ai-adoption-without-offering-fresh-interest-rate-signals-50677"
+      "title": "Investing.com: Gold falls toward $3,800 as Fed hawks reinforce rate-hike outlook",
+      "url": "https://in.investing.com/news/commodities-news/gold-falls-toward-3800-as-fed-hawks-reinforce-ratehike-outlook-5711178"
     },
     {
       "title": "Trading Economics: Gold, price and news",
       "url": "https://tradingeconomics.com/commodity/gold"
     },
     {
-      "title": "FinanceFeeds: Gold price today $3,872 Monday, lowest since October 2025 before Warsh speech",
-      "url": "https://financefeeds.com/gold-price-today-3872-monday-lowest-since-october-2025-warsh-speech-bull-4010-bear-3800/"
+      "title": "ANTARA: Harga emas Antam turun tipis Rp1.000 menjadi Rp2,514 juta/gr pada Rabu",
+      "url": "https://antaranews.com/berita/5861383/harga-emas-antam-turun-tipis-rp1000-menjadi-rp2514-juta-gr-pada-rabu"
     },
     {
-      "title": "Ngopibareng.id: Harga emas Selasa 17 November 2026, Antam turun Rp7.000, UBS dan Galeri24 stabil",
-      "url": "https://www.ngopibareng.id/read/harga-emas-selasa-17-november-2026-antam-turun-rp7-000-ubs-dan-galeri24-stabil"
+      "title": "Medcom: Turun tipis, intip daftar harga emas Antam dan buyback hari ini",
+      "url": "https://www.medcom.id/ekonomi/keuangan/8N0X1wAN-turun-tipis-intip-daftar-harga-emas-antam-dan-buyback-hari-ini"
     },
     {
       "title": "Galeri 24: Harga emas hari ini",

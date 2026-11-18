@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-14-month-low-warsh-silent-on-rates',
+    slug: 'gold-breaks-3800-fed-hawks-musalem',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Tembus ke Bawah $3.800, Pejabat Fed Kompak Hawkish',
+      en: 'Gold Breaks Below $3,800 as Fed Officials Turn Hawkish',
+    },
+    excerpt: {
+      id: 'Ritel inti AS yang kuat dan sinyal Musalem soal beberapa kenaikan bunga lagi mendorong emas ke $3.795,89, terendah lebih dari setahun. Antam hanya turun Rp1.000 ke Rp2.514.000, tetapi buyback turun Rp6.000 dan spread melebar ke 9,6%.',
+      en: 'Strong US core retail sales and Musalem’s signal of several more rate hikes pushed gold to $3,795.89, the lowest in over a year. Antam fell only Rp1,000 to Rp2,514,000, but buyback fell Rp6,000 and the spread widened to 9.6%.',
+    },
+    sections: [
+      {
+        heading: { id: 'Ritel Inti Lebih Kuat dari Perkiraan', en: 'Core Retail Beats Forecasts' },
+        paragraphs: [
+          {
+            id: 'Penjualan ritel AS Oktober naik 0,2%, sesuai konsensus, setelah naik 0,8% pada September. Namun penjualan di luar kendaraan naik 0,6%, di atas perkiraan 0,4%, dan angka inti September direvisi naik ke 1,1%. Kitco mencatat emas spot turun ke $3.848,64 usai rilis, dekat titik terendah sesi.',
+            en: 'US October retail sales rose 0.2%, in line with consensus, after a 0.8% gain in September. But sales excluding autos rose 0.6%, above the 0.4% forecast, and September’s core figure was revised up to 1.1%. Kitco reports spot gold fell to $3,848.64 after the release, near the session low.',
+          },
+          {
+            id: 'Selasa ditutup relatif tenang: emas spot di sekitar $3.853,10, hanya turun 0,06%, dengan rentang harian $3.836 sampai $3.891,60. Tekanan baru datang Rabu pagi waktu Asia. Investing.com mencatat emas spot turun 0,7% ke $3.822,03 dan emas berjangka turun 1,1% ke $3.823,67, lalu Trading Economics menunjukkan $3.795,89, turun 1,39% dan terendah lebih dari setahun.',
+            en: 'Tuesday ended fairly calm: spot gold near $3,853.10, down just 0.06%, with a daily range of $3,836 to $3,891.60. Fresh pressure came on Wednesday morning in Asia. Investing.com shows spot gold down 0.7% at $3,822.03 and futures down 1.1% at $3,823.67, and Trading Economics then shows $3,795.89, down 1.39% and the lowest in over a year.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Musalem dan Williams Menambah Tekanan', en: 'Musalem and Williams Add Pressure' },
+        paragraphs: [
+          {
+            id: 'Setelah Ketua Fed Kevin Warsh menghindari topik bunga, pejabat lain lebih terang. Presiden Fed St. Louis Alberto Musalem menyebut ekonomi kemungkinan butuh “beberapa kenaikan bunga lagi sebelum musim semi”. Presiden Fed New York John Williams bilang masih ada pekerjaan untuk mengembalikan inflasi ke target 2%, meski menurut Trading Economics ia mengingatkan agar laju kenaikan tidak terlalu agresif.',
+            en: 'After Fed Chair Kevin Warsh avoided the topic of rates, other officials were clearer. St. Louis Fed President Alberto Musalem said the economy will probably need “several more rate increases before spring”. New York Fed President John Williams said there is more work to do to return inflation to the 2% target, though according to Trading Economics he cautioned against a more aggressive pace.',
+          },
+          {
+            id: 'Trading Economics mencatat peluang hampir 96% untuk kenaikan 25 bps pada Desember dan sekitar 4% untuk 50 bps. Pasar juga memperhitungkan kenaikan pada Januari dan satu lagi sebelum April. Indeks dolar naik ke 103,65, dan yield 10 tahun bertahan di sekitar 5,10%. Bunga yang lebih tinggi menaikkan biaya peluang memegang emas, yang tidak memberi imbal hasil.',
+            en: 'Trading Economics shows a nearly 96% chance of a 25 bp hike in December and about 4% for 50 bp. Markets also price a hike in January and another before April. The dollar index rose to 103.65, and the 10-year yield is holding near 5.10%. Higher rates raise the opportunity cost of holding gold, which pays no yield.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas turun 8,3% dalam sebulan dan 6,9% dalam setahun. Di sekitar $3.796, harga berada kira-kira 32% di bawah rekor $5.608,35 pada Januari 2026. Investing.com menyebut emas sudah kehilangan lebih dari seperempat nilainya sejak perang AS-Iran pecah akhir Februari, karena lonjakan energi dan inflasi mendorong bank sentral memperketat kebijakan.',
+            en: 'Trading Economics shows gold down 8.3% over the month and 6.9% over the year. Near $3,796, it is about 32% below its $5,608.35 record from January 2026. Investing.com notes gold has lost more than a quarter of its value since the US-Iran war began in late February, as higher energy costs and inflation pushed central banks to tighten.',
+          },
+          {
+            id: 'Dalam laporan Selasa, Kitco mencatat support di $3.832 lalu $3.805, dengan resistance di $3.888 dan $3.898,61. Penurunan ke bawah $3.800 berarti support itu sudah diuji. ANZ melihat pembelian strategis dan ritel bisa membentuk support di sekitar $3.600. Agenda berikutnya: risalah rapat Fed Oktober Kamis pukul 02.00 WIB dan klaim pengangguran Kamis pukul 20.30 WIB. Risalah yang menegaskan kenaikan berturut-turut bisa memperpanjang tekanan; nada yang lebih hati-hati bisa memicu pantulan ke $3.832–3.888.',
+            en: 'In its Tuesday report, Kitco listed support at $3,832 then $3,805, with resistance at $3,888 and $3,898.61. The drop below $3,800 means that support has already been tested. ANZ sees strategic and retail buying forming support around $3,600. Next up: the minutes of the Fed’s October meeting on Wednesday at 2 p.m. ET and jobless claims on Thursday at 8:30 a.m. ET. Minutes that confirm back-to-back hikes could extend the pressure; a more cautious tone could spark a bounce toward $3,832–3,888.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Hampir Diam, Buyback Turun Lebih Dalam', en: 'Antam Barely Moves, Buyback Falls Further' },
+        paragraphs: [
+          {
+            id: 'Harga Antam 1 gram turun tipis Rp1.000 ke Rp2.514.000 per pukul 09.24 WIB, menurut ANTARA. Buyback turun lebih dalam, Rp6.000 ke Rp2.272.000 per gram. Spread melebar dari Rp237.000 kemarin menjadi Rp242.000, atau sekitar 9,6% dari harga jual. Harga ini belum mencerminkan penuh penurunan emas dunia Rabu pagi.',
+            en: 'Antam’s 1-gram price edged down Rp1,000 to Rp2,514,000 as of 09:24 WIB, according to ANTARA. Buyback fell further, down Rp6,000 to Rp2,272,000 per gram. The spread widened from Rp237,000 yesterday to Rp242,000, about 9.6% of the selling price. These prices do not yet fully reflect Wednesday morning’s drop in world gold.',
+          },
+          {
+            id: 'Galeri24 turun Rp5.000 ke Rp2.451.000 dengan buyback Rp2.307.000 (spread sekitar 5,9%), dan UBS turun Rp5.000 ke Rp2.475.000 dengan buyback Rp2.281.000 (spread sekitar 7,8%). Galeri24 kini Rp63.000 lebih murah dari Antam per gram, dan buyback-nya Rp35.000 lebih tinggi.',
+            en: 'Galeri24 fell Rp5,000 to Rp2,451,000 with buyback at Rp2,307,000 (spread about 5.9%), and UBS fell Rp5,000 to Rp2,475,000 with buyback at Rp2,281,000 (spread about 7.8%). Galeri24 is now Rp63,000 cheaper per gram than Antam, and its buyback is Rp35,000 higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Cara Membaca Situasi Ini', en: 'How to Read This' },
+        paragraphs: [
+          {
+            id: 'Selama pejabat Fed terus memberi sinyal kenaikan berturut-turut, emas cenderung tertekan oleh dolar dan yield tinggi. ANZ menilai pelemahan ini sementara dan tetap positif untuk jangka menengah, dengan proyeksi hingga $4.800 pada 2027, tetapi juga tidak menutup kemungkinan kenaikan 50 bps bulan depan. Itu berarti volatilitas jangka pendek masih tinggi ke dua arah.',
+            en: 'As long as Fed officials keep signalling back-to-back hikes, gold tends to be pressured by the dollar and high yields. ANZ sees the weakness as temporary and stays positive for the medium term, with a projection of up to $4,800 in 2027, but it also cannot rule out a 50 bp hike next month. That means short-term volatility remains high in both directions.',
+          },
+          {
+            id: 'Bagi penabung jangka panjang, DCA dengan nominal tetap membantu meratakan harga beli saat pasar bergejolak, dan spread Antam di 9,6% menjadi alasan untuk membandingkan merek sebelum membeli. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan, jangka waktu dan profil risiko Anda.',
+            en: 'For long-term savers, a fixed-amount DCA approach helps average out the purchase price in volatile markets, and Antam’s 9.6% spread is a reason to compare brands before buying. This article is educational analysis, not personal financial advice. Match decisions to your own goals, time horizon and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Warsh boleh diam, tetapi Musalem bicara terang: beberapa kenaikan bunga lagi sebelum musim semi, dan emas langsung tembus ke bawah $3.800.',
+      en: 'Warsh may stay quiet, but Musalem spoke plainly: several more hikes before spring, and gold promptly broke below $3,800.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-breaks-3800.png'),
+    publishedAt: Date.parse('2026-11-18T03:05:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Investing.com: Gold falls toward $3,800 as Fed hawks reinforce rate-hike outlook', url: 'https://in.investing.com/news/commodities-news/gold-falls-toward-3800-as-fed-hawks-reinforce-ratehike-outlook-5711178' },
+      { title: 'Kitco: Gold struggles near one-year lows, silver rebounds as stocks slide, Fed hike bets persist', url: 'https://www.kitco.com/news/article/2026-11-17/gold-struggles-near-one-year-lows-silver-rebounds-stocks-slide-fed-hike' },
+      { title: 'Kitco: Gold price drops to $3,848/oz after October retail sales rise 0.2%, core rises 0.6%', url: 'https://www.kitco.com/news/article/2026-11-17/gold-price-drops-3848oz-after-october-retail-sales-rise-02-core-rises-06' },
+      { title: 'Trading Economics: Gold, price and news', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'ANTARA: Harga emas Antam turun tipis Rp1.000 menjadi Rp2,514 juta/gr pada Rabu', url: 'https://antaranews.com/berita/5861383/harga-emas-antam-turun-tipis-rp1000-menjadi-rp2514-juta-gr-pada-rabu' },
+      { title: 'Medcom: Turun tipis, intip daftar harga emas Antam dan buyback hari ini', url: 'https://www.medcom.id/ekonomi/keuangan/8N0X1wAN-turun-tipis-intip-daftar-harga-emas-antam-dan-buyback-hari-ini' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-14-month-low-warsh-silent-on-rates',
+    category: 'market',
     title: {
       id: 'Emas di Titik Terendah 14 Bulan, Warsh Diam soal Bunga',
       en: 'Gold at a 14-Month Low as Warsh Stays Silent on Rates',
