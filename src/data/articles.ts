@@ -55,9 +55,105 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-breaks-3800-fed-hawks-musalem',
+    slug: 'gold-slides-toward-3500-worst-week-antam-spread-16',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Terjun ke Dekat $3.500, Spread Antam Melebar ke 16%',
+      en: 'Gold Plunges Toward $3,500 as Antam’s Spread Widens to 16%',
+    },
+    excerpt: {
+      id: 'Risalah Fed yang hawkish dan aksi jual di Wall Street menyeret emas ke $3.537,90, terendah sejak September 2025. Antam 1 gram hanya turun Rp5.000 ke Rp2.495.000, tetapi buyback anjlok Rp50.000 ke Rp2.095.000 dan spread melebar ke Rp400.000.',
+      en: 'Hawkish Fed minutes and a Wall Street sell-off dragged gold to $3,537.90, the lowest since September 2025. Antam’s 1-gram bar fell only Rp5,000 to Rp2,495,000, but buyback plunged Rp50,000 to Rp2,095,000 and the spread widened to Rp400,000.',
+    },
+    sections: [
+      {
+        heading: { id: 'Dua Hari, Turun Hampir $190', en: 'Two Days, Down Almost $190' },
+        paragraphs: [
+          {
+            id: 'Kamis, emas spot turun $98,60 (2,65%) ke $3.625,50, terendah 14 bulan saat itu. Pemicunya risalah rapat Fed Oktober yang menunjukkan hampir semua pejabat memperkirakan kenaikan bunga lagi, ditambah klaim pengangguran awal 203.000, di atas perkiraan 197.000. Indeks manufaktur Philadelphia Fed justru melemah ke 6,3 dari 20,9, tetapi pasar tetap fokus pada bunga.',
+            en: 'On Thursday spot gold fell $98.60 (2.65%) to $3,625.50, then a 14-month low. The trigger was the minutes of the Fed’s October meeting, which showed nearly all officials expect further hikes, plus initial jobless claims of 203,000, above the 197,000 forecast. The Philadelphia Fed manufacturing index actually weakened to 6.3 from 20.9, but markets stayed focused on rates.',
+          },
+          {
+            id: 'Jumat tekanan berlanjut. Kitco mencatat emas spot ditutup di $3.537,90, turun $86,30 (2,38%), setelah sempat ke $3.502,93, terendah sejak September 2025. Perak lebih parah, turun 3,83% ke $41,12. Dalam dua hari, emas kehilangan sekitar $186 atau 5%, dan Trading Economics menyebut ini penurunan mingguan terdalam dalam delapan bulan.',
+            en: 'The pressure continued on Friday. Kitco reports spot gold closed at $3,537.90, down $86.30 (2.38%), after touching $3,502.93, the lowest since September 2025. Silver fared worse, falling 3.83% to $41.12. Over two days gold lost about $186, or 5%, and Trading Economics calls it the steepest weekly decline in eight months.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Yield Turun, Dolar Melunak, Emas Tetap Dijual', en: 'Yields Fell, the Dollar Softened, Gold Was Still Sold' },
+        paragraphs: [
+          {
+            id: 'Biasanya yield yang turun dan dolar yang melemah membantu emas. Jumat, yield Treasury 10 tahun turun sekitar 10 bps ke 4,94% dan dolar melunak dari puncaknya, tetapi emas tetap jatuh. Alasannya ada di pasar saham: S&P 500 turun 3,70% dan lebih dari 10% di bawah rekornya, sementara Nasdaq anjlok 5,28%. Saat investor memangkas risiko, emas ikut dijual untuk menutup kerugian atau margin.',
+            en: 'Falling yields and a weaker dollar usually help gold. On Friday the 10-year Treasury yield fell about 10 bp to 4.94% and the dollar softened from its highs, yet gold still dropped. The reason was in equities: the S&P 500 fell 3.70% and sits more than 10% below its record, while the Nasdaq plunged 5.28%. When investors cut risk, gold gets sold too, to cover losses or margin.',
+          },
+          {
+            id: 'Ekspektasi bunga juga belum berubah. Trading Economics mencatat peluang 99% kenaikan 25 bps pada rapat Fed 8–9 Desember, dan Gubernur Christopher Waller menyebut kenaikan 50 bps bisa dipertimbangkan. Data sentimen Michigan sedikit melegakan: ekspektasi inflasi setahun turun ke 3,7% dari 4,7%, tetapi belum cukup untuk membalik arah.',
+            en: 'Rate expectations have not shifted either. Trading Economics shows a 99% chance of a 25 bp hike at the Fed’s Dec. 8–9 meeting, and Governor Christopher Waller said a 50 bp hike could be considered. The Michigan sentiment data offered some relief: one-year inflation expectations fell to 3.7% from 4.7%, but that was not enough to turn the tide.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level Kunci', en: 'The Big Picture and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Emas kini turun 14,64% dalam sebulan dan sekitar 37% di bawah rekor $5.608,35 pada Januari 2026. Tren jangka pendek jelas turun selama pasar memperkirakan Fed terus menaikkan bunga.',
+            en: 'Gold is now down 14.64% over the month and about 37% below its $5,608.35 record from January 2026. The short-term trend is clearly down while markets expect the Fed to keep hiking.',
+          },
+          {
+            id: 'Kitco mencatat resistance di $3.597 lalu $3.699, dengan support di $3.475 dan $3.447. Jika $3.500 tertembus secara meyakinkan, target berikutnya $3.421 lalu zona $3.400–$3.420. Agenda terdekat: PMI awal November dan indeks Chicago Fed pada Senin 23 November, lalu rapat Fed 8–9 Desember.',
+            en: 'Kitco lists resistance at $3,597 then $3,699, with support at $3,475 and $3,447. A decisive break below $3,500 targets $3,421 and then the $3,400–$3,420 zone. Next on the agenda: preliminary November PMIs and the Chicago Fed index on Monday, Nov. 23, then the Fed meeting on Dec. 8–9.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam Turun Pelan, Buyback Jatuh Cepat', en: 'Antam Falls Slowly, Buyback Falls Fast' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram turun Rp5.000 ke Rp2.495.000 pada Sabtu, penurunan lima hari beruntun. Sejak Rabu harga jual hanya turun Rp19.000 (0,8%), padahal emas dunia turun dari $3.795,89 ke $3.537,90 (6,8%). Penyesuaiannya masuk lewat buyback: turun dari Rp2.272.000 ke Rp2.095.000, atau Rp177.000 (7,8%) dalam tiga hari, termasuk Rp50.000 hari ini.',
+            en: 'Antam’s 1-gram bar fell Rp5,000 to Rp2,495,000 on Saturday, a fifth straight decline. Since Wednesday the selling price has dropped only Rp19,000 (0.8%), even though world gold fell from $3,795.89 to $3,537.90 (6.8%). The adjustment came through buyback: down from Rp2,272,000 to Rp2,095,000, or Rp177,000 (7.8%) in three days, including Rp50,000 today.',
+          },
+          {
+            id: 'Akibatnya spread Antam melebar ke Rp400.000, sekitar 16% dari harga jual. Pembeli hari ini butuh kenaikan buyback sekitar 19% hanya untuk impas. Galeri24 di Rp2.356.000 (buyback Rp2.216.000, spread sekitar 5,9%) dan UBS di Rp2.378.000 (buyback Rp2.192.000, spread sekitar 7,8%). Galeri24 kini Rp139.000 lebih murah dari Antam, dan buyback-nya justru Rp121.000 lebih tinggi.',
+            en: 'As a result Antam’s spread widened to Rp400,000, about 16% of the selling price. A buyer today needs buyback to rise about 19% just to break even. Galeri24 stands at Rp2,356,000 (buyback Rp2,216,000, spread about 5.9%) and UBS at Rp2,378,000 (buyback Rp2,192,000, spread about 7.8%). Galeri24 is now Rp139,000 cheaper than Antam, and its buyback is actually Rp121,000 higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Sabar dan Bandingkan Merek', en: 'Playbook: Be Patient and Compare Brands' },
+        paragraphs: [
+          {
+            id: 'Saat harga jatuh cepat dan spread melebar, beli besar sekaligus berarti menanggung biaya spread di titik terburuk. Bagi yang menabung rutin (DCA), lanjutkan jadwal dengan nominal tetap dan pertimbangkan merek dengan spread lebih sempit. Spread Antam yang tidak biasa lebar ini juga bisa menyempit lagi jika harga jual menyusul turun.',
+            en: 'When prices fall fast and spreads widen, buying a large amount at once means paying the spread at the worst point. For regular savers (DCA), keep to the schedule with a fixed amount and consider brands with tighter spreads. Antam’s unusually wide spread could also narrow again if its selling price catches up on the way down.',
+          },
+          {
+            id: 'Bagi yang sudah memegang emas, menjual sekarang berarti merealisasikan buyback yang sudah turun tajam. Skenario turun ke $3.400–$3.420 tetap terbuka selama Fed hawkish, sementara pemulihan di atas $3.597 akan jadi sinyal awal stabil. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For those already holding gold, selling now means locking in a buyback that has already fallen sharply. A drop to $3,400–$3,420 remains possible while the Fed stays hawkish, while a recovery above $3,597 would be an early sign of stabilisation. This article is educational analysis, not personal financial advice; match your decisions to your goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas dunia turun 6,8% sejak Rabu, harga jual Antam hanya 0,8%, tetapi buyback anjlok 7,8%.',
+      en: 'World gold fell 6.8% since Wednesday and Antam’s selling price only 0.8%, but buyback plunged 7.8%.',
+    },
+    callout: 'compare',
+    image: withBase('/article-gold-toward-3500.png'),
+    publishedAt: Date.parse('2026-11-21T02:50:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold falls toward $3,500, silver slides as stock markets enter correction - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-11-20/gold-falls-toward-3500-silver-slides-stock-markets-enter-correction' },
+      { title: 'Kitco: Gold falls below $3,650, silver tumbles as Fed rate concerns pressure metals - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-11-19/gold-falls-below-3650-silver-tumbles-fed-rate-concerns-pressure-metals' },
+      { title: 'Trading Economics: Gold, price and news', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Liputan6: Harga Emas Antam 21 November 2026 merosot Rp5.000, cek rincian di sini', url: 'https://www.liputan6.com/bisnis/read/8339517/harga-emas-antam-21-november-2026-merosot-rp-5000-cek-rincian-di-sini' },
+      { title: 'Investor.id: Harga emas Antam (ANTM) tumbang 5 hari beruntun', url: 'https://investor.id/market/462825/harga-emas-antam-antm-tumbang-5-hari-beruntun' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-breaks-3800-fed-hawks-musalem',
+    category: 'market',
     title: {
       id: 'Emas Tembus ke Bawah $3.800, Pejabat Fed Kompak Hawkish',
       en: 'Gold Breaks Below $3,800 as Fed Officials Turn Hawkish',
