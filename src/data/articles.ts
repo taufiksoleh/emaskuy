@@ -55,9 +55,107 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-slides-toward-3500-worst-week-antam-spread-16',
+    slug: 'gold-worst-week-recap-antam-buyback-tracks-spot',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Rekap Pekan: Emas Rugi 9%, Buyback Antam Ikut Anjlok 8,8%',
+      en: 'Week in Review: Gold Loses 9%, Antam’s Buyback Drops 8.8% With It',
+    },
+    excerpt: {
+      id: 'Emas mencatat pekan terburuk dalam delapan bulan dan ditutup di $3.537,90. Harga jual Antam 1 gram hanya turun Rp27.000 sepekan ke Rp2.495.000, tetapi buyback anjlok Rp203.000 ke Rp2.095.000, hampir sama dengan penurunan emas dunia.',
+      en: 'Gold logged its worst week in eight months and closed at $3,537.90. Antam’s 1-gram selling price fell only Rp27,000 on the week to Rp2,495,000, but buyback plunged Rp203,000 to Rp2,095,000, almost matching world gold’s decline.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pekan Terburuk dalam Delapan Bulan', en: 'The Worst Week in Eight Months' },
+        paragraphs: [
+          {
+            id: 'Emas spot ditutup Jumat di $3.537,90, turun $86,30 (2,38%) dalam sehari, setelah sempat ke $3.502,93, terendah sejak September 2025. Dari sekitar $3.883 pada 13 November, itu penurunan sekitar 8,9% dalam sepekan. Trading Economics dan CNBC sama-sama menyebutnya pekan terburuk emas dalam delapan bulan.',
+            en: 'Spot gold closed Friday at $3,537.90, down $86.30 (2.38%) on the day, after touching $3,502.93, the lowest since September 2025. From about $3,883 on Nov. 13, that is a decline of about 8.9% in a week. Trading Economics and CNBC both call it gold’s worst week in eight months.',
+          },
+          {
+            id: 'Pasar libur akhir pekan, jadi $3.537,90 menjadi titik awal Senin. Perak lebih parah: turun 3,83% ke $41,12 pada Jumat, dan CNBC mencatat perak sekitar 66% di bawah rekor Januari $121,64. Semua logam mulia mencatat penurunan mingguan kedua berturut-turut.',
+            en: 'Markets are closed for the weekend, so $3,537.90 is Monday’s starting point. Silver fared worse: down 3.83% to $41.12 on Friday, and CNBC notes silver sits about 66% below its January record of $121.64. All precious metals posted a second straight weekly loss.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Bunga Naik dan Likuidasi Paksa', en: 'Rate Hikes and Forced Liquidation' },
+        paragraphs: [
+          {
+            id: 'Penyebab utamanya ekspektasi bunga. CME FedWatch mencatat peluang sekitar 99% kenaikan 25 bps pada rapat Fed 8–9 Desember, dan Presiden Philadelphia Fed Anna Paulson menyebut inflasi masih terlalu tinggi. Bunga yang lebih tinggi membuat emas, yang tidak memberi imbal hasil, kalah menarik dibanding kas dan obligasi.',
+            en: 'The main cause was rate expectations. CME FedWatch shows about a 99% chance of a 25 bp hike at the Fed’s Dec. 8–9 meeting, and Philadelphia Fed President Anna Paulson said inflation is still too high. Higher rates make gold, which pays no yield, less attractive than cash and bonds.',
+          },
+          {
+            id: 'Faktor kedua adalah pasar saham. S&P 500 turun 3,70% Jumat dan lebih dari 10% di bawah rekornya, sementara Nasdaq anjlok 5,28%. David Meger dari High Ridge Futures menyebut aksi jual saham terkait AI memaksa sebagian investor melikuidasi emas untuk menutup kerugian. Itu sebabnya emas tetap turun meski yield 10 tahun justru turun ke sekitar 4,94%.',
+            en: 'The second factor was equities. The S&P 500 fell 3.70% on Friday and sits more than 10% below its record, while the Nasdaq plunged 5.28%. David Meger of High Ridge Futures said the AI-related equity sell-off forced some investors to liquidate gold to cover losses. That is why gold kept falling even as the 10-year yield actually dropped to about 4.94%.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Ada Sinyal yang Lebih Tenang', en: 'Some Calmer Signals' },
+        paragraphs: [
+          {
+            id: 'Tidak semuanya negatif. Ekspektasi inflasi setahun dalam survei Michigan turun ke 3,7% dari 4,7%, dan Reuters melaporkan pembelian fisik di India dan China meningkat. Finimize mencatat permintaan fisik biasanya menopang harga belakangan, bukan menghentikan penurunan cepat yang digerakkan pasar berjangka. Jim Wyckoff dari American Gold Exchange memperkirakan dasar harga kemungkinan datang lebih cepat.',
+            en: 'Not everything is negative. One-year inflation expectations in the Michigan survey fell to 3.7% from 4.7%, and Reuters reported that physical buying in India and China picked up. Finimize notes physical demand usually supports prices later rather than stopping a fast futures-driven decline. Jim Wyckoff of American Gold Exchange expects a bottom is likely to come sooner rather than later.',
+          },
+          {
+            id: 'Kitco mencatat resistance di $3.597 lalu $3.699, dengan support di $3.475 dan zona $3.400–$3.420 jika $3.500 tertembus. FinanceFeeds memakai skenario dasar $3.500–$3.600 untuk pekan depan, dengan skenario naik $3.700 dan turun $3.420. Agenda: PMI awal November dan indeks Chicago Fed pada Senin 23 November; bursa AS libur Kamis untuk Thanksgiving dan tutup lebih awal Jumat.',
+            en: 'Kitco lists resistance at $3,597 then $3,699, with support at $3,475 and the $3,400–$3,420 zone if $3,500 breaks. FinanceFeeds uses a $3,500–$3,600 base case for next week, with a bull case of $3,700 and a bear case of $3,420. Agenda: preliminary November PMIs and the Chicago Fed index on Monday, Nov. 23; US markets are closed Thursday for Thanksgiving and close early on Friday.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam: Harga Jual Bertahan, Buyback Ikut Pasar', en: 'Antam: Selling Price Holds, Buyback Follows the Market' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram stagnan di Rp2.495.000 pada Minggu, dengan buyback tetap Rp2.095.000. Sepekan, harga jual hanya turun Rp27.000 (1,07%) dari Rp2.522.000, sedangkan buyback anjlok Rp203.000 (8,83%) dari Rp2.298.000. Penurunan buyback itu hampir sama dengan penurunan emas dunia sekitar 8,9%, sementara harga jual nyaris tidak bergerak.',
+            en: 'Antam’s 1-gram bar held at Rp2,495,000 on Sunday, with buyback unchanged at Rp2,095,000. Over the week the selling price fell only Rp27,000 (1.07%) from Rp2,522,000, while buyback plunged Rp203,000 (8.83%) from Rp2,298,000. That buyback drop almost matches world gold’s decline of about 8.9%, while the selling price barely moved.',
+          },
+          {
+            id: 'Akibatnya spread Antam tetap Rp400.000, sekitar 16%; pembeli hari ini butuh buyback naik sekitar 19% untuk impas. Galeri24 turun Rp22.000 ke Rp2.334.000 (buyback Rp2.195.000, spread sekitar 6,0%) dan UBS turun Rp21.000 ke Rp2.357.000 (buyback Rp2.171.000, spread sekitar 7,9%). Galeri24 kini Rp161.000 lebih murah dari Antam, dan buyback-nya Rp100.000 lebih tinggi.',
+            en: 'As a result Antam’s spread stays at Rp400,000, about 16%; a buyer today needs buyback to rise about 19% to break even. Galeri24 fell Rp22,000 to Rp2,334,000 (buyback Rp2,195,000, spread about 6.0%) and UBS fell Rp21,000 to Rp2,357,000 (buyback Rp2,171,000, spread about 7.9%). Galeri24 is now Rp161,000 cheaper than Antam, and its buyback is Rp100,000 higher.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Nilai Emas Anda dari Buyback', en: 'Playbook: Value Your Gold by Buyback' },
+        paragraphs: [
+          {
+            id: 'Pelajaran pekan ini: harga jual Antam bukan ukuran nilai emas yang Anda pegang. Yang mencerminkan pasar adalah buyback, dan buyback sudah turun hampir 9%. Bagi penabung rutin (DCA), lanjutkan jadwal dengan nominal tetap dan bandingkan merek; selisih spread 6% versus 16% berarti titik impas yang jauh berbeda.',
+            en: 'This week’s lesson: Antam’s selling price is not the measure of the gold you hold. Buyback is what tracks the market, and buyback has already fallen almost 9%. For regular savers (DCA), keep to the schedule with a fixed amount and compare brands; a 6% versus 16% spread means very different break-even points.',
+          },
+          {
+            id: 'Selama Fed tetap hawkish, skenario uji $3.400–$3.420 masih terbuka, sementara pemulihan di atas $3.597 akan menjadi sinyal awal stabil. Kalau harga jual Antam menyusul turun, spread bisa kembali menyempit. Artikel ini analisis edukatif, bukan nasihat keuangan personal; sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'While the Fed stays hawkish, a test of $3,400–$3,420 remains possible, while a recovery above $3,597 would be an early sign of stabilisation. If Antam’s selling price catches up on the way down, the spread could narrow again. This article is educational analysis, not personal financial advice; match your decisions to your goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Sepekan, harga jual Antam turun 1,07%, tetapi buyback anjlok 8,83%, hampir sama dengan emas dunia.',
+      en: 'Over the week Antam’s selling price fell 1.07%, but buyback plunged 8.83%, almost matching world gold.',
+    },
+    callout: 'compare',
+    image: withBase('/article-gold-worst-week-recap.png'),
+    publishedAt: Date.parse('2026-11-22T03:05:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold falls toward $3,500, silver slides as stock markets enter correction - Kitco PM Report', url: 'https://www.kitco.com/news/article/2026-11-20/gold-falls-toward-3500-silver-slides-stock-markets-enter-correction' },
+      { title: 'CNBC: Gold slides toward worst week in eight months on hawkish Fed outlook', url: 'https://www.cnbc.com/amp/2026/11/20/gold-federal-reserve-price-dollar-metals.html' },
+      { title: 'FinanceFeeds: Gold Price Today $3,538: $3,500 Test After 9% Weekly Drop', url: 'https://financefeeds.com/gold-price-today-3538-saturday-week-ahead-after-9-percent-weekly-drop-bull-3700-bear-3420/' },
+      { title: 'Finimize: Gold Has Its Worst Week In Eight Months', url: 'https://finimize.com/content/gold-has-its-worst-week-in-eight-months' },
+      { title: 'Trading Economics: Gold, price and news', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'SurabayaInside: Harga Emas Hari Ini, 22 November 2026: Antam Stabil di Rp2.495.000 per Gram', url: 'https://www.surabayainside.com/44872/harga-emas-hari-ini-22-november-2026-antam-stabil-di-rp2495000-per-gram' },
+      { title: 'Suara Kalbar: Harga Emas Antam Turun Rp 27 Ribu Sepekan, Buyback Anjlok Rp 203 Ribu', url: 'https://www.suarakalbar.co.id/2026/11/harga-emas-antam-turun-rp-27-ribu-sepekan-buyback-anjlok-rp-203-ribu/' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-slides-toward-3500-worst-week-antam-spread-16',
+    category: 'market',
     title: {
       id: 'Emas Terjun ke Dekat $3.500, Spread Antam Melebar ke 16%',
       en: 'Gold Plunges Toward $3,500 as Antam’s Spread Widens to 16%',
