@@ -1,33 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-22T10:05:00+07:00",
-  "sentiment": "bearish",
+  "generatedAt": "2026-11-23T09:50:00+07:00",
+  "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas spot menutup pekan di $3.537,90 setelah sempat ke $3.502,93, terendah sejak September 2025. Dari sekitar $3.883 pada 13 November, emas turun sekitar 8,9% sepekan, penurunan mingguan terdalam dalam delapan bulan. Pasar libur akhir pekan, jadi harga ini menjadi titik awal pekan depan.",
-      "en": "Spot gold ended the week at $3,537.90 after touching $3,502.93, the lowest since September 2025. From about $3,883 on Nov. 13, gold fell about 8.9% on the week, its steepest weekly decline in eight months. Markets are closed for the weekend, so this level is the starting point for next week."
+      "id": "Emas memantul pada Senin pagi dan mengakhiri lima hari penurunan beruntun. Spot sempat naik lebih dari 2% ke atas $3.610 di awal sesi Asia, lalu diperdagangkan sekitar $3.585 (+1,42%) menurut Trading Economics. Pemicunya: aksi jual saham terkait AI mendorong permintaan aset aman, dan Menkeu AS Scott Bessent memperingatkan bahwa pengetatan agresif bisa membahayakan ekonomi.",
+      "en": "Gold bounced on Monday morning, ending a five-day losing streak. Spot rose more than 2% to above $3,610 early in the Asian session, then traded around $3,585 (+1.42%), according to Trading Economics. The drivers: an AI-linked equity sell-off lifted safe-haven demand, and US Treasury Secretary Scott Bessent warned that aggressive tightening could put the economy at risk."
     },
     {
-      "id": "CME FedWatch mencatat peluang sekitar 99% kenaikan 25 bps pada rapat Fed 8–9 Desember. Aksi jual saham berbasis AI ikut memaksa likuidasi emas, menurut High Ridge Futures, dan S&P 500 turun 3,70% Jumat. Sisi positifnya, yield 10 tahun turun ke sekitar 4,94%, ekspektasi inflasi Michigan turun ke 3,7% dari 4,7%, dan permintaan fisik di India dan China meningkat.",
-      "en": "CME FedWatch shows about a 99% chance of a 25 bp hike at the Fed’s Dec. 8–9 meeting. The AI-driven equity sell-off also forced gold liquidations, according to High Ridge Futures, and the S&P 500 fell 3.70% on Friday. On the plus side, the 10-year yield fell to about 4.94%, Michigan one-year inflation expectations dropped to 3.7% from 4.7%, and physical buying in India and China picked up."
+      "id": "CME FedWatch kini memberi peluang sekitar 93% kenaikan 25 bps pada Desember, turun dari sekitar 99% pekan lalu. Indeks dolar turun tipis ke 103,74 dan yield 10 tahun di sekitar 4,94%. Meski memantul, emas masih turun sekitar 10,7% sebulan dan sekitar 36% di bawah rekor $5.608 pada Januari 2026.",
+      "en": "CME FedWatch now puts the odds of a 25 bp December hike at about 93%, down from about 99% last week. The dollar index eased to 103.74 and the 10-year yield sits around 4.94%. Despite the bounce, gold is still down about 10.7% on the month and about 36% below its January 2026 record of $5,608."
     },
     {
-      "id": "Kitco mencatat resistance di $3.597 lalu $3.699, dengan support di $3.475 lalu zona $3.400–$3.420 jika $3.500 tertembus. Agenda pekan ini: PMI awal November dan indeks Chicago Fed pada Senin 23 November; bursa AS libur Kamis 26 November untuk Thanksgiving dan tutup lebih awal Jumat.",
-      "en": "Kitco lists resistance at $3,597 then $3,699, with support at $3,475 and then the $3,400–$3,420 zone if $3,500 breaks. This week’s agenda: preliminary November PMIs and the Chicago Fed index on Monday, Nov. 23; US markets are closed Thursday, Nov. 26, for Thanksgiving and close early on Friday."
+      "id": "Goodreturns mencatat resistance di $3.600–$3.630 lalu $3.700–$3.730, dengan support di $3.500–$3.470 lalu $3.380–$3.350. RSI harian sekitar 21–28 menandakan kondisi jenuh jual. Pasar menunggu data inflasi PCE AS; bursa AS libur Kamis 26 November untuk Thanksgiving.",
+      "en": "Goodreturns lists resistance at $3,600–$3,630 then $3,700–$3,730, with support at $3,500–$3,470 then $3,380–$3,350. A daily RSI around 21–28 signals oversold conditions. Markets await the US PCE inflation report; US markets are closed Thursday, Nov. 26, for Thanksgiving."
     },
     {
-      "id": "Antam 1 gram stagnan di Rp2.495.000 dengan buyback Rp2.095.000 (spread Rp400.000, sekitar 16%). Sepekan, harga jual hanya turun Rp27.000 (1,07%), tetapi buyback anjlok Rp203.000 (8,83%), seiring emas dunia. Galeri24 turun Rp22.000 ke Rp2.334.000 (buyback Rp2.195.000) dan UBS turun Rp21.000 ke Rp2.357.000 (buyback Rp2.171.000).",
-      "en": "Antam’s 1-gram bar held at Rp2,495,000 with buyback at Rp2,095,000 (spread Rp400,000, about 16%). Over the week the selling price fell only Rp27,000 (1.07%), but buyback plunged Rp203,000 (8.83%), in line with world gold. Galeri24 fell Rp22,000 to Rp2,334,000 (buyback Rp2,195,000) and UBS fell Rp21,000 to Rp2,357,000 (buyback Rp2,171,000)."
+      "id": "Antam 1 gram naik Rp10.000 ke Rp2.505.000 dan buyback naik Rp20.000 ke Rp2.115.000, sehingga spread menyempit ke Rp390.000 (sekitar 15,6%). Galeri24 stagnan di Rp2.334.000 (buyback Rp2.195.000) dan UBS stagnan di Rp2.357.000 (buyback Rp2.171.000). Antam kini Rp171.000 lebih mahal dari Galeri24 per gram.",
+      "en": "Antam’s 1-gram bar rose Rp10,000 to Rp2,505,000 and buyback rose Rp20,000 to Rp2,115,000, narrowing the spread to Rp390,000 (about 15.6%). Galeri24 held at Rp2,334,000 (buyback Rp2,195,000) and UBS held at Rp2,357,000 (buyback Rp2,171,000). Antam is now Rp171,000 per gram dearer than Galeri24."
     }
   ],
   "sources": [
-    { "title": "Kitco: Gold falls toward $3,500, silver slides as stock markets enter correction - Kitco PM Report", "url": "https://www.kitco.com/news/article/2026-11-20/gold-falls-toward-3500-silver-slides-stock-markets-enter-correction" },
-    { "title": "FinanceFeeds: Gold Price Today $3,538: $3,500 Test After 9% Weekly Drop", "url": "https://financefeeds.com/gold-price-today-3538-saturday-week-ahead-after-9-percent-weekly-drop-bull-3700-bear-3420/" },
-    { "title": "CNBC: Gold slides toward worst week in eight months on hawkish Fed outlook", "url": "https://www.cnbc.com/amp/2026/11/20/gold-federal-reserve-price-dollar-metals.html" },
-    { "title": "Finimize: Gold Has Its Worst Week In Eight Months", "url": "https://finimize.com/content/gold-has-its-worst-week-in-eight-months" },
     { "title": "Trading Economics: Gold, price and news", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "SurabayaInside: Harga Emas Hari Ini, 22 November 2026: Antam Stabil di Rp2.495.000 per Gram", "url": "https://www.surabayainside.com/44872/harga-emas-hari-ini-22-november-2026-antam-stabil-di-rp2495000-per-gram" },
-    { "title": "Suara Kalbar: Harga Emas Antam Turun Rp 27 Ribu Sepekan, Buyback Anjlok Rp 203 Ribu", "url": "https://www.suarakalbar.co.id/2026/11/harga-emas-antam-turun-rp-27-ribu-sepekan-buyback-anjlok-rp-203-ribu/" },
+    { "title": "Goodreturns: Gold Rates & Silver Rates Today (23/11/2026) LIVE: Spot Gold Jumps 2% To Above $3,600", "url": "https://www.goodreturns.in/news/gold-rates-silver-rates-today-23-11-2026-live-updates-mcx-gold-silver-price-24k-22k-18k-gold-prices-1548905.html" },
+    { "title": "FXStreet (via Mitrade): Gold recovers above $3,550 as AI trade concern spurs safe-haven flows", "url": "https://www.mitrade.com/insights/commodity-analysis/gold/fxstreet-XAUUSDXAGUSDUSDOLLARF-202611230916" },
+    { "title": "CNBC: Gold slides toward worst week in eight months on hawkish Fed outlook", "url": "https://www.cnbc.com/amp/2026/11/20/gold-federal-reserve-price-dollar-metals.html" },
+    { "title": "Investor.id: Harga Emas Antam (ANTM) Hari Ini Loncat Tinggi", "url": "https://investor.id/market/462963/harga-emas-antam-antm-hari-ini-loncat-tinggi" },
+    { "title": "ANTARA Kalsel: Harga emas Antam Senin naik Rp10.000 jadi Rp2,505 juta/gram", "url": "https://kalsel.antaranews.com/berita/546383/harga-emas-antam-senin-naik-rp10000-jadi-rp2505-juta-gram" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
