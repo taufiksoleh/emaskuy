@@ -1,32 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-23T09:50:00+07:00",
+  "generatedAt": "2026-11-24T10:10:00+07:00",
   "sentiment": "neutral",
   "bullets": [
     {
-      "id": "Emas memantul pada Senin pagi dan mengakhiri lima hari penurunan beruntun. Spot sempat naik lebih dari 2% ke atas $3.610 di awal sesi Asia, lalu diperdagangkan sekitar $3.585 (+1,42%) menurut Trading Economics. Pemicunya: aksi jual saham terkait AI mendorong permintaan aset aman, dan Menkeu AS Scott Bessent memperingatkan bahwa pengetatan agresif bisa membahayakan ekonomi.",
-      "en": "Gold bounced on Monday morning, ending a five-day losing streak. Spot rose more than 2% to above $3,610 early in the Asian session, then traded around $3,585 (+1.42%), according to Trading Economics. The drivers: an AI-linked equity sell-off lifted safe-haven demand, and US Treasury Secretary Scott Bessent warned that aggressive tightening could put the economy at risk."
+      "id": "Emas bertahan di dekat $3.650 pada Selasa pagi setelah memantul dari level terendah setahun; Trading Economics mencatat sekitar $3.639 (+0,12%). Senin, spot sempat naik 2,25% ke $3.617,50 menurut Kitco, dengan rentang harian $3.539,80–$3.637,90. Saham teknologi pulih setelah Nvidia mengangkat kembali Jensen Huang sebagai CEO, sehingga tekanan jual mereda.",
+      "en": "Gold held near $3,650 on Tuesday morning after bouncing from a one-year low; Trading Economics shows about $3,639 (+0.12%). On Monday, spot rose 2.25% to $3,617.50 according to Kitco, in a $3,539.80–$3,637.90 daily range. Tech stocks recovered after Nvidia reinstated Jensen Huang as CEO, easing selling pressure."
     },
     {
-      "id": "CME FedWatch kini memberi peluang sekitar 93% kenaikan 25 bps pada Desember, turun dari sekitar 99% pekan lalu. Indeks dolar turun tipis ke 103,74 dan yield 10 tahun di sekitar 4,94%. Meski memantul, emas masih turun sekitar 10,7% sebulan dan sekitar 36% di bawah rekor $5.608 pada Januari 2026.",
-      "en": "CME FedWatch now puts the odds of a 25 bp December hike at about 93%, down from about 99% last week. The dollar index eased to 103.74 and the 10-year yield sits around 4.94%. Despite the bounce, gold is still down about 10.7% on the month and about 36% below its January 2026 record of $5,608."
+      "id": "Pasar masih memperkirakan sekitar 95% peluang kenaikan suku bunga Fed 25 bps pada rapat 8–9 Desember, sisanya untuk 50 bps; Gubernur Fed Christopher Waller bahkan membuka opsi kenaikan setengah poin. Dolar berada di dekat level tertinggi 20 bulan. Emas masih turun sekitar 9,4% sebulan dan sekitar 33% di bawah rekor penutupan $5.405 pada 29 Januari.",
+      "en": "Markets still price about a 95% chance of a 25 bp Fed hike at the Dec. 8–9 meeting, with the rest on 50 bp; Fed Governor Christopher Waller has even floated a half-point hike. The dollar sits near 20-month highs. Gold is still down about 9.4% on the month and about 33% below its Jan. 29 record close of $5,405."
     },
     {
-      "id": "Goodreturns mencatat resistance di $3.600–$3.630 lalu $3.700–$3.730, dengan support di $3.500–$3.470 lalu $3.380–$3.350. RSI harian sekitar 21–28 menandakan kondisi jenuh jual. Pasar menunggu data inflasi PCE AS; bursa AS libur Kamis 26 November untuk Thanksgiving.",
-      "en": "Goodreturns lists resistance at $3,600–$3,630 then $3,700–$3,730, with support at $3,500–$3,470 then $3,380–$3,350. A daily RSI around 21–28 signals oversold conditions. Markets await the US PCE inflation report; US markets are closed Thursday, Nov. 26, for Thanksgiving."
+      "id": "FXEmpire mencatat support di $3.595 lalu $3.503 (low 14 bulan), dengan resistance di $3.651 lalu $3.695. Penentu berikutnya adalah data inflasi PCE Oktober dan estimasi kedua PDB kuartal III AS, Rabu 25 November pukul 08.30 ET (20.30 WIB). PCE September tercatat 3,6% headline dan 3,1% inti secara tahunan.",
+      "en": "FXEmpire lists support at $3,595 then $3,503 (the 14-month low), with resistance at $3,651 then $3,695. The next driver is the October PCE inflation report and the second estimate of US Q3 GDP, Wednesday, Nov. 25 at 8:30 a.m. ET (8:30 p.m. WIB). September PCE was 3.6% headline and 3.1% core year on year."
     },
     {
-      "id": "Antam 1 gram naik Rp10.000 ke Rp2.505.000 dan buyback naik Rp20.000 ke Rp2.115.000, sehingga spread menyempit ke Rp390.000 (sekitar 15,6%). Galeri24 stagnan di Rp2.334.000 (buyback Rp2.195.000) dan UBS stagnan di Rp2.357.000 (buyback Rp2.171.000). Antam kini Rp171.000 lebih mahal dari Galeri24 per gram.",
-      "en": "Antam’s 1-gram bar rose Rp10,000 to Rp2,505,000 and buyback rose Rp20,000 to Rp2,115,000, narrowing the spread to Rp390,000 (about 15.6%). Galeri24 held at Rp2,334,000 (buyback Rp2,195,000) and UBS held at Rp2,357,000 (buyback Rp2,171,000). Antam is now Rp171,000 per gram dearer than Galeri24."
+      "id": "Antam 1 gram naik Rp2.000 ke Rp2.507.000 dan buyback naik Rp15.000 ke Rp2.150.000, sehingga spread Rp357.000 (sekitar 14,2%). Galeri24 naik ke Rp2.351.000 (buyback Rp2.210.000) dan UBS ke Rp2.373.000 (buyback Rp2.186.000). Secara struktural, bank sentral membeli bersih 321 ton pada kuartal III 2026, naik 42% dari tahun sebelumnya.",
+      "en": "Antam’s 1-gram bar rose Rp2,000 to Rp2,507,000 and buyback rose Rp15,000 to Rp2,150,000, for a spread of Rp357,000 (about 14.2%). Galeri24 rose to Rp2,351,000 (buyback Rp2,210,000) and UBS to Rp2,373,000 (buyback Rp2,186,000). Structurally, central banks bought a net 321 tonnes in Q3 2026, up 42% from a year earlier."
     }
   ],
   "sources": [
-    { "title": "Trading Economics: Gold, price and news", "url": "https://tradingeconomics.com/commodity/gold" },
-    { "title": "Goodreturns: Gold Rates & Silver Rates Today (23/11/2026) LIVE: Spot Gold Jumps 2% To Above $3,600", "url": "https://www.goodreturns.in/news/gold-rates-silver-rates-today-23-11-2026-live-updates-mcx-gold-silver-price-24k-22k-18k-gold-prices-1548905.html" },
-    { "title": "FXStreet (via Mitrade): Gold recovers above $3,550 as AI trade concern spurs safe-haven flows", "url": "https://www.mitrade.com/insights/commodity-analysis/gold/fxstreet-XAUUSDXAGUSDUSDOLLARF-202611230916" },
-    { "title": "CNBC: Gold slides toward worst week in eight months on hawkish Fed outlook", "url": "https://www.cnbc.com/amp/2026/11/20/gold-federal-reserve-price-dollar-metals.html" },
-    { "title": "Investor.id: Harga Emas Antam (ANTM) Hari Ini Loncat Tinggi", "url": "https://investor.id/market/462963/harga-emas-antam-antm-hari-ini-loncat-tinggi" },
-    { "title": "ANTARA Kalsel: Harga emas Antam Senin naik Rp10.000 jadi Rp2,505 juta/gram", "url": "https://kalsel.antaranews.com/berita/546383/harga-emas-antam-senin-naik-rp10000-jadi-rp2505-juta-gram" },
+    { "title": "Trading Economics: Gold Holds Gains Amid Recovery in Equity Markets", "url": "https://tradingeconomics.com/commodity/gold" },
+    { "title": "FinanceFeeds: Gold Price Today $3,618: 2% Rebound as Fed Hike Odds Ease Before PCE", "url": "https://financefeeds.com/gold-price-today-3618-monday-rebound-hike-odds-ease-pce-wednesday-bull-3700-bear-3500/" },
+    { "title": "FXEmpire: Gold Rebounds From 14-Month Low as Hike Bets Cool, Can $3,595 Hold?", "url": "https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-rebounds-from-14-month-low-as-hike-bets-cool-can-3595-hold-1646447" },
+    { "title": "Investing.com: Gold Demand Holds Firm as Central Banks Buy Into the Price Collapse", "url": "https://www.investing.com/analysis/gold-demand-holds-firm-as-central-banks-buy-into-the-price-collapse-200692175" },
+    { "title": "Medcom.id: Harga Emas Antam Kembali Tembus Rp2,5 Juta, Buyback Naik Rp15 Ribu", "url": "https://www.medcom.id/ekonomi/keuangan/GKdGm7rk-harga-emas-antam-kembali-tembus-rp2-5-juta-buyback-naik-rp15-ribu" },
+    { "title": "Investor.id: Harga Emas Antam (ANTM) Naik Lagi, Buyback Naik Lebih Gahar", "url": "https://investor.id/market/463110/harga-emas-antam-antm-naik-lagi-buyback-naik-lebih-gahar" },
     { "title": "Galeri 24: Harga emas hari ini", "url": "https://galeri24.co.id/harga-emas/" }
   ]
 }
