@@ -55,9 +55,106 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-holds-3650-pce-galeri24-buyback-beats-antam',
+    category: 'compare',
+    featured: true,
+    title: {
+      id: 'Emas Bertahan di $3.650 Jelang PCE, Buyback Galeri24 Rp60.000 di Atas Antam',
+      en: 'Gold Holds $3,650 Ahead of PCE, Galeri24’s Buyback Rp60,000 Above Antam’s',
+    },
+    excerpt: {
+      id: 'Emas menahan pantulannya di dekat $3.650 sambil menunggu data inflasi PCE Rabu malam. Antam 1 gram naik tipis Rp2.000 ke Rp2.507.000, tetapi buyback Antam (Rp2.150.000) kini Rp60.000 di bawah buyback Galeri24 yang harga jualnya Rp156.000 lebih murah.',
+      en: 'Gold held its bounce near $3,650 while waiting for Wednesday night’s PCE inflation data. Antam’s 1-gram bar edged up Rp2,000 to Rp2,507,000, but Antam’s buyback (Rp2,150,000) is now Rp60,000 below Galeri24’s, whose bar costs Rp156,000 less.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pantulan Bertahan, Belum Melaju', en: 'The Bounce Holds, but Stalls' },
+        paragraphs: [
+          {
+            id: 'Setelah lonjakan Senin, emas bergerak tenang pada Selasa pagi. Trading Economics mencatat spot sekitar $3.639 (+0,12%) dan menyebut emas bertahan di dekat $3.650 setelah memantul dari level terendah setahun.',
+            en: 'After Monday’s jump, gold traded quietly on Tuesday morning. Trading Economics shows spot around $3,639 (+0.12%) and says gold held near $3,650 after bouncing from a one-year low.',
+          },
+          {
+            id: 'Senin, Kitco mencatat spot naik 2,25% ke $3.617,50 dengan rentang harian $3.539,80–$3.637,90. Sentimen membaik ketika saham teknologi pulih setelah Nvidia mengangkat kembali Jensen Huang sebagai CEO, sehingga tekanan jual di pasar luas mereda.',
+            en: 'On Monday, Kitco showed spot up 2.25% at $3,617.50, in a $3,539.80–$3,637.90 daily range. Sentiment improved as tech stocks recovered after Nvidia reinstated Jensen Huang as CEO, easing selling pressure across markets.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed Masih Jadi Rem', en: 'The Fed Is Still the Brake' },
+        paragraphs: [
+          {
+            id: 'Pantulan ini belum mengubah gambaran suku bunga. Pasar masih memperkirakan sekitar 95% peluang kenaikan 25 bps pada rapat Fed 8–9 Desember, dan sisanya justru untuk kenaikan 50 bps. Gubernur Fed Christopher Waller pun membuka opsi kenaikan setengah poin atau laju kenaikan yang lebih cepat pada 2027.',
+            en: 'The bounce has not changed the rates picture. Markets still price about a 95% chance of a 25 bp hike at the Fed’s Dec. 8–9 meeting, and the rest is on a 50 bp hike. Fed Governor Christopher Waller has floated a half-point hike or a faster pace of hikes in 2027.',
+          },
+          {
+            id: 'Dolar juga masih di dekat level tertinggi 20 bulan. Bagi emas yang tidak memberi bunga, suku bunga yang naik dan dolar yang kuat menaikkan biaya peluang memegangnya. Itu sebabnya emas masih turun sekitar 9,4% dalam sebulan meski sudah memantul.',
+            en: 'The dollar also remains near 20-month highs. For gold, which pays no interest, rising rates and a strong dollar raise the opportunity cost of holding it. That is why gold is still down about 9.4% on the month despite the bounce.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'PCE Rabu Malam dan Level Kunci', en: 'Wednesday Night’s PCE and Key Levels' },
+        paragraphs: [
+          {
+            id: 'Ujian berikutnya datang Rabu 25 November pukul 08.30 ET atau 20.30 WIB: data inflasi PCE Oktober bersama estimasi kedua PDB kuartal III AS. PCE September tercatat 3,6% headline dan 3,1% inti secara tahunan. Angka inti yang lebih lunak bisa menurunkan peluang kenaikan Fed; angka yang panas bisa menekan emas lagi.',
+            en: 'The next test comes Wednesday, Nov. 25 at 8:30 a.m. ET, or 8:30 p.m. WIB: the October PCE inflation report alongside the second estimate of US Q3 GDP. September PCE was 3.6% headline and 3.1% core year on year. A softer core reading could lower the odds of a Fed hike; a hot one could press gold again.',
+          },
+          {
+            id: 'FXEmpire memetakan support di $3.595 lalu $3.503, yaitu low 14 bulan pada 20 November, dengan resistance di $3.651 lalu $3.695. Dalam gambaran besar, emas masih sekitar 33% di bawah rekor penutupan $5.405 pada 29 Januari.',
+            en: 'FXEmpire maps support at $3,595 then $3,503, the 14-month low of Nov. 20, with resistance at $3,651 then $3,695. In the bigger picture, gold is still about 33% below its Jan. 29 record close of $5,405.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam vs Galeri24 vs UBS: Lihat Buyback-nya', en: 'Antam vs Galeri24 vs UBS: Look at the Buyback' },
+        paragraphs: [
+          {
+            id: 'Antam 1 gram naik Rp2.000 ke Rp2.507.000 dan buyback naik Rp15.000 ke Rp2.150.000, sehingga spread Rp357.000 atau sekitar 14,2%. Galeri24 dijual Rp2.351.000 dengan buyback Rp2.210.000 (spread Rp141.000, sekitar 6,0%), dan UBS Rp2.373.000 dengan buyback Rp2.186.000 (spread Rp187.000, sekitar 7,9%).',
+            en: 'Antam’s 1-gram bar rose Rp2,000 to Rp2,507,000 and buyback rose Rp15,000 to Rp2,150,000, for a spread of Rp357,000, or about 14.2%. Galeri24 sells at Rp2,351,000 with a Rp2,210,000 buyback (a Rp141,000 spread, about 6.0%), and UBS at Rp2,373,000 with a Rp2,186,000 buyback (a Rp187,000 spread, about 7.9%).',
+          },
+          {
+            id: 'Yang menarik: Galeri24 lebih murah Rp156.000 per gram dibanding Antam, tetapi buyback-nya Rp60.000 lebih tinggi; buyback UBS juga Rp36.000 di atas Antam. Artinya, agar buyback menutup harga beli, buyback Antam perlu naik sekitar 16,6%, sedangkan Galeri24 cukup sekitar 6,4% dan UBS sekitar 8,6%. Perlu dicatat, buyback Galeri24 dan UBS ini berlaku di Pegadaian/Galeri24, bukan di butik Antam.',
+            en: 'The interesting part: Galeri24 is Rp156,000 per gram cheaper than Antam, yet its buyback is Rp60,000 higher; UBS’s buyback is also Rp36,000 above Antam’s. That means for the buyback to cover the purchase price, Antam’s buyback needs to rise about 16.6%, while Galeri24 needs only about 6.4% and UBS about 8.6%. Note that the Galeri24 and UBS buybacks apply at Pegadaian/Galeri24, not at Antam boutiques.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Pilih Merek Sesuai Horizon', en: 'Playbook: Match the Brand to Your Horizon' },
+        paragraphs: [
+          {
+            id: 'Di balik volatilitas harian, permintaan struktural tetap kuat. Bank sentral membeli bersih 321 ton pada kuartal III 2026, naik 42% dari tahun sebelumnya, dan 675 ton sepanjang Januari–September. ETF emas global juga mencatat arus masuk $2,7 miliar pada Oktober, walau dana Amerika Utara justru mencatat arus keluar.',
+            en: 'Behind the daily volatility, structural demand stays strong. Central banks bought a net 321 tonnes in Q3 2026, up 42% from a year earlier, and 675 tonnes over January–September. Global gold ETFs also took in $2.7 billion in October, even though North American funds saw outflows.',
+          },
+          {
+            id: 'Bagi investor rupiah, spread menentukan berapa lama Anda perlu menahan emas sebelum impas. Untuk horizon pendek, merek dengan spread sempit memberi bantalan lebih besar; untuk tabungan jangka panjang dengan DCA, selisih spread makin kecil dampaknya seiring waktu. Hindari menambah posisi besar tepat sebelum PCE; cicilan rutin meratakan risiko satu angka data. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For rupiah investors, the spread decides how long you need to hold gold before breaking even. For short horizons, a brand with a narrow spread gives more cushion; for long-term DCA savings, the spread gap matters less over time. Avoid adding a large position right before PCE; regular instalments smooth out the risk of a single data print. This article is educational analysis, not personal financial advice. Match decisions to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Galeri24 Rp156.000 lebih murah dari Antam, tetapi buyback-nya Rp60.000 lebih tinggi.',
+      en: 'Galeri24 is Rp156,000 cheaper than Antam, yet its buyback is Rp60,000 higher.',
+    },
+    callout: 'compare',
+    image: withBase('/article-gold-holds-3650-pce.png'),
+    publishedAt: Date.parse('2026-11-24T03:15:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Trading Economics: Gold Holds Gains Amid Recovery in Equity Markets', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'FinanceFeeds: Gold Price Today $3,618: 2% Rebound as Fed Hike Odds Ease Before PCE', url: 'https://financefeeds.com/gold-price-today-3618-monday-rebound-hike-odds-ease-pce-wednesday-bull-3700-bear-3500/' },
+      { title: 'FXEmpire: Gold Rebounds From 14-Month Low as Hike Bets Cool, Can $3,595 Hold?', url: 'https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-rebounds-from-14-month-low-as-hike-bets-cool-can-3595-hold-1646447' },
+      { title: 'Investing.com: Gold Demand Holds Firm as Central Banks Buy Into the Price Collapse', url: 'https://www.investing.com/analysis/gold-demand-holds-firm-as-central-banks-buy-into-the-price-collapse-200692175' },
+      { title: 'Medcom.id: Harga Emas Antam Kembali Tembus Rp2,5 Juta, Buyback Naik Rp15 Ribu', url: 'https://www.medcom.id/ekonomi/keuangan/GKdGm7rk-harga-emas-antam-kembali-tembus-rp2-5-juta-buyback-naik-rp15-ribu' },
+      { title: 'Investor.id: Harga Emas Antam (ANTM) Naik Lagi, Buyback Naik Lebih Gahar', url: 'https://investor.id/market/463110/harga-emas-antam-antm-naik-lagi-buyback-naik-lebih-gahar' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-snaps-losing-streak-fed-hike-odds-ease',
     category: 'market',
-    featured: true,
     title: {
       id: 'Emas Memantul ke $3.600 Usai Lima Hari Merah, Buyback Antam Naik Rp20.000',
       en: 'Gold Bounces to $3,600 After Five Red Days, Antam’s Buyback Up Rp20,000',
