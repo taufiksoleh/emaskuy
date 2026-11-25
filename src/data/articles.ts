@@ -55,9 +55,104 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
+    slug: 'gold-drops-3550-antam-buyback-plunges-spread-widens',
+    category: 'market',
+    featured: true,
+    title: {
+      id: 'Emas Ambles ke $3.550, Buyback Antam Anjlok Rp59.000 dan Spread Melebar ke 16,3%',
+      en: 'Gold Slides to $3,550 as Antam’s Buyback Plunges Rp59,000 and the Spread Widens to 16.3%',
+    },
+    excerpt: {
+      id: 'Emas kehilangan 2,25% pada Selasa karena aksi jual saham teknologi dan taruhan kenaikan suku bunga Fed. Antam 1 gram hanya turun Rp8.000 ke Rp2.499.000, tetapi buyback-nya anjlok Rp59.000 ke Rp2.091.000, sehingga spread melebar ke Rp408.000 menjelang data PCE malam ini.',
+      en: 'Gold lost 2.25% on Tuesday on a tech-stock selloff and bets on a Fed rate hike. Antam’s 1-gram bar fell only Rp8,000 to Rp2,499,000, but its buyback plunged Rp59,000 to Rp2,091,000, widening the spread to Rp408,000 ahead of tonight’s PCE data.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pantulan Senin Terhapus dalam Sehari', en: 'Monday’s Bounce Erased in a Day' },
+        paragraphs: [
+          {
+            id: 'Kitco mencatat emas spot turun $81,70 atau 2,25% ke sekitar $3.552,50 pada Selasa sore waktu New York, dengan low harian $3.546. Emas kembali di bawah $3.600 dan mendekati level terendah 14 bulan yang tercipta pekan lalu. Perak terpukul lebih keras: turun 5,22% ke $40,79.',
+            en: 'Kitco shows spot gold down $81.70, or 2.25%, at about $3,552.50 on Tuesday afternoon New York time, with a $3,546 daily low. Gold slipped back below $3,600 and closer to last week’s 14-month low. Silver was hit harder, down 5.22% at $40.79.',
+          },
+          {
+            id: 'Pemicunya datang dari pasar saham. Nasdaq turun 1,48% saat saham terkait AI dijual, dan analis FOREX.com Fawad Razaqzada menyebut kejatuhan saham memaksa sebagian investor menjual emas dan perak untuk menutup margin call. Rabu pagi, Trading Economics mencatat emas masih bertahan di dekat $3.550.',
+            en: 'The trigger came from equities. The Nasdaq fell 1.48% as AI-linked shares were sold, and FOREX.com analyst Fawad Razaqzada said falling stocks forced some investors to sell gold and silver to meet margin calls. On Wednesday morning, Trading Economics shows gold still holding near $3,550.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Fed, Yield, dan Minyak Sama-sama Menekan', en: 'The Fed, Yields and Oil All Press Down' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat pasar memperkirakan sekitar 96% peluang kenaikan suku bunga Fed 25 bps pada Desember, dan sebagian juga memperkirakan kenaikan lagi pada Januari. Data AS ikut mendukung pandangan itu: keyakinan konsumen Conference Board melonjak 11,4 poin ke 103,3, tertinggi sejak Januari 2025.',
+            en: 'Trading Economics says markets price about a 96% chance of a 25 bp Fed hike in December, and some also expect another hike in January. US data backed that view: Conference Board consumer confidence jumped 11.4 points to 103.3, the highest since January 2025.',
+          },
+          {
+            id: 'Yield obligasi 10 tahun AS berada di dekat 4,90%, sementara minyak WTI naik 2,3% ke $82,05 di tengah gangguan pelayaran di Selat Hormuz. Minyak yang mahal menjaga risiko inflasi, sehingga Fed punya alasan untuk tetap ketat. Bagi emas yang tidak memberi bunga, kombinasi ini menaikkan biaya peluang memegangnya.',
+            en: 'The US 10-year yield is near 4.90%, while WTI crude rose 2.3% to $82.05 amid shipping disruption in the Strait of Hormuz. Expensive oil keeps inflation risk alive, giving the Fed a reason to stay tight. For gold, which pays no interest, this mix raises the opportunity cost of holding it.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'PCE Malam Ini dan Level yang Dijaga', en: 'Tonight’s PCE and the Levels to Watch' },
+        paragraphs: [
+          {
+            id: 'Ujian besarnya datang Rabu pukul 08.30 ET atau 20.30 WIB: PCE Oktober, pendapatan dan belanja pribadi, pesanan barang tahan lama, dan revisi PDB kuartal III AS. Kitco menyebut PCE headline diperkirakan sekitar 3,8% secara tahunan. Angka yang lebih panas bisa memperkuat taruhan kenaikan Fed; angka yang lebih lunak bisa memberi ruang pantulan. Kamis pasar AS libur Thanksgiving, sehingga likuiditas bisa menipis.',
+            en: 'The big test comes Wednesday at 8:30 a.m. ET, or 8:30 p.m. WIB: October PCE, personal income and spending, durable goods orders and revised US Q3 GDP. Kitco says headline PCE is expected near 3.8% year on year. A hotter print could reinforce Fed hike bets; a softer one could leave room for a bounce. US markets close Thursday for Thanksgiving, so liquidity may thin out.',
+          },
+          {
+            id: 'Kitco memetakan support di $3.520 lalu $3.500, dengan zona $3.380–$3.400 di bawahnya, dan resistance di $3.630 lalu $3.650. Dalam gambaran besar, emas turun sekitar 11,5% dalam sebulan dan sekitar 37% di bawah rekor $5.608 pada Januari, menurut Trading Economics.',
+            en: 'Kitco maps support at $3,520 then $3,500, with a $3,380–$3,400 zone below, and resistance at $3,630 then $3,650. In the bigger picture, gold is down about 11.5% on the month and about 37% below its $5,608 January record, according to Trading Economics.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam: Harga Jual Turun Tipis, Buyback Turun Tajam', en: 'Antam: Selling Price Dips, Buyback Drops Hard' },
+        paragraphs: [
+          {
+            id: 'Menurut Logam Mulia yang dikutip Investor.id, Antam 1 gram turun Rp8.000 ke Rp2.499.000 dan mengakhiri kenaikan dua hari. Buyback justru anjlok Rp59.000 ke Rp2.091.000 per gram. Akibatnya spread melebar dari Rp357.000 kemarin ke Rp408.000, atau sekitar 16,3% dari harga jual, terlebar dalam catatan EmasKuy sejak akhir September.',
+            en: 'According to Logam Mulia as quoted by Investor.id, Antam’s 1-gram bar fell Rp8,000 to Rp2,499,000, ending a two-day rise. Buyback, however, plunged Rp59,000 to Rp2,091,000 per gram. As a result, the spread widened from Rp357,000 yesterday to Rp408,000, or about 16.3% of the selling price, the widest in EmasKuy’s records since late September.',
+          },
+          {
+            id: 'Galeri24 dijual Rp2.361.000 dengan buyback Rp2.220.000, sehingga spread-nya Rp141.000 atau sekitar 6,0%. Harga jual Galeri24 Rp138.000 lebih murah, sementara buyback-nya Rp129.000 di atas buyback Antam. Perlu dicatat, buyback Galeri24 berlaku di Pegadaian/Galeri24, bukan di butik Antam, dan harga Galeri24 diperbarui pada jadwalnya sendiri.',
+            en: 'Galeri24 sells at Rp2,361,000 with a Rp2,220,000 buyback, a spread of Rp141,000, or about 6.0%. Galeri24’s bar is Rp138,000 cheaper, while its buyback is Rp129,000 above Antam’s. Note that the Galeri24 buyback applies at Pegadaian/Galeri24, not at Antam boutiques, and Galeri24 updates its prices on its own schedule.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Jangan Jual Saat Spread Lebar', en: 'Playbook: Don’t Sell into a Wide Spread' },
+        paragraphs: [
+          {
+            id: 'Buyback yang turun lebih cepat dari harga jual berarti menjual Antam hari ini paling tidak menguntungkan. Bagi pemegang lama, spread selebar ini adalah alasan untuk tidak panik menjual. Di sisi lain, JPMorgan dan Commerzbank tetap memperkirakan emas pulih hingga akhir 2027, masing-masing ke $4.500 dan $4.100, walau proyeksi bukan jaminan.',
+            en: 'A buyback falling faster than the selling price makes selling Antam today least rewarding. For existing holders, a spread this wide is a reason not to panic-sell. On the other side, JPMorgan and Commerzbank still expect gold to recover by the end of 2027, to $4,500 and $4,100 respectively, though forecasts are not guarantees.',
+          },
+          {
+            id: 'Bagi yang ingin menambah, cicilan rutin (DCA) lebih aman daripada membeli besar tepat sebelum PCE malam ini, karena satu angka data bisa menggerakkan emas puluhan dolar. Bandingkan juga spread antar merek sesuai horizon Anda. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For those looking to add, regular instalments (DCA) are safer than buying big right before tonight’s PCE, since a single data print can move gold by tens of dollars. Compare spreads across brands for your horizon, too. This article is educational analysis, not personal financial advice. Match decisions to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Harga jual Antam hanya turun Rp8.000, tetapi buyback-nya anjlok Rp59.000.',
+      en: 'Antam’s selling price fell only Rp8,000, but its buyback plunged Rp59,000.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-drops-3550-buyback.png'),
+    publishedAt: Date.parse('2026-11-25T02:58:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Kitco: Gold, silver extend losses as tech stocks slide, Fed inflation test looms', url: 'https://www.kitco.com/news/article/2026-11-24/gold-silver-extend-losses-tech-stocks-slide-fed-inflation-test-looms-kitco' },
+      { title: 'Trading Economics: Gold Holds Losses Ahead of US PCE Inflation Data', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'The Nation: Gold falls 2% on 24 Nov as traders price in Fed rate rise', url: 'https://www.nationthailand.com/business/trading-investment/40073885' },
+      { title: 'Investor.id: Harga Emas Antam (ANTM) Jebol Rp 2,5 Juta, Buyback Ambles Parah', url: 'https://investor.id/commodities/463265/harga-emas-antam-antmjebol-rp-25-juta-buyback-ambles-parah' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
     slug: 'gold-holds-3650-pce-galeri24-buyback-beats-antam',
     category: 'compare',
-    featured: true,
     title: {
       id: 'Emas Bertahan di $3.650 Jelang PCE, Buyback Galeri24 Rp60.000 di Atas Antam',
       en: 'Gold Holds $3,650 Ahead of PCE, Galeri24’s Buyback Rp60,000 Above Antam’s',
