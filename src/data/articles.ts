@@ -55,9 +55,104 @@ const TEAM = { id: 'Tim EmasKuy', en: 'EmasKuy Team' };
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'gold-drops-3550-antam-buyback-plunges-spread-widens',
+    slug: 'gold-rebounds-3650-from-15-month-low-antam-spread-narrows',
     category: 'market',
     featured: true,
+    title: {
+      id: 'Emas Memantul ke $3.650 dari Level Terendah 15 Bulan, Spread Antam Menyempit ke 13,6%',
+      en: 'Gold Rebounds to $3,650 from a 15-Month Low as Antam’s Spread Narrows to 13.6%',
+    },
+    excerpt: {
+      id: 'Emas naik lebih dari 2% pada Jumat setelah menyentuh level terendah 15 bulan di dekat $3.427. Antam 1 gram naik Rp13.000 ke Rp2.514.000 dan buyback naik ke Rp2.171.000, tetapi Fed yang hampir pasti menaikkan suku bunga pada Desember membuat pantulan ini belum aman.',
+      en: 'Gold rose more than 2% on Friday after touching a 15-month low near $3,427. Antam’s 1-gram bar rose Rp13,000 to Rp2,514,000 and buyback rose to Rp2,171,000, but a near-certain Fed hike in December means the bounce is not safe yet.',
+    },
+    sections: [
+      {
+        heading: { id: 'Pantulan Tajam Usai Thanksgiving', en: 'A Sharp Post-Thanksgiving Bounce' },
+        paragraphs: [
+          {
+            id: 'Trading Economics mencatat emas naik 2,16% ke $3.644 pada Jumat, 27 November, dari penutupan sebelumnya $3.567. Journalarta mencatat penutupan di $3.652 dengan rentang harian $3.558 sampai $3.686. Di tengah sesi, emas sempat naik hingga sekitar 3% sebelum memangkas sebagian kenaikan.',
+            en: 'Trading Economics shows gold up 2.16% at $3,644 on Friday, November 27, from a previous close of $3,567. Journalarta records a close at $3,652 with a daily range of $3,558 to $3,686. Mid-session, gold rose as much as about 3% before trimming part of the gain.',
+          },
+          {
+            id: 'Pantulan ini datang setelah emas menyentuh level terendah 15 bulan di dekat $3.427 awal pekan. Dari low itu ke penutupan Jumat, emas naik sekitar 6,6%. Ilya Spivak dari Tastylive menyebut short covering menjelang libur besar AS, sementara Trading Economics mencatat permintaan fisik di India dan China ikut membaik.',
+            en: 'The bounce came after gold touched a 15-month low near $3,427 earlier in the week. From that low to Friday’s close, gold rose about 6.6%. Tastylive’s Ilya Spivak pointed to short covering ahead of the big US holiday, while Trading Economics notes physical demand in India and China improved.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Kenapa Pantulan Ini Belum Cukup', en: 'Why the Bounce Is Not Enough Yet' },
+        paragraphs: [
+          {
+            id: 'Data AS pekan ini tetap panas. Core PCE Oktober naik 3,3% secara tahunan, dan PDB kuartal III direvisi ke 4,3% dari perkiraan awal 3,5%. Trading Economics menyebut pasar memperkirakan kenaikan suku bunga Fed 25 bps pada Desember hampir pasti, dengan kemungkinan kenaikan lagi pada Januari.',
+            en: 'US data this week stayed hot. October core PCE rose 3.3% year on year, and Q3 GDP was revised to 4.3% from a first estimate of 3.5%. Trading Economics says markets see a 25 bp Fed hike in December as near-certain, with a possible further hike in January.',
+          },
+          {
+            id: 'Yield obligasi 10 tahun AS di dekat 4,94% dan dolar dekat level tertinggi 22 bulan. Suku bunga yang naik menambah biaya peluang memegang emas yang tidak memberi bunga, dan dolar yang kuat membuat emas lebih mahal bagi pembeli di luar AS. Itulah sebabnya emas memangkas sebagian kenaikannya pada Jumat.',
+            en: 'The US 10-year yield is near 4.94% and the dollar is close to a 22-month high. Rising rates add to the opportunity cost of holding gold, which pays no interest, and a strong dollar makes gold dearer for buyers outside the US. That is why gold trimmed part of its gain on Friday.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Gambaran Besar dan Level yang Diamati', en: 'The Big Picture and Levels to Watch' },
+        paragraphs: [
+          {
+            id: 'Meski memantul, emas masih turun sekitar 10,4% dalam sebulan dan sekitar 35% di bawah rekor $5.608 pada Januari. Level terdekat yang diamati adalah high Jumat di dekat $3.686 sebagai resistance, dan low pekan ini di dekat $3.427 sebagai support. Bertahan di atas $3.600 akan menjadi tanda awal bahwa tekanan jual mereda.',
+            en: 'Despite the bounce, gold is still down about 10.4% on the month and about 35% below its $5,608 January record. The nearest levels in focus are Friday’s high near $3,686 as resistance and this week’s low near $3,427 as support. Holding above $3,600 would be an early sign that selling pressure is easing.',
+          },
+          {
+            id: 'Pasar emas tutup akhir pekan dan dibuka lagi Senin, 30 November, pukul 06.00 WIB. Trader akan mencermati arah dolar, sinyal Fed menjelang rapat Desember, dan permintaan China. Usulan tarif baru AS 20% atas impor China juga menjadi faktor yang bisa menggerakkan pasar.',
+            en: 'The gold market is closed for the weekend and reopens Monday, November 30, at 6:00 a.m. WIB. Traders will watch the dollar, Fed signals ahead of the December meeting, and China demand. A proposed new 20% US tariff on Chinese imports is another factor that could move markets.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Antam: Buyback Pulih, Spread Menyempit', en: 'Antam: Buyback Recovers, the Spread Narrows' },
+        paragraphs: [
+          {
+            id: 'Menurut Logam Mulia yang dikutip Investor.id dan Koran Jakarta, Antam 1 gram naik Rp13.000 ke Rp2.514.000 pada Sabtu, dan buyback naik Rp4.000 ke Rp2.171.000 per gram. Spread kini Rp343.000, atau sekitar 13,6% dari harga jual, lebih sempit dari Rp408.000 (16,3%) pada Rabu. Dibanding Rabu, buyback sudah naik Rp80.000.',
+            en: 'According to Logam Mulia as quoted by Investor.id and Koran Jakarta, Antam’s 1-gram bar rose Rp13,000 to Rp2,514,000 on Saturday, and buyback rose Rp4,000 to Rp2,171,000 per gram. The spread is now Rp343,000, or about 13.6% of the selling price, narrower than Rp408,000 (16.3%) on Wednesday. Compared with Wednesday, buyback is up Rp80,000.',
+          },
+          {
+            id: 'Galeri24 dijual Rp2.356.000 dengan buyback Rp2.216.000, sehingga spread-nya Rp140.000 atau sekitar 5,9%. UBS dijual Rp2.378.000 dengan buyback Rp2.192.000, spread sekitar 7,8%. Galeri24 Rp158.000 lebih murah dari Antam, dan buyback-nya Rp45.000 lebih tinggi, tetapi buyback itu berlaku di Pegadaian/Galeri24, bukan di butik Antam.',
+            en: 'Galeri24 sells at Rp2,356,000 with a Rp2,216,000 buyback, a spread of Rp140,000, or about 5.9%. UBS sells at Rp2,378,000 with a Rp2,192,000 buyback, a spread of about 7.8%. Galeri24 is Rp158,000 cheaper than Antam and its buyback is Rp45,000 higher, but that buyback applies at Pegadaian/Galeri24, not at Antam boutiques.',
+          },
+        ],
+      },
+      {
+        heading: { id: 'Playbook: Pantulan Bukan Sinyal Pembalikan', en: 'Playbook: A Bounce Is Not a Reversal Signal' },
+        paragraphs: [
+          {
+            id: 'Satu hari hijau setelah sepekan tekanan belum mengubah gambaran besar selama Fed masih menaikkan suku bunga. Skenario pertama: emas bertahan di atas $3.600 dan menguji $3.686. Skenario kedua: data AS atau Fed yang lebih hawkish menarik emas kembali ke arah $3.427. Keduanya masih terbuka.',
+            en: 'One green day after a week of pressure does not change the big picture while the Fed is still hiking. Scenario one: gold holds above $3,600 and tests $3,686. Scenario two: hotter US data or a more hawkish Fed pulls gold back toward $3,427. Both remain open.',
+          },
+          {
+            id: 'Bagi yang ingin menambah, cicilan rutin (DCA) mengurangi risiko membeli di puncak pantulan, dan spread Antam yang menyempit membuat biaya keluar sedikit lebih ringan dari pekan lalu. Bandingkan spread antar merek sesuai horizon Anda. Artikel ini analisis edukatif, bukan nasihat keuangan personal. Sesuaikan keputusan dengan tujuan dan profil risiko Anda.',
+            en: 'For those looking to add, regular instalments (DCA) reduce the risk of buying at the top of a bounce, and Antam’s narrower spread makes the exit cost a little lighter than last week. Compare spreads across brands for your horizon. This article is educational analysis, not personal financial advice. Match decisions to your own goals and risk profile.',
+          },
+        ],
+      },
+    ],
+    pullQuote: {
+      id: 'Emas naik sekitar 6,6% dari low pekan ini, tetapi Fed belum selesai menaikkan suku bunga.',
+      en: 'Gold is up about 6.6% from this week’s low, but the Fed is not done hiking.',
+    },
+    callout: 'rates',
+    image: withBase('/article-gold-rebounds-3650.png'),
+    publishedAt: Date.parse('2026-11-28T03:15:00Z'),
+    readMinutes: 5,
+    author: TEAM,
+    sources: [
+      { title: 'Trading Economics: Gold Trims Gains as Dollar Strength Weighs', url: 'https://tradingeconomics.com/commodity/gold' },
+      { title: 'Journalarta: Harga Emas Dunia Hari Ini Sabtu 28 November 2026: US$3.652 per Ons', url: 'https://journalarta.com/news/2026/11/28/harga-emas-dunia-hari-ini-sabtu-28-november-2026-us3652/' },
+      { title: 'Investor.id: Harga Emas Antam (ANTM) Kembali Bergerak Naik, Ini Update-nya', url: 'https://investor.id/market/463637/harga-emas-antam-antm-kembali-bergerak-naik-ini-updatenya' },
+      { title: 'Koran Jakarta: Sabtu, Harga Emas Antam Rp2,514 juta/Gram, Harga Buyback Rp2,171 Juta/Gram', url: 'https://koran-jakarta.com/2026-11-28/sabtu-harga-emas-antam-rp2514-jutagram-harga-buyback-rp2171-jutagram' },
+      { title: 'Galeri 24: Harga emas hari ini', url: 'https://galeri24.co.id/harga-emas/' },
+    ],
+  },
+  {
+    slug: 'gold-drops-3550-antam-buyback-plunges-spread-widens',
+    category: 'market',
     title: {
       id: 'Emas Ambles ke $3.550, Buyback Antam Anjlok Rp59.000 dan Spread Melebar ke 16,3%',
       en: 'Gold Slides to $3,550 as Antam’s Buyback Plunges Rp59,000 and the Spread Widens to 16.3%',
